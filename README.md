@@ -36,9 +36,9 @@ Chummer6 should make the project feel exciting, legible, and worth following wit
 People who care about Shadowrun tools should probably care because:
 
 - Lua-scripted rules make Chummer more moddable without turning every table into a code fork.
-- The project is aiming to support Shadowrun 4, 5, and 6 instead of pretending the Sixth World started yesterday.
 - Play is being built local-first, so the table does not fall apart the moment the network gets cute.
 - Explain and provenance work means the machine should eventually be able to show its receipts instead of shrugging at your dice pool.
+- Runtime stacks and overlays are the future power-up path, but only after the foundations stop wobbling.
 
 ## What’s happening now
 

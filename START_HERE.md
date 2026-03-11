@@ -4,7 +4,7 @@ Welcome to Chummer6.
 
 If you just landed here and are wondering why one Shadowrun tool suddenly seems to have a small constellation of repos around it, you are in the right place.
 
-Chummer is growing from one legacy app into a set of focused parts: a rules engine, a workbench, a play shell, hosted services, a shared UI layer, an artifact registry, a media pipeline, and a blueprint repo that keeps the long game straight.
+Chummer is already becoming a set of focused parts: a rules engine, a workbench, a play shell, hosted services, a shared UI layer, an artifact registry, a media pipeline, and a blueprint repo that keeps the long game straight.
 
 You do **not** need to memorize that on day one.
 
