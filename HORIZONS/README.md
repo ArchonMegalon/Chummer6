@@ -21,6 +21,9 @@ Think of this folder as the garage: some of these projects may become real later
 - [THREADCUTTER](threadcutter.md) — conflict analysis for overlay packs
 - [BLACKBOX LOADOUT](blackbox-loadout.md) — the idiot-check before the run
 
+These are the pages where Chummer gets to dream out loud a little:
+sharper tables, smarter builds, cleaner chaos, and fewer moments where a runner has to shrug and say “I dunno, the software just vibes that way.”
+
 ## Important note
 
 If you want canonical design or actual implementation truth, this folder is not that.  

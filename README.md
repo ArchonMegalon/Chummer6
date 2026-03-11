@@ -1,6 +1,6 @@
 # Chummer6
 
-![Chummer6 hero banner](assets/hero/chummer6-hero.svg)
+![Chummer6 hero banner](assets/hero/chummer6-hero.png)
 
 > **Same shadows. Bigger future. Less confusion.**
 >
@@ -33,7 +33,7 @@ Think of it like this:
 
 ## What’s happening now
 
-![Current status strip](assets/diagrams/status-strip.svg)
+![Current status strip](assets/diagrams/status-strip.png)
 
 Right now the crew is doing foundation work, not bolting neon spoilers onto half-built engines.
 
@@ -48,7 +48,7 @@ Read more: [Current phase](NOW/current-phase.md)
 
 ## Meet the parts
 
-![Program map](assets/diagrams/program-map.svg)
+![Program map](assets/diagrams/program-map.png)
 
 | Part | What it does | Read more |
 | --- | --- | --- |
@@ -94,7 +94,7 @@ In other words: kick the tires, break the thing, and tell me where the smoke cam
 
 ## POC shelf
 
-![POC warning banner](assets/hero/poc-warning.svg)
+![POC warning banner](assets/hero/poc-warning.gif)
 
 If there is a fresh proof-of-concept build ready for brave idiots and helpful test dummies, the shelf is here:
 

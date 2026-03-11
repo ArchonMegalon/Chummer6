@@ -1,10 +1,14 @@
 # RULE X-RAY
 
-![RULE X-RAY banner](../assets/horizons/rule-x-ray.svg)
+![RULE X-RAY banner](../assets/horizons/rule-x-ray.png)
 
 **Click any number and see where it came from.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+Click any number and see where it came from. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 

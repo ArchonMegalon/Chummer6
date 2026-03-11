@@ -1,10 +1,14 @@
 # BLACKBOX LOADOUT
 
-![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.svg)
+![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.png)
 
 **The idiot-check before the run.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+The idiot-check before the run. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 

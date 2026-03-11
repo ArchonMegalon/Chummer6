@@ -1,10 +1,14 @@
 # RUN PASSPORT
 
-![RUN PASSPORT banner](../assets/horizons/run-passport.svg)
+![RUN PASSPORT banner](../assets/horizons/run-passport.png)
 
 **Move a character across rule environments safely.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+Move a character across rule environments safely. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 

@@ -1,10 +1,14 @@
 # JACKPOINT
 
-![JACKPOINT banner](../assets/horizons/jackpoint.svg)
+![JACKPOINT banner](../assets/horizons/jackpoint.png)
 
 **Turn grounded data into dossiers and briefings.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+Turn grounded data into dossiers and briefings. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 

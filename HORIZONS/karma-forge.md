@@ -1,10 +1,14 @@
 # Karma Forge
 
-![Karma Forge banner](../assets/horizons/karma-forge.svg)
+![Karma Forge banner](../assets/horizons/karma-forge.png)
 
 **Personalized rules without forked-code chaos.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+Personalized rules without forked-code chaos. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 

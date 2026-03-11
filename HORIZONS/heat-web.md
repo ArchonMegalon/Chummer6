@@ -1,10 +1,14 @@
 # HEAT WEB
 
-![HEAT WEB banner](../assets/horizons/heat-web.svg)
+![HEAT WEB banner](../assets/horizons/heat-web.png)
 
 **Campaign consequences as a living graph.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+Campaign consequences as a living graph. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 

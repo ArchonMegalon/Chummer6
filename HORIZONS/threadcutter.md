@@ -1,10 +1,14 @@
 # THREADCUTTER
 
-![THREADCUTTER banner](../assets/horizons/threadcutter.svg)
+![THREADCUTTER banner](../assets/horizons/threadcutter.png)
 
 **Conflict analysis for overlay packs and runtime changes.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+Conflict analysis for overlay packs and runtime changes. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 

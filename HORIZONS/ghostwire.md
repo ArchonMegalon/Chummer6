@@ -1,10 +1,14 @@
 # GHOSTWIRE
 
-![GHOSTWIRE banner](../assets/horizons/ghostwire.svg)
+![GHOSTWIRE banner](../assets/horizons/ghostwire.png)
 
 **Replay a run like a forensic sim.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+Replay a run like a forensic sim. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 

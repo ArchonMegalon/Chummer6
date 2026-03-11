@@ -1,10 +1,14 @@
 # ALICE
 
-![ALICE banner](../assets/horizons/alice.svg)
+![ALICE banner](../assets/horizons/alice.png)
 
 **Stress-test your build before the run.**
 
 _Status: Horizon only — future idea, not active build work._
+
+## Why this would be wiz
+
+Stress-test your build before the run. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
