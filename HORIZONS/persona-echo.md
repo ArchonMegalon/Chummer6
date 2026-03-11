@@ -31,5 +31,5 @@ Provider and media boundaries are still too early to widen safely.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Derived from: chummer6-design horizon guidance, latest public status_  
 _Canonical source: chummer6-design_

@@ -25,7 +25,6 @@ Because it would make Chummer feel more connected, more inspectable, and more al
 - `hub`
 - `ui`
 - `design`
-- `fleet`
 
 ## Why it waits
 The base evidence/provenance model still needs to finish becoming canonical.
@@ -33,5 +32,5 @@ The base evidence/provenance model still needs to finish becoming canonical.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Derived from: chummer6-design horizon guidance, latest public status_  
 _Canonical source: chummer6-design_

@@ -32,5 +32,5 @@ The platform still needs truth and seam cleanup before a theme-heavy layer like 
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Derived from: chummer6-design horizon guidance, latest public status_  
 _Canonical source: chummer6-design_

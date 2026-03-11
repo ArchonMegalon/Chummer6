@@ -4,7 +4,7 @@ Some things are visible. That does **not** mean they are promoted truth yet.
 
 ## Current public reality
 
-Fleet still labels these as `stale_preview`:
+These are still preview, not the final public shape:
 
 - portal root
 - hub preview
@@ -19,5 +19,5 @@ It means the surface is there, but the code, design, ownership, and deployment s
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: Fleet groups.yaml public surface status_  
+_Derived from: latest public surface status_  
 _Canonical source: chummer6-design_

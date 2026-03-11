@@ -21,5 +21,5 @@ Until the truth layer is clean, every future capability would be built on sand.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design VISION, chummer6-design README, Fleet groups.yaml_  
+_Derived from: chummer6-design VISION, chummer6-design README, latest public status_  
 _Canonical source: chummer6-design_

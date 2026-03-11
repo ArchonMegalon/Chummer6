@@ -14,7 +14,6 @@ If Chummer6 is the visitor center, this folder is the wall of labeled drawers.
 - `hub-registry` keeps artifacts and publication metadata
 - `media-factory` handles render-only asset jobs
 - `design` keeps canonical cross-repo design truth
-- `fleet` keeps live operator truth
 
 ## How to read this folder
 
@@ -30,10 +29,10 @@ Each page answers the same human questions:
 
 If you want the most important boundary right now, read [play](play.md).
 If you want the cleanest big-picture truth, read [design](design.md).
-If you want to understand the actual live state machine, read [fleet](fleet.md).
+If you want the current public shape in plain language, read [../NOW/current-status.md](../NOW/current-status.md).
 
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, Fleet live state, owning repo READMEs_  
+_Derived from: chummer6-design ownership matrix, latest public status, owning repo READMEs_  
 _Canonical source: chummer6-design_

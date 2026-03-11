@@ -28,10 +28,10 @@ Core is still carrying some transitional weight. The job now is purification: sh
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)
-- [Where the real truth lives](../WHERE_THE_REAL_TRUTH_LIVES.md)
+- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, owning repo README, Fleet state_  
+_Derived from: chummer6-design ownership matrix, owning repo README, latest public status_  
 _Canonical source: chummer6-design_

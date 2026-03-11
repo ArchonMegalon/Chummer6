@@ -26,12 +26,12 @@ Chummer6 exists so you can answer three questions quickly:
 
 Go to [Horizons](HORIZONS/README.md).
 
-## If you want the canonical source
+## If you want the blueprint
 
-Go to [Where the real truth lives](WHERE_THE_REAL_TRUTH_LIVES.md).
+Go to [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design README, Fleet README, groups.yaml_  
+_Derived from: chummer6-design README, latest public status, repo READMEs_  
 _Canonical source: chummer6-design_

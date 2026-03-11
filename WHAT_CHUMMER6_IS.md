@@ -2,7 +2,7 @@
 
 Chummer6 is the human guide to the next Chummer.
 
-It exists because the real program is already split across multiple repos, live Fleet state, active previews, and a canonical design repo. That is powerful, but it is also a lot to throw at someone who just wants the lay of the land.
+It exists because the real program is already split across multiple repos, active previews, and a canonical design repo. That is powerful, but it is also a lot to throw at someone who just wants the lay of the land.
 
 ## The short version
 
@@ -51,5 +51,5 @@ It is the visitor center, not the engine room.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design, Fleet live state_  
+_Derived from: chummer6-design, latest public status_  
 _Canonical source: chummer6-design_

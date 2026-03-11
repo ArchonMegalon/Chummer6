@@ -17,18 +17,17 @@ That is the whole reason this repo exists.
 - **What is happening right now?** [Current status](NOW/current-status.md)
 - **How do the parts fit together?** [Program map](PARTS/README.md)
 - **What are the future rabbit holes?** [Horizons](HORIZONS/README.md)
-- **Where does the real design truth live?** [Where the real truth lives](WHERE_THE_REAL_TRUTH_LIVES.md)
+- **Where should I go deeper?** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
 
 ## What Chummer6 is
 
 Chummer6 is the visitor center for the next Chummer.
 
-It explains the split in plain language, gives you the lay of the land, and helps you follow progress without needing to camp inside every repo and every Fleet view.
+It explains the split in plain language, gives you the lay of the land, and helps you follow progress without needing to spelunk through every repo.
 
 Think of it like this:
 
-- `chummer6-design` is the architect’s office
-- Fleet is mission control
+- `chummer6-design` is the blueprint room
 - the code repos are the workshops
 - **Chummer6 is the map on the wall**
 
@@ -39,7 +38,7 @@ Think of it like this:
 Right now the team is doing foundation work, not bolting neon spoilers onto half-built engines.
 
 Current focus:
-- clean up the contract plane
+- clean up the shared rules and interfaces
 - finish the play/session boundary
 - make the shared UI kit real
 - finish registry and media splits
@@ -61,7 +60,6 @@ Read more: [Current phase](NOW/current-phase.md)
 | Hub registry | Artifacts, publication, installs, compatibility | [hub-registry](PARTS/hub-registry.md) |
 | Media factory | Render jobs, previews, and asset lifecycle | [media-factory](PARTS/media-factory.md) |
 | Design | Canonical design front door | [design](PARTS/design.md) |
-| Fleet | Mission control and operator truth | [fleet](PARTS/fleet.md) |
 
 ## Horizon ideas
 
@@ -79,26 +77,41 @@ See all: [Horizon index](HORIZONS/README.md)
 
 ## What you can do
 
-If this repo helped you understand the program, here is how to help back:
+If this repo helped you get your bearings, here is how to help back:
 
-- **Give Chummer6 a star** if the guide saved you from opening twelve repos just to figure out what is going on.
-- **Give feedback** if something feels confusing, stale, missing, or reads like it was written by a malfunctioning compliance bot.
-- **Point out dead links, weird wording, or reality drift** when the human guide stops matching the real program.
-- **Tell us which horizon idea grabs you most** because that is useful signal even when it does not change the roadmap by itself.
-- **Give us an OpenAI API key** — absolutely not. Keep your secrets. We are joking. Please do not paste credentials into GitHub.
+- **Give Chummer6 a star** if this guide saved you from digging through half the Matrix just to understand what is going on.
+- **Be my test dummy and install the software.**
+- **Grab the latest POC build from [Releases](../../releases).**
+- **Seriously: never trust software. Never trust a dev.**
+- **If a build glitches, breaks, crashes, or does something cursed, tell me exactly how you got there.**
+- **If this repo is stale, confusing, or reads like corp training material, call it out.**
 
-In other words: help keep this place useful, readable, and at least slightly more charming than a spreadsheet with delusions of grandeur.
+> **Street warning:** POC builds are for curious chummers, not cautious wageslaves.  
+> They may be unstable, unfinished, weird, or one bad click away from getting your deck **marked, hacked, or bricked**.  
+> Install at your own risk.
 
-## Where the real decisions live
+In other words: kick the tires, break the thing, and tell me where the smoke came out.
 
-Chummer6 explains. It does not decide.
+## POC shelf
 
-- Canonical design lives in `chummer6-design`
-- Operational truth lives in Fleet
-- Implementation lives in the owning code repos
+![POC warning banner](assets/poc-warning.svg)
+
+If there is a fresh proof-of-concept build ready for brave idiots and helpful test dummies, the shelf is here:
+
+- [Chummer6 Releases](../../releases)
+
+The binaries themselves come from the active Chummer codebase, not from this guide repo.
+
+## Where to go deeper
+
+Chummer6 explains. It does not ship code and it does not replace the blueprint.
+
+- The long-range plan lives in `chummer6-design`
+- The software itself lives in the owning code repos
+- Chummer6 is the friendly guide for humans
 
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design, Fleet state, owning repo READMEs_  
+_Derived from: chummer6-design, latest public status, owning repo READMEs_  
 _Canonical source: chummer6-design_

@@ -22,7 +22,6 @@ Because it would make Chummer feel more connected, more inspectable, and more al
 
 ## Which repos it would touch later
 - `hub`
-- `fleet`
 - `design`
 
 ## Why it waits
@@ -31,5 +30,5 @@ The platform still needs foundational workflow and provenance truth before that 
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Derived from: chummer6-design horizon guidance, latest public status_  
 _Canonical source: chummer6-design_
