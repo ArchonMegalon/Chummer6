@@ -4,9 +4,9 @@
 
 Play is the Chummer shell for players and GMs during actual sessions: mobile/PWA use, local-first state, runtime bundles, sync, and session-safe live features.
 
-## Why it matters
+## Why you should care
 
-If Chummer is going to become more than character prep, this is one of the biggest jumps. The team is turning play from a split idea into a real boundary now.
+If Chummer is going to become more than character prep, this is where that change becomes tangible.
 
 ## What it owns
 
@@ -21,7 +21,11 @@ If Chummer is going to become more than character prep, this is one of the bigge
 - provider secrets
 - copied shared contracts
 
-## Want more?
+## What is happening now
+
+If Chummer is going to become more than character prep, this is one of the biggest jumps. The team is turning play from a split idea into a real boundary now.
+
+## Go deeper
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)

@@ -7,6 +7,8 @@ They are **not** active build commitments.
 
 Think of this folder as the garage: some of these projects may become real later, but none of them are the thing the team is racing today.
 
+Start with whichever one makes you grin first.
+
 ## Pick a future rabbit hole
 
 - [Karma Forge](karma-forge.md) — personalized rule stacks without fork chaos

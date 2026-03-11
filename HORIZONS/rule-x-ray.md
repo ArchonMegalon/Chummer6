@@ -4,26 +4,28 @@
 
 _Status: Horizon only — future idea, not active build work._
 
+Rule X Ray is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+
 ## What is the idea?
 Click any number and see where it came from.
 
 ## What problem does it solve?
 Opaque math is the fastest way to lose trust in a rules tool.
 
-## Why would that be exciting?
+## Why this would be cool
 Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
-## What foundations does it need first?
+## What foundations it needs first
 - explain canon
 - provenance receipts
 - deterministic engine evaluation
 
-## Which repos would be touched later?
+## Which repos it would touch later
 - `core`
 - `ui`
 - `design`
 
-## Why is this not for right now?
+## Why it waits
 Explain/provenance alignment is still active foundational work right now.
 
 ---

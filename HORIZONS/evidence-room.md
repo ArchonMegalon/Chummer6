@@ -4,28 +4,30 @@
 
 _Status: Horizon only — future idea, not active build work._
 
+Evidence Room is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+
 ## What is the idea?
 A grounded review room for explain and provenance output.
 
 ## What problem does it solve?
 If Chummer is going to explain itself well, humans need a place to review the evidence without drowning in raw trace noise.
 
-## Why would that be exciting?
+## Why this would be cool
 Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
-## What foundations does it need first?
+## What foundations it needs first
 - evidence receipts
 - source classification
 - approvals
 - preview/apply separation
 
-## Which repos would be touched later?
+## Which repos it would touch later
 - `hub`
 - `ui`
 - `design`
 - `fleet`
 
-## Why is this not for right now?
+## Why it waits
 The base evidence/provenance model still needs to finish becoming canonical.
 
 ---

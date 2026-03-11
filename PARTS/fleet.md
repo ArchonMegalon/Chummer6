@@ -4,9 +4,9 @@
 
 Fleet watches the live program, compiles design into policy and execution behavior, routes work, tracks review gates, and keeps the operator view anchored to what is really happening.
 
-## Why it matters
+## Why you should care
 
-Fleet is powerful enough to help or hurt. That is why Chummer6 stays downstream and human-only.
+If the design repo is the architect’s office, Fleet is the tower with the blinking panels and the radio headset.
 
 ## What it owns
 
@@ -20,7 +20,11 @@ Fleet is powerful enough to help or hurt. That is why Chummer6 stays downstream 
 - code ownership
 - human-guide authorship
 
-## Want more?
+## What is happening now
+
+Fleet is powerful enough to help or hurt. That is why Chummer6 stays downstream and human-only.
+
+## Go deeper
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)

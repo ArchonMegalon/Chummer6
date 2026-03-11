@@ -1,12 +1,12 @@
-# Ui Kit
+# UI Kit
 
 **Shared visual primitives.**
 
 UI kit is the design vocabulary: tokens, themes, shell chrome, badges, banners, and accessibility-friendly building blocks that other heads should consume instead of recreating.
 
-## Why it matters
+## Why you should care
 
-This repo only becomes real when other repos get smaller because it exists.
+If the split is going to feel coherent instead of stitched together, this repo quietly does a lot of the heavy lifting.
 
 ## What it owns
 
@@ -20,7 +20,11 @@ This repo only becomes real when other repos get smaller because it exists.
 - HTTP clients
 - rules math
 
-## Want more?
+## What is happening now
+
+This repo only becomes real when other repos get smaller because it exists.
+
+## Go deeper
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)

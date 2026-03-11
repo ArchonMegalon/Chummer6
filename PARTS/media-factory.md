@@ -4,9 +4,9 @@
 
 Media factory is where render jobs, previews, signed URLs, and asset lifecycle management should eventually live without dragging narrative policy, rules math, or provider sprawl in with them.
 
-## Why it matters
+## Why you should care
 
-It is still early. The right move is to keep it narrow and get the seam stable before trying to make it impressive.
+If the program starts making more media, this is the part that keeps it from spilling across the rest of the architecture.
 
 ## What it owns
 
@@ -20,7 +20,11 @@ It is still early. The right move is to keep it narrow and get the seam stable b
 - session relay
 - provider routing and rules math
 
-## Want more?
+## What is happening now
+
+It is still early. The right move is to keep it narrow and get the seam stable before trying to make it impressive.
+
+## Go deeper
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)

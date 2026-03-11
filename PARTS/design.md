@@ -4,9 +4,9 @@
 
 Design is where the grown-up version of the plan lives: ownership, phases, milestone truth, contract canon, review guidance, and the split story that the rest of the program should eventually stop fighting.
 
-## Why it matters
+## Why you should care
 
-When Chummer6 sounds friendly, design is why it can still stay honest.
+When the rest of the program argues about what is supposed to be true, this is where the answer is supposed to come from.
 
 ## What it owns
 
@@ -20,7 +20,11 @@ When Chummer6 sounds friendly, design is why it can still stay honest.
 - dispatchable work queues
 - runtime authority
 
-## Want more?
+## What is happening now
+
+When Chummer6 sounds friendly, design is why it can still stay honest.
+
+## Go deeper
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)

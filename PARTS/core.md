@@ -4,9 +4,9 @@
 
 If Chummer is going to stay trustworthy, this is where that trust starts. Core owns the engine truth, the reducer logic, and the contract line that everything else should eventually consume instead of copying.
 
-## Why it matters
+## Why you should care
 
-Core is still carrying some transitional weight. The job now is purification: shrink it until it unmistakably means engine truth and little else.
+Core is where the numbers have to stay honest. If this layer drifts, every shiny higher layer becomes harder to trust.
 
 ## What it owns
 
@@ -20,7 +20,11 @@ Core is still carrying some transitional weight. The job now is purification: sh
 - play shell ownership
 - render execution
 
-## Want more?
+## What is happening now
+
+Core is still carrying some transitional weight. The job now is purification: shrink it until it unmistakably means engine truth and little else.
+
+## Go deeper
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)

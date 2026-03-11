@@ -4,9 +4,9 @@
 
 Hub registry is the narrow artifact brain of the system: what exists, what is published, what is compatible, and what install or runtime-bundle head metadata should be preserved.
 
-## Why it matters
+## Why you should care
 
-This is one of the cleanest split candidates. The next job is not feature growth; it is consumer migration and deletion of old registry ownership elsewhere.
+This is the part that keeps the growing artifact world from turning into an unlabeled warehouse.
 
 ## What it owns
 
@@ -20,7 +20,11 @@ This is one of the cleanest split candidates. The next job is not feature growth
 - Spider logic
 - media rendering
 
-## Want more?
+## What is happening now
+
+This is one of the cleanest split candidates. The next job is not feature growth; it is consumer migration and deletion of old registry ownership elsewhere.
+
+## Go deeper
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)

@@ -4,27 +4,29 @@
 
 _Status: Horizon only — future idea, not active build work._
 
+Heat Web is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+
 ## What is the idea?
 Campaign consequences as a living graph.
 
 ## What problem does it solve?
 Sessions leave social fallout, faction consequences, and pressure trails that would be powerful to visualize.
 
-## Why would that be exciting?
+## Why this would be cool
 Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
-## What foundations does it need first?
+## What foundations it needs first
 - grounded event streams
 - durable evidence receipts
 - publishable state artifacts
 
-## Which repos would be touched later?
+## Which repos it would touch later
 - `hub`
 - `mobile`
 - `ui`
 - `design`
 
-## Why is this not for right now?
+## Why it waits
 The current program still needs its base session and explain seams stabilized first.
 
 ---

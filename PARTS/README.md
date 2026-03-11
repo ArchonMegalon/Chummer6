@@ -16,6 +16,16 @@ If Chummer6 is the visitor center, this folder is the wall of labeled drawers.
 - `design` keeps canonical cross-repo design truth
 - `fleet` keeps live operator truth
 
+## How to read this folder
+
+Each page answers the same human questions:
+
+- what this part is for
+- why it matters
+- what it owns
+- what it does not own
+- what is happening with it right now
+
 ## Where to start
 
 If you want the most important boundary right now, read [play](play.md).

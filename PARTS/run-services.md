@@ -4,9 +4,9 @@
 
 Run services is the protected backend seam: identity, relay, approvals, memory, AI orchestration, and the play APIs that should eventually feel obvious and boring.
 
-## Why it matters
+## Why you should care
 
-This repo has carried a lot of transitional mass. The job now is to shrink it into a clean hosted boundary and stop letting it impersonate everything else.
+This is where the system grows a backbone on the network side: not flashy, but vital.
 
 ## What it owns
 
@@ -20,7 +20,11 @@ This repo has carried a lot of transitional mass. The job now is to shrink it in
 - long-term player shell ownership
 - render-only media execution
 
-## Want more?
+## What is happening now
+
+This repo has carried a lot of transitional mass. The job now is to shrink it into a clean hosted boundary and stop letting it impersonate everything else.
+
+## Go deeper
 
 - [Program map](README.md)
 - [Current phase](../NOW/current-phase.md)
