@@ -83,6 +83,7 @@ If this repo helped you get your bearings, here’s how to help back:
 - **Be my test dummy and install the software.**
 - **Grab the latest POC build from [Releases](https://github.com/ArchonMegalon/Chummer6/releases)** when one is available.
 - **Seriously: never trust software. Never trust a dev.**
+- **Give us an OpenAI API key** — absolutely not. Keep your secrets. If the dev forgot the obvious thing again, that is a dev problem, not a credential problem.
 - **If a build glitches, breaks, crashes, or does something cursed, tell me exactly how you got there.**
 - **If this repo is stale, confusing, or reads like corp training material, call it out.**
 
