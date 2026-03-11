@@ -1,33 +1,33 @@
 # Persona Echo
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**Continuity without losing provenance.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future persona continuity and reflection layer.
+Continuity without losing provenance.
 
 ## What problem does it solve?
-It would solve durable explainable narrative/persona memory without losing provenance.
+People want memorable characters and continuity, but not at the cost of blurred truth or made-up authority.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Grounded evidence, approval states, and clean ownership across hub and media seams.
+- grounded evidence
+- approval states
+- clean hub/media ownership
 
-## Which repos would be affected later?
-Likely touches `hub`, `media-factory`, `design`.
+## Which repos would be touched later?
+- `hub`
+- `media-factory`
+- `design`
 
-## Why is it not now?
-Provider/media boundaries are still too early to widen safely.
+## Why is this not for right now?
+Provider and media boundaries are still too early to widen safely.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_

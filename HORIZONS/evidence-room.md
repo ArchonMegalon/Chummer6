@@ -1,33 +1,35 @@
 # Evidence Room
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**A grounded review room for explain and provenance output.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future grounded evidence review space.
+A grounded review room for explain and provenance output.
 
 ## What problem does it solve?
-It would solve human-readable review and arbitration over explain/provenance outputs.
+If Chummer is going to explain itself well, humans need a place to review the evidence without drowning in raw trace noise.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Evidence receipts, source classification, approvals, and preview/apply separation.
+- evidence receipts
+- source classification
+- approvals
+- preview/apply separation
 
-## Which repos would be affected later?
-Likely touches `hub`, `ui`, `design`, maybe `fleet` reporting.
+## Which repos would be touched later?
+- `hub`
+- `ui`
+- `design`
+- `fleet`
 
-## Why is it not now?
+## Why is this not for right now?
 The base evidence/provenance model still needs to finish becoming canonical.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_

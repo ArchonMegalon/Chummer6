@@ -1,25 +1,37 @@
 # Start Here
 
-Chummer6 exists because the program already spans multiple repos and multiple public previews, while the real design and execution truth live elsewhere.
+Welcome to Chummer6.
 
-## Why are there multiple repos?
-- `core` owns deterministic engine truth.
-- `ui` owns workbench/browser/desktop presentation.
-- `hub` owns hosted orchestration and play APIs.
-- `mobile` owns the play shell and local-first session experience.
-- `ui-kit`, `hub-registry`, and `media-factory` are the narrow split boundaries still becoming real.
-- `design` is the canonical cross-repo design front door.
-- Fleet is the operational control plane.
+If you just landed here and are wondering why one Shadowrun tool suddenly seems to have a small constellation of repos around it, you are in the right place.
 
-## Why does Chummer6 exist?
-To explain all of that in plain language without becoming a second design source.
+Chummer is growing from one legacy app into a set of focused parts: a rules engine, a workbench, a play shell, hosted services, a shared UI layer, an artifact registry, a media pipeline, and a design/control layer around all of that.
 
-## What should you trust first?
-1. `chummer6-design`
-2. Fleet live state
-3. The owning code repo
-4. Chummer6 only as the human summary
+You do **not** need to memorize that on day one.
 
-Last synced: 2026-03-11
-Derived from: chummer6-design README, Fleet README, groups.yaml
-Canonical source: chummer6-design
+## The shortest possible explanation
+
+Chummer6 exists so you can answer three questions quickly:
+
+- What is this program becoming?
+- Which part does what?
+- What is real now, and what is still future-looking?
+
+## If you only read three pages
+
+1. [What Chummer6 is](WHAT_CHUMMER6_IS.md)
+2. [What’s happening now](NOW/current-status.md)
+3. [How the parts fit together](PARTS/README.md)
+
+## If you are here for the fun stuff
+
+Go to [Horizons](HORIZONS/README.md).
+
+## If you want the canonical source
+
+Go to [Where the real truth lives](WHERE_THE_REAL_TRUTH_LIVES.md).
+
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design README, Fleet README, groups.yaml_  
+_Canonical source: chummer6-design_

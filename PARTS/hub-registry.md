@@ -1,17 +1,33 @@
-# hub-registry
+# Hub Registry
 
-## Summary
-Artifact and publication boundary.
+**Artifacts, publication, installs, compatibility.**
+
+Hub registry is the narrow artifact brain of the system: what exists, what is published, what is compatible, and what install or runtime-bundle head metadata should be preserved.
+
+## Why it matters
+
+This is one of the cleanest split candidates. The next job is not feature growth; it is consumer migration and deletion of old registry ownership elsewhere.
 
 ## What it owns
-Artifact metadata, publication, moderation, installs, compatibility projections.
+
+- artifact metadata
+- publication and moderation workflow contracts
+- install and compatibility projections
 
 ## What it does not own
-AI routing, Spider, media rendering.
 
-## Why it matters now
-This part exists to make the Chummer split real by shrinking old ownership and moving toward package-real or API-real boundaries.
+- AI routing
+- Spider logic
+- media rendering
 
-Last synced: 2026-03-11
-Derived from: chummer6-design ownership matrix, owning repo README, Fleet state
-Canonical source: chummer6-design
+## Want more?
+
+- [Program map](README.md)
+- [Current phase](../NOW/current-phase.md)
+- [Where the real truth lives](../WHERE_THE_REAL_TRUTH_LIVES.md)
+
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design ownership matrix, owning repo README, Fleet state_  
+_Canonical source: chummer6-design_

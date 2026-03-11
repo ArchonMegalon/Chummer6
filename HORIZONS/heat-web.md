@@ -1,33 +1,34 @@
 # Heat Web
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**Campaign consequences as a living graph.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future continuity and consequence graph for factions, heat, and fallout.
+Campaign consequences as a living graph.
 
 ## What problem does it solve?
-It would solve long-running state visibility across sessions and actors.
+Sessions leave social fallout, faction consequences, and pressure trails that would be powerful to visualize.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Grounded event streams, evidence receipts, and durable registry/publishable artifacts.
+- grounded event streams
+- durable evidence receipts
+- publishable state artifacts
 
-## Which repos would be affected later?
-Likely touches `hub`, `mobile`, `ui`, `design`.
+## Which repos would be touched later?
+- `hub`
+- `mobile`
+- `ui`
+- `design`
 
-## Why is it not now?
+## Why is this not for right now?
 The current program still needs its base session and explain seams stabilized first.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_

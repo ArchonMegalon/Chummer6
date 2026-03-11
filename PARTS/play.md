@@ -1,17 +1,34 @@
-# play
+# Play
 
-## Summary
-Player and GM shell.
+**The part you feel at the table.**
+
+Play is the Chummer shell for players and GMs during actual sessions: mobile/PWA use, local-first state, runtime bundles, sync, and session-safe live features.
+
+## Why it matters
+
+If Chummer is going to become more than character prep, this is one of the biggest jumps. The team is turning play from a split idea into a real boundary now.
 
 ## What it owns
-Play shell, offline ledger, runtime bundle consumption, local-first sync.
+
+- player and GM play shell
+- local-first session state
+- runtime bundle consumption
+- sync-friendly play flows
 
 ## What it does not own
-Builder UX, provider secrets, copied shared contracts.
 
-## Why it matters now
-This part exists to make the Chummer split real by shrinking old ownership and moving toward package-real or API-real boundaries.
+- builder/workbench UX
+- provider secrets
+- copied shared contracts
 
-Last synced: 2026-03-11
-Derived from: chummer6-design ownership matrix, owning repo README, Fleet state
-Canonical source: chummer6-design
+## Want more?
+
+- [Program map](README.md)
+- [Current phase](../NOW/current-phase.md)
+- [Where the real truth lives](../WHERE_THE_REAL_TRUTH_LIVES.md)
+
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design ownership matrix, owning repo README, Fleet state_  
+_Canonical source: chummer6-design_

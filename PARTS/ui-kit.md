@@ -1,17 +1,33 @@
-# ui-kit
+# Ui Kit
 
-## Summary
-Shared UI primitives.
+**Shared visual primitives.**
+
+UI kit is the design vocabulary: tokens, themes, shell chrome, badges, banners, and accessibility-friendly building blocks that other heads should consume instead of recreating.
+
+## Why it matters
+
+This repo only becomes real when other repos get smaller because it exists.
 
 ## What it owns
-Tokens, themes, shell chrome, accessibility primitives.
+
+- tokens and themes
+- shared chrome and accessibility primitives
+- UI-only preview/gallery surfaces
 
 ## What it does not own
-DTOs, HTTP clients, rules math.
 
-## Why it matters now
-This part exists to make the Chummer split real by shrinking old ownership and moving toward package-real or API-real boundaries.
+- domain DTOs
+- HTTP clients
+- rules math
 
-Last synced: 2026-03-11
-Derived from: chummer6-design ownership matrix, owning repo README, Fleet state
-Canonical source: chummer6-design
+## Want more?
+
+- [Program map](README.md)
+- [Current phase](../NOW/current-phase.md)
+- [Where the real truth lives](../WHERE_THE_REAL_TRUTH_LIVES.md)
+
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design ownership matrix, owning repo README, Fleet state_  
+_Canonical source: chummer6-design_

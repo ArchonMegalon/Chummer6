@@ -1,17 +1,33 @@
-# design
+# Design
 
-## Summary
-Canonical design front door.
+**Canonical cross-repo design truth.**
+
+Design is where the grown-up version of the plan lives: ownership, phases, milestone truth, contract canon, review guidance, and the split story that the rest of the program should eventually stop fighting.
+
+## Why it matters
+
+When Chummer6 sounds friendly, design is why it can still stay honest.
 
 ## What it owns
-Cross-repo design truth, ownership, milestone framing, review guidance.
+
+- cross-repo architecture and ownership
+- milestone and phase framing
+- review guidance and mirror rules
 
 ## What it does not own
-Implementation ownership, dispatch queues, code authority.
 
-## Why it matters now
-This part exists to make the Chummer split real by shrinking old ownership and moving toward package-real or API-real boundaries.
+- implementation ownership
+- dispatchable work queues
+- runtime authority
 
-Last synced: 2026-03-11
-Derived from: chummer6-design ownership matrix, owning repo README, Fleet state
-Canonical source: chummer6-design
+## Want more?
+
+- [Program map](README.md)
+- [Current phase](../NOW/current-phase.md)
+- [Where the real truth lives](../WHERE_THE_REAL_TRUTH_LIVES.md)
+
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design ownership matrix, owning repo README, Fleet state_  
+_Canonical source: chummer6-design_

@@ -1,19 +1,32 @@
 # Where The Real Truth Lives
 
-If two things disagree, fix Chummer6. Do not treat Chummer6 as the source of truth.
+This page is the seatbelt.
 
-## Truth order
+Chummer6 is here to explain the program clearly. It is **not** allowed to become a second source of truth.
+
+## The truth order
+
+If two sources disagree, this is the order that wins:
+
 1. `chummer6-design`
 2. Fleet live state
-3. The owning code repo
+3. the owning code repo
 4. `Chummer6`
 
-## What each source owns
-- `chummer6-design`: canonical architecture, ownership, phases, milestone truth, horizon framing
-- Fleet: operational truth, current group status, public-surface debt, dispatchable state
-- Owning repos: actual implementation and repo-local scope
-- Chummer6: human-readable summaries only
+## What each source is for
 
-Last synced: 2026-03-11
-Derived from: chummer6-design project guide scope, Fleet status payloads
-Canonical source: chummer6-design
+- `chummer6-design`: canonical architecture, ownership, phases, milestone truth, horizon framing
+- Fleet: live operator truth, runtime status, review state, preview debt, dispatchable work
+- owning repos: implementation, code-specific docs, local scope
+- Chummer6: human-readable summary
+
+## What to do when you spot drift
+
+Fix Chummer6 first.  
+Do **not** “correct” design or Fleet because the visitor guide got ahead of itself.
+
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design scope rules, Fleet status payloads_  
+_Canonical source: chummer6-design_

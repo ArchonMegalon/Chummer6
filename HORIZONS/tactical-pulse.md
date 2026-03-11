@@ -1,33 +1,34 @@
 # Tactical Pulse
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**Shared situational awareness during active sessions.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future live tactical awareness layer.
+Shared situational awareness during active sessions.
 
 ## What problem does it solve?
-It would solve synchronized situational understanding across active sessions.
+A live table wants coordination, not just isolated sheets and guesswork.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Session authority, event envelopes, local-first sync, and evidence-grounded summaries.
+- session authority
+- event envelopes
+- local-first sync
+- evidence-grounded summaries
 
-## Which repos would be affected later?
-Likely touches `mobile`, `hub`, `ui`.
+## Which repos would be touched later?
+- `mobile`
+- `hub`
+- `ui`
 
-## Why is it not now?
-The current play split is still foundational work, not product embellishment time.
+## Why is this not for right now?
+The play split is still foundational work, not embellishment time.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_

@@ -1,14 +1,22 @@
 # Current Status
 
-Chummer is already a live multi-repo program under Fleet, but it is not design-complete.
+Chummer is already a live multi-repo program under Fleet, but it is still much earlier in design completion than in runtime queue completion.
 
-Current truth in plain language:
+## The short version
+
 - the split is real
 - the public surfaces are still preview debt
-- the play split is still not fully complete
-- the UI kit, registry, and media splits exist but are still becoming real boundaries
-- design completion is much farther away than runtime queue completion
+- play is still the next major product seam to finish
+- UI kit, registry, and media exist, but are still becoming fully real boundaries
+- the design truth is still catching up in a few places
 
-Last synced: 2026-03-11
-Derived from: Fleet group status, program_milestones.yaml
-Canonical source: chummer6-design
+## What that means for normal humans
+
+You can already see the shape of the future.
+You just should not mistake preview surfaces or repo existence for “done.”
+
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: Fleet group status, program_milestones.yaml_  
+_Canonical source: chummer6-design_

@@ -10,7 +10,7 @@ No. It is a human guide only.
 No. Fleet owns operational truth and dispatchable work.
 
 ## Why are there so many repos?
-Because Chummer is already split into engine, hosted orchestration, play shell, shared UI, registry, media, design, and fleet control-plane responsibilities.
+Because Chummer is already split into engine, hosted orchestration, play shell, shared UI, registry, media, design, and control-plane responsibilities.
 
 ## What is live right now?
 The multi-repo program is live under Fleet, but the public surfaces are still preview debt.
@@ -24,6 +24,8 @@ In `chummer6-design`.
 ## Why does Chummer6 exist if it is not truth?
 To make the program understandable for humans without creating a second truth source.
 
-Last synced: 2026-03-11
-Derived from: chummer6-design, Fleet group status
-Canonical source: chummer6-design
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design, Fleet group status_  
+_Canonical source: chummer6-design_

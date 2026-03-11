@@ -1,17 +1,33 @@
-# run-services
+# Run Services
 
-## Summary
-Hosted orchestration boundary.
+**The hosted API and orchestration layer.**
+
+Run services is the protected backend seam: identity, relay, approvals, memory, AI orchestration, and the play APIs that should eventually feel obvious and boring.
+
+## Why it matters
+
+This repo has carried a lot of transitional mass. The job now is to shrink it into a clean hosted boundary and stop letting it impersonate everything else.
 
 ## What it owns
-Identity, relay, approvals, memory, AI orchestration, play APIs.
+
+- identity, relay, approvals, and memory
+- AI orchestration and hosted play APIs
+- preview/apply style hosted workflows
 
 ## What it does not own
-Engine truth, player shell ownership, render-only media execution.
 
-## Why it matters now
-This part exists to make the Chummer split real by shrinking old ownership and moving toward package-real or API-real boundaries.
+- engine truth
+- long-term player shell ownership
+- render-only media execution
 
-Last synced: 2026-03-11
-Derived from: chummer6-design ownership matrix, owning repo README, Fleet state
-Canonical source: chummer6-design
+## Want more?
+
+- [Program map](README.md)
+- [Current phase](../NOW/current-phase.md)
+- [Where the real truth lives](../WHERE_THE_REAL_TRUTH_LIVES.md)
+
+---
+
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design ownership matrix, owning repo README, Fleet state_  
+_Canonical source: chummer6-design_

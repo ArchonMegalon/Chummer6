@@ -1,33 +1,34 @@
 # Shadow Market
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**A discovery layer for future packs and artifacts.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future registry or marketplace-like discovery layer.
+A discovery layer for future packs and artifacts.
 
 ## What problem does it solve?
-It would solve controlled publication and discovery of future overlay or pack artifacts.
+Discovery, publication, and promotion would eventually need a place to live, but not before the underlying seams are real.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Registry metadata, moderation states, compatibility projections, and promotion staging.
+- registry metadata
+- moderation states
+- compatibility projections
+- promotion staging
 
-## Which repos would be affected later?
-Likely touches `hub-registry`, `hub`, `design`.
+## Which repos would be touched later?
+- `hub-registry`
+- `hub`
+- `design`
 
-## Why is it not now?
-Marketplace-like work is explicitly not current program focus.
+## Why is this not for right now?
+Marketplace-like work is explicitly not the current program focus.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_

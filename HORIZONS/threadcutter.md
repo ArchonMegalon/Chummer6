@@ -1,33 +1,34 @@
 # Threadcutter
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**Conflict analysis for overlays and runtime changes.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future conflict-resolution and rollback capability.
+Conflict analysis for overlays and runtime changes.
 
 ## What problem does it solve?
-It would solve safe divergence, migration, and conflict handling.
+When multiple changes want to pull the system in different directions, someone needs to explain the collision before it turns into chaos.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Conflict reports, migration previews, apply receipts, and rollback receipts.
+- conflict reports
+- migration previews
+- apply receipts
+- rollback receipts
 
-## Which repos would be affected later?
-Likely touches `hub`, `mobile`, `design`.
+## Which repos would be touched later?
+- `hub`
+- `mobile`
+- `design`
 
-## Why is it not now?
+## Why is this not for right now?
 The program must first finish the runtime stack and session/event seams.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_

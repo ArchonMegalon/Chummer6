@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 220" role="img" aria-labelledby="title desc">
+  <title id="title">Chummer6 status strip</title>
+  <desc id="desc">Three tiles showing Now, Preview, and Horizon.</desc>
+  <rect width="1200" height="220" fill="#f8fafc"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="40" y="36" width="350" height="148" rx="24" fill="#0f766e"/>
+    <text x="78" y="88" fill="#f0fdfa" font-size="34" font-weight="800">Now</text>
+    <text x="78" y="122" fill="#ccfbf1" font-size="18">contract reset, play split,</text>
+    <text x="78" y="148" fill="#ccfbf1" font-size="18">UI kit, registry, media seams</text>
+
+    <rect x="425" y="36" width="350" height="148" rx="24" fill="#b45309"/>
+    <text x="463" y="88" fill="#fffbeb" font-size="34" font-weight="800">Preview</text>
+    <text x="463" y="122" fill="#fef3c7" font-size="18">public surfaces are visible,</text>
+    <text x="463" y="148" fill="#fef3c7" font-size="18">but still marked stale_preview</text>
+
+    <rect x="810" y="36" width="350" height="148" rx="24" fill="#4338ca"/>
+    <text x="848" y="88" fill="#eef2ff" font-size="34" font-weight="800">Horizon</text>
+    <text x="848" y="122" fill="#e0e7ff" font-size="18">Karma Forge, NEXUS-PAN,</text>
+    <text x="848" y="148" fill="#e0e7ff" font-size="18">ALICE, JACKPOINT, and friends</text>
+  </g>
+</svg>

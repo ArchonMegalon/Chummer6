@@ -1,33 +1,33 @@
 # Rule X Ray
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**Click any number and see where it came from.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future deep explain and rule-inspection surface.
+Click any number and see where it came from.
 
 ## What problem does it solve?
-It would solve visibility into why the runtime reached a given outcome.
+Opaque math is the fastest way to lose trust in a rules tool.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Explain canon, provenance receipts, and engine determinism.
+- explain canon
+- provenance receipts
+- deterministic engine evaluation
 
-## Which repos would be affected later?
-Likely touches `core`, `ui`, `design`.
+## Which repos would be touched later?
+- `core`
+- `ui`
+- `design`
 
-## Why is it not now?
-Explain/provenance alignment is still active foundational work.
+## Why is this not for right now?
+Explain/provenance alignment is still active foundational work right now.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_

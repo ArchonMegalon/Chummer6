@@ -1,33 +1,33 @@
 # Command Casket
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**Controlled operator actions with receipts and rollback.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future controlled command and approval capsule.
+Controlled operator actions with receipts and rollback.
 
 ## What problem does it solve?
-It would solve explainable operator actions with receipts and rollback paths.
+When something important changes, the system should be able to explain who asked for it, why it happened, and how to undo it.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Approval-aware workflow states and preview/apply/rollback receipts.
+- approval-aware workflows
+- preview/apply/rollback receipts
+- auditable command capsules
 
-## Which repos would be affected later?
-Likely touches `hub`, `fleet`, `design`.
+## Which repos would be touched later?
+- `hub`
+- `fleet`
+- `design`
 
-## Why is it not now?
-The program still needs foundational workflow and provenance truth before that is safe.
+## Why is this not for right now?
+The platform still needs foundational workflow and provenance truth before that is safe to widen.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_

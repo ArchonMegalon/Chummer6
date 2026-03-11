@@ -1,33 +1,35 @@
 # Jackpoint
 
-> **Horizon only**
-> This page explains a possible future direction.
-> It is not canonical design.
-> It is not an active queue.
-> It is not dispatchable.
-> It does not authorize implementation by itself.
+**Turn grounded data into dossiers and briefings.**
+
+_Status: Horizon only — future idea, not active build work._
 
 ## What is the idea?
-A future grounded intelligence and narrative export layer.
+Turn grounded data into dossiers and briefings.
 
 ## What problem does it solve?
-It would solve evidence-grounded briefings, dossiers, and digest-style outputs.
+There is a huge difference between cool flavor and trustworthy narrative output. JACKPOINT only works if it stays grounded.
 
-## Why would it be wow?
-It would make Chummer feel dramatically more coherent, inspectable, and personal without breaking deterministic runtime truth.
+## Why would that be exciting?
+Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
 
 ## What foundations does it need first?
-Grounded artifact receipts, provenance labels, approval states, and clean media boundaries.
+- grounded evidence receipts
+- approval states
+- clean registry/media boundaries
+- source classification
 
-## Which repos would be affected later?
-Likely touches `hub`, `hub-registry`, `media-factory`, and `design`.
+## Which repos would be touched later?
+- `hub`
+- `hub-registry`
+- `media-factory`
+- `design`
 
-## Why is it not now?
-Narrative/export work must stay downstream of grounded evidence and render-only media seams.
+## Why is this not for right now?
+Narrative/export work must stay downstream of evidence and render-only seams, and those seams are still under construction.
 
-## Current status
-Horizon only.
+---
 
-Last synced: 2026-03-11
-Derived from: chummer6-design horizon guidance, Fleet group state
-Canonical source: chummer6-design
+_Last synced: 2026-03-11_  
+_Derived from: chummer6-design horizon guidance, Fleet live status_  
+_Canonical source: chummer6-design_
