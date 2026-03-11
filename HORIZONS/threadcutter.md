@@ -1,36 +1,44 @@
-# Threadcutter
+# THREADCUTTER
 
-**Conflict analysis for overlays and runtime changes.**
+![THREADCUTTER banner](../assets/horizons/threadcutter.svg)
+
+**Conflict analysis for overlay packs and runtime changes.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Threadcutter is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+Every cool customization story eventually ends with two mods both insisting they are the chosen one.
+
+## The use case
+
+You get a conflict report before two overlays collide in production and turn your rule stack into abstract art.
 
 ## What is the idea?
-Conflict analysis for overlays and runtime changes.
+
+THREADCUTTER is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-When multiple changes want to pull the system in different directions, someone needs to explain the collision before it turns into chaos.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Sooner or later, two clever changes will try to claim the same space at the same time.
 
-## What foundations it needs first
+## Foundations first
+
 - conflict reports
 - migration previews
-- apply receipts
-- rollback receipts
+- apply and rollback receipts
 
-## Which repos it would touch later
-- `hub`
-- `mobile`
+## Which parts would it touch later?
+
+- `run-services`
+- `play`
 - `design`
 
 ## Why it waits
-The program must first finish the runtime stack and session/event seams.
 
+Because the runtime stack model and migration receipts must exist before conflict analysis has anything honest to inspect.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

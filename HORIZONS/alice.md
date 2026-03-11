@@ -1,36 +1,45 @@
-# Alice
+# ALICE
+
+![ALICE banner](../assets/horizons/alice.svg)
 
 **Stress-test your build before the run.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Alice is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+Everybody thinks their build is invincible until a simulation calmly explains that they die in round two because they brought swagger instead of resistance dice.
+
+## The use case
+
+You hit test drive, run a deterministic lab harness, and get a replayable answer about why your build survives, folds, or explodes.
 
 ## What is the idea?
-Stress-test your build before the run.
+
+ALICE is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-Players and GMs want reproducible simulation and explainable failure paths, not hand-wavy balance guesses.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+People want to know how a build behaves under pressure without needing a real disaster as the benchmark.
 
-## What foundations it needs first
+## Foundations first
+
 - deterministic engine truth
-- scenario harnesses
-- replayable seeds
+- scenario harnesses with reproducible seeds
 - explain receipts
+- stable runtime stack fingerprints
 
-## Which repos it would touch later
+## Which parts would it touch later?
+
 - `core`
-- `hub`
+- `run-services`
 - `design`
 
 ## Why it waits
-The engine and explain canon still need more cleanup before simulation becomes a product surface.
 
+Because the engine and explain seams still need to become cleaner before simulation gets to wear a lab coat.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

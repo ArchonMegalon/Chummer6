@@ -2,36 +2,35 @@
 
 **Artifacts, publication, installs, compatibility.**
 
-Hub registry is the narrow artifact brain of the system: what exists, what is published, what is compatible, and what install or runtime-bundle head metadata should be preserved.
+        Hub Registry is the artifact brain: what exists, what is published, what can be installed, and which bundles, previews, or compatibility signals belong on the record.
 
-## Why you should care
+        ## Why you should care
 
-This is the part that keeps the growing artifact world from turning into an unlabeled warehouse.
+        Without this, the growing pile of artifacts turns into an unlabeled warehouse full of cursed boxes.
 
-## What it owns
+        ## What it owns
 
-- artifact metadata
-- publication and moderation workflow contracts
+        - artifact metadata
+- publication and moderation workflow metadata
 - install and compatibility projections
 
-## What it does not own
+        ## What it does not own
 
-- AI routing
-- Spider logic
+        - AI routing
+- rules computation
 - media rendering
 
-## What is happening now
+        ## What is happening now
 
-This is one of the cleanest split candidates. The next job is not feature growth; it is consumer migration and deletion of old registry ownership elsewhere.
+        This seam is narrow on purpose. The work is consumer migration and cleanup, not feature sprawl.
 
-## Go deeper
+        ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
-
+        - [Program map](README.md)
+        - [Current phase](../NOW/current-phase.md)
+        - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, owning repo README, latest public status_  
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

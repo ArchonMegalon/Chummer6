@@ -2,37 +2,36 @@
 
 **The part you feel at the table.**
 
-Play is the Chummer shell for players and GMs during actual sessions: mobile/PWA use, local-first state, runtime bundles, sync, and session-safe live features.
+        Play is the shell for players and GMs during actual sessions: mobile/PWA use, local-first state, runtime bundles, sync, replay, and the moment where the tool stops being prep and starts being live play.
 
-## Why you should care
+        ## Why you should care
 
-If Chummer is going to become more than character prep, this is where that change becomes tangible.
+        If Chummer is going to become more than a character builder, this is the jump.
 
-## What it owns
+        ## What it owns
 
-- player and GM play shell
+        - player and GM play shell
 - local-first session state
-- runtime bundle consumption
+- runtime stack consumption
 - sync-friendly play flows
 
-## What it does not own
+        ## What it does not own
 
-- builder/workbench UX
+        - builder/workbench UX
 - provider secrets
-- copied shared contracts
+- copied shared interfaces
 
-## What is happening now
+        ## What is happening now
 
-If Chummer is going to become more than character prep, this is one of the biggest jumps. The team is turning play from a split idea into a real boundary now.
+        This is still the next big seam to make real. The current work is less about flash and more about event logs, runtime cache, offline queueing, and sync.
 
-## Go deeper
+        ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
-
+        - [Program map](README.md)
+        - [Current phase](../NOW/current-phase.md)
+        - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, owning repo README, latest public status_  
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

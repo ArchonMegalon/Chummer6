@@ -1,37 +1,46 @@
-# Jackpoint
+# JACKPOINT
+
+![JACKPOINT banner](../assets/horizons/jackpoint.svg)
 
 **Turn grounded data into dossiers and briefings.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Jackpoint is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+A stylish dossier is great right up until it starts inventing facts with the confidence of a corp spokesman.
+
+## The use case
+
+You collect grounded character data, session notes, and receipts, then turn them into dossiers and briefings that can still explain where the facts came from.
 
 ## What is the idea?
-Turn grounded data into dossiers and briefings.
+
+JACKPOINT is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-There is a huge difference between cool flavor and trustworthy narrative output. JACKPOINT only works if it stays grounded.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Narrative output gets dangerous fast when nobody can tell the difference between grounded evidence and cool-looking guesswork.
 
-## What foundations it needs first
+## Foundations first
+
 - grounded evidence receipts
 - approval states
-- clean registry/media boundaries
+- clean registry/media seams
 - source classification
 
-## Which repos it would touch later
-- `hub`
+## Which parts would it touch later?
+
+- `run-services`
 - `hub-registry`
 - `media-factory`
 - `design`
 
 ## Why it waits
-Narrative/export work must stay downstream of evidence and render-only seams, and those seams are still under construction.
 
+Because grounded evidence and render boundaries need to settle first. Style without receipts is just prettier confusion.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

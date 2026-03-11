@@ -1,38 +1,47 @@
 # Karma Forge
 
+![Karma Forge banner](../assets/horizons/karma-forge.svg)
+
 **Personalized rules without forked-code chaos.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Karma Forge is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+People love customizing the rules right up until those rules stop agreeing with each other and nobody can explain the damage calculation.
+
+## The use case
+
+You want a custom rules layer for your table. Instead of forking the app and praying, you slot in a controlled overlay stack that can be inspected, explained, previewed, and rolled back.
 
 ## What is the idea?
-Personalized rules without forked-code chaos.
+
+Karma Forge is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-People want controlled variation and house-rule power without turning every table into an incompatible code fork.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Players want house rules, variants, and personalized rule stacks without turning every table into a private fork nobody else can inspect.
 
-## What foundations it needs first
-- runtime stack truth
-- overlay manifests
+## Foundations first
+
+- runtime stack and fingerprint DTOs
+- overlay receipts and conflict reports
 - explain/provenance receipts
-- contract canon
+- clean shared interfaces
 
-## Which repos it would touch later
+## Which parts would it touch later?
+
 - `core`
-- `mobile`
-- `hub`
+- `play`
+- `run-services`
 - `hub-registry`
 - `design`
 
 ## Why it waits
-The contract reset, play split, UI kit, and registry/media seams still need to become boringly real first.
 
+Because the split still needs its contract reset and seam cleanup. Fancy overlay power on top of fuzzy foundations is how you summon haunted software.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

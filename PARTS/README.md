@@ -13,7 +13,7 @@ If Chummer6 is the visitor center, this folder is the wall of labeled drawers.
 - `ui-kit` is the shared visual vocabulary
 - `hub-registry` keeps artifacts and publication metadata
 - `media-factory` handles render-only asset jobs
-- `design` keeps canonical cross-repo design truth
+- `design` keeps the canonical blueprint
 
 ## How to read this folder
 
@@ -27,12 +27,11 @@ Each page answers the same human questions:
 
 ## Where to start
 
-If you want the most important boundary right now, read [play](play.md).
-If you want the cleanest big-picture truth, read [design](design.md).
-If you want the current public shape in plain language, read [../NOW/current-status.md](../NOW/current-status.md).
-
+If you want the most important seam right now, read [play](play.md).  
+If you want the cleanest big-picture answer, read [design](design.md).  
+If you want the current visible shape, read [../NOW/current-status.md](../NOW/current-status.md).
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, latest public status, owning repo READMEs_  
+_Derived from: chummer6-design ownership map, public repo READMEs, current public shape_  
 _Canonical source: chummer6-design_

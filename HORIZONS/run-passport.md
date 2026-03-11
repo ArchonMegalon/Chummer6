@@ -1,36 +1,45 @@
-# Run Passport
+# RUN PASSPORT
+
+![RUN PASSPORT banner](../assets/horizons/run-passport.svg)
 
 **Move a character across rule environments safely.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Run Passport is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+Moving a character between environments sounds cool until one ruleset calls it legal and another calls it eldritch contraband.
+
+## The use case
+
+A character carries a readable runtime identity, compatibility notes, and migration preview instead of raw hope.
 
 ## What is the idea?
-Move a character across rule environments safely.
+
+RUN PASSPORT is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-A portable runtime/profile identity would make compatibility less magical and less painful.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Portability is easy to promise and painful to implement once compatibility actually matters.
 
-## What foundations it needs first
+## Foundations first
+
 - runtime stack profile
 - fingerprint and lineage
 - compatibility projections
 
-## Which repos it would touch later
+## Which parts would it touch later?
+
 - `hub-registry`
-- `mobile`
-- `hub`
+- `play`
+- `run-services`
 - `design`
 
 ## Why it waits
-The registry seam and runtime stack model are not stable enough yet.
 
+Because the registry seam and runtime stack model still need to harden before portability can stop being wishful thinking.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

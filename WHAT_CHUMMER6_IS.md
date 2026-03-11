@@ -2,7 +2,7 @@
 
 Chummer6 is the human guide to the next Chummer.
 
-It exists because the real program is already split across multiple repos, active previews, and a canonical design repo. That is powerful, but it is also a lot to throw at someone who just wants the lay of the land.
+It exists because the real program is already split across multiple repos, active previews, and one canonical blueprint repo. That is powerful, but it is also a lot to dump on someone who just wants the lay of the land.
 
 ## The short version
 
@@ -21,35 +21,30 @@ This repo gives you the plain-language version of the program:
 - what the main parts are
 - what is happening now
 - what ideas are parked in the horizon
+- and, when necessary, a gentle roast of the dev who shipped something weird
 
 ## Who this helps
 
 - curious newcomers
 - returning Chummer users
-- people following the split program
 - contributors who want the lay of the land before diving into the heavy stuff
+- test dummies brave enough to click the POC shelf
+
+## What it intentionally does not do
+
+Chummer6 is not the blueprint room, not a code repo, and not a place that gets to declare what the software must do next.
+
+It is the visitor center. The map on the wall. The place you walk through before you wander deeper into the arcology.
+
+And yes: if the dev does something particularly cursed, the guide is allowed to make fun of them a little.
 
 ## How to use it
 
-If you want the quick orientation, start with [Start Here](START_HERE.md).
-If you want the current phase, go to [NOW/current-status.md](NOW/current-status.md).
-If you want the big future ideas, go to [HORIZONS/README.md](HORIZONS/README.md).
-
-## What Chummer6 does not do
-
-Chummer6 is intentionally **not**:
-
-- the canonical design source
-- a coding repo
-- a queue source
-- a contract source
-- a milestone source
-- a worker mirror
-
-It is the visitor center, not the engine room.
-
+If you want the quick orientation, start with [Start Here](START_HERE.md).  
+If you want the current shape, go to [NOW/current-status.md](NOW/current-status.md).  
+If you want the weird future stuff, go to [HORIZONS/README.md](HORIZONS/README.md).
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design, latest public status_  
+_Derived from: chummer6-design, current public shape_  
 _Canonical source: chummer6-design_

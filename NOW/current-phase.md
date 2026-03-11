@@ -2,7 +2,7 @@
 
 The current phase is foundation work, not fireworks.
 
-In plain language: the team is trying to make the split **true**, not just visible.
+In plain language: the team is trying to make the split **real**, not just visible.
 
 ## The focus right now
 
@@ -14,12 +14,11 @@ In plain language: the team is trying to make the split **true**, not just visib
 
 ## Why that matters
 
-This is the work that makes later “wow” ideas cheap instead of chaotic.
+This is the work that makes later wow-ideas cheap instead of chaotic.
 
-Until the truth layer is clean, every future capability would be built on sand.
-
+No neon spoiler matters if the frame is still loose.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design VISION, chummer6-design README, latest public status_  
+_Derived from: chummer6-design vision, current public shape_  
 _Canonical source: chummer6-design_

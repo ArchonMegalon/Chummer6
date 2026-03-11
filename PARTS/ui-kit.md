@@ -1,37 +1,36 @@
 # UI Kit
 
-**Shared visual primitives.**
+**Shared chrome, themes, and visual primitives.**
 
-UI kit is the design vocabulary: tokens, themes, shell chrome, badges, banners, and accessibility-friendly building blocks that other heads should consume instead of recreating.
+        UI Kit is the visual vocabulary: tokens, themes, shell chrome, badges, banners, and accessibility-friendly primitives that the other heads should consume instead of rebuilding with duct tape and mood swings.
 
-## Why you should care
+        ## Why you should care
 
-If the split is going to feel coherent instead of stitched together, this repo quietly does a lot of the heavy lifting.
+        This is how the split becomes coherent instead of looking like seven gangs met in a parking lot.
 
-## What it owns
+        ## What it owns
 
-- tokens and themes
+        - tokens and themes
 - shared chrome and accessibility primitives
-- UI-only preview/gallery surfaces
+- UI-only preview and gallery surfaces
 
-## What it does not own
+        ## What it does not own
 
-- domain DTOs
+        - domain DTOs
 - HTTP clients
 - rules math
 
-## What is happening now
+        ## What is happening now
 
-This repo only becomes real when other repos get smaller because it exists.
+        UI Kit only counts as real when the rest of the codebase gets visibly smaller because it exists.
 
-## Go deeper
+        ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
-
+        - [Program map](README.md)
+        - [Current phase](../NOW/current-phase.md)
+        - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, owning repo README, latest public status_  
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

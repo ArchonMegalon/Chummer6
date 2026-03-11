@@ -2,36 +2,35 @@
 
 **The hosted API and orchestration layer.**
 
-Run services is the protected backend seam: identity, relay, approvals, memory, AI orchestration, and the play APIs that should eventually feel obvious and boring.
+        Run Services is the network backbone: identity, relay, approvals, memory, hosted play APIs, previews, and the clever server-side machinery that should eventually feel completely unremarkable.
 
-## Why you should care
+        ## Why you should care
 
-This is where the system grows a backbone on the network side: not flashy, but vital.
+        When Chummer needs to coordinate, publish, preview, or synchronize, this is where the adult supervision lives.
 
-## What it owns
+        ## What it owns
 
-- identity, relay, approvals, and memory
-- AI orchestration and hosted play APIs
-- preview/apply style hosted workflows
+        - identity, relay, approvals, and memory
+- hosted play APIs and orchestration
+- preview/apply/rollback style server workflows
 
-## What it does not own
+        ## What it does not own
 
-- engine truth
-- long-term player shell ownership
+        - engine math truth
+- the long-term play shell
 - render-only media execution
 
-## What is happening now
+        ## What is happening now
 
-This repo has carried a lot of transitional mass. The job now is to shrink it into a clean hosted boundary and stop letting it impersonate everything else.
+        The mission is shrink-to-fit: keep the hosted boundary sharp and stop letting it impersonate every other part of the program.
 
-## Go deeper
+        ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
-
+        - [Program map](README.md)
+        - [Current phase](../NOW/current-phase.md)
+        - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, owning repo README, latest public status_  
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

@@ -2,7 +2,7 @@
 
 This page is the map legend.
 
-Chummer6 is here to explain the program clearly. It is **not** allowed to become a second source of truth.
+Chummer6 is here to explain the program clearly. It is not allowed to become a second blueprint.
 
 ## Start here when you want more than the tour
 
@@ -20,9 +20,8 @@ Chummer6 is here to explain the program clearly. It is **not** allowed to become
 
 Fix Chummer6 first.  
 Do **not** “correct” the blueprint because the visitor guide got ahead of itself.
-
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design scope rules, latest public status_  
+_Derived from: chummer6-design scope rules, current public shape_  
 _Canonical source: chummer6-design_

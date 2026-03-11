@@ -1,36 +1,45 @@
-# Ghostwire
+# GHOSTWIRE
+
+![GHOSTWIRE banner](../assets/horizons/ghostwire.svg)
 
 **Replay a run like a forensic sim.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Ghostwire is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+If nobody can replay the action history, every rules dispute becomes a memory contest with worse lighting.
+
+## The use case
+
+You scrub through a run, see event echoes and state changes, and figure out which move actually tripped the alarms before the shouting starts.
 
 ## What is the idea?
-Replay a run like a forensic sim.
+
+GHOSTWIRE is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-Campaigns create a lot of state and a lot of questions. Ghostwire would make those replays inspectable instead of mystical.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+After a chaotic session, everybody remembers events differently and everybody suddenly becomes a professional liar.
 
-## What foundations it needs first
-- runtime stack truth
-- session authority
-- event history
+## Foundations first
+
+- session authority and event history
 - evidence labeling
+- replayable receipts
+- clean sync seams
 
-## Which repos it would touch later
-- `mobile`
-- `hub`
+## Which parts would it touch later?
+
+- `play`
+- `run-services`
 - `design`
 
 ## Why it waits
-The platform still needs truth and seam cleanup before a theme-heavy layer like this is safe to build.
 
+Because replay only works if the session/event model is first-class instead of implied.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

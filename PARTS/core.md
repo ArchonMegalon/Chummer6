@@ -2,36 +2,35 @@
 
 **The deterministic rules engine.**
 
-If Chummer is going to stay trustworthy, this is where that trust starts. Core owns the engine truth, the reducer logic, and the contract line that everything else should eventually consume instead of copying.
+        Core is where the numbers stop bluffing. It owns the engine behavior, the reducer logic, and the boringly reliable parts that let the rest of Chummer stop arguing about what a rule actually means.
 
-## Why you should care
+        ## Why you should care
 
-Core is where the numbers have to stay honest. If this layer drifts, every shiny higher layer becomes harder to trust.
+        When a dice pool feels wrong or a result needs explaining, this is the part that should be able to say exactly why.
 
-## What it owns
+        ## What it owns
 
-- engine runtime and reducer truth
-- explain canon and deterministic behavior
-- engine-facing contracts
+        - engine runtime and reducer truth
+- explain receipts and deterministic evaluation
+- engine-facing shared interfaces
 
-## What it does not own
+        ## What it does not own
 
-- hosted orchestration
-- play shell ownership
-- render execution
+        - the hosted service layer
+- the at-the-table shell
+- render-only media work
 
-## What is happening now
+        ## What is happening now
 
-Core is still carrying some transitional weight. The job now is purification: shrink it until it unmistakably means engine truth and little else.
+        The current mission is purification: keep the engine mean, lean, and predictable until it obviously means engine truth and not a junk drawer.
 
-## Go deeper
+        ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
-
+        - [Program map](README.md)
+        - [Current phase](../NOW/current-phase.md)
+        - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, owning repo README, latest public status_  
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

@@ -2,36 +2,35 @@
 
 **The workbench and big-screen UX.**
 
-Presentation is where the heavy browser/desktop authoring experience lives: inspectors, builders, workbench-side flows, and the surfaces for people who want to look deeply under the hood.
+        Presentation is where the heavy chrome lives: inspectors, builders, deep views, and the workbench-side experience for people who like staring at their gear until the gears stare back.
 
-## Why you should care
+        ## Why you should care
 
-This is the place for people who want to poke, inspect, and build. It is the workbench, not the at-the-table shell.
+        This is the part that makes Chummer feel inspectable instead of mystical.
 
-## What it owns
+        ## What it owns
 
-- workbench/browser/desktop UX
+        - browser and desktop workbench UX
 - inspectors, builders, and shared presentation seams
-- workbench-side launch and deep-link behavior
+- big-screen authoring and review flows
 
-## What it does not own
+        ## What it does not own
 
-- the shipped play shell
-- provider logic
-- render-only media work
+        - the player-first play shell
+- hosted orchestration
+- render-only asset jobs
 
-## What is happening now
+        ## What is happening now
 
-Presentation is already closer to the target story than some other repos. The next job is to keep it honest and delete ownership that really belongs to play or UI kit.
+        The cleanup job here is deletion: keep workbench power, shed any lingering claims over play-first or hosted concerns.
 
-## Go deeper
+        ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
-
+        - [Program map](README.md)
+        - [Current phase](../NOW/current-phase.md)
+        - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, owning repo README, latest public status_  
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

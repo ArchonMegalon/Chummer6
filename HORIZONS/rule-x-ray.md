@@ -1,35 +1,44 @@
-# Rule X Ray
+# RULE X-RAY
+
+![RULE X-RAY banner](../assets/horizons/rule-x-ray.svg)
 
 **Click any number and see where it came from.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Rule X Ray is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+Shadowrun math feels like witchcraft until the machine can point at every buff, wound, penalty, and bad life choice in the stack.
+
+## The use case
+
+A dice pool looks wrong, you crack open the x-ray view, and the whole chain of causes lights up without hand-waving.
 
 ## What is the idea?
-Click any number and see where it came from.
+
+RULE X-RAY is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-Opaque math is the fastest way to lose trust in a rules tool.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Opaque math is one of the fastest ways for a rules tool to lose trust at the table.
 
-## What foundations it needs first
+## Foundations first
+
 - explain canon
 - provenance receipts
 - deterministic engine evaluation
 
-## Which repos it would touch later
+## Which parts would it touch later?
+
 - `core`
-- `ui`
+- `presentation`
 - `design`
 
 ## Why it waits
-Explain/provenance alignment is still active foundational work right now.
 
+Because the explain/provenance line still needs to finish becoming boringly canonical first.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

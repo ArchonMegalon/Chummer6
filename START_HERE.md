@@ -4,7 +4,7 @@ Welcome to Chummer6.
 
 If you just landed here and are wondering why one Shadowrun tool suddenly seems to have a small constellation of repos around it, you are in the right place.
 
-Chummer is growing from one legacy app into a set of focused parts: a rules engine, a workbench, a play shell, hosted services, a shared UI layer, an artifact registry, a media pipeline, and a design/control layer around all of that.
+Chummer is growing from one legacy app into a set of focused parts: a rules engine, a workbench, a play shell, hosted services, a shared UI layer, an artifact registry, a media pipeline, and a blueprint repo that keeps the long game straight.
 
 You do **not** need to memorize that on day one.
 
@@ -29,9 +29,8 @@ Go to [Horizons](HORIZONS/README.md).
 ## If you want the blueprint
 
 Go to [Where to go deeper](WHERE_TO_GO_DEEPER.md).
-
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design README, latest public status, repo READMEs_  
+_Derived from: chummer6-design README, public repo READMEs_  
 _Canonical source: chummer6-design_

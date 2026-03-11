@@ -1,36 +1,45 @@
-# Heat Web
+# HEAT WEB
+
+![HEAT WEB banner](../assets/horizons/heat-web.svg)
 
 **Campaign consequences as a living graph.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Heat Web is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+Players always assume yesterday’s mess vanished into the rain unless the system remembers exactly who they annoyed.
+
+## The use case
+
+A bad decision sparks faction pressure, social fallout, and delayed consequences that show up as a readable network instead of GM memory homework.
 
 ## What is the idea?
-Campaign consequences as a living graph.
+
+HEAT WEB is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-Sessions leave social fallout, faction consequences, and pressure trails that would be powerful to visualize.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Campaign fallout is easy to forget, hard to track, and exactly the kind of thing that gets interesting once it starts sticking.
 
-## What foundations it needs first
+## Foundations first
+
 - grounded event streams
 - durable evidence receipts
-- publishable state artifacts
+- stable artifact publication
 
-## Which repos it would touch later
-- `hub`
-- `mobile`
-- `ui`
+## Which parts would it touch later?
+
+- `run-services`
+- `play`
+- `presentation`
 - `design`
 
 ## Why it waits
-The current program still needs its base session and explain seams stabilized first.
 
+Because consequence graphs are downstream of good event/evidence plumbing, not a substitute for it.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

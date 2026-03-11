@@ -1,10 +1,10 @@
 # Chummer6
 
-![Chummer6 hero banner](assets/chummer6-hero.svg)
+![Chummer6 hero banner](assets/hero/chummer6-hero.svg)
 
 > **Same shadows. Bigger future. Less confusion.**
 >
-> Chummer6 is the readable guide to the next Chummer: what it is becoming, how the parts fit together, what is happening right now, and which wild future ideas are still parked in the garage.
+> Chummer6 is the readable guide to the next Chummer: what it is becoming, how the parts fit together, what is happening right now, and which future ideas are still parked in the garage.
 
 No, this is not the code repo.  
 No, you do not need a flowchart and three espressos to understand the program.  
@@ -33,22 +33,22 @@ Think of it like this:
 
 ## What’s happening now
 
-![Current status strip](assets/status-strip.svg)
+![Current status strip](assets/diagrams/status-strip.svg)
 
-Right now the team is doing foundation work, not bolting neon spoilers onto half-built engines.
+Right now the crew is doing foundation work, not bolting neon spoilers onto half-built engines.
 
 Current focus:
 - clean up the shared rules and interfaces
 - finish the play/session boundary
 - make the shared UI kit real
 - finish registry and media splits
-- keep preview surfaces honestly labeled until they become the real thing
+- keep public previews honestly labeled until they become the real thing
 
 Read more: [Current phase](NOW/current-phase.md)
 
 ## Meet the parts
 
-![Program map](assets/program-map.svg)
+![Program map](assets/diagrams/program-map.svg)
 
 | Part | What it does | Read more |
 | --- | --- | --- |
@@ -59,15 +59,15 @@ Read more: [Current phase](NOW/current-phase.md)
 | UI kit | Shared components, themes, and visual primitives | [ui-kit](PARTS/ui-kit.md) |
 | Hub registry | Artifacts, publication, installs, compatibility | [hub-registry](PARTS/hub-registry.md) |
 | Media factory | Render jobs, previews, and asset lifecycle | [media-factory](PARTS/media-factory.md) |
-| Design | Canonical design front door | [design](PARTS/design.md) |
+| Design | The long-range blueprint room | [design](PARTS/design.md) |
 
 ## Horizon ideas
 
-Some ideas are too fun not to write down.  
+Some ideas are too fun not to document.  
 They are real possibilities, but they are **not active build commitments**.
 
-- [Karma Forge](HORIZONS/karma-forge.md) — personalized rule stacks without fork chaos
-- [NEXUS-PAN](HORIZONS/nexus-pan.md) — a live synced table instead of isolated character files
+- [Karma Forge](HORIZONS/karma-forge.md) — personalized rules without fork chaos
+- [NEXUS-PAN](HORIZONS/nexus-pan.md) — a live synced table instead of lonely files
 - [ALICE](HORIZONS/alice.md) — stress-test a build before the run
 - [JACKPOINT](HORIZONS/jackpoint.md) — turn grounded data into dossiers and briefings
 - [GHOSTWIRE](HORIZONS/ghostwire.md) — replay a run like a forensic sim
@@ -77,11 +77,11 @@ See all: [Horizon index](HORIZONS/README.md)
 
 ## What you can do
 
-If this repo helped you get your bearings, here is how to help back:
+If this repo helped you get your bearings, here’s how to help back:
 
 - **Give Chummer6 a star** if this guide saved you from digging through half the Matrix just to understand what is going on.
 - **Be my test dummy and install the software.**
-- **Grab the latest POC build from [Releases](../../releases).**
+- **Grab the latest POC build from [Releases](https://github.com/ArchonMegalon/Chummer6/releases)** when one is available.
 - **Seriously: never trust software. Never trust a dev.**
 - **If a build glitches, breaks, crashes, or does something cursed, tell me exactly how you got there.**
 - **If this repo is stale, confusing, or reads like corp training material, call it out.**
@@ -94,13 +94,13 @@ In other words: kick the tires, break the thing, and tell me where the smoke cam
 
 ## POC shelf
 
-![POC warning banner](assets/poc-warning.svg)
+![POC warning banner](assets/hero/poc-warning.svg)
 
 If there is a fresh proof-of-concept build ready for brave idiots and helpful test dummies, the shelf is here:
 
-- [Chummer6 Releases](../../releases)
+- [Chummer6 Releases](https://github.com/ArchonMegalon/Chummer6/releases)
 
-The binaries themselves come from the active Chummer codebase, not from this guide repo.
+The binaries themselves come from the active Chummer6 codebase, not from this guide repo.
 
 ## Where to go deeper
 
@@ -109,9 +109,8 @@ Chummer6 explains. It does not ship code and it does not replace the blueprint.
 - The long-range plan lives in `chummer6-design`
 - The software itself lives in the owning code repos
 - Chummer6 is the friendly guide for humans
-
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design, latest public status, owning repo READMEs_  
+_Derived from: chummer6-design, public repo READMEs, current public shape_  
 _Canonical source: chummer6-design_

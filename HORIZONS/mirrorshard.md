@@ -1,35 +1,44 @@
-# Mirrorshard
+# MIRRORSHARD
 
-**Compare alternate versions of a character or run.**
+![MIRRORSHARD banner](../assets/horizons/mirrorshard.svg)
+
+**Compare alternate character futures before you commit.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Mirrorshard is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+Everyone says they want meaningful choices. What they usually mean is: let me compare both mistakes before I marry one.
+
+## The use case
+
+You compare two alternate versions of a build or run plan side by side, with a readable diff instead of crossed fingers.
 
 ## What is the idea?
-Compare alternate versions of a character or run.
+
+MIRRORSHARD is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-Change is easier to trust when you can compare before and after without losing provenance.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Big choices are easier to trust when you can compare forks without turning the program into a pile of permanent branches.
 
-## What foundations it needs first
+## Foundations first
+
 - preview/apply/rollback receipts
 - comparison-ready provenance
 - migration previews
 
-## Which repos it would touch later
-- `ui`
-- `hub`
+## Which parts would it touch later?
+
+- `presentation`
+- `run-services`
 - `design`
 
 ## Why it waits
-Comparison tooling depends on stable contracts and explain receipts first.
 
+Because comparison tooling depends on clean receipts, and those receipts are still being forged.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

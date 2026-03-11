@@ -7,8 +7,6 @@ They are **not** active build commitments.
 
 Think of this folder as the garage: some of these projects may become real later, but none of them are the thing the team is racing today.
 
-Start with whichever one makes you grin first.
-
 ## Pick a future rabbit hole
 
 - [Karma Forge](karma-forge.md) — personalized rule stacks without fork chaos
@@ -21,12 +19,12 @@ Start with whichever one makes you grin first.
 - [HEAT WEB](heat-web.md) — campaign consequences as a living graph
 - [RUN PASSPORT](run-passport.md) — move a character across rule environments
 - [THREADCUTTER](threadcutter.md) — conflict analysis for overlay packs
+- [BLACKBOX LOADOUT](blackbox-loadout.md) — the idiot-check before the run
 
 ## Important note
 
 If you want canonical design or actual implementation truth, this folder is not that.  
 For that, go to [Where to go deeper](../WHERE_TO_GO_DEEPER.md).
-
 ---
 
 _Last synced: 2026-03-11_  

@@ -1,37 +1,46 @@
-# Nexus Pan
+# NEXUS-PAN
 
-**A live synced table instead of isolated character files.**
+![NEXUS-PAN banner](../assets/horizons/nexus-pan.svg)
+
+**A live synced table instead of lonely files.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Nexus Pan is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+A folder full of character files is not a live table. It is a very quiet argument waiting to happen.
+
+## The use case
+
+The GM, players, and devices all see the same session state, even if a phone dips offline for a minute and then claws its way back into the run.
 
 ## What is the idea?
-A live synced table instead of isolated character files.
+
+NEXUS-PAN is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-Sessions want shared state, recoverable authority, and clean handoff between host, players, and devices.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Sessions want shared authority, resilient sync, and live state that survives dodgy networks and chaotic tables.
 
-## What foundations it needs first
+## Foundations first
+
 - session authority profile
 - append-only session events
-- local-first sync
-- play API canon
+- local-first sync and replay
+- clean play API seams
 
-## Which repos it would touch later
-- `mobile`
-- `hub`
+## Which parts would it touch later?
+
+- `play`
+- `run-services`
 - `core`
 - `design`
 
 ## Why it waits
-The program still needs the real play split and session event canon before this becomes more than a good idea.
 
+Because the play split still needs its event-log, cache, and sync foundations to become real before the dream gets chrome.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

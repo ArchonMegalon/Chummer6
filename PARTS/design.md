@@ -1,37 +1,36 @@
 # Design
 
-**Canonical cross-repo design truth.**
+**The canonical blueprint room.**
 
-Design is where the grown-up version of the plan lives: ownership, phases, milestone truth, contract canon, review guidance, and the split story that the rest of the program should eventually stop fighting.
+        Design is the long-range map: ownership, milestones, split order, guidance, mirror rules, and the grown-up version of where the program is actually trying to go.
 
-## Why you should care
+        ## Why you should care
 
-When the rest of the program argues about what is supposed to be true, this is where the answer is supposed to come from.
+        When the rest of the program argues about what is supposed to be true, this is where the answer should come from.
 
-## What it owns
+        ## What it owns
 
-- cross-repo architecture and ownership
-- milestone and phase framing
+        - cross-repo architecture and ownership
+- milestone framing and split order
 - review guidance and mirror rules
 
-## What it does not own
+        ## What it does not own
 
-- implementation ownership
-- dispatchable work queues
-- runtime authority
+        - implementation
+- dispatchable coding work
+- human-only storytelling
 
-## What is happening now
+        ## What is happening now
 
-When Chummer6 sounds friendly, design is why it can still stay honest.
+        The active design work is making the blueprint current enough that the rest of the program can stop free-styling.
 
-## Go deeper
+        ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
-
+        - [Program map](README.md)
+        - [Current phase](../NOW/current-phase.md)
+        - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design ownership matrix, owning repo README, latest public status_  
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

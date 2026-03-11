@@ -1,35 +1,44 @@
-# Blackbox Loadout
+# BLACKBOX LOADOUT
 
-**Portable rules-and-state bundles.**
+![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.svg)
+
+**The idiot-check before the run.**
 
 _Status: Horizon only — future idea, not active build work._
 
-Blackbox Loadout is one of the big future rabbit holes: the kind of idea that makes people lean in, grin, and immediately start asking what it would take to make it real.
+## The brutal truth
+
+People do not die because they forgot courage. They die because they forgot ammo, rope, and basic self-respect.
+
+## The use case
+
+You hit run-ready, and the system points at the exact gear, resources, and prep holes most likely to get you folded in the first scene.
 
 ## What is the idea?
-Portable rules-and-state bundles.
+
+BLACKBOX LOADOUT is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
 
 ## What problem does it solve?
-Portable stack/loadout definitions would make setup, restore, and migration more reproducible.
 
-## Why this would be cool
-Because it would make Chummer feel more connected, more inspectable, and more alive without giving up deterministic runtime truth.
+Runner prep fails more often from missing essentials than from heroic intent.
 
-## What foundations it needs first
+## Foundations first
+
 - runtime stack manifests
-- fingerprints
-- migration previews
+- compatibility checks
+- preview receipts
 
-## Which repos it would touch later
-- `mobile`
+## Which parts would it touch later?
+
+- `play`
 - `hub-registry`
 - `design`
 
 ## Why it waits
-The underlying stack and contract model is still incomplete.
 
+Because the stack/loadout model still needs to exist before the repo can shame you with confidence.
 ---
 
 _Last synced: 2026-03-11_  
-_Derived from: chummer6-design horizon guidance, latest public status_  
+_Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_
