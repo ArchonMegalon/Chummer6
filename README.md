@@ -21,9 +21,7 @@ That is the whole reason this repo exists.
 
 ## What Chummer6 is
 
-Chummer6 is the visitor center for the next Chummer.
-
-It explains the split in plain language, gives you the lay of the land, and helps you follow progress without needing to spelunk through every repo.
+Chummer6 is the friendly guide to the next Chummer, built for curious chummers who want the lay of the land without spelunking through every repo.
 
 Think of it like this:
 
@@ -31,17 +29,28 @@ Think of it like this:
 - the code repos are the workshops
 - **Chummer6 is the map on the wall**
 
+## Why this is worth watching
+
+Chummer6 should make the project feel exciting, legible, and worth following without making readers wade through internal machinery.
+
+People who care about Shadowrun tools should probably care because:
+
+- Lua-scripted rules make Chummer more moddable without turning every table into a code fork.
+- The project is aiming to support Shadowrun 4, 5, and 6 instead of pretending the Sixth World started yesterday.
+- Play is being built local-first, so the table does not fall apart the moment the network gets cute.
+- Explain and provenance work means the machine should eventually be able to show its receipts instead of shrugging at your dice pool.
+
 ## What’s happening now
 
 ![Current status strip](assets/diagrams/status-strip.png)
 
 Right now the crew is doing foundation work, not bolting neon spoilers onto half-built engines.
+The future is exciting, but the current job is still foundations, cleanup, and making the split real.
 
 Current focus:
 - clean up the shared rules and interfaces
 - finish the play/session boundary
-- make the shared UI kit real
-- finish registry and media splits
+- make the UI kit, registry, and media seams real
 - keep public previews honestly labeled until they become the real thing
 
 Read more: [Current phase](NOW/current-phase.md)
@@ -63,8 +72,7 @@ Read more: [Current phase](NOW/current-phase.md)
 
 ## Horizon ideas
 
-Some ideas are too fun not to document.  
-They are real possibilities, but they are **not active build commitments**.
+Some ideas are too fun not to document. They are real possibilities, but they are not active build commitments.
 
 - [Karma Forge](HORIZONS/karma-forge.md) — personalized rules without fork chaos
 - [NEXUS-PAN](HORIZONS/nexus-pan.md) — a live synced table instead of lonely files
