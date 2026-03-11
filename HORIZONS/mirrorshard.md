@@ -2,21 +2,21 @@
 
 ![MIRRORSHARD banner](../assets/horizons/mirrorshard.png)
 
-**Compare alternate character futures before you commit.**
+**Compare alternate character futures before you commit. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Compare alternate character futures before you commit. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Compare alternate character futures before you commit. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
-Everyone says they want meaningful choices. What they usually mean is: let me compare both mistakes before I marry one.
+Everyone says they want meaningful choices. What they usually mean is: let me compare both mistakes before I marry one. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
 
 ## The use case
 
-You compare two alternate versions of a build or run plan side by side, with a readable diff instead of crossed fingers.
+You compare two alternate versions of a build or run plan side by side, with a readable diff instead of crossed fingers. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
 
 ## What is the idea?
 

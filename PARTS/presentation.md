@@ -2,11 +2,11 @@
 
 **The workbench and big-screen UX.**
 
-        Presentation is where the heavy chrome lives: inspectors, builders, deep views, and the workbench-side experience for people who like staring at their gear until the gears stare back.
+        Presentation is the workbench and big-screen ux when the chrome is working and the excuses are not. Presentation is where the heavy chrome lives: inspectors, builders, deep views, and the workbench-side experience for people who like staring at their gear until the gears stare back.
 
         ## Why you should care
 
-        This is the part that makes Chummer feel inspectable instead of mystical.
+        This is the part that makes Chummer feel inspectable instead of mystical. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
 
         ## What it owns
 
@@ -22,7 +22,7 @@
 
         ## What is happening now
 
-        The cleanup job here is deletion: keep workbench power, shed any lingering claims over play-first or hosted concerns.
+        The cleanup job here is deletion: keep workbench power, shed any lingering claims over play-first or hosted concerns. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
 
         ## Go deeper
 

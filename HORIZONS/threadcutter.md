@@ -2,21 +2,21 @@
 
 ![THREADCUTTER banner](../assets/horizons/threadcutter.png)
 
-**Conflict analysis for overlay packs and runtime changes.**
+**Conflict analysis for overlay packs and runtime changes. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Conflict analysis for overlay packs and runtime changes. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Conflict analysis for overlay packs and runtime changes. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
-Every cool customization story eventually ends with two mods both insisting they are the chosen one.
+Every cool customization story eventually ends with two mods both insisting they are the chosen one. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
 
 ## The use case
 
-You get a conflict report before two overlays collide in production and turn your rule stack into abstract art.
+You get a conflict report before two overlays collide in production and turn your rule stack into abstract art. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
 
 ## What is the idea?
 

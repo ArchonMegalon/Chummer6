@@ -2,11 +2,11 @@
 
 **The part you feel at the table.**
 
-        Play is the shell for players and GMs during actual sessions: mobile/PWA use, local-first state, runtime bundles, sync, replay, and the moment where the tool stops being prep and starts being live play.
+        Play is the part you feel at the table when the chrome is working and the excuses are not. Play is the shell for players and GMs during actual sessions: mobile/PWA use, local-first state, runtime bundles, sync, replay, and the moment where the tool stops being prep and starts being live play.
 
         ## Why you should care
 
-        If Chummer is going to become more than a character builder, this is the jump.
+        If Chummer is going to become more than a character builder, this is the jump. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
 
         ## What it owns
 
@@ -23,7 +23,7 @@
 
         ## What is happening now
 
-        This is still the next big seam to make real. The current work is less about flash and more about event logs, runtime cache, offline queueing, and sync.
+        This is still the next big seam to make real. The current work is less about flash and more about event logs, runtime cache, offline queueing, and sync. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
 
         ## Go deeper
 

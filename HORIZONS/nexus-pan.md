@@ -2,21 +2,21 @@
 
 ![NEXUS-PAN banner](../assets/horizons/nexus-pan.png)
 
-**A live synced table instead of lonely files.**
+**A live synced table instead of lonely files. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-A live synced table instead of lonely files. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+A live synced table instead of lonely files. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
-A folder full of character files is not a live table. It is a very quiet argument waiting to happen.
+A folder full of character files is not a live table. It is a very quiet argument waiting to happen. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
 
 ## The use case
 
-The GM, players, and devices all see the same session state, even if a phone dips offline for a minute and then claws its way back into the run.
+The GM, players, and devices all see the same session state, even if a phone dips offline for a minute and then claws its way back into the run. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
 
 ## What is the idea?
 

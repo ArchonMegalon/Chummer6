@@ -2,11 +2,11 @@
 
 **The hosted API and orchestration layer.**
 
-        Run Services is the network backbone: identity, relay, approvals, memory, hosted play APIs, previews, and the clever server-side machinery that should eventually feel completely unremarkable.
+        Run Services is the hosted api and orchestration layer when the chrome is working and the excuses are not. Run Services is the network backbone: identity, relay, approvals, memory, hosted play APIs, previews, and the clever server-side machinery that should eventually feel completely unremarkable.
 
         ## Why you should care
 
-        When Chummer needs to coordinate, publish, preview, or synchronize, this is where the adult supervision lives.
+        When Chummer needs to coordinate, publish, preview, or synchronize, this is where the adult supervision lives. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
 
         ## What it owns
 
@@ -22,7 +22,7 @@
 
         ## What is happening now
 
-        The mission is shrink-to-fit: keep the hosted boundary sharp and stop letting it impersonate every other part of the program.
+        The mission is shrink-to-fit: keep the hosted boundary sharp and stop letting it impersonate every other part of the program. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
 
         ## Go deeper
 

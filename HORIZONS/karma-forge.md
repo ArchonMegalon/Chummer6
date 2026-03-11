@@ -2,21 +2,21 @@
 
 ![Karma Forge banner](../assets/horizons/karma-forge.png)
 
-**Personalized rules without forked-code chaos.**
+**Personalized rules without forked-code chaos. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Personalized rules without forked-code chaos. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Personalized rules without forked-code chaos. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
-People love customizing the rules right up until those rules stop agreeing with each other and nobody can explain the damage calculation.
+People love customizing the rules right up until those rules stop agreeing with each other and nobody can explain the damage calculation. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
 
 ## The use case
 
-You want a custom rules layer for your table. Instead of forking the app and praying, you slot in a controlled overlay stack that can be inspected, explained, previewed, and rolled back.
+You want a custom rules layer for your table. Instead of forking the app and praying, you slot in a controlled overlay stack that can be inspected, explained, previewed, and rolled back. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
 
 ## What is the idea?
 

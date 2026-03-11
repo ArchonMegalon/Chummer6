@@ -2,21 +2,21 @@
 
 ![ALICE banner](../assets/horizons/alice.png)
 
-**Stress-test your build before the run.**
+**Stress-test your build before the run. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Stress-test your build before the run. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Stress-test your build before the run. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
-Everybody thinks their build is invincible until a simulation calmly explains that they die in round two because they brought swagger instead of resistance dice.
+Everybody thinks their build is invincible until a simulation calmly explains that they die in round two because they brought swagger instead of resistance dice. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
 
 ## The use case
 
-You hit test drive, run a deterministic lab harness, and get a replayable answer about why your build survives, folds, or explodes.
+You hit test drive, run a deterministic lab harness, and get a replayable answer about why your build survives, folds, or explodes. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
 
 ## What is the idea?
 

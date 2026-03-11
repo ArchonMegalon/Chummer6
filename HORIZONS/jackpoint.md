@@ -2,21 +2,21 @@
 
 ![JACKPOINT banner](../assets/horizons/jackpoint.png)
 
-**Turn grounded data into dossiers and briefings.**
+**Turn grounded data into dossiers and briefings. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Turn grounded data into dossiers and briefings. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Turn grounded data into dossiers and briefings. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
-A stylish dossier is great right up until it starts inventing facts with the confidence of a corp spokesman.
+A stylish dossier is great right up until it starts inventing facts with the confidence of a corp spokesman. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
 
 ## The use case
 
-You collect grounded character data, session notes, and receipts, then turn them into dossiers and briefings that can still explain where the facts came from.
+You collect grounded character data, session notes, and receipts, then turn them into dossiers and briefings that can still explain where the facts came from. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
 
 ## What is the idea?
 

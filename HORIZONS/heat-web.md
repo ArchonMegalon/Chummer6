@@ -2,21 +2,21 @@
 
 ![HEAT WEB banner](../assets/horizons/heat-web.png)
 
-**Campaign consequences as a living graph.**
+**Campaign consequences as a living graph. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Campaign consequences as a living graph. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Campaign consequences as a living graph. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
-Players always assume yesterday’s mess vanished into the rain unless the system remembers exactly who they annoyed.
+Players always assume yesterday’s mess vanished into the rain unless the system remembers exactly who they annoyed. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
 
 ## The use case
 
-A bad decision sparks faction pressure, social fallout, and delayed consequences that show up as a readable network instead of GM memory homework.
+A bad decision sparks faction pressure, social fallout, and delayed consequences that show up as a readable network instead of GM memory homework. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
 
 ## What is the idea?
 

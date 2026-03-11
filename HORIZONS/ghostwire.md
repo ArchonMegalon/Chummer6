@@ -2,21 +2,21 @@
 
 ![GHOSTWIRE banner](../assets/horizons/ghostwire.png)
 
-**Replay a run like a forensic sim.**
+**Replay a run like a forensic sim. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Replay a run like a forensic sim. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Replay a run like a forensic sim. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
 
 ## The brutal truth
 
-If nobody can replay the action history, every rules dispute becomes a memory contest with worse lighting.
+If nobody can replay the action history, every rules dispute becomes a memory contest with worse lighting. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
 
 ## The use case
 
-You scrub through a run, see event echoes and state changes, and figure out which move actually tripped the alarms before the shouting starts.
+You scrub through a run, see event echoes and state changes, and figure out which move actually tripped the alarms before the shouting starts. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
 
 ## What is the idea?
 

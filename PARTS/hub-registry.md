@@ -2,11 +2,11 @@
 
 **Artifacts, publication, installs, compatibility.**
 
-        Hub Registry is the artifact brain: what exists, what is published, what can be installed, and which bundles, previews, or compatibility signals belong on the record.
+        Hub Registry is artifacts, publication, installs, compatibility when the chrome is working and the excuses are not. Hub Registry is the artifact brain: what exists, what is published, what can be installed, and which bundles, previews, or compatibility signals belong on the record.
 
         ## Why you should care
 
-        Without this, the growing pile of artifacts turns into an unlabeled warehouse full of cursed boxes.
+        Without this, the growing pile of artifacts turns into an unlabeled warehouse full of cursed boxes. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
 
         ## What it owns
 
@@ -22,7 +22,7 @@
 
         ## What is happening now
 
-        This seam is narrow on purpose. The work is consumer migration and cleanup, not feature sprawl.
+        This seam is narrow on purpose. The work is consumer migration and cleanup, not feature sprawl. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
 
         ## Go deeper
 
