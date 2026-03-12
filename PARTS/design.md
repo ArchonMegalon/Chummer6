@@ -4,11 +4,11 @@
 
         **The canonical blueprint room.**
 
-        Design is the crew’s canonical run-board: who owns what, what unlocks next, and which path is real when opinions start spraying lead. It’s the long-game map that keeps the system sharp instead of improvised.
+        Design is the canonical blueprint room: the place that says what is actually true when teams start free-styling.
 
         ## Why you should care
 
-        When teams disagree on rules, structure, or direction, Design is the tie-breaker with receipts. Clear ownership, split order, and mirror rules are what keep outcomes deterministic, explainable, and consistent across how people actually play.
+        Players and GMs get better tools when seams are clear: engine truth, UI surface, mobile shell, and ruleset evolution all aligned on one map.
 
         ## What it owns
 
@@ -24,7 +24,7 @@
 
         ## What is happening now
 
-        Right now, the mission is keeping this blueprint fresh enough that nobody has to invent truth mid-sprint. Less architecture theater, more one trusted map the whole program can move on.
+        Current work is keeping the blueprint synced with reality so decisions stay auditable, local-first constraints stay intact, and multi-era support is planned on purpose.
 
         ## Go deeper
 

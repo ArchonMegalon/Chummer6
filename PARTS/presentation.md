@@ -4,11 +4,11 @@
 
         **The workbench and big-screen UX.**
 
-        Presentation is the heavy-chrome workbench: big-screen inspectors, builders, and deep views for people who like to pop the hood and check the math. If your loadout looks cursed, this is where you trace it, fix it, and move on.
+        Presentation is the big-screen workbench for people who actually inspect builds. It gives you deep views, fast editors, and clean ways to compare what changed.
 
         ## Why you should care
 
-        Shadowrun crunch gets weird fast. Presentation keeps it inspectable instead of mystical, so you can follow receipts, understand outcomes, and trust what you’re bringing to the table.
+        You should be able to see inside the character machine, not click through chrome and pray. This is where prep gets legible before the run gets loud.
 
         ## What it owns
 
@@ -24,7 +24,7 @@
 
         ## What is happening now
 
-        Current move: tighten scope. Keep the workbench power for prep and review, and drop any lingering overlap with live play or hosted concerns. Less turf creep, more clean command deck energy.
+        Right now it stays in its lane: stronger inspectors and builder flows for desktop/browser, cleaner review loops, and zero cosplay as a hosted layer or player-session shell.
 
         ## Go deeper
 

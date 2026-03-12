@@ -2,12 +2,12 @@
 
 ![Horizons overview banner](../assets/pages/horizons-index.png)
 
-Welcome to the runner garage. This page shows what Chummer6 is testing next, with clear labels so you can tell what is live now and what is still on deck.
+Horizons is the garage shelf of ideas worth stalking, not a fake “coming soon” billboard.
 
 They are here because they are exciting, useful, or strategically important.  
 They are **not** active build commitments.
 
-Why this matters: if you are a player or GM trying to get to the table tonight, you need tools you can trust and use anywhere. Horizons tracks future ideas that aim to make that real, like smoother handoffs between prep and live play, stronger offline-first flows when the signal drops, and clearer rules receipts (a readable proof of how a result was calculated). Nothing here is sold as shipped; it is a transparent look at where the next gains are being stress-tested.
+If you want to see where Chummer6 could get sharper next, this is your stop. You’ll find experiments like clearer rules receipts you can check during play, deeper multi-era handling (yes, including SR4-style paths), tougher Lua rule hooks for weird edge cases, and smoother offline-first session flow. Why it matters: you get a realistic view of future table value without guessing what’s real today.
 
 ## Pick a future rabbit hole
 

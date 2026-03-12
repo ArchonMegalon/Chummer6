@@ -4,11 +4,11 @@
 
         **The deterministic rules engine.**
 
-        Core is where Shadowrun math stops being a bar fight. Same inputs, same outcome, every time, with reducer logic that does not blink when the table gets loud. This is the rules engine truth layer, not a junk drawer for everything else.
+        Core is where Shadowrun math stops bluffing. It takes your inputs, runs the same logic every time, and gives you a ruling you can actually trust.
 
         ## Why you should care
 
-        When a roll looks cursed, Core can show the receipts step by step so players and GMs can see exactly how the result happened. That means fewer vibe-based rulings, faster disputes, and more trust that the crunch is doing what it says on the tin.
+        When the table argues about a dice pool, Core can show the chain: what modifier applied, where it came from, and why the outcome landed there. Less forum-lawyering, more play.
 
         ## What it owns
 
@@ -24,7 +24,7 @@
 
         ## What is happening now
 
-        Right now the mission is purification: keep Core lean, deterministic, and brutally clear about ownership. It owns runtime truth, reducer truth, and engine-facing shared interfaces, while hosted services, table-shell UX, and render-only media stay outside the blast radius.
+        Current focus is sharp and boring in the best way: keep engine behavior deterministic, keep receipts readable, and keep Lua-era edge cases (including SR4 paths) grounded in code, not vibes.
 
         ## Go deeper
 

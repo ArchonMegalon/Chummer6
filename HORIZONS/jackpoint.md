@@ -2,29 +2,29 @@
 
 ![JACKPOINT banner](../assets/horizons/jackpoint.png)
 
-**Turn run chaos into JACKPOINT dossiers that hit like black-ops intel and still show the receipts.**
+**JACKPOINT is your intel dead-drop: dossiers that hit hard without making things up.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Turn run chaos into JACKPOINT dossiers that hit like black-ops intel and still show the receipts.
+It keeps evidence, source class, and approval state visible so your briefing can be stylish and still accountable.
 
 ## The brutal truth
 
-Pretty prose without provenance is just corp-grade spin in a nicer font. If your briefing can’t prove itself, it’s fanfic with a badge.
+Pretty reports that blur fact and fiction are just lies with better typography. Even devs know that trick.
 
 ## The use case
 
-You dump in grounded character files, session fallout, and hard receipts; JACKPOINT forges briefings that cleanly tag what’s verified, what’s speculative, who approved it, and exactly where every claim came from.
+A fixer compiles session notes, character facts, and receipts into a mission brief where every strong claim can point back to provenance.
 
 ## What is the idea?
 
-Turn run chaos into JACKPOINT dossiers that hit like black-ops intel and still show the receipts.
+Build narrative output that reads like real shadow intel while preserving a hard boundary between grounded data and inference.
 
 ## What problem does it solve?
 
-Narrative output gets dangerous fast when nobody can tell the difference between grounded evidence and cool-looking guesswork.
+When nobody can tell what is verified, teams make expensive decisions on vibes dressed as certainty.
 
 ## Foundations first
 
@@ -42,7 +42,7 @@ Narrative output gets dangerous fast when nobody can tell the difference between
 
 ## Why it waits
 
-Because grounded evidence and render boundaries need to settle first. Style without receipts is just prettier confusion.
+Also horizon-watch: richer dossier flow depends on maturing evidence/render boundaries first.
 ---
 
 _Last synced: 2026-03-11_  

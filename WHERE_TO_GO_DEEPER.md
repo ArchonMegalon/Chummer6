@@ -2,9 +2,9 @@
 
 ![Where to go deeper banner](assets/pages/where-to-go-deeper.png)
 
-When a roll looks cursed or a build feels too good to be legal, this is your fast lane to the truth.
+If you want proof, follow the evidence trail: guide first, core truth second, surface behavior third.
 
-This page matters because it saves you time and arguments at the table. It points you to the places that actually answer real questions: where the rules logic is defined (the deterministic engine, meaning the same input always gives the same result), where the receipts live (step-by-step proof of how a result was calculated), and where local-first play is proven (it keeps working on your device even when your signal flatlines). It also shows the split between prep tools and live-session tools, so you know where to plan, where to play, and where to inspect what happened. If you are a player, GM, or tinkerer, this is how you go from “wait, what?” to “okay, verified” in minutes.
+Why it matters: you save time and avoid doc-hunting chaos. Start with the human guide for quick orientation. For authoritative rules behavior, go to core instructions and the core readme. For scripted edge logic, check the Lua rules docs. For era compatibility proof, read the SR4 plugin and multi-era materials directly. For what users actually see and do, use the UI and play readmes across desktop, browser, and mobile. Then validate outcomes using receipts and provenance so you can see both the result and where it came from.
 
 ## Start here when you want more than the tour
 

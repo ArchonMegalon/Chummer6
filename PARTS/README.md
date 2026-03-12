@@ -2,9 +2,9 @@
 
 ![Parts overview banner](../assets/pages/parts-index.png)
 
-This page is your fast map of Chummer6: what each part does, who it’s for, and where to click first so you can get to the table tonight.
+Think of this as your mission selector: Play, Verify, or Mod.
 
-Think of it as a runner’s field guide, not a tech manual. You’ll see the main lanes for building characters, running live sessions, and checking rule receipts so the math is clear when a result looks cursed. It also shows when to use local-first and offline play (works even with dead signal) versus hosted options for group coordination. If you’re a player, start with build flow. If you’re a GM, start with session flow. If you like to tinker, start with the deeper systems view. This page matters because it saves you from wandering menus and gets you to useful action fast.
+This page matters because it saves you from wandering docs when you just want results. Want to run now? Start with play surfaces tuned for local-first sessions. Need to settle a rules argument without table drama? Go to receipt and provenance flows to see exactly why the engine decided what it did. Want to hack the rules for your crew? Follow Lua rule hooks and multi-era paths, including SR4 support signals, so edge cases live in code instead of forum shouting.
 
 ## The quick picture
 

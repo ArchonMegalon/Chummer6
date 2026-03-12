@@ -2,11 +2,11 @@
 
 ![Chummer6 hero banner](assets/hero/chummer6-hero.png)
 
-> **Shadowrun crunch, street-fast and explainable.**
+> **Shadowrun rules truth, with receipts.**
 >
-> Chummer6 exists for one simple reason: Shadowrun is fun when the heat is high, not when everyone is arguing over mystery math. This page is your quick map to what this is, why you can trust it, and where to click first.
+> Chummer6 exists for one reason: Shadowrun math should be clear, not mystical. When a rules call gets spicy, you can open a receipt that shows how the result was built.
 
-Think of this readme as your street-level briefing. Chummer6 gives you fast character and session flow, but every result can show its work with clear receipts (a step-by-step trail of how the rules got that answer). It is local-first, which means your game keeps moving even when the signal dies, and you can install it like an app for easier table use. Start in the workbench for prep, jump to the session shell for live play, and use the role paths to pick your next click: player, GM, or tinkerer.
+Why this matters at a real table: arguments end faster, trust goes up, and the game keeps moving. It runs local-first, so it still works when your Wi-Fi eats itself, and it supports multiple eras of play, including SR4 plugin paths plus Lua rule hooks for weird edge cases. If you only click one thing next, take the guided intro, then check a real receipt trail so you can see the proof flow yourself.
 
 No, this is not the code repo.  
 No, you do not need a flowchart and three espressos to understand the program.  
@@ -23,7 +23,7 @@ That is the whole reason this repo exists.
 
 ## What Chummer6 is
 
-A human-facing guide to the Chummer ecosystem: deterministic rules core, prep/workbench UX, live play session shell, and optional hosted coordination when your crew needs it.
+This repo is the human guide layer for the Chummer ecosystem: it explains what the core engine guarantees, how UI/mobile fronts fit, and how to use features that matter at the table without making you read source first.
 
 Think of it like this:
 
@@ -33,26 +33,26 @@ Think of it like this:
 
 ## Why this is worth watching
 
-Fast character and session workflows backed by deterministic, explainable rules.
+Chummer6 gives you deterministic rules truth with human-readable receipts, plus local-first play across app surfaces.
 
-Follow this project if you want deep build/play tooling that shows its math, survives bad Wi-Fi, and keeps getting sharper across desktop, browser, and mobile.
+Follow this project if you care about dangerous-simulation energy with fewer black boxes: rules decisions you can audit, offline play you can trust, and a stack that keeps getting sharper for real sessions.
 
-- Trust every calc
-- Play even when signal dies
-- Move between devices cleanly
-- Inspect the receipts when something looks cursed
+- Your rules calls are auditable, not hand-wavy
+- Works offline; your table is not hostage to Wi-Fi
+- Multi-era rulesets (including SR4 plugin support) are explicitly in play
+- Lua/scripted rules let edge cases live in code, not forum arguments
 
 ## What’s happening now
 
 ![Current status banner](assets/pages/current-status.png)
 
 Right now the crew is doing foundation work, not bolting neon spoilers onto half-built engines.
-Deep crunchy simulation vs actually getting to the table tonight.
+People want crunchy simulation depth, but not mystery math or SaaS lock-in.
 
 Current focus:
-- Reliable rules truth
-- Human-first UX across workbench/play/mobile
-- Local-first play with installable web app paths
+- Show value before repo topology
+- Lead with receipts + local-first + multi-era
+- Keep tone sharp, helpful, slightly streetwise
 - keep public previews honestly labeled until they become the real thing
 
 Read more: [Current phase](NOW/current-phase.md)
@@ -80,7 +80,7 @@ Read more: [Current phase](NOW/current-phase.md)
 
 ![Horizons overview](assets/pages/horizons-index.png)
 
-On the horizon: wilder runner workflows, cleaner cross-surface handoffs, and more 'show me the receipts' magic, all clearly labeled before it goes live.
+On the horizon: more runner-grade dossiers, richer receipt storytelling, and nastier edge-case support for era/rules experimentation, presented as ideas to watch, not promises from a slick suit.
 
 <table>
   <tr>

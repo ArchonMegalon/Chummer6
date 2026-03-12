@@ -2,29 +2,29 @@
 
 ![RUN PASSPORT banner](../assets/horizons/run-passport.png)
 
-**Smuggle your runner across rule borders with papers that actually clear customs.**
+**One runner, multiple rule eras, zero blind jumps.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Smuggle your runner across rule borders with papers that actually clear customs.
+Because table trust dies fast when a transfer mutates stats in the dark. A passport model gives you lineage, compatibility flags, and a readable go/no-go before you commit.
 
 ## The brutal truth
 
-Any dev can say “portable.” Then your build hits a new rules jurisdiction and your legal chrome turns into banned arcana. RUN PASSPORT calls the shot before that faceplant.
+Cross-era portability sounds sexy right up to the moment one ruleset salutes your build and another tags it contraband.
 
 ## The use case
 
-Each character gets a street-readable run passport: runtime stack profile, fingerprint lineage, and compatibility projections that flag what passes, what mutates, and what gets seized before session night burns.
+You prep a character for an SR4-to-newer-era move, inspect what survives, what bends, and what breaks, then approve the jump with receipts in hand.
 
 ## What is the idea?
 
-Smuggle your runner across rule borders with papers that actually clear customs.
+Treat migration like border control: fingerprint the runtime identity, compare profiles, surface deltas, and log provenance so nobody argues from vibes.
 
 ## What problem does it solve?
 
-Portability is easy to promise and painful to implement once compatibility actually matters.
+Export/import is easy demo fuel; honest compatibility is hard engineering with sharp edges.
 
 ## Foundations first
 
@@ -41,7 +41,7 @@ Portability is easy to promise and painful to implement once compatibility actua
 
 ## Why it waits
 
-Because the registry seam and runtime stack model still need to harden before portability can stop being wishful thinking.
+This stays horizon-grade until registry seams and runtime stack modeling are hardened enough to survive real campaign pressure.
 ---
 
 _Last synced: 2026-03-11_  

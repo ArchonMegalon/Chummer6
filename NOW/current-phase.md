@@ -2,9 +2,9 @@
 
 ![Current phase banner](../assets/pages/current-phase.png)
 
-Right now, this project is in foundation mode: make the core solid before adding flashy new toys.
+Right now, Chummer6 is in the "make it rock-solid" phase, not the "throw confetti" phase.
 
-Why that matters to you at the table: you can trust what the app tells you. The rules engine is being hardened so the same inputs always give the same ruling, and each big result comes with a clear receipt showing how it got there in plain language. It is also built for local-first play, so your session keeps moving even when the signal dies, with installable web support and clean handoff across browser, desktop, and mobile. In short, less feature fireworks, more reliable run-night reality.
+That matters because your table needs rulings you can trust more than flashy extras. The team is tightening deterministic rules outcomes, adding readable receipts that show how a result was calculated, and making sure local-first/offline play holds up when your connection flatlines. Lua rule hooks and multi-era support, including SR4 signals, are being grounded on that stable core so future additions do not turn into mystery math.
 
 ## The focus right now
 

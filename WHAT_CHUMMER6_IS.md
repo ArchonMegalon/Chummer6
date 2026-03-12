@@ -2,9 +2,9 @@
 
 ![What Chummer6 is banner](assets/pages/what-chummer6-is.png)
 
-Chummer6 is your Shadowrun toolkit for getting to game night faster without hand-waving the crunchy parts.
+Chummer6 is a Shadowrun toolkit built to make rules calls clear, repeatable, and table-friendly in about 30 seconds.
 
-This page matters because it tells you, in plain terms, what you’re actually getting before you invest time: a rules engine that gives the same result every time from the same inputs, plus clear receipts that show how a number happened. If a roll or build looks cursed, you can inspect it instead of arguing vibes. It’s built for players making characters, GMs running tense scenes, and tinkerers who like powerful tools that still explain themselves. It also works local-first, so you can keep playing when the signal drops, and you can install it like an app for quick access across your devices.
+Why it matters: when a run gets crunchy, you need answers you can trust fast. Chummer6 gives deterministic outcomes (same inputs, same result), then shows a readable receipt of how it got there so players and GMs can verify the call and keep moving. It is local-first and offline-ready, so your session does not die when Wi-Fi does. It supports multiple rules eras, including SR4 plugin support, and Lua rule hooks for odd edge cases that usually start forum wars. It helps players, GMs, and tinkerers who want less mystery math and more playable confidence.
 
 ## The short version
 

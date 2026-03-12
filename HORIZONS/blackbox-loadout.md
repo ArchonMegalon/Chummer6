@@ -2,29 +2,29 @@
 
 ![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.png)
 
-**The last idiot-check between your crew and a very short obituary.**
+**Before the breach, run the idiot-check that keeps your name off a memorial wall.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-The last idiot-check between your crew and a very short obituary.
+Because swagger does not stop blood loss. A receipt that says exactly what is missing does.
 
 ## The brutal truth
 
-Runs don’t crater from lack of guts; they crater because someone swaggered in with half a loadout and full confidence. Heroic intent is not ammo.
+Crews rarely wipe on courage deficits; they wipe on dumb prep gaps like no medpatch, no backup ammo, no exit tool.
 
 ## The use case
 
-When you hit run-ready, BLACKBOX LOADOUT is designed to flag the exact missing essentials, bad fit combos, and prep holes most likely to get your team dropped in scene one, with receipts that show why the warning fired.
+You tap run-ready, and Chummer6 flags the highest-risk loadout holes with plain-language receipts tied to your active era/rules context.
 
 ## What is the idea?
 
-The last idiot-check between your crew and a very short obituary.
+Turn pre-run prep into a blackbox audit: fast, explainable, and mean enough to save your life.
 
 ## What problem does it solve?
 
-Runner prep fails more often from missing essentials than from heroic intent.
+Most failed openings come from invisible omissions, and most tools either stay vague or bury the warning in menu fog.
 
 ## Foundations first
 
@@ -40,7 +40,7 @@ Runner prep fails more often from missing essentials than from heroic intent.
 
 ## Why it waits
 
-Because the stack/loadout model still needs to exist before the repo can shame you with confidence.
+This is a horizon experiment, not tomorrow’s shipping badge: the stack/loadout model must mature before the roast can be truly accurate.
 ---
 
 _Last synced: 2026-03-11_  

@@ -2,7 +2,7 @@
 
 ![Current status banner](../assets/pages/current-status.png)
 
-Here’s the state of the run right now: Chummer6 is live, usable, and built for actual table night, not just screenshots.
+Current status is practical: usable now, transparent where it counts, and still clearly evolving.
 
 ## The short version
 
@@ -14,7 +14,7 @@ Here’s the state of the run right now: Chummer6 is live, usable, and built for
 
 ## What that means for normal humans
 
-This page matters because it tells you what you can trust today. The rules engine gives consistent results every time, and each result comes with a readable receipt (a quick proof trail showing how the math happened), so rule disputes stop eating session time. It also works local-first, which means your core play data stays on your machine and keeps working even when your connection gets sketchy, with an installable web app path for easy access. In practice: use Workbench for prep, use Session Shell during live play, and hop between desktop, browser, and mobile without losing the thread.
+For a normal player or GM, the win is simple: you can make build and rules decisions, inspect receipts to see why they happened, and keep playing locally across desktop, browser, and mobile-style session flow without betting everything on cloud uptime. Multi-era support is already part of the visible story, and scripted Lua rules give weird edge cases a real home instead of long forum debates.
 ---
 
 _Last synced: 2026-03-11_  

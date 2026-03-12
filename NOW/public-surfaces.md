@@ -2,11 +2,11 @@
 
 ![Public surfaces banner](../assets/pages/public-surfaces.png)
 
-This page is your reality check: what you can use right now, and what is still in preview. If you want to run a game tonight without guessing what is real, start here.
+Here’s the short version: the visible screens are usable now, and they already cover real table work across desktop, browser, and mobile-style play views.
 
 ## Current public reality
 
-What is live now: the parts you can actually click, test, and use for player or GM flow. You can build, run scenes, and verify outcomes with clear receipts (a step-by-step record of how the rules got that result), including when your connection drops. What is preview: layout, presentation, and some surface details that may still change as things get polished. The key promise that should stay steady is trust in the math, local-first behavior, and smooth handoff across devices. Why this matters: it keeps you from planning your run around unfinished paint while still giving you solid tools for the street right now.
+This page matters because it tells you what you can trust today. You can build and run sessions offline, install the web app like an app, and inspect rules receipts that show how a call was made. Some layout and flow details are still marked preview, which means the shape can change as people use it, not that the core math is fake. If you’re deciding whether to invest time, this is your reality check page.
 
 These are still preview, not the final public shape:
 

@@ -2,29 +2,29 @@
 
 ![GHOSTWIRE banner](../assets/horizons/ghostwire.png)
 
-**Rewind the run, lock the truth, and spike table drama before it goes loud.**
+**Rewind the run until the truth blinks first.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Rewind the run, lock the truth, and spike table drama before it goes loud.
+Ghostwire turns post-op chaos into evidence: event history, replayable receipts, and labeled state changes you can inspect instead of argue about.
 
 ## The brutal truth
 
-After a messy op, everyone swears they remember perfectly. Cute. Without a replayable event trail, rulings become whoever monologues hardest under bad neon.
+Without a replayable timeline, every dispute is just loud confidence in a darker room.
 
 ## The use case
 
-The crew is arguing over who burned the stealth window. You scrub the timeline, follow cause->effect, and pin the exact action that tripped the alarms with labeled receipts and state-change proof.
+After an extraction goes sideways, you scrub the timeline, isolate the exact trigger, and settle the table in minutes.
 
 ## What is the idea?
 
-Rewind the run, lock the truth, and spike table drama before it goes loud.
+A forensic playback lane for sessions: step-by-step rewinds, consequence links, and receipt-backed causality that still works when the grid drops.
 
 ## What problem does it solve?
 
-After a chaotic session, everybody remembers events differently and everybody suddenly becomes a professional liar.
+Session memories drift fast, and suddenly everyone at the table is a selective historian with attitude.
 
 ## Foundations first
 
@@ -41,7 +41,7 @@ After a chaotic session, everybody remembers events differently and everybody su
 
 ## Why it waits
 
-Because replay only works if the session/event model is first-class instead of implied.
+This only works once session authority and event history are truly first-class, not implied between systems.
 ---
 
 _Last synced: 2026-03-11_  

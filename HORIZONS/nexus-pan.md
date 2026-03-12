@@ -2,29 +2,29 @@
 
 ![NEXUS-PAN banner](../assets/horizons/nexus-pan.png)
 
-**On deck: one canon run board for the whole crew, not six conflicting saves and a prayer to the Matrix.**
+**Keep the run synced when the signal dies.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-On deck: one canon run board for the whole crew, not six conflicting saves and a prayer to the Matrix.
+NEXUS-PAN sells a simple promise: one living table state across devices, with local-first behavior and event replay so bad Wi-Fi stops being the final boss.
 
 ## The brutal truth
 
-If your session state lives in scattered files, your table is one bad reconnect away from a rules-lawyer firefight. That is not cyberpunk; that is version-control cosplay.
+A shared folder is not collaboration. It's delayed desync with extra confidence and a post-session blame meeting.
 
 ## The use case
 
-NEXUS-PAN is aimed at shared authority and local-first resilience: actions land as append-only events, offline players keep moving, and reconnecting devices replay back into the same canon state with receipts the GM can audit.
+Mid-combat, a player phone drops offline in a dead zone. The session continues. On reconnect, missed turns replay from append-only events and the device snaps back to the same initiative and resource state everyone else sees.
 
 ## What is the idea?
 
-On deck: one canon run board for the whole crew, not six conflicting saves and a prayer to the Matrix.
+The codename points to PAN energy: a personal area mesh stretched to table scale. Not a lonely file workflow, but a live tactical nervous system for the session.
 
 ## What problem does it solve?
 
-Sessions want shared authority, resilient sync, and live state that survives dodgy networks and chaotic tables.
+Real tables are messy: mixed devices, unstable networks, and constant state changes that must stay fair, recoverable, and legible.
 
 ## Foundations first
 
@@ -42,7 +42,7 @@ Sessions want shared authority, resilient sync, and live state that survives dod
 
 ## Why it waits
 
-Because the play split still needs its event-log, cache, and sync foundations to become real before the dream gets chrome.
+Still horizon work. Event-log, cache, and sync seams are prerequisites, and this direction stays experimental until those foundations are hard enough for live-session trust.
 ---
 
 _Last synced: 2026-03-11_  

@@ -4,11 +4,11 @@
 
         **Artifacts, publication, installs, compatibility.**
 
-        Hub Registry is where artifact chaos goes to get its SIN checked. It tracks what exists, what’s officially published, what’s install-ready, and what will actually play nice together before you click install.
+        Hub Registry is the artifact record for Chummer6: what exists, what is published, what can be installed, and what compatibility evidence comes with each package.
 
         ## Why you should care
 
-        Without a real registry, every bundle is a mystery crate and run night turns into troubleshooting theater. This gives players, GMs, and tinkerers clear publication status, compatibility signals, and provenance receipts so bad drops get caught before they brick the vibe.
+        It keeps installs from turning into cursed mystery zip roulette by tying bundles to provenance and support signals you can actually inspect.
 
         ## What it owns
 
@@ -24,7 +24,7 @@
 
         ## What is happening now
 
-        This lane stays tight on purpose: migration and cleanup over feature sprawl. Translation: fewer cursed leftovers, cleaner records, and a registry you can trust even when dev habits get feral.
+        The seam stays intentionally narrow: clean metadata, migrate consumers, and tighten receipts so multi-era and Lua-hook claims stay auditable instead of hand-wavy.
 
         ## Go deeper
 

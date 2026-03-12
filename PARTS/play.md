@@ -4,11 +4,11 @@
 
         **The part you feel at the table.**
 
-        Play is where Chummer6 quits prep mode and hits the street. It is the live player/GM shell for session night on phone, laptop, or browser: local-first state, offline survival, clean sync when signal comes back, and replayable receipts when someone says, "that roll looks cursed."
+        Play is where prep turns into street time. Your session runs from a mobile/PWA shell that keeps state local, so a dead signal bar does not brick the run.
 
         ## Why you should care
 
-        If this never works, Chummer stays a great builder and never becomes mission control. Play is the jump to real table momentum: trustable outcomes, fewer Wi-Fi meltdowns, and less "wait, what just happened" drama for players, GMs, and sleep-deprived devs.
+        Table trust lives here: actions queue offline, sync when signal returns, and replay plus rules receipts let you settle arguments with evidence instead of vibes.
 
         ## What it owns
 
@@ -25,7 +25,7 @@
 
         ## What is happening now
 
-        This seam is actively being built, and the focus is reliability over shiny chrome. Current work is event logs, runtime cache, offline queueing, sync recovery, and replay receipts so live sessions stay moving before we chase flash.
+        Current focus is resilience over glitter: event logs, runtime cache, offline queueing, and sync recovery. Multi-era support and Lua rule hooks stay in play so weird edge cases are handled in code, not table drama.
 
         ## Go deeper
 

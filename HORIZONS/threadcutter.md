@@ -2,29 +2,29 @@
 
 ![THREADCUTTER banner](../assets/horizons/threadcutter.png)
 
-**THREADCUTTER is your preflight razor for cursed overlay stacks: it flags rule-thread collisions before they hit the table.**
+**When two clever mods throw hands, Threadcutter breaks it up before session night.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-THREADCUTTER is your preflight razor for cursed overlay stacks: it flags rule-thread collisions before they hit the table.
+Customization should feel powerful, not like diff archaeology at 1:00 AM. Preflight conflict analysis plus rollback receipts keeps the stack playable and your group moving.
 
 ## The brutal truth
 
-Given enough "clever" mods, two will eventually jack into the same ruleslot and swear destiny picked them. That’s not innovation, that’s sloppy rigging.
+Every mod stack eventually hits the same wall: two brilliant ideas claiming the same seam like they own the block.
 
 ## The use case
 
-Before you ship a stack change, THREADCUTTER shows exactly where overlays clash, previews migration fallout, and logs apply/rollback receipts so you can push bold changes without bricking run night.
+Before applying Lua hooks and overlays, you run a conflict pass, see collision impact, and choose apply or rollback with a clear receipt trail.
 
 ## What is the idea?
 
-THREADCUTTER is your preflight razor for cursed overlay stacks: it flags rule-thread collisions before they hit the table.
+Make change safety first-class: detect overlap early, preview migration impact, and log reversible operations so chaos stays optional.
 
 ## What problem does it solve?
 
-Sooner or later, two clever changes will try to claim the same space at the same time.
+Without honest runtime modeling, collision checks are theater and recovery is prayer.
 
 ## Foundations first
 
@@ -40,7 +40,7 @@ Sooner or later, two clever changes will try to claim the same space at the same
 
 ## Why it waits
 
-Because the runtime stack model and migration receipts must exist before conflict analysis has anything honest to inspect.
+It remains a watchlist experiment until migration receipts and stack semantics are mature enough to trust under fire.
 ---
 
 _Last synced: 2026-03-11_  

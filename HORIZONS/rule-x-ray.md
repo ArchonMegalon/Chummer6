@@ -2,29 +2,29 @@
 
 ![RULE X-RAY banner](../assets/horizons/rule-x-ray.png)
 
-**Click the dice pool, crack the stack, and watch every modifier confess.**
+**Punch a number and expose every dirty modifier under it.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Click the dice pool, crack the stack, and watch every modifier confess.
+Rule X-Ray makes math auditable on demand: deterministic evaluation plus provenance receipts, including scripted hooks and multi-era logic paths.
 
 ## The brutal truth
 
-If your rules engine can’t show receipts, it’s just spreadsheet voodoo in a trench coat. Rule X-Ray drags every buff, wound, penalty, and dumb call into deterministic daylight.
+If totals feel magical, trust dies and the loudest rules lawyer wins by stamina.
 
 ## The use case
 
-The roll looks cursed, so you pop Rule X-Ray and trace the full chain in seconds. Argument over, trust restored, run moving.
+A dice pool looks cursed; one tap opens base stats, wounds, situational penalties, Lua injections, and final total in plain order.
 
 ## What is the idea?
 
-Click the dice pool, crack the stack, and watch every modifier confess.
+A truth-stack inspector for every computed value, built to show cause before debate.
 
 ## What problem does it solve?
 
-Opaque math is one of the fastest ways for a rules tool to lose trust at the table.
+Opaque calculations are the fastest route from game tension to tool skepticism.
 
 ## Foundations first
 
@@ -40,7 +40,7 @@ Opaque math is one of the fastest ways for a rules tool to lose trust at the tab
 
 ## Why it waits
 
-Because the explain/provenance line still needs to finish becoming boringly canonical first.
+Explain and provenance need to finish becoming boringly canonical before this can be sold as table-grade muscle.
 ---
 
 _Last synced: 2026-03-11_  

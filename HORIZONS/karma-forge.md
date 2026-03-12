@@ -2,29 +2,29 @@
 
 ![Karma Forge banner](../assets/horizons/karma-forge.png)
 
-**House rules, black ICE attitude, zero mystery math.**
+**Bend the rules, keep the receipts.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-House rules, black ICE attitude, zero mystery math.
+Because your table deserves custom logic without turning every campaign into a cursed private fork. Karma Forge is the codename for controlled rule-crafting: layered Lua hooks, deterministic outcomes, and audit trails that read like plain language instead of arcane hex.
 
 ## The brutal truth
 
-Every dev swears their custom stack is clean until two overlays collide and combat math turns into fan fiction.
+Most house-rule setups start as freedom and end as folklore. Three sessions later, nobody can prove why that damage spike happened, except the loudest person at the table.
 
 ## The use case
 
-Your crew wants wild variants without forking into oblivion. Karma Forge gives you a controlled overlay stack with fingerprints, conflict reports, provenance receipts, preview gates, and rollback checkpoints so you can ship table-specific crunch and still prove every number.
+You add a weapon interaction tweak for your campaign, run an immediate conflict check, preview the result on a contested attack, then keep or roll back with one clear checkpoint.
 
 ## What is the idea?
 
-House rules, black ICE attitude, zero mystery math.
+Think of a real forge: each rule plate is shaped, stamped, and slotted in order. The codename is literal on purpose. You craft your stack, and the stack shows its work.
 
 ## What problem does it solve?
 
-Players want house rules, variants, and personalized rule stacks without turning every table into a private fork nobody else can inspect.
+Players and GMs want deep personalization, but not mystery math, brittle forks, or compatibility roulette when era variants collide.
 
 ## Foundations first
 
@@ -43,7 +43,7 @@ Players want house rules, variants, and personalized rule stacks without turning
 
 ## Why it waits
 
-Because the split still needs its contract reset and seam cleanup. Fancy overlay power on top of fuzzy foundations is how you summon haunted software.
+This is a horizon track, not tomorrow's patch note. Contract reset and seam cleanup come first, because powerful overlays on fuzzy boundaries is how software gets haunted.
 ---
 
 _Last synced: 2026-03-11_  

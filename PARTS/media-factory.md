@@ -4,11 +4,11 @@
 
         **Render-only asset lifecycle.**
 
-        Media Factory is the render pit: queues, previews, signed links, dedupe, retries, and asset receipts, all in one lane. It handles the media hustle so story logic and rules math don’t get dragged into pipeline drama.
+        Media Factory is the render-only lane: job queues in, previews out, links signed, and every asset leaves a trail you can inspect.
 
         ## Why you should care
 
-        As Chummer gets more visual, this layer keeps run night from face-planting when assets spike or glitch. You get clean handoffs, auditable receipts, and fewer "who broke what" debugging séances.
+        If visuals grow and this seam is sloppy, everything else pays for it. Keep render chaos here so rules truth and session flow stay clean.
 
         ## What it owns
 
@@ -24,7 +24,7 @@
 
         ## What is happening now
 
-        Right now it’s scaffold-stage on purpose. Keep the scope tight, make the seam boringly reliable, then expand once the flow survives real-world chaos.
+        It is early scaffold work on purpose. The goal right now is a narrow, boringly reliable boundary before anyone gets fancy.
 
         ## Go deeper
 

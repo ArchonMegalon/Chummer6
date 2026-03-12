@@ -2,29 +2,29 @@
 
 ![ALICE banner](../assets/horizons/alice.png)
 
-**Run your build through ALICE before the streets run it through you.**
+**Meet ALICE, the cold-eyed sparring partner that stress-tests your build before the run does.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Run your build through ALICE before the streets run it through you.
+Lock a seed, rerun the same firefight, and get deterministic outcomes with receipts you can actually audit.
 
 ## The brutal truth
 
-Most "unstoppable" sheets are cosplay with extra steps. ALICE reruns the same heat with deterministic truth and shows the exact moment your chrome ego eats pavement.
+Most "unstoppable" builds are one bad resistance choice away from face-planting in round two. Swagger is not armor.
 
 ## The use case
 
-Fire up test drive, pick a scenario harness, lock a seed, and get replayable receipts on why you tank, crack, or walk out breathing—plus stable runtime fingerprints so the result isn’t hand-waved dev folklore.
+A GM or player runs a seeded combat drill, replays the collapse, then traces each turning point to concrete dice and rule paths.
 
 ## What is the idea?
 
-Run your build through ALICE before the streets run it through you.
+Turn build testing into a runner-grade crash bench: reproducible scenarios, explainable failure chains, and stack fingerprints that keep results honest.
 
 ## What problem does it solve?
 
-People want to know how a build behaves under pressure without needing a real disaster as the benchmark.
+Tables need pressure-tested answers before mission night, not post-mortem arguments after the wipe.
 
 ## Foundations first
 
@@ -41,7 +41,7 @@ People want to know how a build behaves under pressure without needing a real di
 
 ## Why it waits
 
-Because the engine and explain seams still need to become cleaner before simulation gets to wear a lab coat.
+This is horizon-watch, not tomorrow's release: the sim lab only works if engine/explain seams are cleaner first.
 ---
 
 _Last synced: 2026-03-11_  

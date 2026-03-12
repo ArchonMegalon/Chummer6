@@ -2,29 +2,29 @@
 
 ![HEAT WEB banner](../assets/horizons/heat-web.png)
 
-**One bad call now, a citywide vendetta later: HEAT WEB makes fallout spread in plain sight.**
+**Your last run should still be hunting you three sessions later.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-One bad call now, a citywide vendetta later: HEAT WEB makes fallout spread in plain sight.
+Because Chummer6 already leans on deterministic rules and receipts, consequence tracking can become traceable story pressure instead of GM vibes and notebook archaeology.
 
 ## The brutal truth
 
-Without hard memory, your table turns last session’s chaos into fanfic and calls it continuity.
+If fallout lives only in table memory, the loudest person rewrites history.
 
 ## The use case
 
-On deck: when a runner burns a contact, HEAT WEB maps the chain reaction across factions, reputations, and delayed payback, with receipts on every link so consequences hit fair, hit hard, and never disappear.
+After a messy extraction, you can see which faction got burned, which witness has proof, and where retaliation is building before it hits the team.
 
 ## What is the idea?
 
-One bad call now, a citywide vendetta later: HEAT WEB makes fallout spread in plain sight.
+HEAT WEB maps campaign consequences as a living pressure graph with evidence links, so danger escalates for reasons you can inspect.
 
 ## What problem does it solve?
 
-Campaign fallout is easy to forget, hard to track, and exactly the kind of thing that gets interesting once it starts sticking.
+Most campaigns lose continuity exactly where they should get sharp: grudges, leverage, and delayed payback.
 
 ## Foundations first
 
@@ -41,7 +41,7 @@ Campaign fallout is easy to forget, hard to track, and exactly the kind of thing
 
 ## Why it waits
 
-Because consequence graphs are downstream of good event/evidence plumbing, not a substitute for it.
+This stays watchlist until event streams and evidence receipts are solid enough to carry real campaign weight without fake certainty.
 ---
 
 _Last synced: 2026-03-11_  
