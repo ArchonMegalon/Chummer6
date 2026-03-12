@@ -2,25 +2,25 @@
 
 ![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.png)
 
-**The idiot-check before the run. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**The last idiot-check between your crew and a very short obituary.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-The idiot-check before the run. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+The last idiot-check between your crew and a very short obituary.
 
 ## The brutal truth
 
-People do not die because they forgot courage. They die because they forgot ammo, rope, and basic self-respect. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+Runs don’t crater from lack of guts; they crater because someone swaggered in with half a loadout and full confidence. Heroic intent is not ammo.
 
 ## The use case
 
-You hit run-ready, and the system points at the exact gear, resources, and prep holes most likely to get you folded in the first scene. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+When you hit run-ready, BLACKBOX LOADOUT is designed to flag the exact missing essentials, bad fit combos, and prep holes most likely to get your team dropped in scene one, with receipts that show why the warning fired.
 
 ## What is the idea?
 
-BLACKBOX LOADOUT is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+The last idiot-check between your crew and a very short obituary.
 
 ## What problem does it solve?
 

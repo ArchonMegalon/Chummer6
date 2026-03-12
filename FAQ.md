@@ -24,8 +24,8 @@ In `chummer6-design`.
 ## Is Chummer6 allowed to make fun of the dev?
 Yes. Gently, but absolutely. If the dev ships cursed nonsense, the guide is allowed to say so.
 
-## Should I paste secrets into an issue to help out?
-Absolutely not. Keep your secrets, keep your nuyen, and assume the dev can survive one more bug report without you donating credentials to the Matrix.
+## What should I include when I report a bug?
+The useful stuff: what you installed, what you clicked, what you expected, what actually happened, and any screenshot or log that helps track the gremlin back to its nest.
 
 ## Why does Chummer6 exist if it is not the blueprint?
 To make the program understandable for humans without creating a second blueprint by accident.

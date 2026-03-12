@@ -1,12 +1,14 @@
 # Media Factory
 
-**Render-only asset lifecycle.**
+![Media Factory banner](../assets/parts/media-factory.png)
 
-        Media Factory is render-only asset lifecycle when the chrome is working and the excuses are not. Media Factory is where render jobs, previews, signed URLs, dedupe, retry, and asset lifecycle management are supposed to live without dragging story policy, rules math, or provider soup along for the ride.
+        **Render-only asset lifecycle.**
+
+        Media Factory is the render pit: queues, previews, signed links, dedupe, retries, and asset receipts, all in one lane. It handles the media hustle so story logic and rules math don’t get dragged into pipeline drama.
 
         ## Why you should care
 
-        If Chummer gets more visual and media-heavy, this is the repo that stops the rest of the architecture from melting. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
+        As Chummer gets more visual, this layer keeps run night from face-planting when assets spike or glitch. You get clean handoffs, auditable receipts, and fewer "who broke what" debugging séances.
 
         ## What it owns
 
@@ -22,7 +24,7 @@
 
         ## What is happening now
 
-        It is still scaffold-stage. The correct move is to keep it narrow until the seam is boringly stable. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
+        Right now it’s scaffold-stage on purpose. Keep the scope tight, make the seam boringly reliable, then expand once the flow survives real-world chaos.
 
         ## Go deeper
 

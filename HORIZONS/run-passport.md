@@ -2,25 +2,25 @@
 
 ![RUN PASSPORT banner](../assets/horizons/run-passport.png)
 
-**Move a character across rule environments safely. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**Smuggle your runner across rule borders with papers that actually clear customs.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Move a character across rule environments safely. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Smuggle your runner across rule borders with papers that actually clear customs.
 
 ## The brutal truth
 
-Moving a character between environments sounds cool until one ruleset calls it legal and another calls it eldritch contraband. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+Any dev can say “portable.” Then your build hits a new rules jurisdiction and your legal chrome turns into banned arcana. RUN PASSPORT calls the shot before that faceplant.
 
 ## The use case
 
-A character carries a readable runtime identity, compatibility notes, and migration preview instead of raw hope. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+Each character gets a street-readable run passport: runtime stack profile, fingerprint lineage, and compatibility projections that flag what passes, what mutates, and what gets seized before session night burns.
 
 ## What is the idea?
 
-RUN PASSPORT is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+Smuggle your runner across rule borders with papers that actually clear customs.
 
 ## What problem does it solve?
 

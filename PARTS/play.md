@@ -1,12 +1,14 @@
 # Play
 
-**The part you feel at the table.**
+![Play banner](../assets/parts/play.png)
 
-        Play is the part you feel at the table when the chrome is working and the excuses are not. Play is the shell for players and GMs during actual sessions: mobile/PWA use, local-first state, runtime bundles, sync, replay, and the moment where the tool stops being prep and starts being live play.
+        **The part you feel at the table.**
+
+        Play is where Chummer6 quits prep mode and hits the street. It is the live player/GM shell for session night on phone, laptop, or browser: local-first state, offline survival, clean sync when signal comes back, and replayable receipts when someone says, "that roll looks cursed."
 
         ## Why you should care
 
-        If Chummer is going to become more than a character builder, this is the jump. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
+        If this never works, Chummer stays a great builder and never becomes mission control. Play is the jump to real table momentum: trustable outcomes, fewer Wi-Fi meltdowns, and less "wait, what just happened" drama for players, GMs, and sleep-deprived devs.
 
         ## What it owns
 
@@ -23,7 +25,7 @@
 
         ## What is happening now
 
-        This is still the next big seam to make real. The current work is less about flash and more about event logs, runtime cache, offline queueing, and sync. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
+        This seam is actively being built, and the focus is reliability over shiny chrome. Current work is event logs, runtime cache, offline queueing, sync recovery, and replay receipts so live sessions stay moving before we chase flash.
 
         ## Go deeper
 

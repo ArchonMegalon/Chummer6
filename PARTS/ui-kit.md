@@ -1,12 +1,14 @@
 # UI Kit
 
-**Shared chrome, themes, and visual primitives.**
+![UI Kit banner](../assets/parts/ui-kit.png)
 
-        UI Kit is shared chrome, themes, and visual primitives when the chrome is working and the excuses are not. UI Kit is the visual vocabulary: tokens, themes, shell chrome, badges, banners, and accessibility-friendly primitives that the other heads should consume instead of rebuilding with duct tape and mood swings.
+        **Shared chrome, themes, and visual primitives.**
+
+        UI Kit is Chummer’s shared visual street kit: tokens, themes, shell chrome, badges, banners, and accessibility-first building blocks. Other teams use this instead of rebuilding the same UI with fresh duct tape every sprint.
 
         ## Why you should care
 
-        This is how the split becomes coherent instead of looking like seven gangs met in a parking lot. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
+        Without UI Kit, the app starts looking like seven crews brought seven different dashboards to the same run. With it, prep, play, and mobile stay consistent, readable, and faster to ship, with fewer visual regressions and less copy-paste chaos.
 
         ## What it owns
 
@@ -22,7 +24,7 @@
 
         ## What is happening now
 
-        UI Kit only counts as real when the rest of the codebase gets visibly smaller because it exists. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
+        UI Kit is only real when downstream UI code gets smaller, screens stay coherent under pressure, and accessibility defaults ship by default instead of as a last-minute panic patch.
 
         ## Go deeper
 

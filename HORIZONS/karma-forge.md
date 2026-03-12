@@ -2,25 +2,25 @@
 
 ![Karma Forge banner](../assets/horizons/karma-forge.png)
 
-**Personalized rules without forked-code chaos. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**House rules, black ICE attitude, zero mystery math.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Personalized rules without forked-code chaos. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+House rules, black ICE attitude, zero mystery math.
 
 ## The brutal truth
 
-People love customizing the rules right up until those rules stop agreeing with each other and nobody can explain the damage calculation. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+Every dev swears their custom stack is clean until two overlays collide and combat math turns into fan fiction.
 
 ## The use case
 
-You want a custom rules layer for your table. Instead of forking the app and praying, you slot in a controlled overlay stack that can be inspected, explained, previewed, and rolled back. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+Your crew wants wild variants without forking into oblivion. Karma Forge gives you a controlled overlay stack with fingerprints, conflict reports, provenance receipts, preview gates, and rollback checkpoints so you can ship table-specific crunch and still prove every number.
 
 ## What is the idea?
 
-Karma Forge is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+House rules, black ICE attitude, zero mystery math.
 
 ## What problem does it solve?
 

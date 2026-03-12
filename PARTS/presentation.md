@@ -1,12 +1,14 @@
 # Presentation
 
-**The workbench and big-screen UX.**
+![Presentation banner](../assets/parts/presentation.png)
 
-        Presentation is the workbench and big-screen ux when the chrome is working and the excuses are not. Presentation is where the heavy chrome lives: inspectors, builders, deep views, and the workbench-side experience for people who like staring at their gear until the gears stare back.
+        **The workbench and big-screen UX.**
+
+        Presentation is the heavy-chrome workbench: big-screen inspectors, builders, and deep views for people who like to pop the hood and check the math. If your loadout looks cursed, this is where you trace it, fix it, and move on.
 
         ## Why you should care
 
-        This is the part that makes Chummer feel inspectable instead of mystical. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
+        Shadowrun crunch gets weird fast. Presentation keeps it inspectable instead of mystical, so you can follow receipts, understand outcomes, and trust what you’re bringing to the table.
 
         ## What it owns
 
@@ -22,7 +24,7 @@
 
         ## What is happening now
 
-        The cleanup job here is deletion: keep workbench power, shed any lingering claims over play-first or hosted concerns. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
+        Current move: tighten scope. Keep the workbench power for prep and review, and drop any lingering overlap with live play or hosted concerns. Less turf creep, more clean command deck energy.
 
         ## Go deeper
 

@@ -2,9 +2,11 @@
 
 ![Chummer6 hero banner](assets/hero/chummer6-hero.png)
 
-> **Same shadows. Bigger future. Less confusion.**
+> **Shadowrun crunch, street-fast and explainable.**
 >
-> Chummer6 is the readable guide to the next Chummer: what it is becoming, how the parts fit together, what is happening right now, and which future ideas are still parked in the garage.
+> Chummer6 exists for one simple reason: Shadowrun is fun when the heat is high, not when everyone is arguing over mystery math. This page is your quick map to what this is, why you can trust it, and where to click first.
+
+Think of this readme as your street-level briefing. Chummer6 gives you fast character and session flow, but every result can show its work with clear receipts (a step-by-step trail of how the rules got that answer). It is local-first, which means your game keeps moving even when the signal dies, and you can install it like an app for easier table use. Start in the workbench for prep, jump to the session shell for live play, and use the role paths to pick your next click: player, GM, or tinkerer.
 
 No, this is not the code repo.  
 No, you do not need a flowchart and three espressos to understand the program.  
@@ -21,7 +23,7 @@ That is the whole reason this repo exists.
 
 ## What Chummer6 is
 
-Chummer6 is the friendly guide to the next Chummer, built for curious chummers who want the lay of the land without spelunking through every repo.
+A human-facing guide to the Chummer ecosystem: deterministic rules core, prep/workbench UX, live play session shell, and optional hosted coordination when your crew needs it.
 
 Think of it like this:
 
@@ -31,55 +33,67 @@ Think of it like this:
 
 ## Why this is worth watching
 
-Chummer6 should make the project feel exciting, legible, and worth following without making readers wade through internal machinery.
+Fast character and session workflows backed by deterministic, explainable rules.
 
-People who care about Shadowrun tools should probably care because:
+Follow this project if you want deep build/play tooling that shows its math, survives bad Wi-Fi, and keeps getting sharper across desktop, browser, and mobile.
 
-- Lua-scripted rules make Chummer more moddable without turning every table into a code fork.
-- Play is being built local-first, so the table does not fall apart the moment the network gets cute.
-- Explain and provenance work means the machine should eventually be able to show its receipts instead of shrugging at your dice pool.
-- Runtime stacks and overlays are the future power-up path, but only after the foundations stop wobbling.
+- Trust every calc
+- Play even when signal dies
+- Move between devices cleanly
+- Inspect the receipts when something looks cursed
 
 ## What’s happening now
 
-![Current status strip](assets/diagrams/status-strip.png)
+![Current status banner](assets/pages/current-status.png)
 
 Right now the crew is doing foundation work, not bolting neon spoilers onto half-built engines.
-The future is exciting, but the current job is still foundations, cleanup, and making the split real.
+Deep crunchy simulation vs actually getting to the table tonight.
 
 Current focus:
-- clean up the shared rules and interfaces
-- finish the play/session boundary
-- make the UI kit, registry, and media seams real
+- Reliable rules truth
+- Human-first UX across workbench/play/mobile
+- Local-first play with installable web app paths
 - keep public previews honestly labeled until they become the real thing
 
 Read more: [Current phase](NOW/current-phase.md)
 
 ## Meet the parts
 
-![Program map](assets/diagrams/program-map.png)
+![Parts overview](assets/pages/parts-index.png)
 
-| Part | What it does | Read more |
-| --- | --- | --- |
-| Core | The deterministic rules engine | [core](PARTS/core.md) |
-| Presentation | The workbench and big-screen UX | [presentation](PARTS/presentation.md) |
-| Play | The player/GM shell for sessions and mobile use | [play](PARTS/play.md) |
-| Run services | The hosted API and orchestration layer | [run-services](PARTS/run-services.md) |
-| UI kit | Shared components, themes, and visual primitives | [ui-kit](PARTS/ui-kit.md) |
-| Hub registry | Artifacts, publication, installs, compatibility | [hub-registry](PARTS/hub-registry.md) |
-| Media factory | Render jobs, previews, and asset lifecycle | [media-factory](PARTS/media-factory.md) |
-| Design | The long-range blueprint room | [design](PARTS/design.md) |
+<table>
+  <tr>
+    <td align="center"><a href="PARTS/core.md"><img src="assets/parts/core.png" alt="Core" width="300"><br><strong>Core</strong><br><em>The deterministic rules engine</em></a></td>
+    <td align="center"><a href="PARTS/presentation.md"><img src="assets/parts/presentation.png" alt="Presentation" width="300"><br><strong>Presentation</strong><br><em>The workbench and big-screen UX</em></a></td>
+    <td align="center"><a href="PARTS/play.md"><img src="assets/parts/play.png" alt="Play" width="300"><br><strong>Play</strong><br><em>The player and GM shell</em></a></td>
+    <td align="center"><a href="PARTS/run-services.md"><img src="assets/parts/run-services.png" alt="Run services" width="300"><br><strong>Run services</strong><br><em>The hosted API and orchestration layer</em></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="PARTS/ui-kit.md"><img src="assets/parts/ui-kit.png" alt="UI kit" width="300"><br><strong>UI kit</strong><br><em>Shared chrome and visual primitives</em></a></td>
+    <td align="center"><a href="PARTS/hub-registry.md"><img src="assets/parts/hub-registry.png" alt="Hub registry" width="300"><br><strong>Hub registry</strong><br><em>Artifacts, installs, and compatibility</em></a></td>
+    <td align="center"><a href="PARTS/media-factory.md"><img src="assets/parts/media-factory.png" alt="Media factory" width="300"><br><strong>Media factory</strong><br><em>Render-only asset lifecycle</em></a></td>
+    <td align="center"><a href="PARTS/design.md"><img src="assets/parts/design.png" alt="Design" width="300"><br><strong>Design</strong><br><em>The long-range blueprint room</em></a></td>
+  </tr>
+</table>
 
 ## Horizon ideas
 
-Some ideas are too fun not to document. They are real possibilities, but they are not active build commitments.
+![Horizons overview](assets/pages/horizons-index.png)
 
-- [Karma Forge](HORIZONS/karma-forge.md) — personalized rules without fork chaos
-- [NEXUS-PAN](HORIZONS/nexus-pan.md) — a live synced table instead of lonely files
-- [ALICE](HORIZONS/alice.md) — stress-test a build before the run
-- [JACKPOINT](HORIZONS/jackpoint.md) — turn grounded data into dossiers and briefings
-- [GHOSTWIRE](HORIZONS/ghostwire.md) — replay a run like a forensic sim
-- [RULE X-RAY](HORIZONS/rule-x-ray.md) — click any number and see where it came from
+On the horizon: wilder runner workflows, cleaner cross-surface handoffs, and more 'show me the receipts' magic, all clearly labeled before it goes live.
+
+<table>
+  <tr>
+    <td align="center"><a href="HORIZONS/karma-forge.md"><img src="assets/horizons/karma-forge.png" alt="Karma Forge" width="300"><br><strong>KARMA FORGE</strong><br><em>Personalized rule stacks without fork chaos</em></a></td>
+    <td align="center"><a href="HORIZONS/nexus-pan.md"><img src="assets/horizons/nexus-pan.png" alt="NEXUS-PAN" width="300"><br><strong>NEXUS-PAN</strong><br><em>A live synced table instead of lonely files</em></a></td>
+    <td align="center"><a href="HORIZONS/alice.md"><img src="assets/horizons/alice.png" alt="ALICE" width="300"><br><strong>ALICE</strong><br><em>Stress-test a build before the run</em></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="HORIZONS/jackpoint.md"><img src="assets/horizons/jackpoint.png" alt="JACKPOINT" width="300"><br><strong>JACKPOINT</strong><br><em>Turn grounded data into dossiers and briefings</em></a></td>
+    <td align="center"><a href="HORIZONS/ghostwire.md"><img src="assets/horizons/ghostwire.png" alt="GHOSTWIRE" width="300"><br><strong>GHOSTWIRE</strong><br><em>Replay a run like a forensic sim</em></a></td>
+    <td align="center"><a href="HORIZONS/rule-x-ray.md"><img src="assets/horizons/rule-x-ray.png" alt="RULE X-RAY" width="300"><br><strong>RULE X-RAY</strong><br><em>Click any number and see where it came from</em></a></td>
+  </tr>
+</table>
 
 See all: [Horizon index](HORIZONS/README.md)
 
@@ -91,8 +105,8 @@ If this repo helped you get your bearings, here’s how to help back:
 - **Be my test dummy and install the software.**
 - **Grab the latest POC build from [Releases](https://github.com/ArchonMegalon/Chummer6/releases)** when one is available.
 - **Seriously: never trust software. Never trust a dev.**
-- **If this guide ever drifts out of reality, call it out fast.** The dev can take the hit.
-- **If a build glitches, breaks, crashes, or does something cursed, tell me exactly how you got there.**
+- **If the build starts acting like a recruiter for chaos, close the lid and write down the steps.**
+- **If the build does something cursed, tell us exactly which click woke the gremlin.**
 - **If this repo is stale, confusing, or reads like corp training material, call it out.**
 
 > **Street warning:** POC builds are for curious chummers, not cautious wageslaves.  
@@ -103,7 +117,7 @@ In other words: kick the tires, break the thing, and tell me where the smoke cam
 
 ## POC shelf
 
-![POC warning banner](assets/hero/poc-warning.gif)
+![POC warning banner](assets/hero/poc-warning.png)
 
 If there is a fresh proof-of-concept build ready for brave idiots and helpful test dummies, the shelf is here:
 

@@ -1,12 +1,14 @@
 # Design
 
-**The canonical blueprint room.**
+![Design banner](../assets/parts/design.png)
 
-        Design is the canonical blueprint room when the chrome is working and the excuses are not. Design is the long-range map: ownership, milestones, split order, guidance, mirror rules, and the grown-up version of where the program is actually trying to go.
+        **The canonical blueprint room.**
+
+        Design is the crew’s canonical run-board: who owns what, what unlocks next, and which path is real when opinions start spraying lead. It’s the long-game map that keeps the system sharp instead of improvised.
 
         ## Why you should care
 
-        When the rest of the program argues about what is supposed to be true, this is where the answer should come from. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
+        When teams disagree on rules, structure, or direction, Design is the tie-breaker with receipts. Clear ownership, split order, and mirror rules are what keep outcomes deterministic, explainable, and consistent across how people actually play.
 
         ## What it owns
 
@@ -22,7 +24,7 @@
 
         ## What is happening now
 
-        The active design work is making the blueprint current enough that the rest of the program can stop free-styling. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
+        Right now, the mission is keeping this blueprint fresh enough that nobody has to invent truth mid-sprint. Less architecture theater, more one trusted map the whole program can move on.
 
         ## Go deeper
 

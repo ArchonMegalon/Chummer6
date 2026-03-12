@@ -2,25 +2,25 @@
 
 ![HEAT WEB banner](../assets/horizons/heat-web.png)
 
-**Campaign consequences as a living graph. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**One bad call now, a citywide vendetta later: HEAT WEB makes fallout spread in plain sight.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Campaign consequences as a living graph. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+One bad call now, a citywide vendetta later: HEAT WEB makes fallout spread in plain sight.
 
 ## The brutal truth
 
-Players always assume yesterday’s mess vanished into the rain unless the system remembers exactly who they annoyed. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+Without hard memory, your table turns last session’s chaos into fanfic and calls it continuity.
 
 ## The use case
 
-A bad decision sparks faction pressure, social fallout, and delayed consequences that show up as a readable network instead of GM memory homework. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+On deck: when a runner burns a contact, HEAT WEB maps the chain reaction across factions, reputations, and delayed payback, with receipts on every link so consequences hit fair, hit hard, and never disappear.
 
 ## What is the idea?
 
-HEAT WEB is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+One bad call now, a citywide vendetta later: HEAT WEB makes fallout spread in plain sight.
 
 ## What problem does it solve?
 

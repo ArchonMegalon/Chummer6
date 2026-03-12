@@ -2,25 +2,25 @@
 
 ![JACKPOINT banner](../assets/horizons/jackpoint.png)
 
-**Turn grounded data into dossiers and briefings. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**Turn run chaos into JACKPOINT dossiers that hit like black-ops intel and still show the receipts.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Turn grounded data into dossiers and briefings. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Turn run chaos into JACKPOINT dossiers that hit like black-ops intel and still show the receipts.
 
 ## The brutal truth
 
-A stylish dossier is great right up until it starts inventing facts with the confidence of a corp spokesman. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+Pretty prose without provenance is just corp-grade spin in a nicer font. If your briefing can’t prove itself, it’s fanfic with a badge.
 
 ## The use case
 
-You collect grounded character data, session notes, and receipts, then turn them into dossiers and briefings that can still explain where the facts came from. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+You dump in grounded character files, session fallout, and hard receipts; JACKPOINT forges briefings that cleanly tag what’s verified, what’s speculative, who approved it, and exactly where every claim came from.
 
 ## What is the idea?
 
-JACKPOINT is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+Turn run chaos into JACKPOINT dossiers that hit like black-ops intel and still show the receipts.
 
 ## What problem does it solve?
 

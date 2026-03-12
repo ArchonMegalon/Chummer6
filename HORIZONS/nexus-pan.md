@@ -2,25 +2,25 @@
 
 ![NEXUS-PAN banner](../assets/horizons/nexus-pan.png)
 
-**A live synced table instead of lonely files. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**On deck: one canon run board for the whole crew, not six conflicting saves and a prayer to the Matrix.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-A live synced table instead of lonely files. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+On deck: one canon run board for the whole crew, not six conflicting saves and a prayer to the Matrix.
 
 ## The brutal truth
 
-A folder full of character files is not a live table. It is a very quiet argument waiting to happen. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+If your session state lives in scattered files, your table is one bad reconnect away from a rules-lawyer firefight. That is not cyberpunk; that is version-control cosplay.
 
 ## The use case
 
-The GM, players, and devices all see the same session state, even if a phone dips offline for a minute and then claws its way back into the run. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+NEXUS-PAN is aimed at shared authority and local-first resilience: actions land as append-only events, offline players keep moving, and reconnecting devices replay back into the same canon state with receipts the GM can audit.
 
 ## What is the idea?
 
-NEXUS-PAN is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+On deck: one canon run board for the whole crew, not six conflicting saves and a prayer to the Matrix.
 
 ## What problem does it solve?
 

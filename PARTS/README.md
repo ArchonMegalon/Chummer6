@@ -1,8 +1,10 @@
 # Program Map
 
-This is the field guide to the main moving parts.
+![Parts overview banner](../assets/pages/parts-index.png)
 
-If Chummer6 is the visitor center, this folder is the wall of labeled drawers.
+This page is your fast map of Chummer6: what each part does, who it’s for, and where to click first so you can get to the table tonight.
+
+Think of it as a runner’s field guide, not a tech manual. You’ll see the main lanes for building characters, running live sessions, and checking rule receipts so the math is clear when a result looks cursed. It also shows when to use local-first and offline play (works even with dead signal) versus hosted options for group coordination. If you’re a player, start with build flow. If you’re a GM, start with session flow. If you like to tinker, start with the deeper systems view. This page matters because it saves you from wandering menus and gets you to useful action fast.
 
 ## The quick picture
 

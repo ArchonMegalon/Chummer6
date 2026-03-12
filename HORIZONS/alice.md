@@ -2,25 +2,25 @@
 
 ![ALICE banner](../assets/horizons/alice.png)
 
-**Stress-test your build before the run. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**Run your build through ALICE before the streets run it through you.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Stress-test your build before the run. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Run your build through ALICE before the streets run it through you.
 
 ## The brutal truth
 
-Everybody thinks their build is invincible until a simulation calmly explains that they die in round two because they brought swagger instead of resistance dice. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+Most "unstoppable" sheets are cosplay with extra steps. ALICE reruns the same heat with deterministic truth and shows the exact moment your chrome ego eats pavement.
 
 ## The use case
 
-You hit test drive, run a deterministic lab harness, and get a replayable answer about why your build survives, folds, or explodes. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+Fire up test drive, pick a scenario harness, lock a seed, and get replayable receipts on why you tank, crack, or walk out breathing—plus stable runtime fingerprints so the result isn’t hand-waved dev folklore.
 
 ## What is the idea?
 
-ALICE is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+Run your build through ALICE before the streets run it through you.
 
 ## What problem does it solve?
 

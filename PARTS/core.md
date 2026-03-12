@@ -1,12 +1,14 @@
 # Core
 
-**The deterministic rules engine.**
+![Core banner](../assets/parts/core.png)
 
-        Core is the deterministic rules engine when the chrome is working and the excuses are not. Core is where the numbers stop bluffing. It owns the engine behavior, the reducer logic, and the boringly reliable parts that let the rest of Chummer stop arguing about what a rule actually means.
+        **The deterministic rules engine.**
+
+        Core is where Shadowrun math stops being a bar fight. Same inputs, same outcome, every time, with reducer logic that does not blink when the table gets loud. This is the rules engine truth layer, not a junk drawer for everything else.
 
         ## Why you should care
 
-        When a dice pool feels wrong or a result needs explaining, this is the part that should be able to say exactly why. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
+        When a roll looks cursed, Core can show the receipts step by step so players and GMs can see exactly how the result happened. That means fewer vibe-based rulings, faster disputes, and more trust that the crunch is doing what it says on the tin.
 
         ## What it owns
 
@@ -22,7 +24,7 @@
 
         ## What is happening now
 
-        The current mission is purification: keep the engine mean, lean, and predictable until it obviously means engine truth and not a junk drawer. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
+        Right now the mission is purification: keep Core lean, deterministic, and brutally clear about ownership. It owns runtime truth, reducer truth, and engine-facing shared interfaces, while hosted services, table-shell UX, and render-only media stay outside the blast radius.
 
         ## Go deeper
 

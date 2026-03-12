@@ -2,25 +2,25 @@
 
 ![RULE X-RAY banner](../assets/horizons/rule-x-ray.png)
 
-**Click any number and see where it came from. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**Click the dice pool, crack the stack, and watch every modifier confess.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Click any number and see where it came from. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Click the dice pool, crack the stack, and watch every modifier confess.
 
 ## The brutal truth
 
-Shadowrun math feels like witchcraft until the machine can point at every buff, wound, penalty, and bad life choice in the stack. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+If your rules engine can’t show receipts, it’s just spreadsheet voodoo in a trench coat. Rule X-Ray drags every buff, wound, penalty, and dumb call into deterministic daylight.
 
 ## The use case
 
-A dice pool looks wrong, you crack open the x-ray view, and the whole chain of causes lights up without hand-waving. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+The roll looks cursed, so you pop Rule X-Ray and trace the full chain in seconds. Argument over, trust restored, run moving.
 
 ## What is the idea?
 
-RULE X-RAY is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+Click the dice pool, crack the stack, and watch every modifier confess.
 
 ## What problem does it solve?
 

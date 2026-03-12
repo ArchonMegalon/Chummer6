@@ -1,12 +1,14 @@
 # Hub Registry
 
-**Artifacts, publication, installs, compatibility.**
+![Hub Registry banner](../assets/parts/hub-registry.png)
 
-        Hub Registry is artifacts, publication, installs, compatibility when the chrome is working and the excuses are not. Hub Registry is the artifact brain: what exists, what is published, what can be installed, and which bundles, previews, or compatibility signals belong on the record.
+        **Artifacts, publication, installs, compatibility.**
+
+        Hub Registry is where artifact chaos goes to get its SIN checked. It tracks what exists, what’s officially published, what’s install-ready, and what will actually play nice together before you click install.
 
         ## Why you should care
 
-        Without this, the growing pile of artifacts turns into an unlabeled warehouse full of cursed boxes. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
+        Without a real registry, every bundle is a mystery crate and run night turns into troubleshooting theater. This gives players, GMs, and tinkerers clear publication status, compatibility signals, and provenance receipts so bad drops get caught before they brick the vibe.
 
         ## What it owns
 
@@ -22,7 +24,7 @@
 
         ## What is happening now
 
-        This seam is narrow on purpose. The work is consumer migration and cleanup, not feature sprawl. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
+        This lane stays tight on purpose: migration and cleanup over feature sprawl. Translation: fewer cursed leftovers, cleaner records, and a registry you can trust even when dev habits get feral.
 
         ## Go deeper
 

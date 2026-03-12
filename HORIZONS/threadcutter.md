@@ -2,25 +2,25 @@
 
 ![THREADCUTTER banner](../assets/horizons/threadcutter.png)
 
-**Conflict analysis for overlay packs and runtime changes. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**THREADCUTTER is your preflight razor for cursed overlay stacks: it flags rule-thread collisions before they hit the table.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Conflict analysis for overlay packs and runtime changes. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+THREADCUTTER is your preflight razor for cursed overlay stacks: it flags rule-thread collisions before they hit the table.
 
 ## The brutal truth
 
-Every cool customization story eventually ends with two mods both insisting they are the chosen one. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+Given enough "clever" mods, two will eventually jack into the same ruleslot and swear destiny picked them. That’s not innovation, that’s sloppy rigging.
 
 ## The use case
 
-You get a conflict report before two overlays collide in production and turn your rule stack into abstract art. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+Before you ship a stack change, THREADCUTTER shows exactly where overlays clash, previews migration fallout, and logs apply/rollback receipts so you can push bold changes without bricking run night.
 
 ## What is the idea?
 
-THREADCUTTER is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+THREADCUTTER is your preflight razor for cursed overlay stacks: it flags rule-thread collisions before they hit the table.
 
 ## What problem does it solve?
 

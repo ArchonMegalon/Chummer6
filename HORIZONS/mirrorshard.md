@@ -2,25 +2,25 @@
 
 ![MIRRORSHARD banner](../assets/horizons/mirrorshard.png)
 
-**Compare alternate character futures before you commit. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along.**
+**Before you lock the sheet, pit two futures in a cage match and read the damage report.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## Why this would be wiz
 
-Compare alternate character futures before you commit. This is the kind of horizon that makes a runner grin, a GM squint, and the dev pretend this was definitely the plan all along. That means less duct-taped nonsense, more readable chrome, and one more way for Chummer to feel like the tool you brag about instead of the one you apologize for.
+Before you lock the sheet, pit two futures in a cage match and read the damage report.
 
 ## The brutal truth
 
-Everyone says they want meaningful choices. What they usually mean is: let me compare both mistakes before I marry one. If this ever lands cleanly, Chummer gets smarter, meaner, and much harder to bullshit.
+Most devs call it “decision support” after they’ve already hard-committed bad branches. You want the real thing: compare both bad ideas first, then pick the one that won’t brick your run.
 
 ## The use case
 
-You compare two alternate versions of a build or run plan side by side, with a readable diff instead of crossed fingers. That is the moment where the future version of Chummer stops sounding like chrome daydreams and starts feeling dangerously real.
+MIRRORSHARD is on deck for when a build or run plan hits a fork: you line up Path A vs Path B, scan a human-readable diff, preview migration impact, and commit with preview/apply/rollback receipts instead of superstition.
 
 ## What is the idea?
 
-MIRRORSHARD is a future rabbit hole worth documenting because it solves a real problem in a way that could make Chummer feel sharper, weirder, and more alive.
+Before you lock the sheet, pit two futures in a cage match and read the damage report.
 
 ## What problem does it solve?
 

@@ -1,25 +1,38 @@
 # Horizons
 
-These are possible future directions for Chummer.
+![Horizons overview banner](../assets/pages/horizons-index.png)
+
+Welcome to the runner garage. This page shows what Chummer6 is testing next, with clear labels so you can tell what is live now and what is still on deck.
 
 They are here because they are exciting, useful, or strategically important.  
 They are **not** active build commitments.
 
-Think of this folder as the garage: some of these projects may become real later, but none of them are the thing the team is racing today.
+Why this matters: if you are a player or GM trying to get to the table tonight, you need tools you can trust and use anywhere. Horizons tracks future ideas that aim to make that real, like smoother handoffs between prep and live play, stronger offline-first flows when the signal drops, and clearer rules receipts (a readable proof of how a result was calculated). Nothing here is sold as shipped; it is a transparent look at where the next gains are being stress-tested.
 
 ## Pick a future rabbit hole
 
-- [Karma Forge](karma-forge.md) — personalized rule stacks without fork chaos
-- [NEXUS-PAN](nexus-pan.md) — a live synced table experience
-- [ALICE](alice.md) — simulation and build stress-testing
-- [JACKPOINT](jackpoint.md) — grounded dossier and story artifact generation
-- [GHOSTWIRE](ghostwire.md) — forensic replay for runs
-- [MIRRORSHARD](mirrorshard.md) — compare alternate character futures
-- [RULE X-RAY](rule-x-ray.md) — click any number and see where it came from
-- [HEAT WEB](heat-web.md) — campaign consequences as a living graph
-- [RUN PASSPORT](run-passport.md) — move a character across rule environments
-- [THREADCUTTER](threadcutter.md) — conflict analysis for overlay packs
-- [BLACKBOX LOADOUT](blackbox-loadout.md) — the idiot-check before the run
+<table>
+  <tr>
+    <td align="center"><a href="karma-forge.md"><img src="../assets/horizons/karma-forge.png" alt="KARMA FORGE" width="300"><br><strong>KARMA FORGE</strong><br><em>Personalized rule stacks without fork chaos</em></a></td>
+    <td align="center"><a href="nexus-pan.md"><img src="../assets/horizons/nexus-pan.png" alt="NEXUS-PAN" width="300"><br><strong>NEXUS-PAN</strong><br><em>A live synced table experience</em></a></td>
+    <td align="center"><a href="alice.md"><img src="../assets/horizons/alice.png" alt="ALICE" width="300"><br><strong>ALICE</strong><br><em>Simulation and build stress-testing</em></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="jackpoint.md"><img src="../assets/horizons/jackpoint.png" alt="JACKPOINT" width="300"><br><strong>JACKPOINT</strong><br><em>Grounded dossiers and story artifacts</em></a></td>
+    <td align="center"><a href="ghostwire.md"><img src="../assets/horizons/ghostwire.png" alt="GHOSTWIRE" width="300"><br><strong>GHOSTWIRE</strong><br><em>Forensic replay for runs</em></a></td>
+    <td align="center"><a href="rule-x-ray.md"><img src="../assets/horizons/rule-x-ray.png" alt="RULE X-RAY" width="300"><br><strong>RULE X-RAY</strong><br><em>Click any number and see where it came from</em></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="heat-web.md"><img src="../assets/horizons/heat-web.png" alt="HEAT WEB" width="300"><br><strong>HEAT WEB</strong><br><em>Campaign consequences as a living graph</em></a></td>
+    <td align="center"><a href="run-passport.md"><img src="../assets/horizons/run-passport.png" alt="RUN PASSPORT" width="300"><br><strong>RUN PASSPORT</strong><br><em>Move a character across rule environments</em></a></td>
+    <td align="center"><a href="threadcutter.md"><img src="../assets/horizons/threadcutter.png" alt="THREADCUTTER" width="300"><br><strong>THREADCUTTER</strong><br><em>Conflict analysis for overlay packs</em></a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="mirrorshard.md"><img src="../assets/horizons/mirrorshard.png" alt="MIRRORSHARD" width="300"><br><strong>MIRRORSHARD</strong><br><em>Compare alternate character futures</em></a></td>
+    <td align="center"><a href="blackbox-loadout.md"><img src="../assets/horizons/blackbox-loadout.png" alt="BLACKBOX LOADOUT" width="300"><br><strong>BLACKBOX LOADOUT</strong><br><em>The idiot-check before the run</em></a></td>
+    <td></td>
+  </tr>
+</table>
 
 These are the pages where Chummer gets to dream out loud a little:
 sharper tables, smarter builds, cleaner chaos, and fewer moments where a runner has to shrug and say “I dunno, the software just vibes that way.”

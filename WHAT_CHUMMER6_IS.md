@@ -1,8 +1,10 @@
 # What Chummer6 Is
 
-Chummer6 is the human guide to the next Chummer.
+![What Chummer6 is banner](assets/pages/what-chummer6-is.png)
 
-It exists because the real program is already split across multiple repos, active previews, and one canonical blueprint repo. That is powerful, but it is also a lot to dump on someone who just wants the lay of the land.
+Chummer6 is your Shadowrun toolkit for getting to game night faster without hand-waving the crunchy parts.
+
+This page matters because it tells you, in plain terms, what you’re actually getting before you invest time: a rules engine that gives the same result every time from the same inputs, plus clear receipts that show how a number happened. If a roll or build looks cursed, you can inspect it instead of arguing vibes. It’s built for players making characters, GMs running tense scenes, and tinkerers who like powerful tools that still explain themselves. It also works local-first, so you can keep playing when the signal drops, and you can install it like an app for quick access across your devices.
 
 ## The short version
 

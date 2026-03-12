@@ -1,8 +1,10 @@
 # Where To Go Deeper
 
-This page is the map legend.
+![Where to go deeper banner](assets/pages/where-to-go-deeper.png)
 
-Chummer6 is here to explain the program clearly. It is not allowed to become a second blueprint.
+When a roll looks cursed or a build feels too good to be legal, this is your fast lane to the truth.
+
+This page matters because it saves you time and arguments at the table. It points you to the places that actually answer real questions: where the rules logic is defined (the deterministic engine, meaning the same input always gives the same result), where the receipts live (step-by-step proof of how a result was calculated), and where local-first play is proven (it keeps working on your device even when your signal flatlines). It also shows the split between prep tools and live-session tools, so you know where to plan, where to play, and where to inspect what happened. If you are a player, GM, or tinkerer, this is how you go from “wait, what?” to “okay, verified” in minutes.
 
 ## Start here when you want more than the tour
 

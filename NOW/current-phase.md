@@ -1,8 +1,10 @@
 # Current Phase
 
-The current phase is foundation work, not fireworks.
+![Current phase banner](../assets/pages/current-phase.png)
 
-In plain language: the team is trying to make the split **real**, not just visible.
+Right now, this project is in foundation mode: make the core solid before adding flashy new toys.
+
+Why that matters to you at the table: you can trust what the app tells you. The rules engine is being hardened so the same inputs always give the same ruling, and each big result comes with a clear receipt showing how it got there in plain language. It is also built for local-first play, so your session keeps moving even when the signal dies, with installable web support and clean handoff across browser, desktop, and mobile. In short, less feature fireworks, more reliable run-night reality.
 
 ## The focus right now
 

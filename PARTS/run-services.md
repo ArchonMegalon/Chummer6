@@ -1,12 +1,14 @@
 # Run Services
 
-**The hosted API and orchestration layer.**
+![Run Services banner](../assets/parts/run-services.png)
 
-        Run Services is the hosted api and orchestration layer when the chrome is working and the excuses are not. Run Services is the network backbone: identity, relay, approvals, memory, hosted play APIs, previews, and the clever server-side machinery that should eventually feel completely unremarkable.
+        **The hosted API and orchestration layer.**
+
+        Run Services is the fixer in the back room: it handles identity, relay, approvals, memory, and hosted play APIs so your crew can sync, preview, publish, and recover without drama. It should feel boring when it works, which is exactly the point.
 
         ## Why you should care
 
-        When Chummer needs to coordinate, publish, preview, or synchronize, this is where the adult supervision lives. If this part goes sideways, the whole run gets janky fast and somebody starts blaming the dev.
+        When your table goes multi-device and the signal gets sketchy, this is the adult supervision that keeps handoffs clean. It coordinates people and state, keeps a receipt trail of who approved what, and supports preview/apply/rollback flows without pretending it owns the rules math.
 
         ## What it owns
 
@@ -22,7 +24,7 @@
 
         ## What is happening now
 
-        The mission is shrink-to-fit: keep the hosted boundary sharp and stop letting it impersonate every other part of the program. The short version: make it real, keep it sharp, and stop letting legacy duct tape cosplay as architecture.
+        Current mission: shrink-to-fit. Keep Run Services in its lane, make hosted coordination rock-solid, and stop the classic backend sin of trying to be every subsystem at once.
 
         ## Go deeper
 

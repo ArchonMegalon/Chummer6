@@ -1,8 +1,12 @@
 # Start Here
 
+![Start here banner](assets/pages/start-here.png)
+
 Welcome to Chummer6.
 
-If you just landed here and are wondering why one Shadowrun tool suddenly seems to have a small constellation of repos around it, you are in the right place.
+New to Chummer6? Start here if you want to get to game night fast without trusting mystery math.
+
+This page matters because it shows the shortest path from “I have a character idea” to “we’re rolling now.” You’ll see where to begin as a player, GM, or tinkerer, and what each part of Chummer6 is for in plain language. There are multiple repos, but that’s for one practical reason: different jobs stay sharp without making your table flow messy. You get prep tools, live-play tools, and a rules engine that gives deterministic results, plus receipts that show exactly how a number was calculated and where it came from. If a roll looks cursed, you can audit it instead of arguing. You can also keep playing local-first when the signal dies, including installable web-app paths for a smoother “open and run” setup.
 
 Chummer is already becoming a set of focused parts: a rules engine, a workbench, a play shell, hosted services, a shared UI layer, an artifact registry, a media pipeline, and a blueprint repo that keeps the long game straight.
 
