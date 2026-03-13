@@ -1,59 +1,58 @@
 # What Chummer6 Is
 
-![What Chummer6 is banner](assets/pages/what-chummer6-is.png)
+![What Chummer6 is banner](assets/pages/what-chummer6-is.png "Wide cinematic cyberpunk concept art for the Chummer6 what-is banner. Cyberpunk safehouse table, runner and GM in-frame, glowing character dossier projected from commlink, printed-style rules receipt with modifier trail, subtle HUD tags for Offline-ready and Lua hook, gritty neon documentary look, no corporate dashboard aesthetic. One clear focal subject: A street samurai and GM reviewing a generated rules receipt beside a loaded character dossier.. Set the scene in Action resolves, receipt appears, table verifies, play continues without debate spiral.. Show this happening: Chummer6 exists to keep crunchy Shadowrun decisions honest in real sessions: deterministic outcomes, human-readable receipts, and tools that keep working when your connection doesn’t. It helps players, GMs, and tinkerers who want fewer forum-lawyering stalemates and more playable clarity. It also says the quiet part out loud: multi-era support is real, and Lua-scripted rules handle the weird edge cases instead of pretending they don’t exist. What it is not: a cloud lock-in service, a hand-wavy rules vibe machine, or an org chart disguised as a guide.. Make the core visual metaphor immediately legible: what chummer6 is. Use a single_protagonist composition. Palette: ['dossier board', 'receipt slip with traced modifiers', 'neon tactical map glow', 'blackbox opened to show internals']. Mood: Feel like this is a reliable fixer: crunchy, transparent, and not cloud-hostage.. Humor note: Direct, streetwise, mildly witty; roast mystery math, not users.. Useful diegetic overlays in-scene: deterministic rules engine, explain/provenance receipts, Lua-scripted rules support, multi-era rulesets including SR4 plugin signal. Overlay ideas to imply, not print literally: deterministic rules engine, explain/provenance receipts, Lua-scripted rules support, multi-era rulesets including SR4 plugin signal, local-first and offline/installable play surfaces. Include one small diegetic Chummer troll motif as a pin, placed as a small in-world detail inside the safe crop. Detail: a small recurring Chummer troll motif in the classic horned squat stance. Keep it secondary but clearly visible on a README banner. Do not center it, do not crop it out, and do not turn it into the main subject. Make it feel like a lived-in Shadowrun street, lab, archive, forge, or table scene, not a product poster. Avoid generic skylines, abstract icon soup, flat infographics, or brochure-cover posing. Do not print text, prompts, OODA labels, metadata, or resolution callouts on the image. No readable titles, no watermark, no giant centered logos, 16:9. Debug hover: product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.")
 
-Chummer6 is a Shadowrun toolkit built to make rules calls clear, repeatable, and table-friendly in about 30 seconds.
+Chummer6 is becoming a clearer, more trustworthy, more table-friendly Shadowrun toolkit.
 
-Why it matters: when a run gets crunchy, you need answers you can trust fast. Chummer6 gives deterministic outcomes (same inputs, same result), then shows a readable receipt of how it got there so players and GMs can verify the call and keep moving. It is local-first and offline-ready, so your session does not die when Wi-Fi does. It supports multiple rules eras, including SR4 plugin support, and Lua rule hooks for odd edge cases that usually start forum wars. It helps players, GMs, and tinkerers who want less mystery math and more playable confidence.
+It is trying to make rules calls fast, explainable, and recoverable. That means deterministic outcomes, readable receipts, local-first session behavior, multi-era support, and scripted rule hooks for the weird cases that usually turn into forum trench warfare.
 
-## The short version
+## What it is trying to become
 
-Chummer6 is here to answer the human questions first:
+Chummer6 is not just trying to be a character manager with nicer chrome. It is trying to become a toolkit that helps players and GMs:
 
-- What is this thing becoming?
-- Why are there so many moving parts?
-- What is actually happening right now?
-- Which ideas are real work, and which ones are still parked in the garage?
+- get a ruling quickly
+- see why that ruling happened
+- keep playing when the network misbehaves
+- carry different rules eras without pretending they are identical
+- handle odd table logic in code instead of folklore
 
-## What it does for players and GMs
+## A real table moment
 
-This guide exists to make the product legible before you ever need to care about repo boundaries:
+**GM:** "You are wounded, sustaining, and standing in bad weather. Roll it."
+**Player:** "Why is my pool lower than I expected?"
+**Chummer6:** "Base 11. Wounds -1. Sustaining -1. Weather -1. Final 8."
+**GM:** "Good. We move."
 
-- what Chummer6 is becoming at the table
-- which part solves which kind of problem
-- what is real now versus still horizon material
-- where to go next when you want depth instead of mystery
+That is the product story in miniature. Not "trust me, bro." Not "dig through source." Just a fast answer with enough proof to keep the table moving.
+
+## What feels different from old Chummer habits
+
+The project is leaning harder into explicit trust:
+
+- same inputs should produce the same result
+- the result should come with a readable receipt
+- the session should survive local/offline reality
+- the active rules and config stack should be visible
+- the ugly edge cases should have a real extension lane
+
+If older Chummer habits taught you to expect one giant opaque box, this is trying to be the opposite: sharper seams, clearer proof, and less mystery math.
+
+## The kinds of trust it wants to earn
+
+- **Math trust:** the number should be reproducible.
+- **Receipt trust:** the path to the number should be visible.
+- **Session trust:** your table should not collapse because Wi-Fi had a mood.
+- **Change trust:** custom rules, era differences, and future expansions should be legible instead of spooky.
 
 ## Why there are multiple parts
 
-The split is there so each promise can stay honest:
+The codebase is split because the product is getting bigger and more specialized. A rules engine, a prep workbench, a table-facing shell, hosted coordination, shared chrome, artifact handling, render jobs, and a blueprint repo all have different jobs. Keeping those seams honest is how the project avoids one giant haunted monolith.
 
-- `core` keeps the rules truth deterministic
-- `ui` keeps the big-screen workbench clean
-- `mobile` keeps the table-facing shell local-first
-- `hub` keeps hosted coordination from swallowing everything else
-- the supporting repos keep chrome, registry, media, design, and guide duties out of each other’s way
+If you want that map, go to [PARTS/README.md](PARTS/README.md).
 
-## Who this helps
+## What this repo is
 
-- curious newcomers
-- returning Chummer users
-- contributors who want the lay of the land before diving into the heavy stuff
-- test dummies brave enough to click the POC shelf
-
-## What it intentionally does not do
-
-Chummer6 is not the blueprint room, not a code repo, and not a place that gets to declare what the software must do next.
-
-It is the visitor center. The map on the wall. The place you walk through before you wander deeper into the arcology.
-
-And yes: if the dev does something particularly cursed, the guide is allowed to make fun of them a little.
-
-## How to use it
-
-If you want the quick orientation, start with [Start Here](START_HERE.md).  
-If you want the current shape, go to [NOW/current-status.md](NOW/current-status.md).  
-If you want the weird future stuff, go to [HORIZONS/README.md](HORIZONS/README.md).
+This repo is the friendly public guide to that wider program. It is here to explain the product in plain language, show what is real now versus future-looking, and help humans get oriented before they go hunting through deeper repos.
 ---
 
 _Last synced: 2026-03-13_  

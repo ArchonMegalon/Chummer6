@@ -1,137 +1,87 @@
 # Chummer6
 
-![Chummer6 hero banner](assets/hero/chummer6-hero.png)
+![Chummer6 hero banner](assets/hero/chummer6-hero.png "Wide cinematic cyberpunk concept art for the Chummer6 landing hero. 16:9 cinematic cyberpunk scene, no text, no logos, no watermark: one memorable focal subject, a scarred GM-runner in a worn synth-leather jacket at a cluttered night table, holding a rugged cyberdeck that projects a layered holographic rules receipt trail into the air while two blurred players lean in mid-argument behind them; the receipt flow is visually legible as linked evidence slips, dice traces, and cause-to-result steps; a small side monitor shows a crash-test simulation of a character build stress case; local mesh hardware and disconnected network indicators imply offline play; practical neon and desk lamp lighting, gritty but grounded, high detail, no generic skyline, no icon soup. One clear focal subject: a runner team at a live table. Set the scene in a dangerous but inviting cyberpunk scene. Show this happening: walking through branching combat outcomes. Make the core visual metaphor immediately legible: branching simulation grid. Use a group_table composition. Palette: cyan-magenta neon. Mood: dangerous, curious, and slightly amused. Humor note: dry roast energy without clown mode. Concrete visible props: wet chrome, holographic receipts, rain haze. Useful diegetic overlays in-scene: diegetic HUD traces, receipt markers, signal arcs. Reader-facing motifs to weave in visually: holographic receipt trail, battered cyberdeck, dossier evidence slips, mini crash-test sim display, offline mesh router lights. Overlay ideas to imply, not print literally: decision provenance chain, offline session status cue, era/ruleset switch indicator, script hook trace pulse. Include one small diegetic Chummer troll motif as a pin, placed as a small in-world detail inside the safe crop. Detail: a small recurring Chummer troll motif in the classic horned squat stance. Keep it secondary but clearly visible on a README banner. Do not center it, do not crop it out, and do not turn it into the main subject. Make it feel like a lived-in Shadowrun street, lab, archive, forge, or table scene, not a product poster. Avoid generic skylines, abstract icon soup, flat infographics, or brochure-cover posing. Do not print text, prompts, OODA labels, metadata, or resolution callouts on the image. No readable titles, no watermark, no giant centered logos, 16:9. Debug hover: yes, the troll is supposed to be in there somewhere. If not, the dev blinked.")
 
 > **Shadowrun rules truth, with receipts.**
 >
-> Chummer6 exists for one reason: Shadowrun math should be clear, not mystical. When a rules call gets spicy, you can open a receipt that shows how the result was built.
+> Chummer6 is becoming a clearer, tougher, more table-friendly Shadowrun toolkit: fast rulings, readable proof, offline-safe play, and less mystery math.
 
-Why this matters at a real table: arguments end faster, trust goes up, and the game keeps moving. It runs local-first, so it still works when your Wi-Fi eats itself, and it supports multiple eras of play, including SR4 plugin paths plus Lua rule hooks for weird edge cases. If you only click one thing next, take the guided intro, then check a real receipt trail so you can see the proof flow yourself.
-
-No, this is not the code repo.  
-No, you do not need a flowchart and three espressos to understand the program.  
-That is the whole reason this repo exists.
+If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
 ## Pick your path
 
-- **I’m new here:** [Start Here](START_HERE.md)
-- **Give me the two-minute version:** [What Chummer6 is](WHAT_CHUMMER6_IS.md)
-- **What is happening right now?** [Current status](NOW/current-status.md)
-- **How do the parts fit together?** [Program map](PARTS/README.md)
-- **What are the future rabbit holes?** [Horizons](HORIZONS/README.md)
-- **Where should I go deeper?** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
+- **I am new here:** [Start Here](START_HERE.md)
+- **Give me the product story:** [What Chummer6 is](WHAT_CHUMMER6_IS.md)
+- **Tell me what is real today:** [Current status](NOW/current-status.md)
+- **Show me the parts when I actually care:** [Program map](PARTS/README.md)
+- **Show me the future rabbit holes:** [Horizons](HORIZONS/README.md)
+- **Point me at the deeper source material:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
 
-## What Chummer6 is
+## What this means at a real table
 
-This repo is the human guide layer for the Chummer ecosystem: it explains what the core engine guarantees, how UI/mobile fronts fit, and how to use features that matter at the table without making you read source first.
+**GM:** "Rain, noise, and recoil all apply here."
+**Player:** "Then why did my pool drop to 9?"
+**Chummer6:** "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
 
-Think of it like this:
-
-- `chummer6-design` is the blueprint room
-- the code repos are the workshops
-- **Chummer6 is the map on the wall**
+That is the promise in human terms: faster rulings, less argument theater, and a tool that can show its work instead of asking for blind trust. The same push shows up in local-first session flow, so a bad cafe connection does not get to be the final boss of game night.
 
 ## Why this is worth watching
 
-Chummer6 gives you deterministic rules truth with human-readable receipts, plus local-first play across app surfaces.
+- Rules calls are meant to be auditable, not mystical.
+- Local-first and offline-ready play are part of the product story, not an afterthought.
+- Multi-era support, including SR4 paths, is being treated as real scope.
+- Lua rule hooks give ugly edge cases a home in code instead of forum folklore.
 
-Follow this project if you care about dangerous-simulation energy with fewer black boxes: rules decisions you can audit, offline play you can trust, and a stack that keeps getting sharper for real sessions.
+If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
 
-- Your rules calls are auditable, not hand-wavy
-- Works offline; your table is not hostage to Wi-Fi
-- Multi-era rulesets (including SR4 plugin support) are explicitly in play
-- Lua/scripted rules let edge cases live in code, not forum arguments
+## What is happening right now
 
-## What’s happening now
+The current work is heavy on trust and light on fireworks. The team is tightening seams, clarifying preview labels, and making sure later features land on something sturdy instead of cool-looking lies.
 
-![Current status banner](assets/pages/current-status.png)
+- [Current phase](NOW/current-phase.md)
+- [Current status](NOW/current-status.md)
+- [Public surfaces](NOW/public-surfaces.md)
 
-Right now the crew is doing foundation work, not bolting neon spoilers onto half-built engines.
-People want crunchy simulation depth, but not mystery math or SaaS lock-in.
+## When you want the map
 
-Current focus:
-- Show value before repo topology
-- Lead with receipts + local-first + multi-era
-- Keep tone sharp, helpful, slightly streetwise
-- keep public previews honestly labeled until they become the real thing
+You do not need the repo topology first, but the map is here when you need it:
 
-Read more: [Current phase](NOW/current-phase.md)
+- **Rules truth** lives in [Core](PARTS/core.md)
+- **Prep and inspect** lives in [UI](PARTS/ui.md)
+- **Table play** lives in [Mobile](PARTS/mobile.md)
+- **Online coordination** lives in [Hub](PARTS/hub.md)
+- **Shared chrome** lives in [UI Kit](PARTS/ui-kit.md)
+- **Artifacts and compatibility** live in [Hub Registry](PARTS/hub-registry.md)
+- **Render jobs** live in [Media Factory](PARTS/media-factory.md)
+- **Blueprint truth** lives in [Design](PARTS/design.md)
 
-## Meet the parts
+If you want the full guided version, read the [Program map](PARTS/README.md).
 
-![Parts overview](assets/pages/parts-index.png)
+## Future rabbit holes
 
-<table>
-  <tr>
-    <td align="center"><a href="PARTS/core.md"><img src="assets/parts/core.png" alt="Core" width="300"><br><strong>Core</strong><br><em>The deterministic rules engine</em></a></td>
-    <td align="center"><a href="PARTS/ui.md"><img src="assets/parts/ui.png" alt="UI" width="300"><br><strong>UI</strong><br><em>The workbench and big-screen UX</em></a></td>
-    <td align="center"><a href="PARTS/mobile.md"><img src="assets/parts/mobile.png" alt="Mobile" width="300"><br><strong>Mobile</strong><br><em>The player and GM shell</em></a></td>
-    <td align="center"><a href="PARTS/hub.md"><img src="assets/parts/hub.png" alt="Hub" width="300"><br><strong>Hub</strong><br><em>The hosted API and orchestration layer</em></a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="PARTS/ui-kit.md"><img src="assets/parts/ui-kit.png" alt="UI kit" width="300"><br><strong>UI kit</strong><br><em>Shared chrome and visual primitives</em></a></td>
-    <td align="center"><a href="PARTS/hub-registry.md"><img src="assets/parts/hub-registry.png" alt="Hub registry" width="300"><br><strong>Hub registry</strong><br><em>Artifacts, installs, and compatibility</em></a></td>
-    <td align="center"><a href="PARTS/media-factory.md"><img src="assets/parts/media-factory.png" alt="Media factory" width="300"><br><strong>Media factory</strong><br><em>Render-only asset lifecycle</em></a></td>
-    <td align="center"><a href="PARTS/design.md"><img src="assets/parts/design.png" alt="Design" width="300"><br><strong>Design</strong><br><em>The long-range blueprint room</em></a></td>
-  </tr>
-</table>
+Horizons is where the guide talks about future table pain, not fake release promises: desync, opaque math, weak builds, fork chaos, dossier nonsense, and other ways a run can get stupid.
 
-## Horizon ideas
-
-![Horizons overview](assets/pages/horizons-index.png)
-
-On the horizon: more runner-grade dossiers, richer receipt storytelling, and nastier edge-case support for era/rules experimentation, presented as ideas to watch, not promises from a slick suit.
-
-<table>
-  <tr>
-    <td align="center"><a href="HORIZONS/karma-forge.md"><img src="assets/horizons/karma-forge.png" alt="Karma Forge" width="300"><br><strong>KARMA FORGE</strong><br><em>Personalized rule stacks without fork chaos</em></a></td>
-    <td align="center"><a href="HORIZONS/nexus-pan.md"><img src="assets/horizons/nexus-pan.png" alt="NEXUS-PAN" width="300"><br><strong>NEXUS-PAN</strong><br><em>A live synced table instead of lonely files</em></a></td>
-    <td align="center"><a href="HORIZONS/alice.md"><img src="assets/horizons/alice.png" alt="ALICE" width="300"><br><strong>ALICE</strong><br><em>Stress-test a build before the run</em></a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="HORIZONS/jackpoint.md"><img src="assets/horizons/jackpoint.png" alt="JACKPOINT" width="300"><br><strong>JACKPOINT</strong><br><em>Turn grounded data into dossiers and briefings</em></a></td>
-    <td align="center"><a href="HORIZONS/ghostwire.md"><img src="assets/horizons/ghostwire.png" alt="GHOSTWIRE" width="300"><br><strong>GHOSTWIRE</strong><br><em>Replay a run like a forensic sim</em></a></td>
-    <td align="center"><a href="HORIZONS/rule-x-ray.md"><img src="assets/horizons/rule-x-ray.png" alt="RULE X-RAY" width="300"><br><strong>RULE X-RAY</strong><br><em>Click any number and see where it came from</em></a></td>
-  </tr>
-</table>
-
-See all: [Horizon index](HORIZONS/README.md)
-
-## What you can do
-
-If this repo helped you get your bearings, here’s how to help back:
-
-- **Give Chummer6 a star** if this guide saved you from digging through half the Matrix just to understand what is going on.
-- **Be my test dummy and install the software.**
-- **Grab the latest POC build from [Releases](https://github.com/ArchonMegalon/Chummer6/releases)** when one is available.
-- **Seriously: never trust software. Never trust a dev.**
-- **If the build starts acting like a recruiter for chaos, close the lid and write down the steps.**
-- **If the build does something cursed, tell us exactly which click woke the gremlin.**
-- **If this repo is stale, confusing, or reads like corp training material, call it out.**
-
-> **Street warning:** POC builds are for curious chummers, not cautious wageslaves.  
-> They may be unstable, unfinished, weird, or one bad click away from getting your deck **marked, hacked, or bricked**.  
-> Install at your own risk.
-
-In other words: kick the tires, break the thing, and tell me where the smoke came out.
+- [Horizons index](HORIZONS/README.md)
 
 ## POC shelf
 
-![POC warning banner](assets/hero/poc-warning.png)
+![POC warning banner](assets/hero/poc-warning.png "Wide cinematic cyberpunk concept art for the Chummer6 POC warning shelf. Cyberpunk prep table at night, one human runner and one GM leaning over a luminous character dossier; a transparent receipt strip shows rule steps and provenance stamps; side terminal badge hints: Offline-ready, SR4+ era support, Lua hook; neon evidence-board mood, practical not corporate, sharp focus on hands and receipt. One clear focal subject: A runner-GM duo at a prep table reviewing a glowing rules receipt beside a character dossier.. Set the scene in Action result is challenged, receipt is opened, provenance trail settles the argument, session keeps moving.. Show this happening: Chummer6 exists so crunchy Shadowrun calls stop being mystery math: outcomes come from a deterministic core, and each tough ruling can show its receipt and provenance trail. It runs local-first, works offline, and supports multi-era play in plain terms, including SR4-era plugin paths and Lua-scripted rule hooks for edge-case chaos. If you want the fast path, start with the guided intro, then inspect a real receipt flow.. Make the core visual metaphor immediately legible: readme. Use a desk_still_life composition. Palette: ['Dossier board', 'Receipt slip trail', 'Tactical map glow', 'Blackbox cracked open to visible rule steps']. Mood: Relief that the math is checkable and the tool still works when the network dies.. Humor note: Streetwise, direct, mildly snarky about spreadsheet rituals; never snark at readers.. Useful diegetic overlays in-scene: Needs 30-second understanding, Wants receipts/provenance trust signal, Wants local-first/offline clarity, Wants multi-era support stated plainly. Overlay ideas to imply, not print literally: Needs 30-second understanding, Wants receipts/provenance trust signal, Wants local-first/offline clarity, Wants multi-era support stated plainly, Foundations-first phase must feel intentional, not unfinished. Include one small diegetic Chummer troll motif as a pin, placed as a small in-world detail inside the safe crop. Detail: a small recurring Chummer troll motif in the classic horned squat stance. Keep it secondary but clearly visible on a README banner. Do not center it, do not crop it out, and do not turn it into the main subject. Make it feel like a lived-in Shadowrun street, lab, archive, forge, or table scene, not a product poster. Avoid generic skylines, abstract icon soup, flat infographics, or brochure-cover posing. Do not print text, prompts, OODA labels, metadata, or resolution callouts on the image. No readable titles, no watermark, no giant centered logos, 16:9. Debug hover: the build may survive your evening. Your patience is less certain.")
 
-If there is a fresh proof-of-concept build ready for brave idiots and helpful test dummies, the shelf is here:
+Want to know whether all this talk cashes out into real software? This is the shelf where you stop reading and start risking your evening.
 
 - [Chummer6 Releases](https://github.com/ArchonMegalon/Chummer6/releases)
 
-The binaries themselves come from the active Chummer6 codebase, not from this guide repo.
+> **Street warning:** POC builds are for curious chummers, not cautious wageslaves.
+> They may be unstable, unfinished, weird, or one bad click away from getting your deck marked, hacked, or bricked.
+> Install at your own risk.
 
-## Where to go deeper
+The binaries come from the active Chummer6 codebase, not from this guide repo.
 
-Chummer6 explains. It does not ship code and it does not replace the blueprint.
+## What this repo is
 
-- The long-range plan lives in `chummer6-design`
-- The software itself lives in the owning code repos
-- Chummer6 is the friendly guide for humans
+Chummer6 is the human-facing guide to the wider program. It is not the code repo, and it is not the canonical blueprint. It is the place that tries to make the product legible before you have to care which repo owns which seam.
+
+When you want the blueprint or implementation trail, go to [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 ---
 
 _Last synced: 2026-03-13_  

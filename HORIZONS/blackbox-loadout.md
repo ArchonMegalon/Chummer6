@@ -1,46 +1,53 @@
 # BLACKBOX LOADOUT
 
-![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.png)
+![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.png "Wide cinematic cyberpunk concept art for the Chummer6 blackbox-loadout horizon page. A single exhausted street sam at a scarred prep bench in predawn neon, hardcase open with foam-cut gear slots, one critical slot empty and pulsing red. Physical receipt slips clipped beside ammo, medkit, rope, and breaching tools; a transparent x-ray layer highlights compatibility/risk tags over the case. Tactical map fragments, shell casings, and a local terminal glow frame the scene. Specific, grounded, dangerous, no corporate dashboard look. One clear focal subject: a runner team at a live table. Set the scene in a rainy neon street front. Show this happening: pulling a glowing x-ray of cause and effect through the air. Make the core visual metaphor immediately legible: x-ray causality scan. Use a single_protagonist composition. Palette: cyan-magenta neon. Mood: dangerous, curious, and slightly amused. Humor note: dry roast energy without clown mode. Concrete visible props: wet chrome, holographic receipts, rain haze. Useful diegetic overlays in-scene: diegetic HUD traces, receipt markers, signal arcs. Reader-facing motifs to weave in visually: x-ray hardcase panel, red-thread dossier pins, danger-tape accents, receipt slips with timestamp/hash vibes, tabletop grime and field wear. Overlay ideas to imply, not print literally: Run-Ready Check, Receipt-Backed Risk, Offline Table-Safe, Era/Rule Aware, Lua Hook Detected. Include one small diegetic Chummer troll motif as a pin, placed as a small in-world detail inside the safe crop. Detail: a small recurring Chummer troll motif in the classic horned squat stance. Keep it secondary but clearly visible on a README banner. Do not center it, do not crop it out, and do not turn it into the main subject. Make it feel like a lived-in Shadowrun street, lab, archive, forge, or table scene, not a product poster. Avoid generic skylines, abstract icon soup, flat infographics, or brochure-cover posing. Do not print text, prompts, OODA labels, metadata, or resolution callouts on the image. No readable titles, no watermark, no giant centered logos, 16:9. Debug hover: courage is not a substitute for a medkit, no matter what the player claims.")
 
-**Before the breach, run the idiot-check that keeps your name off a memorial wall.**
+**The idiot-check before the breach.**
 
-_Status: Horizon only — future idea, not active build work._
+_Status: Horizon only - future idea, not active build work._
 
-## Why this would be wiz
+_Image idea: a gear dump on a table with missing essentials glowing red while Chummer hovers above it like a very judgmental quartermaster._
 
-Because swagger does not stop blood loss. A receipt that says exactly what is missing does.
+## What problem does this solve?
 
-## The brutal truth
+Crews rarely wipe on courage deficits. They wipe on dumb prep gaps: no medpatch, no backup ammo, no exit tool, no answer for the exact threat they already knew about. BLACKBOX LOADOUT is the idea of a brutal pre-run readiness check with receipts.
 
-Crews rarely wipe on courage deficits; they wipe on dumb prep gaps like no medpatch, no backup ammo, no exit tool.
+## A real table scene
 
-## The use case
+The team claims they are ready, which is exactly why the machine decides to inspect them.
 
-You tap run-ready, and Chummer6 flags the highest-risk loadout holes with plain-language receipts tied to your active era/rules context.
+**GM:** "You are about to hit a secure lab."
+**Player:** "We are ready."
+**Chummer6:** "You brought one medkit, no backup entry tool, and exactly enough ammo if nothing goes wrong."
+**Player:** "That feels judgmental."
+**Chummer6:** "It is more useful than a memorial page."
+**GM:** "Listen to the machine."
+**Player:** "Fine. Buying more trauma patches."
 
-## What is the idea?
+## Meanwhile, Chummer is doing this
 
-Turn pre-run prep into a blackbox audit: fast, explainable, and mean enough to save your life.
+- scanning the active build and loadout against scenario needs
+- checking era and rules context before warning
+- surfacing the highest-risk omissions in plain language
+- backing every roast with a receipt instead of pure attitude
 
-## What problem does it solve?
+## Why that would be great
 
-Most failed openings come from invisible omissions, and most tools either stay vague or bury the warning in menu fog.
+The table catches invisible omissions before the opening scene, and the software stops being politely vague about life-threatening stupidity.
 
-## Foundations first
+## Why it is still a Horizon
+
+This needs stronger runtime stack manifests, compatibility checks, and preview receipts before the warnings can be sharp without being fake.
+
+## What would need to exist first
 
 - runtime stack manifests
 - compatibility checks
 - preview receipts
 
-## Which parts would it touch later?
+## Pitch your own future
 
-- `mobile`
-- `hub-registry`
-- `design`
-
-## Why it waits
-
-This is a horizon experiment, not tomorrow’s shipping badge: the stack/loadout model must mature before the roast can be truly accurate.
+If your table pain is not avoidable pre-run stupidity, the [Horizons index](README.md) can still disappoint you in other ways.
 ---
 
 _Last synced: 2026-03-13_  

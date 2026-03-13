@@ -1,46 +1,53 @@
 # Horizons
 
-![Horizons overview banner](../assets/pages/horizons-index.png)
+![Horizons overview banner](../assets/pages/horizons-index.png "Wide cinematic cyberpunk concept art for the Chummer6 horizons boulevard banner. Cyberpunk workshop at midnight, one runner-engineer at a cluttered prep table, neon dossier wall covered with test receipts and provenance chains, a cracked blackbox simulator showing crash-test outcomes, passport-like era stamps including SR4 pinned beside Lua script fragments, subtle HUD overlays reading Watchlist / Rules receipt vNext / Lua hook lab / Offline-first, gritty practical mood, no corporate polish. One clear focal subject: A single cyberpunk rules engineer pinning fresh test receipts and Lua snippets onto a neon dossier wall before a session.. Set the scene in Prototype ideas are visible as annotated evidence slips and sandbox test outputs; nothing looks 'shipped,' everything looks testable.. Show this happening: This section is the garage door cracked open on what might be next. Expect experiments, not release notes: nastier edge-case simulation through Lua rule hooks, more readable provenance receipts you can actually audit mid-session, and deeper multi-era support including SR4-flavored workflows, all with local-first table reality in mind. If it sounds exciting, good; if it sounds guaranteed, that’s your cue to call bullshit.. Make the core visual metaphor immediately legible: horizons index. Use a horizon_boulevard composition. Palette: ['dossier board', 'blackbox cracked open with visible receipt trail', 'crash-test sim display', 'passport-style era stamps (including SR4)', 'Lua script fragment glowing beside outcome receipts']. Mood: Make readers feel invited into a credible hacker garage: ambitious, honest, and grounded.. Humor note: Streetwise, candid, mildly roasty about overpromising dev culture; never cynical.. Useful diegetic overlays in-scene: Section is explicitly about future ideas, not active work, Global signals emphasize lua_rules, explain/provenance receipts, offline/local-first play, and SR4/multi-era support, Audience wants table value first, not internal architecture. Overlay ideas to imply, not print literally: Section is explicitly about future ideas, not active work, Global signals emphasize lua_rules, explain/provenance receipts, offline/local-first play, and SR4/multi-era support, Audience wants table value first, not internal architecture. Include one small diegetic Chummer troll motif as a pin, placed as a small in-world detail inside the safe crop. Detail: a small recurring Chummer troll motif in the classic horned squat stance. Keep it secondary but clearly visible on a README banner. Do not center it, do not crop it out, and do not turn it into the main subject. Make it feel like a lived-in Shadowrun street, lab, archive, forge, or table scene, not a product poster. Avoid generic skylines, abstract icon soup, flat infographics, or brochure-cover posing. Do not print text, prompts, OODA labels, metadata, or resolution callouts on the image. No readable titles, no watermark, no giant centered logos, 16:9. Debug hover: future districts for table pain, because the dev collects rabbit holes like contraband.")
 
-Horizons is the garage shelf of ideas worth stalking, not a fake “coming soon” billboard.
+Horizons is where Chummer6 talks about future table pain, not fake "coming soon" promises.
 
-They are here because they are exciting, useful, or strategically important.  
-They are **not** active build commitments.
+These pages are here because the ideas are useful, sharp, or strategically interesting. They are not active build commitments.
 
-If you want to see where Chummer6 could get sharper next, this is your stop. You’ll find experiments like clearer rules receipts you can check during play, deeper multi-era handling (yes, including SR4-style paths), tougher Lua rule hooks for weird edge cases, and smoother offline-first session flow. Why it matters: you get a realistic view of future table value without guessing what’s real today.
+> **Reality check from the troll behind the curtain**
+> These are horizon ideas, not signed blood contracts. Some may ship. Some may mutate. Some may remain beautiful nonsense forever.
+> If your table pain is different, pitch a better future. Later there should be a better way for chummers to help signal which rabbit holes deserve the next flashlight.
+>
+> Also, if the dev says all of these are "basically done," check whether he also says "one tiny refactor" before setting a repo on fire.
 
-## Pick a future rabbit hole
+## Pick the pain, then the codename
 
-<table>
-  <tr>
-    <td align="center"><a href="karma-forge.md"><img src="../assets/horizons/karma-forge.png" alt="KARMA FORGE" width="300"><br><strong>KARMA FORGE</strong><br><em>Personalized rule stacks without fork chaos</em></a></td>
-    <td align="center"><a href="nexus-pan.md"><img src="../assets/horizons/nexus-pan.png" alt="NEXUS-PAN" width="300"><br><strong>NEXUS-PAN</strong><br><em>A live synced table experience</em></a></td>
-    <td align="center"><a href="alice.md"><img src="../assets/horizons/alice.png" alt="ALICE" width="300"><br><strong>ALICE</strong><br><em>Simulation and build stress-testing</em></a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="jackpoint.md"><img src="../assets/horizons/jackpoint.png" alt="JACKPOINT" width="300"><br><strong>JACKPOINT</strong><br><em>Grounded dossiers and story artifacts</em></a></td>
-    <td align="center"><a href="ghostwire.md"><img src="../assets/horizons/ghostwire.png" alt="GHOSTWIRE" width="300"><br><strong>GHOSTWIRE</strong><br><em>Forensic replay for runs</em></a></td>
-    <td align="center"><a href="rule-x-ray.md"><img src="../assets/horizons/rule-x-ray.png" alt="RULE X-RAY" width="300"><br><strong>RULE X-RAY</strong><br><em>Click any number and see where it came from</em></a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="heat-web.md"><img src="../assets/horizons/heat-web.png" alt="HEAT WEB" width="300"><br><strong>HEAT WEB</strong><br><em>Campaign consequences as a living graph</em></a></td>
-    <td align="center"><a href="run-passport.md"><img src="../assets/horizons/run-passport.png" alt="RUN PASSPORT" width="300"><br><strong>RUN PASSPORT</strong><br><em>Move a character across rule environments</em></a></td>
-    <td align="center"><a href="threadcutter.md"><img src="../assets/horizons/threadcutter.png" alt="THREADCUTTER" width="300"><br><strong>THREADCUTTER</strong><br><em>Conflict analysis for overlay packs</em></a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="mirrorshard.md"><img src="../assets/horizons/mirrorshard.png" alt="MIRRORSHARD" width="300"><br><strong>MIRRORSHARD</strong><br><em>Compare alternate character futures</em></a></td>
-    <td align="center"><a href="blackbox-loadout.md"><img src="../assets/horizons/blackbox-loadout.png" alt="BLACKBOX LOADOUT" width="300"><br><strong>BLACKBOX LOADOUT</strong><br><em>The idiot-check before the run</em></a></td>
-    <td></td>
-  </tr>
-</table>
+- **My table desyncs and devices go weird.** [NEXUS-PAN](nexus-pan.md)
+- **We argue about why the math did that.** [RULE X-RAY](rule-x-ray.md)
+- **We only find weak builds after they die.** [ALICE](alice.md)
+- **We want house rules without fork chaos.** [KARMA FORGE](karma-forge.md)
+- **We want dossiers and recaps without made-up nonsense.** [JACKPOINT](jackpoint.md)
+- **We need to replay what actually happened after a run goes sideways.** [GHOSTWIRE](ghostwire.md)
+- **We keep forgetting campaign consequences until the GM remembers them dramatically.** [HEAT WEB](heat-web.md)
+- **We want honest migration between rule environments.** [RUN PASSPORT](run-passport.md)
+- **Our clever mods keep trying to stab each other.** [THREADCUTTER](threadcutter.md)
+- **We want to compare two futures before we commit to one.** [MIRRORSHARD](mirrorshard.md)
+- **We need a brutal pre-run idiot check.** [BLACKBOX LOADOUT](blackbox-loadout.md)
 
-These are the pages where Chummer gets to dream out loud a little:
-sharper tables, smarter builds, cleaner chaos, and fewer moments where a runner has to shrug and say “I dunno, the software just vibes that way.”
+## Other rabbit holes still on the shelf
 
-## Important note
+- **We need controlled operator actions with receipts and undo.** [COMMAND CASKET](command-casket.md)
+- **We want a grounded review room for explain and provenance.** [EVIDENCE ROOM](evidence-room.md)
+- **We want continuity artifacts without fake authority.** [PERSONA ECHO](persona-echo.md)
+- **We may eventually need a discovery lane for packs and artifacts.** [SHADOW MARKET](shadow-market.md)
+- **We want shared situational awareness during live sessions.** [TACTICAL PULSE](tactical-pulse.md)
 
-If you want canonical design or actual implementation truth, this folder is not that.  
-For that, go to [Where to go deeper](../WHERE_TO_GO_DEEPER.md).
+## What these pages are for
+
+Each Horizon page is supposed to answer six things in plain language:
+
+- what problem this idea would solve
+- what it would look like in a real session
+- what Chummer would be doing in the background
+- why that would be great
+- why it is still not active work
+- what foundations would need to land first
+
+## Pitch your own future
+
+If your table pain is not on this list, good. Horizons is not holy scripture. Bring a better problem and a sharper idea.
 ---
 
 _Last synced: 2026-03-13_  
