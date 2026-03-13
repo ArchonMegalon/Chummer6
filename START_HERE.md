@@ -35,6 +35,6 @@ Go to [Horizons](HORIZONS/README.md).
 Go to [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design README, public repo READMEs_  
 _Canonical source: chummer6-design_

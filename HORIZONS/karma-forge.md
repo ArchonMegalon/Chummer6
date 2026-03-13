@@ -36,8 +36,8 @@ Players and GMs want deep personalization, but not mystery math, brittle forks, 
 ## Which parts would it touch later?
 
 - `core`
-- `play`
-- `run-services`
+- `mobile`
+- `hub`
 - `hub-registry`
 - `design`
 
@@ -46,6 +46,6 @@ Players and GMs want deep personalization, but not mystery math, brittle forks, 
 This is a horizon track, not tomorrow's patch note. Contract reset and seam cleanup come first, because powerful overlays on fuzzy boundaries is how software gets haunted.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

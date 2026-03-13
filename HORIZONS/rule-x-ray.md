@@ -35,7 +35,7 @@ Opaque calculations are the fastest route from game tension to tool skepticism.
 ## Which parts would it touch later?
 
 - `core`
-- `presentation`
+- `ui`
 - `design`
 
 ## Why it waits
@@ -43,6 +43,6 @@ Opaque calculations are the fastest route from game tension to tool skepticism.
 Explain and provenance need to finish becoming boringly canonical before this can be sold as table-grade muscle.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

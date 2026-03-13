@@ -1,6 +1,6 @@
-# Play
+# Mobile
 
-![Play banner](../assets/parts/play.png)
+![Mobile banner](../assets/parts/mobile.png)
 
         **The part you feel at the table.**
 
@@ -34,6 +34,6 @@
         - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

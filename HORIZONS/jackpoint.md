@@ -35,7 +35,7 @@ When nobody can tell what is verified, teams make expensive decisions on vibes d
 
 ## Which parts would it touch later?
 
-- `run-services`
+- `hub`
 - `hub-registry`
 - `media-factory`
 - `design`
@@ -45,6 +45,6 @@ When nobody can tell what is verified, teams make expensive decisions on vibes d
 Also horizon-watch: richer dossier flow depends on maturing evidence/render boundaries first.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

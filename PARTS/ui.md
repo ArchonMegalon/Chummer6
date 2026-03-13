@@ -1,6 +1,6 @@
-# Presentation
+# UI
 
-![Presentation banner](../assets/parts/presentation.png)
+![UI banner](../assets/parts/ui.png)
 
         **The workbench and big-screen UX.**
 
@@ -13,7 +13,7 @@
         ## What it owns
 
         - browser and desktop workbench UX
-- inspectors, builders, and shared presentation seams
+- inspectors, builders, and shared workbench seams
 - big-screen authoring and review flows
 
         ## What it does not own
@@ -33,6 +33,6 @@
         - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
 _Canonical source: chummer6-design_

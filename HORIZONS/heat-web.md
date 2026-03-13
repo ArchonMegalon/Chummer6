@@ -34,9 +34,9 @@ Most campaigns lose continuity exactly where they should get sharp: grudges, lev
 
 ## Which parts would it touch later?
 
-- `run-services`
-- `play`
-- `presentation`
+- `hub`
+- `mobile`
+- `ui`
 - `design`
 
 ## Why it waits
@@ -44,6 +44,6 @@ Most campaigns lose continuity exactly where they should get sharp: grudges, lev
 This stays watchlist until event streams and evidence receipts are solid enough to carry real campaign weight without fake certainty.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

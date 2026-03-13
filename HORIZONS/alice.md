@@ -36,7 +36,7 @@ Tables need pressure-tested answers before mission night, not post-mortem argume
 ## Which parts would it touch later?
 
 - `core`
-- `run-services`
+- `hub`
 - `design`
 
 ## Why it waits
@@ -44,6 +44,6 @@ Tables need pressure-tested answers before mission night, not post-mortem argume
 This is horizon-watch, not tomorrow's release: the sim lab only works if engine/explain seams are cleaner first.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

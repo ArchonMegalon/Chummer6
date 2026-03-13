@@ -21,6 +21,6 @@ This is the work that makes later wow-ideas cheap instead of chaotic.
 No neon spoiler matters if the frame is still loose.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design vision, current public shape_  
 _Canonical source: chummer6-design_

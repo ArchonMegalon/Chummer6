@@ -35,8 +35,8 @@ Session memories drift fast, and suddenly everyone at the table is a selective h
 
 ## Which parts would it touch later?
 
-- `play`
-- `run-services`
+- `mobile`
+- `hub`
 - `design`
 
 ## Why it waits
@@ -44,6 +44,6 @@ Session memories drift fast, and suddenly everyone at the table is a selective h
 This only works once session authority and event history are truly first-class, not implied between systems.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

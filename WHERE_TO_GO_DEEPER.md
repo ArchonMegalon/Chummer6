@@ -24,6 +24,6 @@ Fix Chummer6 first.
 Do **not** “correct” the blueprint because the visitor guide got ahead of itself.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design scope rules, current public shape_  
 _Canonical source: chummer6-design_

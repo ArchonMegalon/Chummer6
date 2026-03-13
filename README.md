@@ -64,9 +64,9 @@ Read more: [Current phase](NOW/current-phase.md)
 <table>
   <tr>
     <td align="center"><a href="PARTS/core.md"><img src="assets/parts/core.png" alt="Core" width="300"><br><strong>Core</strong><br><em>The deterministic rules engine</em></a></td>
-    <td align="center"><a href="PARTS/presentation.md"><img src="assets/parts/presentation.png" alt="Presentation" width="300"><br><strong>Presentation</strong><br><em>The workbench and big-screen UX</em></a></td>
-    <td align="center"><a href="PARTS/play.md"><img src="assets/parts/play.png" alt="Play" width="300"><br><strong>Play</strong><br><em>The player and GM shell</em></a></td>
-    <td align="center"><a href="PARTS/run-services.md"><img src="assets/parts/run-services.png" alt="Run services" width="300"><br><strong>Run services</strong><br><em>The hosted API and orchestration layer</em></a></td>
+    <td align="center"><a href="PARTS/ui.md"><img src="assets/parts/ui.png" alt="UI" width="300"><br><strong>UI</strong><br><em>The workbench and big-screen UX</em></a></td>
+    <td align="center"><a href="PARTS/mobile.md"><img src="assets/parts/mobile.png" alt="Mobile" width="300"><br><strong>Mobile</strong><br><em>The player and GM shell</em></a></td>
+    <td align="center"><a href="PARTS/hub.md"><img src="assets/parts/hub.png" alt="Hub" width="300"><br><strong>Hub</strong><br><em>The hosted API and orchestration layer</em></a></td>
   </tr>
   <tr>
     <td align="center"><a href="PARTS/ui-kit.md"><img src="assets/parts/ui-kit.png" alt="UI kit" width="300"><br><strong>UI kit</strong><br><em>Shared chrome and visual primitives</em></a></td>
@@ -134,6 +134,6 @@ Chummer6 explains. It does not ship code and it does not replace the blueprint.
 - Chummer6 is the friendly guide for humans
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design, public repo READMEs, current public shape_  
 _Canonical source: chummer6-design_

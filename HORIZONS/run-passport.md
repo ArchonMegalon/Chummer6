@@ -35,8 +35,8 @@ Export/import is easy demo fuel; honest compatibility is hard engineering with s
 ## Which parts would it touch later?
 
 - `hub-registry`
-- `play`
-- `run-services`
+- `mobile`
+- `hub`
 - `design`
 
 ## Why it waits
@@ -44,6 +44,6 @@ Export/import is easy demo fuel; honest compatibility is hard engineering with s
 This stays horizon-grade until registry seams and runtime stack modeling are hardened enough to survive real campaign pressure.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

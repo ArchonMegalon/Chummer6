@@ -34,8 +34,8 @@ Players want deep choice, but not permanent branch clutter or mystery math when 
 
 ## Which parts would it touch later?
 
-- `presentation`
-- `run-services`
+- `ui`
+- `hub`
 - `design`
 
 ## Why it waits
@@ -43,6 +43,6 @@ Players want deep choice, but not permanent branch clutter or mystery math when 
 It remains a horizon experiment until receipt quality and comparison provenance are consistent enough to trust under crunchy edge cases.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

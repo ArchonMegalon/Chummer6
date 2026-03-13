@@ -15,15 +15,24 @@ Chummer6 is here to answer the human questions first:
 - What is actually happening right now?
 - Which ideas are real work, and which ones are still parked in the garage?
 
-## Why this repo exists
+## What it does for players and GMs
 
-This repo gives you the plain-language version of the program:
+This guide exists to make the product legible before you ever need to care about repo boundaries:
 
-- what Chummer is becoming
-- what the main parts are
-- what is happening now
-- what ideas are parked in the horizon
-- and, when necessary, a gentle roast of the dev who shipped something weird
+- what Chummer6 is becoming at the table
+- which part solves which kind of problem
+- what is real now versus still horizon material
+- where to go next when you want depth instead of mystery
+
+## Why there are multiple parts
+
+The split is there so each promise can stay honest:
+
+- `core` keeps the rules truth deterministic
+- `ui` keeps the big-screen workbench clean
+- `mobile` keeps the table-facing shell local-first
+- `hub` keeps hosted coordination from swallowing everything else
+- the supporting repos keep chrome, registry, media, design, and guide duties out of each other’s way
 
 ## Who this helps
 
@@ -47,6 +56,6 @@ If you want the current shape, go to [NOW/current-status.md](NOW/current-status.
 If you want the weird future stuff, go to [HORIZONS/README.md](HORIZONS/README.md).
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design, current public shape_  
 _Canonical source: chummer6-design_

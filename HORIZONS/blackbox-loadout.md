@@ -34,7 +34,7 @@ Most failed openings come from invisible omissions, and most tools either stay v
 
 ## Which parts would it touch later?
 
-- `play`
+- `mobile`
 - `hub-registry`
 - `design`
 
@@ -43,6 +43,6 @@ Most failed openings come from invisible omissions, and most tools either stay v
 This is a horizon experiment, not tomorrow’s shipping badge: the stack/loadout model must mature before the roast can be truly accurate.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

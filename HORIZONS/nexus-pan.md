@@ -35,8 +35,8 @@ Real tables are messy: mixed devices, unstable networks, and constant state chan
 
 ## Which parts would it touch later?
 
-- `play`
-- `run-services`
+- `mobile`
+- `hub`
 - `core`
 - `design`
 
@@ -45,6 +45,6 @@ Real tables are messy: mixed devices, unstable networks, and constant state chan
 Still horizon work. Event-log, cache, and sync seams are prerequisites, and this direction stays experimental until those foundations are hard enough for live-session trust.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

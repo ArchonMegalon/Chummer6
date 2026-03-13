@@ -17,6 +17,6 @@ Current status is practical: usable now, transparent where it counts, and still 
 For a normal player or GM, the win is simple: you can make build and rules decisions, inspect receipts to see why they happened, and keep playing locally across desktop, browser, and mobile-style session flow without betting everything on cloud uptime. Multi-era support is already part of the visible story, and scripted Lua rules give weird edge cases a real home instead of long forum debates.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: current public shape, chummer6-design program milestones_  
 _Canonical source: chummer6-design_

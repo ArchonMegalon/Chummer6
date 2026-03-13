@@ -12,6 +12,6 @@
 - **visitor center**: the human guide layer that explains the program without becoming a second blueprint
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design, guide conventions_  
 _Canonical source: chummer6-design_

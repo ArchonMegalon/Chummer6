@@ -43,6 +43,6 @@ If you want canonical design or actual implementation truth, this folder is not 
 For that, go to [Where to go deeper](../WHERE_TO_GO_DEEPER.md).
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design horizon guidance, current public shape_  
 _Canonical source: chummer6-design_

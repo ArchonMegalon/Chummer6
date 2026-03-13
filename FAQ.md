@@ -31,6 +31,6 @@ The useful stuff: what you installed, what you clicked, what you expected, what 
 To make the program understandable for humans without creating a second blueprint by accident.
 ---
 
-_Last synced: 2026-03-11_  
+_Last synced: 2026-03-13_  
 _Derived from: chummer6-design, current public shape_  
 _Canonical source: chummer6-design_
