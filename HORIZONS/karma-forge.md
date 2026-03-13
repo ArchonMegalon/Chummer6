@@ -26,6 +26,9 @@ The table wants one spicy house rule and zero repo divorces.
 > **GM**<br>
 > "Good. Homebrew with receipts, not folklore with combat boots."
 
+<p align="center"><img src="../assets/horizons/details/karma-forge-scene.png" alt="Karma Forge dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - layering rule overlays in a controlled stack

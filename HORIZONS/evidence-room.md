@@ -26,6 +26,9 @@ The proof exists. The problem is that humans still have to read it.
 > **Reviewer**<br>
 > "Now this looks less like debug archaeology and more like a case file."
 
+<p align="center"><img src="../assets/horizons/details/evidence-room-scene.png" alt="Evidence Room dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - grouping receipts into a readable review room

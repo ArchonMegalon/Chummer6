@@ -29,6 +29,9 @@ Everybody remembers the alarm differently, which is exactly how lies are born.
 > **GM**<br>
 > "Perfect. The receipts are snitching for me."
 
+<p align="center"><img src="../assets/horizons/details/ghostwire-scene.png" alt="GHOSTWIRE dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - replaying stamped event history in order

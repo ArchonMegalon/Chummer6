@@ -26,6 +26,9 @@ Two clever overlays just met and both think they are the main character.
 > **GM**<br>
 > "Excellent. The software found the duel before the table did."
 
+<p align="center"><img src="../assets/horizons/details/threadcutter-scene.png" alt="THREADCUTTER dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - comparing overlays before they collide at runtime

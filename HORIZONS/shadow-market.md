@@ -26,6 +26,9 @@ The package browser is either a helpful market or a scam mall with neon trim.
 > **Player**<br>
 > "So the marketplace finally learned to say no."
 
+<p align="center"><img src="../assets/horizons/details/shadow-market-scene.png" alt="Shadow Market dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - surfacing trust signals next to the shiny thing

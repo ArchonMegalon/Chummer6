@@ -32,6 +32,9 @@ The player is bragging. The sim bench is about to take that personally.
 > **Chummer6**<br>
 > "Suggested fixes: stop treating Body as decorative."
 
+<p align="center"><img src="../assets/horizons/details/alice-scene.png" alt="ALICE dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - replaying a seeded scenario with the same inputs

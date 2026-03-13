@@ -32,6 +32,9 @@ Rain hits the windows, one phone just rejoined, and nobody wants a sync argument
 > **GM**<br>
 > "Good. Nobody do forensic accounting. Keep going."
 
+<p align="center"><img src="../assets/horizons/details/nexus-pan-scene.png" alt="NEXUS-PAN dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - keeping session state as one shared event stream

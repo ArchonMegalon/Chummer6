@@ -32,6 +32,9 @@ The GM wants a brief. The table wants style without lies.
 > **GM**<br>
 > "Good. Now the team can tell style from certainty."
 
+<p align="center"><img src="../assets/horizons/details/jackpoint-scene.png" alt="JACKPOINT dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - pulling together notes, facts, and approved artifacts

@@ -29,6 +29,9 @@ The dice pool changed, so naturally the room became a courtroom.
 > **GM**<br>
 > "Look at that. The machine brought receipts and the dev brought nothing."
 
+<p align="center"><img src="../assets/horizons/details/rule-x-ray-scene.png" alt="RULE X-RAY dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - tracing every modifier back to a concrete source

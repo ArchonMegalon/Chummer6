@@ -26,6 +26,9 @@ The player wants both futures until one of them costs karma.
 > **Player**<br>
 > "I suddenly respect previews."
 
+<p align="center"><img src="../assets/horizons/details/mirrorshard-scene.png" alt="MIRRORSHARD dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - holding two candidate futures side by side

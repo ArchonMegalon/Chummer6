@@ -26,6 +26,9 @@ Everyone swears they are paying attention. The combat state says otherwise.
 > **GM**<br>
 > "Finally. Situational awareness as a service."
 
+<p align="center"><img src="../assets/horizons/details/tactical-pulse-scene.png" alt="Tactical Pulse dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - summarizing live state into one shared tactical view

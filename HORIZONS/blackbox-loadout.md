@@ -26,6 +26,9 @@ The run starts in ten minutes and the software just became a judgmental quarterm
 > **Player**<br>
 > "The last one feels personal."
 
+<p align="center"><img src="../assets/horizons/details/blackbox-loadout-scene.png" alt="BLACKBOX LOADOUT dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - checking essentials against the active runtime stack

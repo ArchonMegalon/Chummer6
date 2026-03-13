@@ -26,6 +26,9 @@ A supposedly tiny admin tweak just grew a receipt trail and rollback drama.
 > **GM**<br>
 > "Good. I want controlled changes, not mystery buttons."
 
+<p align="center"><img src="../assets/horizons/details/command-casket-scene.png" alt="Command Casket dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - wrapping sensitive actions in auditable command capsules

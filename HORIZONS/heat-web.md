@@ -29,6 +29,9 @@ The crew thinks last run vanished into the rain. The city disagrees.
 > **GM**<br>
 > "Apparently, and the dev made them searchable."
 
+<p align="center"><img src="../assets/horizons/details/heat-web-scene.png" alt="HEAT WEB dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - linking events, factions, debts, and witnesses into one graph

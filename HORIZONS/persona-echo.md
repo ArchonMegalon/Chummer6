@@ -26,6 +26,9 @@ The player wants continuity, not software-written fan fiction.
 > **Player**<br>
 > "Cruel. Honest. Acceptable."
 
+<p align="center"><img src="../assets/horizons/details/persona-echo-scene.png" alt="Persona Echo dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - carrying approved continuity across runs

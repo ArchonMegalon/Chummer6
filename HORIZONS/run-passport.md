@@ -26,6 +26,9 @@ The character crossed a rules border and customs is in a bad mood.
 > **Player**<br>
 > "So this is a passport and a threat assessment."
 
+<p align="center"><img src="../assets/horizons/details/run-passport-scene.png" alt="RUN PASSPORT dialogue scene still" width="420"></p>
+
+
 ## Meanwhile, Chummer is doing this
 
 - carrying runtime identity and lineage with the character
