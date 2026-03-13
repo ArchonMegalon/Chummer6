@@ -4,7 +4,7 @@
 
         **The workbench and big-screen UX.**
 
-        Presentation is the big-screen workbench for people who actually inspect builds. It gives you deep views, fast editors, and clean ways to compare what changed.
+        UI is the big-screen workbench for people who actually inspect builds. It gives you deep views, fast editors, and clean ways to compare what changed.
 
         ## Why you should care
 

@@ -4,7 +4,7 @@
 
         **The part you feel at the table.**
 
-        Play is where prep turns into street time. Your session runs from a mobile/PWA shell that keeps state local, so a dead signal bar does not brick the run.
+        Mobile is where prep turns into street time. Your session runs from a mobile/PWA shell that keeps state local, so a dead signal bar does not brick the run.
 
         ## Why you should care
 

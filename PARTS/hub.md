@@ -4,7 +4,7 @@
 
         **The hosted API and orchestration layer.**
 
-        Run Services is the coordination layer: identity, relay, approvals, shared memory, and hosted APIs for sync and publish workflows.
+        Hub is the coordination layer: identity, relay, approvals, shared memory, and hosted APIs for sync and publish workflows.
 
         ## Why you should care
 
