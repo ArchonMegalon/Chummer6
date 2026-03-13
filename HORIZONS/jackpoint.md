@@ -1,6 +1,6 @@
 # JACKPOINT
 
-![JACKPOINT banner](../assets/horizons/jackpoint.png "Wide cinematic cyberpunk concept art for the Chummer6 jackpoint horizon page. In a cramped safehouse, a single fixer-analyst assembles a live mission dossier wall: raw evidence strips on one side, polished briefing panes on the other, thin provenance threads connecting each claim, source-class stamps and approval markers visible, city rain glow through shutters, dangerous and specific Shadowrun tradecraft energy. One clear focal subject: a cyberpunk protagonist. Set the scene in a dangerous but inviting cyberpunk scene. Show this happening: sorting a hot dossier and live evidence threads. Make the core visual metaphor immediately legible: dossier evidence wall. Use a desk_still_life composition. Palette: cyan-magenta neon. Mood: dangerous, curious, and slightly amused. Humor note: dry roast energy without clown mode. Concrete visible props: wet chrome, holographic receipts, rain haze. Useful diegetic overlays in-scene: diegetic HUD traces, receipt markers, signal arcs. Reader-facing motifs to weave in visually: dossier board split-view, classification stamps, provenance thread lines, redacted evidence slips. Overlay ideas to imply, not print literally: Grounded, Needs approval, Source class, Receipt link. Include one small diegetic Chummer troll motif as a pin, placed as a small in-world detail inside the safe crop. Detail: a small recurring Chummer troll motif in the classic horned squat stance. Keep it secondary but clearly visible on a README banner. Do not center it, do not crop it out, and do not turn it into the main subject. Make it feel like a lived-in Shadowrun street, lab, archive, forge, or table scene, not a product poster. Avoid generic skylines, abstract icon soup, flat infographics, or brochure-cover posing. Do not print text, prompts, OODA labels, metadata, or resolution callouts on the image. No readable titles, no watermark, no giant centered logos, 16:9. Debug hover: coffee stains optional, evidence boundaries not.")
+![JACKPOINT banner](../assets/horizons/jackpoint.png "coffee stains optional, evidence boundaries not.")
 
 **Briefings that hit hard without making things up.**
 
@@ -14,14 +14,15 @@ Mission briefs, dossiers, and recaps get dangerous fast when nobody can tell wha
 
 ## A real table scene
 
-The GM wants a stylish brief. The players want one that does not quietly lie to them.
-
-**GM:** "Give me a mission brief for tonight."
-**Player:** "But no made-up nonsense this time."
-**Chummer6:** "Compiled from session notes, character facts, and approved evidence."
-**Player:** "What about the red labels?"
-**Chummer6:** "Red is inferred. White is verified. Coffee stains remain optional."
-**GM:** "Good. Now the team can tell style from certainty."
+> The GM wants a brief. The table wants style without lies.
+>
+> The GM wants a stylish brief. The players want one that does not quietly lie to them.
+> **GM:** "Give me a mission brief for tonight."
+> **Player:** "But no made-up nonsense this time."
+> **Chummer6:** "Compiled from session notes, character facts, and approved evidence."
+> **Player:** "What about the red labels?"
+> **Chummer6:** "Red is inferred. White is verified. Coffee stains remain optional."
+> **GM:** "Good. Now the team can tell style from certainty."
 
 ## Meanwhile, Chummer is doing this
 

@@ -1,6 +1,6 @@
 # MIRRORSHARD
 
-![MIRRORSHARD banner](../assets/horizons/mirrorshard.png "Wide cinematic cyberpunk concept art for the Chummer6 mirrorshard horizon page. Rain-slick backroom workstation; a focused decker stands between two mirror-like dossier panes split by a cracked holographic seam; left future is chrome-heavy, right future leans arcane; diff streaks and provenance breadcrumbs float between panes; ammo tins, tarot card, and cable clutter sell lived-in danger. One clear focal subject: a cyberpunk protagonist. Set the scene in a dangerous but inviting cyberpunk scene. Show this happening: sorting a hot dossier and live evidence threads. Make the core visual metaphor immediately legible: dossier evidence wall. Use a desk_still_life composition. Palette: cyan-magenta neon. Mood: dangerous, curious, and slightly amused. Humor note: dry roast energy without clown mode. Concrete visible props: wet chrome, holographic receipts, rain haze. Useful diegetic overlays in-scene: diegetic HUD traces, receipt markers, signal arcs. Reader-facing motifs to weave in visually: cracked mirror split composition, ghosted alternate self silhouette, before/after dossier stamps, diff trails crossing the seam. Overlay ideas to imply, not print literally: Diff, Rollback receipt, Lua rule hook, SR4+ era check. Include one small diegetic Chummer troll motif as a pin, placed as a small in-world detail inside the safe crop. Detail: a small recurring Chummer troll motif in the classic horned squat stance. Keep it secondary but clearly visible on a README banner. Do not center it, do not crop it out, and do not turn it into the main subject. Make it feel like a lived-in Shadowrun street, lab, archive, forge, or table scene, not a product poster. Avoid generic skylines, abstract icon soup, flat infographics, or brochure-cover posing. Do not print text, prompts, OODA labels, metadata, or resolution callouts on the image. No readable titles, no watermark, no giant centered logos, 16:9. Debug hover: compare both mistakes before committing to one with confidence.")
+![MIRRORSHARD banner](../assets/horizons/mirrorshard.png "compare both mistakes before committing to one with confidence.")
 
 **Try both bad ideas before you marry one.**
 
@@ -14,14 +14,15 @@ Most meaningful build choices are really irreversible clicks wearing dramatic li
 
 ## A real table scene
 
-The player has two great ideas, which is to say one future regret with better marketing.
-
-**Player:** "I can either turn this runner into a stealth ghost or a loud monster."
-**GM:** "And you want to know which one survives your actual campaign."
-**Chummer6:** "Forked two futures from the same sheet. Comparison ready."
-**Player:** "Show me what each path changes."
-**Chummer6:** "Rules diffs, gear impact, and projected weak points are on screen."
-**GM:** "Much healthier than discovering this after karma regret."
+> Two futures are on the table, and both think they are the smart one.
+>
+> The player has two great ideas, which is to say one future regret with better marketing.
+> **Player:** "I can either turn this runner into a stealth ghost or a loud monster."
+> **GM:** "And you want to know which one survives your actual campaign."
+> **Chummer6:** "Forked two futures from the same sheet. Comparison ready."
+> **Player:** "Show me what each path changes."
+> **Chummer6:** "Rules diffs, gear impact, and projected weak points are on screen."
+> **GM:** "Much healthier than discovering this after karma regret."
 
 ## Meanwhile, Chummer is doing this
 

@@ -1,6 +1,6 @@
 # RULE X-RAY
 
-![RULE X-RAY banner](../assets/horizons/rule-x-ray.png "Wide cinematic cyberpunk concept art for the Chummer6 rule-x-ray horizon page. Rain-streaked clinic booth in the Barrens; a street sam jabs a glowing dice-pool number on a wrist display, layered x-ray panes unfold with modifier chain nodes, one Lua hook highlighted, SR4+ tag visible, harsh cyan-amber lighting, dangerous realism over glossy dashboard. One clear focal subject: a cyberpunk protagonist. Set the scene in a rainy neon street front. Show this happening: pulling a glowing x-ray of cause and effect through the air. Make the core visual metaphor immediately legible: x-ray causality scan. Use a single_protagonist composition. Palette: cyan-magenta neon. Mood: dangerous, curious, and slightly amused. Humor note: dry roast energy without clown mode. Concrete visible props: wet chrome, holographic receipts, rain haze. Useful diegetic overlays in-scene: diegetic HUD traces, receipt markers, signal arcs. Reader-facing motifs to weave in visually: x-ray stat cutaways, receipt ribbon nodes, black box cracked-open panel, mirror expected-vs-actual strip. Overlay ideas to imply, not print literally: Rules Receipt, Lua Rule Hook, SR4+ Era Support. Include one small diegetic Chummer troll motif as a pin, placed as a small in-world detail inside the safe crop. Detail: a small recurring Chummer troll motif in the classic horned squat stance. Keep it secondary but clearly visible on a README banner. Do not center it, do not crop it out, and do not turn it into the main subject. Make it feel like a lived-in Shadowrun street, lab, archive, forge, or table scene, not a product poster. Avoid generic skylines, abstract icon soup, flat infographics, or brochure-cover posing. Do not print text, prompts, OODA labels, metadata, or resolution callouts on the image. No readable titles, no watermark, no giant centered logos, 16:9. Debug hover: click the number and make the bad life choices line up in public.")
+![RULE X-RAY banner](../assets/horizons/rule-x-ray.png "click the number and make the bad life choices line up in public.")
 
 **Punch a number and expose every dirty modifier under it.**
 
@@ -14,14 +14,15 @@ Opaque calculations are the fastest route from game tension to tool skepticism. 
 
 ## A real table scene
 
-The dice have not even rolled yet and the table is already side-eyeing the total.
-
-**Player:** "No way that pool is 8."
-**GM:** "We are not stopping for calculator theater."
-**Player:** "Then show me."
-**Chummer6:** "Base Agility 5. Skill 4. Wounds -1. Lighting -1. Smartlink +1. Sustaining -1. Final 8."
-**GM:** "Good. Roll."
-**Player:** "Fine. I still hate the lighting."
+> The number is under arrest, and the table wants every accomplice named.
+>
+> The dice have not even rolled yet and the table is already side-eyeing the total.
+> **Player:** "No way that pool is 8."
+> **GM:** "We are not stopping for calculator theater."
+> **Player:** "Then show me."
+> **Chummer6:** "Base Agility 5. Skill 4. Wounds -1. Lighting -1. Smartlink +1. Sustaining -1. Final 8."
+> **GM:** "Good. Roll."
+> **Player:** "Fine. I still hate the lighting."
 
 ## Meanwhile, Chummer is doing this
 
