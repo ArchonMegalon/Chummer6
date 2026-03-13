@@ -1,10 +1,10 @@
 # Chummer6
 
-![Chummer6 hero banner](assets/hero/chummer6-hero.png "table truth, wet sleeves, and one troll charm the dev better not lose again.")
+![Chummer6 hero banner](assets/hero/chummer6-hero.png "table truth, wet sleeves, and one troll charm the dev better not lose again.")<br>_[table truth, wet sleeves, and one troll charm the dev better not lose again.](assets/hero/chummer6-hero.png)_
 
-> **Shadowrun rules truth, with receipts.**
+> **Chummer6: The Engine of the Street.**
 >
-> Chummer6 is becoming a clearer, tougher, more table-friendly Shadowrun toolkit: fast rulings, readable proof, offline-safe play, and less mystery math.
+> Ditch the glitchy spreadsheets. Chummer6 is the high-fidelity engine your character deserves, built with deterministic logic that doesn't break when the noise hits.
 
 If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
@@ -19,24 +19,38 @@ If you only need the one-sentence pitch, it is this: Chummer6 is trying to help 
 
 ## What this means at a real table
 
-**GM:** "Rain, noise, and recoil all apply here."
-**Player:** "Then why did my pool drop to 9?"
-**Chummer6:** "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
+> **GM**<br>
+> "Rain, noise, and recoil all apply here."
 
-That is the promise in human terms: faster rulings, less argument theater, and a tool that can show its work instead of asking for blind trust. The same push shows up in local-first session flow, so a bad cafe connection does not get to be the final boss of game night.
+> **Player**<br>
+> "Then why did my pool drop to 9?"
+
+> **Chummer6**<br>
+> "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
+
+We're overhauling how runners manage their lives. Instead of hardcoded math-sins, we use scripted Lua rulepacks that explain their work. Every modifier on your sheet comes with a 'receipt'—a traceable line of logic showing exactly why your dice pool is what it is. We're currently focused on hardening the SR4 ruleset and ensuring the whole system works offline, so your data stays on your deck where it belongs.
 
 ## Why this is worth watching
 
-- Rules calls are meant to be auditable, not mystical.
-- Local-first and offline-ready play are part of the product story, not an afterthought.
-- Multi-era support, including SR4 paths, is being treated as real scope.
-- Lua rule hooks give ugly edge cases a home in code instead of forum folklore.
+The grid is live. We're currently jacking in SR4 support and refining the local-first play experience.
+
+- It supports multi-era rulesets plainly
+- Every modifier is a traceable receipt
+- Offline-first PWA logic
+- No hardcoded math-sins
 
 If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
 
 ## What is happening right now
 
-The current work is heavy on trust and light on fireworks. The team is tightening seams, clarifying preview labels, and making sure later features land on something sturdy instead of cool-looking lies.
+Right now the crew is doing trust work, not bolting neon spoilers onto half-built engines.
+Legacy math-clutter vs. clean, scripted deterministic certainty.
+
+Current focus:
+- Hardening the SR4 ruleset plugin
+- Optimizing Lua rule-pack delivery
+- Polishing the mobile workbench UX
+- keep public previews honestly labeled until they become the real thing
 
 - [Current phase](NOW/current-phase.md)
 - [Current status](NOW/current-status.md)
@@ -44,7 +58,7 @@ The current work is heavy on trust and light on fireworks. The team is tightenin
 
 ## When you want the map
 
-You do not need the repo topology first, but the map is here when you need it:
+You do not need the seam map first, but it is here when you need it:
 
 - **Rules truth** lives in [Core](PARTS/core.md)
 - **Prep and inspect** lives in [UI](PARTS/ui.md)
@@ -59,31 +73,27 @@ If you want the full guided version, read the [Program map](PARTS/README.md).
 
 ## Future rabbit holes
 
-Horizons is where the guide talks about future table pain, not fake release promises: desync, opaque math, weak builds, fork chaos, dossier nonsense, and other ways a run can get stupid.
+Beyond the current grid, we're tracking intel on deeper simulation energy—think fully scripted gear-logic and dossiers that feel as heavy as a briefcase full of nuyen.
 
 - [Horizons index](HORIZONS/README.md)
 
 ## POC shelf
 
-![POC warning banner](assets/hero/poc-warning.png "the build may survive your evening. Your patience is less certain.")
+![POC warning banner](assets/hero/poc-warning.png "the build may survive your evening. Your patience is less certain.")<br>_[the build may survive your evening. Your patience is less certain.](assets/hero/poc-warning.png)_
 
 Want to know whether all this talk cashes out into real software? This is the shelf where you stop reading and start risking your evening.
 
 - [Chummer6 Releases](https://github.com/ArchonMegalon/Chummer6/releases)
 
-> **Street warning:** POC builds are for curious chummers, not cautious wageslaves.
-> They may be unstable, unfinished, weird, or one bad click away from getting your deck marked, hacked, or bricked.
+> **Street warning:** POC builds are for curious chummers, not cautious wageslaves.<br>
+> They may be unstable, unfinished, weird, or one bad click away from getting your deck **marked, hacked, or bricked**.<br>
 > Install at your own risk.
 
 The binaries come from the active Chummer6 codebase, not from this guide repo.
 
-## What this repo is
-
-Chummer6 is the human-facing guide to the wider program. It is not the code repo, and it is not the canonical blueprint. It is the place that tries to make the product legible before you have to care which repo owns which seam.
-
-When you want the blueprint or implementation trail, go to [Where to go deeper](WHERE_TO_GO_DEEPER.md).
+Need the blueprint or implementation trail after that? [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design, public repo READMEs, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design, public repo READMEs, current public shape_<br>
 _Canonical source: chummer6-design_

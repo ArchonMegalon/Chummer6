@@ -1,57 +1,58 @@
 # Karma Forge
 
-![Karma Forge banner](../assets/horizons/karma-forge.png "house rules, but with fewer private-fork crimes.")
+![Karma Forge banner](../assets/horizons/karma-forge.png "house rules with receipts, not forked-code folklore and a group chat apology.")<br>_[house rules with receipts, not forked-code folklore and a group chat apology.](../assets/horizons/karma-forge.png)_
 
-**Bend the rules, keep the receipts.**
+**Personalized rules without forked-code chaos.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a kitchen-table rulesmith hammering glowing AR rule plates on a cyber-anvil while the rest of the group watches like this has gone wrong before._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Tables want house rules, custom stacks, and weird campaign logic without turning every group into a cursed private fork that nobody can explain three weeks later. Karma Forge is the idea of controlled rule-crafting that still leaves an audit trail behind.
+Players want house rules, variants, and personalized rule stacks without turning every table into a private fork nobody else can inspect.
 
 ## A real table scene
 
-> Homebrew is on the anvil, and nobody trusts vibes-based math.
->
-> The campaign has been running long enough that the GM has ideas and the players have trust issues.
-> **GM:** "For this campaign, suppressive fire also makes the corridor miserable to cross."
-> **Player:** "Cool, but I do not want mystery homebrew math."
-> **Player 2:** "Please tell me this is not another 'tiny realism tweak' that becomes a religion."
-> **GM:** "Neither do I."
-> **Chummer6:** "Overlay added. Conflict scan clean. Recoil path changed in one place. Receipt ready."
-> **Player:** "Good. If it gets stupid later, can we roll it back?"
-> **Chummer6:** "Yes. I am keeping the fingerprints."
+The table wants one spicy house rule and zero repo divorces.
+
+> **GM**<br>
+> "I want recoil changed, but I do not want a fork, a feud, and three mystery regressions."
+
+> **Player**<br>
+> "Can we keep our weird initiative patch too?"
+
+> **Chummer6**<br>
+> "Overlay stack loaded. Conflict report ready. Rollback available if the dev gets creative again."
+
+> **GM**<br>
+> "Good. Homebrew with receipts, not folklore with combat boots."
 
 ## Meanwhile, Chummer is doing this
 
-- layering scripted rules in a visible order
-- checking for conflicts before the stack goes live
-- showing which receipt changed because of the new rule
-- keeping rollback and provenance data instead of folklore
+- layering rule overlays in a controlled stack
+- surfacing conflicts before they hit the table
+- keeping every tweak attached to a readable receipt
+- making rollback possible when the experiment catches fire
 
 ## Why that would be great
 
-You get custom table logic without guesswork, fork chaos, or the usual "well, I think that mod used to do something else" conversations.
+Your table gets to customize aggressively without turning every rules call into archaeology and blame assignment.
 
 ## Why it is still a Horizon
 
-This only works if the runtime stack, overlay boundaries, and receipt quality are boringly trustworthy first. Powerful customization on fuzzy seams is how software gets haunted.
+Rushing the overlay stack before resetting the core contract is a recipe for state-corruption that will haunt your sheets forever.
 
 ## What would need to exist first
 
 - runtime stack and fingerprint DTOs
 - overlay receipts and conflict reports
-- explain and provenance receipts
+- explain/provenance receipts
 - clean shared interfaces
 
 ## Pitch your own future
 
-If your table pain is not house-rule chaos, go back to the [Horizons index](README.md) and pick a better rabbit hole.
+If your table pain is not fork chaos with style, head back to the [Horizons index](README.md) and pitch a sharper headache.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

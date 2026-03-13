@@ -1,43 +1,48 @@
 # HEAT WEB
 
-![HEAT WEB banner](../assets/horizons/heat-web.png "because consequences should keep stalking you after the cool scene ends.")
+![HEAT WEB banner](../assets/horizons/heat-web.png "campaign consequences, now with fewer GM memory miracles and more receipts.")<br>_[campaign consequences, now with fewer GM memory miracles and more receipts.](../assets/horizons/heat-web.png)_
 
-**Your last run should still be hunting you three sessions later.**
+**The street never forgets a face, especially when it's indexed.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: an AR conspiracy wall of factions, witnesses, debt arrows, and one runner photo circled three different angry colors._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most campaigns lose continuity exactly where they should get sharp: grudges, witnesses, leverage, and delayed retaliation. HEAT WEB is the idea of tracking campaign consequences as a living pressure graph with evidence behind it.
+Most campaigns lose their edge because the fallout is a pile of loose narrative threads that never actually pull tight enough to matter.
 
 ## A real table scene
 
-> The old job is back in the room, and it brought consequences.
->
-> The crew keeps insisting their last mess was "contained," which is a bold definition of contained.
-> **GM:** "You burned the extraction team two sessions ago. Guess who still cares."
-> **Player:** "Wait, that witness is still a problem?"
-> **Chummer6:** "Knight Errant pressure increased. Witness link still active. Smuggler contact trust decreased after the dock job."
-> **Player:** "That was supposed to be a clean exit."
-> **GM:** "It never was."
-> **Chummer6:** "I have receipts if you want to relive your bad decisions."
+The crew thinks last run vanished into the rain. The city disagrees.
+
+> **Player**<br>
+> "That gang probably forgot about us."
+
+> **GM**<br>
+> "That is adorable."
+
+> **Chummer6**<br>
+> "Heat graph updated. You now owe favors in two districts and a bartender wants you gently dead."
+
+> **Player**<br>
+> "So consequences are a service now?"
+
+> **GM**<br>
+> "Apparently, and the dev made them searchable."
 
 ## Meanwhile, Chummer is doing this
 
-- linking faction pressure to concrete run events
-- tracking who got burned, helped, paid, or spooked
-- keeping evidence behind the consequence graph
-- turning fallout into something inspectable instead of purely remembered
+- linking events, factions, debts, and witnesses into one graph
+- tracking delayed fallout instead of waiting for GM memory miracles
+- grounding future pressure in recorded actions
+- surfacing who is mad, why, and how soon it matters
 
 ## Why that would be great
 
-Campaign continuity gets sharper, delayed payback feels earned, and consequences stop depending on whether the GM's notebook had a good week.
+Campaign consequences stop evaporating and start feeling like a living city with receipts and grudges.
 
 ## Why it is still a Horizon
 
-This needs grounded event streams and durable evidence receipts first. Otherwise it turns into a dramatic conspiracy wall built from vibes.
+We're hardening the event and evidence plumbing first; a fancy graph of broken data is just a pretty way to lie to yourself about your survival odds.
 
 ## What would need to exist first
 
@@ -47,9 +52,9 @@ This needs grounded event streams and durable evidence receipts first. Otherwise
 
 ## Pitch your own future
 
-If your table pain is not "our campaign forgets its own scars," return to the [Horizons index](README.md) and pick a different wound.
+If your table pain is not forgotten consequences, browse the other bad futures in the [Horizons index](README.md).
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

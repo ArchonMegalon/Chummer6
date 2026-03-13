@@ -1,25 +1,16 @@
 # Program Map
 
-![Parts overview banner](../assets/pages/parts-index.png "choose your lane before the repo names start sounding like a committee hallucination.")
+![Parts overview banner](../assets/pages/parts-index.png)
 
-Think of this folder as a map from table problem to product seam.
+The manifest for your next run—slot the modules you need.
 
-You do not need every part memorized. You need to know which part matters when a specific thing goes wrong or right.
+This isn't a single block of messy code; it's a modular ecosystem where every component has a job. The Core Engine handles the math with absolute certainty, the Workbench provides a mobile-ready sheet that works even when you are offline, and the Rule-Packs contain the specific logic for different eras of play. This index helps you identify which piece of tech to focus on so you can build your character without fighting the tools. No more monolithic files—just clean, swappable data-chips for every era.
 
-## Choose the need, then the part
+## What you actually notice first
 
-- **"Why is my dice pool 11?"** Start with [Core](core.md).
-- **"I need the bigger prep and inspection surface."** Start with [UI](ui.md).
-- **"The session is live and somebody just lost signal."** Start with [Mobile](mobile.md).
-- **"This actually needs hosted coordination."** Start with [Hub](hub.md).
-- **"Why does this screen feel consistent across surfaces?"** Start with [UI Kit](ui-kit.md).
-- **"What exactly am I installing, and how compatible is it?"** Start with [Hub Registry](hub-registry.md).
-- **"Where do render jobs and asset outputs belong?"** Start with [Media Factory](media-factory.md).
-- **"Who owns the truth about the split?"** Start with [Design](design.md).
+Most people do not care about the repo taxonomy first. They care about the symptom.
 
-## Visitor-facing labels
-
-If the internal repo names feel too architecture-brained, read them like this:
+Read the parts like this:
 
 - **Core** = rules truth
 - **UI** = prep and inspect
@@ -30,9 +21,9 @@ If the internal repo names feel too architecture-brained, read them like this:
 - **Media Factory** = render pipeline
 - **Design** = blueprints
 
-## How to read the part pages
+## How to read this folder
 
-Each page answers a human question first:
+Each page starts with the moment that would make you care:
 
 - when you touch this part
 - why it matters
@@ -49,6 +40,6 @@ If you want the strongest answer to "why should I trust the math?", read [core](
 If you want the whole-program ownership map, read [design](design.md).
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design ownership map, public repo READMEs, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design ownership map, public repo READMEs, current public shape_<br>
 _Canonical source: chummer6-design_

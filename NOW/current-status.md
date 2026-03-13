@@ -1,8 +1,8 @@
 # Current Status
 
-![Current status banner](../assets/pages/current-status.png "preview means moving target, not cardboard cutout.")
+![Current status banner](../assets/pages/current-status.png)
 
-Current status is practical: usable now, transparent where it counts, and still clearly evolving.
+The SR4 grid is flickering to life, and we're jacking in with a rock-solid, local-first handshake.
 
 ## The short version
 
@@ -12,15 +12,11 @@ Current status is practical: usable now, transparent where it counts, and still 
 - UI kit, registry, and media exist, but are still becoming fully real boundaries
 - the blueprint is still catching up in a few places
 
-## What this means for normal humans
+## What that means for normal humans
 
-You can already make build and rules decisions, inspect receipts to see why they happened, and keep playing locally across desktop, browser, and table-facing session flow without betting everything on cloud uptime. Multi-era support is part of the visible story, and scripted Lua rules give ugly edge cases a real home.
-
-## What this means for your next session
-
-If the session is tonight, the useful reading is simple: the product is real enough to inspect math and run locally, but some public surfaces are still marked preview because the promoted shape is not final yet. That label is about maturity and ownership, not about the rules engine bluffing.
+Our mobile workbench is officially hot, bringing the SR4 ruleset plugin into the field for stress testing. We have refined the 'Explain' receipts so you can track every modifier back to its source script in real-time. Because the system is built as an offline-first app that lives on your device, you get zero-latency access to your dossier even when you're deep in a reinforced bunker with no matrix signal.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: current public shape, chummer6-design program milestones_  
+_Last synced: 2026-03-13_<br>
+_Derived from: current public shape, chummer6-design program milestones_<br>
 _Canonical source: chummer6-design_

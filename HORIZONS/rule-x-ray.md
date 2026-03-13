@@ -1,43 +1,48 @@
 # RULE X-RAY
 
-![RULE X-RAY banner](../assets/horizons/rule-x-ray.png "click the number and make the bad life choices line up in public.")
+![RULE X-RAY banner](../assets/horizons/rule-x-ray.png "every modifier gets dragged into the light like it owes the table money.")<br>_[every modifier gets dragged into the light like it owes the table money.](../assets/horizons/rule-x-ray.png)_
 
-**Punch a number and expose every dirty modifier under it.**
+**Click any number to see its Lua birth certificate.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a dice pool floating over a character sheet like crime-scene evidence, with every bonus and penalty pinned to it by glowing labels._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Opaque calculations are the fastest route from game tension to tool skepticism. RULE X-RAY is the idea of making every important number openable so the table can see what built it.
+Hardcoded math-sins that hide penalties behind layers of UI-fluff, losing player trust the moment the dice don't match the expectation.
 
 ## A real table scene
 
-> The number is under arrest, and the table wants every accomplice named.
->
-> The dice have not even rolled yet and the table is already side-eyeing the total.
-> **Player:** "No way that pool is 8."
-> **GM:** "We are not stopping for calculator theater."
-> **Player:** "Then show me."
-> **Chummer6:** "Base Agility 5. Skill 4. Wounds -1. Lighting -1. Smartlink +1. Sustaining -1. Final 8."
-> **GM:** "Good. Roll."
-> **Player:** "Fine. I still hate the lighting."
+The dice pool changed, so naturally the room became a courtroom.
+
+> **Player**<br>
+> "Why did I drop from 12 to 9?"
+
+> **GM**<br>
+> "Weather, wounds, and recoil."
+
+> **Player**<br>
+> "That sounds suspiciously fast."
+
+> **Chummer6**<br>
+> "Base 12. Rain -1. Wounds -1. Recoil -1. Final 9."
+
+> **GM**<br>
+> "Look at that. The machine brought receipts and the dev brought nothing."
 
 ## Meanwhile, Chummer is doing this
 
-- opening the full modifier chain on demand
-- showing base stats, penalties, bonuses, and scripted hooks in order
-- exposing which era path or custom rule changed the total
-- turning one scary number into a readable stack of causes
+- tracing every modifier back to a concrete source
+- exposing the chain of causes behind the total
+- separating core math from scripted edge cases
+- making the final number explain itself on demand
 
 ## Why that would be great
 
-The table gets faster rulings, fewer trust collapses, and less space for the loudest rules lawyer to win by stamina.
+Opaque math stops being table poison when the answer can show its work fast enough to keep the scene moving.
 
 ## Why it is still a Horizon
 
-Explain and provenance receipts need to become boringly canonical before a feature like this can be sold as real muscle instead of a flashy debug toy.
+The canonical provenance line is still being forged in the fires of the SR4 plugin transition to ensure every receipt is boringly accurate.
 
 ## What would need to exist first
 
@@ -47,9 +52,9 @@ Explain and provenance receipts need to become boringly canonical before a featu
 
 ## Pitch your own future
 
-If your table pain is not mystery math, go back to the [Horizons index](README.md) and find a different bruise.
+If your table pain is not mystery math, the [Horizons index](README.md) has other elegant disasters ready.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

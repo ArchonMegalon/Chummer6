@@ -1,42 +1,45 @@
 # Shadow Market
 
-![Shadow Market banner](../assets/horizons/shadow-market.png "if every stall says compatible, at least one vendor is lying.")
+![Shadow Market banner](../assets/horizons/shadow-market.png "shopping, but with enough trust signals to survive the dev's taste in plugins.")<br>_[shopping, but with enough trust signals to survive the dev's taste in plugins.](../assets/horizons/shadow-market.png)_
 
-**A future discovery lane for packs and artifacts.**
+**Source the street's best logic without the overhead of a back-alley lobotomy.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a neon bazaar of packages and artifacts with compatibility lights, moderation tags, and one stall that looks cool enough to be suspicious on principle._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Discovery, publication, and promotion eventually need a place to live, but not before the underlying seams are real. SHADOW MARKET is the idea of a future discovery layer for packs, artifacts, and promoted outputs that does not lie about compatibility or trust.
+Discovery and publication eventually need a trustworthy place to live, but not one that lies about compatibility, moderation, or promotion state.
 
 ## A real table scene
 
-> The Matrix bazaar is full of shiny promises and at least one cursed stall.
->
-> Three downloads promise the same miracle, which means at least one of them is a trap.
-> **Player:** "I found three packs with the same promise. Which one is actually compatible?"
-> **GM:** "And which one is abandoned nonsense with pretty screenshots?"
-> **Chummer6:** "Package cards loaded. Compatibility projections visible. Moderation state attached. Promotion stage listed."
-> **Player:** "Good. I like my downloads less cursed."
-> **GM:** "That already puts it above half the Matrix."
+The package browser is either a helpful market or a scam mall with neon trim.
+
+> **Player**<br>
+> "This one looks cool."
+
+> **GM**<br>
+> "That is not evidence."
+
+> **Chummer6**<br>
+> "Package card loaded. Compatibility partial. Moderation pending. Promotion state: not ready for your bad ideas yet."
+
+> **Player**<br>
+> "So the marketplace finally learned to say no."
 
 ## Meanwhile, Chummer is doing this
 
-- surfacing packs and artifacts through registry truth
-- attaching moderation and promotion state to discovery
-- showing compatibility evidence before installation
-- keeping publication and trust signals together instead of scattered
+- surfacing trust signals next to the shiny thing
+- projecting compatibility before installation
+- keeping moderation and promotion state visible
+- making discovery feel less like cursed zip roulette
 
 ## Why that would be great
 
-People could discover useful things without treating install flow like a scavenger hunt through vibes and obsolete zips.
+Discovery stops being a trap door when compatibility, moderation, and promotion truth show up on the same card.
 
 ## Why it is still a Horizon
 
-Marketplace-style work is explicitly not the current focus, and it would be irresponsible to build discovery polish before registry, moderation, and compatibility seams are honest.
+Marketplace polish is explicitly downstream of honest registry, moderation, and compatibility seams. We aren't building a storefront until the foundation can't be bribed.
 
 ## What would need to exist first
 
@@ -47,9 +50,9 @@ Marketplace-style work is explicitly not the current focus, and it would be irre
 
 ## Pitch your own future
 
-If your table pain is not package-discovery chaos, the [Horizons index](README.md) still has plenty of future trouble left.
+If your table pain is not plugin bazaar trust, the [Horizons index](README.md) has other future appetites.
 ---
 
 _Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, latest public status_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

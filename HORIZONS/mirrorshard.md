@@ -1,55 +1,57 @@
 # MIRRORSHARD
 
-![MIRRORSHARD banner](../assets/horizons/mirrorshard.png "compare both mistakes before committing to one with confidence.")
+![MIRRORSHARD banner](../assets/horizons/mirrorshard.png "compare both bad ideas before the dev asks you to commit to one.")<br>_[compare both bad ideas before the dev asks you to commit to one.](../assets/horizons/mirrorshard.png)_
 
-**Try both bad ideas before you marry one.**
+**See the ghost of your next mistake before it becomes your obituary.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: one runner split into two mirrored futures, both stylish, one obviously more doomed, with comparison overlays hovering between them._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most meaningful build choices are really irreversible clicks wearing dramatic lighting. MIRRORSHARD is the idea of controlled fork-and-compare lanes for characters or plans so you can test two futures without committing blind.
+Character progression is usually a one-way street paved with 'I wish I hadn't done that' moments that your GM won't let you retcon.
 
 ## A real table scene
 
-> Two futures are on the table, and both think they are the smart one.
->
-> The player has two great ideas, which is to say one future regret with better marketing.
-> **Player:** "I can either turn this runner into a stealth ghost or a loud monster."
-> **GM:** "And you want to know which one survives your actual campaign."
-> **Chummer6:** "Forked two futures from the same sheet. Comparison ready."
-> **Player:** "Show me what each path changes."
-> **Chummer6:** "Rules diffs, gear impact, and projected weak points are on screen."
-> **GM:** "Much healthier than discovering this after karma regret."
+The player wants both futures until one of them costs karma.
+
+> **Player**<br>
+> "What if I go cyberarm now instead of magic cleanup?"
+
+> **GM**<br>
+> "Pick a lane."
+
+> **Chummer6**<br>
+> "Compared both paths. Future A hits harder. Future B survives longer. Future C is what happens when the dev lets scope vote."
+
+> **Player**<br>
+> "I suddenly respect previews."
 
 ## Meanwhile, Chummer is doing this
 
-- cloning a build state into controlled alternatives
-- comparing rule, gear, and progression diffs side by side
-- tracking which runtime assumptions change across futures
-- keeping rollback proof so the experiment does not become clutter
+- holding two candidate futures side by side
+- diffing the rules and consequences that diverge
+- keeping provenance visible across both branches
+- making previews feel like informed choices instead of romantic mistakes
 
 ## Why that would be great
 
-Players get deeper choice without permanent branch mess, and GMs get cleaner conversations about risk before the campaign pays for the decision.
+Big choices get easier to trust when you can compare the damage before you marry one timeline.
 
 ## Why it is still a Horizon
 
-It depends on preview, apply, rollback, and comparison receipts being good enough to trust under crunchy edge cases. That foundation is not done yet.
+Reliable comparisons require perfect receipts; we're still forging the deterministic logic so your 'what-if' doesn't turn into a hallucinated mess.
 
 ## What would need to exist first
 
-- preview, apply, and rollback receipts
+- preview/apply/rollback receipts
 - comparison-ready provenance
 - migration previews
 
 ## Pitch your own future
 
-If your table pain is not choice regret, the [Horizons index](README.md) still offers other varieties of pain.
+If your table pain is not commitment with receipts, the [Horizons index](README.md) still has plenty of future trouble.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

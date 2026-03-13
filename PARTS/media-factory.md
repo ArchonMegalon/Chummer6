@@ -1,26 +1,20 @@
 # Media Factory
 
-![Media Factory banner](../assets/parts/media-factory.png "the render pipeline, where aesthetics meet logistics and both get audited.")
+![Media Factory banner](../assets/parts/media-factory.png "render jobs belong here, not taped to whatever repo the dev had open at 2 a.m.")<br>_[render jobs belong here, not taped to whatever repo the dev had open at 2 a.m.](../assets/parts/media-factory.png)_
 
-**Render jobs in, assets out, receipts intact.**
+**Render-only asset lifecycle.**
 
-Media Factory is the render-only lane: job queues in, previews out, links signed, and every generated asset leaves a trail behind it.
+Media Factory is the air-gapped industrial forge where render jobs and signed URLs live. It handles the heavy lifting of asset lifecycles so the core rules engine doesn't choke on your high-res street sam portraits.
 
 ## You touch this when...
 
-...a screen or workflow needs generated visual output and you do not want that concern leaking all over rules logic or session flow.
-
-Use case: a render job needs to produce an asset preview or export artifact without dragging the rest of the stack into storage and retry chaos.
-
-## Why it matters
-
-If asset generation is sloppy, every other seam pays for it. Media Factory exists to keep render complexity contained and inspectable.
+Because dragging storage adapters and retry logic into the character sheet's math is a great way to make the grid crash when you're just trying to look at a gun. We keep the provider soup out of the simulation.
 
 ## What it owns
 
 - render queues
 - signed URLs and storage adapters
-- dedupe, retry, and asset lifecycle receipts
+- dedupe/retry and asset lifecycle receipts
 
 ## What it does not own
 
@@ -30,7 +24,7 @@ If asset generation is sloppy, every other seam pays for it. Media Factory exist
 
 ## What is happening now
 
-This is still deliberate scaffold work. The goal is a narrow, boringly reliable boundary before anyone gets cute with visuals.
+We're keeping it in a sterile scaffold for now. Narrow and boring is the goal until the asset handshakes stop feeling like a glitchy deck and start feeling like a professional data-pipe.
 
 ## Go deeper
 
@@ -39,6 +33,6 @@ This is still deliberate scaffold work. The goal is a narrow, boringly reliable 
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
 _Canonical source: chummer6-design_

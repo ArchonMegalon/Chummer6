@@ -1,42 +1,45 @@
 # Tactical Pulse
 
-![Tactical Pulse banner](../assets/horizons/tactical-pulse.png "for the moment when everyone swears they were totally tracking initiative.")
+![Tactical Pulse banner](../assets/horizons/tactical-pulse.png "shared situational awareness for the exact moment everyone swears they were paying attention.")<br>_[shared situational awareness for the exact moment everyone swears they were paying attention.](../assets/horizons/tactical-pulse.png)_
 
-**Shared situational awareness during active sessions.**
+**Sync your team's sensors before the noise hits the fan.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a shared combat HUD hovering over the whole table, with threat icons, ally states, and one player squinting because they missed three important things._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-A live table wants coordination, not just isolated sheets and guesswork. TACTICAL PULSE is the idea of giving the whole team a shared view of the situation while the scene is still unfolding.
+A live table needs a shared picture of threats, allies, penalties, and state changes while the scene is still moving.
 
 ## A real table scene
 
-> The scene is live, the pressure is rising, and nobody wants a recap break.
->
-> Combat has reached the stage where every sentence starts with "Wait, who still knows that?"
-> **GM:** "Security is moving on the west hall. Drone overhead. Mage still sustaining."
-> **Player:** "I missed that. What does the team know right now?"
-> **Chummer6:** "Tactical pulse updated. Active threats, current penalties, and team status are synced to the shared view."
-> **Player:** "Much better than asking everyone to repeat themselves."
-> **GM:** "Yes. Keep playing."
+Everyone swears they are paying attention. The combat state says otherwise.
+
+> **GM**<br>
+> "The drone is flanking, the mage is lit, and the hallway is worse now."
+
+> **Player**<br>
+> "Can somebody repeat the last three important things?"
+
+> **Chummer6**<br>
+> "Shared pulse updated. Threat icons, ally states, active penalties, and priorities are live."
+
+> **GM**<br>
+> "Finally. Situational awareness as a service."
 
 ## Meanwhile, Chummer is doing this
 
-- collecting session state into a shared tactical summary
-- grounding the summary in live events instead of pure narration
-- syncing the current picture across participating surfaces
-- making situational awareness a feature instead of a memory test
+- summarizing live state into one shared tactical view
+- tracking threats, allies, penalties, and shifting priorities
+- grounding summaries in actual session authority
+- helping the table stop re-asking the same urgent question
 
 ## Why that would be great
 
-The table gets faster coordination, fewer missed state changes, and less repetition every time the scene gets loud.
+Shared awareness turns combat confusion back into tactics instead of repeated recap labor.
 
 ## Why it is still a Horizon
 
-The play split is still foundational work. Shared awareness features only make sense once session authority, sync, and evidence-grounded summaries are already dependable.
+Shared awareness features only make sense once session authority, sync, and grounded summaries are already dependable enough to trust with your life.
 
 ## What would need to exist first
 
@@ -47,9 +50,9 @@ The play split is still foundational work. Shared awareness features only make s
 
 ## Pitch your own future
 
-If your table pain is not "nobody knows the current state anymore," the [Horizons index](README.md) has other future headaches to browse.
+If your table pain is not collective amnesia under fire, the [Horizons index](README.md) holds other future fixes.
 ---
 
 _Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, latest public status_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

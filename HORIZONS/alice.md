@@ -1,28 +1,36 @@
 # ALICE
 
-![ALICE banner](../assets/horizons/alice.png "the simulation is here to hurt your feelings before reality does.")
+![ALICE banner](../assets/horizons/alice.png "the simulation is here to hurt your feelings before reality does.")<br>_[the simulation is here to hurt your feelings before reality does.](../assets/horizons/alice.png)_
 
-**Stress-test the build before the run does.**
+**Alice doesn't care about your backstory; she cares if your armor rating can stop a Railgun.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a smug runner strapped into a simulation bench while warning lights flash and the diagnostic screen prepares to ruin their self-esteem._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most tables only discover weak builds after they explode in public. ALICE is the idea of giving players and GMs a deterministic crash bench: seeded scenarios, reproducible pressure, and visible proof of where the build folds.
+Runners want to know how their chrome behaves under pressure without needing a literal funeral as the benchmark.
 
 ## A real table scene
 
-> The player is bragging. The sim bench is about to take that personally.
->
-> A player starts bragging before session, which is how the lab knows it has work to do.
-> **Player:** "My infiltrator is unstoppable."
-> **GM:** "Last run you got flash-banged by a rent-a-cop and cried."
-> **Player:** "That was tactical sorrow."
-> **Chummer6:** "Ran 500 seeded breach sims. In 71 percent of them, you fold the moment the hallway goes loud."
-> **Player:** "Rude."
-> **Chummer6:** "Suggested fixes: stop treating Body as decorative."
+The player is bragging. The sim bench is about to take that personally.
+
+> **Player**<br>
+> "My infiltrator is unstoppable."
+
+> **GM**<br>
+> "Last run you got flash-banged by a rent-a-cop and cried."
+
+> **Player**<br>
+> "That was tactical sorrow."
+
+> **Chummer6**<br>
+> "Ran 500 seeded breach sims. In 71 percent of them, you fold the moment the hallway goes loud."
+
+> **Player**<br>
+> "Rude."
+
+> **Chummer6**<br>
+> "Suggested fixes: stop treating Body as decorative."
 
 ## Meanwhile, Chummer is doing this
 
@@ -37,7 +45,7 @@ Players could find weak assumptions before session night, and GMs could test sce
 
 ## Why it is still a Horizon
 
-This only works if deterministic engine truth, scenario harnesses, and receipt quality are already clean. A sim lab built on fuzzy behavior would just produce expensive nonsense.
+The engine and explain-receipt seams are still being hardened to ensure the simulation wears a lab coat, not a guess-list.
 
 ## What would need to exist first
 
@@ -48,9 +56,9 @@ This only works if deterministic engine truth, scenario harnesses, and receipt q
 
 ## Pitch your own future
 
-If your table pain is not "we only discover bad builds in public," go back to the [Horizons index](README.md) and drag a different problem into the light.
+If your table pain is not bad builds exploding in public, go back to the [Horizons index](README.md) and drag a different problem into the light.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

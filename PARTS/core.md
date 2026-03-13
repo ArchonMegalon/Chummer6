@@ -1,20 +1,14 @@
 # Core
 
-![Core banner](../assets/parts/core.png "if the math looks cursed, this is where the curse gets cross-examined.")
+![Core banner](../assets/parts/core.png "if the math looks cursed, this is where the curse gets cross-examined.")<br>_[if the math looks cursed, this is where the curse gets cross-examined.](../assets/parts/core.png)_
 
 **The deterministic rules engine.**
 
-Core is where Shadowrun math stops bluffing. It takes the same inputs, runs the same logic, and is supposed to give you a ruling you can actually trust.
+Core is where the numbers stop bluffing. It is the deterministic heart of the machine, owning the engine runtime and reducer logic so the rest of your deck can stop arguing about what a rule actually means.
 
 ## You touch this when...
 
-...the table asks, "why is my dice pool 11?" and somebody wants proof instead of volume.
-
-Use case: the samurai thinks recoil got ignored, the mage thinks sustaining got applied twice, and you need the layer that can show base value, modifiers, scripted hooks, and final result in order.
-
-## Why it matters
-
-When the math is opaque, trust dies fast. Core is the part that turns rules debate into something inspectable instead of theatrical.
+Because your GM's homebrew Excel macros are a nightmare of hidden math-sins. You need explainable receipts for every dice pool modifier, backed by raw Lua scripts that don't lie when the noise hits.
 
 ## What it owns
 
@@ -30,7 +24,7 @@ When the math is opaque, trust dies fast. Core is the part that turns rules deba
 
 ## What is happening now
 
-Current focus is sharp and boring in the best way: keep engine behavior deterministic, keep receipts readable, and keep Lua plus era-specific edge cases grounded in code instead of vibes.
+We are purifying the runtime. The current mission is to keep the engine mean, lean, and predictable—hardening the SR4 plugin and stripping away the legacy junk drawer until all that's left is engine truth.
 
 ## Go deeper
 
@@ -39,6 +33,6 @@ Current focus is sharp and boring in the best way: keep engine behavior determin
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
 _Canonical source: chummer6-design_

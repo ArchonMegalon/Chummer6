@@ -1,10 +1,10 @@
 # Horizons
 
-![Horizons overview banner](../assets/pages/horizons-index.png "future districts for table pain, because the dev collects rabbit holes like contraband.")
+![Horizons overview banner](../assets/pages/horizons-index.png)
 
-Horizons is where Chummer6 talks about future table pain, not fake "coming soon" promises.
+Welcome to the garage. Step out of the rain and see what is flickering on the holographic workbench.
 
-These pages are here because the ideas are useful, sharp, or strategically interesting. They are not active build commitments.
+This is where we track street intel on the next generation of shadow-tech. We are looking at deeper simulation energy—fully scripted gear-logic and dossiers that carry the weight of a briefcase full of nuyen. These are not just software updates; they are blueprints for a deterministic runner ecosystem where every script hook is a tool and every rule era is respected. It is experimental, ambitious, and currently being hammered out in the dark corners of the grid.
 
 > **Reality check from the troll behind the curtain**
 > These are horizon ideas, not signed blood contracts. Some may ship. Some may mutate. Some may remain beautiful nonsense forever.
@@ -34,22 +34,20 @@ These pages are here because the ideas are useful, sharp, or strategically inter
 - **We may eventually need a discovery lane for packs and artifacts.** [SHADOW MARKET](shadow-market.md)
 - **We want shared situational awareness during live sessions.** [TACTICAL PULSE](tactical-pulse.md)
 
-## What these pages are for
+## What you get on each page
 
-Each Horizon page is supposed to answer six things in plain language:
-
-- what problem this idea would solve
-- what it would look like in a real session
-- what Chummer would be doing in the background
-- why that would be great
-- why it is still not active work
-- what foundations would need to land first
+- the table pain
+- a short scene so you can feel it
+- what Chummer would be doing while the table keeps playing
+- the payoff if it ever lands
+- the reason it is still parked
+- the foundations that have to exist first
 
 ## Pitch your own future
 
 If your table pain is not on this list, good. Horizons is not holy scripture. Bring a better problem and a sharper idea.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

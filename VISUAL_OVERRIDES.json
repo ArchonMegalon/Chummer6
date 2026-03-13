@@ -270,9 +270,19 @@
     }
   },
   "assets/horizons/alice.png": {
-    "visual_prompt": "Simulation lab scene where a build gets stress-tested before play: runner model on a crash bench, seeded breach outcomes on surrounding glass, funny but grounded, no abstract matrix wallpaper.",
+    "visual_prompt": "Cold simulation lab with a runner strapped into a crash bench while an operator studies the exact failure point on nearby glass, seeded breach outcomes ghosted around the chamber, one test mannequin or projected body silhouette showing where the build folds, grounded and clinical with dark humor, no abstract HUD wallpaper, no person simply holding a glowing panel, no readable text.",
     "scene_contract": {
       "composition": "simulation_lab",
+      "subject": "one operator, one crash bench, and one failing build trace made painfully visible",
+      "environment": "a cold sim lab with glass partitions, restraint hardware, and seeded scenario telemetry",
+      "action": "showing the exact moment a build collapses before the real table finds out the hard way",
+      "props": [
+        "crash bench",
+        "glass telemetry",
+        "failure trace",
+        "test mannequin"
+      ],
+      "mood": "clinical, mean, and useful",
       "easter_egg_kind": "troll warning decal",
       "easter_egg_placement": "on the crash bench housing near the lower-left third",
       "easter_egg_detail": "classic Chummer troll used as a tiny safety decal on the sim rig",
@@ -360,9 +370,19 @@
     }
   },
   "assets/horizons/nexus-pan.png": {
-    "visual_prompt": "Rain-soaked cafe table where one phone rejoins the session, initiative and penalties sync back in over cups and commlinks, the group relieved they do not need forensic accounting.",
+    "visual_prompt": "Asymmetrical rain-soaked back-room cafe scene during a live Shadowrun firefight: one case-up foreground phone has just buzzed back into the session with the screen mostly hidden, AR initiative and penalty traces snap back across cups and commlinks, one player is half-standing in relief, the table keeps moving instead of freezing for a sync argument, grounded cinematic realism, no centered four-person pose, no readable text, no app icons, no letters on the phone.",
     "scene_contract": {
       "composition": "safehouse_table",
+      "subject": "a case-up reconnecting phone in the foreground, one relieved returning player, and the rest of the table already mid-run",
+      "environment": "a wet-window back-room cafe with cups, commlinks, and rain-lit street glow bleeding in",
+      "action": "replaying missed table state onto the just-rejoined device before anybody starts forensic accounting",
+      "props": [
+        "case-up reconnecting phone",
+        "coffee cups",
+        "commlink",
+        "initiative traces"
+      ],
+      "mood": "relieved, kinetic, and slightly mean to Wi-Fi",
       "easter_egg_kind": "troll phone sticker",
       "easter_egg_placement": "on the reconnecting phone case near the lower-right third",
       "easter_egg_detail": "classic Chummer troll sticker on the phone that just came back from the dead",

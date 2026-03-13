@@ -1,44 +1,45 @@
 # BLACKBOX LOADOUT
 
-![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.png "courage is not a substitute for a medkit, no matter what the player claims.")
+![BLACKBOX LOADOUT banner](../assets/horizons/blackbox-loadout.png "the software notices you forgot ammo before the NPCs do.")<br>_[the software notices you forgot ammo before the NPCs do.](../assets/horizons/blackbox-loadout.png)_
 
-**The idiot-check before the breach.**
+**The idiot-check before the run.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a gear dump on a table with missing essentials glowing red while Chummer hovers above it like a very judgmental quartermaster._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Crews rarely wipe on courage deficits. They wipe on dumb prep gaps: no medpatch, no backup ammo, no exit tool, no answer for the exact threat they already knew about. BLACKBOX LOADOUT is the idea of a brutal pre-run readiness check with receipts.
+Runner prep fails more often from missing essentials than from heroic intent, yet most tools treat inventory like a static shopping list.
 
 ## A real table scene
 
-> Gear is spread across the table, and the mission clock is not feeling charitable.
->
-> The team claims they are ready, which is exactly why the machine decides to inspect them.
-> **GM:** "You are about to hit a secure lab."
-> **Player:** "We are ready."
-> **Chummer6:** "You brought one medkit, no backup entry tool, and exactly enough ammo if nothing goes wrong."
-> **Player:** "That feels judgmental."
-> **Chummer6:** "It is more useful than a memorial page."
-> **GM:** "Listen to the machine."
-> **Player:** "Fine. Buying more trauma patches."
+The run starts in ten minutes and the software just became a judgmental quartermaster.
+
+> **Player**<br>
+> "I am ready."
+
+> **GM**<br>
+> "You said that last week without ammo."
+
+> **Chummer6**<br>
+> "Run-readiness check failed. Missing medkit, spare magazine, fake SIN coverage, and self-respect."
+
+> **Player**<br>
+> "The last one feels personal."
 
 ## Meanwhile, Chummer is doing this
 
-- scanning the active build and loadout against scenario needs
-- checking era and rules context before warning
-- surfacing the highest-risk omissions in plain language
-- backing every roast with a receipt instead of pure attitude
+- checking essentials against the active runtime stack
+- projecting likely weak points before the first scene lands
+- comparing the loadout against mission context
+- shaming preventable mistakes with evidence instead of vibes
 
 ## Why that would be great
 
-The table catches invisible omissions before the opening scene, and the software stops being politely vague about life-threatening stupidity.
+The tool catches stupid-prep deaths before the NPCs do, which is an unusually kind form of cruelty.
 
 ## Why it is still a Horizon
 
-This needs stronger runtime stack manifests, compatibility checks, and preview receipts before the warnings can be sharp without being fake.
+The stack/loadout model needs to graduate from a design doc to a hard constraint before we can mock your lack of a backup battery with total confidence.
 
 ## What would need to exist first
 
@@ -48,9 +49,9 @@ This needs stronger runtime stack manifests, compatibility checks, and preview r
 
 ## Pitch your own future
 
-If your table pain is not avoidable pre-run stupidity, the [Horizons index](README.md) can still disappoint you in other ways.
+If your table pain is not pre-run idiocy with receipts, the [Horizons index](README.md) offers different embarrassments.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

@@ -1,20 +1,14 @@
 # Hub Registry
 
-![Hub Registry banner](../assets/parts/hub-registry.png "artifacts, installs, and compatibility, or how downloads stop being folklore.")
+![Hub Registry banner](../assets/parts/hub-registry.png "compatibility truth, so your install flow does not become cursed zip roulette.")<br>_[compatibility truth, so your install flow does not become cursed zip roulette.](../assets/parts/hub-registry.png)_
 
-**Artifacts, installs, and compatibility truth.**
+**Artifacts, publication, installs, compatibility.**
 
-Hub Registry is the artifact record for Chummer6: what exists, what is published, what can be installed, and what compatibility evidence comes with each package.
+Hub Registry is the artifact brain. It tracks what exists, what’s published, and which Lua rule-packs are actually clean. It’s the difference between a verified data-drop and a cursed box found in a dark alley of the Matrix.
 
 ## You touch this when...
 
-...the question stops being "does this file exist?" and becomes "what exactly is this package, and how much should I trust it?"
-
-Use case: you are choosing a build, checking support signals, or trying to avoid cursed zip roulette disguised as install flow.
-
-## Why it matters
-
-Without a clean registry seam, installs become mystery bags. This part is what ties packages to provenance, publication state, and compatibility evidence you can actually inspect.
+Without a deterministic ledger, the growing pile of artifacts turns into an unlabeled warehouse of dependency hell. We need to know exactly which bundles are compatible before you jack them into your deck.
 
 ## What it owns
 
@@ -30,7 +24,7 @@ Without a clean registry seam, installs become mystery bags. This part is what t
 
 ## What is happening now
 
-The seam stays intentionally narrow: clearer metadata, better migration of consumers, and tighter receipts so claims about multi-era bundles and scripted behavior stay auditable.
+This seam is narrow on purpose. We aren't here for feature sprawl; we're here for consumer migration and cleaning up the metadata sins of the past. If it isn't on the registry, it doesn't exist.
 
 ## Go deeper
 
@@ -39,6 +33,6 @@ The seam stays intentionally narrow: clearer metadata, better migration of consu
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
 _Canonical source: chummer6-design_

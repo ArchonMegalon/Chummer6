@@ -1,34 +1,37 @@
 # Command Casket
 
-![Command Casket banner](../assets/horizons/command-casket.png "somebody definitely called this a tiny admin tweak right before it needed a coffin.")
+![Command Casket banner](../assets/horizons/command-casket.png "somebody definitely called this a tiny admin tweak right before it needed a coffin.")<br>_[somebody definitely called this a tiny admin tweak right before it needed a coffin.](../assets/horizons/command-casket.png)_
 
 **Controlled operator actions with receipts and rollback.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a coffin-shaped command case with approval stamps on the lid and one oversized undo button glowing like a bad decision made responsible._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-When something important changes, the system should be able to explain who asked for it, why it happened, and how to undo it. COMMAND CASKET is the idea of packaging operator actions as auditable, reversible commands instead of fuzzy admin magic.
+Important operator actions need to be explainable and reversible instead of dissolving into digital ghost stories and untraceable crashes.
 
 ## A real table scene
 
-> A supposedly tiny admin change just grew a receipt trail and rollback drama.
->
-> An admin action just happened and everyone suddenly becomes a constitutional lawyer.
-> **GM:** "Who approved that roster change?"
-> **Player:** "I thought it just happened."
-> **Chummer6:** "Operator action capsule found. Requested by GM. Approved at 19:42. Rollback available."
-> **GM:** "Good. I want controlled changes, not mystery buttons."
-> **Player:** "Honestly, same."
+A supposedly tiny admin tweak just grew a receipt trail and rollback drama.
+
+> **GM**<br>
+> "Who approved that roster change?"
+
+> **Player**<br>
+> "I thought it just happened."
+
+> **Chummer6**<br>
+> "Operator action capsule found. Requested by GM. Approved at 19:42. Rollback available."
+
+> **GM**<br>
+> "Good. I want controlled changes, not mystery buttons."
 
 ## Meanwhile, Chummer is doing this
 
 - wrapping sensitive actions in auditable command capsules
 - storing requester, approval, and outcome data together
-- keeping preview and rollback attached to the action
-- making "who did what?" answerable without guesswork
+- attaching preview and rollback to the action
+- making 'who did what?' answerable without guesswork
 
 ## Why that would be great
 
@@ -36,7 +39,7 @@ Important changes become inspectable and reversible instead of turning into admi
 
 ## Why it is still a Horizon
 
-This depends on approval-aware workflows and rollback receipts being solid first. Without that, controlled actions are just a nicer-looking trust fall.
+Rollback and approval seams have to be genuinely bulletproof before we let you seal the coffin on a production-grade configuration.
 
 ## What would need to exist first
 
@@ -46,9 +49,9 @@ This depends on approval-aware workflows and rollback receipts being solid first
 
 ## Pitch your own future
 
-If your table pain is not operator mystery meat, the [Horizons index](README.md) has other unfinished schemes.
+If operator mystery meat is not your table pain, the [Horizons index](README.md) has other unfinished schemes.
 ---
 
 _Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, latest public status_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

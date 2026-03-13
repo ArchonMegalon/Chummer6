@@ -1,28 +1,36 @@
 # JACKPOINT
 
-![JACKPOINT banner](../assets/horizons/jackpoint.png "coffee stains optional, evidence boundaries not.")
+![JACKPOINT banner](../assets/horizons/jackpoint.png "coffee stains optional, evidence boundaries not.")<br>_[coffee stains optional, evidence boundaries not.](../assets/horizons/jackpoint.png)_
 
-**Briefings that hit hard without making things up.**
+**Jackpoint turns your street-level noise into a dossier heavy enough to break a corp desk.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a fixer-style dossier desk covered in coffee rings, threat photos, white 'verified' tags, red 'inferred' tags, and one smug data chip._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Mission briefs, dossiers, and recaps get dangerous fast when nobody can tell what is verified, what is inferred, and what got embellished because it sounded cool. JACKPOINT is the idea of grounded narrative output with visible evidence boundaries.
+Narrative output gets dangerous when nobody can tell the difference between grounded evidence and cool-looking guesswork.
 
 ## A real table scene
 
-> The GM wants a brief. The table wants style without lies.
->
-> The GM wants a stylish brief. The players want one that does not quietly lie to them.
-> **GM:** "Give me a mission brief for tonight."
-> **Player:** "But no made-up nonsense this time."
-> **Chummer6:** "Compiled from session notes, character facts, and approved evidence."
-> **Player:** "What about the red labels?"
-> **Chummer6:** "Red is inferred. White is verified. Coffee stains remain optional."
-> **GM:** "Good. Now the team can tell style from certainty."
+The GM wants a brief. The table wants style without lies.
+
+> **GM**<br>
+> "Give me a mission brief for tonight."
+
+> **Player**<br>
+> "But no made-up nonsense this time."
+
+> **Chummer6**<br>
+> "Compiled from session notes, character facts, and approved evidence."
+
+> **Player**<br>
+> "What about the red labels?"
+
+> **Chummer6**<br>
+> "Red is inferred. White is verified. Coffee stains remain optional."
+
+> **GM**<br>
+> "Good. Now the team can tell style from certainty."
 
 ## Meanwhile, Chummer is doing this
 
@@ -37,20 +45,20 @@ You get stylish dossiers and recaps without quietly training the table to trust 
 
 ## Why it is still a Horizon
 
-This needs stronger evidence boundaries, approval flow, and cleaner registry or media seams before it can be more than a cool idea with dangerous failure modes.
+Grounded evidence and media-factory render boundaries need to settle before we let style override the receipts.
 
 ## What would need to exist first
 
 - grounded evidence receipts
 - approval states
-- clean registry and media seams
+- clean registry/media seams
 - source classification
 
 ## Pitch your own future
 
-If your table pain is not "please stop briefing me with lies and vibes," the [Horizons index](README.md) has other trouble waiting.
+If your table pain is not briefing-by-vibes, the [Horizons index](README.md) has other future crimes on the shelf.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

@@ -1,20 +1,14 @@
 # Design
 
-![Design banner](../assets/parts/design.png "the blueprint room, still dangerously attractive to people who enjoy scope diagrams.")
+![Design banner](../assets/parts/design.png "the blueprint room, still dangerously attractive to people who enjoy scope diagrams.")<br>_[the blueprint room, still dangerously attractive to people who enjoy scope diagrams.](../assets/parts/design.png)_
 
-**Blueprint truth for the whole split.**
+**The canonical blueprint room.**
 
-Design is the canonical blueprint room: the place that says what is actually true when teams start free-styling, wish-casting, or accidentally inventing a second roadmap.
+This is the Mirror Room—the canonical source of truth for the entire sprawl. It’s the long-range map that stops the project from turning into a pile of 'it worked on my machine' excuses.
 
 ## You touch this when...
 
-...the question is no longer "why did this roll land at 11?" and becomes "which part should own this, and what is the intended shape of the program?"
-
-Use case: a feature touches multiple repos, the ownership feels fuzzy, and somebody needs to stop the room from solving architecture with vibes.
-
-## Why it matters
-
-Players and GMs only get better tools when the seams stay honest. Clear blueprint truth keeps engine behavior, visible surfaces, hosted coordination, and future split work aligned.
+When three different devs try to 'freestyle' the SR4 ruleset at the same time, this is the blueprint we use to tell them they’re all wrong. It defines ownership before the first line of Lua is even written.
 
 ## What it owns
 
@@ -30,7 +24,7 @@ Players and GMs only get better tools when the seams stay honest. Clear blueprin
 
 ## What is happening now
 
-Current work is about keeping the blueprint synced with reality so public pages do not drift into fiction and teams do not "solve" uncertainty by blurring boundaries.
+Hardening the master wireframes. We’re moving from 'vague intentions' to 'crystalline ownership' so the implementation teams have a north star that doesn't flicker when the noise hits.
 
 ## Go deeper
 
@@ -39,6 +33,6 @@ Current work is about keeping the blueprint synced with reality so public pages 
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
 _Canonical source: chummer6-design_

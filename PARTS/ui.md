@@ -1,20 +1,14 @@
 # UI
 
-![UI banner](../assets/parts/ui.png "prep and inspect, for people who like staring at gear until it confesses.")
+![UI banner](../assets/parts/ui.png "where you lovingly inspect every choice before the run and then blame the dice anyway.")<br>_[where you lovingly inspect every choice before the run and then blame the dice anyway.](../assets/parts/ui.png)_
 
-**Prep and inspect on the big screen.**
+**The workbench and big-screen UX.**
 
-UI is the workbench surface for people who actually want to see inside the character machine before the run gets loud.
+UI is the heavy chrome of the operation. It is the big-screen workbench where inspectors, builders, and deep views live for the kind of runner who likes staring at their gear until the gears stare back.
 
 ## You touch this when...
 
-...you are building, comparing, or inspecting a character and want a surface that rewards attention instead of hiding detail.
-
-Use case: you are tuning a loadout, comparing two advancement choices, or hunting for the exact place a build changed.
-
-## Why it matters
-
-This is where prep becomes legible. It should help you inspect a character, compare changes, and understand what the system thinks is true before session pressure hits.
+To make the simulation inspectable. This is the layer that turns mystical numbers into a high-contrast HUD you can actually use to tune your cyberdeck before the run goes sideways.
 
 ## What it owns
 
@@ -30,7 +24,7 @@ This is where prep becomes legible. It should help you inspect a character, comp
 
 ## What is happening now
 
-The current push is better inspectors, stronger builder flows, and clearer review loops for desktop and browser surfaces without pretending UI is the hosted layer or the live play shell.
+We are deleting the fluff. The focus is on workbench power and shedding any claims over play-first concerns. If a pixel doesn't help you build a better runner, it is being purged to save on local-first latency.
 
 ## Go deeper
 
@@ -39,6 +33,6 @@ The current push is better inspectors, stronger builder flows, and clearer revie
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
 _Canonical source: chummer6-design_

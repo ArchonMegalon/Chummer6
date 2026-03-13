@@ -1,20 +1,14 @@
 # UI Kit
 
-![UI Kit banner](../assets/parts/ui-kit.png "proof that seven surfaces do not all need their own chrome religion.")
+![UI Kit banner](../assets/parts/ui-kit.png "the bit that stops the split from dressing like eight unrelated crimes.")<br>_[the bit that stops the split from dressing like eight unrelated crimes.](../assets/parts/ui-kit.png)_
 
 **Shared chrome, themes, and visual primitives.**
 
-UI Kit is the shared look-and-feel layer for Chummer6: tokens, themes, shell chrome, and accessibility-minded building blocks that keep the product from feeling like three unrelated apps in a trench coat.
+UI Kit is the visual vocabulary: tokens, themes, shell chrome, and accessibility-friendly primitives that every other head should be consuming. If you're still hand-rolling your own CSS buttons because of a 'mood swing,' you're the reason the grid looks like a glitchy mess.
 
 ## You touch this when...
 
-...you notice that desktop, browser, and table-facing screens feel like the same product instead of a repo accident.
-
-Use case: a warning badge, offline banner, or approval chip shows up in multiple places and looks like it belongs there every time.
-
-## Why it matters
-
-Consistency reduces confusion, duplicate bugs, and the amount of time wasted rebuilding the same UI primitive in different stacks.
+This is how we stop the interface from looking like seven different gangs met in a parking lot to argue about border-radius. It’s about coherence, professional-grade chrome, and making sure your deck doesn't fry the user's retinas.
 
 ## What it owns
 
@@ -30,7 +24,7 @@ Consistency reduces confusion, duplicate bugs, and the amount of time wasted reb
 
 ## What is happening now
 
-The focus is adoption, not vanity components: fewer one-off widgets, better readability, and a UI spine that can survive long table nights without feeling cheap or inconsistent.
+The kit is only successful when the rest of the codebase starts shrinking. We're ripping out the redundant duct tape and replacing it with hardened, shared primitives that actually respect a theme provider.
 
 ## Go deeper
 
@@ -39,6 +33,6 @@ The focus is adoption, not vanity components: fewer one-off widgets, better read
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
 _Canonical source: chummer6-design_

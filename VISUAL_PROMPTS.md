@@ -23,6 +23,28 @@ Why the postpass exists as a fallback:
 
 The worker now supports targeted rerenders so one bad banner does not force a full pack rerun.
 
+## Variation ledger
+
+The guide should not keep discovering the same four leather jackets around the same table.
+
+Every accepted render should write a scene-ledger row with:
+
+- target path
+- composition family
+- cast signature
+- subject
+- mood
+- easter egg kind
+- provider
+- prompt hash
+
+Use that ledger before rerendering:
+
+- do not reuse the same composition family on adjacent major pages when a different camera grammar would work
+- do not let `safehouse_table` become the default answer for every product truth page
+- if a new image shares composition with a recent one, force a different cast count, focal prop cluster, and camera distance
+- at least one-third of the major banners should be prop-led, street-led, or environment-led instead of people-around-table scenes
+
 ## Visual constitution
 
 - Show a scene, not a concept poster.
@@ -33,6 +55,7 @@ The worker now supports targeted rerenders so one bad banner does not force a fu
 - Avoid abstract UI wallpaper, floating icon soup, generic skylines, and brochure-cover posing.
 - Diegetic overlays are fine if they appear attached to actual screens, AR views, or surfaces.
 - No readable titles, no watermarks, no giant centered logos.
+- No repeated medium-wide table huddles unless the page explicitly depends on that exact social geometry.
 
 ## Troll easter egg rule
 
@@ -107,6 +130,16 @@ Also fail the image if:
 - Discovery and market scenes: CRT mascot, ad panel, vendor patch
 - Street and transit scenes: crossed-out troll pictogram on a side door, service panel, or bar placard
 
+## Composition rules
+
+- `README` hero: triangular rules dispute, visible receipt trail, tactile props
+- `WHAT_CHUMMER6_IS`: tense rules-receipt confrontation, not a generic meeting shot
+- `Core`: close dice-pool dispute with the table itself acting as evidence
+- `NEXUS-PAN`: asymmetrical reconnect moment anchored around the returning phone
+- `ALICE`: sim bench / crash chamber / failure trace, never another social huddle
+- `JACKPOINT`: dossier workspace first, faces optional
+- `Horizons index`: boulevard/environment shot first, people secondary at most
+
 ## Page prompt starters
 
 ### Chummer6 hero
@@ -173,6 +206,6 @@ Markdown image titles are for flavor text only during this debug run.
 
 - keep them short
 - make them funny when possible
-- roast the dev if the scene invites it
-- 4th-wall jokes are allowed when they fit the page
+- roast the dev freely if the scene invites it
+- 4th-wall jokes are encouraged when they fit the page
 - do not paste the full generation prompt into the title

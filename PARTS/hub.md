@@ -1,26 +1,20 @@
 # Hub
 
-![Hub banner](../assets/parts/hub.png "online coordination, because sometimes the cloud really does need adult supervision.")
+![Hub banner](../assets/parts/hub.png "hosted coordination, because apparently some chaos really does need adult supervision.")<br>_[hosted coordination, because apparently some chaos really does need adult supervision.](../assets/parts/hub.png)_
 
-**Online coordination, not online truth.**
+**The hosted API and orchestration layer.**
 
-Hub is the hosted coordination layer: identity, relay, approvals, shared memory, and the workflows that genuinely need a server instead of pretending everything is a local file forever.
+Hub is the silent fixer in the background. It manages the handshakes, the identities, and the team sync without pretending it knows more about SR4 math than the core engine does.
 
 ## You touch this when...
 
-...something really does need hosted coordination and you want that job to stay narrow, explicit, and boring.
-
-Use case: a preview/apply/rollback workflow needs shared approval state, or a sync/publish path needs a real service boundary instead of a hand-wave.
-
-## Why it matters
-
-Hub is adult supervision for the online parts. It keeps hosted duties from swallowing rules truth or pretending the cloud should decide the math.
+Because manual file swapping and 'oops, wrong version' dossiers are for script kiddies. You need a secure vault for your crew's data that stays out of the way of the simulation.
 
 ## What it owns
 
 - identity, relay, approvals, and memory
 - hosted play APIs and orchestration
-- preview, apply, and rollback style server workflows
+- preview/apply/rollback style server workflows
 
 ## What it does not own
 
@@ -30,7 +24,7 @@ Hub is adult supervision for the online parts. It keeps hosted duties from swall
 
 ## What is happening now
 
-The mission is still shrink-to-fit: keep hosted duties tight, dependable, and obviously separate from deterministic evaluation and receipt logic.
+The mission is shrink-to-fit. We're stripping the bloat and hardening the hosted boundary, turning the Hub into a sharp, unremarkable orchestration layer for identity and relay.
 
 ## Go deeper
 
@@ -39,6 +33,6 @@ The mission is still shrink-to-fit: keep hosted duties tight, dependable, and ob
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
 _Canonical source: chummer6-design_

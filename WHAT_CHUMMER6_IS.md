@@ -1,10 +1,10 @@
 # What Chummer6 Is
 
-![What Chummer6 is banner](assets/pages/what-chummer6-is.png "product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.")
+![What Chummer6 is banner](assets/pages/what-chummer6-is.png "product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.")<br>_[product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.](assets/pages/what-chummer6-is.png)_
 
-Chummer6 is becoming a clearer, more trustworthy, more table-friendly Shadowrun toolkit.
+Your chrome shouldn't come with a 'trust me' from your GM.
 
-It is trying to make rules calls fast, explainable, and recoverable. That means deterministic outcomes, readable receipts, local-first session behavior, multi-era support, and scripted rule hooks for the weird cases that usually turn into forum trench warfare.
+Chummer6 is a deterministic engine that treats your character sheet like a live, audited dossier. Built on a local-first architecture with scripted Lua logic, it provides explainable receipts for every single modifier on your screen. It functions as an installable web app (PWA) that stays on your device, ensuring you never lose access to your stats even when you're running silent in a matrix dead zone.
 
 ## What it is trying to become
 
@@ -18,10 +18,17 @@ Chummer6 is not just trying to be a character manager with nicer chrome. It is t
 
 ## A real table moment
 
-**GM:** "You are wounded, sustaining, and standing in bad weather. Roll it."
-**Player:** "Why is my pool lower than I expected?"
-**Chummer6:** "Base 11. Wounds -1. Sustaining -1. Weather -1. Final 8."
-**GM:** "Good. We move."
+> **GM**<br>
+> "You are wounded, sustaining, and standing in bad weather. Roll it."
+
+> **Player**<br>
+> "Why is my pool lower than I expected?"
+
+> **Chummer6**<br>
+> "Base 11. Wounds -1. Sustaining -1. Weather -1. Final 8."
+
+> **GM**<br>
+> "Good. We move."
 
 That is the product story in miniature. Not "trust me, bro." Not "dig through source." Just a fast answer with enough proof to keep the table moving.
 
@@ -31,11 +38,9 @@ The project is leaning harder into explicit trust:
 
 - same inputs should produce the same result
 - the result should come with a readable receipt
-- the session should survive local/offline reality
+- the session should survive local or offline reality
 - the active rules and config stack should be visible
 - the ugly edge cases should have a real extension lane
-
-If older Chummer habits taught you to expect one giant opaque box, this is trying to be the opposite: sharper seams, clearer proof, and less mystery math.
 
 ## The kinds of trust it wants to earn
 
@@ -44,17 +49,23 @@ If older Chummer habits taught you to expect one giant opaque box, this is tryin
 - **Session trust:** your table should not collapse because Wi-Fi had a mood.
 - **Change trust:** custom rules, era differences, and future expansions should be legible instead of spooky.
 
+## What you would actually notice on game night
+
+- fewer "wait, why did that number move?" pauses
+- fewer arguments that depend on memory or volume
+- faster recovery when one device falls out of the session
+- clearer separation between verified facts, inferred summaries, and made-up nonsense
+- more honest labels about what is real now versus still moving
+
 ## Why there are multiple parts
 
 The codebase is split because the product is getting bigger and more specialized. A rules engine, a prep workbench, a table-facing shell, hosted coordination, shared chrome, artifact handling, render jobs, and a blueprint repo all have different jobs. Keeping those seams honest is how the project avoids one giant haunted monolith.
 
 If you want that map, go to [PARTS/README.md](PARTS/README.md).
 
-## What this repo is
-
-This repo is the friendly public guide to that wider program. It is here to explain the product in plain language, show what is real now versus future-looking, and help humans get oriented before they go hunting through deeper repos.
+Need the deeper split or implementation trail after the product story? Start with [PARTS/README.md](PARTS/README.md) or [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md).
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design, current public shape_<br>
 _Canonical source: chummer6-design_

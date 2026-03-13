@@ -1,43 +1,48 @@
 # GHOSTWIRE
 
-![GHOSTWIRE banner](../assets/horizons/ghostwire.png "memory is cheap; replayable receipts are the expensive part.")
+![GHOSTWIRE banner](../assets/horizons/ghostwire.png "memory is a liar; event logs are just meaner about it.")<br>_[memory is a liar; event logs are just meaner about it.](../assets/horizons/ghostwire.png)_
 
-**Rewind the run until the truth blinks first.**
+**Scrub the run like a forensic sim.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a cluttered post-run table with a glowing timeline in the air and one player's guilty face frozen above the moment everything went wrong._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-After a chaotic run, table memory gets selective fast. GHOSTWIRE is the idea of a forensic playback lane for sessions so you can inspect what happened instead of letting confidence rewrite history.
+Implicit state transitions that make debugging a failed run harder than tracing a race condition in a legacy corporate mainframe.
 
 ## A real table scene
 
-> Everyone remembers the alarm differently. The replay does not care.
->
-> The run ended twenty minutes ago and everyone remembers it in a way that is extremely flattering to themselves.
-> **GM:** "So who actually tripped the alarm?"
-> **Player 1:** "The decker did."
-> **Decker:** "Absolutely not."
-> **Chummer6:** "Timeline loaded. Alarm trigger at 21:14. Camera loop failed one action earlier. Linked cause highlighted."
-> **GM:** "There. We have evidence."
-> **Player 2:** "I hate that the software has a better memory than I do."
+Everybody remembers the alarm differently, which is exactly how lies are born.
+
+> **GM**<br>
+> "Who tripped the host?"
+
+> **Player**<br>
+> "Not me."
+
+> **Other Player**<br>
+> "That sounds guilty in three different rules eras."
+
+> **Chummer6**<br>
+> "Replaying event history. Alarm cascade started after the maglock spoof, not the drone jam."
+
+> **GM**<br>
+> "Perfect. The receipts are snitching for me."
 
 ## Meanwhile, Chummer is doing this
 
-- storing session events as a replayable timeline
-- labeling state changes and consequence links
-- letting you scrub back to the trigger point
-- preserving evidence instead of forcing a memory contest
+- replaying stamped event history in order
+- showing state changes around the critical turn
+- tying receipts to the exact moment things went sideways
+- keeping memory contests from becoming rules policy
 
 ## Why that would be great
 
-Post-op disputes get shorter, recaps get cleaner, and "what actually happened?" stops being a social endurance event.
+Post-run disputes become recoverable instead of devolving into six confident but incompatible witness statements.
 
 ## Why it is still a Horizon
 
-This only works once session authority and event history are first-class, replayable, and trustworthy. Without that, forensic playback is just stylish fiction.
+Replay is a ghost of a system until the event model is fully first-class. We're still teaching the engine to remember the past without blowing the memory budget.
 
 ## What would need to exist first
 
@@ -48,9 +53,9 @@ This only works once session authority and event history are first-class, replay
 
 ## Pitch your own future
 
-If your table pain is not post-run confusion, the [Horizons index](README.md) has other forms of suffering available.
+If your table pain is not memory lying with confidence, take a different alley in the [Horizons index](README.md).
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

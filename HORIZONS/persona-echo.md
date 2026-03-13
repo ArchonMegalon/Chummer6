@@ -1,43 +1,45 @@
 # Persona Echo
 
-![Persona Echo banner](../assets/horizons/persona-echo.png "legend stays labeled so the tool does not become your runner's PR agent.")
+![Persona Echo banner](../assets/horizons/persona-echo.png "continuity without letting the software become your runner's lying publicist.")<br>_[continuity without letting the software become your runner's lying publicist.](../assets/horizons/persona-echo.png)_
 
-**Continuity without losing provenance.**
+**Your legend is too heavy for the cloud to carry.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: a runner portrait echoing across multiple missions with verified moments lit cleanly and inferred legend glowing in a different, suspicious color._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-People want memorable characters and continuity artifacts, but not at the cost of blurred truth or made-up authority. PERSONA ECHO is the idea of carrying character continuity forward while keeping the evidence boundaries visible.
+Digital characters often feel like disposable stat blocks because the software can't distinguish between a temporary buff and a hard-earned scar.
 
 ## A real table scene
 
-> The campaign wants continuity, but not fan fiction in a nicer coat.
->
-> The table wants the runner to feel legendary without letting the software hallucinate their autobiography.
-> **Player:** "Can the dossier remember what this runner became without inventing legend out of thin air?"
-> **GM:** "That is the whole problem."
-> **Chummer6:** "Persona echo built from approved facts, session outcomes, and labeled inference."
-> **Player:** "So the cool parts are still grounded?"
-> **Chummer6:** "Yes. Myth stays marked. Fact stays fact."
-> **GM:** "That is how continuity avoids becoming fan fiction."
+The player wants continuity, not software-written fan fiction.
+
+> **Player**<br>
+> "Can my runner's legend carry forward without turning fake?"
+
+> **GM**<br>
+> "Only if the machine knows the difference between witness and hype man."
+
+> **Chummer6**<br>
+> "Continuity artifact ready. Approved facts kept. Inferred legend labeled. Embarrassing failures preserved for character growth."
+
+> **Player**<br>
+> "Cruel. Honest. Acceptable."
 
 ## Meanwhile, Chummer is doing this
 
-- carrying forward grounded character facts across sessions
-- marking inferred continuity separately from verified history
-- preserving provenance on every major claim
-- keeping narrative continuity from silently becoming authority
+- carrying approved continuity across runs
+- labeling inference instead of laundering it into canon
+- grounding the cool parts in evidence and provenance
+- keeping character myth from mutating into unreviewed fanfic
 
 ## Why that would be great
 
-Characters can accumulate memory and weight without the system quietly laundering fiction into canon.
+Characters get memory and identity across runs without the software quietly lying on their behalf.
 
 ## Why it is still a Horizon
 
-Provider and media boundaries are still too early to widen safely, and grounded evidence flow has to mature before continuity artifacts can be trusted.
+Ensuring local data permanence that doesn't buckle under the weight of a thousand unverified edits requires a steady hand on the architecture.
 
 ## What would need to exist first
 
@@ -47,9 +49,9 @@ Provider and media boundaries are still too early to widen safely, and grounded 
 
 ## Pitch your own future
 
-If your table pain is not continuity drift, the [Horizons index](README.md) still has other rabbit holes worth bothering.
+If continuity with receipts is not your table pain, the [Horizons index](README.md) has other future temptations.
 ---
 
 _Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, latest public status_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

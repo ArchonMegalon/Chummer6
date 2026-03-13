@@ -1,43 +1,45 @@
 # THREADCUTTER
 
-![THREADCUTTER banner](../assets/horizons/threadcutter.png "two clever mods enter, one rollback receipt leaves.")
+![THREADCUTTER banner](../assets/horizons/threadcutter.png "because every clever overlay eventually meets another clever overlay in a dark alley.")<br>_[because every clever overlay eventually meets another clever overlay in a dark alley.](../assets/horizons/threadcutter.png)_
 
-**When two clever mods throw hands, break it up before session night.**
+**Snip the conflicts before they flatline your sheet.**
 
-_Status: Horizon only - future idea, not active build work._
-
-_Image idea: two mod cables tangled like alley fighters while a worried GM holds a rollback switch like it is a fire extinguisher._
+_Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Every mod stack eventually hits the same wall: two brilliant ideas claiming the same seam like they own the block. THREADCUTTER is the idea of preflight conflict analysis and reversible change flow before the stack goes live.
+Sooner or later, two 'clever' changes will try to claim the same attribute at the same time, leading to silent logic collisions that brick your deck mid-combat.
 
 ## A real table scene
 
-> Two clever mods just entered the ring, and rollback is stretching first.
->
-> It is the night before session, which is when mods become emotionally honest.
-> **Player:** "I added the recoil pack and the gritty ammo pack."
-> **GM:** "Did you check whether they are trying to edit the same thing?"
-> **Player:** "I believed in friendship."
-> **Chummer6:** "Conflict scan complete. Two overlap points found. One changes damage staging. One changes ammo consumption."
-> **GM:** "Can we preview it before it breaks the campaign?"
-> **Chummer6:** "Yes. Apply, compare, or roll back."
+Two clever overlays just met and both think they are the main character.
+
+> **GM**<br>
+> "Can we run both mod packs?"
+
+> **Player**<br>
+> "Probably."
+
+> **Chummer6**<br>
+> "Conflict report generated. Both overlays modify the same recoil rule. One of them also lies about load order."
+
+> **GM**<br>
+> "Excellent. The software found the duel before the table did."
 
 ## Meanwhile, Chummer is doing this
 
-- scanning overlays and hooks for seam collisions
-- previewing migration impact before commit
-- showing which parts of the stack overlap
-- keeping apply and rollback receipts for recovery
+- comparing overlays before they collide at runtime
+- surfacing competing claims on the same seam
+- showing what breaks, what wins, and what rolls back
+- making conflict analysis a tool instead of a postmortem
 
 ## Why that would be great
 
-Customization stops feeling like 1:00 AM diff archaeology and starts feeling like an informed choice with an exit hatch.
+Customization gets safer when the fight happens in a report first instead of in front of a live session.
 
 ## Why it is still a Horizon
 
-This needs mature migration receipts and stack semantics first. Without them, conflict analysis is theater and recovery is prayer.
+The runtime stack and migration receipts must exist before the Threadcutter has anything honest to inspect; we don't guess at logic errors.
 
 ## What would need to exist first
 
@@ -47,9 +49,9 @@ This needs mature migration receipts and stack semantics first. Without them, co
 
 ## Pitch your own future
 
-If your table pain is not mod civil war, the [Horizons index](README.md) has other crimes available.
+If your table pain is not clever mods drawing knives, the [Horizons index](README.md) has other future messes to browse.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design horizon guidance, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design horizon guidance, current public shape_<br>
 _Canonical source: chummer6-design_

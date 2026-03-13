@@ -26,15 +26,19 @@ Some habits, yes. But the project is trying to make more of the stack explicit: 
 
 Rules truth with receipts. The standout promise is that a rules call should be explainable fast enough to help the table keep moving.
 
-## Understanding the project
+### What should I show a skeptical GM or player first?
 
-### Is Chummer6 a design repo?
+Start with [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md) for the product pitch, then [NOW/current-status.md](NOW/current-status.md) for the honest caveats, then [PARTS/core.md](PARTS/core.md) if the argument is really about trust in the math.
 
-No. `chummer6-design` is the canonical blueprint repo.
+## If you care about the plumbing
 
-### Is Chummer6 a code repo?
+### Where does the deeper design truth live?
 
-No. It is the human guide layer.
+In `chummer6-design`, which carries the canonical design truth.
+
+### Where does the actual code live?
+
+In the split implementation repos. This guide is here so you do not need to reverse-engineer the product story from ownership seams.
 
 ### Why are there so many repos?
 
@@ -54,9 +58,9 @@ The useful stuff: what you installed, what you clicked, what you expected, what 
 
 ### Is Chummer6 allowed to make fun of the dev?
 
-Yes. Gently, but absolutely. If the dev ships cursed nonsense, the guide is allowed to say so.
+Yes. Absolutely. If the dev ships cursed nonsense, the docs are allowed to have fun with it.
 ---
 
-_Last synced: 2026-03-13_  
-_Derived from: chummer6-design, current public shape_  
+_Last synced: 2026-03-13_<br>
+_Derived from: chummer6-design, current public shape_<br>
 _Canonical source: chummer6-design_
