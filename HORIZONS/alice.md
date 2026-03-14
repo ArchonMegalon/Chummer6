@@ -2,32 +2,32 @@
 
 ![ALICE banner](../assets/horizons/alice.png "the simulation is here to hurt your feelings before reality does.")<br>_[the simulation is here to hurt your feelings before reality does.](../assets/horizons/alice.png)_
 
-**Your build isn't a hero until the math says so. Let Alice hurt your feelings.**
+**Your build isn't a hero until the math stops laughing.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most runners build for the best-case scenario—assuming the GM forgets about recoil and the dice always land on sixes. Then the first HTR team drops from a suborbital, and suddenly your 'flavor choices' look like a suicide note. You need a clinical, deterministic way to find the exact moment your soak dice fail before you burn a character sheet.
+Most runners build for the dream—assuming the GM forgets about recoil, the dice always land on sixes, and nobody ever shoots back. You walk into a Stuffer Shack with a three-million nuyen dossier and get geeked by a rent-a-cop because you forgot to calculate your own stun track overflow or your armor's hardened limit. Swagger doesn't soak bullets, and 'trust me' isn't a stat.
 
 ## A real table scene
 
-GM: 'HTR drops from the skylight. Full auto, wide burst.' Player: 'I've got this. My dodge pool is legendary.' GM: 'Alice says you have a 42% chance of losing an arm in the first three seconds.' Player: 'She's just a program! I'm rolling... oh. That's a lot of ones.' GM: 'Deterministic math is a fragging reaper, omae.' Player: 'Can I burn Edge to ignore the sim results?' GM: 'Alice doesn't negotiate with your ego.'
+GM: The HTR team rounds the corner. Roll for Initiative. Street Sam: I’ve got 20 dice and wired reflexes. I’m invincible. Alice: (Dry, digital) Error. Statistical variance projects a 74% chance of cardiac arrest by combat turn three. Street Sam: Wait, what? Alice: You over-clocked your chrome but ignored your Body stat. You are a glass cannon with a cracked lens. GM: She’s right. The first burst puts you in the dirt before you even pull the trigger. Street Sam: ...I need to go back to the workbench.
 
 <p align="center"><img src="../assets/horizons/details/alice-scene.png" alt="ALICE dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Scripting the core engine to handle deterministic 'what-if' branches without choking on your house rules. - Stabilizing the SR4 plugin so your legacy builds can face modern simulation heat. - Refining the math-provenance popups so you can see exactly where the railgun breached your soak.
+["- Scripting the Lua-driven rules engine to ensure every 'hit' is earned with deterministic math.", "- Hardening scenario seeds so your build's failure is reproducible, measurable, and educational.", '- Refining provenance receipts that show exactly which rule geeked you in the simulation.']
 
 ## Why that would be great
 
-Alice is the antidote to 'main character syndrome.' Instead of guessing if your Street Sam can survive a frag grenade, you run a thousand-iteration lab harness and get a clinical heat map of your structural failures. It’s local-first, offline-ready, and uses the exact same Lua engine that powers your session, ensuring the math is identical to what happens at the table. No black boxes, just reproducible truth and receipts for every digit of damage.
+Alice is a deterministic lab harness that strips the swagger off your dossier and replaces it with cold, scripted truth. By running your build through scenario seeds—reproducible stress tests—you get an X-ray of your character’s lethality and its leaks. It’s not about 'if' you can win; it’s about proving why you survived or exactly which round you folded under the pressure of a simulated HTR sweep. It provides the math receipts that turn a 'GM call' into a hard data point.
 
 ## Why it is still a Horizon
 
-The dev team is currently neck-deep in the 'boring stuff'—ensuring the basic Lua rulesets don't hallucinate when you try to calculate a simple melee hit. A high-fidelity stress tester like Alice requires a core engine that is 100% deterministic and bug-free across all multi-era rulesets. We’re still polishing the receipt engine before we build the machine that hands them to you at high velocity.
+This is a high-orbit horizon concept on our long-range plan, not active build work you can pull from a repo today. We are currently focused on grounding the core rulesets and ensuring the engine can handle basic SR4 math before we let a sadistic simulation start roasting your dice pools. The foundation has to be unbreakable before we build the crucible designed to snap it.
 
 ## What would need to exist first
 
@@ -38,9 +38,7 @@ The dev team is currently neck-deep in the 'boring stuff'—ensuring the basic L
 
 ## Pitch your own future
 
-Think you can build a meat-grinder better than Alice? Show us your logic on the issue tracker.
+Think your build is bulletproof, or do you have a better idea for how the math should hurt your feelings?
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

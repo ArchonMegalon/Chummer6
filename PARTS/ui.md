@@ -4,11 +4,11 @@
 
 **The workbench and big-screen UX.**
 
-The UI is the heavy chrome of Chummer6. It’s the full-screen workbench where optimization junkies stare at their gear until the gears stare back. This is the high-density tactical display designed for riggers and deckers who need every inspector, builder, and deep-view widget within arm's reach.
+This is the heavy chrome: the high-density forge where you strip your loadout down to the sensors. It’s a workbench-side experience for the runners who need to see the internal clockwork of their kit before the first bullet flies.
 
 ## You touch this when...
 
-Math shouldn’t be a black box. This part of the toolkit turns 'magic numbers' into verifiable receipts. It makes the engine inspectable instead of mystical, giving you the desktop-grade authoring power needed to build complex loadouts without the 'just trust the dev' anxiety of inferior calculators.
+Because 'trust me' is a great way to end up as static. You need a prep surface that makes your gear transparent, not a black box of legacy math and 'close enough' assumptions. If you can’t inspect it, you don’t own it.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Math shouldn’t be a black box. This part of the toolkit turns 'magic numbers' 
 
 ## What is happening now
 
-We are currently burning away the legacy bloat to keep the workbench sharp. The focus is on decoupling the heavy desktop UX from the lighter play-shells, ensuring SR4 support is a first-class citizen. If you find a data-grid that isn't pulling its weight or a builder that's glitching, head over to the Chummer6 issue tracker.
+We're currently gutting the bloat and refining the big-screen authoring flow. The mission is to keep the workbench powerful while shedding the identity crisis—ensuring the UI stays focused on deep builds and gear-head scrutiny without tripping over mobile play concerns.
 
 ## Go deeper
 
@@ -33,6 +33,4 @@ We are currently burning away the legacy bloat to keep the workbench sharp. The 
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

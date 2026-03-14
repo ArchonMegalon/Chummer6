@@ -2,9 +2,9 @@
 
 ![Horizons overview banner](../assets/pages/horizons-index.png)
 
-The blueprints are on the table. Welcome to the Garage.
+Scanning the static for the next era of digital truth from a rain-slicked rooftop in the heart of the sprawl.
 
-This node tracks the experimental prototypes currently scanning the horizon. We are wireframing features like the 'Karma Forge'—a system for simulating long-term character growth—and 'Nexus PAN' for syncing data across your team's devices at the table. These ideas are the 'midnight builds' of the project: high-concept tech that is still smelling of ozone and fresh solder.
+The sprawl never sleeps, and neither does the engine. Our long-range plan is locking onto incoming signals for expanded Lua-scripted rulesets and tactical session shells designed to survive the heaviest noise at the table. We are moving beyond basic character math into full-spectrum GM support and multi-era stability, ensuring your dossier remains a deterministic source of truth regardless of the campaign year. These aren't just empty promises; they are the data-trails we're currently tracking to make sure your next run is as smooth as a hot-sim jump.
 
 > **Reality check from the troll behind the curtain**
 > These are horizon ideas, not signed blood contracts. Some may ship. Some may mutate. Some may remain beautiful nonsense forever.
@@ -48,6 +48,4 @@ This node tracks the experimental prototypes currently scanning the horizon. We 
 If your table pain is not on this list, good. Horizons is not holy scripture. Bring a better problem and a sharper idea.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

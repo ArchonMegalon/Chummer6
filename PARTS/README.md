@@ -2,13 +2,13 @@
 
 ![Parts overview banner](../assets/pages/parts-index.png)
 
-Every run requires the right gear; here is your manifest for the Chummer6 ecosystem.
+The sprawl is a mess of conflicting data, but your toolkit should stay sharp. This is the field guide to the modular gear that makes the engine purr.
 
-Instead of one heavy, unchangeable program, we have built a modular toolkit. The Core Engine handles the heavy lifting of rulebook math and logic. The Workbench is your desktop space for detailed character building and tweaking. For the actual heat of the moment, the Session Shell provides a streamlined mobile interface to track your stats at the table. Use the modules you need and leave the bloat behind.
+Think of these as the components of a high-end cyberdeck. We have the core engine for the heavy math, specialized data packs for different game eras, and mobile-ready shells for your screen. This modular approach means you can swap out rulesets as easily as changing a clip on an Ares Predator. If you are looking for the latest stable version of a specific component, head over to the official releases.
 
 ## What you actually notice first
 
-Most people do not care about the repo taxonomy first. They care about the symptom.
+Most people do not care about the internal map first. They care about the symptom.
 
 Read the parts like this:
 
@@ -40,6 +40,4 @@ If you want the strongest answer to "why should I trust the math?", read [core](
 If you want the whole-program ownership map, read [design](design.md).
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design ownership map, public repo READMEs, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

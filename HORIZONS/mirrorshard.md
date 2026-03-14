@@ -8,26 +8,26 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Character building is usually a one-way street paved with 'I wish I hadn't done that' moments. The dev probably thinks you enjoy manually calculating Essence loss across three different save states, or that your 'workflow' of naming files 'Final_v2_TEST_DONT_DELETE.json' is a feature rather than a cry for help. Most tools treat your sheet like a brittle spreadsheet that forgets its history the second you commit to a bad idea, leaving you to scavenge through backups when the math inevitably drifts.
+Character building is usually a one-way street paved with 'I wish I hadn't done that' moments. The current dev philosophy assumes you enjoy manual bookkeeping or that your brain can perfectly simulate three different Essence-loss scenarios at once. Without a way to side-load a 'what-if' build, you're just guessing whether that custom cyber-arm is worth the massive Social Limit hit until it's already installed and your Nuyen is gone.
 
 ## A real table scene
 
-GM: "The street doc has the Move-By-Wire system on the table. It's used, but the firmware is clean." Player: "I'm checking the MirrorShard projection first." GM: "Your commlink overlays a blue-tinted ghost of your own nervous system over your arm." Player: "If I take this, my Initiative goes up by 4, but my Social limit drops by 2. Look at the Essence delta." GM: "The ghost version of you looks faster, but definitely twitchier. You ready to commit to the twitch?" Player: "Not yet. Let's see the Bioware alternative side-by-side." GM: "The doc is tapping his foot. He's got a line of gangers outside." Player: "Tell him to wait. MirrorShard says the bioware path keeps my Magic intact. I'm taking the bio."
+GM: 'The street doc has the Beta-grade reflex recorders, but he's also offering a refurbished Move-By-Wire system.' Decker: 'Hold on, let me toggle the Mirrorshard overlay.' Samurai: 'If you take the MBW, you're a walking seizure waiting to happen.' Decker: 'Yeah, but look at the Initiative delta on this ghost-build...' GM: 'The clock is ticking. The Doc doesn't like tourists.' Decker: 'Checking the Essence burn... okay, the MBW kills my Social limit. Recorders it is.'
 
 <p align="center"><img src="../assets/horizons/details/mirrorshard-scene.png" alt="MIRRORSHARD dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Refining the deterministic Lua engine to handle multi-era rulesets without state-bleed. - Hardening the 'Math-Provenance' receipts so every digit on your sheet has a verifiable paper trail. - Stress-testing the offline-first architecture for zero-latency table play.
+- Hardening the Lua rules engine to ensure math stays deterministic across every potential fork. - Drafting the provenance logic so every 'what-if' leaves a digital paper trail for the GM to audit. - Refining the mobile UI to make side-by-side diffs readable on a 5-inch commlink screen.
 
 ## Why that would be great
 
-MirrorShard turns the character sheet into a living sandbox. By leveraging deterministic comparison receipts, you can fork your build into alternate timelines—testing 'The Tank' vs 'The Infiltrator' using the exact same Karma pool. You get a side-by-side diff of every stat, limit, and Nuyen cost before you burn the bridge and commit to the permanent file.
+It’s the difference between a 'trust me' build and a calculated evolution. Mirrorshard renders two alternate futures side-by-side with a punchy diff of your stats, Essence, and Nuyen. You get a preview receipt of the transformation before you commit to the scar, allowing you to compare the 'ghost' of a potential upgrade against your current meat without turning your dossier into a graveyard of abandoned files.
 
 ## Why it is still a Horizon
 
-Building a reliable 'What If' machine requires a rock-solid core that doesn't hallucinate math when you start jumping between forks. We are currently perfecting the underlying Lua rulesets and state-management logic to ensure that a preview today doesn't become a corrupted save-file tomorrow. Precision comes first; the fancy mirrors come once the glass is unbreakable.
+The dev is currently neck-deep in the 'deterministic math' trenches, ensuring that every scriptable rule behaves exactly the same way across every fork. While they spend their time roasting legacy math bugs and polishing the Lua foundations, the actual visual 'ghosting' logic remains on the horizon. It turns out building a time machine for your stats takes more effort than just hitting Ctrl+Z.
 
 ## What would need to exist first
 
@@ -37,9 +37,7 @@ Building a reliable 'What If' machine requires a rock-solid core that doesn't ha
 
 ## Pitch your own future
 
-Got a sharper way to visualize the price of your soul? Drop your interface concepts in the Chummer6 issue tracker.
+Think you know a cleaner way to show the cost of chrome? Drop a line in the issue tracker.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

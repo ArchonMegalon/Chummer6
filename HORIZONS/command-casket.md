@@ -2,32 +2,32 @@
 
 ![Command Casket banner](../assets/horizons/command-casket.png "somebody definitely called this a tiny admin tweak right before it needed a coffin.")<br>_[somebody definitely called this a tiny admin tweak right before it needed a coffin.](../assets/horizons/command-casket.png)_
 
-**Controlled operator actions with receipts and a burial plan for errors.**
+**Stop praying to the ghosts in the machine; Command Casket wraps every high-stakes operator action in an auditable capsule with a hard-wired burial plan for errors.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-The moment nobody can answer who approved a change, every serious admin action starts smelling like haunted button mashing. Important operator actions need to be explainable, reviewable, and reversible instead of dissolving into digital ghost stories or mystery-admin folklore.
+Important operator actions shouldn't dissolve into mystery-admin folklore. When your 'tiny tweak' crashes the host because you merged a half-baked script directly into the live grid without a single test, and nobody can find the undo button, you aren't running a system—you're just button-mashing in a haunted server room.
 
 ## A real table scene
 
-GM: Wait, why did the street sam just lose his cyberware bonuses mid-combat? Decker: I was just trying to fix his initiative tracker! GM: You 'fixed' it by zeroing his essence. Pop the casket. Decker: Scanning... okay, Casket ID 402-Beta. Reverting now. GM: Receipt verified. The Sam's wires hum back to life. Don't touch the kernel again. Sam: Can we maybe do this between firefights next time?
+GM: The host just rebooted, but all the maglocks are stuck on 'cycle' mode. Decker: I didn't touch the locks, I just patched the ICE protocols. Rigger: Someone definitely touched them. My drone is currently locked in the garage. GM: Check the casket. Who authorized the patch? Decker: Scanning... It says 'Operator 42' at 03:00. No rollback receipt found. GM: The Host starts venting knockout gas. Looks like 42 didn't have a burial plan.
 
 <p align="center"><img src="../assets/horizons/details/command-casket-scene.png" alt="Command Casket dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Hardening the Lua engine to ensure state-diffs actually make sense before they are committed. - Designing cryptographic seals that look like they belong on a high-security data vault, not a spreadsheet. - Mapping out multi-sig handshakes for when the GM needs to sign off on a Decker’s 'creative' house-ruling.
+- Hardening the Lua-driven ruleset for deterministic math. - Refining the PWA offline experience for those deep-sublevel runs. - Building out the SR4 provenance logic for absolute rule transparency.
 
 ## Why that would be great
 
-Command Casket turns every heavy-handed admin tweak into a surgical, auditable data capsule. No more 'oops' moments that require a full database restore. You get a requester, an approval token, and a pre-packaged rollback plan in one glowing amber container. It is the difference between guessing why the grid crashed and having a signed confession with an Undo button.
+It turns 'trust me, I'm a decker' into a verifiable audit trail. By wrapping sensitive changes into capsules with requesters, approval states, and preview receipts all in one place, you get a digital seal of accountability. If a change goes south, you don't scramble—you execute the burial plan and trigger a rollback before the HTR teams even get the alarm.
 
 ## Why it is still a Horizon
 
-This is grid-scale architecture that needs a rock-solid foundation in the core engine. We are currently perfecting the deterministic logic and receipt-math in the primary repos before we start building the high-security vault to store them. It is a horizon goal because 'oops' should not be the final word in your campaign.
+Command Casket is a key part of the long-range plan, but right now the team is focused on mastering the SR4 ruleset and ensuring your local-first data stays static-proof. It requires deeper session shell integration to ensure an 'Undo' button actually works across different eras without corrupting your dossier or leaving the grid in a permanent state of reboot.
 
 ## What would need to exist first
 
@@ -37,9 +37,7 @@ This is grid-scale architecture that needs a rock-solid foundation in the core e
 
 ## Pitch your own future
 
-Give the grid a memory that does not hallucinate—because every ghost in the machine needs a paper trail.
+Think you’ve got a cleaner way to bury a bad admin call before it flatlines the team? Pitch your better burial plan on the tracker.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

@@ -4,17 +4,17 @@
 
 **The deterministic rules engine.**
 
-Core is where the numbers stop bluffing and the 'trust me' excuses die. It is the deterministic engine at the center of the sprawl, turning modular Lua scripts into the cold, hard math that keeps your character sheet from hallucinating.
+Core is the digital black box where the numbers finally stop bluffing. It’s the deterministic brain of the system, handling the rules and the math so you can stop arguing about whether that specialty bonus actually stacks.
 
 ## You touch this when...
 
-Because 'black box' math is for corp lackeys who don't mind a glitch in their life insurance. Core provides the verified receipts for every digit, ensuring that when your dice pool shifts, you have a traceable audit trail instead of a GM’s best guess.
+Because when the GM asks for your dice pool, 'I think it's 12' doesn't cut it. Core provides the math receipts and Lua-scripted truth, making your dossier rule-lawyer proof and ensuring the engine doesn't start hallucinating bonuses from a junk drawer of old code.
 
 ## What it owns
 
 - engine runtime and reducer truth
 - explain receipts and deterministic evaluation
-- engine-facing shared interfaces
+- engine packages other parts can trust
 
 ## What it does not own
 
@@ -24,7 +24,7 @@ Because 'black box' math is for corp lackeys who don't mind a glitch in their li
 
 ## What is happening now
 
-The mission is purification: stripping the engine down to a mean, lean, and predictable state. We are currently hardening the SR4 logic and ensuring the Lua rulesets are portable enough to run anywhere—from a high-end commlink to a burner deck in a dead zone.
+The mission is purification: stripping out the legacy noise and tightening the SR4 ruleset integration. We’re keeping the engine lean and mean so it provides absolute truth, even when your grid connection is nothing but static.
 
 ## Go deeper
 
@@ -33,6 +33,4 @@ The mission is purification: stripping the engine down to a mean, lean, and pred
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

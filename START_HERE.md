@@ -2,11 +2,11 @@
 
 ![Start here banner](assets/pages/start-here.png "pick the lane that solves tonight's problem before the repo tries to hand you a topology lecture.")<br>_[pick the lane that solves tonight's problem before the repo tries to hand you a topology lecture.](assets/pages/start-here.png)_
 
-Welcome to the sprawl. Chummer6 is an ecosystem of specialized tools, not a single bloated file.
+Start with the problem you have tonight, not with a lecture about how the software is arranged.
 
-To keep things fast and flexible, we’ve split the project into three main nodes. The Core Engine handles the heavy lifting of game logic and deterministic math. The UI Workbench is your browser-based shop for building and tweaking characters. Finally, the Mobile Session Shell is your tactical HUD for actual play at the table. By separating the 'brain' from the 'face,' we ensure you can run your game on a phone, a tablet, or a workstation without the math breaking.
+Chummer6 is here for four common moments: you need to run a live session, prove why a number changed, support a cursed house rule, or peek at the future rabbit holes.
 
-You do not need the internal split first. You need the shortest path to the page that tells you whether this can run a session, explain a weird number, support a cursed table rule, or show you what the project is trying to become.
+You do not need the internal map first. You need the shortest path to the page that tells you whether this can run a session, explain a weird number, support a cursed table rule, or show you what the project is trying to become.
 
 ## I want to run a session
 
@@ -46,9 +46,7 @@ Read [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md).
 
 ## If you want the full map later
 
-Read [PARTS/README.md](PARTS/README.md) when you actually care how the program is split.
+Read [PARTS/README.md](PARTS/README.md) when you actually care how the parts fit together.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design README, public repo READMEs_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

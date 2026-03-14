@@ -4,11 +4,11 @@
 
 **Render-only asset lifecycle.**
 
-Media Factory is the grimy industrial basement where we cage the render jobs and storage adapters so your rules math doesn't get contaminated by unoptimized assets or provider soup.
+Media Factory is the grease-stained basement forge where your runner's digital assets get hammered into shape. It handles the heavy lifting—render jobs, previews, and those temperamental signed URLs—so the rules engine doesn't have to carry the extra weight. It’s the specialized hardware that keeps your dossier from looking like a corrupted data-fragment when the grid starts screaming.
 
 ## You touch this when...
 
-Because your deck shouldn't brick just because you wanted a high-res gear preview. By decoupling the asset lifecycle from the core logic, we ensure the engine stays fast and local-first, even when the UI gets heavy. It’s the difference between a smooth tactical overlay and a crash-test simulation because a dev forgot how to compress a texture.
+You don't want the math engine grinding to a halt just because a portrait won't load. This pipeline ensures that visual assets stay in their own lane, protecting the core rules from the lazy 'everything-is-a-blob' habits that usually melt architectures. It’s the difference between a clean AR-HUD and a deck-crashing memory leak when you decide to upload a high-res scan of your favorite Ares Predator.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Because your deck shouldn't brick just because you wanted a high-res gear previe
 
 ## What is happening now
 
-Currently at the scaffold-stage, which is dev-speak for 'we're keeping the pipes tight until they stop leaking.' We’re focusing on a narrow, stable seam for render queues and lifecycle receipts before we let the feature-creep sprawl into the rest of the architecture.
+Currently in the scaffold stage—mostly a skeleton crew and a few humming server blades. We’re keeping the seam narrow and the logic stable before we start pouring in the heavy assets. If you see a broken icon or a render hang, hit the issue tracker; otherwise, just know the industrial plumbing is being laid for a much prettier sprawl.
 
 ## Go deeper
 
@@ -33,6 +33,4 @@ Currently at the scaffold-stage, which is dev-speak for 'we're keeping the pipes
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

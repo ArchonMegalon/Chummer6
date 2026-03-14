@@ -4,11 +4,11 @@
 
 **Shared chrome, themes, and visual primitives.**
 
-UI Kit is the visual vocabulary of the shadows: the tokens, themes, and tactical chrome that keep the interface crisp. It provides the accessibility-friendly foundations that every other module plugs into so we can stop building the same button with duct tape and mood swings.
+UI Kit is the digital chrome for your deck. It provides the themes, badges, and interface tokens that keep the sprawl of modules looking like a single, lethal tool instead of a collection of scavenged parts held together by duct tape and mood swings.
 
 ## You touch this when...
 
-This is how the system stays coherent. Instead of looking like seven rival gangs met in a parking lot to argue about layout, the UI Kit ensures your tactical HUD, rules engine, and character sheets all speak the same visual language.
+This is how we stop the interface from looking like seven different gangs fought over a single monitor. By using shared primitives, we ensure your HUD stays consistent and readable, so you can focus on the run instead of wrestling with a messy layout.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ This is how the system stays coherent. Instead of looking like seven rival gangs
 
 ## What is happening now
 
-The UI Kit only counts as a win when the rest of the codebase gets visibly leaner. If we’re still seeing hard-coded colors and 'unique' menus in the wild, we’re failing the mission. It’s only real when the bloat starts hitting the scrap heap.
+The kit proves its worth by making the rest of the project smaller. We're currently stripping out the 'unique' UI hacks and replacing them with professional-grade tokens that work across every era and device.
 
 ## Go deeper
 
@@ -33,6 +33,4 @@ The UI Kit only counts as a win when the rest of the codebase gets visibly leane
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

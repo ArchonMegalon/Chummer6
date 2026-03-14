@@ -4,11 +4,11 @@
 
 **The hosted API and orchestration layer.**
 
-Hub is the digital fixer in the comms closet, the silent switchboard handling handshakes, identities, and shared team memory. It’s the hosted backbone that keeps every runner on the same grid without trying to overcomplicate the actual math.
+Hub is the digital fixer in the basement, the silent switchboard that keeps your runner ID, data relays, and shared team memory from fragging out. It handles the heavy lifting for hosted play APIs and orchestration so the table experience stays smooth and your dossier stays consistent across the grid.
 
 ## You touch this when...
 
-Because showing up to a run with three different versions of the map is a fast way to get geeked. Hub ensures everyone sees the same tactical reality, managing team synchronization so you can focus on the job instead of wondering why your deck is desynced.
+Because manual data syncing is a legacy nightmare that belongs in a museum. You need Hub when the team needs to coordinate gear lists, publish character previews, or keep a shared campaign memory that doesn't rely on one player's messy handwritten notes. It’s the adult supervision that ensures the math stays deterministic even when the team doesn't.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Because showing up to a run with three different versions of the map is a fast w
 
 ## What is happening now
 
-We’re stripping back the remote bloat and sharpening the boundaries. The mission is simple: keep the relay lean and stop letting it impersonate the rest of the program. We're moving the heavy lifting to your local deck and making sure the hosted machinery stays on a short, professional leash.
+We’re currently hosing down the server room to stop Hub from trying to impersonate every other part of the toolkit. The mission is to keep the hosted boundary razor-sharp and lean, stripping out the 'just-in-case' bloat so the backbone stays in the shadows where it belongs, handling your handshakes without getting in the way of the local rule-crunching.
 
 ## Go deeper
 
@@ -33,6 +33,4 @@ We’re stripping back the remote bloat and sharpening the boundaries. The missi
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

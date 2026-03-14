@@ -2,9 +2,9 @@
 
 ![Chummer6 hero banner](assets/hero/chummer6-hero.png "table truth, wet sleeves, and one troll charm the dev better not lose again.")<br>_[table truth, wet sleeves, and one troll charm the dev better not lose again.](assets/hero/chummer6-hero.png)_
 
-> **The Rulebook in your Pocket. Verified.**
+> **Shadowrun math that doesn't lie.**
 >
-> Chummer6 is a deterministic, local-first Shadowrun toolkit designed to keep your math honest and your data off the corporate grid.
+> Welcome to Chummer6, the ground-up rebuild of the runner's digital toolkit designed for a world where spreadsheets are too fragile and the cloud can't be trusted.
 
 If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
@@ -28,27 +28,27 @@ If you only need the one-sentence pitch, it is this: Chummer6 is trying to help 
 > **Chummer6**<br>
 > "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
 
-Built with modular Lua scripts, this engine delivers verifiable results for every dice pool. Whether you're running SR4 or exploring new rulesets, you get 'explain-receipt' math—meaning the app shows its work so you don't have to argue with the GM. It works entirely offline as a Progressive Web App, ensuring your character sheet is as reliable as a hardwired cyberdeck even when the local mesh goes dark.
+We are currently in the foundations phase, focusing on a deterministic rules engine that uses Lua scripts to ensure your math adds up every single time. This matters because when the GM asks for the source of your dice pool, Chummer6 provides a digital rule receipt instead of a 'trust me.' Our long-range plan ensures that your dossier stays accurate regardless of the campaign year, starting with a rock-solid SR4 integration. Everything stays local-first—meaning your character data stays on your deck, not on a megacorp server. Check our official releases to see the latest stable build or head to the Chummer6 issue tracker if you find a bug in the math.
 
 ## Why this is worth watching
 
-Follow the project to see how we're rebuilding the rules from the ground up with scripted logic that actually follow the books.
+Follow the crawl as we implement multi-era rulesets and tighten the loop between the prep surface and the table.
 
-- Math that doesn't hallucinate
-- SR4 is finally a first-class citizen
-- Your data stays on your deck
+- Deterministic math receipts
+- Lua-scripted era flexibility
+- Local-first playability
 
 If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
 
 ## What is happening right now
 
 Right now the crew is doing trust work, not bolting neon spoilers onto half-built engines.
-Modern tools are too web-fragile; table-ready tools need to be local-first and reliable.
+Old-world sheet drift vs. scripted digital truth
 
 Current focus:
-- Lua ruleset portability
-- SR4 plugin stability
-- Mobile-optimized session shells
+- SR4 ruleset integration
+- PWA offline experience
+- Rule provenance logic
 - keep public previews honestly labeled until they become the real thing
 
 - [Current phase](NOW/current-phase.md)
@@ -66,13 +66,13 @@ You do not need the seam map first, but it is here when you need it:
 - **Shared chrome** lives in [UI Kit](PARTS/ui-kit.md)
 - **Artifacts and compatibility** live in [Hub Registry](PARTS/hub-registry.md)
 - **Render jobs** live in [Media Factory](PARTS/media-factory.md)
-- **Blueprint truth** lives in [Design](PARTS/design.md)
+- **Long-range plan** lives in [Design](PARTS/design.md)
 
 If you want the full guided version, read the [Program map](PARTS/README.md).
 
 ## Future rabbit holes
 
-Future nodes include deeper sim features and broader era logic—ideas currently scanning the horizon for the next jump.
+The long-range plan includes deeper GM tools and expanded era scripts, ensuring your dossier stays relevant regardless of the campaign year.
 
 - [Horizons index](HORIZONS/README.md)
 
@@ -90,9 +90,7 @@ Want to know whether all this talk cashes out into real software? This is the sh
 
 The binaries come from the active Chummer6 codebase, not from this guide repo.
 
-Need the blueprint or implementation trail after that? [Where to go deeper](WHERE_TO_GO_DEEPER.md).
+Need the long-range plan or implementation trail after that? [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design, public repo READMEs, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

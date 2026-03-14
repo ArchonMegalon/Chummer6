@@ -2,9 +2,9 @@
 
 ![What Chummer6 is banner](assets/pages/what-chummer6-is.png "product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.")<br>_[product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.](assets/pages/what-chummer6-is.png)_
 
-Your digital rulebook just got a tactical upgrade that doesn't need a Wi-Fi signal to function.
+Meet the new digital backbone for your runner: a character engine that actually adds up.
 
-Chummer6 is a local-first toolkit designed to give you absolute certainty at the gaming table. It features a deterministic engine that provides 'receipts' for every calculation, showing you exactly which gear, qualities, or spells are shifting your dice pools. Built with first-class support for Shadowrun 4th Edition and modular logic for other eras, it ensures your character data stays on your own deck—not on a distant server that might go dark mid-run.
+Forget those clunky spreadsheets that break the moment you add a specialized cyber-arm. Chummer6 is built on a deterministic engine—that’s street-speak for 'math that provides a receipt for every rule.' It uses visible scripts to handle complex SR4 rulesets, ensuring your stats are accurate even when you're deep in the static. Because it is a local-first application, your character data stays on your burner phone or tablet, not in some vulnerable corporate cloud.
 
 ## What it is becoming for players and GMs
 
@@ -63,13 +63,11 @@ The project is leaning harder into explicit trust:
 
 ## Why there are multiple parts
 
-The codebase is split because the product is getting bigger and more specialized. A rules engine, a prep workbench, a table-facing shell, hosted coordination, shared chrome, artifact handling, render jobs, and the long-range design layer all have different jobs. Keeping those seams honest is how the project avoids one giant haunted monolith.
+The project has multiple parts because each job is different. Rules truth, prep, live play, online coordination, shared UI, artifact handling, render jobs, and the long-range plan all need room to do their work without turning into one giant haunted monolith.
 
 If you want that map, go to [PARTS/README.md](PARTS/README.md).
 
-Need the deeper split or implementation trail after the product story? Start with [PARTS/README.md](PARTS/README.md) or [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md).
+Need the long-range plan or implementation trail after the product story? Start with [PARTS/README.md](PARTS/README.md) or [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md).
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

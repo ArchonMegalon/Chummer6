@@ -34,15 +34,15 @@ Start with [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md) for the product pitch, the
 
 ### Where does the deeper plan live?
 
-In `chummer6-design`, which carries the long-range design truth.
+In `chummer6-design`, which carries the long-range plan.
 
 ### Where does the actual code live?
 
-In the split implementation repos. This guide is here so you do not need to reverse-engineer the product story from ownership seams.
+In the owning code repos. This guide is here so you do not need to reverse-engineer the product story from commit archaeology.
 
 ### Why are there so many repos?
 
-Because the product is already split into real responsibilities: engine, prep surface, play shell, hosted coordination, shared UI, registry, media, blueprint, and guide.
+Because different jobs need different homes: rules truth, prep, live play, online coordination, shared UI, artifacts, generated media, and the long-range plan.
 
 ### What is live right now?
 
@@ -61,6 +61,4 @@ The useful stuff: what you installed, what you clicked, what you expected, what 
 Yes. Use the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues) for public feedback, bug reports, and future-feature suggestions. If a horizon idea sounds better than what is on the page, say so.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

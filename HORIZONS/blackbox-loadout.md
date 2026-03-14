@@ -8,26 +8,26 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-People rarely die in the sprawl because they lacked courage. They die because they forgot rope, spare clips, and basic self-respect. Most tools treat inventory like a static shopping list, leaving the 'idiot-check' to a distracted GM or a runner who hasn't slept in thirty-six hours.
+People rarely die in the sprawl because they lacked courage. They die because they forgot rope, spare clips, and basic self-respect. Traditional sheets are just digital paper that lets you lie to yourself about your readiness until the first Initiative pass proves you're a walking corpse.
 
 ## A real table scene
 
-GM: "The HTR rotor-wash is rattling the skylight. You've got ten seconds to egress." Samurai: "Right. I grab the rappelling gear and hook into the anchor—" AR-HUD: *[Harmonic Red Pulse: MANIFEST ERROR]* Samurai: "Wait. Why is my internal display screaming at me?" Rigger: "Probably because you left the spool in the van, genius." Samurai: "I definitely bought it during the gear-up phase!" GM: "Buying it isn't carrying it. Hope you've got good health insurance for the forty-story drop."
+GM: 'The HTR team is breaching. You grab your rifle... and?' Sam: 'And I slot the APDS clip!' Deck: 'Negative. You left the APDS in the locker. You have two clips of regular and a half-eaten stick of licorice.' Sam: 'I swear I dragged that into my active loadout!' GM: 'The blackbox says otherwise. Hope the licorice is armor-piercing.' Sam: 'Frag my life.' GM: 'Roll for it.'
 
 <p align="center"><img src="../assets/horizons/details/blackbox-loadout-scene.png" alt="BLACKBOX LOADOUT dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Hardening the Lua core to ensure gear weights and bulk actually impact the manifest. - Mapping dependency trees so tactical mods require the right rails and power cells. - Refining the deterministic math receipts for offline-first session shells.
+- Hardening the Lua-driven ruleset to ensure gear compatibility isn't just a suggestion. - Stress-testing the local-first provenance receipts so your gear stays yours even when the grid goes dark. - Refining the workbench UI to make 'missing essentials' glare at you in neon cyan.
 
 ## Why that would be great
 
-It moves the 'Oops' moment from the middle of a firefight to the safety of the hideout. Instead of arguing with the GM about what's physically in your pockets, the system runs a cold, cynical audit of your loadout against mission profiles. It transforms your character sheet from a ledger of junk into a verified mission manifest that keeps you breathing.
+It’s a cold, digital audit that refuses to let you be lazy. By linking runtime stack manifests directly to your active dossier, the system catches the compatibility errors and resource gaps that GMs usually find three seconds too late. It turns your inventory into a verified manifest, ensuring you have the right tools for the job before you leave the van.
 
 ## Why it is still a Horizon
 
-The logic engine needs to be smarter than a simple spreadsheet before it can reliably judge your life choices. We are building the deterministic foundations first—ensuring every stimpatch and sensor array has a verifiable receipt in the code. A 'Blackbox' that hallucinates your gear is just another way to get geeked, and we don't ship bugs that kill runners.
+We’re busy roasting the legacy math that makes gear tracking a chore. The engine needs to be deterministic before we add the 'nag' layer; otherwise, we’re just giving you buggy advice. We are perfecting the SR4 plugin contract and PWA offline reliability so your manifest is always the single source of truth, even in a dead zone.
 
 ## What would need to exist first
 
@@ -37,9 +37,7 @@ The logic engine needs to be smarter than a simple spreadsheet before it can rel
 
 ## Pitch your own future
 
-Found a gear-sync edge case that usually gets you killed? Log it on the issue tracker and help us build a better safety net.
+If you've got a better logic-gate for catching runner stupidity, the issue tracker is waiting for your telemetry.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

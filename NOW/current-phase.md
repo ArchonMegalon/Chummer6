@@ -2,16 +2,16 @@
 
 ![Current phase banner](../assets/pages/current-phase.png)
 
-We're welding the logic-gates before we polish the chrome.
+Hardening the core so your character dossier doesn't flatline mid-session.
 
-Chummer6 is currently focused on the 'Logic-Forge'—the foundational engine that handles the heavy lifting. Instead of just guessing numbers, we use a deterministic Lua engine that treats Shadowrun rules as verifiable logic. This means every digit on your sheet comes with a 'math receipt' explaining exactly how it was calculated. We’re pinning down these core rulesets first to ensure the machine doesn’t crack when you start loading it with complex gear, cyberware, and spells.
+We are currently in the 'no-glitch' phase, focusing on engine precision over cosmetic flares. By hardening the rules engine for SR4, we ensure every Nuyen spent and Karma point earned comes with a 'math receipt'—a mathematical trail that doesn't lie. This means you can focus on the run, knowing the stats on your sheet are as solid as a corporate vault.
 
 ## The focus right now
 
-- finish the contract reset
-- finish the play/session boundary
-- make the shared UI kit a real package seam
-- finish the registry and media boundaries
+- lock in the rules and session boundaries
+- keep live play and prep from bleeding into each other
+- make the shared UI pieces feel consistent instead of improvised
+- finish the registry and media services that support the public surfaces
 - keep public previews honestly labeled until they become the real thing
 
 ## What this means for your next session
@@ -25,6 +25,4 @@ This is the work that makes later wow-ideas cheap instead of chaotic.
 No neon spoiler matters if the frame is still loose.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design vision, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

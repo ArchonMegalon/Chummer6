@@ -2,32 +2,32 @@
 
 ![HEAT WEB banner](../assets/horizons/heat-web.png "campaign consequences, now with fewer GM memory miracles and more receipts.")<br>_[campaign consequences, now with fewer GM memory miracles and more receipts.](../assets/horizons/heat-web.png)_
 
-**The shadows have receipts. Don't act surprised when your past catches up to your current location.**
+**The shadows kept the receipts. Your past is officially tracking your current GPS coordinates.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most GMs treat campaign fallout like a loose collection of 'vibes' until they remember to screw over the players three sessions too late. It’s the tabletop equivalent of a 'TODO' comment in a production codebase—it never actually gets resolved. When consequences are just scribbles in a coffee-stained notebook, the threat level feels arbitrary. Without a grounded event stream, that burnt bridge in the Redmond Barrens isn't a strategic obstacle; it's just a forgotten plot point that died in the rain because the GM was too busy looking up rules for grenades.
+Most GMs treat campaign fallout like a loose collection of 'vibes' until they run out of caffeine and forget why the Star is kicking in your door. Without a deterministic trail, that high-stakes betrayal from three sessions ago evaporates into the rain. We’re tired of 'GM memory miracles' being the only thing keeping the heat on. If you burn a bridge, the smoke should be visible from space, not just tucked in a dog-eared notebook.
 
 ## A real table scene
 
-GM: 'The Knight Errant patrol stops your van. The officer scans your biometric signature.' Runner: 'I've got a clean fake ID. Why are they pulling me?' GM: 'The scan isn't checking your ID. It's checking the Heat Web.' GM: 'A red vector pulses on his HUD. It links you to a grainy CCTV still from that botched Stuffer Shack hit last month.' Runner: 'Wait, I thought we wiped those servers!' GM: 'You wiped the local drive. You didn't wipe the decentralized evidence receipt stored in the faction's cloud.' Runner: 'Frag. I knew we should've paid the decker more.'
+GM: 'The Knight Errant patrol stops you at the checkpoint.' Decker: 'Why? My SIN is broadcast-legal and I haven't pulled a trigger all week.' GM: 'Heat-Web says otherwise. Remember that anonymous data-dump in Renton?' Decker: 'That was two months ago! I used a burner!' GM: 'The burner’s MAC address just pinged on a faction-linked receipt from your last soy-caf purchase.' Samurai: 'I told you to pay in certified cred, glitch-brain.' GM: 'The graph doesn't lie. Roll Initiative.'
 
 <p align="center"><img src="../assets/horizons/details/heat-web-scene.png" alt="HEAT WEB dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Grounded event streams are being drafted to turn 'what happened' into 'what sticks.' - Evidence receipts are getting durable IDs so a single witness report can ripple across the entire sprawl. - Faction logic is scanning for stable artifact publication to ensure your infamy scales with your body count.
+- Hardening the event-stream logic to ensure 'forgotten' evidence is just a latent variable waiting for a trigger. - Developing faction friction sensors that translate social blunders into actual tactical hurdles. - Scripting the math so that 'Heat' isn't a random roll, but a deterministic consequence of your loud-and-dumb choices.
 
 ## Why that would be great
 
-Heat Web turns your trail of destruction into a living, breathing tactical map. It replaces 'GM memory miracles' with a deterministic network of faction pressure and social fallout. Instead of wondering if that corporate suit you punched is still mad, you can see the digital red lines connecting his family's influence to your favorite safehouse's lease. It makes the world feel dangerous, reactive, and—most importantly—honest.
+It turns 'oops' into 'uh-oh' with surgical precision. Heat-Web is a living, deterministic graph of every bridge you’ve burned and every favor you’ve curdled. It takes the burden of 'consequence math' off the GM and puts it into a durable data-trail that persists across sessions. Factions don't just 'get mad' anymore; they develop specific, scripted responses based on the evidence you left behind, turning the campaign world from a static backdrop into a reactive, paranoid web that remembers every shell casing.
 
 ## Why it is still a Horizon
 
-Building a system that remembers every sin without collapsing into a spreadsheet of doom takes more than just a clever UI. Most devs would just slap a 'Reputation' bar on a JSON object and call it a day, but we're avoiding that lazy shortcut. We're prioritizing the core Lua engine and SR4 stability first, because a Heat Web is useless if the basic math of the universe is still glitching. We need to ensure the foundations of event-logging are rock-solid before we let the factions start hunting you for real.
+Right now, we're busy making sure the core engine doesn't choke on a simple dice roll before we let it handle your complex social failures. We'd rather fix the 'trust me' math in the SR4 ruleset than ship a half-baked paranoia simulator that forgets who you shot. We’re roasting the old habits of 'floating variables' and replacing them with Lua-scripted truth. Until the foundation is bulletproof, the web stays in the shadows.
 
 ## What would need to exist first
 
@@ -37,9 +37,7 @@ Building a system that remembers every sin without collapsing into a spreadsheet
 
 ## Pitch your own future
 
-Think you can outrun the grid? Drop your ideas for more creative ways to burn bridges in our issue tracker while we sharpen the algorithms.
+Help us script the consequences by flagging rule-breaks and edge cases on the issue tracker—before your past finds you first.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

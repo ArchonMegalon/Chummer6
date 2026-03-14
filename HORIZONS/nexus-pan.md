@@ -2,32 +2,32 @@
 
 ![NEXUS-PAN banner](../assets/horizons/nexus-pan.png "Wi-Fi died; the table did not. That is the fantasy.")<br>_[Wi-Fi died; the table did not. That is the fantasy.](../assets/horizons/nexus-pan.png)_
 
-**Your table is a mesh, not a graveyard for static PDFs.**
+**Stop emailing PDFs like it is 2011 and start running a live tactical mesh.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-A folder full of character files isn't a live table; it's a graveyard of stale data and 'Final_V4' naming conventions. Most tools today are fragile web-apps that hallucinate math the moment the GM’s basement Wi-Fi chokes on a soy-caf spill. We’ve been conditioned to accept 'lonely files' as a feature, but when the Street Sam’s deck de-syncs from the GM’s tracker, the run grinds to a halt for a manual math audit. You shouldn't need a PhD in version control just to track a Physical damage box.
+Your 'table' is currently a digital graveyard of 'Final_V2_REALLY_FINAL.pdf' attachments and GMs squinting at grainy screenshares. When the Wi-Fi hiccups, the session logic flatlines because nobody actually knows who spent what Edge or which grunt took the last Alpha-Strike. It is not a team; it is a collection of isolated spreadsheets having a very slow, very polite argument about what actually happened three initiative passes ago while the immersion dies in a pile of 'did you get my email?' pings.
 
 ## A real table scene
 
-GM: "The Renraku Red Samurai drops a flash-pak. Everyone, Initiative." STREET SAM: "I’m at zero bars in this basement. Did my Wired Reflexes kick in?" DECKER: "Relax, omae. I’m seeing your sync-pulse on my screen." GM: "I just slid the tokens. Check your displays." STREET SAM: "Wait, my commlink just re-linked. The initiative pass is already there." ADEPT: "And I just spent the Edge. It’s live on the GM’s tracker." GM: "No lag, no 'did you save?'. We’re hot."
+GM: The Renraku Red Samurai fires. Take 12P, soaked by... wait, who has the current host map? Decker: I do. Just dropped a Data Spike. Wait, my phone just hit a dead zone. Samurai: My sheet says I have 3 Edge. GM says I have 0. Who is right? Mage: I emailed my updated spell list an hour ago. Did you get it? GM: I am still looking at your V2 file from last Tuesday. Everything is fragged. Decker: Grid is back. Re-syncing... Team: Okay, we are all seeing the same fire-fight again. Finally.
 
 <p align="center"><img src="../assets/horizons/details/nexus-pan-scene.png" alt="NEXUS-PAN dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Hardening the Lua engine to ensure every 'sync' event produces the exact same math on every device. - Mapping out the 'Append-Only' event log so your character's history is a verifiable black box. - Designing the 'Ghost-Mode' buffer so you can keep playing offline and merge back into the timeline later.
+- Building the append-only event log so your session history is a ledger, not a guess. - Hardening local-first replay logic for those basement runs where the signal goes to die. - Defining the session authority profile so the GM stays the boss, even in a distributed mesh.
 
 ## Why that would be great
 
-NEXUS-PAN turns your gaming group into a resilient local mesh. It treats every roll and Nuyen spent as a ledger entry that replicates across the table in real-time. When the signal drops, the local-first architecture keeps the dice rolling; when you’re back on the grid, the state re-syncs seamlessly. It’s the 'World State' for your specific run, ensuring the GM and players are always looking at the same digital truth, even if your commlink is held together with duct tape.
+Imagine a tactical environment where every device at the table—from the GM’s rig to the street sam’s burner phone—pulses with the same deterministic truth. NEXUS-PAN treats your session as a living mesh, using append-only event streams to ensure that when the Decker marks a host or the Mage burns Edge, every HUD at the table updates in real-time. It is the difference between a static dossier and a live tactical overlay; it is the distributed brain your team actually needs to survive a high-stakes extraction without the 'spreadsheet drift' killing the vibe.
 
 ## Why it is still a Horizon
 
-Building a sync engine that doesn't hallucinate math or corrupt state is a massive architectural lift. We’re currently focused on making the Lua Core engine bulletproof and the SR4 ruleset deterministic. Once the brain is stable, we can build the nervous system that lets devices talk to each other without a central server breathing down their necks. We aren't interested in shipping a 'maybe it works' cloud solution—we’re building a table-ready mesh that actually survives a subway tunnel.
+Syncing state across five different browsers on three different OSs while handling offline conflicts is a digital landmine. We are currently focused on getting the core engine math and Lua-driven rulesets rock-solid before we try to wire everyone’s brains together. We would rather you have a perfect solitary engine today than a broken, desynced mess of a 'connected' experience that eats your character data for breakfast. Multi-device sync is the crown jewel of the long-range plan, but we are still cutting the facets on the core stone.
 
 ## What would need to exist first
 
@@ -38,9 +38,7 @@ Building a sync engine that doesn't hallucinate math or corrupt state is a massi
 
 ## Pitch your own future
 
-Got a better blueprint for a zero-trust table mesh? Drop your decker logic in the issue tracker.
+Got a cleaner way to bridge the gap between devices without the cloud-bloat? Drop a data-trail in our issue tracker.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

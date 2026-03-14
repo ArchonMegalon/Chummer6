@@ -2,45 +2,43 @@
 
 ![Karma Forge banner](../assets/horizons/karma-forge.png "house rules with receipts, not forked-code folklore and a group chat apology.")<br>_[house rules with receipts, not forked-code folklore and a group chat apology.](../assets/horizons/karma-forge.png)_
 
-**House rules with receipts, not forked-code folklore and a group chat apology.**
+**Surgical rule-layering for the discerning GM—math that doesn't lie.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most house rules are 'trust me bro' math or private forks that rot the moment the main repo updates. You change one line of damage logic in a local file, and suddenly your street sam is rolling 40 dice because of a leaked variable. Nobody—including you—can find the bug without a debugger and a prayer, turning your game night into an impromptu QA session for your own spaghetti code.
+Stop treating house rules like radioactive folklore whispered in a group chat. Most custom rules are born from the 'I’ll just change this one line' hubris that turns a clean install into a haunted pile of logic errors. The moment you tweak a recoil calc or add a custom tradition in a legacy app, you’re usually one update away from a math-implosion that no one can debug.
 
 ## A real table scene
 
-GM: 'Wait, why is your recoil compensation higher than the gun’s barrel length?' Player: 'Oh, I patched the core logic to use my house-rule strength-to-recoil ratio.' GM: 'Show me the math. Right now.' Player: 'Uh... it’s in a private branch on my deck. Somewhere in the CharacterModel logic?' GM: 'Great. We’re pausing the run while you play detective in your own mess.' Table: (Collective sigh of digital exhaustion) Player: 'Found it! I think I forgot to carry the one in the Lua bridge.'
+GM: 'Loading the Seattle Underground recoil variants.' Samurai: 'Wait, my dodge pool just tanked. Why?' GM: 'Check the stack. Layer 3 is overriding the base agility cap.' Decker: 'I see it—the "High-Grip" mod script is fighting the local physics.' GM: 'Toggling the Smartlink shim... okay, math is green.' Samurai: 'Rolling... five hits. Dice are back.' Decker: 'Zero downtime, zero drama.'
 
 <p align="center"><img src="../assets/horizons/details/karma-forge-scene.png" alt="Karma Forge dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-["- Architecting a runtime stack that respects rule priority instead of just 'last write wins.'", '- Perfecting overlay fingerprinting so you know exactly which logic-chip broke the math.', "- Designing 'Explain-Receipt' UI so every +1 modifier has a searchable birth certificate."]
+- Hardening the Lua-scripted core for multi-era stability. - Refining the rule-stacking logic to prevent logic-loops. - Building the 'Provenance Receipt' system for math-audits.
 
 ## Why that would be great
 
-It turns house rules from a coding nightmare into a tactical slotting system. You don't fork the engine; you slot a Lua-etched logic module into the stack. If the math smells wrong, you pull the receipt, check the conflict report, and toggle the overlay without ever touching the core source. It’s the difference between performing open-heart surgery on the app and simply swapping a cyberdeck module mid-run.
+Karma Forge gives you the power to be your own lead developer without the 'haunted spreadsheet' side effects. You get a controlled, scriptable stack that lets you layer your table's quirks over the core engine with surgical precision. It’s the difference between welding scrap metal onto your deck and using a modular expansion slot. You get full inspectability, zero folklore, and math that actually stands up to a rule-lawyer’s scrutiny.
 
 ## Why it is still a Horizon
 
-Building a rules engine that allows arbitrary logic injection without turning into a security sinkhole or a performance black hole takes surgical precision. We are mapping the Math-Provenance pathways to ensure that when a rule changes, every downstream calculation knows why and where it came from. It is high-stakes logic-smithing, and we aren't firing up the forge until the logic-crystals stop cracking under the pressure of edge-case math.
+The dev team is currently busy making sure the basic math doesn't trip over its own shoelaces. We’re hardening the core Lua engine to ensure it doesn't fold like a cheap suit when three different rule-layers start fighting for the same variable. We're getting the foundation rock-solid as part of the long-range plan before we hand you the welding torch to start customizing the frame.
 
 ## What would need to exist first
 
 - runtime stack and fingerprint DTOs
 - overlay receipts and conflict reports
 - explain/provenance receipts
-- clean shared interfaces
+- clean shared boundaries
 
 ## Pitch your own future
 
-Ready to rebuild the physics of the Sixth World? The forge is heating up.
+Build a better ruleset, because 'close enough' is a great way to get your team geeked.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

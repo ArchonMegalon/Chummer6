@@ -6,11 +6,8 @@
 - **preview**: visible and usable, but still moving toward its final public shape
 - **runtime stack**: the exact rules, options, and package mix the session is using
 - **ruleset**: the era or package of Shadowrun rules currently in play
-- **workbench**: the prep-and-inspect side of Chummer6
-- **play shell**: the player or GM side used during a live session
+- **POC**: a build or surface that is real enough to try, but still rough enough to bite
 - **horizon**: a future idea that is being explored, not promised
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design, guide conventions_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

@@ -2,32 +2,32 @@
 
 ![Evidence Room banner](../assets/horizons/evidence-room.png "proof, provenance, and one coffee cup that has seen too much.")<br>_[proof, provenance, and one coffee cup that has seen too much.](../assets/horizons/evidence-room.png)_
 
-**Forensic math for the paranoid professional.**
+**The cold, hard truth behind every modifier, served in a room that doesn't care about your 'vibe-based' math.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-The era of 'vibe-based' math is over. Right now, if a modifier feels wrong, you’re stuck excavating raw Lua logs like a digital archaeologist because some dev decided that 'readability' was a secondary concern to their clever one-liners. Most tools treat calculations like a black box—you get a number, you pray the dev actually read the errata, and you move on while the GM eyes your dice pool with deep suspicion.
+Right now, if a modifier feels wrong, you’re stuck excavating raw Lua logs like a digital archaeologist in a suit of rusted armor. Vibe-based math is a death sentence when the lead starts flying. Without a clear paper trail, every 'trust me' calculation is just a bug waiting to geek your character mid-run because some script-monkey forgot how a specific hook handles dermal plating.
 
 ## A real table scene
 
-GM: 'Wait, why is your recoil compensation so high?' Player: 'Opening the Evidence Room... scanning the grid.' GM: 'I see three different armor mods stacking.' Player: 'The receipt shows the internal gas-vent system and the gyro-mount.' GM: 'But where is the third?' Player: 'Ah, a leftover Lua trace from that homebrew street-doc. It’s marked as -Unapproved-.' GM: 'Delete the ghost mod. Roll the real dice.'
+GM: "Eighteen dice for a simple Agility test? Pull the other one, it's got bells on." Runner: "Scanning the Evidence Room. Popping the forensic HUD now." GM: "I'm seeing a +2 'toner' bonus that looks suspicious." Runner: "Receipt shows it's a Lua-scripted Muscle Toner from the SR4 core-pack." GM: "And that floating +1?" Runner: "Specialization bonus. Source classification: Verified Urban Combat." GM: "Receipts check out. Roll 'em before the HTR team arrives."
 
 <p align="center"><img src="../assets/horizons/details/evidence-room-scene.png" alt="Evidence Room dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Hardening the deterministic Lua engine to ensure the math never hallucinates. - Polishing the SR4 plugin to handle multi-era modifier stacking without 'ghost' digits. - Optimizing explain-receipt data structures for high-speed mobile rendering.
+- Distilling raw script execution into human-readable forensic receipts. - Classifying rule sources so you know exactly which book—or custom script—is touching your dice pool. - Engineering the preview-and-apply deck to prevent 'math drift' before it hits your dossier.
 
 ## Why that would be great
 
-It turns the 'because I said so' argument into a verifiable paper trail. By separating 'preview' from 'apply' and tagging every digit with its source-book provenance, the Evidence Room provides a tactical HUD for your character data. You get the cold comfort of absolute mathematical certainty without the headache of digging through raw developer-tier trace noise.
+This is the end of the spreadsheet era. The Evidence Room takes the complex provenance of every rule and serves it up in a readable, high-contrast inspection deck. It separates the math noise from the table truth, letting you verify every dice pool adjustment against the original ruleset scripts. It’s forensic certainty for the runner who knows that a single missing +1 is the difference between a clean getaway and a body bag.
 
 ## Why it is still a Horizon
 
-Designing a UI that doesn't look like a 1998 spreadsheet while handling deep-sim rule traces is a delicate operation. We're prioritizing core engine stability and Lua ruleset portability first—because a pretty UI for broken math is just a polished lie. Until the engine can reliably 'explain' its work to a human without killing the table's momentum, this node stays on the horizon.
+We’re currently grounding the core engine and ensuring the local-first shell survives the static of a real session. True forensic receipts require a deterministic rules layer that doesn't flinch, and the archive room is waiting for the dev team to stop playing digital Jenga with the simulation before we start filing the official paperwork.
 
 ## What would need to exist first
 
@@ -38,9 +38,7 @@ Designing a UI that doesn't look like a 1998 spreadsheet while handling deep-sim
 
 ## Pitch your own future
 
-If you've got a sharper vision for forensic data-viz, the design tracker is waiting for your signal.
+If you've got a better way to visualize the forensic trail of a botched soak roll, transmit your ideas to the issue tracker.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

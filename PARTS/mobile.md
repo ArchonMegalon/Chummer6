@@ -4,11 +4,11 @@
 
 **The part you feel at the table.**
 
-Mobile is the play-shell that lives on your glass when the lead starts flying. It’s a local-first PWA designed to survive the deepest basement Wi-Fi dead zones, bundling the deterministic Lua engine directly onto your device for zero-latency math and tactical HUDs that actually follow the books.
+This is the deck in your hand when the lead starts flying. The Mobile shell is a local-first, installable toolkit that keeps your character dossier snappy and responsive, even when you’re pinned down in a concrete bunker with zero grid signal. It’s the moment the project stops being a character workbench and starts being your lifeline at the table.
 
 ## You touch this when...
 
-Web-devs love their 'always-online' clouds until the packets start dropping mid-combat. If your character sheet turns into a 404 the moment you step into a Faraday cage or a shitty game store basement, it’s not a tool—it’s a liability. We’re cutting the umbilical cord so your dice receipts and SR4 modifiers stay as rugged as your street-doc's cyber-repair kit.
+Most digital sheets turn into expensive bricks the moment the GM's Wi-Fi chokes or a jammer cycles up. We prioritize local-first state so your math stays deterministic and your condition monitors stay live regardless of your uplink status. It’s gear that survives the static and syncs your session data the second you find a clean connection.
 
 ## What it owns
 
@@ -21,11 +21,11 @@ Web-devs love their 'always-online' clouds until the packets start dropping mid-
 
 - builder/workbench UX
 - provider secrets
-- copied shared interfaces
+- shared pieces that should come from one real source
 
 ## What is happening now
 
-We’re currently hardening the offline queueing and runtime cache. It’s less about pretty pixels right now and more about ensuring your event logs and session state don't desync when the Matrix goes dark. We're building the foundation for a play-shell that handles the math provenance so you can focus on the run.
+We’re currently deep in the guts of the runtime cache and event logs. The devs are being forced to stop chasing shiny UI chrome and focus on the invisible plumbing: hardening the offline queuing and sync logic. It’s less about pretty pixels and more about making sure your dossier doesn't glitch when you need to burn Edge.
 
 ## Go deeper
 
@@ -34,6 +34,4 @@ We’re currently hardening the offline queueing and runtime cache. It’s less 
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

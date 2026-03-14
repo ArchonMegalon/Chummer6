@@ -8,26 +8,26 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Every custom overlay is a masterpiece until it meets another one in a dark alley. When two logic packs try to rewrite the same attribute simultaneously, your character sheet doesn't just error—it becomes digital abstract art. You’re left staring at a data-spike where your street-cred used to be, wondering which mod decided it was the Alpha in a room with no mirrors.
+Every custom overlay is a masterpiece until it meets another one in a dark alley. Without a forensic scalpel, your high-concept 'Neo-Tokyo' ruleset and your 'Black Market Cyberware' pack will eventually fight over the same logic hooks, leaving you with a character sheet that looks like a corrupted data-bomb. When two logic packs try to rewrite the same math, the runner is usually the one who pays the price in bricked dossiers and lost sessions.
 
 ## A real table scene
 
-GM: Wait, why does your Street Sam have 400 Armor? Player: I slotted the 'Mil-Spec' pack and the 'Urban Explorer' overlay. GM: They're both trying to calc the base soak multiplier at once. Player: So I'm a tank now? GM: No, the math recursive-looped. Your sheet is a digital brick. Rigger: Should've used a threadcutter. Snip the overlap before the run. Player: Is that a tool or a threat?
+GM: Okay, roll for the wireless hack. Player: Hold on, my dice pool just changed from 12 to 'Error 404: Logic Not Found'. GM: Did you install that new 'Hardboiled Matrix' overlay on top of the 'Glitched Grid' pack? Player: Yeah, I thought they'd play nice. GM: They're currently strangling each other in your rule stack. Player: Great. The sheet is blinking red and my Commlink thinks it's a toaster.
 
 <p align="center"><img src="../assets/horizons/details/threadcutter-scene.png" alt="THREADCUTTER dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-['- Hardening the Lua engine to handle multi-era rule collisions.', "- Drafting the 'Math-Provenance' UI for deep-dive receipt audits.", '- Stress-testing SR4 plugin stability against gear-heavy custom packs.']
+['- Standardizing the Lua-hook handshake to prevent silent data-bleeds during pack initialization.', "- Engineering the 'Rollback Receipt' so you can undo a bad rule-tweak without a total dossier wipe.", '- Stress-testing the conflict reporter to catch mod-on-mod violence before the first die hits the table.']
 
 ## Why that would be great
 
-It provides surgical receipts for your rule stack. Instead of a generic crash, you get a tactical HUD showing exactly which two lines of logic are wrestling for control of your Essence. You can preview the migration and see the rollback receipt before you ever commit to a session. It’s the difference between a clean cyber-install and a rejection-syndrome flatline.
+Threadcutter turns 'I hope this works' into 'Here is exactly why it didn't.' It provides a forensic report of where two logic streams collided, giving you the power to choose which rule wins or how they merge. It’s the difference between a bricked dossier and a surgical adjustment, ensuring your math stays deterministic even when your mod list is pure chaos.
 
 ## Why it is still a Horizon
 
-Teaching a machine to understand intent in a scripted rulebook is a logic nightmare. We aren't just comparing text; we're mapping how a +2 bonus interacts with a hard-cap override across different eras. Until the engine can reliably tell you why the mods are fighting, we're keeping the laser-scalpel in the locker to avoid accidental lobotomies.
+This tech is currently on the horizon—a visible data-trail but not yet grounded in the main build. We are prioritizing the stability of core SR4 rulesets before we let the overlays start fighting for territory. Once the engine is hardened enough to handle competing logic without flinching, we'll hand you the shears.
 
 ## What would need to exist first
 
@@ -37,9 +37,7 @@ Teaching a machine to understand intent in a scripted rulebook is a logic nightm
 
 ## Pitch your own future
 
-Imagine a workbench where your custom rules never collide, just cooperate.
+Got a sharper way to handle rule collisions? Drop a data-spike in the issue tracker and help us sharpen the blade.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

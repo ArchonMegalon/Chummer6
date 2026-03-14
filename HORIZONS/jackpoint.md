@@ -2,32 +2,32 @@
 
 ![JACKPOINT banner](../assets/horizons/jackpoint.png "coffee stains optional, evidence boundaries not.")<br>_[coffee stains optional, evidence boundaries not.](../assets/horizons/jackpoint.png)_
 
-**Turn street-level noise into a dossier heavy enough to break a corp desk.**
+**Turn street-level noise into evidence heavy enough to break a corporate desk.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most narrative generators are glorified fan-fiction bots that hallucinate stats with the confidence of a Renraku PR flack. If your dossier claims you're an elite decker but your sheet only shows a battered commlink, the immersion doesn't just break—it flatlines. We're done with tools that treat 'data' and 'story' as two separate Grids.
+Most narrative tools are glorified fan-fiction bots. They invent Firewall ratings and contact loyalty with the unearned confidence of a Renraku PR flack. At the table, a stylish dossier is a liability the second your GM asks for the math and you realize your briefing just hallucinated three extra dice into your pool because the dev was too lazy to bind the output to the engine's ground truth.
 
 ## A real table scene
 
-FIXER: This the package? RUNNER: Verified data-trail. Every bullet accounted for. FIXER: [Slips a credstick] I’ll be the judge. Last guy gave me a dossier that said he was a Drake. RUNNER: Check the receipts, K. The math is grounded in the Lua core. No hallucinations. FIXER: [Scanning holographic amber text] Source classification, media-factory stamps... professional. RUNNER: It’s Jackpoint. Facts first, flavor second.
+GM: "The Johnson slides a thick manila folder across the real-wood table." Street Sam: "Real paper? He’s trying too hard or he’s ancient." Decker: "Check the digital watermark in the corner. It’s a Jackpoint-verified brief." Mage: "It says the target has an Alpha-grade Move-by-Wire system. How sure are we?" Decker: "Tap the margin. There’s the sensor log from the last run and the Lua-check receipt." Decker: "It’s grounded, omae. No guesswork, no fluff." Street Sam: "Good. I hate surprises that move faster than I do."
 
 <p align="center"><img src="../assets/horizons/details/jackpoint-scene.png" alt="JACKPOINT dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Testing deterministic Lua math for receipt-level transparency. - Mapping media-factory seams to character registry states. - Defining source classification tiers for grounded evidence.
+["- Hardening the media-factory to ensure your briefings don't look like generic corporate HR memos.", "- Tagging source classification so you can tell a hard sensor log from a 'reliable' street rumor.", "- Sealing the registry seams so your gear list and your narrative history don't start drifting apart mid-run."]
 
 ## Why that would be great
 
-Jackpoint bridges the gap between raw numbers and table-ready intelligence. It’s not just a character sheet skin; it’s an evidence-backed briefing generator. By linking narrative tags directly to your character's deterministic stats, every cool line in your bio comes with a digital receipt. You get the noir atmosphere of a Shadowland post without the risk of a GM calling frag on your invented backstory.
+Jackpoint is the bridge between the cold math of the character engine and the stories you tell. It uses grounded evidence receipts to ensure every stat in your briefing is backed by a verifiable data trail. You get the tactile grit of a professional dossier without the risk of 'creative' data drift, turning chaotic session notes into a deterministic briefing that actually holds up when the lead starts flying.
 
 ## Why it is still a Horizon
 
-Right now, the devs are too busy arguing over Lua syntax and ensuring the engine doesn't melt when you swap a ruleset plugin. It turns out that building a rock-solid, deterministic rule engine is significantly harder than writing edgy flavor text for a fake fixer. We're keeping Jackpoint on the horizon until the core registry is stable enough to support high-fidelity narrative projections without tripping every data-bomb in the system.
+We’re still teaching the media-factory how to stitch your gear registry to a narrative layout without making the codebase look like a plate of soy-spaghetti. Until we can guarantee the provenance trail survives the export process, this stays on the horizon. We’d rather ship a blank page than a dossier that lies to your face.
 
 ## What would need to exist first
 
@@ -38,9 +38,7 @@ Right now, the devs are too busy arguing over Lua syntax and ensuring the engine
 
 ## Pitch your own future
 
-If you have a sharper vision for turning dry stats into wetwork briefings, the horizon is wide open for better ideas.
+Got a better way to pin digital receipts to street-level noise? We're listening at the issue tracker.
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design horizon guidance, current public shape_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>

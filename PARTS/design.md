@@ -1,14 +1,14 @@
 # Design
 
-![Design banner](../assets/parts/design.png "the blueprint room, still dangerously attractive to people who enjoy scope diagrams.")<br>_[the blueprint room, still dangerously attractive to people who enjoy scope diagrams.](../assets/parts/design.png)_
+![Design banner](../assets/parts/design.png "the long-range planning room, still dangerously attractive to people who enjoy scope diagrams.")<br>_[the long-range planning room, still dangerously attractive to people who enjoy scope diagrams.](../assets/parts/design.png)_
 
-**The canonical blueprint room.**
+**The long-range plan and ownership map.**
 
-Design is the project’s tactical war room—the place where we map the sprawl before any Lua hits the deck. It defines the rules of engagement for multi-era support and ensures the engine actually follows the books instead of a developer's fever dream.
+Think of this as the master tactical map for the entire sprawl. Design is where we draw the ownership lines between every bit and byte, ensuring the math stays deterministic even when your deck is redlining. It’s the source of truth that keeps the engine from free-styling your character's stats into a glitchy mess.
 
 ## You touch this when...
 
-Without a blueprint, code tends to 'hallucinate' math until your character sheet looks like a corrupted data-bomb. We maintain this node to keep the architecture deterministic and the receipts verifiable, so you can trust the numbers at your table without needing a PhD in debugging.
+Because 'trust me' is a great way to end up in a body bag. We ditched the fragile spreadsheets for a Lua-scripted engine that treats rules like law. This tactical long-range plan ensures that when we add SR4 support or a new era's chrome, the whole system doesn't turn into a pile of spaghetti code that even a Tier-1 decker couldn't untangle. We’re building for the long haul, not just patching leaks with digital duct tape.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Without a blueprint, code tends to 'hallucinate' math until your character sheet
 
 ## What is happening now
 
-The current focus is syncing the blueprint with our push for SR4 stability and offline-first mobile shells. We're drawing the hard lines now so the rest of the project can stop guessing and start delivering a rock-solid toolkit.
+The current focus is locking down the multi-era logic and making sure the local-first engine works as flawlessly offline as a hardwired datajack. We're keeping the tactical map updated so the code monkeys stop improvising and start sticking to the script. If you find a rule that doesn't add up, hit the Issue Tracker and let us know where the signal is dropping.
 
 ## Go deeper
 
@@ -33,6 +33,4 @@ The current focus is syncing the blueprint with our push for SR4 stability and o
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-_Last synced: 2026-03-13_<br>
-_Derived from: chummer6-design ownership map, current public shape, owning repo READMEs_<br>
-_Canonical source: chummer6-design_
+<sub>Updated: 2026-03-13</sub>
