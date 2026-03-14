@@ -45,6 +45,36 @@ Use that ledger before rerendering:
 - if a new image shares composition with a recent one, force a different cast count, focal prop cluster, and camera distance
 - at least one-third of the major banners should be prop-led, street-led, or environment-led instead of people-around-table scenes
 
+## Style epochs
+
+One full regeneration pass should share one style family on purpose.
+
+Each pass gets one active style epoch with:
+
+- style family name
+- palette
+- lighting model
+- realism mode
+- lens grammar
+- texture treatment
+- signage treatment
+- troll motif material style
+- weather bias
+- humor ceiling
+
+Inside one pass, every page should inherit that style epoch.
+
+Inside that same pass, every page still needs a distinct:
+
+- scene family
+- cast count
+- camera grammar
+- prop cluster
+- focal action
+- troll motif type
+
+The next full pass should deliberately switch to a different style epoch instead of rerolling the same look forever.
+
 ## Visual constitution
 
 - Show a scene, not a concept poster.
@@ -56,6 +86,36 @@ Use that ledger before rerendering:
 - Diegetic overlays are fine if they appear attached to actual screens, AR views, or surfaces.
 - No readable titles, no watermarks, no giant centered logos.
 - No repeated medium-wide table huddles unless the page explicitly depends on that exact social geometry.
+- A table scene is one scene family, not the default answer for truth, trust, or tension.
+
+## Composition families
+
+Use real scene families and rotate them on purpose:
+
+- `over_shoulder_receipt`
+- `solo_operator`
+- `safehouse_table`
+- `group_table`
+- `dossier_desk`
+- `archive_room`
+- `simulation_lab`
+- `workshop_bench`
+- `service_rack`
+- `street_front`
+- `transit_checkpoint`
+- `horizon_boulevard`
+- `district_map`
+- `desk_still_life`
+
+Hard rules:
+
+- no adjacent major pages with the same composition family
+- no more than two table-huddle families across the top-level guide cluster
+- `Horizons index` must be environment-first
+- `ALICE` may never be another social table scene
+- `JACKPOINT` should prefer dossier / evidence / desk grammar
+- `Core` should prefer proof-on-props or over-shoulder receipt grammar over faces
+- `WHAT_CHUMMER6_IS` should prefer one trust moment or over-shoulder proof, not another three-person confrontation
 
 ## Troll easter egg rule
 
@@ -132,12 +192,15 @@ Also fail the image if:
 
 ## Composition rules
 
-- `README` hero: triangular rules dispute, visible receipt trail, tactile props
-- `WHAT_CHUMMER6_IS`: tense rules-receipt confrontation, not a generic meeting shot
-- `Core`: close dice-pool dispute with the table itself acting as evidence
-- `NEXUS-PAN`: asymmetrical reconnect moment anchored around the returning phone
+- `README` hero: product-truth under pressure, ideally over-shoulder receipt proof or street-side stakes, not another generic huddle
+- `WHAT_CHUMMER6_IS`: one trust moment with visible receipts, ideally solo or duo with the proof path doing the heavy lifting
+- `Core`: over-shoulder or prop-led rules proof, where dice, sheets, traces, and chips carry the scene
+- `Mobile`: play-shell continuity in motion, preferably asymmetrical devices or one reconnect moment instead of a posed group
+- `Hub`: hosted coordination through racks, control surfaces, or remote-presence seams, not a table in disguise
+- `NEXUS-PAN`: reconnect moment anchored around the returning device or operator, not a blurry background support group
 - `ALICE`: sim bench / crash chamber / failure trace, never another social huddle
 - `JACKPOINT`: dossier workspace first, faces optional
+- `KARMA FORGE`: workshop bench or rulesmith station, not a concept slide and not another committee around a table
 - `Horizons index`: boulevard/environment shot first, people secondary at most
 
 ## Page prompt starters
@@ -145,7 +208,7 @@ Also fail the image if:
 ### Chummer6 hero
 
 ```text
-Rainy night table or street-side scene where a player and GM are resolving a tense rules moment with visible receipts instead of mystery math. One small troll pin on a jacket lapel or a peeling transit sticker in the midground.
+Rainy street-side or transit-shelter truth moment where one runner sees the receipt trail that settles a tense rules call. Prefer over-shoulder proof, visible tactile props, and one in-world troll motif on hardware or public signage. Do not default to a committee around a table.
 ```
 
 ### Start Here
@@ -157,7 +220,7 @@ A choice-point scene that feels like a subway map for user needs: session lane, 
 ### What Chummer6 Is
 
 ```text
-A table-friendly rules-truth moment: player asks why the pool changed, GM waits, Chummer shows receipts. The troll motif appears as a jacket pin or table charm.
+One trustworthy rules-truth moment: a runner gets an answer with receipts, and the proof path is visible enough to keep the scene moving. Prefer one operator plus a proof cluster, or an over-shoulder receipt scene, over another group huddle. The troll motif appears as a pin, sticker, or transit-side decal.
 ```
 
 ### Horizons index
@@ -169,7 +232,7 @@ A neon horizon boulevard of future districts and signposts, with each lane hinti
 ### NEXUS-PAN
 
 ```text
-Rain-soaked cafe or back-room table, one phone reconnecting, AR initiative over cups and devices, one player looking betrayed by Wi-Fi. The troll motif appears as a sticker on the reconnecting phone case.
+Asymmetrical reconnect scene: one phone or handheld device comes back into the session, initiative and effects snap into place, and the table or operator does not have to stop for forensic bookkeeping. Prefer a solo or duo operator frame over another full-table huddle. The troll motif appears as a sticker on the reconnecting device or a nearby service panel.
 ```
 
 ### JACKPOINT
@@ -187,7 +250,7 @@ Dice pool breakdown hovering over a real character sheet like forensic evidence.
 ### KARMA FORGE
 
 ```text
-Kitchen-table or workshop rulesmith hammering glowing rule plates on a cyber-anvil while the rest of the group watches carefully. The troll motif appears as a stitched patch on the apron shoulder.
+Workshop-bench rulesmithing scene with overlay shards, rollback markers, and conflict receipts made physical. Prefer a forge bench, tool wall, or one operator in the act over a whole group staring at a glowing table. The troll motif appears as a stitched patch on an apron or a decal on the bench hardware.
 ```
 
 ## Two-pass fallback

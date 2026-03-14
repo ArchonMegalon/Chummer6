@@ -2,26 +2,29 @@
 
 ![Where to go deeper banner](assets/pages/where-to-go-deeper.png "this is the part where curiosity becomes paperwork with better lighting.")<br>_[this is the part where curiosity becomes paperwork with better lighting.](assets/pages/where-to-go-deeper.png)_
 
-Jack into the blueprints and see how the machine is wired.
+If you want more than the tour, this is the next map.
 
-The real truth isn't hidden in the interface; it lives in the Lua rule-packs and the core engine files. If you want to audit the SR4 ruleset or see the raw logic behind a specialized piece of gear, you dive into the blueprints. We’ve replaced 'black box' math with searchable, scripted rules in our open repositories, letting any decker verify exactly how the machine handles the chrome.
+Use this page when you want the long-range plan, the actual software, or the deeper rules logic behind a specific edge case. Chummer6 stays readable on purpose; the deeper repos are where you go when you want the architecture, the code, or the raw rules behavior itself.
 
 ## Start here when you want more than the tour
 
-- Start with `chummer6-design` when you want the long-range plan, the split story, and the blueprint.
+- Start with `chummer6-design` when you want the long-range plan, the split story, and the architectural rules.
 - Go to the owning code repos when you want the software itself.
 - Come back to Chummer6 when you want the human-readable version again.
 
 ## What each place is for
 
-- `chummer6-design`: the blueprint room
-- owning repos: the working software and repo-specific detail
-- Chummer6: the visitor center and field guide
+- `chummer6-design`: the long-range plan, architecture, and split rules
+- owning repos: the working software, packages, and repo-specific detail
+- Chummer6: the friendly guide, examples, and public-facing orientation
 
-## What to do when you spot drift
+## If you want the source of truth
 
-Fix Chummer6 first.<br>
-Do **not** “correct” the blueprint because the visitor guide got ahead of itself.
+Chummer6 is the friendly guide.
+
+- `chummer6-design` holds the long-range plan
+- the owning repos hold the software
+- if this guide feels stale or confusing, call it out here so it can be fixed
 ---
 
 _Last synced: 2026-03-13_<br>
