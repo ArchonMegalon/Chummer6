@@ -4,11 +4,11 @@
 
 **Render-only asset lifecycle.**
 
-Media Factory is the air-gapped industrial forge where render jobs and signed URLs live. It handles the heavy lifting of asset lifecycles so the core rules engine doesn't choke on your high-res street sam portraits.
+Media Factory is the grimy industrial basement where we cage the render jobs and storage adapters so your rules math doesn't get contaminated by unoptimized assets or provider soup.
 
 ## You touch this when...
 
-Because dragging storage adapters and retry logic into the character sheet's math is a great way to make the grid crash when you're just trying to look at a gun. We keep the provider soup out of the simulation.
+Because your deck shouldn't brick just because you wanted a high-res gear preview. By decoupling the asset lifecycle from the core logic, we ensure the engine stays fast and local-first, even when the UI gets heavy. It’s the difference between a smooth tactical overlay and a crash-test simulation because a dev forgot how to compress a texture.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Because dragging storage adapters and retry logic into the character sheet's mat
 
 ## What is happening now
 
-We're keeping it in a sterile scaffold for now. Narrow and boring is the goal until the asset handshakes stop feeling like a glitchy deck and start feeling like a professional data-pipe.
+Currently at the scaffold-stage, which is dev-speak for 'we're keeping the pipes tight until they stop leaking.' We’re focusing on a narrow, stable seam for render queues and lifecycle receipts before we let the feature-creep sprawl into the rest of the architecture.
 
 ## Go deeper
 

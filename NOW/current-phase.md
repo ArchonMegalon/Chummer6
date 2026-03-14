@@ -2,9 +2,9 @@
 
 ![Current phase banner](../assets/pages/current-phase.png)
 
-We're stripping the hardcoded ghosts out of the simulation core to build a tool that actually holds up under pressure.
+We're welding the logic-gates before we polish the chrome.
 
-Chummer6 is a deterministic engine where every rule is a traceable Lua script, not a hardcoded prayer. Instead of just adding a new coat of paint, we're reboring the engine for every era to ensure absolute stability. This means every stat on your sheet comes with a digital receipt, explaining the math behind your chrome so you can focus on the mission instead of arguing over rulebooks.
+Chummer6 is currently focused on the 'Logic-Forge'—the foundational engine that handles the heavy lifting. Instead of just guessing numbers, we use a deterministic Lua engine that treats Shadowrun rules as verifiable logic. This means every digit on your sheet comes with a 'math receipt' explaining exactly how it was calculated. We’re pinning down these core rulesets first to ensure the machine doesn’t crack when you start loading it with complex gear, cyberware, and spells.
 
 ## The focus right now
 

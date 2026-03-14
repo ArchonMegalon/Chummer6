@@ -8,41 +8,26 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Sooner or later, two 'clever' changes will try to claim the same attribute at the same time, leading to silent logic collisions that brick your deck mid-combat.
+Every custom overlay is a masterpiece until it meets another one in a dark alley. When two logic packs try to rewrite the same attribute simultaneously, your character sheet doesn't just error—it becomes digital abstract art. You’re left staring at a data-spike where your street-cred used to be, wondering which mod decided it was the Alpha in a room with no mirrors.
 
 ## A real table scene
 
-Two clever overlays just met and both think they are the main character.
-
-> **GM**<br>
-> "Can we run both mod packs?"
-
-> **Player**<br>
-> "Probably."
-
-> **Chummer6**<br>
-> "Conflict report generated. Both overlays modify the same recoil rule. One of them also lies about load order."
-
-> **GM**<br>
-> "Excellent. The software found the duel before the table did."
+GM: Wait, why does your Street Sam have 400 Armor? Player: I slotted the 'Mil-Spec' pack and the 'Urban Explorer' overlay. GM: They're both trying to calc the base soak multiplier at once. Player: So I'm a tank now? GM: No, the math recursive-looped. Your sheet is a digital brick. Rigger: Should've used a threadcutter. Snip the overlap before the run. Player: Is that a tool or a threat?
 
 <p align="center"><img src="../assets/horizons/details/threadcutter-scene.png" alt="THREADCUTTER dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- comparing overlays before they collide at runtime
-- surfacing competing claims on the same seam
-- showing what breaks, what wins, and what rolls back
-- making conflict analysis a tool instead of a postmortem
+['- Hardening the Lua engine to handle multi-era rule collisions.', "- Drafting the 'Math-Provenance' UI for deep-dive receipt audits.", '- Stress-testing SR4 plugin stability against gear-heavy custom packs.']
 
 ## Why that would be great
 
-Customization gets safer when the fight happens in a report first instead of in front of a live session.
+It provides surgical receipts for your rule stack. Instead of a generic crash, you get a tactical HUD showing exactly which two lines of logic are wrestling for control of your Essence. You can preview the migration and see the rollback receipt before you ever commit to a session. It’s the difference between a clean cyber-install and a rejection-syndrome flatline.
 
 ## Why it is still a Horizon
 
-The runtime stack and migration receipts must exist before the Threadcutter has anything honest to inspect; we don't guess at logic errors.
+Teaching a machine to understand intent in a scripted rulebook is a logic nightmare. We aren't just comparing text; we're mapping how a +2 bonus interacts with a hard-cap override across different eras. Until the engine can reliably tell you why the mods are fighting, we're keeping the laser-scalpel in the locker to avoid accidental lobotomies.
 
 ## What would need to exist first
 
@@ -52,7 +37,7 @@ The runtime stack and migration receipts must exist before the Threadcutter has 
 
 ## Pitch your own future
 
-If your table pain is not clever mods drawing knives, the [Horizons index](README.md) has other future messes to browse.
+Imagine a workbench where your custom rules never collide, just cooperate.
 ---
 
 _Last synced: 2026-03-13_<br>

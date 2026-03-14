@@ -2,9 +2,9 @@
 
 ![Horizons overview banner](../assets/pages/horizons-index.png)
 
-Welcome to the garage. Step out of the rain and see what is flickering on the holographic workbench.
+The blueprints are on the table. Welcome to the Garage.
 
-This is where we track street intel on the next generation of shadow-tech. We are looking at deeper simulation energy—fully scripted gear-logic and dossiers that carry the weight of a briefcase full of nuyen. These are not just software updates; they are blueprints for a deterministic runner ecosystem where every script hook is a tool and every rule era is respected. It is experimental, ambitious, and currently being hammered out in the dark corners of the grid.
+This node tracks the experimental prototypes currently scanning the horizon. We are wireframing features like the 'Karma Forge'—a system for simulating long-term character growth—and 'Nexus PAN' for syncing data across your team's devices at the table. These ideas are the 'midnight builds' of the project: high-concept tech that is still smelling of ozone and fresh solder.
 
 > **Reality check from the troll behind the curtain**
 > These are horizon ideas, not signed blood contracts. Some may ship. Some may mutate. Some may remain beautiful nonsense forever.

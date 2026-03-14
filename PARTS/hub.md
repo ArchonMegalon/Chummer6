@@ -4,11 +4,11 @@
 
 **The hosted API and orchestration layer.**
 
-Hub is the silent fixer in the background. It manages the handshakes, the identities, and the team sync without pretending it knows more about SR4 math than the core engine does.
+Hub is the digital fixer in the comms closet, the silent switchboard handling handshakes, identities, and shared team memory. It’s the hosted backbone that keeps every runner on the same grid without trying to overcomplicate the actual math.
 
 ## You touch this when...
 
-Because manual file swapping and 'oops, wrong version' dossiers are for script kiddies. You need a secure vault for your crew's data that stays out of the way of the simulation.
+Because showing up to a run with three different versions of the map is a fast way to get geeked. Hub ensures everyone sees the same tactical reality, managing team synchronization so you can focus on the job instead of wondering why your deck is desynced.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Because manual file swapping and 'oops, wrong version' dossiers are for script k
 
 ## What is happening now
 
-The mission is shrink-to-fit. We're stripping the bloat and hardening the hosted boundary, turning the Hub into a sharp, unremarkable orchestration layer for identity and relay.
+We’re stripping back the remote bloat and sharpening the boundaries. The mission is simple: keep the relay lean and stop letting it impersonate the rest of the program. We're moving the heavy lifting to your local deck and making sure the hosted machinery stays on a short, professional leash.
 
 ## Go deeper
 

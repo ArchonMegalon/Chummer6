@@ -4,11 +4,11 @@
 
 **Shared chrome, themes, and visual primitives.**
 
-UI Kit is the visual vocabulary: tokens, themes, shell chrome, and accessibility-friendly primitives that every other head should be consuming. If you're still hand-rolling your own CSS buttons because of a 'mood swing,' you're the reason the grid looks like a glitchy mess.
+UI Kit is the visual vocabulary of the shadows: the tokens, themes, and tactical chrome that keep the interface crisp. It provides the accessibility-friendly foundations that every other module plugs into so we can stop building the same button with duct tape and mood swings.
 
 ## You touch this when...
 
-This is how we stop the interface from looking like seven different gangs met in a parking lot to argue about border-radius. It’s about coherence, professional-grade chrome, and making sure your deck doesn't fry the user's retinas.
+This is how the system stays coherent. Instead of looking like seven rival gangs met in a parking lot to argue about layout, the UI Kit ensures your tactical HUD, rules engine, and character sheets all speak the same visual language.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ This is how we stop the interface from looking like seven different gangs met in
 
 ## What is happening now
 
-The kit is only successful when the rest of the codebase starts shrinking. We're ripping out the redundant duct tape and replacing it with hardened, shared primitives that actually respect a theme provider.
+The UI Kit only counts as a win when the rest of the codebase gets visibly leaner. If we’re still seeing hard-coded colors and 'unique' menus in the wild, we’re failing the mission. It’s only real when the bloat starts hitting the scrap heap.
 
 ## Go deeper
 

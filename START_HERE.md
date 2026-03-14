@@ -1,12 +1,12 @@
 # Start Here
 
-![Start here banner](assets/pages/start-here.png "choose your own path, but no MysADs.")<br>_[choose your own path, but no MysADs.](assets/pages/start-here.png)_
+![Start here banner](assets/pages/start-here.png "pick the lane that solves tonight's problem before the repo tries to hand you a topology lecture.")<br>_[pick the lane that solves tonight's problem before the repo tries to hand you a topology lecture.](assets/pages/start-here.png)_
 
-Fresh off the bus? Let’s get you calibrated so you don't end up as static in the local grid.
+Welcome to the sprawl. Chummer6 is an ecosystem of specialized tools, not a single bloated file.
 
-You'll see a lot of different parts moving here. We split the logic into nodes so the system stays fast and modular. The 'Core' handles the heavy math and rules, while the 'Workbench' is where you actually see your character come to life. By keeping these separate, we ensure you can run your sheets locally as a web app without needing a constant connection to a corporate server. Start with the Workbench for your daily runs, or dive into the Core if you want to see the gears turning.
+To keep things fast and flexible, we’ve split the project into three main nodes. The Core Engine handles the heavy lifting of game logic and deterministic math. The UI Workbench is your browser-based shop for building and tweaking characters. Finally, the Mobile Session Shell is your tactical HUD for actual play at the table. By separating the 'brain' from the 'face,' we ensure you can run your game on a phone, a tablet, or a workstation without the math breaking.
 
-You do not need the internal split first. You need the page that solves your immediate problem.
+You do not need the internal split first. You need the shortest path to the page that tells you whether this can run a session, explain a weird number, support a cursed table rule, or show you what the project is trying to become.
 
 ## I want to run a session
 

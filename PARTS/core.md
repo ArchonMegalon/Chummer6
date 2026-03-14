@@ -4,11 +4,11 @@
 
 **The deterministic rules engine.**
 
-Core is where the numbers stop bluffing. It is the deterministic heart of the machine, owning the engine runtime and reducer logic so the rest of your deck can stop arguing about what a rule actually means.
+Core is where the numbers stop bluffing and the 'trust me' excuses die. It is the deterministic engine at the center of the sprawl, turning modular Lua scripts into the cold, hard math that keeps your character sheet from hallucinating.
 
 ## You touch this when...
 
-Because your GM's homebrew Excel macros are a nightmare of hidden math-sins. You need explainable receipts for every dice pool modifier, backed by raw Lua scripts that don't lie when the noise hits.
+Because 'black box' math is for corp lackeys who don't mind a glitch in their life insurance. Core provides the verified receipts for every digit, ensuring that when your dice pool shifts, you have a traceable audit trail instead of a GM’s best guess.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Because your GM's homebrew Excel macros are a nightmare of hidden math-sins. You
 
 ## What is happening now
 
-We are purifying the runtime. The current mission is to keep the engine mean, lean, and predictable—hardening the SR4 plugin and stripping away the legacy junk drawer until all that's left is engine truth.
+The mission is purification: stripping the engine down to a mean, lean, and predictable state. We are currently hardening the SR4 logic and ensuring the Lua rulesets are portable enough to run anywhere—from a high-end commlink to a burner deck in a dead zone.
 
 ## Go deeper
 

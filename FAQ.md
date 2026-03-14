@@ -30,11 +30,11 @@ Rules truth with receipts. The standout promise is that a rules call should be e
 
 Start with [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md) for the product pitch, then [NOW/current-status.md](NOW/current-status.md) for the honest caveats, then [PARTS/core.md](PARTS/core.md) if the argument is really about trust in the math.
 
-## If you care about the plumbing
+## If you want the deeper sources
 
-### Where does the deeper design truth live?
+### Where does the deeper plan live?
 
-In `chummer6-design`, which carries the canonical design truth.
+In `chummer6-design`, which carries the long-range design truth.
 
 ### Where does the actual code live?
 
@@ -50,15 +50,15 @@ The multi-repo program is live, but several public surfaces are still preview ra
 
 ### Where do I propose design changes?
 
-In `chummer6-design`.
+In the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues). That keeps public feature requests and guide feedback in the public front door instead of throwing normal users into the design repo.
 
 ### What should I include in a bug report?
 
 The useful stuff: what you installed, what you clicked, what you expected, what actually happened, and any screenshot or log that helps track the gremlin back to its nest.
 
-### Is Chummer6 allowed to make fun of the dev?
+### Can I help test or suggest future features?
 
-Yes. Absolutely. If the dev ships cursed nonsense, the docs are allowed to have fun with it.
+Yes. Use the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues) for public feedback, bug reports, and future-feature suggestions. If a horizon idea sounds better than what is on the page, say so.
 ---
 
 _Last synced: 2026-03-13_<br>

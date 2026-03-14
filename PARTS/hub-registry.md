@@ -4,11 +4,11 @@
 
 **Artifacts, publication, installs, compatibility.**
 
-Hub Registry is the artifact brain. It tracks what exists, what’s published, and which Lua rule-packs are actually clean. It’s the difference between a verified data-drop and a cursed box found in a dark alley of the Matrix.
+Hub Registry is the project's artifact brain—a high-fidelity ledger that tracks every bundle, plugin, and ruleset across the sprawl. It handles the metadata and publication workflows to ensure that when you're looking for an SR4 patch, you aren't grabbing a handful of corrupted code fragments.
 
 ## You touch this when...
 
-Without a deterministic ledger, the growing pile of artifacts turns into an unlabeled warehouse of dependency hell. We need to know exactly which bundles are compatible before you jack them into your deck.
+Without a centralized registry, your toolkit turns into a black-market shipping container full of unlabeled, 'cursed' boxes. We’re roasting the habit of dumping artifacts into a folder and hoping the user's deck doesn't catch fire; this layer provides the compatibility signals and install projections needed to keep your session from crashing mid-combat.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Without a deterministic ledger, the growing pile of artifacts turns into an unla
 
 ## What is happening now
 
-This seam is narrow on purpose. We aren't here for feature sprawl; we're here for consumer migration and cleaning up the metadata sins of the past. If it isn't on the registry, it doesn't exist.
+We're keeping this seam narrow on purpose. The focus is on migrating consumers and cleaning up the legacy data-drift, not adding shiny new feature-bloat that nobody asked for.
 
 ## Go deeper
 

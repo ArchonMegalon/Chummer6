@@ -2,9 +2,9 @@
 
 ![Where to go deeper banner](assets/pages/where-to-go-deeper.png "this is the part where curiosity becomes paperwork with better lighting.")<br>_[this is the part where curiosity becomes paperwork with better lighting.](assets/pages/where-to-go-deeper.png)_
 
-If you want more than the tour, this is the next map.
+Ready to pop the hood and see the logic-cores that drive the simulation?
 
-Use this page when you want the long-range plan, the actual software, or the deeper rules logic behind a specific edge case. Chummer6 stays readable on purpose; the deeper repos are where you go when you want the architecture, the code, or the raw rules behavior itself.
+The heart of Chummer6 is built on modular scripts, making the rules as transparent as a high-res HUD. You can dive into the project repositories to inspect the blueprints for the core engine, the SR4 plugins, and the mobile session shells. This is where the 'rules-as-written' become executable code. Whether you are looking for the latest stable release or want to see how we handle complex multi-era modifiers, the source repositories are the ultimate source of truth for the gearheads among us.
 
 ## Start here when you want more than the tour
 

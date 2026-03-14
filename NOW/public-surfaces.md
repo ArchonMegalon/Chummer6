@@ -2,11 +2,11 @@
 
 ![Public surfaces banner](../assets/pages/public-surfaces.png)
 
-The surface is just the skin; the deterministic heart is already beating.
+Think of this as looking at a high-end cyberdeck with the casing ripped off and the guts exposed.
 
 ## Current public reality
 
-What you see on the grid today is the public skin—a stable preview of a much deeper simulation. While other tools hide behind 'beta' tags for years to mask their broken logic, Chummer6 is hardening its interfaces in real-time. We are mapping scripted rulesets directly to your digital display, so expect the layout to shift as the code reaches terminal velocity. This page tracks that evolution, showing you how the visual interface is catching up to the math-heavy engine underneath.
+The interface might remind you of a vintage terminal, but that is because we are prioritizing the deterministic Lua engine—the 'brain' that ensures your SR4 math never glitches—over flashy visuals. This preview is a live look at the functional scaffolding. It is built to be rock-solid and offline-ready, providing a transparent view of the rules before we apply the final neon polish and UI chrome.
 
 These are still preview, not the final public shape:
 

@@ -4,11 +4,11 @@
 
 **The workbench and big-screen UX.**
 
-UI is the heavy chrome of the operation. It is the big-screen workbench where inspectors, builders, and deep views live for the kind of runner who likes staring at their gear until the gears stare back.
+The UI is the heavy chrome of Chummer6. It’s the full-screen workbench where optimization junkies stare at their gear until the gears stare back. This is the high-density tactical display designed for riggers and deckers who need every inspector, builder, and deep-view widget within arm's reach.
 
 ## You touch this when...
 
-To make the simulation inspectable. This is the layer that turns mystical numbers into a high-contrast HUD you can actually use to tune your cyberdeck before the run goes sideways.
+Math shouldn’t be a black box. This part of the toolkit turns 'magic numbers' into verifiable receipts. It makes the engine inspectable instead of mystical, giving you the desktop-grade authoring power needed to build complex loadouts without the 'just trust the dev' anxiety of inferior calculators.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ To make the simulation inspectable. This is the layer that turns mystical number
 
 ## What is happening now
 
-We are deleting the fluff. The focus is on workbench power and shedding any claims over play-first concerns. If a pixel doesn't help you build a better runner, it is being purged to save on local-first latency.
+We are currently burning away the legacy bloat to keep the workbench sharp. The focus is on decoupling the heavy desktop UX from the lighter play-shells, ensuring SR4 support is a first-class citizen. If you find a data-grid that isn't pulling its weight or a builder that's glitching, head over to the Chummer6 issue tracker.
 
 ## Go deeper
 

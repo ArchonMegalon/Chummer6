@@ -4,11 +4,11 @@
 
 **The canonical blueprint room.**
 
-This is the Mirror Room—the canonical source of truth for the entire sprawl. It’s the long-range map that stops the project from turning into a pile of 'it worked on my machine' excuses.
+Design is the project’s tactical war room—the place where we map the sprawl before any Lua hits the deck. It defines the rules of engagement for multi-era support and ensures the engine actually follows the books instead of a developer's fever dream.
 
 ## You touch this when...
 
-When three different devs try to 'freestyle' the SR4 ruleset at the same time, this is the blueprint we use to tell them they’re all wrong. It defines ownership before the first line of Lua is even written.
+Without a blueprint, code tends to 'hallucinate' math until your character sheet looks like a corrupted data-bomb. We maintain this node to keep the architecture deterministic and the receipts verifiable, so you can trust the numbers at your table without needing a PhD in debugging.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ When three different devs try to 'freestyle' the SR4 ruleset at the same time, t
 
 ## What is happening now
 
-Hardening the master wireframes. We’re moving from 'vague intentions' to 'crystalline ownership' so the implementation teams have a north star that doesn't flicker when the noise hits.
+The current focus is syncing the blueprint with our push for SR4 stability and offline-first mobile shells. We're drawing the hard lines now so the rest of the project can stop guessing and start delivering a rock-solid toolkit.
 
 ## Go deeper
 

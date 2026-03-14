@@ -2,9 +2,9 @@
 
 ![Parts overview banner](../assets/pages/parts-index.png)
 
-The manifest for your next run—slot the modules you need.
+Every run requires the right gear; here is your manifest for the Chummer6 ecosystem.
 
-This isn't a single block of messy code; it's a modular ecosystem where every component has a job. The Core Engine handles the math with absolute certainty, the Workbench provides a mobile-ready sheet that works even when you are offline, and the Rule-Packs contain the specific logic for different eras of play. This index helps you identify which piece of tech to focus on so you can build your character without fighting the tools. No more monolithic files—just clean, swappable data-chips for every era.
+Instead of one heavy, unchangeable program, we have built a modular toolkit. The Core Engine handles the heavy lifting of rulebook math and logic. The Workbench is your desktop space for detailed character building and tweaking. For the actual heat of the moment, the Session Shell provides a streamlined mobile interface to track your stats at the table. Use the modules you need and leave the bloat behind.
 
 ## What you actually notice first
 
@@ -12,14 +12,14 @@ Most people do not care about the repo taxonomy first. They care about the sympt
 
 Read the parts like this:
 
-- **Core** = rules truth
-- **UI** = prep and inspect
-- **Mobile** = table play
-- **Hub** = online coordination
-- **UI Kit** = shared chrome
-- **Hub Registry** = artifacts and compatibility
-- **Media Factory** = render pipeline
-- **Design** = blueprints
+- **Core** = when you need the math to stop bluffing
+- **UI** = when you are building or inspecting before the run
+- **Mobile** = when the session is already live
+- **Hub** = when being online actually helps instead of getting in the way
+- **UI Kit** = when shared chrome should stop being copy-pasted improv
+- **Hub Registry** = when artifacts and compatibility need to be real
+- **Media Factory** = when generated output needs a dedicated pipeline
+- **Design** = when you want the long-range plan and ownership map
 
 ## How to read this folder
 

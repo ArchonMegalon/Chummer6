@@ -2,53 +2,32 @@
 
 ![JACKPOINT banner](../assets/horizons/jackpoint.png "coffee stains optional, evidence boundaries not.")<br>_[coffee stains optional, evidence boundaries not.](../assets/horizons/jackpoint.png)_
 
-**Jackpoint turns your street-level noise into a dossier heavy enough to break a corp desk.**
+**Turn street-level noise into a dossier heavy enough to break a corp desk.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Narrative output gets dangerous when nobody can tell the difference between grounded evidence and cool-looking guesswork.
+Most narrative generators are glorified fan-fiction bots that hallucinate stats with the confidence of a Renraku PR flack. If your dossier claims you're an elite decker but your sheet only shows a battered commlink, the immersion doesn't just break—it flatlines. We're done with tools that treat 'data' and 'story' as two separate Grids.
 
 ## A real table scene
 
-The GM wants a brief. The table wants style without lies.
-
-> **GM**<br>
-> "Give me a mission brief for tonight."
-
-> **Player**<br>
-> "But no made-up nonsense this time."
-
-> **Chummer6**<br>
-> "Compiled from session notes, character facts, and approved evidence."
-
-> **Player**<br>
-> "What about the red labels?"
-
-> **Chummer6**<br>
-> "Red is inferred. White is verified. Coffee stains remain optional."
-
-> **GM**<br>
-> "Good. Now the team can tell style from certainty."
+FIXER: This the package? RUNNER: Verified data-trail. Every bullet accounted for. FIXER: [Slips a credstick] I’ll be the judge. Last guy gave me a dossier that said he was a Drake. RUNNER: Check the receipts, K. The math is grounded in the Lua core. No hallucinations. FIXER: [Scanning holographic amber text] Source classification, media-factory stamps... professional. RUNNER: It’s Jackpoint. Facts first, flavor second.
 
 <p align="center"><img src="../assets/horizons/details/jackpoint-scene.png" alt="JACKPOINT dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- pulling together notes, facts, and approved artifacts
-- labeling source class and approval state
-- keeping inferred material visibly separate from grounded evidence
-- preserving provenance instead of laundering guesses into fact
+- Testing deterministic Lua math for receipt-level transparency. - Mapping media-factory seams to character registry states. - Defining source classification tiers for grounded evidence.
 
 ## Why that would be great
 
-You get stylish dossiers and recaps without quietly training the table to trust fiction wearing a tie.
+Jackpoint bridges the gap between raw numbers and table-ready intelligence. It’s not just a character sheet skin; it’s an evidence-backed briefing generator. By linking narrative tags directly to your character's deterministic stats, every cool line in your bio comes with a digital receipt. You get the noir atmosphere of a Shadowland post without the risk of a GM calling frag on your invented backstory.
 
 ## Why it is still a Horizon
 
-Grounded evidence and media-factory render boundaries need to settle before we let style override the receipts.
+Right now, the devs are too busy arguing over Lua syntax and ensuring the engine doesn't melt when you swap a ruleset plugin. It turns out that building a rock-solid, deterministic rule engine is significantly harder than writing edgy flavor text for a fake fixer. We're keeping Jackpoint on the horizon until the core registry is stable enough to support high-fidelity narrative projections without tripping every data-bomb in the system.
 
 ## What would need to exist first
 
@@ -59,7 +38,7 @@ Grounded evidence and media-factory render boundaries need to settle before we l
 
 ## Pitch your own future
 
-If your table pain is not briefing-by-vibes, the [Horizons index](README.md) has other future crimes on the shelf.
+If you have a sharper vision for turning dry stats into wetwork briefings, the horizon is wide open for better ideas.
 ---
 
 _Last synced: 2026-03-13_<br>

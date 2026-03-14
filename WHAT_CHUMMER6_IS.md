@@ -2,11 +2,11 @@
 
 ![What Chummer6 is banner](assets/pages/what-chummer6-is.png "product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.")<br>_[product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.](assets/pages/what-chummer6-is.png)_
 
-Your chrome shouldn't come with a 'trust me' from your GM.
+Your digital rulebook just got a tactical upgrade that doesn't need a Wi-Fi signal to function.
 
-Chummer6 is a deterministic engine that treats your character sheet like a live, audited dossier. Built on a local-first architecture with scripted Lua logic, it provides explainable receipts for every single modifier on your screen. It functions as an installable web app (PWA) that stays on your device, ensuring you never lose access to your stats even when you're running silent in a matrix dead zone.
+Chummer6 is a local-first toolkit designed to give you absolute certainty at the gaming table. It features a deterministic engine that provides 'receipts' for every calculation, showing you exactly which gear, qualities, or spells are shifting your dice pools. Built with first-class support for Shadowrun 4th Edition and modular logic for other eras, it ensures your character data stays on your own deck—not on a distant server that might go dark mid-run.
 
-## What it is trying to become
+## What it is becoming for players and GMs
 
 Chummer6 is not just trying to be a character manager with nicer chrome. It is trying to become a toolkit that helps players and GMs:
 
@@ -32,7 +32,11 @@ Chummer6 is not just trying to be a character manager with nicer chrome. It is t
 
 That is the product story in miniature. Not "trust me, bro." Not "dig through source." Just a fast answer with enough proof to keep the table moving.
 
-## What feels different from old Chummer habits
+## Why that matters at the table
+
+When the number moves, the table should not have to stop and reverse-engineer folklore. When the network gets stupid, the session should not die. When a table uses a weird era mix or one cursed house rule, that weirdness should have a real home instead of a pile of "remember this next time" notes.
+
+## What feels different from older opaque tool behavior
 
 The project is leaning harder into explicit trust:
 
@@ -59,7 +63,7 @@ The project is leaning harder into explicit trust:
 
 ## Why there are multiple parts
 
-The codebase is split because the product is getting bigger and more specialized. A rules engine, a prep workbench, a table-facing shell, hosted coordination, shared chrome, artifact handling, render jobs, and a blueprint repo all have different jobs. Keeping those seams honest is how the project avoids one giant haunted monolith.
+The codebase is split because the product is getting bigger and more specialized. A rules engine, a prep workbench, a table-facing shell, hosted coordination, shared chrome, artifact handling, render jobs, and the long-range design layer all have different jobs. Keeping those seams honest is how the project avoids one giant haunted monolith.
 
 If you want that map, go to [PARTS/README.md](PARTS/README.md).
 

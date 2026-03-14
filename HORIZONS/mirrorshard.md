@@ -2,47 +2,32 @@
 
 ![MIRRORSHARD banner](../assets/horizons/mirrorshard.png "compare both bad ideas before the dev asks you to commit to one.")<br>_[compare both bad ideas before the dev asks you to commit to one.](../assets/horizons/mirrorshard.png)_
 
-**See the ghost of your next mistake before it becomes your obituary.**
+**Fork your future before the chrome hits the bone.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Character progression is usually a one-way street paved with 'I wish I hadn't done that' moments that your GM won't let you retcon.
+Character building is usually a one-way street paved with 'I wish I hadn't done that' moments. The dev probably thinks you enjoy manually calculating Essence loss across three different save states, or that your 'workflow' of naming files 'Final_v2_TEST_DONT_DELETE.json' is a feature rather than a cry for help. Most tools treat your sheet like a brittle spreadsheet that forgets its history the second you commit to a bad idea, leaving you to scavenge through backups when the math inevitably drifts.
 
 ## A real table scene
 
-The player wants both futures until one of them costs karma.
-
-> **Player**<br>
-> "What if I go cyberarm now instead of magic cleanup?"
-
-> **GM**<br>
-> "Pick a lane."
-
-> **Chummer6**<br>
-> "Compared both paths. Future A hits harder. Future B survives longer. Future C is what happens when the dev lets scope vote."
-
-> **Player**<br>
-> "I suddenly respect previews."
+GM: "The street doc has the Move-By-Wire system on the table. It's used, but the firmware is clean." Player: "I'm checking the MirrorShard projection first." GM: "Your commlink overlays a blue-tinted ghost of your own nervous system over your arm." Player: "If I take this, my Initiative goes up by 4, but my Social limit drops by 2. Look at the Essence delta." GM: "The ghost version of you looks faster, but definitely twitchier. You ready to commit to the twitch?" Player: "Not yet. Let's see the Bioware alternative side-by-side." GM: "The doc is tapping his foot. He's got a line of gangers outside." Player: "Tell him to wait. MirrorShard says the bioware path keeps my Magic intact. I'm taking the bio."
 
 <p align="center"><img src="../assets/horizons/details/mirrorshard-scene.png" alt="MIRRORSHARD dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- holding two candidate futures side by side
-- diffing the rules and consequences that diverge
-- keeping provenance visible across both branches
-- making previews feel like informed choices instead of romantic mistakes
+- Refining the deterministic Lua engine to handle multi-era rulesets without state-bleed. - Hardening the 'Math-Provenance' receipts so every digit on your sheet has a verifiable paper trail. - Stress-testing the offline-first architecture for zero-latency table play.
 
 ## Why that would be great
 
-Big choices get easier to trust when you can compare the damage before you marry one timeline.
+MirrorShard turns the character sheet into a living sandbox. By leveraging deterministic comparison receipts, you can fork your build into alternate timelines—testing 'The Tank' vs 'The Infiltrator' using the exact same Karma pool. You get a side-by-side diff of every stat, limit, and Nuyen cost before you burn the bridge and commit to the permanent file.
 
 ## Why it is still a Horizon
 
-Reliable comparisons require perfect receipts; we're still forging the deterministic logic so your 'what-if' doesn't turn into a hallucinated mess.
+Building a reliable 'What If' machine requires a rock-solid core that doesn't hallucinate math when you start jumping between forks. We are currently perfecting the underlying Lua rulesets and state-management logic to ensure that a preview today doesn't become a corrupted save-file tomorrow. Precision comes first; the fancy mirrors come once the glass is unbreakable.
 
 ## What would need to exist first
 
@@ -52,7 +37,7 @@ Reliable comparisons require perfect receipts; we're still forging the determini
 
 ## Pitch your own future
 
-If your table pain is not commitment with receipts, the [Horizons index](README.md) still has plenty of future trouble.
+Got a sharper way to visualize the price of your soul? Drop your interface concepts in the Chummer6 issue tracker.
 ---
 
 _Last synced: 2026-03-13_<br>

@@ -2,9 +2,9 @@
 
 ![Chummer6 hero banner](assets/hero/chummer6-hero.png "table truth, wet sleeves, and one troll charm the dev better not lose again.")<br>_[table truth, wet sleeves, and one troll charm the dev better not lose again.](assets/hero/chummer6-hero.png)_
 
-> **Chummer6: The Engine of the Street.**
+> **The Rulebook in your Pocket. Verified.**
 >
-> Ditch the glitchy spreadsheets. Chummer6 is the high-fidelity engine your character deserves, built with deterministic logic that doesn't break when the noise hits.
+> Chummer6 is a deterministic, local-first Shadowrun toolkit designed to keep your math honest and your data off the corporate grid.
 
 If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
@@ -28,28 +28,27 @@ If you only need the one-sentence pitch, it is this: Chummer6 is trying to help 
 > **Chummer6**<br>
 > "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
 
-We're overhauling how runners manage their lives. Instead of hardcoded math-sins, we use scripted Lua rulepacks that explain their work. Every modifier on your sheet comes with a 'receipt'—a traceable line of logic showing exactly why your dice pool is what it is. We're currently focused on hardening the SR4 ruleset and ensuring the whole system works offline, so your data stays on your deck where it belongs.
+Built with modular Lua scripts, this engine delivers verifiable results for every dice pool. Whether you're running SR4 or exploring new rulesets, you get 'explain-receipt' math—meaning the app shows its work so you don't have to argue with the GM. It works entirely offline as a Progressive Web App, ensuring your character sheet is as reliable as a hardwired cyberdeck even when the local mesh goes dark.
 
 ## Why this is worth watching
 
-The grid is live. We're currently jacking in SR4 support and refining the local-first play experience.
+Follow the project to see how we're rebuilding the rules from the ground up with scripted logic that actually follow the books.
 
-- It supports multi-era rulesets plainly
-- Every modifier is a traceable receipt
-- Offline-first PWA logic
-- No hardcoded math-sins
+- Math that doesn't hallucinate
+- SR4 is finally a first-class citizen
+- Your data stays on your deck
 
 If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
 
 ## What is happening right now
 
 Right now the crew is doing trust work, not bolting neon spoilers onto half-built engines.
-Legacy math-clutter vs. clean, scripted deterministic certainty.
+Modern tools are too web-fragile; table-ready tools need to be local-first and reliable.
 
 Current focus:
-- Hardening the SR4 ruleset plugin
-- Optimizing Lua rule-pack delivery
-- Polishing the mobile workbench UX
+- Lua ruleset portability
+- SR4 plugin stability
+- Mobile-optimized session shells
 - keep public previews honestly labeled until they become the real thing
 
 - [Current phase](NOW/current-phase.md)
@@ -73,7 +72,7 @@ If you want the full guided version, read the [Program map](PARTS/README.md).
 
 ## Future rabbit holes
 
-Beyond the current grid, we're tracking intel on deeper simulation energy—think fully scripted gear-logic and dossiers that feel as heavy as a briefcase full of nuyen.
+Future nodes include deeper sim features and broader era logic—ideas currently scanning the horizon for the next jump.
 
 - [Horizons index](HORIZONS/README.md)
 

@@ -4,11 +4,11 @@
 
 **The part you feel at the table.**
 
-Mobile is the chrome you actually wear to the run. It's the local-first play shell designed to stay hot even when the corp scramblers hit the building and your signal bars drop to zero.
+Mobile is the play-shell that lives on your glass when the lead starts flying. It’s a local-first PWA designed to survive the deepest basement Wi-Fi dead zones, bundling the deterministic Lua engine directly onto your device for zero-latency math and tactical HUDs that actually follow the books.
 
 ## You touch this when...
 
-Because a character builder that needs a heartbeat from the grid just to calculate a dice pool is a liability. We're moving Chummer from 'spreadsheet for prep' to 'HUD for survival.'
+Web-devs love their 'always-online' clouds until the packets start dropping mid-combat. If your character sheet turns into a 404 the moment you step into a Faraday cage or a shitty game store basement, it’s not a tool—it’s a liability. We’re cutting the umbilical cord so your dice receipts and SR4 modifiers stay as rugged as your street-doc's cyber-repair kit.
 
 ## What it owns
 
@@ -25,7 +25,7 @@ Because a character builder that needs a heartbeat from the grid just to calcula
 
 ## What is happening now
 
-We're hardening the runtime event logs and offline sync queues. It’s less about pretty menus and more about ensuring those deterministic Lua receipts don't lag when the GM drops a physical fireball on the table.
+We’re currently hardening the offline queueing and runtime cache. It’s less about pretty pixels right now and more about ensuring your event logs and session state don't desync when the Matrix goes dark. We're building the foundation for a play-shell that handles the math provenance so you can focus on the run.
 
 ## Go deeper
 
