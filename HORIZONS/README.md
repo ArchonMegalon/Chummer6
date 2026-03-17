@@ -2,9 +2,9 @@
 
 ![Horizons overview banner](../assets/pages/horizons-index.png)
 
-Scanning the static for the next era of digital truth from a rain-slicked rooftop in the heart of the sprawl.
+The Sixth World is a mess, but your character dossier doesn't have to be.
 
-The sprawl never sleeps, and neither does the engine. Our long-range plan is locking onto incoming signals for expanded Lua-scripted rulesets and tactical session shells designed to survive the heaviest noise at the table. We are moving beyond basic character math into full-spectrum GM support and multi-era stability, ensuring your dossier remains a deterministic source of truth regardless of the campaign year. These aren't just empty promises; they are the data-trails we're currently tracking to make sure your next run is as smooth as a hot-sim jump.
+We’re deep into decrypting new data-havens to bring you full support for multiple eras. This isn't just about adding lines to a spreadsheet; it’s a long-range plan to automate the math receipts that usually slow down your game. By using moddable rule scripts, we ensure your bonuses and penalties are calculated correctly in real-time, whether you're on a desktop or using a mobile HUD. This means less time arguing over rulebooks and more time spending your nuyen. Check out the latest decrypted files in our releases or head to the issue tracker to tell us what data-haven we should hit next.
 
 > **Reality check from the troll behind the curtain**
 > These are horizon ideas, not signed blood contracts. Some may ship. Some may mutate. Some may remain beautiful nonsense forever.

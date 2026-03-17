@@ -4,11 +4,11 @@
 
 **Artifacts, publication, installs, compatibility.**
 
-The Hub Registry is the digital quartermaster for your runner toolkit. It’s the central brain that tracks every gear-pack and rule-script, ensuring your dossier stays clean and your math stays lethal.
+The Hub Registry is the definitive manifest for every gear pack, rule module, and data-shard we’ve scrubbed of digital lice. It’s the master inventory for your runner’s deck—tracking what’s published, what’s ready for the streets, and which bundles actually play nice together without bricking your cyberware.
 
 ## You touch this when...
 
-Without a proper ledger, your character data becomes an unlabeled warehouse of cursed boxes. This registry handles the compatibility checks so you don't accidentally brick your deck with a bad install mid-run.
+Without this, your character sheet is just a pile of unvetted garbage from a dark-net dumpster. The Registry stops the 'unlabeled warehouse' effect, ensuring you don’t accidentally install a cursed box of legacy ghosts that eats your character’s Essence. It’s the difference between a professional loadout and a literal system crash.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Without a proper ledger, your character data becomes an unlabeled warehouse of c
 
 ## What is happening now
 
-The current priority is scrubbing the manifests and cleaning the shelves. We're focusing on data migration and cleanup to make sure your transition is seamless, rather than bolting on experimental chrome that might crash your OS.
+We’re currently scrubbing the archives to make sure every artifact has a clean receipt. The focus is on migrating the old data-havens into a modern format that doesn't smell like a 2012 server room. We’re keeping the connection narrow so we don't accidentally let feature-creep turn your manifest into a bloated mess.
 
 ## Go deeper
 

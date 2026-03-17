@@ -4,11 +4,11 @@
 
 **The hosted API and orchestration layer.**
 
-Hub is the digital fixer in the basement, the silent switchboard that keeps your runner ID, data relays, and shared team memory from fragging out. It handles the heavy lifting for hosted play APIs and orchestration so the table experience stays smooth and your dossier stays consistent across the grid.
+Hub is the shadow-network’s silent operator—the fixer in a high-collared trench coat handling your identity, data relays, and team memory. It’s the hosted machinery that keeps your dossiers synced and your math honest across the matrix without ever pretending to be the star of the show.
 
 ## You touch this when...
 
-Because manual data syncing is a legacy nightmare that belongs in a museum. You need Hub when the team needs to coordinate gear lists, publish character previews, or keep a shared campaign memory that doesn't rely on one player's messy handwritten notes. It’s the adult supervision that ensures the math stays deterministic even when the team doesn't.
+Because manual data-shoveling is for wageslaves. When you need to coordinate a team, sync your latest chrome upgrades to a shared deck, or preview a build before committing to the digital trail, Hub provides the adult supervision. It ensures your team’s data-trails stay clean so you can focus on the run, not the handshake protocols.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Because manual data syncing is a legacy nightmare that belongs in a museum. You 
 
 ## What is happening now
 
-We’re currently hosing down the server room to stop Hub from trying to impersonate every other part of the toolkit. The mission is to keep the hosted boundary razor-sharp and lean, stripping out the 'just-in-case' bloat so the backbone stays in the shadows where it belongs, handling your handshakes without getting in the way of the local rule-crunching.
+We’re currently teaching the Hub to know its place. The mission is 'shrink-to-fit'—sharpening the security boundaries and stopping it from trying to impersonate the core engine math. We’re roasting the dev habit of letting the server-side bloat until it thinks it owns the ruleset; we're stripping it down to a leaner, meaner data-haven that stays invisible until you actually need a relay.
 
 ## Go deeper
 

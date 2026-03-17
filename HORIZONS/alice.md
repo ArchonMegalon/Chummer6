@@ -2,32 +2,40 @@
 
 ![ALICE banner](../assets/horizons/alice.png "the simulation is here to hurt your feelings before reality does.")<br>_[the simulation is here to hurt your feelings before reality does.](../assets/horizons/alice.png)_
 
-**Your build isn't a hero until the math stops laughing.**
+**Because dying in the simulation costs zero Karma.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most runners build for the dream—assuming the GM forgets about recoil, the dice always land on sixes, and nobody ever shoots back. You walk into a Stuffer Shack with a three-million nuyen dossier and get geeked by a rent-a-cop because you forgot to calculate your own stun track overflow or your armor's hardened limit. Swagger doesn't soak bullets, and 'trust me' isn't a stat.
+Most runners build for the dream where every soak roll is a miracle and the GM ignores recoil. You walk into the shadows thinking you're a tank because your spreadsheet says 'High Armor,' only to find out a single well-placed burst turns your internal logic into a casualty report. People treat character creation like a wishlist instead of a survival plan, ignoring the messy reality of situational modifiers and deterministic math.
 
 ## A real table scene
 
-GM: The HTR team rounds the corner. Roll for Initiative. Street Sam: I’ve got 20 dice and wired reflexes. I’m invincible. Alice: (Dry, digital) Error. Statistical variance projects a 74% chance of cardiac arrest by combat turn three. Street Sam: Wait, what? Alice: You over-clocked your chrome but ignored your Body stat. You are a glass cannon with a cracked lens. GM: She’s right. The first burst puts you in the dirt before you even pull the trigger. Street Sam: ...I need to go back to the workbench.
+Player: "Check the stats. I'm literally untouchable."
+GM: "ALICE says otherwise. Look at the math receipt."
+Player: "Wait, why is my evasion flickering amber?"
+GM: "Deterministic truth. You forgot the visibility modifiers in the rain."
+Player: "The simulation just tore my arm off in round two."
+GM: "Better a virtual limb than a real one. Back to the workshop, chummer."
 
 <p align="center"><img src="../assets/horizons/details/alice-scene.png" alt="ALICE dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-["- Scripting the Lua-driven rules engine to ensure every 'hit' is earned with deterministic math.", "- Hardening scenario seeds so your build's failure is reproducible, measurable, and educational.", '- Refining provenance receipts that show exactly which rule geeked you in the simulation.']
+- Hardening the SR4 deterministic engine for zero-glitch math receipts.
+- Refining the Lua rule injection to support modular scenario harnesses.
+- Building the AR-style tooltip system to visualize rule logic during stress-tests.
+- Stabilizing the runtime stack fingerprints to ensure every simulation is reproducible.
 
 ## Why that would be great
 
-Alice is a deterministic lab harness that strips the swagger off your dossier and replaces it with cold, scripted truth. By running your build through scenario seeds—reproducible stress tests—you get an X-ray of your character’s lethality and its leaks. It’s not about 'if' you can win; it’s about proving why you survived or exactly which round you folded under the pressure of a simulated HTR sweep. It provides the math receipts that turn a 'GM call' into a hard data point.
+ALICE is the cold, clinical reality check every runner needs before the shooting starts. By using the core engine’s deterministic truth and reproducible seeds, she runs your build through a virtual meat-grinder to find the exact microsecond your swagger turns into a casualty report. It’s not about luck; it's about seeing the math receipts for every soak roll and missed shot so you can fix the leaks in your build before they become leaks in your suit.
 
 ## Why it is still a Horizon
 
-This is a high-orbit horizon concept on our long-range plan, not active build work you can pull from a repo today. We are currently focused on grounding the core rulesets and ensuring the engine can handle basic SR4 math before we let a sadistic simulation start roasting your dice pools. The foundation has to be unbreakable before we build the crucible designed to snap it.
+The simulation director is currently undergoing sensor calibration. We are finalizing the multi-era rule scripting and hardening the core engine to ensure that when ALICE tells you that you're dead, she has the receipts to prove it. This stays in the long-range plan until the runtime is stable enough to handle the high-intensity data-shards required for a true stress-test.
 
 ## What would need to exist first
 
@@ -38,7 +46,7 @@ This is a high-orbit horizon concept on our long-range plan, not active build wo
 
 ## Pitch your own future
 
-Think your build is bulletproof, or do you have a better idea for how the math should hurt your feelings?
+Got a nightmare scenario that would melt a Prime Runner? Pitch your most sadistic test harness to the long-range plan.
 ---
 
 <sub>Updated: 2026-03-13</sub>

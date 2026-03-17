@@ -4,11 +4,11 @@
 
 **The part you feel at the table.**
 
-This is the deck in your hand when the lead starts flying. The Mobile shell is a local-first, installable toolkit that keeps your character dossier snappy and responsive, even when you’re pinned down in a concrete bunker with zero grid signal. It’s the moment the project stops being a character workbench and starts being your lifeline at the table.
+This is your tactical HUD, the piece of gear that stays in your hand when the lead starts flying. It’s a local-first session shell that lives on your hardware, ensuring your dossier stays live even when the grid is ghosting you in the Barrens.
 
 ## You touch this when...
 
-Most digital sheets turn into expensive bricks the moment the GM's Wi-Fi chokes or a jammer cycles up. We prioritize local-first state so your math stays deterministic and your condition monitors stay live regardless of your uplink status. It’s gear that survives the static and syncs your session data the second you find a clean connection.
+A character builder is for the safehouse; a mobile shell is for survival. It handles the heavy lifting of rule-checking and modifier stacks, providing 'Math Receipts' so you don't have to pause the action to prove your dice pool is legal.
 
 ## What it owns
 
@@ -25,7 +25,7 @@ Most digital sheets turn into expensive bricks the moment the GM's Wi-Fi chokes 
 
 ## What is happening now
 
-We’re currently deep in the guts of the runtime cache and event logs. The devs are being forced to stop chasing shiny UI chrome and focus on the invisible plumbing: hardening the offline queuing and sync logic. It’s less about pretty pixels and more about making sure your dossier doesn't glitch when you need to burn Edge.
+We're hardening the event logs and offline queues because 'always-on' is a corpo lie. For the devs who think 'deterministic' is a personality trait, we’re making sure the engine runs exactly the same way every time, even if your battery is screaming for mercy.
 
 ## Go deeper
 

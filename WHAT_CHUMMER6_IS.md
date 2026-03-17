@@ -2,9 +2,9 @@
 
 ![What Chummer6 is banner](assets/pages/what-chummer6-is.png "product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.")<br>_[product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.](assets/pages/what-chummer6-is.png)_
 
-Meet the new digital backbone for your runner: a character engine that actually adds up.
+Your character isn't a spreadsheet; it's a digital dossier that finally shows its work.
 
-Forget those clunky spreadsheets that break the moment you add a specialized cyber-arm. Chummer6 is built on a deterministic engine—that’s street-speak for 'math that provides a receipt for every rule.' It uses visible scripts to handle complex SR4 rulesets, ensuring your stats are accurate even when you're deep in the static. Because it is a local-first application, your character data stays on your burner phone or tablet, not in some vulnerable corporate cloud.
+Chummer6 is a local-first toolkit built to survive a total grid crash. Unlike older tools that hide their logic in a black box, we've moved the rules into readable scripts. Every stat comes with a 'Math Receipt'—a simple breakdown showing exactly where every bonus and penalty originates. Whether you're running on your phone at the table or a workstation in the safehouse, it's fast, offline-ready, and handles the math so you can focus on the run.
 
 ## What it is becoming for players and GMs
 

@@ -4,11 +4,11 @@
 
 **Shared chrome, themes, and visual primitives.**
 
-UI Kit is the digital chrome for your deck. It provides the themes, badges, and interface tokens that keep the sprawl of modules looking like a single, lethal tool instead of a collection of scavenged parts held together by duct tape and mood swings.
+The UI Kit is the visual DNA of your runner's workspace—the tokens, themes, and AR chrome that keep your deck from looking like a patchwork of scavenged logic boards. It provides the shared vocabulary of badges, banners, and accessibility-first primitives that every module plugs into, ensuring you don't have to navigate a new interface every time you swap from your gear list to your spellbook.
 
 ## You touch this when...
 
-This is how we stop the interface from looking like seven different gangs fought over a single monitor. By using shared primitives, we ensure your HUD stays consistent and readable, so you can focus on the run instead of wrestling with a messy layout.
+Consistency saves lives, or at least your eyesight. This is how the system stays coherent instead of looking like seven different gangs met in a dark parking lot to 'collaborate' on a dashboard. It guarantees that a status effect or a dice pool modifier looks the same across the entire engine, so you can spend less time squinting at the screen and more time avoiding the HTR team.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ This is how we stop the interface from looking like seven different gangs fought
 
 ## What is happening now
 
-The kit proves its worth by making the rest of the project smaller. We're currently stripping out the 'unique' UI hacks and replacing them with professional-grade tokens that work across every era and device.
+We're currently gutting the 'bespoke' (read: duct-taped and buggy) styles and replacing them with these hardened primitives. The UI Kit only earns its keep when the codebase gets smaller and the interface gets sharper. If it doesn't feel like a high-contrast HUD reflecting off wet asphalt, we haven't finished the job.
 
 ## Go deeper
 

@@ -2,11 +2,11 @@
 
 ![Public surfaces banner](../assets/pages/public-surfaces.png)
 
-You aren't looking at a slideshow or a 'coming soon' poster. This is the live deck, running actual math right in your browser.
+Welcome to the data-tap. This isn't a mock-up or a promise; it's a live look at the engine that keeps your stats honest.
 
 ## Current public reality
 
-The preview build lets you put the engine through its paces today. It handles rules via a dedicated scripting system that lives on your device, not in some distant cloud. If you want to see how we are handling recoil compensation or gear dependencies without waiting for a server to wake up, this is where the rubber hits the sprawl. Since it is an installable web app, it stays on your phone or deck even when the local grid goes dark.
+The preview you're looking at is the actual application shell running a deterministic Lua engine. You can verify your SR4 character math right now with explainable receipts that show exactly where every modifier comes from. Because the system is local-first, your character dossier stays on your own hardware, meaning you can keep your head—and your stats—even if the grid goes dark.
 
 These are still preview, not the final public shape:
 

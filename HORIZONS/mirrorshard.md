@@ -2,32 +2,39 @@
 
 ![MIRRORSHARD banner](../assets/horizons/mirrorshard.png "compare both bad ideas before the dev asks you to commit to one.")<br>_[compare both bad ideas before the dev asks you to commit to one.](../assets/horizons/mirrorshard.png)_
 
-**Fork your future before the chrome hits the bone.**
+**Compare alternate futures before you commit the chrome to the bone.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Character building is usually a one-way street paved with 'I wish I hadn't done that' moments. The current dev philosophy assumes you enjoy manual bookkeeping or that your brain can perfectly simulate three different Essence-loss scenarios at once. Without a way to side-load a 'what-if' build, you're just guessing whether that custom cyber-arm is worth the massive Social Limit hit until it's already installed and your Nuyen is gone.
+Most tools treat character progression like a one-way flight into a brick wall. Devs love to tell you to 'just branch it,' as if you're running a Git repo instead of a street-sam with a bleeding head wound and three hours of theory-crafting on the line. In the current state of the sprawl, 'undo' is usually a prayer or a manual file backup that you'll definitely forget to rename until it's too late.
 
 ## A real table scene
 
-GM: 'The street doc has the Beta-grade reflex recorders, but he's also offering a refurbished Move-By-Wire system.' Decker: 'Hold on, let me toggle the Mirrorshard overlay.' Samurai: 'If you take the MBW, you're a walking seizure waiting to happen.' Decker: 'Yeah, but look at the Initiative delta on this ghost-build...' GM: 'The clock is ticking. The Doc doesn't like tourists.' Decker: 'Checking the Essence burn... okay, the MBW kills my Social limit. Recorders it is.'
+[GM]: "The Ripper's got two options for your arm. The wired-reflexes-compatible model, or the one that actually lets you hold a heavy weapon without snapping your radius."
+[SAMI]: "Wait, if I take the Wired 2, does my Reaction boost offset the Agility loss on the heavy mount?"
+[GM]: "Check your Mirrorshard tab. I pushed both manifests to your commlink."
+[SAMI]: "Option A puts me at 0.02 Essence. Option B gives me a higher dice pool but I lose the extra Initiative pass."
+[GM]: "Tick-tock. The anesthetic is wearing off."
+[SAMI]: "Option B. I'll take the recoil over the twitch."
 
 <p align="center"><img src="../assets/horizons/details/mirrorshard-scene.png" alt="MIRRORSHARD dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Hardening the Lua rules engine to ensure math stays deterministic across every potential fork. - Drafting the provenance logic so every 'what-if' leaves a digital paper trail for the GM to audit. - Refining the mobile UI to make side-by-side diffs readable on a 5-inch commlink screen.
+- Hardening the math engine to ensure every stat fork is mathematically sound and deterministic.
+- Refining local-first storage so your 'what-if' builds don't bloat your browser cache.
+- Scripting Lua-based migration receipts that show exactly why your stats changed between versions.
 
 ## Why that would be great
 
-It’s the difference between a 'trust me' build and a calculated evolution. Mirrorshard renders two alternate futures side-by-side with a punchy diff of your stats, Essence, and Nuyen. You get a preview receipt of the transformation before you commit to the scar, allowing you to compare the 'ghost' of a potential upgrade against your current meat without turning your dossier into a graveyard of abandoned files.
+Everyone says they want meaningful choices, but what they usually mean is they want to compare both mistakes before they marry one. Mirrorshard turns that desire into a tactical HUD. It generates a side-by-side comparison of two character states—Path A versus Path B—complete with math receipts that explain exactly where your Nuyen and Essence are going. Instead of staring at a spreadsheet and hoping your mental math is right, you get a 'ghost image' of your future self, allowing you to A/B test your soul before you finalize the surgery.
 
 ## Why it is still a Horizon
 
-The dev is currently neck-deep in the 'deterministic math' trenches, ensuring that every scriptable rule behaves exactly the same way across every fork. While they spend their time roasting legacy math bugs and polishing the Lua foundations, the actual visual 'ghosting' logic remains on the horizon. It turns out building a time machine for your stats takes more effort than just hitting Ctrl+Z.
+This is deep Horizon territory. Building a system that can track multiple 'simulated futures' without corrupting your primary character record requires a deterministic engine more stable than a corporate black site. We're currently perfecting the way the UI handles 'diffing' complex character data so it doesn't just look like a wall of red and green text, but an actual comparison of your tactical capabilities.
 
 ## What would need to exist first
 
@@ -37,7 +44,7 @@ The dev is currently neck-deep in the 'deterministic math' trenches, ensuring th
 
 ## Pitch your own future
 
-Think you know a cleaner way to show the cost of chrome? Drop a line in the issue tracker.
+Got a cleaner way to visualize the moment you trade your humanity for a few extra dice? Pitch it at the repo.
 ---
 
 <sub>Updated: 2026-03-13</sub>

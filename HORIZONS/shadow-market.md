@@ -2,32 +2,39 @@
 
 ![Shadow Market banner](../assets/horizons/shadow-market.png "shopping, but with enough trust signals to survive the dev's taste in plugins.")<br>_[shopping, but with enough trust signals to survive the dev's taste in plugins.](../assets/horizons/shadow-market.png)_
 
-**Ditch the back-alley lobotomy. Source the street's best logic through a verified data-fence.**
+**Ditch the back-alley lobotomy. Upgrade your deck with verified street logic.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Most mod managers are just glorified zip-extractors that pray your local math doesn't implode. Without a verified registry, you’re just one 'experimental' script away from a digital lobotomy. You need to know if a plugin plays nice with your custom era-scripts before it slags your character dossier.
+Most mod managers are just glorified zip-extractors that pray your local math doesn't implode. You download a 'Total Combat Overhaul' and suddenly your Street Sam's initiative is calculated in base-7 and your cyber-eyes only see in spreadsheet cells. Without a way to see real-time compatibility projections and moderation states before you commit, every new plugin is a potential head-crash.
 
 ## A real table scene
 
-GM: 'Where did you get the math for that cyber-arm's recoil compensation?' Player: 'Shadow Market. It’s a verified Chrome & Cordite Lua pack.' GM: 'Wait, does it stack with your active Reflex Recorder script?' Player: 'Checking the compatibility projection... green light.' GM: 'Verified provenance? No back-alley math?' Player: 'Receipts are in the metadata. 100% deterministic.' GM: 'Fine. Roll it. At least I don't have to audit your XML today.'
+GM: "The data-chip looks clean, but your deck's integrity-sweep is throwing amber."
+Decker: "Let me run it through the Shadow Market filter first."
+GM: "The HUD highlights three logic-drifts. If you install this, your smartlink might start identifying teammates as 'optional loot'."
+Decker: "Skip the install. I'm not bricking my rig for a 2% accuracy boost."
+Street Sam: "Smart move. I've seen 'verified' chips turn a rigger into a very expensive paperweight."
+GM: "The fence shrugs, 'Quality costs extra. You want the stable build or the one that's still bleeding?'"
 
 <p align="center"><img src="../assets/horizons/details/shadow-market-scene.png" alt="Shadow Market dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Hardening the Lua plugin contract to prevent script-drift. - Refining registry metadata so 'Experimental' actually means 'Wear a helmet'. - Mapping provenance receipts to ensure every rule-change has a traceable origin.
+- Standardizing registry metadata so every pack tells the truth about what it touches.
+- Hardening the moderation staging logic to keep cursed code off the street.
+- Mapping compatibility projections to predict math-clashes before they happen.
 
 ## Why that would be great
 
-It turns the chaotic sprawl of community plugins into a professional data-fence. You get high-contrast compatibility projections and moderation truth-signals before you ever touch your local-first character state. It’s about having a discovery surface that values deterministic math over shiny, broken spreadsheets.
+It turns a blind download into an informed acquisition. By surfacing compatibility projections and promotion stages directly on the package cards, you can see exactly how a new rule-pack or gear-set interacts with your existing character dossier. It’s the difference between buying a used cyber-arm from a guy in a dumpster and getting it tuned at a high-end black clinic—one works, the other gives you a recurring twitch.
 
 ## Why it is still a Horizon
 
-We’re perfecting the core engine’s Lua-scripting and SR4 rule-integrity first. A marketplace is just a scam mall if the underlying registry doesn't have the teeth to enforce compatibility truth. We aren't building a storefront; we're building the trust layer that ensures your runner survives the dev's questionable taste in 'community' logic.
+Building a trustworthy data-fence requires more than just a 'Download' button; it needs a robust registry that can actually parse the long-range plan's logic. We're waiting for the core engine to fully stabilize its multi-era math before we open the floodgates. We'd rather keep the market closed than invite you into a digital scam-mall where 'User Verified' just means 'I haven't crashed yet today'.
 
 ## What would need to exist first
 
@@ -38,7 +45,7 @@ We’re perfecting the core engine’s Lua-scripting and SR4 rule-integrity firs
 
 ## Pitch your own future
 
-If you’ve got a sharper way to fence rule-packs without the back-alley risk, drop the intel in the issue tracker.
+If you've got a better way to vet a data-fence or want to help define the next generation of trust signals, pitch your logic over at the long-range planning deck.
 ---
 
 <sub>Updated: 2026-03-13</sub>

@@ -4,11 +4,11 @@
 
 **Render-only asset lifecycle.**
 
-Media Factory is the grease-stained basement forge where your runner's digital assets get hammered into shape. It handles the heavy lifting—render jobs, previews, and those temperamental signed URLs—so the rules engine doesn't have to carry the extra weight. It’s the specialized hardware that keeps your dossier from looking like a corrupted data-fragment when the grid starts screaming.
+Media Factory is the heavy-duty workshop where your character's visual identity is forged into digital reality. It manages the lifecycle of every icon and gear render, ensuring your dossier looks sharp without bogging down the rules math or making your deck run like it's stuck in a localized static zone.
 
 ## You touch this when...
 
-You don't want the math engine grinding to a halt just because a portrait won't load. This pipeline ensures that visual assets stay in their own lane, protecting the core rules from the lazy 'everything-is-a-blob' habits that usually melt architectures. It’s the difference between a clean AR-HUD and a deck-crashing memory leak when you decide to upload a high-res scan of your favorite Ares Predator.
+If you want high-res visuals without your hardware melting into a puddle of slag, you need a dedicated forge. This keeps the asset-handling mess separate from the crunch, meaning your portraits and gear previews load instantly even when the matrix gets noisy. It’s industrial-grade reliability for your visual street-cred.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ You don't want the math engine grinding to a halt just because a portrait won't 
 
 ## What is happening now
 
-Currently in the scaffold stage—mostly a skeleton crew and a few humming server blades. We’re keeping the seam narrow and the logic stable before we start pouring in the heavy assets. If you see a broken icon or a render hang, hit the issue tracker; otherwise, just know the industrial plumbing is being laid for a much prettier sprawl.
+The foundry is currently in its scaffold phase, focusing on building a rock-solid foundation for asset delivery. We’re keeping the scope narrow until the data-pipes are stable enough to handle a full-scale rollout. If you’re a code-monkey looking to tinker with the plumbing, the repository is open for inspection.
 
 ## Go deeper
 

@@ -4,11 +4,11 @@
 
 **The deterministic rules engine.**
 
-Core is the digital black box where the numbers finally stop bluffing. It’s the deterministic brain of the system, handling the rules and the math so you can stop arguing about whether that specialty bonus actually stacks.
+The Core is the high-bandwidth logic unit where the numbers stop bluffing. It’s the deterministic engine that handles the heavy lifting—modifiers, dice pools, and rule-checks—so you can focus on the run instead of arguing over page 142 of a damp rulebook. It’s local-first and offline-ready, meaning your dossier stays on your deck, not in some corporate cloud that’ll crash the moment the jammer kicks in.
 
 ## You touch this when...
 
-Because when the GM asks for your dice pool, 'I think it's 12' doesn't cut it. Core provides the math receipts and Lua-scripted truth, making your dossier rule-lawyer proof and ensuring the engine doesn't start hallucinating bonuses from a junk drawer of old code.
+Because when your Street Sam is staring down a Red Samurai and needs to know exactly why their initiative just spiked, 'trust me' doesn't cut it. We’ve moved the logic to a scriptable Lua engine that provides math receipts for every calculation. If a dice pool looks weird, you can audit the logic yourself. It’s about transparency and total era support—starting with a hardened SR4 core that actually respects the math.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Because when the GM asks for your dice pool, 'I think it's 12' doesn't cut it. C
 
 ## What is happening now
 
-The mission is purification: stripping out the legacy noise and tightening the SR4 ruleset integration. We’re keeping the engine lean and mean so it provides absolute truth, even when your grid connection is nothing but static.
+Right now, we’re in a purification phase. Our code-monkeys are stripping out their favorite junk-drawer habits and hardening the SR4 logic to ensure every modifier is deterministic and explainable. We're refining the mobile prep surface to make sure it doesn't feel like a lazy port of a desktop spreadsheet. The goal is a lean, mean engine that treats your character like a dossier, not a data-entry error.
 
 ## Go deeper
 

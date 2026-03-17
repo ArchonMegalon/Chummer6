@@ -4,11 +4,11 @@
 
 **The workbench and big-screen UX.**
 
-This is the heavy chrome: the high-density forge where you strip your loadout down to the sensors. It’s a workbench-side experience for the runners who need to see the internal clockwork of their kit before the first bullet flies.
+The UI is the heavy-duty workbench for when you’re done squinting at a commlink and ready to do some actual engineering. This is high-density chrome for the big screen—inspectors, builders, and deep-view dossiers for runners who treat their gear like a religion and their stats like a blueprint.
 
 ## You touch this when...
 
-Because 'trust me' is a great way to end up as static. You need a prep surface that makes your gear transparent, not a black box of legacy math and 'close enough' assumptions. If you can’t inspect it, you don’t own it.
+Because guessing is for people who don't mind their cyber-arm glitching in a firefight. This part of the kit provides the math receipts that show the work. It makes the system inspectable instead of mystical, allowing you to audit every modifier and rule until you’re certain your build is street-legal—or at least street-lethal.
 
 ## What it owns
 
@@ -24,7 +24,7 @@ Because 'trust me' is a great way to end up as static. You need a prep surface t
 
 ## What is happening now
 
-We're currently gutting the bloat and refining the big-screen authoring flow. The mission is to keep the workbench powerful while shedding the identity crisis—ensuring the UI stays focused on deep builds and gear-head scrutiny without tripping over mobile play concerns.
+The current objective is a heavy purge of the 'it worked on my machine' philosophy. We're deleting the hosted-service clutter and half-baked features to focus on a hardened prep surface. If a component doesn't help you build a better runner, it’s being tossed out of the airlock. We’re sharpening the inspectors so the UI feels like a precision tool instead of a dev’s junk drawer.
 
 ## Go deeper
 

@@ -2,9 +2,9 @@
 
 ![Parts overview banner](../assets/pages/parts-index.png)
 
-The sprawl is a mess of conflicting data, but your toolkit should stay sharp. This is the field guide to the modular gear that makes the engine purr.
+A runner's kit is only as good as its components. Use this field guide to find the specific gear you need to get the job done.
 
-Think of these as the components of a high-end cyberdeck. We have the core engine for the heavy math, specialized data packs for different game eras, and mobile-ready shells for your screen. This modular approach means you can swap out rulesets as easily as changing a clip on an Ares Predator. If you are looking for the latest stable version of a specific component, head over to the official releases.
+We’ve broken the toolkit into precision modules so you can customize your experience. The SR4 core provides the foundational rules, while our Lua rule-packs let you see the logic behind the math or even script your own house rules. If you're planning your next move on the street, the mobile-first HUD provides a streamlined prep surface that fits on your commlink without the lag of a cloud-based app.
 
 ## What you actually notice first
 

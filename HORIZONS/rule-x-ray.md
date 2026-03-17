@@ -2,32 +2,38 @@
 
 ![RULE X-RAY banner](../assets/horizons/rule-x-ray.png "every modifier gets dragged into the light like it owes the table money.")<br>_[every modifier gets dragged into the light like it owes the table money.](../assets/horizons/rule-x-ray.png)_
 
-**Every modifier gets dragged into the light like it owes the table money.**
+**Stop guessing why your dice pool just cratered. Drag every modifier into the light like it owes the table money.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Opaque math is the fastest way to kill a session and lose trust. When a dice pool smells wrong, the game stops for a ten-minute forensic audit of every cyberware buff, wound penalty, and 'did I remember the smartlink?' argument. Without a paper trail, you aren't playing a tactical RPG; you're just guessing numbers and hoping the GM is too tired to check your work.
+Shadowrun math is a jagged stack of bad life choices, chrome-plated buffs, and 'GM says so' penalties. Most tools just spit out a final number and expect you to trust the machine. When the math feels like voodoo, the game grinds to a halt while three people flip through PDFs to find out if a specific wound penalty stacks with a background count. Opaque math is the fastest way to kill the tension of a run.
 
 ## A real table scene
 
-GM: "Wait, why are you rolling 18 dice for a snap-shot?" Runner: "Uh, smartlink, vision mag, and... synth-cardio?" GM: "Rule X-Ray. Open the stack." *Runner clicks the dice pool.* HUD: [Base 6] + [Skill 5] + [Smartlink 2] + [Adept Power 3] + [Synth-cardio 2] GM: "Synth-cardio is for Athletics, Chummer. Turn it off." Runner: "Frag. The deck doesn't lie."
+GM: "That's a -7 penalty on the hack, Neon. The noise in this sprawl is brutal."
+Neon: "Minus seven? I'm literally sitting on a satellite uplink and running a signal filter."
+GM: "The noise, the grid-spam, and your biofeedback wounds... it adds up, omae."
+Neon: [Taps the glowing red dice pool total on his deck's HUD]
+Neon: "Rule X-Ray's showing the receipts. The uplink is nullifying the spam entirely."
+GM: "Wait, let me see that... Huh. The Lua trace says the uplink rule takes precedence over local noise."
+Neon: "Exactly. I'm only at a -3. Now watch me melt this host."
 
 <p align="center"><img src="../assets/horizons/details/rule-x-ray-scene.png" alt="RULE X-RAY dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Hardening the Lua engine to ensure every script produces a verifiable receipt. - Mapping SR4 modifier chains to ensure edge cases don't vanish into the static. - Building the 'Provenance UI' that turns a messy math stack into a readable AR-style HUD.
+['- Hardening the Lua rules engine to ensure every modifier has a deterministic, traceable paper trail.', '- Polishing the mobile HUD to handle deep-nested math stacks without looking like a 20th-century tax form.', "- Refactoring legacy rule logic into clean, auditable packs that can't hide behind 'magic' constants."]
 
 ## Why that would be great
 
-Rule X-Ray gives every digit a birth certificate. Instead of 'just trust the machine,' the engine exposes the deterministic logic behind every calculation. Whether it’s a Lua-scripted equipment buff or a hard-coded wound penalty, the system points directly at the rulebook logic that put it there. It turns 'Wait, that's wrong' into an instant, non-negotiable receipt for your dice pool.
+Rule X-Ray turns your character sheet from a static spreadsheet into a living, auditable dossier. Every number becomes a clickable provenance receipt, showing you exactly which Lua script, gear piece, or status effect is touching your dice pool. It’s the end of 'voodoo math'—if a modifier is there, the machine can prove why, giving GMs and players a single source of truth that doesn't require a degree in arcane accounting or a three-hour dive into the rulebooks.
 
 ## Why it is still a Horizon
 
-We're roasting the legacy habit of 'black box' logic where math just happens in a hidden corner of the code. Until the engine can guarantee a perfect audit trail for every era-specific plugin, we aren't letting it out of the shadows. We’re busy ensuring the UI doesn’t look like a tax audit, but rather a high-speed diagnostic scan of your character’s internal systems.
+This isn't a weekend UI patch for devs who think 'deterministic' is just a fancy word for 'it worked on my machine.' It requires a ground-up engine where every rule is a first-class citizen with a traceable ID. We're currently refactoring the core rulesets into clean Lua packs so that when you click a '4', the engine doesn't just say 'because,' it points to the exact line of code and the specific piece of gear that put it there. We're building the foundation of trust before we turn on the lights.
 
 ## What would need to exist first
 
@@ -37,7 +43,7 @@ We're roasting the legacy habit of 'black box' logic where math just happens in 
 
 ## Pitch your own future
 
-Think the modifier stack needs a better diagnostic filter? Signal the tracker and help us refine the math-vision of the long-range plan.
+If you've ever lost a firefight to a math error, tell us how you'd want to see the receipts—the long-range plan is always looking for a sharper lens.
 ---
 
 <sub>Updated: 2026-03-13</sub>

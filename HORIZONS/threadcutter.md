@@ -2,32 +2,40 @@
 
 ![THREADCUTTER banner](../assets/horizons/threadcutter.png "because every clever overlay eventually meets another clever overlay in a dark alley.")<br>_[because every clever overlay eventually meets another clever overlay in a dark alley.](../assets/horizons/threadcutter.png)_
 
-**Snip the conflicts before they flatline your sheet.**
+**Snip the digital overlaps before your character sheet becomes a glitchy abstract masterpiece.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Every custom overlay is a masterpiece until it meets another one in a dark alley. Without a forensic scalpel, your high-concept 'Neo-Tokyo' ruleset and your 'Black Market Cyberware' pack will eventually fight over the same logic hooks, leaving you with a character sheet that looks like a corrupted data-bomb. When two logic packs try to rewrite the same math, the runner is usually the one who pays the price in bricked dossiers and lost sessions.
+Devs love to believe their Lua script is a delicate snowflake, ignoring the fact that you’re probably stacking it with twelve other scripts in a blizzard of bad dependencies. Most code is written as if it's the only thing running, hardcoding overrides that turn other mods into digital static. When two of these 'chosen one' scripts meet in a dark alley, your character sheet doesn't just break—it flatlines. Without a forensic tool to spot the turf war, your runner is just digital scrap waiting for a reboot.
 
 ## A real table scene
 
-GM: Okay, roll for the wireless hack. Player: Hold on, my dice pool just changed from 12 to 'Error 404: Logic Not Found'. GM: Did you install that new 'Hardboiled Matrix' overlay on top of the 'Glitched Grid' pack? Player: Yeah, I thought they'd play nice. GM: They're currently strangling each other in your rule stack. Player: Great. The sheet is blinking red and my Commlink thinks it's a toaster.
+GM: "Roll Initiative. Why are you staring at your commlink like it's a live grenade?"
+Player: "The sheet says I have 40 Initiative dice. I think my mods are... cooperating too much."
+GM: "Did you install that 'Ultra-Reflexes' script on top of the 'Wired Reflexes' fix?"
+Player: "Maybe? It's all just red text now."
+GM: "Congrats, your nervous system is a feedback loop. Roll to not explode."
+Player: "Hold on, Threadcutter just found the collision in the Lua stack. Snipping the extra threads."
+GM: "Fix it fast, or the street doc is getting a new organ donor."
 
 <p align="center"><img src="../assets/horizons/details/threadcutter-scene.png" alt="THREADCUTTER dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-['- Standardizing the Lua-hook handshake to prevent silent data-bleeds during pack initialization.', "- Engineering the 'Rollback Receipt' so you can undo a bad rule-tweak without a total dossier wipe.", '- Stress-testing the conflict reporter to catch mod-on-mod violence before the first die hits the table.']
+- Scripters are pushing the boundaries of what the Lua engine can rewrite without a total crash.
+- The long-range plan is stabilizing how multi-era rulepacks can talk to each other.
+- Math receipts are being polished to show you exactly which mod is responsible for your current stats.
 
 ## Why that would be great
 
-Threadcutter turns 'I hope this works' into 'Here is exactly why it didn't.' It provides a forensic report of where two logic streams collided, giving you the power to choose which rule wins or how they merge. It’s the difference between a bricked dossier and a surgical adjustment, ensuring your math stays deterministic even when your mod list is pure chaos.
+Threadcutter is the ultimate runtime auditor for your character’s soul. It treats your rule stack like a piece of high-end cyberware, identifying the exact point where two mods are fighting over the same data-port. Instead of a cryptic error message, you get a surgical view of the conflict and the tools to snip the problem before it flatlines your session. It turns 'the app crashed' into 'here is the exact script that tried to steal your Agility stats.'
 
 ## Why it is still a Horizon
 
-This tech is currently on the horizon—a visible data-trail but not yet grounded in the main build. We are prioritizing the stability of core SR4 rulesets before we let the overlays start fighting for territory. Once the engine is hardened enough to handle competing logic without flinching, we'll hand you the shears.
+This isn't in the active build pile yet because untangling three-way script collisions is like trying to defuse a bomb with a pair of chopsticks while a troll is punching you. It's a horizon goal—a piece of future-tech we're decrypting to ensure that when you finally get your hands on a fully moddable engine, you don't spend more time debugging your stats than you do dodging bullets. We're waiting for the core engine to be bulletproof before we start letting mods take potshots at it.
 
 ## What would need to exist first
 
@@ -37,7 +45,7 @@ This tech is currently on the horizon—a visible data-trail but not yet grounde
 
 ## Pitch your own future
 
-Got a sharper way to handle rule collisions? Drop a data-spike in the issue tracker and help us sharpen the blade.
+Got a sharper way to handle a digital knife-fight between mods? Drop your logic in the issue tracker.
 ---
 
 <sub>Updated: 2026-03-13</sub>

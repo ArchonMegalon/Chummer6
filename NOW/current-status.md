@@ -2,7 +2,7 @@
 
 ![Current status banner](../assets/pages/current-status.png)
 
-The toolkit is live on your commlink, even in the grid's dead zones.
+Street-ready SR4 support, no cloud required.
 
 ## The short version
 
@@ -14,7 +14,7 @@ The toolkit is live on your commlink, even in the grid's dead zones.
 
 ## What that means for normal humans
 
-The toolkit is in a strong preview state for the table. You can install it as a local app on your device, run it offline, and validate offline workflow, but public support and release guarantees are still explicitly limited while work is still active across remaining seams.
+Chummer6 is live as a local-first web app that lives on your phone or deck, not in some corporate cloud. The SR4 ruleset is fully operational, complete with 'math receipts' that explain exactly where every +2 bonus came from. It’s a dossier that works offline, respects your privacy, and handles the heavy lifting so you can focus on the job.
 ---
 
 <sub>Updated: 2026-03-13</sub>

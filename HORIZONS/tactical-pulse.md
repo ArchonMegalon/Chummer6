@@ -2,32 +2,37 @@
 
 ![Tactical Pulse banner](../assets/horizons/tactical-pulse.png "shared situational awareness for the exact moment everyone swears they were paying attention.")<br>_[shared situational awareness for the exact moment everyone swears they were paying attention.](../assets/horizons/tactical-pulse.png)_
 
-**Sync your team's sensors before the noise hits the fan.**
+**The shared brain your team keeps forgetting to bring to the table.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-The average combat turn is a chaotic mess of 'I thought he was dead' and 'Wait, which door?' Most runners flatline not because they lacked the skill, but because their situational awareness was handled by four people yelling conflicting drek over a bag of soy-chips. It’s a verbal handshake failure that costs lives and ammo.
+Combat confusion isn't a strategy choice; it's a data failure. The second the lead starts flying, the team's collective memory usually has the lifespan of a burner commlink. If half your session is spent asking 'Wait, who moved?' you aren't fighting the corps—you're fighting your own UI.
 
 ## A real table scene
 
-GM: 'HTR Team Two is breaching the loading dock.' Samurai: 'The one I just suppressed?' Decker: 'No, that was dock alpha. These guys are at beta.' Mage: 'I’ve got a fireball held for alpha.' Samurai: 'Fragging hell, does anyone actually know where the drek is hitting the fan?' GM: 'If only your sensor tags actually talked to each other.'
+GM: 'The Knight Errant patrol rounds the corner. Roll Initiative.'
+Samurai: 'Wait, didn't I geek the mage in the second pass?'
+GM: 'No, that was the decker's agent. The mage is still behind the crates.'
+Decker: 'Wait, which crates? I thought we were in the alley.'
+Mage: 'I cast Physical Barrier. Is that still up?'
+Rigger: 'Guys, I've been suppressed for three turns. Can someone please look at the map?'
 
 <p align="center"><img src="../assets/horizons/details/tactical-pulse-scene.png" alt="Tactical Pulse dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Hardening session authority logic to turn dice rolls into verified tactical truth. - Refining event envelopes to ensure your HUD stays live even when the grid goes dark. - Stress-testing local-first sync to keep the team aligned without a central server lag-spike.
+['- Hardening the SR4 core engine to ensure math receipts never lie during high-stress rolls.', '- Polishing local-first sync envelopes so your tactical data stays on your hardware, not in a cloud.', '- Streamlining the event-history layer to translate messy code-level state changes into clean table stories.']
 
 ## Why that would be great
 
-Tactical Pulse turns individual session data into a unified, deterministic truth. It leverages local-first sync to provide a shared AR-HUD for the whole table, ensuring that when the Decker marks a target or the Mage spots a spirit, everyone sees the same threat vectors in real-time. It’s about killing the phrase 'Wait, what just happened?' and replacing it with coordinated lethality.
+Imagine a shared HUD that actually updates when the grenades go off. Tactical Pulse turns chaotic session data into a clean, shared situational map. It tracks threat markers, active penalties, and team status in real-time across every device at the table. No more 'who's next?' or 'is he still bleeding?'—just the cold, hard truth reflected in everyone's visor simultaneously.
 
 ## Why it is still a Horizon
 
-Because if the core math is broken, a shared tactical view is just a high-definition way to watch everyone fail simultaneously. We're busy nailing the deterministic rules engine and Lua-scripted era support. Once the logic is bulletproof, we'll start wiring the team-wide sensor net.
+Most 'real-time' tools are just glorified IRC channels with a math problem, and we refuse to ship a half-baked chat room that desyncs the moment a mage casts a fireball. We are busy perfecting the 'Session Authority' logic—the invisible digital referee that ensures every player sees the same chaos in the same order before we turn the lights on.
 
 ## What would need to exist first
 
@@ -38,7 +43,7 @@ Because if the core math is broken, a shared tactical view is just a high-defini
 
 ## Pitch your own future
 
-Ready to stop guessing? Watch the horizon and track the core math on our official trackers.
+If you have a cleaner way to visualize the mess of a twelve-second firefight without turning the screen into a spreadsheet, drop your lead in the issue tracker.
 ---
 
 <sub>Updated: 2026-03-13</sub>

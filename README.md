@@ -2,9 +2,9 @@
 
 ![Chummer6 hero banner](assets/hero/chummer6-hero.png "table truth, wet sleeves, and one troll charm the dev better not lose again.")<br>_[table truth, wet sleeves, and one troll charm the dev better not lose again.](assets/hero/chummer6-hero.png)_
 
-> **Shadowrun math that doesn't lie.**
+> **Your character isn't a spreadsheet. It's a dossier.**
 >
-> Welcome to Chummer6, the ground-up rebuild of the runner's digital toolkit designed for a world where spreadsheets are too fragile and the cloud can't be trusted.
+> Your character dossier is more than a spreadsheet; it's a survival record for the Sixth World.
 
 If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
@@ -28,27 +28,28 @@ If you only need the one-sentence pitch, it is this: Chummer6 is trying to help 
 > **Chummer6**<br>
 > "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
 
-We are currently in the foundations phase, focusing on a deterministic rules engine that uses Lua scripts to ensure your math adds up every single time. This matters because when the GM asks for the source of your dice pool, Chummer6 provides a digital rule receipt instead of a 'trust me.' Our long-range plan ensures that your dossier stays accurate regardless of the campaign year, starting with a rock-solid SR4 integration. Everything stays local-first—meaning your character data stays on your deck, not on a megacorp server. Check our official releases to see the latest stable build or head to the Chummer6 issue tracker if you find a bug in the math.
+Chummer6 is a local-first toolkit built to ensure your math stays legal even when the local matrix grid crashes. We use a deterministic engine—which means your stats and modifiers are calculated with absolute precision every time, no cloud connection required. You get full 'Math Receipts' that show the work behind every bonus and penalty, from your wired reflexes to that cheap street-doc's cyberware. It's designed to run anywhere you have a browser, keeping your data private and your response time at zero. Our long-range plan focuses on making every rule as moddable as your favorite piece of chrome using simple Lua scripts.
 
 ## Why this is worth watching
 
-Follow the crawl as we implement multi-era rulesets and tighten the loop between the prep surface and the table.
+The core engine is hitting its stride with native SR4 support and a mobile prep surface that doesn't feel like a legacy port.
 
-- Deterministic math receipts
-- Lua-scripted era flexibility
-- Local-first playability
+- Math receipts show the work
+- SR4 lives again
+- Lua rules mean you own the house
+- Runs offline in your browser
 
 If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
 
 ## What is happening right now
 
 Right now the crew is doing trust work, not bolting neon spoilers onto half-built engines.
-Old-world sheet drift vs. scripted digital truth
+Legacy rules meet modern, local-first web tech.
 
 Current focus:
-- SR4 ruleset integration
-- PWA offline experience
-- Rule provenance logic
+- Hardening the SR4 core
+- Polishing the mobile HUD
+- Streamlining Lua rule injection
 - keep public previews honestly labeled until they become the real thing
 
 - [Current phase](NOW/current-phase.md)
@@ -72,7 +73,7 @@ If you want the full guided version, read the [Program map](PARTS/README.md).
 
 ## Future rabbit holes
 
-The long-range plan includes deeper GM tools and expanded era scripts, ensuring your dossier stays relevant regardless of the campaign year.
+We're expanding the long-range plan to include deeper era support and rule-scripting tools that make the system as moddable as your favorite cyberware.
 
 - [Horizons index](HORIZONS/README.md)
 

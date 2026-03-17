@@ -2,9 +2,9 @@
 
 ![Current phase banner](../assets/pages/current-phase.png)
 
-Hardening the core so your character dossier doesn't flatline mid-session.
+Scrubbing the logic leaks before the next run.
 
-We are currently in the 'no-glitch' phase, focusing on engine precision over cosmetic flares. By hardening the rules engine for SR4, we ensure every Nuyen spent and Karma point earned comes with a 'math receipt'—a mathematical trail that doesn't lie. This means you can focus on the run, knowing the stats on your sheet are as solid as a corporate vault.
+While the rest of the sprawl is busy adding neon trim to broken gear, we’re hardening the engine. As part of our long-range plan, we’re isolating rule boundaries and stabilizing the SR4 core to ensure your math is 'deterministic'—a tech-head way of saying it never glitches or gives you a different answer twice. It’s the unglamorous work that keeps your character from flatlining mid-session.
 
 ## The focus right now
 
