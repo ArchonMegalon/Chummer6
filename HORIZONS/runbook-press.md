@@ -2,24 +2,24 @@
 
 ![RUNBOOK PRESS banner](../assets/horizons/runbook-press.png)
 
-**Chummer would support governed long-form authoring and publication prep for player-facing and GM-facing books without letting vendor dashboards become the source of truth.**
+**Long-form publishing becomes governed, reusable, and materially better than one-off document hacks.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-GMs, creators, and publishers need consistent long-form artifacts such as primers, campaign books, district guides, and convention modules, but current workflows are slow and hard to standardize.
+I want real primers, handbooks, and campaign books without duct-taping ten tools together.
 
 ## A real table scene
 
-Chummer would support governed long-form authoring and publication prep for player-facing and GM-facing books without letting vendor dashboards become the source of truth.
+Chummer would support governed long-form authoring and publication prep for player-facing and GM-facing books without letting vendor dashboards become the source of truth. RUNBOOK PRESS is the long-form publishing lane: primers, handbooks, district guides, campaign books, and convention modules belong here. It complements JACKPOINT rather than duplicating it.
 
 <p align="center"><img src="../assets/horizons/details/runbook-press-scene.png" alt="RUNBOOK PRESS dialogue scene still" width="420"></p>
 
 
 ## Why that would be great
 
-GMs, creators, and publishers need consistent long-form artifacts such as primers, campaign books, district guides, and convention modules, but current workflows are slow and hard to standardize.
+I want real primers, handbooks, and campaign books without duct-taping ten tools together.
 
 ## Why it is still a Horizon
 
@@ -27,10 +27,9 @@ Long-form output is only useful when the source pack, approval chain, and public
 
 ## What would need to exist first
 
-- approved canonical source packs
-- publication manifests
-- format/render adapters
-- editorial approval flows
+- C0
+- C1
+- E2b
 
 ## Pitch your own future
 

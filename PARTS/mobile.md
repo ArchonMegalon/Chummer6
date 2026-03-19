@@ -2,39 +2,32 @@
 
 ![Mobile banner](../assets/parts/mobile.png "the session shell for when your table refuses to stay in one physical century.")<br>_[the session shell for when your table refuses to stay in one physical century.](../assets/parts/mobile.png)_
 
-**The part you feel at the table.**
+**The session shell you feel at the table.**
 
-This is your tactical HUD, the piece of gear that stays in your hand when the lead starts flying. It’s a local-first session shell that lives on your hardware, ensuring your dossier stays live even when the grid is ghosting you in the Barrens.
+This is the jump from prep software to software that can stay useful while a real session is happening.
 
 ## You touch this when...
 
-A character builder is for the safehouse; a mobile shell is for survival. It handles the heavy lifting of rule-checking and modifier stacks, providing 'Math Receipts' so you don't have to pause the action to prove your dice pool is legal.
+You care about actual play, reconnecting across devices, or surviving a bad signal without losing the session.
 
-## What it owns
+## What you notice
 
-- player shell and GM shell for live play
-- local-first session ledger handling on the client side
-- reconnect, replay, resume, and observer continuity on the play shell side
-- offline/media caching for play use
-- dedicated `/api/play/*` route consumption and play-shell integration
-- installable PWA hardening for mobile/tablet play
+- stronger local-first and offline-safe posture
+- session continuity instead of fragile single-device assumptions
+- a table-facing shell that is separate from the heavy workbench view
 
-## What it does not own
+## What you do not need to care about yet
 
-- workbench/browser/desktop builder UX
-- engine/rules evaluation truth
-- registry or publication moderation UX
-- hosted orchestration ownership
-- copied shared contracts or copied shared UI primitives
+- this is still the next major seam to finish cleanly
+- some play surfaces remain preview while the session stack hardens
 
-## What is happening now
+## What is true right now
 
-We're hardening the event logs and offline queues because 'always-on' is a corpo lie. For the devs who think 'deterministic' is a personality trait, we’re making sure the engine runs exactly the same way every time, even if your battery is screaming for mercy.
+Mobile is where the live-session promise becomes real, and the current work is about event logs, cache, replay, and sync rather than cosmetic flash.
 
 ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
+- [Public surfaces](../NOW/public-surfaces.md)
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 

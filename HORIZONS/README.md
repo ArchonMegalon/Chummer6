@@ -14,16 +14,13 @@
 
                 ## Pick the pain, then the codename
 
-- **Tables lose confidence when devices, PAN state, and cross-actor continuity drift during live play.** [NEXUS-PAN](nexus-pan.md)
-- **Players often discover bad builds, illegal interactions, or weak upgrade paths only after the run has already gone sideways.** [ALICE](alice.md)
-- **Groups want house rules and alternate rule environments without forking themselves into incompatible chaos.** [KARMA FORGE](karma-forge.md)
-- **Rules answers are expensive, repetitive, and still too easy to hallucinate when every help or assistant lane has to reconstruct understanding from raw materials.** [KNOWLEDGE FABRIC](knowledge-fabric.md)
-- **Players and GMs want dossiers, recaps, primers, and narrated briefings, but most content tools invent details and sever the link back to grounded evidence.** [JACKPOINT](jackpoint.md)
-- **GMs spend too long describing spaces, and players still misread compounds, clubs, hotels, museums, arcologies, and safehouses once the action starts.** [RUNSITE](runsite.md)
-- **GMs, creators, and publishers need consistent long-form artifacts such as primers, campaign books, district guides, and convention modules, but current workflow.** [RUNBOOK PRESS](runbook-press.md)
-- **We know something went wrong, but we cannot reconstruct what actually happened once the moment has passed.** [GHOSTWIRE](ghostwire.md)
-- **The GM knows something went off after a session, but cannot clearly reconstruct where pacing dragged, who lost the room, or which scene actually landed.** [TABLE PULSE](table-pulse.md)
-- **Some explain, search, and media-assist workloads would be cheaper, faster, or more private with optional local acceleration, but the product cannot require ever.** [LOCAL CO-PROCESSOR](local-co-processor.md)
+- **My devices drift and the table loses confidence.** [NEXUS-PAN](nexus-pan.md)
+- **We only discover weak builds after they explode in public.** [ALICE](alice.md)
+- **I want house rules without fork chaos.** [KARMA FORGE](karma-forge.md)
+- **I want dossiers, recaps, and briefings that feel good without making things up.** [JACKPOINT](jackpoint.md)
+- **My players still misread the space even after the briefing.** [RUNSITE](runsite.md)
+- **I want real primers, handbooks, and campaign books without duct-taping ten tools together.** [RUNBOOK PRESS](runbook-press.md)
+- **I know the table drifted, but I cannot say where the energy, pacing, or spotlight balance broke.** [TABLE PULSE](table-pulse.md)
 
                 ## What you get on each page
 

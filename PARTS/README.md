@@ -26,10 +26,10 @@
                 Each page starts with the moment that would make you care:
 
                 - when you touch this part
-                - why it matters
-                - what it owns
-                - what it does not own
-                - what is happening now
+                - why you care
+                - what you notice first
+                - what you do not need to care about yet
+                - what is true right now
 
                 ## Where to start
 

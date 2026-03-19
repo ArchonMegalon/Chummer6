@@ -2,41 +2,32 @@
 
 ![UI Kit banner](../assets/parts/ui-kit.png "the bit that stops the split from dressing like eight unrelated crimes.")<br>_[the bit that stops the split from dressing like eight unrelated crimes.](../assets/parts/ui-kit.png)_
 
-**Shared chrome, themes, and visual primitives.**
+**The shared visual vocabulary.**
 
-The UI Kit is the visual DNA of your runner's workspace—the tokens, themes, and AR chrome that keep your deck from looking like a patchwork of scavenged logic boards. It provides the shared vocabulary of badges, banners, and accessibility-first primitives that every module plugs into, ensuring you don't have to navigate a new interface every time you swap from your gear list to your spellbook.
+Shared visual primitives keep the split from feeling like several products pretending to be one.
 
 ## You touch this when...
 
-Consistency saves lives, or at least your eyesight. This is how the system stays coherent instead of looking like seven different gangs met in a dark parking lot to 'collaborate' on a dashboard. It guarantees that a status effect or a dice pool modifier looks the same across the entire engine, so you can spend less time squinting at the screen and more time avoiding the HTR team.
+You notice the product feeling more coherent instead of looking like unrelated tools wearing matching coats by accident.
 
-## What it owns
+## What you notice
 
-- color/spacing/typography/motion tokens
-- theme compilation
-- reusable primitives
-- shell chrome patterns
-- accessibility primitives
-- dense-data presentation primitives
-- Chummer-specific reusable UI patterns
+- more consistent chrome, badges, banners, and dense-data presentation
+- fewer one-off UI reinventions in each surface
+- stronger accessibility and reusable component posture
 
-## What it does not own
+## What you do not need to care about yet
 
-- domain DTOs
-- HTTP clients
-- local storage logic
-- rules math
-- service orchestration
-- registry or media business logic
+- it is a shared package layer, not a product head by itself
+- it only counts when the other heads visibly get smaller because it exists
 
-## What is happening now
+## What is true right now
 
-We're currently gutting the 'bespoke' (read: duct-taped and buggy) styles and replacing them with these hardened primitives. The UI Kit only earns its keep when the codebase gets smaller and the interface gets sharper. If it doesn't feel like a high-contrast HUD reflecting off wet asphalt, we haven't finished the job.
+UI Kit is real enough to matter, and the next proof point is whether the rest of the product can consume it instead of rebuilding visual seams locally.
 
 ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
+- [Current status](../NOW/current-status.md)
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 

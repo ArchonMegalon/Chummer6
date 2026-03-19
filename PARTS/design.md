@@ -2,46 +2,32 @@
 
 ![Design banner](../assets/parts/design.png "the long-range planning room, still dangerously attractive to people who enjoy scope diagrams.")<br>_[the long-range planning room, still dangerously attractive to people who enjoy scope diagrams.](../assets/parts/design.png)_
 
-**The long-range plan and ownership map.**
+**The long-range product map and truth filter.**
 
-Design is the tactical long-range plan and ownership map for the sprawl. It’s the high-altitude scan that ensures every rule, era, and interface upgrade has a clear owner and a place in the vision before the code even breaks cover.
+It keeps the public story, the landing page, the guide, and the future lanes tied to one canonical plan instead of a pile of clever guesses.
 
 ## You touch this when...
 
-Because "winging it" is for street punks, and you’re a professional. This plan ensures the math always adds up and your character sheet doesn’t glitch mid-run just because a dev had a "creative" weekend. It’s the stability that keeps your gear running while the rest of the Matrix is burning.
+You want to understand why a feature exists, what is real today, or where to go deeper after the friendly tour.
 
-## What it owns
+## What you notice
 
-- canonical product design truth
-- repo graph truth
-- package/contract ownership truth
-- milestone truth
-- blocker truth
-- horizon truth
-- public-guide relationship policy
-- public participation and signal policy
-- mirror/sync truth
-- petition intake and proposal canon
-- synthesis of repeated drift findings into blocker/task truth
-- repo-specific implementation scopes
-- generic review context
+- clearer labels about what is real now, what is preview, and what is still future-facing
+- a stable product story before you dive into repo or implementation detail
+- one place that keeps the public-facing surfaces aligned
 
-## What it does not own
+## What you do not need to care about yet
 
-- production code
-- service implementations
-- hidden duplicate product docs outside canonical paths
-- repo-local implementation details that belong in code repos
-- giant operational parity journals that bury canonical truth
+- you should not need this first for normal use
+- it is the map, not the running software
 
-## What is happening now
+## What is true right now
 
-We’re currently locking down the plan for native SR4 support and polishing the mobile HUD. The goal is to stop the devs from free-styling and deliver a deterministic engine—one that actually shows its math receipts—so you can trust your stats as much as your favorite heavy pistol.
+Design already owns the public landing posture, guide policy, horizons, participation language, and the line between public story and deeper source material.
 
 ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
+- [Current status](../NOW/current-status.md)
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 

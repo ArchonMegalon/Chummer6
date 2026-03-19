@@ -2,13 +2,13 @@
 
 ![TABLE PULSE banner](../assets/horizons/table-pulse.png)
 
-**TABLE PULSE is the bounded GM coaching and table-dynamics horizon.**
+**GMs get bounded post-session coaching about table dynamics without turning Chummer into live surveillance.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-The GM knows something went off after a session, but cannot clearly reconstruct where pacing dragged, who lost the room, or which scene actually landed.
+I know the table drifted, but I cannot say where the energy, pacing, or spotlight balance broke.
 
 ## A real table scene
 
@@ -19,7 +19,7 @@ TABLE PULSE is the bounded GM coaching and table-dynamics horizon. It turns reco
 
 ## Why that would be great
 
-The GM knows something went off after a session, but cannot clearly reconstruct where pacing dragged, who lost the room, or which scene actually landed.
+I know the table drifted, but I cannot say where the energy, pacing, or spotlight balance broke.
 
 ## Why it is still a Horizon
 
@@ -27,11 +27,9 @@ Coaching is only a win if it stays opt-in, post-session, private, and clearly se
 
 ## What would need to exist first
 
-- explicit consent and upload policy
-- post-session-only analysis rules
-- privacy and retention rules for coaching media
-- bounded coaching artifact manifests
-- replay and receipt references where available
+- D1
+- D2
+- E2b
 
 ## Pitch your own future
 

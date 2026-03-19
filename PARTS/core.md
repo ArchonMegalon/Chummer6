@@ -4,40 +4,30 @@
 
 **The deterministic rules engine.**
 
-The Core is the high-bandwidth logic unit where the numbers stop bluffing. It’s the deterministic engine that handles the heavy lifting—modifiers, dice pools, and rule-checks—so you can focus on the run instead of arguing over page 142 of a damp rulebook. It’s local-first and offline-ready, meaning your dossier stays on your deck, not in some corporate cloud that’ll crash the moment the jammer kicks in.
+This is where Chummer earns trust. If the math cannot be reproduced and explained here, the rest of the product becomes expensive theater.
 
 ## You touch this when...
 
-Because when your Street Sam is staring down a Red Samurai and needs to know exactly why their initiative just spiked, 'trust me' doesn't cut it. We’ve moved the logic to a scriptable Lua engine that provides math receipts for every calculation. If a dice pool looks weird, you can audit the logic yourself. It’s about transparency and total era support—starting with a hardened SR4 core that actually respects the math.
+A number looks wrong, a modifier needs explaining, or you want proof instead of vibe-based tool behavior.
 
-## What it owns
+## What you notice
 
-- rules math
-- runtime fingerprints
-- runtime bundles
-- deterministic reducers
-- explain provenance
-- engine contract canon
-- ruleset/plugin/script ABI
+- reproducible rules outcomes
+- readable receipts for why a pool or result changed
+- a cleaner boundary between rules truth and everything that only decorates it
 
-## What it does not own
+## What you do not need to care about yet
 
-- UI rendering or shell chrome
-- hosted-service workflows
-- relay or campaign orchestration
-- media rendering
-- registry persistence
-- provider routing
-- play/mobile client implementation
+- this is not the hosted service layer
+- this is not the table-facing shell by itself
 
-## What is happening now
+## What is true right now
 
-Right now, we’re in a purification phase. Our code-monkeys are stripping out their favorite junk-drawer habits and hardening the SR4 logic to ensure every modifier is deterministic and explainable. We're refining the mobile prep surface to make sure it doesn't feel like a lazy port of a desktop spreadsheet. The goal is a lean, mean engine that treats your character like a dossier, not a data-entry error.
+Core is already the rules-truth spine, and the current work is about keeping it strict enough that future explain, play, and simulation layers can trust it.
 
 ## Go deeper
 
-- [Program map](README.md)
-- [Current phase](../NOW/current-phase.md)
+- [What Chummer6 is](../WHAT_CHUMMER6_IS.md)
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 

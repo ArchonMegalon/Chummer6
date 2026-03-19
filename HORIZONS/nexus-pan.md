@@ -39,10 +39,9 @@ Syncing state across a chaotic table without a central server is a nightmare tha
 
 ## What would need to exist first
 
-- session semantic canon
-- runtime bundle canon
-- explain provenance
-- play-shell reliability
+- D1
+- D2
+- B0
 
 ## Pitch your own future
 

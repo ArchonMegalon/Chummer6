@@ -2,24 +2,24 @@
 
 ![RUNSITE banner](../assets/horizons/runsite.png)
 
-**Chummer would publish bounded explorable location packs linked to mission briefings.**
+**Mission spaces become explorable and legible before the action starts.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-GMs spend too long describing spaces, and players still misread compounds, clubs, hotels, museums, arcologies, and safehouses once the action starts.
+My players still misread the space even after the briefing.
 
 ## A real table scene
 
-Chummer would publish bounded explorable location packs linked to mission briefings. These packs may include floor plans, hotspots, route overlays, optional narration, and static map context, but they remain artifacts rather than live session truth.
+Chummer would publish bounded explorable location packs linked to mission briefings. These packs may include floor plans, hotspots, route overlays, optional narration, and static map context, but they remain artifacts rather than live session truth. RUNSITE is the mission-space explorer: briefing, planning, and spatial understanding belong here. Live combat truth and VTT replacement ambitions do not.
 
 <p align="center"><img src="../assets/horizons/details/runsite-scene.png" alt="RUNSITE dialogue scene still" width="420"></p>
 
 
 ## Why that would be great
 
-GMs spend too long describing spaces, and players still misread compounds, clubs, hotels, museums, arcologies, and safehouses once the action starts.
+My players still misread the space even after the briefing.
 
 ## Why it is still a Horizon
 
@@ -27,10 +27,9 @@ The owned vendor tier now makes this lane concrete, but product truth still need
 
 ## What would need to exist first
 
-- clean media manifests
-- permissioned publication links
-- preview and embed receipts
-- bounded map/render adapters
+- C1
+- C1c
+- E2b
 
 ## Pitch your own future
 

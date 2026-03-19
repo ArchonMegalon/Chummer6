@@ -39,9 +39,9 @@ The simulation director is currently undergoing sensor calibration. We are final
 
 ## What would need to exist first
 
-- explain canon
-- deterministic runtime DTO canon
-- workbench compare flows
+- D0
+- D2
+- E0
 
 ## Pitch your own future
 

@@ -38,11 +38,10 @@ We’re not shipping a creative writing assistant. Building an engine that can d
 
 ## What would need to exist first
 
-- grounded evidence receipts
-- approval states
-- registry/media seam clarity
-- source classification
-- bounded publication workflows
+- C0
+- C1
+- C1c
+- E2b
 
 ## Pitch your own future
 

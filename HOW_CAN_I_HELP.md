@@ -2,44 +2,55 @@
 
 If you want to support Chummer6, there are two clean lanes: public feedback and booster help.
 
-## Public feedback and issue reports
+## Public feedback lane
 
-Use the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues) when you want to:
+If you want to help without touching premium participation at all, use the public front door:
 
-- report a bug
-- flag confusing guide copy
-- suggest a future feature
-- point at a horizon that sounds more useful than the current list
+* report a bug
+* flag confusing public copy
+* suggest a future lane
+* point at a horizon that sounds more useful than the current list
 
-That keeps public intake in the public front door instead of making normal humans spelunk through design canon.
+That keeps feedback public and legible instead of making normal humans spelunk through design canon.
 
-## Booster support
+## Booster lane
 
-The new **booster** concept is the bounded "I want to help with real execution" lane.
+A **booster** is the bounded "I want to help with real execution" lane.
 
-A booster is an opt-in temporary help lane that sits on top of the cheap baseline:
+It is:
 
-- cheap groundwork remains the default path
-- boosters are opened only after explicit consent in Hub
-- your help lane is temporary and lane-local
-- final landing still goes through review
+* opt-in
+* temporary
+* additive on top of the cheap baseline
+* still subject to review before anything lands
 
-This is support, not a hidden backdoor to skip governance.
+Public copy should prefer `participate` and `booster`.
+Operator phrasing belongs behind the scenes.
 
 ## Start the participation flow
 
 - [Open the Hub participation page](https://chummer.run/hub/participate/codex)
 
-That page explains the consent flow, starts device-code auth on the Fleet worker host, and lets you stop or revoke the lane later.
+## Privacy and review safety
 
-## What this is not
+- the cheap baseline remains the default path
+- boosters are not a merge bypass
+- final landing still goes through review
+- people can stop or revoke later
+- private recognition settings remain valid even when badges or leaderboards exist
 
-- not premium-by-default project policy
-- not a way to merge around jury
-- not a reason to store auth secrets in guide repos or Hub databases
-- not the only way to help
+## Free later note
 
-If you just want to help by finding bugs, filing issues, or sharpening the public explanation, that still matters.
+Some expensive future lanes may begin **booster-first** while approvals, compatibility, editorial work, provenance, or support cost remain unusually heavy.
+
+That is not the same thing as a permanent paywall.
+When those lanes become cheaper and safer to operate broadly, the long-run intent is wider access rather than keeping the interesting parts locked forever.
+
+## Primary CTAs
+
+- Open the Hub participation page
+- File a public issue
+- Read current status before promising yourself too much
 ---
 
 <sub>Updated: 2026-03-13</sub>

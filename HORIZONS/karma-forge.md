@@ -38,10 +38,10 @@ This is a long-range plan currently under decryption. While the core engine is b
 
 ## What would need to exist first
 
-- ruleset ABI discipline
-- package ownership canon
-- registry compatibility metadata
-- approval and publication flows
+- A1
+- A2
+- C0
+- D2
 
 ## Pitch your own future
 
