@@ -8,6 +8,14 @@ Chummer6 is here for four common moments: you need to run a live session, prove 
 
 You do not need the internal map first. You need the shortest path to the page that tells you whether this can run a session, explain a weird number, support a cursed table rule, or show you what the project is trying to become.
 
+## I want to try a build first
+
+You want the shortest path to a real preview artifact, plus enough honesty to know whether it is an installer, a DMG, or still just a preview archive for your platform.
+
+Tonight: you would rather click a build than read another product sermon.
+
+Start here: [DOWNLOAD.md](DOWNLOAD.md)
+
 ## I want to run a session
 
 You want the table-facing reality: what is usable now, what is still preview, and how local-first play is supposed to behave when the signal gets stupid.

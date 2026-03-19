@@ -8,8 +8,13 @@
 
 If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
+## Try it now
+
+- [Download the current preview builds](DOWNLOAD.md)
+
 ## Pick your path
 
+- **Try the current build:** [Download builds](DOWNLOAD.md)
 - **I am new here:** [Start Here](START_HERE.md)
 - **Give me the product story:** [What Chummer6 is](WHAT_CHUMMER6_IS.md)
 - **Tell me what is real today:** [Current status](NOW/current-status.md)
@@ -94,7 +99,8 @@ We're expanding the long-range plan to include deeper era support and rule-scrip
 
 Want to know whether all this talk cashes out into real software? This is the shelf where you stop reading and start risking your evening.
 
-- [Chummer6 Releases](https://github.com/ArchonMegalon/Chummer6/releases)
+- [Download builds](DOWNLOAD.md)
+- [Raw GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases)
 
 > **Street warning:** POC builds are for curious chummers, not cautious wageslaves.<br>
 > They may be unstable, unfinished, weird, or one bad click away from getting your deck **marked, hacked, or bricked**.<br>
