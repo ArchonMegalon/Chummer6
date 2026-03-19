@@ -12,15 +12,22 @@ Consistency saves lives, or at least your eyesight. This is how the system stays
 
 ## What it owns
 
-- tokens and themes
-- shared chrome and accessibility primitives
-- UI-only preview and gallery surfaces
+- color/spacing/typography/motion tokens
+- theme compilation
+- reusable primitives
+- shell chrome patterns
+- accessibility primitives
+- dense-data presentation primitives
+- Chummer-specific reusable UI patterns
 
 ## What it does not own
 
 - domain DTOs
 - HTTP clients
+- local storage logic
 - rules math
+- service orchestration
+- registry or media business logic
 
 ## What is happening now
 

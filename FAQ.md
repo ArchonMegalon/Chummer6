@@ -59,6 +59,10 @@ The useful stuff: what you installed, what you clicked, what you expected, what 
 ### Can I help test or suggest future features?
 
 Yes. Use the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues) for public feedback, bug reports, and future-feature suggestions. If a horizon idea sounds better than what is on the page, say so.
+
+### Can I support the project more directly?
+
+Yes. Read [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md). That page explains the bounded booster concept and links to the Hub participation flow at [https://chummer.run/hub/participate/codex](https://chummer.run/hub/participate/codex).
 ---
 
 <sub>Updated: 2026-03-13</sub>

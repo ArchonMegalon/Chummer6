@@ -37,10 +37,10 @@ This is a data-haven currently under heavy decryption. We’re busy hardening th
 
 ## What would need to exist first
 
-- session authority and event history
-- evidence labeling
-- replayable receipts
-- clean sync seams
+- append-only reducer-safe ledger truth
+- explain provenance canon
+- runtime bundle receipts
+- media-side receipt capture for after-action outputs
 
 ## Pitch your own future
 

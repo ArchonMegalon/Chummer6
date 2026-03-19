@@ -12,15 +12,23 @@ Because when your Street Sam is staring down a Red Samurai and needs to know exa
 
 ## What it owns
 
-- engine runtime and reducer truth
-- explain receipts and deterministic evaluation
-- engine packages other parts can trust
+- rules math
+- runtime fingerprints
+- runtime bundles
+- deterministic reducers
+- explain provenance
+- engine contract canon
+- ruleset/plugin/script ABI
 
 ## What it does not own
 
-- the hosted service layer
-- the at-the-table shell
-- render-only media work
+- UI rendering or shell chrome
+- hosted-service workflows
+- relay or campaign orchestration
+- media rendering
+- registry persistence
+- provider routing
+- play/mobile client implementation
 
 ## What is happening now
 

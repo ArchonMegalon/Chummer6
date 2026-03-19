@@ -40,8 +40,9 @@ We’re not shipping a creative writing assistant. Building an engine that can d
 
 - grounded evidence receipts
 - approval states
-- clean registry/media seams
+- registry/media seam clarity
 - source classification
+- bounded publication workflows
 
 ## Pitch your own future
 

@@ -12,15 +12,23 @@ If you want high-res visuals without your hardware melting into a puddle of slag
 
 ## What it owns
 
-- render queues
-- signed URLs and storage adapters
-- dedupe/retry and asset lifecycle receipts
+- Chummer.Media.Contracts
+- render job intake and state
+- previews and thumbnails
+- manifests and asset receipts
+- asset lifecycle, retention, pinning, supersession
+- provider adapters for document/image/video execution
+- signed asset access and media storage discipline
 
 ## What it does not own
 
-- lore generation
-- session relay
-- provider routing and rules math
+- campaign or session truth
+- rules math
+- approvals policy
+- publication/moderation workflows
+- play/client UX
+- general AI orchestration
+- service identity or relay
 
 ## What is happening now
 

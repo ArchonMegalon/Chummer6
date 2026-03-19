@@ -1,6 +1,6 @@
-# Karma Forge
+# KARMA FORGE
 
-![Karma Forge banner](../assets/horizons/karma-forge.png "house rules with receipts, not forked-code folklore and a group chat apology.")<br>_[house rules with receipts, not forked-code folklore and a group chat apology.](../assets/horizons/karma-forge.png)_
+![KARMA FORGE banner](../assets/horizons/karma-forge.png "house rules with receipts, not forked-code folklore and a group chat apology.")<br>_[house rules with receipts, not forked-code folklore and a group chat apology.](../assets/horizons/karma-forge.png)_
 
 **Your house rules deserve a digital paper trail, not a group-chat apology.**
 
@@ -19,7 +19,7 @@ Decker: "Pop the math to my HUD. I want to see the provenance on those dice."
 GM: "Sending. You can see the digital paper trail for every modifier."
 Samurai: "Clean. No more 'trust me' math while I'm lining up a shot."
 
-<p align="center"><img src="../assets/horizons/details/karma-forge-scene.png" alt="Karma Forge dialogue scene still" width="420"></p>
+<p align="center"><img src="../assets/horizons/details/karma-forge-scene.png" alt="KARMA FORGE dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
@@ -38,10 +38,10 @@ This is a long-range plan currently under decryption. While the core engine is b
 
 ## What would need to exist first
 
-- runtime stack and fingerprint DTOs
-- overlay receipts and conflict reports
-- explain/provenance receipts
-- clean shared boundaries
+- ruleset ABI discipline
+- package ownership canon
+- registry compatibility metadata
+- approval and publication flows
 
 ## Pitch your own future
 

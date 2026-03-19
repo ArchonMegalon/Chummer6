@@ -10,6 +10,7 @@ If you want the long-range plan, the actual software, or the place to call out s
 
 - Start with `chummer6-design` when you want the long-range plan.
 - Go to the owning code repos when you want the software itself.
+- Use [How Can I Help?](HOW_CAN_I_HELP.md) when you want the public support lane or the Hub booster flow.
 - Come back to Chummer6 when you want the friendly guided version again.
 
 ## What each place is for

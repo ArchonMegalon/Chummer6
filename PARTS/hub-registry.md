@@ -12,15 +12,21 @@ Without this, your character sheet is just a pile of unvetted garbage from a dar
 
 ## What it owns
 
-- artifact metadata
-- publication and moderation workflow metadata
-- install and compatibility projections
+- immutable artifact metadata
+- publication draft and publish/archive state
+- moderation state and review trails
+- install state and install history
+- compatibility projections
+- runtime-bundle head metadata
+- registry contract canon
 
 ## What it does not own
 
-- AI routing
-- rules computation
+- AI gateway routing
+- Spider/session relay
 - media rendering
+- play/client implementation
+- canonical rules math
 
 ## What is happening now
 

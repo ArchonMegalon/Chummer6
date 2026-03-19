@@ -12,15 +12,19 @@ Because guessing is for people who don't mind their cyber-arm glitching in a fir
 
 ## What it owns
 
-- browser and desktop workbench UX
-- inspectors, builders, and shared workbench seams
-- big-screen authoring and review flows
+- workbench/browser/desktop UX
+- builders, inspectors, and compare flows
+- explain and audit-facing UX on the workbench side
+- moderation and admin surfaces that stay outside the live play shell
+- desktop packaging, installer delivery, and workbench-side release polish
 
 ## What it does not own
 
-- the player-first play shell
-- hosted orchestration
-- render-only asset jobs
+- the dedicated play/mobile shell
+- offline session-ledger authority
+- engine/runtime mechanics truth
+- hosted orchestration or provider-secret ownership
+- source-copied shared UI primitives that belong in `Chummer.Ui.Kit
 
 ## What is happening now
 

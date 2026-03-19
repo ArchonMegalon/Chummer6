@@ -39,10 +39,10 @@ Syncing state across a chaotic table without a central server is a nightmare tha
 
 ## What would need to exist first
 
-- session authority profile
-- append-only session events
-- local-first sync and replay
-- clean play API seams
+- session semantic canon
+- runtime bundle canon
+- explain provenance
+- play-shell reliability
 
 ## Pitch your own future
 

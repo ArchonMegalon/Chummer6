@@ -15,6 +15,7 @@ If you only need the one-sentence pitch, it is this: Chummer6 is trying to help 
 - **Tell me what is real today:** [Current status](NOW/current-status.md)
 - **Show me the parts when I actually care:** [Program map](PARTS/README.md)
 - **Show me the future rabbit holes:** [Horizons](HORIZONS/README.md)
+- **I want to help without getting lost in repo folklore:** [How can I help?](HOW_CAN_I_HELP.md)
 - **Point me at the deeper source material:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
 
 ## What this means at a real table
@@ -40,6 +41,16 @@ The core engine is hitting its stride with native SR4 support and a mobile prep 
 - Runs offline in your browser
 
 If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
+
+## How can I help?
+
+If you want to do more than watch, start with [How can I help?](HOW_CAN_I_HELP.md).
+
+The short version: public bugs and feature ideas still go through the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues), and the new **booster** lane is for people who explicitly want to lend temporary premium coding capacity through Hub.
+
+A booster is an opt-in participant burst lane on top of the cheap baseline. It does not replace the cheap-first loop, and it does not bypass review and jury.
+
+- [Open the Hub participation page](https://chummer.run/hub/participate/codex)
 
 ## What is happening right now
 

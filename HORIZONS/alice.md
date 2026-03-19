@@ -39,10 +39,9 @@ The simulation director is currently undergoing sensor calibration. We are final
 
 ## What would need to exist first
 
-- deterministic engine truth
-- scenario harnesses with reproducible seeds
-- explain receipts
-- stable runtime stack fingerprints
+- explain canon
+- deterministic runtime DTO canon
+- workbench compare flows
 
 ## Pitch your own future
 

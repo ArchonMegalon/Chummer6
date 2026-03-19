@@ -12,16 +12,20 @@ A character builder is for the safehouse; a mobile shell is for survival. It han
 
 ## What it owns
 
-- player and GM play shell
-- local-first session state
-- runtime stack consumption
-- sync-friendly play flows
+- player shell and GM shell for live play
+- local-first session ledger handling on the client side
+- reconnect, replay, resume, and observer continuity on the play shell side
+- offline/media caching for play use
+- dedicated `/api/play/*` route consumption and play-shell integration
+- installable PWA hardening for mobile/tablet play
 
 ## What it does not own
 
-- builder/workbench UX
-- provider secrets
-- shared pieces that should come from one real source
+- workbench/browser/desktop builder UX
+- engine/rules evaluation truth
+- registry or publication moderation UX
+- hosted orchestration ownership
+- copied shared contracts or copied shared UI primitives
 
 ## What is happening now
 

@@ -12,15 +12,21 @@ Because manual data-shoveling is for wageslaves. When you need to coordinate a t
 
 ## What it owns
 
-- identity, relay, approvals, and memory
-- hosted play APIs and orchestration
-- preview/apply/rollback style server workflows
+- hosted orchestration and relay seams
+- identity, approvals, memory, and delivery on the hosted side
+- play API aggregation and hosted session coordination
+- orchestration-side Coach/Spider/Director surfaces
+- hosted external-integration routing that is not render-only media execution
+- participation consent and sponsorship UX for Fleet premium burst lanes
 
 ## What it does not own
 
-- engine math truth
-- the long-term play shell
-- render-only media execution
+- engine or reducer truth
+- player/GM/mobile shell UX
+- shared UI-kit primitives
+- long-term registry persistence ownership after the registry split
+- long-term render execution ownership after the media-factory split
+- raw participant Codex/OpenAI auth caches or device-auth secrets
 
 ## What is happening now
 

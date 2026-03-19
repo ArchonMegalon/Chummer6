@@ -12,15 +12,24 @@ Because "winging it" is for street punks, and you’re a professional. This plan
 
 ## What it owns
 
-- cross-repo architecture and ownership
-- milestone framing and split order
-- review guidance and mirror rules
+- canonical product design truth
+- repo graph truth
+- package/contract ownership truth
+- milestone truth
+- blocker truth
+- horizon truth
+- public-guide relationship policy
+- public participation and signal policy
+- mirror/sync truth
+- repo-specific implementation scopes
+- generic review context
 
 ## What it does not own
 
-- implementation
-- dispatchable coding work
-- human-only storytelling
+- production code
+- service implementations
+- hidden duplicate product docs outside canonical paths
+- repo-local implementation details that belong in code repos
 
 ## What is happening now
 

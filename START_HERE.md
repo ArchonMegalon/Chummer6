@@ -40,6 +40,14 @@ Tonight: you already get the current pitch and now want to know what the next ra
 
 Start here: [HORIZONS/README.md](HORIZONS/README.md)
 
+## I want to help the project
+
+You want the shortest path to public bug reports, feature ideas, or the new booster flow for explicitly lending premium burst capacity without turning the whole project into premium-by-default chaos.
+
+Tonight: you like what the project is trying to do and want a clean way to support it without guessing which repo cave to shout into.
+
+Start here: [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md)
+
 ## If you want the two-minute product story first
 
 Read [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md).
