@@ -17,12 +17,12 @@ That keeps public intake in the public front door instead of making normal human
 
 The new **booster** concept is the bounded "I want to help with real execution" lane.
 
-A booster is an opt-in participant burst lane that sits on top of the cheap baseline:
+A booster is an opt-in temporary help lane that sits on top of the cheap baseline:
 
 - cheap groundwork remains the default path
 - boosters are opened only after explicit consent in Hub
-- your lane is temporary and lane-local
-- final landing still goes through review and jury
+- your help lane is temporary and lane-local
+- final landing still goes through review
 
 This is support, not a hidden backdoor to skip governance.
 

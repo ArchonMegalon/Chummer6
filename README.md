@@ -48,7 +48,7 @@ If you want to do more than watch, start with [How can I help?](HOW_CAN_I_HELP.m
 
 The short version: public bugs and feature ideas still go through the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues), and the new **booster** lane is for people who explicitly want to lend temporary premium coding capacity through Hub.
 
-A booster is an opt-in participant burst lane on top of the cheap baseline. It does not replace the cheap-first loop, and it does not bypass review and jury.
+A booster is an opt-in temporary help lane on top of the cheap baseline. It does not replace the cheap-first loop, and it still lands through review.
 
 - [Open the Hub participation page](https://chummer.run/hub/participate/codex)
 

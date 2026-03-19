@@ -21,6 +21,8 @@ Because "winging it" is for street punks, and you’re a professional. This plan
 - public-guide relationship policy
 - public participation and signal policy
 - mirror/sync truth
+- petition intake and proposal canon
+- synthesis of repeated drift findings into blocker/task truth
 - repo-specific implementation scopes
 - generic review context
 
@@ -30,6 +32,7 @@ Because "winging it" is for street punks, and you’re a professional. This plan
 - service implementations
 - hidden duplicate product docs outside canonical paths
 - repo-local implementation details that belong in code repos
+- giant operational parity journals that bury canonical truth
 
 ## What is happening now
 
