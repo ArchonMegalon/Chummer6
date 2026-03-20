@@ -6,6 +6,13 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
+### 2026-03-20 · Publish regenerated Chummer6 docs (docs-only).
+
+- Surface: Guide
+- Source push: `Publish regenerated Chummer6 docs (docs-only)`
+- What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
 ### 2026-03-20 · Wipe Chummer6 repository contents.
 
 - Surface: Guide
@@ -55,16 +62,9 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 - What changed for you: The front door is a little closer to showing a real account path instead of a placeholder lane.
 - Still not promised: frictionless onboarding across every surface.
 
-### 2026-03-19 · The public guide got stricter.
-
-- Surface: Guide
-- Source push: `Refresh guide from tighter public canon`
-- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
-- Still not promised: that the visible surface is reliable just because it has a page.
-
 ## Monthly archive
 
 - [2026-03](./2026-03.md)
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

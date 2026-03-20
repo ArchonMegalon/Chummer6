@@ -45,4 +45,4 @@ Long form only pays off once publication prep stops shredding provenance and reu
 Publish the book without turning it into an archaeological site.
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

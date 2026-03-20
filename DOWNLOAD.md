@@ -45,4 +45,4 @@ The current shelf is honest about the artifact shape. If a target is still a pre
 - If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

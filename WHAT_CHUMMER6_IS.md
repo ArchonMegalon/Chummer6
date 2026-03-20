@@ -70,4 +70,4 @@ If you want that map, go to [PARTS/README.md](PARTS/README.md).
 Need the long-range plan or implementation trail after the product story? Start with [PARTS/README.md](PARTS/README.md) or [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md).
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

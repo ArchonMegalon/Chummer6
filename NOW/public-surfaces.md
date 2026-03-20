@@ -21,4 +21,4 @@ These are still preview, not the final public shape:
 It means the surface is there, but the software, release, and support story do not line up cleanly enough yet to call it the real promoted version.
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

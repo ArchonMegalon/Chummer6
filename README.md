@@ -16,15 +16,15 @@
 
                 If you are checking whether this idea is still moving, start here.
 
-                - **2026-03-20 · Wipe Chummer6 repository contents.**
+                - **2026-03-20 · Publish regenerated Chummer6 docs (docs-only).**
+  What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
+  Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+- **2026-03-20 · Wipe Chummer6 repository contents.**
   What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
   Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 - **2026-03-20 · The public front door got more deliberate.**
   What changed for you: More of the landing experience lives on first-party routes instead of dead shells and guesswork.
   Still not promised: a finished product surface.
-- **2026-03-20 · Add public updates shelf.**
-  What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
-  Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 - [Full update log](UPDATES/README.md)
 
                 ## Pick your path
@@ -125,4 +125,4 @@
                 Need the long-range plan or implementation trail after that? [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

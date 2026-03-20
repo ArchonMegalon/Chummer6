@@ -31,4 +31,4 @@ Hub Registry is the growing record layer for published artifacts and compatibili
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

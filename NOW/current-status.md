@@ -17,4 +17,4 @@ The current status is closer to idea with spillover than to product with support
 What you can reliably expect is a public explanation and a horizon map. Anything more concrete than that should be treated as accidental, provisional, and likely to break or vanish without ceremony.
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

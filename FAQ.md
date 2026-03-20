@@ -71,4 +71,4 @@ Use the Chummer6 issue tracker for public guide feedback, bug reports, and futur
 If you want the public help lane or the bounded booster flow, read [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md) and, when you are ready, open the Hub participation page at [https://chummer.run/hub/participate/codex](https://chummer.run/hub/participate/codex).
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>

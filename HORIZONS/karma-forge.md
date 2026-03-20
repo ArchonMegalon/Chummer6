@@ -47,4 +47,4 @@ This stays booster-first while the lane is still expensive to operate safely, an
 Evolve the rules without pretending every clever hack deserves to become canon.
 ---
 
-<sub>Updated: 2026-03-20</sub>
+<sub>Updated: 2026-03-21</sub>
