@@ -56,6 +56,14 @@ Tonight: you like what the project is trying to do and want a clean way to suppo
 
 Start here: [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md)
 
+## I want to see whether anything actually moved
+
+You want the short human version of what changed recently, why it matters, and what is still very much not promised.
+
+Tonight: you do not need a commit feed. You need proof that the idea is either crawling forward or still face-down in a puddle.
+
+Start here: [UPDATES/README.md](UPDATES/README.md)
+
 ## If you want the two-minute product story first
 
 Read [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md).
@@ -65,4 +73,4 @@ Read [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md).
 Read [PARTS/README.md](PARTS/README.md) when you actually care how the parts fit together.
 ---
 
-<sub>Updated: 2026-03-13</sub>
+<sub>Updated: 2026-03-20</sub>

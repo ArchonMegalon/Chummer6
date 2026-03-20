@@ -1,12 +1,10 @@
-# March 2026 Updates
+# Updates
 
-## The quick read
+If you are checking whether this idea is still moving, this is the shortest honest shelf.
 
-March 2026 is mostly about making the public shape less misleading.
+These entries track Chummer-facing repos only. Fleet and EA pushes do not appear here.
 
-The useful question here is not "did they push code" but "did anything get clearer for a normal person."
-
-## Substantial pushes
+## Latest substantial pushes
 
 ### 2026-03-20 · Account mail moved closer to real delivery.
 
@@ -63,6 +61,10 @@ The useful question here is not "did they push code" but "did anything get clear
 - Source push: `Keep coach launch links proxy-safe`
 - What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+## Monthly archive
+
+- [2026-03](./2026-03.md)
 ---
 
 <sub>Updated: 2026-03-20</sub>

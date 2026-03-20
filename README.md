@@ -12,6 +12,21 @@ If you only need the one-sentence pitch, it is this: Chummer6 is trying to help 
 
 - [Download the current preview builds](DOWNLOAD.md)
 
+## What Changed Lately
+
+If you are checking whether this idea is still moving, start here.
+
+- **2026-03-20 · Account mail moved closer to real delivery.**
+  What changed for you: Sign-in and identity mail are less of a preview trick and more of a real transport path.
+  Still not promised: fully polished account recovery and provider breadth.
+- **2026-03-19 · The public front door got more deliberate.**
+  What changed for you: More of the landing experience lives on first-party routes instead of dead shells and guesswork.
+  Still not promised: a finished product surface.
+- **2026-03-19 · The download shelf got more honest.**
+  What changed for you: Preview artifacts are easier to find and less likely to pretend they are already polished installers.
+  Still not promised: installer-grade packaging and platform polish everywhere.
+- [Full update log](UPDATES/README.md)
+
 ## Pick your path
 
 - **Try the current build:** [Download builds](DOWNLOAD.md)
@@ -111,4 +126,4 @@ The binaries come from the active Chummer6 codebase, not from this guide repo.
 Need the long-range plan or implementation trail after that? [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 ---
 
-<sub>Updated: 2026-03-13</sub>
+<sub>Updated: 2026-03-20</sub>
