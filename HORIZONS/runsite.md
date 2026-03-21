@@ -12,9 +12,11 @@ A briefing is still doing half the work if the table cannot read the space.
 
 ## A real table scene
 
+A ghosted floor plan climbs the wet concrete between the crates.
 GM: Here is the site before anyone has to improvise the floor plan from memory.
 Player: Good. I would like to know where the exits are before I need one.
 Rigger: Route overlay makes sense for once.
+Chummer6: West stair choke point marked. Two cleaner ingress lanes still open.
 Face: So the room stops being a surprise punishment box.
 GM: Exactly.
 
@@ -23,8 +25,8 @@ GM: Exactly.
 
 ## Meanwhile, Chummer is doing this
 
-- Briefing-space artifacts have to stay bounded and useful instead of drifting into fake live-session truth.
-- The lane only works if mission-space clarity gets better without pretending to be a VTT replacement.
+- Briefing-space artifacts have to stay bounded and useful instead of drifting into fake live-session truth
+- The lane only works if mission-space clarity gets better without pretending to be a VTT replacement
 
 ## Why that would be great
 

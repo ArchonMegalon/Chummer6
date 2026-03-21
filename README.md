@@ -1,42 +1,42 @@
 # Chummer6
 
-![Chummer6 hero banner](assets/hero/chummer6-hero.png "table truth, wet sleeves, and one troll charm the dev better not lose again.")<br>_[table truth, wet sleeves, and one troll charm the dev better not lose again.](assets/hero/chummer6-hero.png)_
+![Chummer6 hero banner](assets/hero/chummer6-hero.png "one runner deciding whether tonight's build trail deserves trust.")<br>_[one runner deciding whether tonight's build trail deserves trust.](assets/hero/chummer6-hero.png)_
 
                 > **An idea for less mystical Shadowrun rulings.**
                 >
-                > An idea for less mystical Shadowrun rulings. Chummer6 is still closer to an idea than to a dependable tool.
+                > Chummer6 is still concept-stage: an idea for table rulings that are easier to inspect before anyone is asked to trust them.
 
                 If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
-                ## Try it now
+                ## Pick your path
 
-                - [Download the current preview builds](DOWNLOAD.md)
+                - **I am new here:** [Start Here](START_HERE.md)
+                - **Give me the product story:** [What Chummer6 is](WHAT_CHUMMER6_IS.md)
+                - **Tell me what is real today:** [Current status](NOW/current-status.md)
+                - **Show me the future rabbit holes:** [Horizons](HORIZONS/README.md)
+                - **Show me the parts when I actually care:** [Program map](PARTS/README.md)
+                - **I want to help without getting lost in repo folklore:** [How can I help?](HOW_CAN_I_HELP.md)
+                - **Point me at the deeper source material:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
+                - **Inspect the current manual preview artifacts:** [Download builds](DOWNLOAD.md)
+
+                ## Current posture
+
+                Chummer6 is still closer to an idea than to dependable software. If you find something that works tonight, treat it as lucky spillover from the concept, not as a support promise.
 
                 ## What Changed Lately
 
                 If you are checking whether this idea is still moving, start here.
 
-                - **2026-03-20 · Publish regenerated Chummer6 docs (docs-only).**
-  What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
-  Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-- **2026-03-20 · Wipe Chummer6 repository contents.**
-  What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
-  Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-- **2026-03-20 · The public front door got more deliberate.**
-  What changed for you: More of the landing experience lives on first-party routes instead of dead shells and guesswork.
-  Still not promised: a finished product surface.
+                - **2026-03-21 · The public guide got stricter.**
+  What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
+  Still not promised: that the visible surface is reliable just because it has a page.
 - [Full update log](UPDATES/README.md)
 
-                ## Pick your path
+                ## Try it now
 
-                - **Try the current build:** [Download builds](DOWNLOAD.md)
-                - **I am new here:** [Start Here](START_HERE.md)
-                - **Give me the product story:** [What Chummer6 is](WHAT_CHUMMER6_IS.md)
-                - **Tell me what is real today:** [Current status](NOW/current-status.md)
-                - **Show me the parts when I actually care:** [Program map](PARTS/README.md)
-                - **Show me the future rabbit holes:** [Horizons](HORIZONS/README.md)
-                - **I want to help without getting lost in repo folklore:** [How can I help?](HOW_CAN_I_HELP.md)
-                - **Point me at the deeper source material:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
+                - [Inspect the current manual preview artifacts](DOWNLOAD.md)
+                - If you are hoping for installer-grade packaging, that part is not real yet.
+                - The download shelf is secondary to the guide because the current artifacts are still archive-grade previews, not a normal install story.
 
                 ## What this means at a real table
 
@@ -49,7 +49,7 @@
                 > **Chummer6**<br>
                 > "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
 
-                The honest thing on offer right now is the direction: less mystical Shadowrun rulings, more visible reasoning, and maybe the occasional rough trace that hints at where the work could go. If you find a guide page, proof trace, or stray build, treat it as spillover from the idea, not as a supported product surface.
+                The project is chasing visible reasoning instead of trust-me table lore. What exists in public is still mostly guide work, future lanes, issue threads, and the occasional rough artifact that escaped into view by accident.
 
                 ## Why this is worth watching
 
@@ -109,7 +109,7 @@
 
                 ## POC shelf
 
-                ![POC warning banner](assets/hero/poc-warning.png "the build may survive your evening. Your patience is less certain.")<br>_[the build may survive your evening. Your patience is less certain.](assets/hero/poc-warning.png)_
+                ![POC warning banner](assets/hero/poc-warning.png "a rough concept trace that may survive the evening by accident.")<br>_[a rough concept trace that may survive the evening by accident.](assets/hero/poc-warning.png)_
 
                 Want to know whether all this talk cashes out into real software? This is the shelf where you stop reading and start risking your evening.
 

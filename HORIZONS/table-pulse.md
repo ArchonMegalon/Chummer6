@@ -2,37 +2,38 @@
 
 ![TABLE PULSE banner](../assets/horizons/table-pulse.png)
 
-**Post-session coaching without pretending the software was secretly the GM all along.**
+**The room went quiet at 11 PM, and you still haven't figured out if it was the Decker’s twenty-minute run or the stale soy-chips.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Tables drift, pacing breaks, and spotlight balance goes weird long before anyone can explain why.
+Pacing and spotlight drift are invisible killers that turn high-stakes heists into four-hour shopping trips that nobody remembers by morning.
 
 ## A real table scene
 
-GM: I know the energy broke somewhere, I just cannot point to the exact moment.
-Player: Show me the drift after the session, not while I am still in the scene.
-Face: Spotlight balance would be nice without live surveillance vibes.
-GM: Good. Post-session coaching, not a hall monitor.
-Player: That line matters.
+GM: "So the Street Sam didn't roll a single die for ninety minutes?"
+Chummer6: [Pulsing amber segment on the timeline] "Engagement dropped 40% during the host-sculpting sequence."
+GM: "I thought the description was cinematic."
+Chummer6: "It was a twelve-minute monologue. Even the ICE was bored."
+GM: "...Point taken. Less poetry, more bullets next Tuesday."
 
 <p align="center"><img src="../assets/horizons/details/table-pulse-scene.png" alt="TABLE PULSE dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- This lane only works if consent, privacy, and bounded post-session use stay explicit.
-- Coaching has to stay diagnostic and optional instead of drifting into fake live authority.
+- Diagnostic loops are trying to map audio spikes to initiative passes for rough heatmaps
+- Opt-in privacy shaders are scrubbing identifiers before any diagnostic packet hits the local buffer
+- The engine is learning to spot the difference between a tense narrative silence and a dead zone
 
 ## Why that would be great
 
-It could help a GM see where pacing, interruptions, or spotlight balance broke without pretending the software ran the table.
+It gives you a 'game film' review without needing a referee, letting you see exactly where the spotlight got stuck in the vents so you can fix it before the next run.
 
 ## Why it is still a Horizon
 
-Anything this sensitive has to stay opt-in, bounded, and post-session or it turns from coaching into surveillance theater.
+Turning a table microphone into a coach instead of a snitch requires privacy boundaries that are more than just pinky-promises in the cloud.
 
 ## What would need to exist first
 
@@ -42,7 +43,7 @@ Anything this sensitive has to stay opt-in, bounded, and post-session or it turn
 
 ## Pitch your own future
 
-Find the drift after the session without letting the software become the table cop.
+A post-run debrief that respects your table’s privacy and sharpens your GM’s pacing.
 ---
 
 <sub>Updated: 2026-03-21</sub>

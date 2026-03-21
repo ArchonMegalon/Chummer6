@@ -10,7 +10,7 @@
                 > These are horizon ideas, not signed blood contracts. Some may ship. Some may mutate. Some may remain beautiful nonsense forever.
                 > If your table pain is different, pitch a better future. Later there should be a better way for chummers to help signal which rabbit holes deserve the next flashlight.
                 >
-                > Also, if the dev says all of these are "basically done," check whether he also says "one tiny refactor" before setting a repo on fire.
+                > Also, if any of this sounds too certain, distrust the sentence before you trust the horizon.
 
                 ## Pick the pain, then the codename
 

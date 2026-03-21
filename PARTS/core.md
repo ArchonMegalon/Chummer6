@@ -1,6 +1,6 @@
 # Core
 
-![Core banner](../assets/parts/core.png "if the math looks cursed, this is where the curse gets cross-examined.")<br>_[if the math looks cursed, this is where the curse gets cross-examined.](../assets/parts/core.png)_
+![Core banner](../assets/parts/core.png "where rulings stop hand-waving and start leaving receipts.")<br>_[where rulings stop hand-waving and start leaving receipts.](../assets/parts/core.png)_
 
 **The deterministic rules engine.**
 

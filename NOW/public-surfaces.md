@@ -2,11 +2,11 @@
 
 ![Public surfaces banner](../assets/pages/public-surfaces.png)
 
-The public surfaces are mostly explanation, future lanes, and whatever accidental traces escaped into view.
+The deliberate public surfaces are the guide, the horizon shelf, and the issue tracker.
 
 ## Current public reality
 
-The guide, horizon shelf, and issue tracker are the deliberate public story. If there is a proof artifact, rough build, or screenshot, treat it as provisional spillover instead of a dependable product surface.
+If there is a proof artifact, rough build, or screenshot, treat it as a rough trace instead of a dependable product surface.
 
 These are still preview, not the final public shape:
 

@@ -1,6 +1,6 @@
 # ALICE
 
-![ALICE banner](../assets/horizons/alice.png "the simulation is here to hurt your feelings before reality does.")<br>_[the simulation is here to hurt your feelings before reality does.](../assets/horizons/alice.png)_
+![ALICE banner](../assets/horizons/alice.png "simulation before regret.")<br>_[simulation before regret.](../assets/horizons/alice.png)_
 
 **Grounded what-if analysis before the bad build hits public view.**
 
@@ -15,16 +15,17 @@ It is cheaper to catch a weak build early than to apologize for it later.
 Player: I thought this build was clean.
 GM: ALICE says the weak point shows up on turn two, not after the campaign starts.
 Decker: Good. I would rather get roasted by a preflight than by the whole table.
+Chummer6: The hallway goes loud, your soak folds, and the plan stops being clever.
 Player: Show me the evidence, not the vibes.
-GM: Exactly.
+GM: Exactly. Humiliation is cheaper in preview.
 
 <p align="center"><img src="../assets/horizons/details/alice-scene.png" alt="ALICE dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Comparative analysis has to stay tied to visible proof instead of fuzzy assistant theater.
-- Preflight checks only matter if they are explainable enough for a skeptical table.
+- Comparative analysis has to stay tied to visible proof instead of fuzzy assistant theater
+- Preflight checks only matter if they are explainable enough for a skeptical table
 
 ## Why that would be great
 
@@ -32,7 +33,7 @@ It could catch weak assumptions before they become public embarrassment or campa
 
 ## Why it is still a Horizon
 
-Advice that sounds clever but cannot show its work is worse than silence, so this lane stays future-tense until the evidence holds.
+Advice that sounds clever but cannot show its work is worse than silence, so this stays hypothetical until the evidence holds.
 
 ## What would need to exist first
 

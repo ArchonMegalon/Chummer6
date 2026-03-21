@@ -1,10 +1,10 @@
 # What Chummer6 Is
 
-![What Chummer6 is banner](assets/pages/what-chummer6-is.png "product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.")<br>_[product story first, architecture sermon later, assuming the dev can resist lecturing for five minutes.](assets/pages/what-chummer6-is.png)_
+![What Chummer6 is banner](assets/pages/what-chummer6-is.png "less mystical rulings, more visible receipts.")<br>_[less mystical rulings, more visible receipts.](assets/pages/what-chummer6-is.png)_
 
-Chummer6 is an idea about making Shadowrun rulings less mystical.
+Chummer6 is an idea about letting Shadowrun math show its work.
 
-The ambition is visible reasoning instead of trust-me math, but the honest present tense is still concept work with occasional spillover. If something inspectable exists, good; if it does not, the direction still matters more than the lucky trace.
+The ambition is visible reasoning instead of trust-me answers, but the honest present tense is still concept work with only a few inspectable traces. If something concrete exists, good; if it does not, the direction still matters more than the lucky artifact.
 
 ## What it is becoming for players and GMs
 

@@ -1,6 +1,6 @@
 # UI Kit
 
-![UI Kit banner](../assets/parts/ui-kit.png "the bit that stops the split from dressing like eight unrelated crimes.")<br>_[the bit that stops the split from dressing like eight unrelated crimes.](../assets/parts/ui-kit.png)_
+![UI Kit banner](../assets/parts/ui-kit.png "shared visual language so the split does not look accidental.")<br>_[shared visual language so the split does not look accidental.](../assets/parts/ui-kit.png)_
 
 **The shared visual vocabulary.**
 

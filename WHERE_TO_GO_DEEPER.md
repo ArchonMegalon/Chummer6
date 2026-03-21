@@ -1,6 +1,6 @@
 # Where To Go Deeper
 
-![Where to go deeper banner](assets/pages/where-to-go-deeper.png "this is the part where curiosity becomes paperwork with better lighting.")<br>_[this is the part where curiosity becomes paperwork with better lighting.](assets/pages/where-to-go-deeper.png)_
+![Where to go deeper banner](assets/pages/where-to-go-deeper.png "the archive path once the front door stops being enough.")<br>_[the archive path once the front door stops being enough.](assets/pages/where-to-go-deeper.png)_
 
 This is the path for when the friendly tour stops being enough.
 

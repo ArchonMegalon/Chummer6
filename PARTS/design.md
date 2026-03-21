@@ -1,6 +1,6 @@
 # Design
 
-![Design banner](../assets/parts/design.png "the long-range planning room, still dangerously attractive to people who enjoy scope diagrams.")<br>_[the long-range planning room, still dangerously attractive to people who enjoy scope diagrams.](../assets/parts/design.png)_
+![Design banner](../assets/parts/design.png "the long-range plan, still mostly a promise to future selves.")<br>_[the long-range plan, still mostly a promise to future selves.](../assets/parts/design.png)_
 
 **The long-range product map and truth filter.**
 

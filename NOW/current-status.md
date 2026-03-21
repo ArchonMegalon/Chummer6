@@ -2,7 +2,7 @@
 
 ![Current status banner](../assets/pages/current-status.png)
 
-The current status is closer to idea with spillover than to product with support.
+Status first: the guide is solid, and everything else is still provisional.
 
 ## The short version
 
@@ -14,7 +14,7 @@ The current status is closer to idea with spillover than to product with support
 
 ## What that means for normal humans
 
-What you can reliably expect is a public explanation and a horizon map. Anything more concrete than that should be treated as accidental, provisional, and likely to break or vanish without ceremony.
+What is consistently visible today is the guide, the horizon shelf, and a few rough artifacts. Anything more concrete than that may still break, move, or vanish without ceremony.
 ---
 
 <sub>Updated: 2026-03-21</sub>

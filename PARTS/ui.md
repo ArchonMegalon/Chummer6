@@ -1,6 +1,6 @@
 # UI
 
-![UI banner](../assets/parts/ui.png "where you lovingly inspect every choice before the run and then blame the dice anyway.")<br>_[where you lovingly inspect every choice before the run and then blame the dice anyway.](../assets/parts/ui.png)_
+![UI banner](../assets/parts/ui.png "the inspection lane before the run starts arguing back.")<br>_[the inspection lane before the run starts arguing back.](../assets/parts/ui.png)_
 
 **The workbench and inspect-everything surface.**
 

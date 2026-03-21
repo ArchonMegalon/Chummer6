@@ -2,9 +2,9 @@
 
 ![Current phase banner](../assets/pages/current-phase.png)
 
-The current phase is still concept work pretending to be less abstract.
+The current phase is trust work before product posture.
 
-The project is still trying to pin down trust, receipts, and boundaries before it earns the right to call itself software. If something visible exists, it is better read as a rough trace of the idea than as proof that the whole thing is alive.
+The project is still trying to make rulings inspectable, bounded, and worth trusting before it earns the right to call itself software. In public that mostly shows up as a clearer guide, a sharper horizon shelf, an issue tracker, and the occasional rough artifact that still needs to be treated as accidental evidence instead of support.
 
 ## The focus right now
 

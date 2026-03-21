@@ -1,6 +1,6 @@
 # Start Here
 
-![Start here banner](assets/pages/start-here.png "pick the lane that solves tonight's problem before the repo tries to hand you a topology lecture.")<br>_[pick the lane that solves tonight's problem before the repo tries to hand you a topology lecture.](assets/pages/start-here.png)_
+![Start here banner](assets/pages/start-here.png "pick the lane that matches tonight's table question.")<br>_[pick the lane that matches tonight's table question.](assets/pages/start-here.png)_
 
 Start with the problem you have tonight, not with a lecture about how the software is arranged.
 

@@ -1,6 +1,6 @@
 # Hub
 
-![Hub banner](../assets/parts/hub.png "hosted coordination, because apparently some chaos really does need adult supervision.")<br>_[hosted coordination, because apparently some chaos really does need adult supervision.](../assets/parts/hub.png)_
+![Hub banner](../assets/parts/hub.png "coordination traces for the hosted lane, still more idea than guarantee.")<br>_[coordination traces for the hosted lane, still more idea than guarantee.](../assets/parts/hub.png)_
 
 **The online side that keeps identity, coordination, and hosted participation boring.**
 

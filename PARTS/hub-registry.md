@@ -1,6 +1,6 @@
 # Hub Registry
 
-![Hub Registry banner](../assets/parts/hub-registry.png "compatibility truth, so your install flow does not become cursed zip roulette.")<br>_[compatibility truth, so your install flow does not become cursed zip roulette.](../assets/parts/hub-registry.png)_
+![Hub Registry banner](../assets/parts/hub-registry.png "compatibility truth before artifact roulette starts.")<br>_[compatibility truth before artifact roulette starts.](../assets/parts/hub-registry.png)_
 
 **The artifact shelf, install truth, and compatibility record.**
 

@@ -1,6 +1,6 @@
 # NEXUS-PAN
 
-![NEXUS-PAN banner](../assets/horizons/nexus-pan.png "Wi-Fi died; the table did not. That is the fantasy.")<br>_[Wi-Fi died; the table did not. That is the fantasy.](../assets/horizons/nexus-pan.png)_
+![NEXUS-PAN banner](../assets/horizons/nexus-pan.png "session continuity after the link gets ugly.")<br>_[session continuity after the link gets ugly.](../assets/horizons/nexus-pan.png)_
 
 **Shared state survives dirty reconnects without turning the table into a trust exercise.**
 
@@ -12,9 +12,11 @@ A reconnect should be annoying, not campaign-threatening.
 
 ## A real table scene
 
+The dead zone lifts just as the van starts rolling again.
 GM: Your phone died; the run did not.
 Player: Good. I only want to lose battery, not state.
 Rigger: The loadout came back where I left it.
+Chummer6: Missed actions replayed. Current penalties still attached.
 Face: So we keep moving instead of rebuilding the scene from memory.
 GM: That is the whole fantasy.
 
@@ -23,8 +25,8 @@ GM: That is the whole fantasy.
 
 ## Meanwhile, Chummer is doing this
 
-- Shared-state continuity only counts if reconnects are boring and honest.
-- Reconnect chaos, cache recovery, and conflict cleanup still have to stop lying before this becomes real.
+- Shared-state continuity only counts if reconnects are boring and honest
+- Reconnect chaos and drift cleanup still have to stop lying before this becomes real
 
 ## Why that would be great
 

@@ -2,7 +2,7 @@
 
 ![RUNBOOK PRESS banner](../assets/horizons/runbook-press.png)
 
-**Long-form books that feel governed instead of duct-taped together.**
+**Long-form books that stay coherent after the second panic revision.**
 
 _Status: Horizon only — future idea, not active build work._
 
@@ -14,8 +14,10 @@ A real primer should not need ten tools, three dashboards, and a superstition to
 
 Writer: I want the handbook, not a graveyard of near-final exports.
 GM: And I want the book to stay reusable after the first panic revision.
+Fresh proof tabs hang off the layout rail while the old version sulks in a tray.
 Player: If it looks finished, it should still point back to real source truth.
 Writer: Exactly. Long form without folklore.
+Chummer6: Source anchors intact. Reuse survives this revision.
 GM: That would be a first.
 
 <p align="center"><img src="../assets/horizons/details/runbook-press-scene.png" alt="RUNBOOK PRESS dialogue scene still" width="420"></p>
@@ -23,8 +25,8 @@ GM: That would be a first.
 
 ## Meanwhile, Chummer is doing this
 
-- Long-form publishing has to keep manifests, provenance, and reuse intact instead of outsourcing truth to vendor dashboards.
-- This lane only matters if a book can feel finished without becoming impossible to maintain.
+- A long guide is only worth it if later revisions still point back to the source instead of turning into copy-paste folklore
+- If every update turns the book into salvage work, nobody should pretend the work is ready
 
 ## Why that would be great
 
@@ -32,7 +34,7 @@ It could make primers, handbooks, and campaign books feel like real products ins
 
 ## Why it is still a Horizon
 
-Long form only pays off once publication prep stops shredding provenance and reuse behind the scenes.
+A handbook only earns trust once revisions stop making the source harder to trace and the next edition less reusable.
 
 ## What would need to exist first
 

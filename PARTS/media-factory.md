@@ -1,6 +1,6 @@
 # Media Factory
 
-![Media Factory banner](../assets/parts/media-factory.png "render jobs belong here, not taped to whatever repo the dev had open at 2 a.m.")<br>_[render jobs belong here, not taped to whatever repo the dev had open at 2 a.m.](../assets/parts/media-factory.png)_
+![Media Factory banner](../assets/parts/media-factory.png "where the image experiments get pushed through the grinder.")<br>_[where the image experiments get pushed through the grinder.](../assets/parts/media-factory.png)_
 
 **The render-only asset plant.**
 

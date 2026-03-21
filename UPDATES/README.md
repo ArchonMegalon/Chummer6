@@ -6,19 +6,12 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
-### 2026-03-20 · Publish regenerated Chummer6 docs (docs-only).
+### 2026-03-21 · The public guide got stricter.
 
 - Surface: Guide
-- Source push: `Publish regenerated Chummer6 docs (docs-only)`
-- What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-
-### 2026-03-20 · Wipe Chummer6 repository contents.
-
-- Surface: Guide
-- Source push: `Wipe Chummer6 repository contents`
-- What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+- Source push: `Refresh Chummer6 guide`
+- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
+- Still not promised: that the visible surface is reliable just because it has a page.
 
 ### 2026-03-20 · The public front door got more deliberate.
 
@@ -61,6 +54,13 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 - Source push: `Add browser auth shell for chummer.run`
 - What changed for you: The front door is a little closer to showing a real account path instead of a placeholder lane.
 - Still not promised: frictionless onboarding across every surface.
+
+### 2026-03-19 · The public rules for the project got tighter.
+
+- Surface: Design
+- Source push: `Canonize identity and channel linking model`
+- What changed for you: The repos are doing a little less free-styling about what should be visible to normal humans.
+- Still not promised: that the implementation already lives up to that contract.
 
 ## Monthly archive
 

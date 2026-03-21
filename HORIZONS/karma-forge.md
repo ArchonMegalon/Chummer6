@@ -1,6 +1,6 @@
 # KARMA FORGE
 
-![KARMA FORGE banner](../assets/horizons/karma-forge.png "house rules with receipts, not forked-code folklore and a group chat apology.")<br>_[house rules with receipts, not forked-code folklore and a group chat apology.](../assets/horizons/karma-forge.png)_
+![KARMA FORGE banner](../assets/horizons/karma-forge.png "rule experiments under diff, approval, and rollback pressure.")<br>_[rule experiments under diff, approval, and rollback pressure.](../assets/horizons/karma-forge.png)_
 
 **House rules with governance instead of fork chaos.**
 
@@ -13,8 +13,10 @@ Tables want variation without turning every campaign into unreadable folklore.
 ## A real table scene
 
 GM: I want the house rule, not the forked-code religion that comes with it.
+Chummer6: Diff strip loaded. Two collisions, one rollback path, one approval still pending.
 Player: Fine, but I want to know whether it still plays nice with the rest of the sheet.
 Rigger: And I want rollback before somebody ships a clever disaster.
+A stamped approval card lands on the bench and nobody trusts it yet.
 GM: That is why this is a forge and not a pastebin.
 Player: Good. Keep the receipts hotter than the hype.
 
@@ -23,9 +25,9 @@ Player: Good. Keep the receipts hotter than the hype.
 
 ## Meanwhile, Chummer is doing this
 
-- Approval, compatibility, and rollback still eat real effort before this lane is safe.
-- Booster here only means the dev may burn API-side budget on experiments; normal UI use on your account stays the same unless you built your own tooling on that same API budget.
-- Broader access later is still the hope, but nobody should read this as a promise that anything useful or shippable comes out of the spend.
+- Approval, compatibility, and rollback still eat real effort before any ruleset preview is safe
+- It is still expensive, review-heavy, and easy to overpromise if the receipts are weak
+- Broader access later is still the hope, but nobody should read that as a promise that the work lands cleanly or soon
 
 ## Why that would be great
 
@@ -33,7 +35,7 @@ It could let tables evolve rules without splintering into silent canon, unreadab
 
 ## Why it is still a Horizon
 
-This stays booster-first while the lane is still expensive to operate safely, and even then the honest promise is only API-side experiment budget for development work; you may still get nothing useful out of it.
+At most this starts as an optional paid preview through the booster lane while safe review still costs real effort, and even then the pass may still produce nothing useful or shippable.
 
 ## What would need to exist first
 

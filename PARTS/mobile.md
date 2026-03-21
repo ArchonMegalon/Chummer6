@@ -1,6 +1,6 @@
 # Mobile
 
-![Mobile banner](../assets/parts/mobile.png "the session shell for when your table refuses to stay in one physical century.")<br>_[the session shell for when your table refuses to stay in one physical century.](../assets/parts/mobile.png)_
+![Mobile banner](../assets/parts/mobile.png "the live-play surface if the table ever earns one.")<br>_[the live-play surface if the table ever earns one.](../assets/parts/mobile.png)_
 
 **The session shell you feel at the table.**
 
