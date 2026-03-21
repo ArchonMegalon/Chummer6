@@ -29,7 +29,7 @@ Operator phrasing belongs behind the scenes.
 
 ## Start the participation flow
 
-- [Open the Hub participation page](https://chummer.run/hub/participate/codex)
+- [Open the public participation page](https://chummer.run/participate)
 
 ## Privacy and review safety
 
@@ -48,7 +48,7 @@ When those lanes become cheaper and safer to operate broadly, the long-run inten
 
 ## Primary CTAs
 
-- Open the Hub participation page
+- Open the public participation page
 - File a public issue
 - Read current status before promising yourself too much
 ---

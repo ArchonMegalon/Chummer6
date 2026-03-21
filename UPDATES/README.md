@@ -9,7 +9,7 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 ### 2026-03-21 · The public guide got stricter.
 
 - Surface: Guide
-- Source push: `Refresh Chummer6 guide`
+- Source push: `Refresh Chummer6 guide with curated image pack`
 - What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
 - Still not promised: that the visible surface is reliable just because it has a page.
 

@@ -17,7 +17,7 @@
                 - **Show me the parts when I actually care:** [Program map](PARTS/README.md)
                 - **I want to help without getting lost in repo folklore:** [How can I help?](HOW_CAN_I_HELP.md)
                 - **Point me at the deeper source material:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
-                - **Inspect the current manual preview artifacts:** [Download builds](DOWNLOAD.md)
+                - **Inspect the current advanced preview builds:** [Download builds](DOWNLOAD.md)
 
                 ## Current posture
 
@@ -63,13 +63,13 @@
 
                 A booster is an opt-in temporary help lane on top of the cheap baseline. It does not replace the cheap-first loop, and it still lands through review.
 
-                - [Open the Hub participation page](https://chummer.run/hub/participate/codex)
+                - [Open the public participation page](https://chummer.run/participate)
 
                 ## Try it now
 
-                - [Inspect the current manual preview artifacts](DOWNLOAD.md)
+                - [Inspect the current advanced preview builds](DOWNLOAD.md)
                 - If you are hoping for installer-grade packaging, that part is not real yet.
-                - The download shelf is secondary to the guide because the current artifacts are still archive-grade previews, not a normal install story.
+                - The download shelf is secondary to the guide because the current artifacts are still advanced manual preview archives, not a normal install story.
 
                 ## What is happening right now
 
