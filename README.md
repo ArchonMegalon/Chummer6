@@ -23,21 +23,6 @@
 
                 Chummer6 is still closer to an idea than to dependable software. If you find something that works tonight, treat it as lucky spillover from the concept, not as a support promise.
 
-                ## What Changed Lately
-
-                If you are checking whether this idea is still moving, start here.
-
-                - **2026-03-21 · The public guide got stricter.**
-  What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
-  Still not promised: that the visible surface is reliable just because it has a page.
-- [Full update log](UPDATES/README.md)
-
-                ## Try it now
-
-                - [Inspect the current manual preview artifacts](DOWNLOAD.md)
-                - If you are hoping for installer-grade packaging, that part is not real yet.
-                - The download shelf is secondary to the guide because the current artifacts are still archive-grade previews, not a normal install story.
-
                 ## What this means at a real table
 
                 > **GM**<br>
@@ -61,6 +46,15 @@
 
                 If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
 
+                ## What Changed Lately
+
+                If you are checking whether this idea is still moving, start here, then open the full shelf when you care about the trail.
+
+                - **2026-03-21 · The public guide got stricter.**
+  What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
+  Still not promised: that the visible surface is reliable just because it has a page.
+- [Full update log](UPDATES/README.md)
+
                 ## How can I help?
 
                 If you want to do more than watch, start with [How can I help?](HOW_CAN_I_HELP.md).
@@ -70,6 +64,12 @@
                 A booster is an opt-in temporary help lane on top of the cheap baseline. It does not replace the cheap-first loop, and it still lands through review.
 
                 - [Open the Hub participation page](https://chummer.run/hub/participate/codex)
+
+                ## Try it now
+
+                - [Inspect the current manual preview artifacts](DOWNLOAD.md)
+                - If you are hoping for installer-grade packaging, that part is not real yet.
+                - The download shelf is secondary to the guide because the current artifacts are still archive-grade previews, not a normal install story.
 
                 ## What is happening right now
 
