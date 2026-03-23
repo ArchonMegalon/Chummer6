@@ -6,6 +6,13 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
+### 2026-03-23 · The public guide got stricter.
+
+- Surface: Guide
+- Source push: `Refresh Chummer6 guide`
+- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
+- Still not promised: that the visible surface is reliable just because it has a page.
+
 ### 2026-03-22 · title: Publish or append runnable backlog for NPC Persona Studio screen….
 
 - Surface: Workbench
@@ -52,13 +59,6 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 - Surface: UI kit
 - Source push: `title: Add milestone mapping or executable queue work for Shared token,…`
-- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-
-### 2026-03-21 · title: Publish or append runnable backlog for Shared token, shell chrom….
-
-- Surface: UI kit
-- Source push: `title: Publish or append runnable backlog for Shared token, shell chrom…`
 - What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 

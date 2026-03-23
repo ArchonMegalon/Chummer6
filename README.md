@@ -50,9 +50,9 @@
 
                 If you are checking whether this idea is still moving, start here, then open the full shelf when you care about the trail.
 
-                - **2026-03-22 · title: Publish or append runnable backlog for NPC Persona Studio screen….**
-  What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
-  Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+                - **2026-03-23 · The public guide got stricter.**
+  What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
+  Still not promised: that the visible surface is reliable just because it has a page.
 - [Full update log](UPDATES/README.md)
 
                 ## How can I help?
