@@ -31,4 +31,4 @@ Core is already the rules-truth spine, and the current work is about keeping it 
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-<sub>Updated: 2026-03-21</sub>
+<sub>Updated: 2026-03-23</sub>

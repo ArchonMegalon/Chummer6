@@ -10,4 +10,4 @@
 - **horizon**: a future idea that is being explored, not promised
 ---
 
-<sub>Updated: 2026-03-21</sub>
+<sub>Updated: 2026-03-23</sub>

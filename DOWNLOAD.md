@@ -45,4 +45,4 @@ Right now this shelf is advanced manual preview archives only. They are real art
 - If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
 ---
 
-<sub>Updated: 2026-03-21</sub>
+<sub>Updated: 2026-03-23</sub>

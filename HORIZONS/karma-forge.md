@@ -12,13 +12,13 @@ Tables want variation without turning every campaign into unreadable folklore.
 
 ## A real table scene
 
-GM: I want the house rule, not the forked-code religion that comes with it.
-Chummer6: Diff strip loaded. Two collisions, one rollback path, one approval still pending.
-Player: Fine, but I want to know whether it still plays nice with the rest of the sheet.
-Rigger: And I want rollback before somebody ships a clever disaster.
-A stamped approval card lands on the bench and nobody trusts it yet.
-GM: That is why this is a forge and not a pastebin.
-Player: Good. Keep the receipts hotter than the hype.
+GM: We can try the house rule, but I want a clean way back out if it breaks the night.
+Chummer6: Proposed delta staged. Compatibility check still open.
+Player: Good. Show me what changed before it touches the sheet.
+Rigger: And keep rollback one click away if the whole thing goes stupid.
+A color-banded diff strip locks onto the rail beside an untouched fallback cassette.
+GM: Perfect. Experiment, but keep the receipts and the escape hatch.
+Player: That is the first time a custom rule has looked survivable.
 
 <p align="center"><img src="../assets/horizons/details/karma-forge-scene.png" alt="KARMA FORGE dialogue scene still" width="420"></p>
 
@@ -49,4 +49,4 @@ At most this starts as an optional paid preview through the booster lane while s
 Evolve the rules without pretending every clever hack deserves to become canon.
 ---
 
-<sub>Updated: 2026-03-21</sub>
+<sub>Updated: 2026-03-23</sub>

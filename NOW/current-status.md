@@ -17,4 +17,4 @@ Status first: the guide is solid, and everything else is still provisional.
 What is consistently visible today is the guide, the horizon shelf, and a few rough artifacts. Anything more concrete than that may still break, move, or vanish without ceremony.
 ---
 
-<sub>Updated: 2026-03-21</sub>
+<sub>Updated: 2026-03-23</sub>

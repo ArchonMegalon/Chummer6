@@ -6,65 +6,65 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
-### 2026-03-21 · The public guide got stricter.
+### 2026-03-22 · title: Publish or append runnable backlog for NPC Persona Studio screen….
 
-- Surface: Guide
-- Source push: `Refresh Chummer6 guide with curated image pack`
-- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
-- Still not promised: that the visible surface is reliable just because it has a page.
-
-### 2026-03-20 · The public front door got more deliberate.
-
-- Surface: chummer.run
-- Source push: `Polish public landing shell and downloads`
-- What changed for you: More of the landing experience lives on first-party routes instead of dead shells and guesswork.
-- Still not promised: a finished product surface.
-
-### 2026-03-20 · Add public updates shelf.
-
-- Surface: Guide
-- Source push: `Add public updates shelf`
-- What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
+- Surface: Workbench
+- Source push: `title: Publish or append runnable backlog for NPC Persona Studio screen…`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
-### 2026-03-20 · Account mail moved closer to real delivery.
+### 2026-03-22 · title: Publish or append runnable backlog for The remaining core work i….
 
-- Surface: chummer.run
-- Source push: `Refactor identity mail delivery around transports`
-- What changed for you: Sign-in and identity mail are less of a preview trick and more of a real transport path.
-- Still not promised: fully polished account recovery and provider breadth.
+- Surface: Core
+- Source push: `title: Publish or append runnable backlog for The remaining core work i…`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
-### 2026-03-19 · The download shelf got more honest.
+### 2026-03-22 · title: Execute next residual core purification + hardening evidence cyc….
 
-- Surface: Guide
-- Source push: `Refresh guide download surface`
-- What changed for you: Preview artifacts are easier to find and less likely to pretend they are already polished installers.
-- Still not promised: installer-grade packaging and platform polish everywhere.
+- Surface: Core
+- Source push: `title: Execute next residual core purification + hardening evidence cyc…`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
-### 2026-03-19 · The help lane got less confusing.
+### 2026-03-22 · title: Publish or append runnable backlog for Install, review, compatib….
 
-- Surface: chummer.run
-- Source push: `Add sponsor lane roles and queue state`
-- What changed for you: Support and participation flows are being described with a bit less internal jargon and a bit more user reality.
-- Still not promised: that helping guarantees results.
+- Surface: Registry
+- Source push: `title: Publish or append runnable backlog for Install, review, compatib…`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
-### 2026-03-19 · The public sign-in shell got less fake.
+### 2026-03-21 · title: Migrate presentation and play to consume Chummer.Ui.Kit as a pac….
 
-- Surface: chummer.run
-- Source push: `Add browser auth shell for chummer.run`
-- What changed for you: The front door is a little closer to showing a real account path instead of a placeholder lane.
-- Still not promised: frictionless onboarding across every surface.
+- Surface: UI kit
+- Source push: `title: Migrate presentation and play to consume Chummer.Ui.Kit as a pac…`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
-### 2026-03-19 · The public rules for the project got tighter.
+### 2026-03-21 · title: Sync the approved Chummer design bundle into `ui-kit` under `.co….
 
-- Surface: Design
-- Source push: `Canonize identity and channel linking model`
-- What changed for you: The repos are doing a little less free-styling about what should be visible to normal humans.
-- Still not promised: that the implementation already lives up to that contract.
+- Surface: UI kit
+- Source push: `title: Sync the approved Chummer design bundle into `ui-kit` under `.co…`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-03-21 · title: Add milestone mapping or executable queue work for Shared token,….
+
+- Surface: UI kit
+- Source push: `title: Add milestone mapping or executable queue work for Shared token,…`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-03-21 · title: Publish or append runnable backlog for Shared token, shell chrom….
+
+- Surface: UI kit
+- Source push: `title: Publish or append runnable backlog for Shared token, shell chrom…`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
 ## Monthly archive
 
 - [2026-03](./2026-03.md)
 ---
 
-<sub>Updated: 2026-03-21</sub>
+<sub>Updated: 2026-03-23</sub>

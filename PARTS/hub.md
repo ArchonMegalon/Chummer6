@@ -31,4 +31,4 @@ Hub is already the hosted front door for identity, landing/home projection, part
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-<sub>Updated: 2026-03-21</sub>
+<sub>Updated: 2026-03-23</sub>

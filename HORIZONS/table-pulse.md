@@ -46,4 +46,4 @@ Turning a table microphone into a coach instead of a snitch requires privacy bou
 A post-run debrief that respects your table’s privacy and sharpens your GM’s pacing.
 ---
 
-<sub>Updated: 2026-03-21</sub>
+<sub>Updated: 2026-03-23</sub>
