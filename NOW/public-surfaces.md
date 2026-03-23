@@ -8,13 +8,9 @@ The deliberate public surfaces are the guide, the horizon shelf, and the issue t
 
 If there is a proof artifact, rough build, or screenshot, treat it as a rough trace instead of a dependable product surface.
 
-These are still preview, not the final public shape:
+Canonical preview surfaces from `STATUS_PLANE.generated.yaml`:
 
-- portal root
-- hub preview
-- workbench preview
-- play preview
-- coach preview
+- no preview-access projects are currently listed in the canonical status plane.
 
 ## Why that label exists
 

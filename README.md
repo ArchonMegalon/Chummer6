@@ -50,9 +50,9 @@
 
                 If you are checking whether this idea is still moving, start here, then open the full shelf when you care about the trail.
 
-                - **2026-03-23 · The public guide got stricter.**
-  What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
-  Still not promised: that the visible surface is reliable just because it has a page.
+                - **2026-03-23 · Read registry release manifests and wire Fleet bridge auth.**
+  What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
+  Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 - [Full update log](UPDATES/README.md)
 
                 ## How can I help?
