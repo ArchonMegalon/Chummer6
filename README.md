@@ -50,8 +50,8 @@
 
                 If you are checking whether this idea is still moving, start here, then open the full shelf when you care about the trail.
 
-                - **2026-03-23 · Read registry release manifests and wire Fleet bridge auth.**
-  What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
+                - **2026-03-24 · Define feedback and crash reporting plane.**
+  What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
   Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 - [Full update log](UPDATES/README.md)
 
@@ -125,4 +125,4 @@
                 Need the long-range plan or implementation trail after that? [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 ---
 
-<sub>Updated: 2026-03-23</sub>
+<sub>Updated: 2026-03-24</sub>

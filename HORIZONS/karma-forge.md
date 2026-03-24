@@ -49,4 +49,4 @@ At most this starts as an optional paid preview because safe review still costs 
 Evolve the rules without pretending every clever hack deserves to become canon.
 ---
 
-<sub>Updated: 2026-03-23</sub>
+<sub>Updated: 2026-03-24</sub>

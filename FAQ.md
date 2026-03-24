@@ -36,6 +36,10 @@ A booster is an opt-in temporary support lane for people who want to lend extra 
 
 No. Public bug reports, guide feedback, and future-feature suggestions still matter. Booster help is optional and additive, not the price of admission.
 
+### Should I use the public issue tracker for a crash?
+
+Use the in-product private crash lane when diagnostics or logs are involved. Public issues stay best for public-safe reproducible bugs, guide feedback, and future-feature suggestions.
+
 ### Why are some things preview-only?
 
 Because some surfaces are real enough to try while their support, release, or compatibility story is still catching up. Preview means shape can move, not that the product is pretending.
@@ -71,4 +75,4 @@ Use the Chummer6 issue tracker for public guide feedback, bug reports, and futur
 If you want the public help lane or the bounded booster flow, read [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md) and, when you are ready, open the public participation page at [https://chummer.run/participate](https://chummer.run/participate).
 ---
 
-<sub>Updated: 2026-03-23</sub>
+<sub>Updated: 2026-03-24</sub>

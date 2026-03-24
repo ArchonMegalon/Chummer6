@@ -6,13 +6,22 @@ If you want to inspect the current Chummer6 artifacts without digging through a 
 
 - Version: `unpublished`
 - Channel: `unknown`
-- Published: `2026-03-23T21:13:51Z`
+- Published: `2026-03-24T19:42:22Z`
 
-No published preview artifacts are available right now.
+Right now this shelf is advanced manual preview archives only. They are real artifacts for curious testers, not the intended normal-user install path, and installer-grade packaging is not here yet.
 
-- SHA256: `unavailable until the first published artifact lands`
-- GitHub releases remain the raw fallback while the canonical preview shelf is empty.
-- [Raw GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases)
+### None
+
+- Download: [None](None)
+- Format: advanced manual preview archive
+- SHA256: `196d25f2372b01b03f5082377e0895183803d8c2aade043f34c995e2931f31ff`
+- Size: `41940379` bytes
+
+## If this build is rough
+
+- It is a real preview shelf, not a promise that every surface is polished.
+- If the artifact format is still an advanced manual preview archive for your platform, installer-grade packaging has not been published for that target yet.
+- If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
 ---
 
-<sub>Updated: 2026-03-23</sub>
+<sub>Updated: 2026-03-24</sub>

@@ -47,4 +47,4 @@ A handbook only earns trust once revisions stop making the source harder to trac
 Publish the book without turning it into an archaeological site.
 ---
 
-<sub>Updated: 2026-03-23</sub>
+<sub>Updated: 2026-03-24</sub>

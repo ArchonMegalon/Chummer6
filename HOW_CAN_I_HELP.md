@@ -6,7 +6,8 @@ If you want to support Chummer6, there are two clean lanes: public feedback and 
 
 If you want to help without touching premium participation at all, use the public front door:
 
-* report a bug
+* file a public bug
+* send lightweight product feedback
 * flag confusing public copy
 * suggest a future lane
 * point at a horizon that sounds more useful than the current list
@@ -50,7 +51,8 @@ When those lanes become cheaper and safer to operate broadly, the long-run inten
 
 - Open the public participation page
 - File a public issue
+- Send a private crash report from the recovery flow when Chummer closes unexpectedly
 - Read current status before promising yourself too much
 ---
 
-<sub>Updated: 2026-03-23</sub>
+<sub>Updated: 2026-03-24</sub>

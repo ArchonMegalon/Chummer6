@@ -2,40 +2,42 @@
 
 ![TABLE PULSE banner](../assets/horizons/table-pulse.png)
 
-**The run didn't die; it just stalled. Pulse shows you exactly where the oxygen left the room.**
+**Stop guessing if the session dragged and start seeing the receipts on where the table actually lost its rhythm.**
 
 _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-You know the table drifted during the third-floor infiltration, but you can't prove if it was the math-grind, a spotlight-hog, or just a bad beat.
+GMs often sense the energy flatlining but can't pinpoint if it was a mechanical bottleneck, a spotlight hog, or forty minutes of a Decker talking to themselves.
 
 ## A real table scene
 
-GM: "I lost them during the pitch."
-[Chummer UI: Signal-cyan spikes for the hook, then a flatline.]
-Chummer: "Drop coincided with the fifth NPC introduction. Player participation: 12%."
-GM: "Five NPCs? In one room? I was talking to myself. Kill the middle-manager. More burritos."
-[A red alert pulses on the tactical map.]
-Player (Audio Log): "—and then he says *another* guy walks in? Forget it, I'm getting a burrito."
+GM: "Pulling the Pulse logs from Tuesday. Check the red-zone at the two-hour mark."
+Player: "My pizza run? Felt like I was gone for an hour."
+GM: "Forty-eight minutes. You didn't get a word in during the host-crawl."
+Player: "I was just staying out of the way while the Decker was cooking."
+GM: "Diagnostics show you tried to jump in three times but got stepped on. My bad."
+Player: "Wait, the waveform actually caught that?"
+GM: "Tagged as 'Overlapping Spotlight.' I need to rotate focus faster next time."
+Player: "At least it's not just my imagination. I was starting to check out."
+GM: "Receipts don't lie. Next session, solo dives are capped at five-minute beats."
 
 <p align="center"><img src="../assets/horizons/details/table-pulse-scene.png" alt="TABLE PULSE dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- Stress-testing the Interruption detector against chaotic table-talk
-- Tuning privacy filters so background noise never leaves the room
-- Calibrating adrenaline detection against actual dice-roll velocity
-- Hardening local-first data isolation for session logs
+- Validating local-first audio hashing to ensure your table talk never leaves your hardware
+- Refining the 'Spotlight Receipt' logic to distinguish between a tense silence and actual player boredom
+- Calibrating 'Dead Air' detection to filter out dice-rolling pauses from narrative stalls
 
 ## Why that would be great
 
-It is a flight recorder for your table’s adrenaline. You get the receipts on pacing and spotlight balance without a spreadsheet judging your voice acting.
+It turns the hazy memory of a 'long session' into a legible map of spotlight distribution and pacing peaks, giving you the evidence needed to fix the table's flow.
 
 ## Why it is still a Horizon
 
-We won't ship a table spy. The local-first 'Wipe All' circuit must be as hardened as the rules engine before this moves off the long-range plan.
+The tech stays on the horizon until we can guarantee your session audio is hashed locally and never becomes fuel for a corporate training model.
 
 ## What would need to exist first
 
@@ -45,7 +47,7 @@ We won't ship a table spy. The local-first 'Wipe All' circuit must be as hardene
 
 ## Pitch your own future
 
-Own your pacing before the pacing owns your campaign.
+The post-mission debrief your table actually needs to survive the next run.
 ---
 
-<sub>Updated: 2026-03-23</sub>
+<sub>Updated: 2026-03-24</sub>
