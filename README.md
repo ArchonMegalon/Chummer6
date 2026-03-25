@@ -1,8 +1,8 @@
 # Chummer6
 
-> **A serious, explainable Shadowrun platform in early access.**
+> **An idea for less mystical Shadowrun rulings.**
 >
-> Chummer6 is no longer just a concept pitch. The hosted front door, preview installer shelf, and signed-in account path are real, while broader workflow coverage is still maturing in public.
+> Chummer6 is still concept-stage: an idea for table rulings that are easier to inspect before anyone is asked to trust them.
 
 If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
@@ -15,11 +15,11 @@ If you only need the one-sentence pitch, it is this: Chummer6 is trying to help 
 - **Show me the parts when I actually care:** [Program map](PARTS/README.md)
 - **I want to help without getting lost in repo folklore:** [How can I help?](HOW_CAN_I_HELP.md)
 - **Point me at the deeper source material:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
-- **Inspect the current preview build path:** [Download builds](DOWNLOAD.md)
+- **Inspect the current advanced preview builds:** [Download builds](DOWNLOAD.md)
 
 ## Current posture
 
-Chummer6 is early access, not finished software. That means there is real product proof you can inspect now, but support, coverage, and compatibility are still moving and are labeled that way on purpose.
+Chummer6 is still closer to an idea than to dependable software. If you find something that works tonight, treat it as lucky spillover from the concept, not as a support promise.
 
 ![Chummer6 hero banner](assets/hero/chummer6-hero.png "one runner deciding whether tonight's build trail deserves trust.")<br>_[one runner deciding whether tonight's build trail deserves trust.](assets/hero/chummer6-hero.png)_
 
@@ -34,15 +34,15 @@ Chummer6 is early access, not finished software. That means there is real produc
 > **Chummer6**<br>
 > "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
 
-The project is chasing visible reasoning instead of trust-me table lore. What exists in public today is a real front door, a real preview installer shelf, clear current-state labeling, and a deeper guide that explains what is still opening next.
+The project is chasing visible reasoning instead of trust-me table lore. What exists in public is still mostly guide work, future lanes, issue threads, and the occasional rough artifact that escaped into view by accident.
 
 ## Why this is worth watching
 
-If you care about receipts, future session resilience, and tools that might become useful instead of decorative, this is the early-access product worth watching.
+If you care about receipts, future session resilience, and tools that might become useful instead of decorative, this is the concept worth watching.
 
-- a clearer direction for grounded rulings tools
-- less trust-me math with a visible proof trail
-- a saner path from prep to live play
+- a clearer direction for future rulings tools
+- less trust-me math if the concept survives
+- a saner long-range path from prep to live play
 
 If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
 
@@ -50,29 +50,30 @@ If that sounds like your kind of software, the next stop is [What Chummer6 is](W
 
 If you want to do more than watch, start with [How can I help?](HOW_CAN_I_HELP.md).
 
-The short version: public bugs and feature ideas still go through the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues), and the guided contribution lane is for people who explicitly want to lend temporary, review-safe help through Hub.
+The short version: public bugs and feature ideas still go through the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues), and the new **booster** lane is for people who explicitly want to lend temporary premium coding capacity through Hub.
 
-Guided contribution is an opt-in temporary help lane on top of the free baseline. It does not replace the public feedback loop, and it still lands through review.
+A booster is an opt-in temporary help lane on top of the cheap baseline. It does not replace the cheap-first loop, and it still lands through review.
 
 - [Open the public participation page](https://chummer.run/participate)
 
 ## Try it now
 
-- [Inspect the current preview build path](DOWNLOAD.md)
-- The canonical install shelf now lives on [chummer.run/downloads](https://chummer.run/downloads).
-- Raw GitHub releases remain the fallback path when you need the underlying artifact history.
+- [Inspect the current advanced preview builds](DOWNLOAD.md)
+- If you are hoping for installer-grade packaging, that part is not real yet.
+- The download shelf is secondary to the guide because the current artifacts are still advanced manual preview archives, not a normal install story.
 
 
 
 ## What is happening right now
 
-Right now the crew is doing trust work: converge the public story, keep installers and updates boring, and widen the real workflow coverage without pretending the product is done.
+Right now the crew is doing trust work, not bolting neon spoilers onto half-built engines.
+the guide has to stay honest that the idea is stronger than the current software traces
 
 Current focus:
-- honest early-access public surfaces
-- current proof before future promises
-- preview installers and updates that feel like a real product path
-- broader workflow coverage without lying about maturity
+- honest concept-stage public surfaces
+- future ideas that feel like table upgrades instead of slideware
+- not pretending lucky artifacts are dependable product
+- keep public previews honestly labeled until they become the real thing
 
 - [Current phase](NOW/current-phase.md)
 - [Current status](NOW/current-status.md)
@@ -99,18 +100,18 @@ Horizons are contingent idea lanes worth watching only if the concept survives l
 
 - [Horizons index](HORIZONS/README.md)
 
-## Preview shelf
+## POC shelf
 
-![Preview warning banner](assets/hero/poc-warning.png "an early-access trace that is real enough to try while still being honest about rough edges.")<br>_[an early-access trace that is real enough to try while still being honest about rough edges.](assets/hero/poc-warning.png)_
+![POC warning banner](assets/hero/poc-warning.png "a rough concept trace that may survive the evening by accident.")<br>_[a rough concept trace that may survive the evening by accident.](assets/hero/poc-warning.png)_
 
 Want to know whether all this talk cashes out into real software? This is the shelf where you stop reading and start risking your evening.
 
 - [Download builds](DOWNLOAD.md)
 - [Raw GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases)
 
-> **Early-access warning:** Preview builds are for people who want current access with honest caveats.<br>
-> They may still be unstable, unfinished, or rough around the edges.<br>
-> Install with that posture in mind.
+> **Street warning:** POC builds are for curious chummers, not cautious wageslaves.<br>
+> They may be unstable, unfinished, weird, or one bad click away from getting your deck **marked, hacked, or bricked**.<br>
+> Install at your own risk.
 
 The binaries come from the active Chummer6 codebase, not from this guide repo.
 

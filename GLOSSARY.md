@@ -6,7 +6,7 @@
 - **preview**: visible and usable, but still moving toward its final public shape
 - **runtime stack**: the exact rules, options, and package mix the session is using
 - **ruleset**: the era or package of Shadowrun rules currently in play
-- **preview build**: a build or surface that is real enough to try, but still rough enough to move under your feet
+- **POC**: a build or surface that is real enough to try, but still rough enough to bite
 - **horizon**: a future idea that is being explored, not promised
 ---
 
