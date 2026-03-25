@@ -1,6 +1,6 @@
 # How Can I Help?
 
-If you want to support Chummer6, there are two clean lanes: public feedback and guided contribution.
+If you want to support Chummer6, there are two clean lanes: public feedback and booster help.
 
 ## Public feedback lane
 
@@ -14,18 +14,9 @@ If you want to help without touching premium participation at all, use the publi
 
 That keeps feedback public and legible instead of making normal humans spelunk through design canon.
 
-## Guided contribution lane
+## Booster lane
 
-If you want to go deeper than public feedback, use the guided contribution lane on `chummer.run`.
 
-That path is:
-
-* opt-in
-* bounded
-* review-safe
-* separate from the normal customer install and account path
-
-It exists for people who want to lend focused help without turning the public product story into contributor jargon.
 
 ## Start the participation flow
 
