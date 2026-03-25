@@ -6,6 +6,13 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
+### 2026-03-25 · The public guide got stricter.
+
+- Surface: Guide
+- Source push: `Refresh Chummer6 guide`
+- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
+- Still not promised: that the visible surface is reliable just because it has a page.
+
 ### 2026-03-25 · Converge Chummer6 with the early-access product front.
 
 - Surface: Guide
@@ -26,13 +33,6 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 - Source push: `Add public canon and mirror validation`
 - What changed for you: The repos are doing a little less free-styling about what should be visible to normal humans.
 - Still not promised: that the implementation already lives up to that contract.
-
-### 2026-03-25 · The public guide got stricter.
-
-- Surface: Guide
-- Source push: `Refresh Chummer6 guide output`
-- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
-- Still not promised: that the visible surface is reliable just because it has a page.
 
 ### 2026-03-25 · Ship installer-only downloads shelf.
 

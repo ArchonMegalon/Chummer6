@@ -5,14 +5,14 @@ If you want to inspect the current Chummer6 artifacts without digging through a 
 ## Current build matrix
 
 - Version: `unpublished`
-- Channel: `unknown`
-- Published: `2026-03-25T11:08:24Z`
+- Channel: `preview`
+- Published: `2026-03-25T11:10:04Z`
 
 Right now this shelf is advanced manual preview archives only. They are real artifacts for curious testers, not the intended normal-user install path, and installer-grade packaging is not here yet.
 
-### None
+### Avalonia Desktop Linux X64
 
-- Download: [None](None)
+- Download: [chummer-avalonia-linux-x64.tar.gz](https://chummer.run/downloads/files/chummer-avalonia-linux-x64.tar.gz)
 - Format: advanced manual preview archive
 - SHA256: `196d25f2372b01b03f5082377e0895183803d8c2aade043f34c995e2931f31ff`
 - Size: `41940379` bytes
