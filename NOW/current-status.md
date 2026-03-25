@@ -2,7 +2,7 @@
 
 ![Current status banner](../assets/pages/current-status.png)
 
-                Status first: the guide is solid, and everything else is still provisional.
+                Status first: the public product shell and current preview build are real, while the broader platform still carries honest preview caveats.
 
                 ## The short version
 
@@ -15,7 +15,7 @@
 
                 ## What that means for normal humans
 
-                What is consistently visible today is the guide, the horizon shelf, and a few rough artifacts. Anything more concrete than that may still break, move, or vanish without ceremony.
+                What is consistently visible today is the product front door, the current preview build, the proof shelf, and the deeper guide trail. Broader platform surfaces can still move, but the public preview is no longer just a guide with accidental software traces attached.
 ---
 
 <sub>Updated: 2026-03-25</sub>
