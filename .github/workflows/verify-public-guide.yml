@@ -1,0 +1,32 @@
+name: Verify Public Guide
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify-public-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout guide repo
+        uses: actions/checkout@v4
+        with:
+          path: guide
+
+      - name: Checkout design repo
+        uses: actions/checkout@v4
+        with:
+          repository: ArchonMegalon/chummer6-design
+          path: design
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify guide matches design bundle
+        run: |
+          bash guide/scripts/verify_public_guide.sh --source "$GITHUB_WORKSPACE/design/products/chummer/public-guide"
