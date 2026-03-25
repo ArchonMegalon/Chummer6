@@ -6,7 +6,7 @@ If you want to inspect the current Chummer6 artifacts without digging through a 
 
 - Version: `unpublished`
 - Channel: `unknown`
-- Published: `2026-03-25T06:58:02Z`
+- Published: `2026-03-25T10:35:50Z`
 
 Right now this shelf is advanced manual preview archives only. They are real artifacts for curious testers, not the intended normal-user install path, and installer-grade packaging is not here yet.
 

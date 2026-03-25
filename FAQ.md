@@ -4,7 +4,7 @@
 
 ### Can I actually use this now?
 
-Yes, with honest caveats. There are usable public surfaces and a real POC shelf, but several surfaces are still explicitly marked preview. Read that as real but still moving, not imaginary.
+Yes, with honest caveats. There are usable public surfaces and a real preview installer shelf, but several surfaces are still explicitly marked preview. Read that as real but still moving, not imaginary.
 
 ### Is it offline-safe?
 
@@ -26,15 +26,15 @@ Start with WHAT_CHUMMER6_IS.md for the product pitch, then NOW/current-status.md
 
 ### How can I help?
 
-Start with public bug reports, guide feedback, and future-feature suggestions. If you want to go further, the bounded booster lane exists for opt-in temporary support on top of the free baseline.
+Start with public bug reports, guide feedback, and future-feature suggestions. If you want to go further, the guided contribution lane exists for opt-in temporary support on top of the free baseline.
 
-### What is a booster?
+### What is guided contribution?
 
-A booster is an opt-in temporary support lane for people who want to lend extra help on top of the cheap baseline. It is bounded, review-safe, and still not a bypass around governance.
+Guided contribution is an opt-in temporary support lane for people who want to lend extra help on top of the free baseline. It is bounded, review-safe, and still not a bypass around governance.
 
-### Do I need to boost to help?
+### Do I need to join guided contribution to help?
 
-No. Public bug reports, guide feedback, and future-feature suggestions still matter. Booster help is optional and additive, not the price of admission.
+No. Public bug reports, guide feedback, and future-feature suggestions still matter. Guided contribution is optional and additive, not the price of admission.
 
 ### Should I use the public issue tracker for a crash?
 
@@ -44,9 +44,9 @@ Use the in-product private crash lane when diagnostics or logs are involved. Pub
 
 Because some surfaces are real enough to try while their support, release, or compatibility story is still catching up. Preview means shape can move, not that the product is pretending.
 
-### Will booster-first previews become free later?
+### Will guided-preview lanes open wider later?
 
-The long-run intent is broader access, not a permanent paywall. Some early lanes may begin booster-first while approvals, compatibility work, editorial effort, or support cost remain unusually expensive.
+The long-run intent is broader access, not a permanent paywall. Some early lanes may begin as guided previews while approvals, compatibility work, editorial effort, or support cost remain unusually expensive.
 
 ### Can I participate privately?
 
