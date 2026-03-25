@@ -52,7 +52,8 @@ When those lanes become cheaper and safer to operate broadly, the long-run inten
 - Open the public participation page
 - File a public issue
 - Send a private crash report from the recovery flow when Chummer closes unexpectedly
+- Link this copy to your account if you want fix-status follow-up and account-aware support history
 - Read current status before promising yourself too much
 ---
 
-<sub>Updated: 2026-03-24</sub>
+<sub>Updated: 2026-03-25</sub>

@@ -40,4 +40,4 @@
                 If you want the whole-program ownership map, read [design](design.md).
 ---
 
-<sub>Updated: 2026-03-24</sub>
+<sub>Updated: 2026-03-25</sub>

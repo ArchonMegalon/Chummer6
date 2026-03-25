@@ -31,4 +31,4 @@ UI Kit is real enough to matter, and the next proof point is whether the rest of
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
 ---
 
-<sub>Updated: 2026-03-24</sub>
+<sub>Updated: 2026-03-25</sub>

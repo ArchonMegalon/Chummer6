@@ -73,4 +73,4 @@ Read [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md).
 Read [PARTS/README.md](PARTS/README.md) when you actually care how the parts fit together.
 ---
 
-<sub>Updated: 2026-03-24</sub>
+<sub>Updated: 2026-03-25</sub>

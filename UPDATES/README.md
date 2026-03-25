@@ -6,59 +6,59 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
-### 2026-03-24 · Define feedback and crash reporting plane.
+### 2026-03-25 · Add account-aware downloads pipeline.
+
+- Surface: chummer.run
+- Source push: `Add account-aware downloads pipeline`
+- What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-03-25 · The visuals moved a little closer to intention.
+
+- Surface: Registry
+- Source push: `Add install access posture to release channel artifacts`
+- What changed for you: The guide imagery and scene language are being pushed away from filler and toward something worth looking at.
+- Still not promised: that every image is final or even good yet.
+
+### 2026-03-24 · Refactor Hub trust content and client UX helpers.
+
+- Surface: chummer.run
+- Source push: `Refactor Hub trust content and client UX helpers`
+- What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-03-24 · Merge install-linking design bundle.
 
 - Surface: Design
-- Source push: `Define feedback and crash reporting plane`
+- Source push: `Merge install-linking design bundle`
 - What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
-### 2026-03-24 · Define desktop auto-update release lane.
+### 2026-03-24 · Add crash intake and support automation lane.
 
-- Surface: Design
-- Source push: `Define desktop auto-update release lane`
-- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
+- Surface: chummer.run
+- Source push: `Add crash intake and support automation lane`
+- What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
-### 2026-03-24 · Add desktop auto-update runtime.
+### 2026-03-24 · Define crash automation and claimable installs.
 
-- Surface: Workbench
-- Source push: `Add desktop auto-update runtime`
-- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Surface: Design
+- Source push: `Define crash automation and claimable installs`
+- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
 ### 2026-03-24 · The public rules for the project got tighter.
 
-- Surface: Design
-- Source push: `Split Chummer campaign scene canon`
+- Surface: Core
+- Source push: `Add generated asset presentation contracts`
 - What changed for you: The repos are doing a little less free-styling about what should be visible to normal humans.
 - Still not promised: that the implementation already lives up to that contract.
 
-### 2026-03-24 · The visuals moved a little closer to intention.
-
-- Surface: chummer.run
-- Source push: `Split Chummer campaign scene assets`
-- What changed for you: The guide imagery and scene language are being pushed away from filler and toward something worth looking at.
-- Still not promised: that every image is final or even good yet.
-
-### 2026-03-24 · Document automatic downloads deploy.
-
-- Surface: chummer.run
-- Source push: `Document automatic downloads deploy`
-- What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-
-### 2026-03-24 · Define latest-only downloads shelf.
-
-- Surface: Design
-- Source push: `Define latest-only downloads shelf`
-- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-
-### 2026-03-24 · Always deploy latest desktop bundle.
+### 2026-03-24 · Replace CrashHandler with desktop crash runtime.
 
 - Surface: Workbench
-- Source push: `Always deploy latest desktop bundle`
+- Source push: `Replace CrashHandler with desktop crash runtime`
 - What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
@@ -67,4 +67,4 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 - [2026-03](./2026-03.md)
 ---
 
-<sub>Updated: 2026-03-24</sub>
+<sub>Updated: 2026-03-25</sub>

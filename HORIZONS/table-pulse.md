@@ -50,4 +50,4 @@ The tech stays on the horizon until we can guarantee your session audio is hashe
 The post-mission debrief your table actually needs to survive the next run.
 ---
 
-<sub>Updated: 2026-03-24</sub>
+<sub>Updated: 2026-03-25</sub>

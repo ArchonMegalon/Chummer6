@@ -6,7 +6,7 @@ If you want to inspect the current Chummer6 artifacts without digging through a 
 
 - Version: `unpublished`
 - Channel: `unknown`
-- Published: `2026-03-24T19:42:22Z`
+- Published: `2026-03-25T06:58:02Z`
 
 Right now this shelf is advanced manual preview archives only. They are real artifacts for curious testers, not the intended normal-user install path, and installer-grade packaging is not here yet.
 
@@ -24,4 +24,4 @@ Right now this shelf is advanced manual preview archives only. They are real art
 - If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
 ---
 
-<sub>Updated: 2026-03-24</sub>
+<sub>Updated: 2026-03-25</sub>

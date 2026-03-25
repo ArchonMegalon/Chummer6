@@ -28,4 +28,4 @@ Chummer6 is the friendly guide.
 - if this guide feels stale or confusing, call it out here so it can be fixed
 ---
 
-<sub>Updated: 2026-03-24</sub>
+<sub>Updated: 2026-03-25</sub>
