@@ -1,52 +1,29 @@
+---
+title: "Horizon: KARMA FORGE"
+source: "products/chummer/HORIZON_REGISTRY.yaml"
+generated_by: "materialize_public_guide_bundle.py"
+---
+
 # KARMA FORGE
 
-![KARMA FORGE banner](../assets/horizons/karma-forge.png "rule experiments under diff, approval, and rollback pressure.")<br>_[rule experiments under diff, approval, and rollback pressure.](../assets/horizons/karma-forge.png)_
+- id: karma-forge
+- pain_label: I want house rules without fork chaos.
+- wow_promise: Tables can evolve governed rulesets without splintering into unreadable forks.
+- table_scene: A GM promotes a house-rule pack with visible impact, approval history, and reversible publication state.
 
-**House rules with governance instead of fork chaos.**
-
-_Status: Horizon only — future idea, not active build work._
-
-## What problem does this solve?
-
-Tables want variation without turning every campaign into unreadable folklore.
-
-## A real table scene
-
-GM: I want the house rule, not the forked-code religion that comes with it.
-Chummer6: Diff strip loaded. Two collisions, one rollback path, one approval still pending.
-Player: Fine, but I want to know whether it still plays nice with the rest of the sheet.
-Rigger: And I want rollback before somebody ships a clever disaster.
-A stamped approval card lands on the bench and nobody trusts it yet.
-GM: That is why this is a forge and not a pastebin.
-Player: Good. Keep the receipts hotter than the hype.
-
-<p align="center"><img src="../assets/horizons/details/karma-forge-scene.png" alt="KARMA FORGE dialogue scene still" width="420"></p>
-
-
-## Meanwhile, Chummer is doing this
-
-- Approval, compatibility, and rollback still eat real effort before any ruleset preview is safe
-- It is still expensive, review-heavy, and easy to overpromise if the receipts are weak
-- Broader access later is still the hope, but nobody should read that as a promise that the work lands cleanly or soon
-
-## Why that would be great
-
-It could let tables evolve rules without splintering into silent canon, unreadable forks, or post-hoc apology culture.
-
-## Why it is still a Horizon
-
-At most this starts as an optional paid preview because safe review still costs real effort, and even then the pass may still produce nothing useful or shippable.
-
-## What would need to exist first
+## Foundations
 
 - A1
 - A2
 - C0
 - D2
 
-## Pitch your own future
+## Build path
 
-Evolve the rules without pretending every clever hack deserves to become canon.
----
+- intent: eventual_product_lane
+- current_state: horizon
+- next_state: bounded_research
 
-<sub>Updated: 2026-03-25</sub>
+## Canon source
+
+`products/chummer/horizons/karma-forge.md`

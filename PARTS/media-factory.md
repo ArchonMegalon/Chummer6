@@ -1,14 +1,20 @@
+---
+title: "Part: Media Factory"
+source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
+generated_by: "materialize_public_guide_bundle.py"
+---
+
 # Media Factory
 
-![Media Factory banner](../assets/parts/media-factory.png "where the image experiments get pushed through the grinder.")<br>_[where the image experiments get pushed through the grinder.](../assets/parts/media-factory.png)_
+The render-only asset plant.
 
-**The render-only asset plant.**
-
-This is how the product can look finished without letting style quietly rewrite the facts.
-
-## You touch this when...
+## When you care
 
 You care about finished images, teaser media, dossiers, narrated packets, or other polished outputs that still need provenance.
+
+## Why you care
+
+This is how the product can look finished without letting style quietly rewrite the facts.
 
 ## What you notice
 
@@ -16,19 +22,16 @@ You care about finished images, teaser media, dossiers, narrated packets, or oth
 - a stronger line between content rendering and product meaning
 - a path toward richer teaser and artifact media without turning every repo into a render farm
 
-## What you do not need to care about yet
+## Current limits
 
 - this is not the decision-maker for what a session means
 - it should stay render-only even when the outputs get more ambitious
 
-## What is true right now
+## Current truth
 
 Media Factory is the dedicated place for render jobs and asset lifecycle, and the current work is about making richer outputs possible without blurring provenance or ownership.
 
 ## Go deeper
 
-- [Public surfaces](../NOW/public-surfaces.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
----
-
-<sub>Updated: 2026-03-25</sub>
+- ../NOW/public-surfaces.md
+- ../WHERE_TO_GO_DEEPER.md

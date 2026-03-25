@@ -1,3 +1,9 @@
+---
+title: "FAQ"
+source: "products/chummer/PUBLIC_FAQ_REGISTRY.yaml"
+generated_by: "materialize_public_guide_bundle.py"
+---
+
 # FAQ
 
 ## Using Chummer6
@@ -69,10 +75,3 @@ In the owning code repos. Chummer6 exists so you do not have to reverse-engineer
 ### Where do I propose public-facing changes?
 
 Use the Chummer6 issue tracker for public guide feedback, bug reports, and future-feature suggestions. That keeps normal users out of the design repo.
-
-## Support and participation
-
-If you want the public help lane or the bounded booster flow, read [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md) and, when you are ready, open the public participation page at [https://chummer.run/participate](https://chummer.run/participate).
----
-
-<sub>Updated: 2026-03-25</sub>

@@ -1,14 +1,20 @@
+---
+title: "Part: Hub"
+source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
+generated_by: "materialize_public_guide_bundle.py"
+---
+
 # Hub
 
-![Hub banner](../assets/parts/hub.png "coordination traces for the hosted lane, still more idea than guarantee.")<br>_[coordination traces for the hosted lane, still more idea than guarantee.](../assets/parts/hub.png)_
+The online side that keeps identity, coordination, and hosted participation boring.
 
-**The online side that keeps identity, coordination, and hosted participation boring.**
-
-It keeps shared coordination, hosted previews, accounts, and community participation from turning into manual glue work.
-
-## You touch this when...
+## When you care
 
 You sign in, sync a hosted surface, follow what is coming next, or use the public participation and recognition flows.
+
+## Why you care
+
+It keeps shared coordination, hosted previews, accounts, and community participation from turning into manual glue work.
 
 ## What you notice
 
@@ -16,19 +22,16 @@ You sign in, sync a hosted surface, follow what is coming next, or use the publi
 - public landing, home, and participation entry points
 - shared coordination, hosted status, and recognition views that do not ask you to understand the server internals first
 
-## What you do not need to care about yet
+## Current limits
 
 - it is not where the rules math becomes true
 - some hosted surfaces are still preview rather than the final promoted shape
 
-## What is true right now
+## Current truth
 
 Hub is already the hosted front door for identity, landing/home projection, participation, and community views, but it is still tightening the line between user-facing coordination and deeper operator machinery.
 
 ## Go deeper
 
-- [Current status](../NOW/current-status.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
----
-
-<sub>Updated: 2026-03-25</sub>
+- ../NOW/current-status.md
+- ../WHERE_TO_GO_DEEPER.md

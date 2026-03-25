@@ -1,14 +1,20 @@
+---
+title: "Part: Hub Registry"
+source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
+generated_by: "materialize_public_guide_bundle.py"
+---
+
 # Hub Registry
 
-![Hub Registry banner](../assets/parts/hub-registry.png "compatibility truth before artifact roulette starts.")<br>_[compatibility truth before artifact roulette starts.](../assets/parts/hub-registry.png)_
+The artifact shelf, install truth, and compatibility record.
 
-**The artifact shelf, install truth, and compatibility record.**
-
-Without this, artifacts turn into a warehouse full of unlabeled boxes and compatibility folklore.
-
-## You touch this when...
+## When you care
 
 You care about what exists, what can be installed, what is published, or whether an artifact can be trusted and reused.
+
+## Why you care
+
+Without this, artifacts turn into a warehouse full of unlabeled boxes and compatibility folklore.
 
 ## What you notice
 
@@ -16,19 +22,16 @@ You care about what exists, what can be installed, what is published, or whether
 - a more believable path from preview outputs to shareable or installable artifacts
 - compatibility and moderation signals that can stay on the record
 
-## What you do not need to care about yet
+## Current limits
 
 - this is not the render plant
 - this is not the rules engine
 
-## What is true right now
+## Current truth
 
 Hub Registry is the growing record layer for published artifacts and compatibility truth, and it becomes more visible as the public artifact story gets richer.
 
 ## Go deeper
 
-- [Public surfaces](../NOW/public-surfaces.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
----
-
-<sub>Updated: 2026-03-25</sub>
+- ../NOW/public-surfaces.md
+- ../WHERE_TO_GO_DEEPER.md
