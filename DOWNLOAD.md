@@ -1,27 +1,33 @@
 # Try Chummer6
 
-If you want to inspect the current Chummer6 artifacts without digging through a generic releases page first, start here.
+If you want the current Chummer install path without digging through raw release tags first, start here.
 
-## Current build matrix
+## Canonical install shelf
 
-- Version: `unpublished`
-- Channel: `unknown`
-- Published: `2026-03-25T10:44:50Z`
+The product-facing installer shelf now lives on [`https://chummer.run/downloads`](https://chummer.run/downloads).
 
-Right now this shelf is advanced manual preview archives only. They are real artifacts for curious testers, not the intended normal-user install path, and installer-grade packaging is not here yet.
+That page is the source of truth for:
 
-### None
+- the recommended installer for your platform
+- advanced alternatives when more than one package exists
+- release notes and integrity details
+- honest preview labeling when a target is still rough
 
-- Download: [None](None)
-- Format: advanced manual preview archive
-- SHA256: `196d25f2372b01b03f5082377e0895183803d8c2aade043f34c995e2931f31ff`
-- Size: `41940379` bytes
+## What this guide page is for
 
-## If this build is rough
+This guide page is now the context page, not the primary install shelf. Use it when you want the deeper repo trail or the raw release history behind the hosted downloads page.
 
-- It is a real preview shelf, not a promise that every surface is polished.
-- If the artifact format is still an advanced manual preview archive for your platform, installer-grade packaging has not been published for that target yet.
-- If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
+## Raw fallback
+
+- Hosted install shelf: [chummer.run/downloads](https://chummer.run/downloads)
+- Raw GitHub releases: [ArchonMegalon/Chummer6 releases](https://github.com/ArchonMegalon/Chummer6/releases)
+- Product current-state page: [chummer.run/now](https://chummer.run/now)
+
+## If the preview is rough
+
+- It is a real preview path, not a promise that every surface is polished.
+- The hosted shelf should present one obvious default before advanced alternatives.
+- Raw release artifacts exist as fallback history, not as the normal-user first step.
 ---
 
 <sub>Updated: 2026-03-25</sub>
