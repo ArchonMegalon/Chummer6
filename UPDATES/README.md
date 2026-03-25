@@ -6,6 +6,13 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
+### 2026-03-25 · The public guide got stricter.
+
+- Surface: Guide
+- Source push: `Refresh Chummer6 guide`
+- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
+- Still not promised: that the visible surface is reliable just because it has a page.
+
 ### 2026-03-25 · The public rules for the project got tighter.
 
 - Surface: Design
@@ -54,13 +61,6 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 - Source push: `Add desktop install linking runtime`
 - What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-
-### 2026-03-25 · The public guide got stricter.
-
-- Surface: Guide
-- Source push: `Refresh Chummer6 guide output`
-- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
-- Still not promised: that the visible surface is reliable just because it has a page.
 
 ## Monthly archive
 
