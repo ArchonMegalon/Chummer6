@@ -15,7 +15,7 @@ It exists so the public guide surface can be compiled from design canon instead 
 - phase_label: Scale & stabilize
 - history_snapshot_count: 2
 - The Account-Aware Front Door wave is treated as materially closed in canon.
-- The active additive plan is the next-20 execution wave.
+- The next-20 additive wave is materially closed in canon; follow-on work now focuses on campaign breadth, creator trust, and broader promotion.
 - Help, trust, release, and horizon pages below are generated from public-safe registries and trust manifests.
 
 ## Start here
@@ -56,4 +56,4 @@ It exists so the public guide surface can be compiled from design canon instead 
 
 ## Support posture
 
-Use the first-party product path first: install help, account recovery, current release truth, and a real support intake before you fall through to deeper repo material.
+Use the first-party product path first: install help, account recovery, current release truth, and a real support intake before you fall through to deeper technical material.
