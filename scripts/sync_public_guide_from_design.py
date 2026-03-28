@@ -25,6 +25,7 @@ SYNC_DIRS = (
     "PARTS",
     "HORIZONS",
     "TRUST",
+    "assets",
 )
 
 WRAPPERS = {

@@ -1,65 +1,50 @@
----
-title: "Horizon: RUNSITE"
-source: "products/chummer/HORIZON_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # RUNSITE
 
-- id: runsite
-- pain_label: My players still misread the space even after the briefing.
-- wow_promise: Mission spaces become explorable and legible before the action starts.
-- table_scene: A GM sends an explorable safehouse pack with hotspots, floor plans, route overlays, and optional narration before the session.
+![RUNSITE banner](../assets/horizons/runsite.png)
 
-## Build path
+**Mission spaces that become legible before the bullets do.**
 
-- intent: eventual_product_lane
-- current_state: horizon
-- next_state: bounded_research
+_Status: Horizon only — future idea, not active build work._
 
-## Registry posture
+## What problem does this solve?
 
-- owning_repo: chummer6-hub
-- owning_repo: chummer6-media-factory
-- promoted_tools: Crezlo Tours, AvoMap, PeekShot
-- bounded_tools: Soundmadeseen, BrowserAct, Browserly
+A briefing is still doing half the work if the table cannot read the space.
 
-## Canon source
+## A real table scene
 
-`products/chummer/horizons/runsite.md`
+A ghosted floor plan climbs the wet concrete between the crates.
+GM: Here is the site before anyone has to improvise the floor plan from memory.
+Player: Good. I would like to know where the exits are before I need one.
+Rigger: Route overlay makes sense for once.
+Chummer6: West stair choke point marked. Two cleaner ingress lanes still open.
+Face: So the room stops being a surprise punishment box.
+GM: Exactly.
 
-## Table pain
+<p align="center"><img src="../assets/horizons/details/runsite-scene.png" alt="RUNSITE dialogue scene still" width="420"></p>
 
-GMs spend too long describing spaces, and players still misread compounds, clubs, hotels, museums, arcologies, and safehouses once the action starts.
 
-## Bounded product move
+## Meanwhile, Chummer is doing this
 
-Chummer would publish bounded explorable location packs linked to mission briefings.
-These packs may include floor plans, hotspots, route overlays, optional narration, and static map context, but they remain artifacts rather than live session truth.
-RUNSITE is the mission-space explorer:
-briefing, planning, and spatial understanding belong here.
-Live combat truth and VTT replacement ambitions do not.
+- Briefing-space artifacts have to stay bounded and useful instead of drifting into fake live-session truth
+- The lane only works if mission-space clarity gets better without pretending to be a VTT replacement
 
-## Likely owners
+## Why that would be great
 
-* `chummer6-hub`
-* `chummer6-media-factory`
+It could make mission spaces easier to read before the action starts, which is usually when that clarity matters most.
 
-## Key tool posture
+## Why it is still a Horizon
 
-* `Crezlo Tours` - primary explorable-tour lane
-* `AvoMap` - route and location visualization support
-* `PeekShot` - preview/share-card adapter
-* `Soundmadeseen` - optional narration layer
-* `BrowserAct` - bounded operator automation and capture fallback
+Spatial help is only worth shipping if it stays bounded to briefing and planning instead of promising a whole combat shell by accident.
 
-## Foundations
+## What would need to exist first
 
-* clean media manifests
-* permissioned publication links
-* preview and embed receipts
-* bounded map/render adapters
+- C1
+- C1c
+- E2b
 
-## Why still a horizon
+## Pitch your own future
 
-The owned vendor tier now makes this lane concrete, but product truth still needs the artifact, permission, and provenance seams before Chummer should promote it beyond bounded design.
+Make the site legible before the run makes it urgent.
+---
+
+<sub>Updated: 2026-03-28</sub>

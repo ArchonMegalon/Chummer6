@@ -1,61 +1,50 @@
----
-title: "Horizon: NEXUS-PAN"
-source: "products/chummer/HORIZON_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # NEXUS-PAN
 
-- id: nexus-pan
-- pain_label: My devices drift and the table loses confidence.
-- wow_promise: Shared state survives device churn without the table losing trust.
-- table_scene: A player reconnects mid-session and catches up without the GM reconstructing state by memory.
+![NEXUS-PAN banner](../assets/horizons/nexus-pan.png "session continuity after the link gets ugly.")<br>_[session continuity after the link gets ugly.](../assets/horizons/nexus-pan.png)_
 
-## Build path
+**Shared state survives dirty reconnects without turning the table into a trust exercise.**
 
-- intent: eventual_product_lane
-- current_state: horizon
-- next_state: bounded_research
+_Status: Horizon only — future idea, not active build work._
 
-## Registry posture
+## What problem does this solve?
 
-- owning_repo: chummer6-core
-- owning_repo: chummer6-mobile
-- owning_repo: chummer6-hub
-- promoted_tools: none
-- bounded_tools: none
+A reconnect should be annoying, not campaign-threatening.
 
-## Canon source
+## A real table scene
 
-`products/chummer/horizons/nexus-pan.md`
+The dead zone lifts just as the van starts rolling again.
+GM: Your phone died; the run did not.
+Player: Good. I only want to lose battery, not state.
+Rigger: The loadout came back where I left it.
+Chummer6: Missed actions replayed. Current penalties still attached.
+Face: So we keep moving instead of rebuilding the scene from memory.
+GM: That is the whole fantasy.
 
-## Table pain
+<p align="center"><img src="../assets/horizons/details/nexus-pan-scene.png" alt="NEXUS-PAN dialogue scene still" width="420"></p>
 
-Tables lose confidence when devices, PAN state, and cross-actor continuity drift during live play.
 
-## Bounded product move
+## Meanwhile, Chummer is doing this
 
-Chummer would expose grounded device and shared-state continuity support without inventing new rules truth outside the engine and play contracts.
+- Shared-state continuity only counts if reconnects are boring and honest
+- Reconnect chaos and drift cleanup still have to stop lying before this becomes real
 
-## Likely owners
+## Why that would be great
 
-* `chummer6-core`
-* `chummer6-mobile`
-* `chummer6-hub`
+It could let the session survive dirty reconnects without making the table re-litigate what was true five minutes ago.
 
-## Tool posture
+## Why it is still a Horizon
 
-No external tool is required for the canonical core of this horizon.
-If projections or operator aids appear later, they remain downstream helpers only.
+Shared state is only useful if reconnects preserve trust instead of inventing a cleaner history than the session actually had.
 
-## Foundations
+## What would need to exist first
 
-* session semantic canon
-* runtime bundle canon
-* explain provenance
-* play-shell reliability
+- D1
+- D2
+- B0
 
-## Why still a horizon
+## Pitch your own future
 
-The active release path is still finishing canonical session and runtime seams.
-Until those seams are fully trustworthy, a richer PAN layer would widen unstable boundaries.
+Let the session survive the reconnect without pretending the drift never happened.
+---
+
+<sub>Updated: 2026-03-28</sub>

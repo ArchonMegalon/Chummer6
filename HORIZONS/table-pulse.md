@@ -1,72 +1,53 @@
----
-title: "Horizon: TABLE PULSE"
-source: "products/chummer/HORIZON_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # TABLE PULSE
 
-- id: table-pulse
-- pain_label: I know the table drifted, but I cannot say where the energy, pacing, or spotlight balance broke.
-- wow_promise: GMs get bounded post-session coaching about table dynamics without turning Chummer into live surveillance.
-- table_scene: After an online session, the GM opens a coaching packet and sees spotlight balance, pacing heat zones, disengagement markers, and one or two concrete suggestions for the next run.
+![TABLE PULSE banner](../assets/horizons/table-pulse.png)
 
-## Build path
+**Stop guessing if the session dragged and start seeing the receipts on where the table actually lost its rhythm.**
 
-- intent: eventual_product_lane
-- current_state: horizon
-- next_state: bounded_research
+_Status: Horizon only — future idea, not active build work._
 
-## Registry posture
+## What problem does this solve?
 
-- owning_repo: chummer6-hub
-- owning_repo: chummer6-media-factory
-- promoted_tools: none
-- bounded_tools: Nonverbia, Soundmadeseen, Unmixr AI, MarkupGo, PeekShot
+GMs often sense the energy flatlining but can't pinpoint if it was a mechanical bottleneck, a spotlight hog, or forty minutes of a Decker talking to themselves.
 
-## Canon source
+## A real table scene
 
-`products/chummer/horizons/table-pulse.md`
+GM: "Pulling the Pulse logs from Tuesday. Check the red-zone at the two-hour mark."
+Player: "My pizza run? Felt like I was gone for an hour."
+GM: "Forty-eight minutes. You didn't get a word in during the host-crawl."
+Player: "I was just staying out of the way while the Decker was cooking."
+GM: "Diagnostics show you tried to jump in three times but got stepped on. My bad."
+Player: "Wait, the waveform actually caught that?"
+GM: "Tagged as 'Overlapping Spotlight.' I need to rotate focus faster next time."
+Player: "At least it's not just my imagination. I was starting to check out."
+GM: "Receipts don't lie. Next session, solo dives are capped at five-minute beats."
 
-## Table pain
+<p align="center"><img src="../assets/horizons/details/table-pulse-scene.png" alt="TABLE PULSE dialogue scene still" width="420"></p>
 
-The GM knows something went off after a session, but cannot clearly reconstruct where pacing dragged, who lost the room, or which scene actually landed.
 
-## Bounded product move
+## Meanwhile, Chummer is doing this
 
-TABLE PULSE is the bounded GM coaching and table-dynamics horizon.
-It turns recorded or uploaded session media into opt-in, post-session spotlight, pacing, engagement, and interruption diagnostics with optional narrated after-action guidance, without pretending to be live session truth.
+- Validating local-first audio hashing to ensure your table talk never leaves your hardware
+- Refining the 'Spotlight Receipt' logic to distinguish between a tense silence and actual player boredom
+- Calibrating 'Dead Air' detection to filter out dice-rolling pauses from narrative stalls
 
-## Likely owners
+## Why that would be great
 
-* `chummer6-hub`
-* `chummer6-media-factory`
+It turns the hazy memory of a 'long session' into a legible map of spotlight distribution and pacing peaks, giving you the evidence needed to fix the table's flow.
 
-## Key tool posture
+## Why it is still a Horizon
 
-* `Nonverbia` - primary coaching and social-dynamics analysis lane
-* `Soundmadeseen` - optional narrated coaching summary
-* `Unmixr AI` - bounded candidate voice lane until proven
-* `MarkupGo` - coaching packet render support
-* `PeekShot` - preview/share-safe summary card support
+The tech stays on the horizon until we can guarantee your session audio is hashed locally and never becomes fuel for a corporate training model.
 
-## Foundations
+## What would need to exist first
 
-* explicit consent and upload policy
-* post-session-only analysis rules
-* privacy and retention rules for coaching media
-* bounded coaching artifact manifests
-* replay and receipt references where available
+- D1
+- D2
+- E2b
 
-## Hard boundary
+## Pitch your own future
 
-* not live surveillance
-* not player scoring
-* not moderation truth
-* not discipline automation
-* not canonical session truth
+The post-mission debrief your table actually needs to survive the next run.
+---
 
-## Why still a horizon
-
-Coaching is only a win if it stays opt-in, post-session, private, and clearly separate from session truth or moderation.
-Until Chummer can prove those consent, privacy, and artifact boundaries end to end, TABLE PULSE remains a horizon rather than live product behavior.
+<sub>Updated: 2026-03-28</sub>

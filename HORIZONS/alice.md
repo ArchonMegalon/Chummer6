@@ -1,58 +1,49 @@
----
-title: "Horizon: ALICE"
-source: "products/chummer/HORIZON_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # ALICE
 
-- id: alice
-- pain_label: We only discover weak builds after they explode in public.
-- wow_promise: Builders get grounded what-if analysis without trusting fuzzy assistants.
-- table_scene: A player compares two builds and sees grounded tradeoffs with receipts instead of vibe-based suggestions.
+![ALICE banner](../assets/horizons/alice.png "simulation before regret.")<br>_[simulation before regret.](../assets/horizons/alice.png)_
 
-## Build path
+**Grounded what-if analysis before the bad build hits public view.**
 
-- intent: eventual_product_lane
-- current_state: horizon
-- next_state: bounded_research
+_Status: Horizon only — future idea, not active build work._
 
-## Registry posture
+## What problem does this solve?
 
-- owning_repo: chummer6-core
-- owning_repo: chummer6-ui
-- owning_repo: chummer6-hub
-- promoted_tools: AI Magicx
-- bounded_tools: 1min.AI, Prompting Systems
+It is cheaper to catch a weak build early than to apologize for it later.
 
-## Canon source
+## A real table scene
 
-`products/chummer/horizons/alice.md`
+Player: I thought this build was clean.
+GM: ALICE says the weak point shows up on turn two, not after the campaign starts.
+Decker: Good. I would rather get roasted by a preflight than by the whole table.
+Chummer6: The hallway goes loud, your soak folds, and the plan stops being clever.
+Player: Show me the evidence, not the vibes.
+GM: Exactly. Humiliation is cheaper in preview.
 
-## Table pain
+<p align="center"><img src="../assets/horizons/details/alice-scene.png" alt="ALICE dialogue scene still" width="420"></p>
 
-Players often discover bad builds, illegal interactions, or weak upgrade paths only after the run has already gone sideways.
 
-## Bounded product move
+## Meanwhile, Chummer is doing this
 
-Chummer would provide grounded comparative analysis, preflight quality checks, and guided build insight that stay tied to deterministic engine truth.
+- Comparative analysis has to stay tied to visible proof instead of fuzzy assistant theater
+- Preflight checks only matter if they are explainable enough for a skeptical table
 
-## Likely owners
+## Why that would be great
 
-* `chummer6-core`
-* `chummer6-ui`
-* `chummer6-hub`
+It could catch weak assumptions before they become public embarrassment or campaign drag.
 
-## Tool posture
+## Why it is still a Horizon
 
-Research and assistive drafting tools may support operator-facing explanations, but analysis outcomes stay grounded in engine-owned semantics.
+Advice that sounds clever but cannot show its work is worse than silence, so this stays hypothetical until the evidence holds.
 
-## Foundations
+## What would need to exist first
 
-* explain canon
-* deterministic runtime DTO canon
-* workbench compare flows
+- D0
+- D2
+- E0
 
-## Why still a horizon
+## Pitch your own future
 
-The product still needs authoritative explain and comparison seams before it can safely add higher-level advisory analysis.
+Catch the weak build before the table has to.
+---
+
+<sub>Updated: 2026-03-28</sub>

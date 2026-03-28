@@ -1,20 +1,14 @@
----
-title: "Part: UI Kit"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # UI Kit
 
-The shared visual vocabulary.
+![UI Kit banner](../assets/parts/ui-kit.png "shared visual language so the split does not look accidental.")<br>_[shared visual language so the split does not look accidental.](../assets/parts/ui-kit.png)_
 
-## When you care
-
-You notice the product feeling more coherent instead of looking like unrelated tools wearing matching coats by accident.
-
-## Why you care
+**The shared visual vocabulary.**
 
 Shared visual primitives keep the split from feeling like several products pretending to be one.
+
+## You touch this when...
+
+You notice the product feeling more coherent instead of looking like unrelated tools wearing matching coats by accident.
 
 ## What you notice
 
@@ -22,16 +16,19 @@ Shared visual primitives keep the split from feeling like several products prete
 - fewer one-off UI reinventions in each surface
 - stronger accessibility and reusable component posture
 
-## Current limits
+## What you do not need to care about yet
 
 - it is a shared package layer, not a product head by itself
 - it only counts when the other heads visibly get smaller because it exists
 
-## Current truth
+## What is true right now
 
 UI Kit is real enough to matter, and the next proof point is whether the rest of the product can consume it instead of rebuilding visual seams locally.
 
 ## Go deeper
 
-- ../NOW/current-status.md
-- ../WHERE_TO_GO_DEEPER.md
+- [Current status](../NOW/current-status.md)
+- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+---
+
+<sub>Updated: 2026-03-28</sub>

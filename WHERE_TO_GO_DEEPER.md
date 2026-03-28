@@ -1,17 +1,31 @@
 # Where To Go Deeper
 
-Start with the public guide pages in this repo, then drop into the deeper owning surfaces only when you need implementation or canon detail.
+![Where to go deeper banner](assets/pages/where-to-go-deeper.png "the archive path once the front door stops being enough.")<br>_[the archive path once the front door stops being enough.](assets/pages/where-to-go-deeper.png)_
 
-Public guide:
+This is the path for when the friendly tour stops being enough.
 
-- [README.md](README.md)
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [Help](HELP.md)
-- [Parts index](PARTS/README.md)
-- [Horizons index](HORIZONS/README.md)
+If you want the long-range plan, the actual software, or the place to call out stale/confusing guide copy, start here instead of guessing which repo corner is secretly in charge.
 
-Owning canon and implementation:
+## Start here when you want more than the tour
 
-- `chummer6-design` holds the canonical product and public-guide source files.
-- The part pages under [PARTS](PARTS/README.md) explain which repo owns which slice.
+- Start with `chummer6-design` when you want the long-range plan.
+- Go to the owning code repos when you want the software itself.
+- Use [How Can I Help?](HOW_CAN_I_HELP.md) when you want the public support lane or the Hub booster flow.
+- Come back to Chummer6 when you want the friendly guided version again.
+
+## What each place is for
+
+- `chummer6-design`: the long-range plan and deeper design notes
+- owning repos: the working software and repo-specific detail
+- Chummer6: the friendly guide, examples, and public-facing orientation
+
+## If you want the source of truth
+
+Chummer6 is the friendly guide.
+
+- `chummer6-design` holds the long-range plan
+- the owning repos hold the software
+- if this guide feels stale or confusing, call it out here so it can be fixed
+---
+
+<sub>Updated: 2026-03-28</sub>

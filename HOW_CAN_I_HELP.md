@@ -1,9 +1,49 @@
 # How Can I Help?
 
-Use the product-facing help path first.
+If you want to support Chummer6, there are two clean lanes: public feedback and booster help.
 
-- [Help](HELP.md) explains the public feedback lane, private crash lane, and guided contribution posture.
-- [Contact](CONTACT.md) is the first-party intake for install trouble, product bugs, and practical feedback.
-- The public issue tracker is still available when you intentionally want a public technical issue trail: <https://github.com/ArchonMegalon/Chummer6/issues>
+## Public feedback lane
 
-If you want the short current product posture before opening anything, read [Status](STATUS.md).
+If you want to help without touching premium participation at all, use the public front door:
+
+* file a public bug
+* send lightweight product feedback
+* flag confusing public copy
+* suggest a future lane
+* point at a horizon that sounds more useful than the current list
+
+That keeps feedback public and legible instead of making normal humans spelunk through design canon.
+
+## Booster lane
+
+
+
+## Start the participation flow
+
+- [Open the public participation page](https://chummer.run/participate)
+
+## Privacy and review safety
+
+- the cheap baseline remains the default path
+- guided contribution is not a merge bypass
+- final landing still goes through review
+- people can stop or revoke later
+- private recognition settings remain valid even when badges or leaderboards exist
+
+## Free later note
+
+Some expensive future lanes may begin as **guided previews** while approvals, compatibility, editorial work, provenance, or support cost remain unusually heavy.
+
+That is not the same thing as a permanent paywall.
+When those lanes become cheaper and safer to operate broadly, the long-run intent is wider access rather than keeping the interesting parts locked forever.
+
+## Primary CTAs
+
+- Open the public participation page
+- File a public issue
+- Send a private crash report from the recovery flow when Chummer closes unexpectedly
+- Link this copy to your account if you want fix-status follow-up and account-aware support history
+- Read current status before promising yourself too much
+---
+
+<sub>Updated: 2026-03-28</sub>
