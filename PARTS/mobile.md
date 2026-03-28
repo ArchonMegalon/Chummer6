@@ -25,7 +25,7 @@ This is the jump from prep software to software that can stay useful while a rea
 ## Current limits
 
 - this is still the next major seam to finish cleanly
-- some play surfaces remain preview while the session stack hardens
+- the session stack is still deepening around cache, replay, and recovery polish
 
 ## Current truth
 

@@ -12,7 +12,7 @@ This page is generated from public progress and trust-content canon.
 
 - overall_progress_percent: 73
 - phase_label: Scale & stabilize
-- history_snapshot_count: 2
+- history_snapshot_count: 4
 
 ## Start with the release page and install help
 

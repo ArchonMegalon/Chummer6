@@ -14,7 +14,7 @@ You sign in, sync a hosted surface, follow what is coming next, or use the publi
 
 ## Why you care
 
-It keeps shared coordination, hosted previews, accounts, and community participation from turning into manual glue work.
+It keeps shared coordination, hosted surfaces, accounts, and community participation from turning into manual glue work.
 
 ## What you notice
 
@@ -25,7 +25,7 @@ It keeps shared coordination, hosted previews, accounts, and community participa
 ## Current limits
 
 - it is not where the rules math becomes true
-- some hosted surfaces are still preview rather than the final promoted shape
+- the user-facing coordination layer is promoted, but deeper operator seams still stay behind it
 
 ## Current truth
 

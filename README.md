@@ -9,18 +9,29 @@ generated_by: "materialize_public_guide_bundle.py"
 This bundle is generated from canonical design files in `chummer6-design`.
 It exists so the public guide surface can be compiled from design canon instead of hand-maintained drift.
 
+## Product promise
+
+Shadowrun rules truth, with receipts.
+
+Build characters, inspect rulings, and keep sessions moving with explainable math, durable state, and clear proof of what works today.
+
+- Preview product. Honest status. No mystery roadmap.
+
 ## What is real now
 
 - overall_progress_percent: 73
 - phase_label: Scale & stabilize
-- history_snapshot_count: 2
+- history_snapshot_count: 4
 - The Account-Aware Front Door wave is treated as materially closed in canon.
-- The next-20 additive wave is materially closed in canon; follow-on work now focuses on campaign breadth, creator trust, and broader promotion.
+- The Post-Audit Next 20 wave is treated as materially closed in canon, and the active additive plan is Next 20 Big Wins After Post-Audit Closeout.
 - Help, trust, release, and horizon pages below are generated from public-safe registries and trust manifests.
 
 ## Start here
 
+- [Start here](START_HERE.md)
 - [Status](STATUS.md)
+- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
+- [How can I help](HOW_CAN_I_HELP.md)
 - [Download](DOWNLOAD.md)
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
@@ -57,8 +68,3 @@ It exists so the public guide surface can be compiled from design canon instead 
 ## Support posture
 
 Use the first-party product path first: install help, account recovery, current release truth, and a real support intake before you fall through to deeper technical material.
-
-## How can I help?
-
-See [How can I help](HOW_CAN_I_HELP.md) for community participation and support channels.
-For live support participation and current participation options, visit https://chummer.run/participate.

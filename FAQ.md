@@ -22,7 +22,7 @@ Because the project is pushing toward deterministic outcomes plus readable recei
 
 ### What is preview versus available today?
 
-Available today means there is a real public surface or build you can touch right now. Preview means the shape is visible and usable, but the support, release, or compatibility story is still moving.
+Available today means there is a real public surface or build you can touch right now. Preview in progress means the shape is visible and usable, but the support, release, or compatibility story is still moving.
 
 ### What should I show a skeptical GM or player first?
 
