@@ -12,7 +12,7 @@ This is the practical hosted-product posture right now: what the account keeps, 
 
 The hosted account keeps your basic profile, linked sign-in methods, devices and access state, support cases, and preview preferences so the public and signed-in surfaces stay coherent.
 
-## The installer stays canonical; the account handoff is the variable part
+## The installer stays the same; the account handoff is the variable part
 
 Chummer does not personalize the installer binary. The account-aware part is the signed-in receipt and short-lived claim code that can bind the local copy back to your account on first launch.
 

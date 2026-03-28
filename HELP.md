@@ -112,7 +112,7 @@ Account creation, sign-in, and recovery should stay boring. Use the account surf
 The first-party intake is the default lane for install trouble, product bugs, and practical feedback. GitHub is the advanced public issue lane, not the main customer entry point.
 
 - Use Contact for install trouble, product bugs, or UX friction.
-- Use Account > Support when you want tracked case history in the signed-in shell.
+- Use Account > Support when you want tracked case history attached to your account.
 - Use GitHub only when you intentionally want a public technical issue trail.
 
 ## Ask from the product surface first
