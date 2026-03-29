@@ -8,8 +8,6 @@ generated_by: "materialize_public_guide_bundle.py"
 
 The session shell you feel at the table.
 
-![Mobile guide art](../assets/parts/mobile.png)
-
 ## When you care
 
 You care about actual play, reconnecting across devices, or surviving a bad signal without losing the session.

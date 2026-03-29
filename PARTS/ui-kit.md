@@ -8,8 +8,6 @@ generated_by: "materialize_public_guide_bundle.py"
 
 The shared visual vocabulary.
 
-![UI Kit guide art](../assets/parts/ui-kit.png)
-
 ## When you care
 
 You notice the product feeling more coherent instead of looking like unrelated tools wearing matching coats by accident.

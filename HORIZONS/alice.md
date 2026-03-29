@@ -11,8 +11,6 @@ generated_by: "materialize_public_guide_bundle.py"
 - wow_promise: Builders get grounded what-if analysis without trusting fuzzy assistants.
 - table_scene: A player compares two builds and sees grounded tradeoffs with receipts instead of vibe-based suggestions.
 
-![ALICE horizon art](../assets/horizons/alice.png)
-
 
 ## Build path
 
