@@ -10,9 +10,9 @@ This page is generated from public progress and trust-content canon.
 
 ## Current pulse
 
-- overall_progress_percent: 73
-- phase_label: Scale & stabilize
-- history_snapshot_count: 4
+- overall_progress_percent: 100
+- phase_label: Public-fit polish
+- history_snapshot_count: 5
 
 ## Start with the release page and install help
 

@@ -1,14 +1,22 @@
+---
+title: "Part: Design"
+source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
+generated_by: "materialize_public_guide_bundle.py"
+---
+
 # Design
 
-![Design banner](../assets/parts/design.png "the long-range plan, still mostly a promise to future selves.")<br>_[the long-range plan, still mostly a promise to future selves.](../assets/parts/design.png)_
+The long-range product map and truth filter.
 
-**The long-range product map and truth filter.**
+![Design guide art](../assets/parts/design.png)
 
-It keeps the public story, the landing page, the guide, and the future lanes tied to one canonical plan instead of a pile of clever guesses.
-
-## You touch this when...
+## When you care
 
 You want to understand why a feature exists, what is real today, or where to go deeper after the friendly tour.
+
+## Why you care
+
+It keeps the public story, the landing page, the guide, and the future lanes tied to one canonical plan instead of a pile of clever guesses.
 
 ## What you notice
 
@@ -16,19 +24,16 @@ You want to understand why a feature exists, what is real today, or where to go 
 - a stable product story before you dive into repo or implementation detail
 - one place that keeps the public-facing surfaces aligned
 
-## What you do not need to care about yet
+## Current limits
 
 - you should not need this first for normal use
 - it is the map, not the running software
 
-## What is true right now
+## Current truth
 
 Design already owns the public landing posture, guide policy, horizons, participation language, and the line between public story and deeper source material.
 
 ## Go deeper
 
-- [Current status](../NOW/current-status.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
----
-
-<sub>Updated: 2026-03-28</sub>
+- ../NOW/current-status.md
+- ../WHERE_TO_GO_DEEPER.md

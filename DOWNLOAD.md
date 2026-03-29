@@ -1,27 +1,80 @@
-# Try Chummer6
+---
+title: "Download"
+source: "chummer-hub-registry/.codex-studio/published/RELEASE_CHANNEL.generated.json"
+generated_by: "materialize_public_guide_bundle.py"
+---
 
-If you want to inspect the current Chummer6 artifacts without digging through a generic releases page first, start here.
+# Download
+
+This page is generated from the registry-owned public release-channel projection plus the canonical downloads and auto-update policy.
 
 ## Current build matrix
 
-- Version: `smoke-2026.03.24-linux-x64`
-- Channel: `docker`
-- Published: `2026-03-24T19:03:57Z`
+- phase_label: Public-fit polish
+- Preview channel: docker
+- version: smoke-2026.03.24-linux-x64
+- published_at: 2026-03-24T19:03:57Z
+- status: published
+- source: `chummer-hub-registry/.codex-studio/published/RELEASE_CHANNEL.generated.json`
+- rollout_state: local_docker_preview
+- supportability_state: local_docker_proven
 
-Right now this shelf is advanced manual preview archives only. They are real artifacts for curious testers, not the intended normal-user install path, and installer-grade packaging is not here yet.
+Local release proof passed for: install_claim_restore_continue, build_explain_publish, campaign_session_recover_recap, report_cluster_release_notify. Claimed-device restore and bounded offline prefetch stayed grounded on the current shelf.
 
-### Avalonia Desktop Linux X64
+- known_issues: Preview caveats still apply, but the current shelf has recent install, claimed-device recovery, bounded offline prefetch, and support proof instead of only manifest presence.
+- fix_availability: Only send fixed notices after the affected install can receive the published channel artifact now on the shelf.
 
-- Download: [chummer-avalonia-linux-x64.tar.gz](https://chummer.run/downloads/files/chummer-avalonia-linux-x64.tar.gz)
-- Format: advanced manual preview archive
-- SHA256: `196d25f2372b01b03f5082377e0895183803d8c2aade043f34c995e2931f31ff`
-- Size: `41940379` bytes
+### Windows
 
-## If this build is rough
+- No current published Windows artifact appears in the registry projection.
 
-- It is a real preview shelf, not a promise that every surface is polished.
-- If the artifact format is still an advanced manual preview archive for your platform, installer-grade packaging has not been published for that target yet.
-- If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
----
+### Linux
 
-<sub>Updated: 2026-03-28</sub>
+- Avalonia Desktop Linux X64: archive
+- download: /downloads/files/chummer-avalonia-linux-x64.tar.gz
+- file_name: chummer-avalonia-linux-x64.tar.gz
+- size: 40.0 MiB (41940379 bytes)
+- access: open_public
+
+### macOS
+
+- macOS is not on the public shelf until a signed and notarized `.dmg` is promoted.
+
+## Honest artifact format
+
+- No installer artifact is published in the current registry projection, so the current shelf should describe the published archive/portable formats plainly instead of implying an installer exists.
+- avalonia-linux-x64-archive: archive via /downloads/files/chummer-avalonia-linux-x64.tar.gz
+
+## SHA256
+
+- avalonia-linux-x64-archive: `196d25f2372b01b03f5082377e0895183803d8c2aade043f34c995e2931f31ff`
+
+## Raw release fallback
+
+- The registry-owned compatibility export `releases.json` remains the raw fallback for legacy/manual consumers.
+- Public guide copy should still lead with the current promoted shelf instead of treating the raw manifest as the front door.
+- Installer-first language and trust promises come from `PUBLIC_DOWNLOADS_POLICY.md`.
+- Update behavior and rollback language come from `PUBLIC_AUTO_UPDATE_POLICY.md`.
+- The public release shelf posture comes from `PUBLIC_RELEASE_EXPERIENCE.yaml`.
+
+## Release proof
+
+- status: passed
+- generated_at: 2026-03-28T21:20:34Z
+- base_url: https://chummer.run
+
+### Journeys passed
+
+- install_claim_restore_continue
+- build_explain_publish
+- campaign_session_recover_recap
+- report_cluster_release_notify
+
+### Proof routes
+
+- /downloads/install/avalonia-linux-x64-installer
+- /home/access
+- /home/work
+- /account/work
+- /account/support
+- /contact
