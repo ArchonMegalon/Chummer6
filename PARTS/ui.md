@@ -8,6 +8,8 @@ generated_by: "materialize_public_guide_bundle.py"
 
 The workbench and inspect-everything surface.
 
+![UI guide art](../assets/parts/ui.png)
+
 ## When you care
 
 You want the heavy prep view, comparison tools, bigger inspectors, or the place where you stare at a build until it confesses.

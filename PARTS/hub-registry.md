@@ -8,6 +8,8 @@ generated_by: "materialize_public_guide_bundle.py"
 
 The artifact shelf, install truth, and compatibility record.
 
+![Hub Registry guide art](../assets/parts/hub-registry.png)
+
 ## When you care
 
 You care about what exists, what can be installed, what is published, or whether an artifact can be trusted and reused.

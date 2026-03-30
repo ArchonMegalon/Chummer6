@@ -8,6 +8,8 @@ generated_by: "materialize_public_guide_bundle.py"
 
 The long-range product map and truth filter.
 
+![Design guide art](../assets/parts/design.png)
+
 ## When you care
 
 You want to understand why a feature exists, what is real today, or where to go deeper after the friendly tour.

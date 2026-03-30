@@ -8,6 +8,8 @@ generated_by: "materialize_public_guide_bundle.py"
 
 The online side that keeps identity, coordination, and hosted participation boring.
 
+![Hub guide art](../assets/parts/hub.png)
+
 ## When you care
 
 You sign in, sync a hosted surface, follow what is coming next, or use the public participation and recognition flows.

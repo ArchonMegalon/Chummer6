@@ -8,6 +8,8 @@ generated_by: "materialize_public_guide_bundle.py"
 
 Each page here is generated from `PUBLIC_PART_REGISTRY.yaml`.
 
+![Chummer6 parts index art](../assets/pages/parts-index.png)
+
 - [Design](design.md)
 - [Core](core.md)
 - [UI](ui.md)

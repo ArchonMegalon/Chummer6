@@ -11,6 +11,8 @@ generated_by: "materialize_public_guide_bundle.py"
 - wow_promise: Shared state survives device churn without the table losing trust.
 - table_scene: A player reconnects mid-session and catches up without the GM reconstructing state by memory.
 
+![NEXUS-PAN horizon art](../assets/horizons/nexus-pan.png)
+
 
 ## Build path
 

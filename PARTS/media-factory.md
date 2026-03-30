@@ -8,6 +8,8 @@ generated_by: "materialize_public_guide_bundle.py"
 
 The render-only asset plant.
 
+![Media Factory guide art](../assets/parts/media-factory.png)
+
 ## When you care
 
 You care about finished images, teaser media, dossiers, narrated packets, or other polished outputs that still need provenance.

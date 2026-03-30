@@ -8,6 +8,8 @@ generated_by: "materialize_public_guide_bundle.py"
 
 The deterministic rules engine.
 
+![Core guide art](../assets/parts/core.png)
+
 ## When you care
 
 A number looks wrong, a modifier needs explaining, or you want proof instead of vibe-based tool behavior.

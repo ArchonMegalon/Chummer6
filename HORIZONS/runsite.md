@@ -11,6 +11,8 @@ generated_by: "materialize_public_guide_bundle.py"
 - wow_promise: Mission spaces become explorable and legible before the action starts.
 - table_scene: A GM sends an explorable safehouse pack with hotspots, floor plans, route overlays, and optional narration before the session.
 
+![RUNSITE horizon art](../assets/horizons/runsite.png)
+
 
 ## Build path
 
