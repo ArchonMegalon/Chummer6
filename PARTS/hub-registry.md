@@ -1,12 +1,6 @@
----
-title: "Part: Hub Registry"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Hub Registry
 
-The artifact shelf, install truth, and compatibility record.
+The artifact shelf, install record, and compatibility record.
 
 ![Hub Registry guide art](../assets/parts/hub-registry.png)
 
@@ -29,7 +23,7 @@ Without this, artifacts turn into a warehouse full of unlabeled boxes and compat
 - this is not the render plant
 - this is not the rules engine
 
-## Current truth
+## Current state
 
 Hub Registry is the growing record layer for published artifacts and compatibility truth, and it becomes more visible as the public artifact story gets richer.
 

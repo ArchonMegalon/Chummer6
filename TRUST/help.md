@@ -1,9 +1,3 @@
----
-title: "Get help without guessing"
-source: "products/chummer/PUBLIC_TRUST_CONTENT.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Get help without guessing
 
 Use the first-party product path first: install help, account recovery, current release truth, and a real support intake before you fall through to deeper technical material.
@@ -35,7 +29,7 @@ The first-party intake is the default lane for install trouble, product bugs, an
 
 ## Ask from the product surface first
 
-Normal preview questions should be answerable from the product shell itself. Support and FAQ exist so you do not need to infer the answer from repo language or implementation details.
+Normal preview questions should be answerable from the product shell itself. Support and FAQ exist so you do not need to infer the answer from implementation language or implementation details.
 
 - FAQ answers the normal preview and product questions in plain language.
 - Support cases stay separate from optional participation.

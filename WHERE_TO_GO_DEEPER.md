@@ -1,6 +1,6 @@
 # Where To Go Deeper
 
-Start with the public guide pages in this repo, then drop into the deeper owning surfaces only when you need implementation or canon detail.
+Start with the public guide pages in this repo, then go deeper only when you want implementation detail or contributor-facing context.
 
 Public guide:
 
@@ -11,7 +11,7 @@ Public guide:
 - [Parts index](PARTS/README.md)
 - [Horizons index](HORIZONS/README.md)
 
-Owning canon and implementation:
+Build details:
 
-- `chummer6-design` holds the canonical product and public-guide source files.
-- The part pages under [PARTS](PARTS/README.md) explain which repo owns which slice.
+- The design and owning code repos sit behind this guide when you want the full planning and implementation trail.
+- The part pages under [PARTS](PARTS/README.md) point you toward the right surface once you want that deeper context.

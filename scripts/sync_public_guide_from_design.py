@@ -31,10 +31,11 @@ SYNC_DIRS = (
 WRAPPERS = {
     "START_HERE.md": """# Start Here
 
-This repo's public front door is compiled from canonical design files in `chummer6-design`.
+Chummer6 is trying to make Shadowrun character truth easier to trust: clearer builds, clearer rulings, and fewer table-stalling mysteries.
 
-Start with the current product-facing pages:
+Start with the current public guide:
 
+- [README.md](README.md)
 - [Status](STATUS.md)
 - [Download](DOWNLOAD.md)
 - [Help](HELP.md)
@@ -43,34 +44,34 @@ Start with the current product-facing pages:
 - [Parts index](PARTS/README.md)
 - [Horizons index](HORIZONS/README.md)
 
-If you want the deeper repo map after that, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
+If you want the deeper ownership and implementation map after that, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "WHAT_CHUMMER6_IS.md": """# What Chummer6 Is
 
-The canonical public product story now lives in [README.md](README.md) and the generated guide pages beside it.
+Chummer6 is a modern Shadowrun tooling stack aimed at one simple promise: if the rules matter, the proof should be visible.
 
-Start here when you want the current product shape:
+If you want the short current product shape, start here:
 
 - [README.md](README.md)
 - [Status](STATUS.md)
 - [Download](DOWNLOAD.md)
 - [Parts index](PARTS/README.md)
 
-If you want the long-range speculative lanes instead of the current product surface, use [Horizons](HORIZONS/README.md).
+If you want the future-facing bets instead of the current surface, use [Horizons](HORIZONS/README.md).
 """,
     "HOW_CAN_I_HELP.md": """# How Can I Help?
 
-Use the product-facing help path first.
+Use the first-party help path first.
 
 - [Help](HELP.md) explains the public feedback lane, private crash lane, and guided contribution posture.
 - [Contact](CONTACT.md) is the first-party intake for install trouble, product bugs, and practical feedback.
 - The public issue tracker is still available when you intentionally want a public technical issue trail: <https://github.com/ArchonMegalon/Chummer6/issues>
 
-If you want the short current product posture before opening anything, read [Status](STATUS.md).
+If you want the short current product posture before opening anything, read [README.md](README.md) and [Status](STATUS.md).
 """,
     "WHERE_TO_GO_DEEPER.md": """# Where To Go Deeper
 
-Start with the public guide pages in this repo, then drop into the deeper owning surfaces only when you need implementation or canon detail.
+Start with the public guide pages in this repo, then go deeper only when you want implementation detail or contributor-facing context.
 
 Public guide:
 
@@ -81,26 +82,26 @@ Public guide:
 - [Parts index](PARTS/README.md)
 - [Horizons index](HORIZONS/README.md)
 
-Owning canon and implementation:
+Build details:
 
-- `chummer6-design` holds the canonical product and public-guide source files.
-- The part pages under [PARTS](PARTS/README.md) explain which repo owns which slice.
+- The design and owning code repos sit behind this guide when you want the full planning and implementation trail.
+- The part pages under [PARTS](PARTS/README.md) point you toward the right surface once you want that deeper context.
 """,
     "NOW/current-phase.md": """# Current Phase
 
-The public status pulse is generated from canonical design truth.
+The public status pulse lives in the main guide, not in hand-maintained side notes.
 
 Read [../STATUS.md](../STATUS.md) for the current progress posture and [../DOWNLOAD.md](../DOWNLOAD.md) for the current release shelf.
 """,
     "NOW/current-status.md": """# Current Status
 
-The canonical public status page now lives at [../STATUS.md](../STATUS.md).
+The current public status page lives at [../STATUS.md](../STATUS.md).
 
 Use that page for the current pulse, release/help posture, and first-party support guidance.
 """,
     "NOW/public-surfaces.md": """# Public Surfaces
 
-The current public surface is the generated guide set:
+The current public surface is the guide set in this repo:
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)
@@ -114,13 +115,13 @@ Use those pages instead of older hand-maintained concept-stage copy.
 
 For the current public pulse, start with [../STATUS.md](../STATUS.md).
 
-This repo now treats status, release posture, and help/trust pages as generated canon instead of hand-written monthly guide drift.
+This repo keeps status, release posture, and help pages aligned with the current product surface instead of drifting into stale monthly notes.
 """,
     "UPDATES/2026-03.md": """# 2026-03
 
-The March 2026 public guide refresh moved the front door onto generated canon from `chummer6-design`.
+The March 2026 refresh turned this repo into the main public front door for Chummer6.
 
-Current truth now lives in:
+Start here now:
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)

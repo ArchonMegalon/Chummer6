@@ -1,35 +1,20 @@
----
-title: "Horizon: RUNSITE"
-source: "products/chummer/HORIZON_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # RUNSITE
 
-- id: runsite
-- pain_label: My players still misread the space even after the briefing.
-- wow_promise: Mission spaces become explorable and legible before the action starts.
-- table_scene: A GM sends an explorable safehouse pack with hotspots, floor plans, route overlays, and optional narration before the session.
+Mission spaces become explorable and legible before the action starts.
 
 ![RUNSITE horizon art](../assets/horizons/runsite.png)
+
+## Why this matters
+
+My players still misread the space even after the briefing.
+
+Picture the scene: A GM sends an explorable safehouse pack with hotspots, floor plans, route overlays, and optional narration before the session.
 
 
 ## Build path
 
-- intent: eventual_product_lane
-- current_state: horizon
-- next_state: bounded_research
-
-## Registry posture
-
-- owning_repo: chummer6-hub
-- owning_repo: chummer6-media-factory
-- promoted_tools: Crezlo Tours, AvoMap, PeekShot
-- bounded_tools: Soundmadeseen, BrowserAct, Browserly
-
-## Canon source
-
-`products/chummer/horizons/runsite.md`
+- Today: horizon.
+- Next: bounded research.
 
 ## Table pain
 
@@ -42,19 +27,6 @@ These packs may include floor plans, hotspots, route overlays, optional narratio
 RUNSITE is the mission-space explorer:
 briefing, planning, and spatial understanding belong here.
 Live combat truth and VTT replacement ambitions do not.
-
-## Likely owners
-
-* `chummer6-hub`
-* `chummer6-media-factory`
-
-## Key tool posture
-
-* `Crezlo Tours` - primary explorable-tour lane
-* `AvoMap` - route and location visualization support
-* `PeekShot` - preview/share-card adapter
-* `Soundmadeseen` - optional narration layer
-* `BrowserAct` - bounded operator automation and capture fallback
 
 ## Foundations
 

@@ -1,9 +1,3 @@
----
-title: "Part: Media Factory"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Media Factory
 
 The render-only asset plant.
@@ -29,7 +23,7 @@ This is how the product can look finished without letting style quietly rewrite 
 - this is not the decision-maker for what a session means
 - it should stay render-only even when the outputs get more ambitious
 
-## Current truth
+## Current state
 
 Media Factory is the dedicated place for render jobs and asset lifecycle, and the current work is about making richer outputs possible without blurring provenance or ownership.
 

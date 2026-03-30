@@ -1,9 +1,3 @@
----
-title: "Part: Core"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Core
 
 The deterministic rules engine.
@@ -29,7 +23,7 @@ This is where Chummer earns trust. If the math cannot be reproduced and explaine
 - this is not the hosted service layer
 - this is not the table-facing shell by itself
 
-## Current truth
+## Current state
 
 Core is already the rules-truth spine, and the current work is about keeping it strict enough that future explain, play, and simulation layers can trust it.
 

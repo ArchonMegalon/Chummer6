@@ -1,12 +1,7 @@
----
-title: "Horizons"
-source: "products/chummer/HORIZON_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Horizons
 
-These horizon pages are generated only for entries with `public_guide.enabled == true`.
+Horizons are the future-facing lanes worth tracking next.
+They are product bets, not promises that every surface below is already shipping today.
 
 ![Chummer6 horizons index art](../assets/pages/horizons-index.png)
 

@@ -1,6 +1,6 @@
 # Public Surfaces
 
-The current public surface is the generated guide set:
+The current public surface is the guide set in this repo:
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)

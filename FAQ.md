@@ -1,9 +1,3 @@
----
-title: "FAQ"
-source: "products/chummer/PUBLIC_FAQ_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # FAQ
 
 ## Using Chummer6
@@ -66,7 +60,7 @@ They are recognition and visibility layers, not authority. They should celebrate
 
 ### Where does the deeper plan live?
 
-In chummer6-design, which carries the canonical product plan and public-generation rules.
+In chummer6-design, which carries the shared product plan and public-generation rules.
 
 ### Where does the actual code live?
 
@@ -74,4 +68,4 @@ In the owning code repos. Chummer6 exists so you do not have to reverse-engineer
 
 ### Where do I propose public-facing changes?
 
-Use the Chummer6 issue tracker for public guide feedback, bug reports, and future-feature suggestions. That keeps normal users out of the design repo.
+Use the Chummer6 issue tracker for public guide feedback, bug reports, and future-feature suggestions. That keeps normal users out of the design workspace.

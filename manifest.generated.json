@@ -17,6 +17,7 @@
     "participation_workflow": "products/chummer/PARTICIPATION_AND_BOOSTER_WORKFLOW.md",
     "product_entry": "products/chummer/README.md",
     "public_feature_registry": "products/chummer/PUBLIC_FEATURE_REGISTRY.yaml",
+    "public_guide_image_curation": "products/chummer/PUBLIC_GUIDE_IMAGE_CURATION.yaml",
     "public_guide_policy": "products/chummer/PUBLIC_GUIDE_POLICY.md",
     "public_media_policy": "products/chummer/PUBLIC_MEDIA_AND_GUIDE_ASSET_POLICY.md",
     "public_user_model": "products/chummer/PUBLIC_USER_MODEL.md"

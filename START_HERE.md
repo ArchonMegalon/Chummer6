@@ -1,9 +1,10 @@
 # Start Here
 
-This repo's public front door is compiled from canonical design files in `chummer6-design`.
+Chummer6 is trying to make Shadowrun character truth easier to trust: clearer builds, clearer rulings, and fewer table-stalling mysteries.
 
-Start with the current product-facing pages:
+Start with the current public guide:
 
+- [README.md](README.md)
 - [Status](STATUS.md)
 - [Download](DOWNLOAD.md)
 - [Help](HELP.md)
@@ -12,4 +13,4 @@ Start with the current product-facing pages:
 - [Parts index](PARTS/README.md)
 - [Horizons index](HORIZONS/README.md)
 
-If you want the deeper repo map after that, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
+If you want the deeper ownership and implementation map after that, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).

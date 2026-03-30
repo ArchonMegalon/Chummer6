@@ -1,18 +1,12 @@
----
-title: "Status"
-source: "products/chummer/PROGRESS_REPORT.generated.json"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Status
 
-This page is generated from public progress and trust-content canon.
+This page is the short public pulse for the current preview.
 
 ## Current pulse
 
-- overall_progress_percent: 100
-- phase_label: Public-fit polish
-- history_snapshot_count: 5
+- Public-fit progress: 100% of the current pass is treated as closed.
+- Current phase: Public-fit polish.
+- Release pulse: grounded in 5 recent history snapshots.
 
 ## Start with the release page and install help
 

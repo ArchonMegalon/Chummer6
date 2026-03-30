@@ -1,9 +1,3 @@
----
-title: "Contact"
-source: "products/chummer/PUBLIC_TRUST_CONTENT.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Contact
 
 Chummer should not make you guess where to send a problem. Use the first-party intake below for install help, product bugs, and practical feedback.

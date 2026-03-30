@@ -1,9 +1,3 @@
----
-title: "Part: Hub"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Hub
 
 The online side that keeps identity, coordination, and hosted participation boring.
@@ -29,7 +23,7 @@ It keeps shared coordination, hosted surfaces, accounts, and community participa
 - it is not where the rules math becomes true
 - the user-facing coordination layer is promoted, but deeper operator seams still stay behind it
 
-## Current truth
+## Current state
 
 Hub is already the hosted front door for identity, landing/home projection, participation, and community views, but it is still tightening the line between user-facing coordination and deeper operator machinery.
 

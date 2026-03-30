@@ -1,9 +1,3 @@
----
-title: "Part: Mobile"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Mobile
 
 The session shell you feel at the table.
@@ -29,7 +23,7 @@ This is the jump from prep software to software that can stay useful while a rea
 - this is still the next major seam to finish cleanly
 - the session stack is still deepening around cache, replay, and recovery polish
 
-## Current truth
+## Current state
 
 Mobile is where the live-session promise becomes real, and the current work is about event logs, cache, replay, and sync rather than cosmetic flash.
 

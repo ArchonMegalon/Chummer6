@@ -1,9 +1,3 @@
----
-title: "What Chummer stores, and what it does not"
-source: "products/chummer/PUBLIC_TRUST_CONTENT.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # What Chummer stores, and what it does not
 
 This is the practical hosted-product posture right now: what the account keeps, what stays out of Hub, and how install linking and support stay bounded.

@@ -1,9 +1,3 @@
----
-title: "Part: UI Kit"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # UI Kit
 
 The shared visual vocabulary.
@@ -29,7 +23,7 @@ Shared visual primitives keep the split from feeling like several products prete
 - it is a shared package layer, not a product head by itself
 - it only counts when the other heads visibly get smaller because it exists
 
-## Current truth
+## Current state
 
 UI Kit is real enough to matter, and the next proof point is whether the rest of the product can consume it instead of rebuilding visual seams locally.
 

@@ -1,12 +1,7 @@
----
-title: "Parts"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # Parts
 
-Each page here is generated from `PUBLIC_PART_REGISTRY.yaml`.
+Chummer6 is easier to understand when you break it into the product surfaces people actually touch.
+Use this index when you want the map before you dive into one slice.
 
 ![Chummer6 parts index art](../assets/pages/parts-index.png)
 

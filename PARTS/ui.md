@@ -1,9 +1,3 @@
----
-title: "Part: UI"
-source: "products/chummer/PUBLIC_PART_REGISTRY.yaml"
-generated_by: "materialize_public_guide_bundle.py"
----
-
 # UI
 
 The workbench and inspect-everything surface.
@@ -29,7 +23,7 @@ This is where Chummer stops feeling mystical and starts feeling inspectable.
 - this is not the player-first live shell
 - some workbench polish is still catching up to the cleaner split
 
-## Current truth
+## Current state
 
 UI is the prep-heavy head, and the current cleanup work is about keeping that power without quietly reclaiming play-first or hosted jobs.
 
