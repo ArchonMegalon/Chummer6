@@ -20,12 +20,12 @@ This is where Chummer stops feeling mystical and starts feeling inspectable.
 
 ## Current limits
 
-- this is not the player-first live shell
+- this is not the player-first table view
 - some workbench polish is still catching up to the cleaner split
 
 ## Current state
 
-UI is the prep-heavy head, and the current cleanup work is about keeping that power without quietly reclaiming play-first or hosted jobs.
+UI already carries the heavy prep view, and the current cleanup work is about keeping that power without quietly swallowing play-first or hosted work.
 
 ## Go deeper
 

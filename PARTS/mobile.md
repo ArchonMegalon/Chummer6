@@ -1,6 +1,6 @@
 # Mobile
 
-The session shell you feel at the table.
+The table-side companion you feel during play.
 
 ![Mobile guide art](../assets/parts/mobile.png)
 
@@ -14,13 +14,13 @@ This is the jump from prep software to software that can stay useful while a rea
 
 ## What you notice
 
-- stronger local-first and offline-safe posture
+- stronger local-first and offline-ready behavior
 - session continuity instead of fragile single-device assumptions
-- a table-facing shell that is separate from the heavy workbench view
+- a table-facing companion that is separate from the heavy workbench view
 
 ## Current limits
 
-- this is still the next major seam to finish cleanly
+- this is still the next major boundary to finish cleanly
 - the session stack is still deepening around cache, replay, and recovery polish
 
 ## Current state

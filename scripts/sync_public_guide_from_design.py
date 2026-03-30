@@ -57,21 +57,21 @@ If you want the short current product shape, start here:
 - [Download](DOWNLOAD.md)
 - [Parts index](PARTS/README.md)
 
-If you want the future-facing bets instead of the current surface, use [Horizons](HORIZONS/README.md).
+If you want the future-facing bets instead of the current product picture, use [Horizons](HORIZONS/README.md).
 """,
     "HOW_CAN_I_HELP.md": """# How Can I Help?
 
 Use the first-party help path first.
 
-- [Help](HELP.md) explains the public feedback lane, private crash lane, and guided contribution posture.
+- [Help](HELP.md) explains support, private crash reporting, and optional guided contribution.
 - [Contact](CONTACT.md) is the first-party intake for install trouble, product bugs, and practical feedback.
 - The public issue tracker is still available when you intentionally want a public technical issue trail: <https://github.com/ArchonMegalon/Chummer6/issues>
 
-If you want the short current product posture before opening anything, read [README.md](README.md) and [Status](STATUS.md).
+If you want the short current product picture before opening anything, read [README.md](README.md) and [Status](STATUS.md).
 """,
     "WHERE_TO_GO_DEEPER.md": """# Where To Go Deeper
 
-Start with the public guide pages in this repo, then go deeper only when you want implementation detail or contributor-facing context.
+Start with the public guide pages in this repo, then go deeper only when you want technical detail or contributor context.
 
 Public guide:
 
@@ -82,26 +82,26 @@ Public guide:
 - [Parts index](PARTS/README.md)
 - [Horizons index](HORIZONS/README.md)
 
-Build details:
+Behind the guide:
 
-- The design and owning code repos sit behind this guide when you want the full planning and implementation trail.
-- The part pages under [PARTS](PARTS/README.md) point you toward the right surface once you want that deeper context.
+- The design repo and owning code repos carry the planning and build trail.
+- The part pages under [PARTS](PARTS/README.md) point you toward the right area once you want that deeper context.
 """,
     "NOW/current-phase.md": """# Current Phase
 
-The public status pulse lives in the main guide, not in hand-maintained side notes.
+The current public status lives in the main guide.
 
-Read [../STATUS.md](../STATUS.md) for the current progress posture and [../DOWNLOAD.md](../DOWNLOAD.md) for the current release shelf.
+Read [../STATUS.md](../STATUS.md) for the current product picture and [../DOWNLOAD.md](../DOWNLOAD.md) for the current release shelf.
 """,
     "NOW/current-status.md": """# Current Status
 
 The current public status page lives at [../STATUS.md](../STATUS.md).
 
-Use that page for the current pulse, release/help posture, and first-party support guidance.
+Use that page for the current picture, release status, and first-party support guidance.
 """,
     "NOW/public-surfaces.md": """# Public Surfaces
 
-The current public surface is the guide set in this repo:
+The main public guide pages are:
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)
@@ -109,17 +109,17 @@ The current public surface is the guide set in this repo:
 - [../HELP.md](../HELP.md)
 - [../CONTACT.md](../CONTACT.md)
 
-Use those pages instead of older hand-maintained concept-stage copy.
+Use those pages as the current public reference set.
 """,
     "UPDATES/README.md": """# Updates
 
-For the current public pulse, start with [../STATUS.md](../STATUS.md).
+For the current public status, start with [../STATUS.md](../STATUS.md).
 
-This repo keeps status, release posture, and help pages aligned with the current product surface instead of drifting into stale monthly notes.
+Status, release, and help pages stay aligned with the current product guide.
 """,
     "UPDATES/2026-03.md": """# 2026-03
 
-The March 2026 refresh turned this repo into the main public front door for Chummer6.
+The March 2026 refresh established this repo as the main public guide for Chummer6.
 
 Start here now:
 

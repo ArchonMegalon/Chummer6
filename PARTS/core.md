@@ -21,11 +21,11 @@ This is where Chummer earns trust. If the math cannot be reproduced and explaine
 ## Current limits
 
 - this is not the hosted service layer
-- this is not the table-facing shell by itself
+- this is not the table-side experience by itself
 
 ## Current state
 
-Core is already the rules-truth spine, and the current work is about keeping it strict enough that future explain, play, and simulation layers can trust it.
+Core already anchors the rules truth, and the current work is about keeping it strict enough that future explain, play, and simulation layers can trust it.
 
 ## Go deeper
 

@@ -1,5 +1,5 @@
 # Updates
 
-For the current public pulse, start with [../STATUS.md](../STATUS.md).
+For the current public status, start with [../STATUS.md](../STATUS.md).
 
-This repo keeps status, release posture, and help pages aligned with the current product surface instead of drifting into stale monthly notes.
+Status, release, and help pages stay aligned with the current product guide.

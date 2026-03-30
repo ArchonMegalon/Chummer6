@@ -1,6 +1,6 @@
 # KARMA FORGE
 
-Tables can evolve governed rulesets without splintering into unreadable forks.
+Tables can evolve house rules without splintering into unreadable forks.
 
 ![KARMA FORGE horizon art](../assets/horizons/karma-forge.png)
 
@@ -11,26 +11,26 @@ I want house rules without fork chaos.
 Picture the scene: A GM promotes a house-rule pack with visible impact, approval history, and reversible publication state.
 
 
-## Build path
+## Current stage
 
-- Today: horizon.
-- Next: bounded research.
+- Today: Future concept.
+- Next: Research and prototypes.
 
-## Table pain
+## The problem
 
 Groups want house rules and alternate rule environments without forking themselves into incompatible chaos.
 
-## Bounded product move
+## What it would do
 
-Chummer would offer governed ruleset variation and compatibility handling without allowing ad hoc script piles to become silent product truth.
+Chummer would let groups publish, review, and reuse house-rule sets with visible impact and compatibility checks, without turning them into private forks.
 
-## Foundations
+## What has to be true first
 
 * ruleset ABI discipline
 * clear package ownership
 * registry compatibility metadata
 * approval and publication flows
 
-## Why still a horizon
+## Why it is not ready yet
 
-Rule variation is powerful enough to create permanent drift if the contract and compatibility layers are not already stable.
+Rule changes can fracture tables quickly if compatibility and rollback are not already dependable.

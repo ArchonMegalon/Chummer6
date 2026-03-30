@@ -1,31 +1,31 @@
 # Hub Registry
 
-The artifact shelf, install record, and compatibility record.
+The release shelf, install record, and compatibility record.
 
 ![Hub Registry guide art](../assets/parts/hub-registry.png)
 
 ## When you care
 
-You care about what exists, what can be installed, what is published, or whether an artifact can be trusted and reused.
+You care about what exists, what can be installed, what is published, or whether a release file can be trusted and reused.
 
 ## Why you care
 
-Without this, artifacts turn into a warehouse full of unlabeled boxes and compatibility folklore.
+Without this, release files turn into a warehouse full of unlabeled boxes and compatibility folklore.
 
 ## What you notice
 
-- cleaner artifact metadata and publication posture
-- a more believable path from preview outputs to shareable or installable artifacts
+- cleaner release metadata and publication status
+- a more believable path from preview outputs to shareable or installable files
 - compatibility and moderation signals that can stay on the record
 
 ## Current limits
 
-- this is not the render plant
+- this is not the media studio
 - this is not the rules engine
 
 ## Current state
 
-Hub Registry is the growing record layer for published artifacts and compatibility truth, and it becomes more visible as the public artifact story gets richer.
+Hub Registry is the growing record for published releases and compatibility, and it becomes more visible as the public release story gets richer.
 
 ## Go deeper
 

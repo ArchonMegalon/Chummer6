@@ -1,6 +1,6 @@
 # Public Surfaces
 
-The current public surface is the guide set in this repo:
+The main public guide pages are:
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)
@@ -8,4 +8,4 @@ The current public surface is the guide set in this repo:
 - [../HELP.md](../HELP.md)
 - [../CONTACT.md](../CONTACT.md)
 
-Use those pages instead of older hand-maintained concept-stage copy.
+Use those pages as the current public reference set.

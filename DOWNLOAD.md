@@ -2,18 +2,17 @@
 
 This page describes the public preview shelf and the download formats that are actually available today.
 
-## Current public build
+## Current public download
 
-- Current phase: Public-fit polish.
-- Preview channel: docker.
-- Current version: smoke-2026.03.24-linux-x64.
-- Published: 2026-03-24T19:03:57Z.
-- Shelf status: published.
-- Rollout posture: local docker preview.
-- Support posture: local docker proven.
-- Support summary: Local release proof passed for: install_claim_restore_continue, build_explain_publish, campaign_session_recover_recap, report_cluster_release_notify. Claimed-device restore and bounded offline prefetch stayed grounded on the current shelf.
-- Known issues: Preview caveats still apply, but the current shelf has recent install, claimed-device recovery, bounded offline prefetch, and support proof instead of only manifest presence.
-- Fix availability: Only send fixed notices after the affected install can receive the published channel artifact now on the shelf.
+- Current stage: Public preview.
+- Release channel: Preview channel.
+- Current build: `smoke-2026.03.24-linux-x64`.
+- Published: March 24, 2026 at 19:03 UTC.
+- Release status: Published.
+- Current public download: Avalonia Desktop Linux X64 archive package.
+- Release verification: Recent release verification passed across setup and recovery, build and publish, campaign session continuity, and support follow-up.
+- Known issues: Preview caveats still apply, but the current download shelf has recent setup, device recovery, offline-ready prefetch, and support verification instead of only a posted file.
+- Fix availability: Only expect fix notices after the affected download is available on the same public shelf.
 
 ### Windows
 
@@ -21,33 +20,34 @@ This page describes the public preview shelf and the download formats that are a
 
 ### Linux
 
-- Avalonia Desktop Linux X64: archive.
-- Download path: `/downloads/files/chummer-avalonia-linux-x64.tar.gz`
-- File name: `chummer-avalonia-linux-x64.tar.gz`
+- Avalonia Desktop Linux X64: archive package.
+- Download: `/downloads/files/chummer-avalonia-linux-x64.tar.gz`
+- File: `chummer-avalonia-linux-x64.tar.gz`
 - Size: 40.0 MiB (41940379 bytes)
-- Access: open public
+- Access: Public download.
 
 ### macOS
 
 - macOS is not on the public shelf until a signed and notarized `.dmg` is promoted.
 
-## Honest artifact format
+## Current package format
 
-- The current public shelf is archive-first right now. Do not promise an installer where one is not published.
-- Avalonia Desktop Linux X64: archive via /downloads/files/chummer-avalonia-linux-x64.tar.gz
+- The current public shelf is package-first. Setup starts from a downloaded archive, not a promoted installer.
+- Avalonia Desktop Linux X64: archive package via `/downloads/files/chummer-avalonia-linux-x64.tar.gz`
 
-## Checksums
+## SHA256
 
 - Avalonia Desktop Linux X64: `196d25f2372b01b03f5082377e0895183803d8c2aade043f34c995e2931f31ff`
 
-## Recent release proof
+## Recent release verification
 
-- Status: passed.
-- Checked at: 2026-03-28T21:20:34Z.
+- Status: Passed.
+- Last checked: March 28, 2026 at 21:20 UTC.
+- Summary: Recent release verification passed across setup and recovery, build and publish, campaign session continuity, and support follow-up.
 
-### Covered flows
+### Checked flows
 
-- install, claim, restore, and continue
+- download, reconnect, restore, and continue
 - build, explain, and publish
 - campaign session recovery and recap
-- report clustering and release notification
+- support reporting and release follow-up

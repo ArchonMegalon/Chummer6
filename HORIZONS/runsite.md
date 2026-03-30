@@ -11,30 +11,28 @@ My players still misread the space even after the briefing.
 Picture the scene: A GM sends an explorable safehouse pack with hotspots, floor plans, route overlays, and optional narration before the session.
 
 
-## Build path
+## Current stage
 
-- Today: horizon.
-- Next: bounded research.
+- Today: Future concept.
+- Next: Research and prototypes.
 
-## Table pain
+## The problem
 
 GMs spend too long describing spaces, and players still misread compounds, clubs, hotels, museums, arcologies, and safehouses once the action starts.
 
-## Bounded product move
+## What it would do
 
-Chummer would publish bounded explorable location packs linked to mission briefings.
-These packs may include floor plans, hotspots, route overlays, optional narration, and static map context, but they remain artifacts rather than live session truth.
-RUNSITE is the mission-space explorer:
-briefing, planning, and spatial understanding belong here.
-Live combat truth and VTT replacement ambitions do not.
+Chummer would publish explorable location packs linked to mission briefings.
+They could include floor plans, hotspots, route overlays, optional narration, and static map context, but they stay focused on pre-run orientation rather than live combat truth or VTT replacement.
+RUNSITE is for briefing, planning, and spatial understanding before things go loud.
 
-## Foundations
+## What has to be true first
 
 * clean media manifests
 * permissioned publication links
 * preview and embed receipts
-* bounded map/render adapters
+* reliable map and render adapters
 
-## Why still a horizon
+## Why it is not ready yet
 
-The owned vendor tier now makes this lane concrete, but product truth still needs the artifact, permission, and provenance seams before Chummer should promote it beyond bounded design.
+The new vendor path makes this more plausible, but Chummer still needs a reliable permission model and a clear source trail before it should present RUNSITE as a real feature.

@@ -1,6 +1,6 @@
 # Where To Go Deeper
 
-Start with the public guide pages in this repo, then go deeper only when you want implementation detail or contributor-facing context.
+Start with the public guide pages in this repo, then go deeper only when you want technical detail or contributor context.
 
 Public guide:
 
@@ -11,7 +11,7 @@ Public guide:
 - [Parts index](PARTS/README.md)
 - [Horizons index](HORIZONS/README.md)
 
-Build details:
+Behind the guide:
 
-- The design and owning code repos sit behind this guide when you want the full planning and implementation trail.
-- The part pages under [PARTS](PARTS/README.md) point you toward the right surface once you want that deeper context.
+- The design repo and owning code repos carry the planning and build trail.
+- The part pages under [PARTS](PARTS/README.md) point you toward the right area once you want that deeper context.

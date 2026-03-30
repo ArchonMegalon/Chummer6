@@ -1,6 +1,6 @@
 # Parts
 
-Chummer6 is easier to understand when you break it into the product surfaces people actually touch.
+Chummer6 is easier to understand when you break it into the product areas people actually touch.
 Use this index when you want the map before you dive into one slice.
 
 ![Chummer6 parts index art](../assets/pages/parts-index.png)

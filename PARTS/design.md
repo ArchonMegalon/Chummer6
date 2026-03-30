@@ -10,7 +10,7 @@ You want to understand why a feature exists, what is real today, or where to go 
 
 ## Why you care
 
-It keeps the public story, the landing page, the guide, and the future lanes tied to one shared plan instead of a pile of clever guesses.
+It keeps the public story, the landing page, the guide, and the future ideas tied to one shared plan instead of a pile of clever guesses.
 
 ## What you notice
 
@@ -25,7 +25,7 @@ It keeps the public story, the landing page, the guide, and the future lanes tie
 
 ## Current state
 
-Design already owns the public landing posture, guide policy, horizons, participation language, and the line between public story and deeper source material.
+Design already owns the public landing story, guide policy, horizons, participation language, and the line between public story and deeper source material.
 
 ## Go deeper
 

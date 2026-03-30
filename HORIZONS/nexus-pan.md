@@ -11,27 +11,28 @@ My devices drift and the table loses confidence.
 Picture the scene: A player reconnects mid-session and catches up without the GM reconstructing state by memory.
 
 
-## Build path
+## Current stage
 
-- Today: horizon.
-- Next: bounded research.
+- Today: Future concept.
+- Next: Research and prototypes.
 
-## Table pain
+## The problem
 
-Tables lose confidence when devices, PAN state, and cross-actor continuity drift during live play.
+When phones, tablets, or laptops drift apart during play, the whole table stops trusting what is on screen.
 
-## Bounded product move
+## What it would do
 
-Chummer would expose grounded device and shared-state continuity support without inventing new rules truth outside the engine and play contracts.
+Chummer would keep reconnects and shared session state steady enough that players can jump back in without the GM rebuilding context by hand.
+It would extend the core rules and session record instead of inventing a second source of truth.
 
-## Foundations
+## What has to be true first
 
-* session semantics
-* runtime bundles
-* explain provenance
-* play-shell reliability
+* durable session state
+* reliable sync bundles
+* visible reconnect explanations
+* in-session reliability
 
-## Why still a horizon
+## Why it is not ready yet
 
-The active release path is still finishing durable session and runtime seams.
-Until those seams are fully trustworthy, a richer PAN layer would widen unstable boundaries.
+The live release still needs boringly reliable session continuity.
+Until reconnects and shared-state handoffs stay solid under stress, a richer PAN layer would add confusion instead of removing it.

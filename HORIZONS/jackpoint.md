@@ -1,6 +1,6 @@
 # JACKPOINT
 
-The table gets grounded short-to-medium-form artifacts that feel finished without severing provenance.
+The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show their source trail.
 
 ![JACKPOINT horizon art](../assets/horizons/jackpoint.png)
 
@@ -11,31 +11,29 @@ I want dossiers, recaps, and briefings that feel good without making things up.
 Picture the scene: After a run, the GM exports a dossier-plus-recap packet with narration, evidence rooms, and share-safe previews.
 
 
-## Build path
+## Current stage
 
-- Today: horizon.
-- Next: bounded research.
+- Today: Future concept.
+- Next: Research and prototypes.
 
-## Table pain
+## The problem
 
-Players and GMs want dossiers, recaps, primers, and narrated briefings, but most content tools invent details and sever the link back to grounded evidence.
+Players and GMs want dossiers, recaps, primers, and narrated briefings, but most content tools either invent details or strip away where the facts came from.
 
-## Bounded product move
+## What it would do
 
-JACKPOINT is the artifact-studio horizon.
-It covers dossier packets, recap artifacts, narrated briefings, evidence rooms, share cards, and creator packs as bounded outputs tied to Chummer-owned manifests and receipts.
-JACKPOINT is intentionally the short-to-medium-form studio lane.
-It does not replace RUNBOOK PRESS long-form publishing.
+JACKPOINT would turn approved session material into dossiers, recaps, narrated briefings, evidence rooms, share cards, and creator packs.
+It is the short-to-medium-form publishing studio, not a replacement for full books.
 
-## Foundations
+## What has to be true first
 
-* grounded evidence receipts
+* a fact trail that survives formatting
 * approval states
-* registry/media seam clarity
+* registry and media working together cleanly
 * source classification
-* bounded publication workflows
+* reliable publication workflows
 
-## Why still a horizon
+## Why it is not ready yet
 
-The artifacts are valuable only if provenance survives formatting, narration, preview generation, and publication.
-Until that chain is reliable, Chummer should not pretend the studio is ready.
+These outputs only matter if the source trail survives writing, narration, preview generation, and publication.
+Until that chain is reliable, Chummer should not sell the studio as ready.

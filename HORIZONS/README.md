@@ -1,7 +1,7 @@
 # Horizons
 
-Horizons are the future-facing lanes worth tracking next.
-They are product bets, not promises that every surface below is already shipping today.
+Horizons are the future-facing ideas worth tracking next.
+They are product bets, not promises that every idea below is already ready today.
 
 ![Chummer6 horizons index art](../assets/pages/horizons-index.png)
 

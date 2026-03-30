@@ -9,4 +9,4 @@ If you want the short current product shape, start here:
 - [Download](DOWNLOAD.md)
 - [Parts index](PARTS/README.md)
 
-If you want the future-facing bets instead of the current surface, use [Horizons](HORIZONS/README.md).
+If you want the future-facing bets instead of the current product picture, use [Horizons](HORIZONS/README.md).
