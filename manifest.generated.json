@@ -1,7 +1,7 @@
 {
   "active_wave": {
     "registry": "products/chummer/NEXT_20_BIG_WINS_AFTER_POST_AUDIT_CLOSEOUT_REGISTRY.yaml",
-    "status": "in_progress",
+    "status": "complete",
     "title": "Next 20 Big Wins After Post-Audit Closeout"
   },
   "generated_by": "materialize_public_guide_bundle.py",
