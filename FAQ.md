@@ -20,7 +20,7 @@ Available today means there is a real public page or build you can touch right n
 
 ### What should I show a skeptical GM or player first?
 
-Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) for the product promise, then [Status](STATUS.md) for the honest preview picture, then [Core](PARTS/core.md) if the real argument is about trust in the math.
+Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) for the product promise, then [Status](STATUS.md) for the honest preview picture, then [Download](DOWNLOAD.md) if they want proof that a real preview build exists. If the real argument is still about the math, [Core](PARTS/core.md) is the deeper explainer.
 
 ## Participation and preview
 

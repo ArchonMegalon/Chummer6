@@ -31,61 +31,64 @@ SYNC_DIRS = (
 WRAPPERS = {
     "START_HERE.md": """# Start Here
 
-Chummer6 is trying to make Shadowrun character truth easier to trust: clearer builds, clearer rulings, and fewer table-stalling mysteries.
+If you only want one answer fast, start with the question in front of you.
 
-Start with the current public guide:
+- I want to try Chummer6 right now: [Download](DOWNLOAD.md)
+- I want the honest current picture: [Status](STATUS.md)
+- I want the two-minute product story: [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
+- I need help or want to report a problem: [Help](HELP.md) and [Contact](CONTACT.md)
+- I only care about future ideas: [Horizons](HORIZONS/README.md)
+
+You do not need the parts map to decide whether Chummer6 is relevant to you.
+If you want the behind-the-scenes map after the friendly tour, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
+""",
+    "WHAT_CHUMMER6_IS.md": """# What Chummer6 Is
+
+Chummer6 is Shadowrun character software built around one public promise: the answer should be visible, not mysterious.
+
+The point is to help you:
+
+- build a character without mystery math
+- inspect why a pool or modifier changed
+- keep continuity readable when devices or connectivity drift
+
+This repo should help you decide quickly whether the current preview is real enough for you, whether the product fits how you play, and where to go for help next.
+
+Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
+If you want future bets after that, use [Horizons](HORIZONS/README.md).
+If you want the behind-the-scenes map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
+""",
+    "HOW_CAN_I_HELP.md": """# How Can I Help?
+
+Use the first-party path that matches the kind of help you need.
+
+- [Help](HELP.md) explains install support, private crash reporting, and participation guidance.
+- [Contact](CONTACT.md) is the first-party intake for practical product trouble and feedback.
+- The public issue tracker is still available when you intentionally want a public technical trail: <https://github.com/ArchonMegalon/Chummer6/issues>
+
+If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).
+""",
+    "WHERE_TO_GO_DEEPER.md": """# Where To Go Deeper
+
+If you are still deciding whether Chummer6 is useful to you, stay on the public guide first.
+
+Start there:
 
 - [README.md](README.md)
+- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [Status](STATUS.md)
 - [Download](DOWNLOAD.md)
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)
+
+Go deeper only when you want more than the friendly tour:
+
+- [Horizons index](HORIZONS/README.md): future product bets and research lanes.
 - [Parts index](PARTS/README.md)
-- [Horizons index](HORIZONS/README.md)
+- The design workspace and owning code repos carry the planning and implementation trail once the public guide stops being enough.
 
-If you want the deeper ownership and implementation map after that, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
-""",
-    "WHAT_CHUMMER6_IS.md": """# What Chummer6 Is
-
-Chummer6 is a modern Shadowrun tooling stack aimed at one simple promise: if the rules matter, the proof should be visible.
-
-If you want the short current product shape, start here:
-
-- [README.md](README.md)
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [Parts index](PARTS/README.md)
-
-If you want the future-facing bets instead of the current product picture, use [Horizons](HORIZONS/README.md).
-""",
-    "HOW_CAN_I_HELP.md": """# How Can I Help?
-
-Use the first-party help path first.
-
-- [Help](HELP.md) explains support, private crash reporting, and optional guided contribution.
-- [Contact](CONTACT.md) is the first-party intake for install trouble, product bugs, and practical feedback.
-- The public issue tracker is still available when you intentionally want a public technical issue trail: <https://github.com/ArchonMegalon/Chummer6/issues>
-
-If you want the short current product picture before opening anything, read [README.md](README.md) and [Status](STATUS.md).
-""",
-    "WHERE_TO_GO_DEEPER.md": """# Where To Go Deeper
-
-Start with the public guide pages in this repo, then go deeper only when you want technical detail or contributor context.
-
-Public guide:
-
-- [README.md](README.md)
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [Help](HELP.md)
-- [Parts index](PARTS/README.md)
-- [Horizons index](HORIZONS/README.md)
-
-Behind the guide:
-
-- The design repo and owning code repos carry the planning and build trail.
-- The part pages under [PARTS](PARTS/README.md) point you toward the right area once you want that deeper context.
+The point of this repo is to save normal readers from having to reverse-engineer the product from internal project structure.
 """,
     "NOW/current-phase.md": """# Current Phase
 

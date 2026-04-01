@@ -1,7 +1,7 @@
 # Parts
 
-Chummer6 is easier to understand when you break it into the product areas people actually touch.
-Use this index when you want the map before you dive into one slice.
+This is the deeper product map, not the first stop for most readers.
+Use it after the friendly tour, when you want to understand how the experience is split behind the scenes.
 
 ![Chummer6 parts index art](../assets/pages/parts-index.png)
 

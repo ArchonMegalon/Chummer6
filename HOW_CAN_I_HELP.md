@@ -1,9 +1,9 @@
 # How Can I Help?
 
-Use the first-party help path first.
+Use the first-party path that matches the kind of help you need.
 
-- [Help](HELP.md) explains support, private crash reporting, and optional guided contribution.
-- [Contact](CONTACT.md) is the first-party intake for install trouble, product bugs, and practical feedback.
-- The public issue tracker is still available when you intentionally want a public technical issue trail: <https://github.com/ArchonMegalon/Chummer6/issues>
+- [Help](HELP.md) explains install support, private crash reporting, and participation guidance.
+- [Contact](CONTACT.md) is the first-party intake for practical product trouble and feedback.
+- The public issue tracker is still available when you intentionally want a public technical trail: <https://github.com/ArchonMegalon/Chummer6/issues>
 
-If you want the short current product picture before opening anything, read [README.md](README.md) and [Status](STATUS.md).
+If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).

@@ -1,7 +1,6 @@
 # Chummer Public Guide
 
-This is the public guide to Chummer6.
-Use it to see what works today, what is still preview, and where to go next.
+Start here if you want the public answer first: what Chummer6 does, what is real today, and whether the current preview is worth your time.
 
 ## Product promise
 
@@ -10,6 +9,14 @@ Shadowrun rules truth, with receipts.
 Build characters, inspect rulings, and keep sessions moving with explainable math, durable state, and clear proof of what works today.
 
 - Public preview, honest status, and clear proof of what works today.
+
+## What people usually want to know
+
+- I want to try the preview: [Download](DOWNLOAD.md).
+- I want the honest current picture: [Status](STATUS.md).
+- I want the two-minute product story: [What Chummer6 Is](WHAT_CHUMMER6_IS.md).
+- I need support or want to report pain: [Help](HELP.md) and [Contact](CONTACT.md).
+- I only care about future ideas: [Horizons](HORIZONS/README.md).
 
 ## What is real now
 
@@ -32,20 +39,21 @@ Build characters, inspect rulings, and keep sessions moving with explainable mat
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)
-- [Parts index](PARTS/README.md)
-- [Horizons index](HORIZONS/README.md)
+- [Roadmap and future ideas](HORIZONS/README.md)
+
+## Why people keep watching
+
+- Deterministic engine: the same inputs are supposed to produce the same answer, not a vibe-based approximation.
+- Rules receipts: the modifier trail is meant to stay attached to the result instead of disappearing behind a black box.
+- Local-first continuity: the product is being shaped to survive device drift and bad connectivity without losing the thread.
 
 ## Product parts
 
-- [Design](PARTS/design.md): The long-range product map and decision filter.
-- [Core](PARTS/core.md): The deterministic rules engine.
-- [UI](PARTS/ui.md): The workbench and inspect-everything surface.
-- [Mobile](PARTS/mobile.md): The table-side companion you feel during play.
-- [Hub](PARTS/hub.md): The online side that keeps sign-in, coordination, and community features boring.
-- [UI Kit](PARTS/ui-kit.md): The shared visual vocabulary.
-- [Hub Registry](PARTS/hub-registry.md): The release shelf, install record, and compatibility record.
-- [Media Factory](PARTS/media-factory.md): The dedicated media studio.
+You do not need this map first. Use it when you want the behind-the-scenes split after the friendly tour.
 
-## Get support
+- [Parts index](PARTS/README.md): the behind-the-scenes product map once you already care how the experience is split.
+- [Horizons index](HORIZONS/README.md): future bets and research lanes, clearly separated from what is ready today.
+
+## Need help
 
 Use the first-party product path first: download help, account recovery, current release truth, and a real support intake before you fall through to deeper technical material.

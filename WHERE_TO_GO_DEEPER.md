@@ -1,17 +1,21 @@
 # Where To Go Deeper
 
-Start with the public guide pages in this repo, then go deeper only when you want technical detail or contributor context.
+If you are still deciding whether Chummer6 is useful to you, stay on the public guide first.
 
-Public guide:
+Start there:
 
 - [README.md](README.md)
+- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [Status](STATUS.md)
 - [Download](DOWNLOAD.md)
 - [Help](HELP.md)
+- [FAQ](FAQ.md)
+- [Contact](CONTACT.md)
+
+Go deeper only when you want more than the friendly tour:
+
+- [Horizons index](HORIZONS/README.md): future product bets and research lanes.
 - [Parts index](PARTS/README.md)
-- [Horizons index](HORIZONS/README.md)
+- The design workspace and owning code repos carry the planning and implementation trail once the public guide stops being enough.
 
-Behind the guide:
-
-- The design repo and owning code repos carry the planning and build trail.
-- The part pages under [PARTS](PARTS/README.md) point you toward the right area once you want that deeper context.
+The point of this repo is to save normal readers from having to reverse-engineer the product from internal project structure.

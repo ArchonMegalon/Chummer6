@@ -1,7 +1,7 @@
 # Horizons
 
-Horizons are the future-facing ideas worth tracking next.
-They are product bets, not promises that every idea below is already ready today.
+Use this index when you want to see where Chummer6 could go next after you understand the current product picture.
+These are product bets and research lanes, not promises that every idea below is ready today.
 
 ![Chummer6 horizons index art](../assets/pages/horizons-index.png)
 

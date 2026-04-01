@@ -4,12 +4,12 @@ Use the first-party product path first: download help, account recovery, current
 
 ## Start with the release page and download help
 
-The release page should answer the normal download and setup questions directly: recommended package, known issues, update status, and the next support step if the path still is not clear.
+The release page should answer the normal download and setup questions directly: recommended installer, known issues, update status, and the next support step if the path still is not clear.
 
-- The current public path is the published Avalonia Desktop Linux X64 archive package.
-- Setup currently starts from the published package, not a promoted installer.
-- Create an account when you want tracked support, recovery, or future linked installs.
-- Check the release page before assuming another platform is on the public shelf.
+- Start with the recommended installer for your platform.
+- Alternative builds and manual packages are advanced paths.
+- Create an account when you want tracked support, recovery, and linked installs.
+- Devices and access is where linked copies and claim paths stay visible later.
 
 ## Keep access and recovery on one calm path
 
