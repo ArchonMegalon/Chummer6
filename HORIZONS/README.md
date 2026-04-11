@@ -11,4 +11,3 @@ These are product bets and research lanes, not promises that every idea below is
 - [JACKPOINT](jackpoint.md)
 - [RUNSITE](runsite.md)
 - [RUNBOOK PRESS](runbook-press.md)
-- [TABLE PULSE](table-pulse.md)

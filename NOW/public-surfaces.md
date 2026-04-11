@@ -1,6 +1,6 @@
 # Public Surfaces
 
-The main public guide pages are:
+The core public guide pages in this repo are:
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)
