@@ -2,13 +2,6 @@
 
 This page describes the public preview shelf and the download formats that are actually available today.
 
-## Start here now
-
-- [README](README.md)
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [Help](HELP.md)
-
 ## Current public download
 
 - Current stage: Public preview.

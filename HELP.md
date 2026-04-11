@@ -2,13 +2,6 @@
 
 Use the first-party support path first.
 
-## Start here now
-
-- [README](README.md)
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [Help](HELP.md)
-
 ## Start with the release page and download help
 
 The release page should answer the normal download and setup questions directly: recommended installer, known issues, update status, and the next support step if the path still is not clear.

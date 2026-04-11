@@ -2,13 +2,6 @@
 
 This page is the short public picture of what is usable today.
 
-## Start here now
-
-- [README](README.md)
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [Help](HELP.md)
-
 ## Current picture
 
 - Current stage: Public preview.
