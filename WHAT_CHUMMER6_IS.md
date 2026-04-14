@@ -11,5 +11,6 @@ The point is to help you:
 This repo should help you decide quickly whether the current preview is real enough for you, whether the product fits how you play, and where to go for help next.
 
 Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
+If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 If you want future bets after that, use [Horizons](HORIZONS/README.md).
 If you want the behind-the-scenes map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).

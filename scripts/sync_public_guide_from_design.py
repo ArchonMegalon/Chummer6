@@ -13,6 +13,7 @@ DEFAULT_SOURCE = REPO_ROOT.parent / "chummer-design" / "products" / "chummer" / 
 
 SYNC_FILES = (
     "README.md",
+    "FROM_CHUMMER5A_TO_CHUMMER6.md",
     "STATUS.md",
     "DOWNLOAD.md",
     "HELP.md",
@@ -35,6 +36,7 @@ If you only want one answer fast, start with the question in front of you.
 
 - I want to try Chummer6 right now: [Download](DOWNLOAD.md)
 - I want the honest current picture: [Status](STATUS.md)
+- I am moving from Chummer5a: [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - I want the two-minute product story: [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - I need help or want to report a problem: [Help](HELP.md) and [Contact](CONTACT.md)
 - I only care about future ideas: [Horizons](HORIZONS/README.md)
@@ -55,6 +57,7 @@ The point is to help you:
 This repo should help you decide quickly whether the current preview is real enough for you, whether the product fits how you play, and where to go for help next.
 
 Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
+If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 If you want future bets after that, use [Horizons](HORIZONS/README.md).
 If you want the behind-the-scenes map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
 """,
@@ -107,6 +110,7 @@ Use that page for the current picture, release status, and first-party support g
 The core public guide pages in this repo are:
 
 - [../README.md](../README.md)
+- [../FROM_CHUMMER5A_TO_CHUMMER6.md](../FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [../STATUS.md](../STATUS.md)
 - [../DOWNLOAD.md](../DOWNLOAD.md)
 - [../HELP.md](../HELP.md)

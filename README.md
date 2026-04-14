@@ -14,14 +14,22 @@ Build characters, inspect rulings, and keep sessions moving with explainable mat
 
 - I want to try the preview: [Download](DOWNLOAD.md).
 - I want the honest current picture: [Status](STATUS.md).
+- I am coming from Chummer5a: [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 - I want the two-minute product story: [What Chummer6 Is](WHAT_CHUMMER6_IS.md).
 - I need support or want to report pain: [Help](HELP.md) and [Contact](CONTACT.md).
 - I only care about future ideas: [Horizons](HORIZONS/README.md).
 
+## Desktop truth
+
+- Primary desktop route: `Chummer.Avalonia`.
+- Fallback desktop route: `Chummer.Blazor.Desktop` only where the shelf and status pages label it as fallback or compatibility.
+- Current platform posture: Linux is the strongest currently proven desktop lane, but the promoted release channel is still unpublished.
+- What gold still requires: Gold still requires veteran-approved parity, dense-workbench comfort proof, and promoted desktop proof for every promised platform.
+
 ## What is real now
 
 - Current stage: Public preview.
-- The current Linux preview package is published on the public shelf.
+- The current shelf visibly carries Linux preview artifacts, but the promoted release channel is still unpublished.
 - Help, privacy, terms, contact, and release guidance are live as first-party product pages.
 - More campaign depth, broader platform coverage, and stronger proof trails are still opening next.
 
@@ -36,6 +44,7 @@ Build characters, inspect rulings, and keep sessions moving with explainable mat
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [How can I help](HOW_CAN_I_HELP.md)
 - [Download](DOWNLOAD.md)
+- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)
