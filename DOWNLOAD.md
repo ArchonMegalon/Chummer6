@@ -4,30 +4,30 @@ This page tells you what you can download right now and which file to start with
 
 ## What should I download first?
 
-- There is no public Windows download today.
+- For Windows, start with Avalonia Desktop Windows X64 Installer. Sign-in required.
 - For Linux, start with Avalonia Desktop Linux X64 Installer.
 - For macOS, start with Avalonia Desktop macOS ARM64 Installer if you can sign in. If you want a public file without signing in, use Avalonia Desktop macOS ARM64 archive package.
+- If both Avalonia and Blazor appear for your platform, start with Avalonia. Use Blazor only if a page or support tells you to.
 
-## Start here now
-
-- [README](README.md)
-- [STATUS](STATUS.md)
-- [DOWNLOAD](DOWNLOAD.md)
-- [HELP](HELP.md)
+Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)
 
 ## What is available today
 
 - Today: Usable preview.
-- Published: April 20, 2026 at 7:23 UTC.
+- Published: April 20, 2026 at 15:29 UTC.
 - Release status: Published.
-- Downloads are currently live for Linux and macOS.
+- Downloads are currently live for Windows, Linux, and macOS.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: There is still no public Windows download.
-- Update note: That warning will stay in place until the missing desktop downloads are posted.
+- Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
+- Update note: Only expect fix notices after the affected download is available on the same public shelf.
 
 ### Windows
 
-- There is no public Windows download today.
+- Avalonia Desktop Windows X64 Installer.
+- Download: `/downloads/files/chummer-avalonia-win-x64-installer.exe`
+- File: `chummer-avalonia-win-x64-installer.exe`
+- Size: 92.0 MiB (96466473 bytes)
+- Access: Sign-in required.
 
 ### Linux
 
@@ -67,11 +67,12 @@ This page tells you what you can download right now and which file to start with
 
 ## Package formats
 
-- Where an installer exists, start there. Use the other package only if you need it.
+- Where an installer exists, start there. Archive packages are the fallback.
 - Avalonia Desktop Linux X64 Installer via `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - Blazor Desktop Linux X64 Installer via `/downloads/files/chummer-blazor-desktop-linux-x64-installer.deb`
 - Avalonia Desktop macOS ARM64 Installer via `/downloads/files/chummer-avalonia-osx-arm64-installer.dmg`
 - Blazor Desktop macOS ARM64 Installer via `/downloads/files/chummer-blazor-desktop-osx-arm64-installer.dmg`
+- Avalonia Desktop Windows X64 Installer via `/downloads/files/chummer-avalonia-win-x64-installer.exe`
 - Avalonia Desktop macOS ARM64 archive package via `/downloads/files/chummer-avalonia-osx-arm64.tar.gz`
 - Blazor Desktop macOS ARM64 archive package via `/downloads/files/chummer-blazor-desktop-osx-arm64.tar.gz`
 
@@ -81,6 +82,7 @@ This page tells you what you can download right now and which file to start with
 - Blazor Desktop Linux X64 Installer: `755de1de2a11d363f5f127dd81d9a00a1f33d9b20f6e75adb569d1c97e3faa94`
 - Avalonia Desktop macOS ARM64 Installer: `ca6c25f0cdaf48bddfe83e3e983ff87b8763d973e671100165248c9edcd044bd`
 - Blazor Desktop macOS ARM64 Installer: `8c1f85e688667daf8ad576ab2d3152294f5d27a55b4005e059dff022356a2df4`
+- Avalonia Desktop Windows X64 Installer: `cb3493c1113c23b5e496dfe8a1e6de9afc43c802d7da865adc5255497341e5c4`
 - Avalonia Desktop macOS ARM64: `3466279179e7be99be59097bffee666632276817383f7c22ff65b3ab4dd4f9c5`
 - Blazor Desktop macOS ARM64: `5d4f1e75a70e1c729347217ad9aa25d94fd5ba64acf51c129964f27143738df3`
 

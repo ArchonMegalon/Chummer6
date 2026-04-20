@@ -2,20 +2,13 @@
 
 Use this guide to answer the practical questions first: what Chummer6 is, whether it is worth trying today, what to download, and where to get help.
 
-## Start here now
-
-- [README](README.md)
-- [STATUS](STATUS.md)
-- [DOWNLOAD](DOWNLOAD.md)
-- [HELP](HELP.md)
-
 ## What Chummer6 is
 
 Chummer6 is Shadowrun character software that tries to show its work instead of hiding the math.
 
 The goal is simple: help you build faster, understand why numbers changed, and keep playing even when setup or connectivity gets messy.
 
-## Most people start here
+## Fast answers
 
 - I want to try the preview: [Download](DOWNLOAD.md).
 - I want the honest current picture: [Status](STATUS.md).
@@ -27,22 +20,29 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 ## Can I use it today?
 
 - Short answer: yes, as an early preview.
-- Downloads are currently live for Linux and macOS.
+- Downloads are currently live for Windows, Linux, and macOS.
 - If you see both desktop apps, start with the Avalonia desktop app. Use Blazor desktop app only if a page tells you it is the backup option for your case.
-- Character math is already solid. The rough edges are mostly installers, Windows support, and support polish.
+- Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 
 ## What is live right now
 
 - Today: Usable preview.
-- Still missing from the public download page: Windows.
+- Public downloads are visible on every promised desktop platform.
 - Help, contact, privacy, and terms pages are live.
-- More long-campaign depth and broader desktop support are still coming.
+- More long-campaign depth and steadier desktop polish are still coming.
 
 ## First contact
 
 ![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
 
-## More pages
+
+## Why people care
+
+- It tries to show why a number changed instead of hiding the math.
+- It is being built to stay calmer when devices or connectivity get weird.
+- The status, downloads, and help story is meant to live in plain sight instead of being scattered.
+
+## Useful next pages
 
 - [Status](STATUS.md)
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
@@ -54,19 +54,16 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 - [Contact](CONTACT.md)
 - [Future ideas](HORIZONS/README.md)
 
-## Why people care
-
-- It tries to show why a number changed instead of hiding the math.
-- It is being built to stay calmer when devices or connectivity get weird.
-- The status, downloads, and help story is meant to live in plain sight instead of being scattered.
-
 ## Go deeper when you want to
 
 Most people can stop at the pages above. Use these only when you want more detail.
 
 - [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- [Horizons index](HORIZONS/README.md): future ideas and research that are not being sold as ready today.
+- [Horizons index](HORIZONS/README.md): future ideas that are not ready today.
 
 ## Need help
 
 Start here for downloads, sign-in recovery, and support.
+
+- Start with [Help](HELP.md) if install, updates, sign-in, or bugs are getting in the way.
+- Use [Contact](CONTACT.md) when you want to report a problem or send feedback.

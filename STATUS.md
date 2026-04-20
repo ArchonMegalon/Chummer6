@@ -2,22 +2,16 @@
 
 This is the blunt answer on what you can use today.
 
-## Start here now
-
-- [README](README.md)
-- [STATUS](STATUS.md)
-- [DOWNLOAD](DOWNLOAD.md)
-- [HELP](HELP.md)
+Quick links: [Home](README.md) | [Download](DOWNLOAD.md) | [Help](HELP.md)
 
 ## Right now
 
 - Today: Usable preview.
-- Published: April 20, 2026 at 7:23 UTC.
+- Published: April 20, 2026 at 15:29 UTC.
 - Release status: Published.
-- Downloads are currently live for Linux and macOS.
-- Still missing from the public download page: Windows.
+- Downloads are currently live for Windows, Linux, and macOS.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: There is still no public Windows download.
+- Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
 - Help, contact, privacy, and terms pages are live.
 
 ## If install or update goes sideways

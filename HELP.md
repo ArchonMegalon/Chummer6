@@ -2,12 +2,7 @@
 
 Start here if installation, updates, sign-in, or bugs are getting in the way.
 
-## Start here now
-
-- [README](README.md)
-- [STATUS](STATUS.md)
-- [DOWNLOAD](DOWNLOAD.md)
-- [HELP](HELP.md)
+Quick links: [Home](README.md) | [Status](STATUS.md) | [Download](DOWNLOAD.md)
 
 ## If install or update goes sideways
 

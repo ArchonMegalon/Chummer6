@@ -29,14 +29,11 @@ SYNC_DIRS = (
     "assets",
 )
 
-START_HERE_BLOCK = """## Start here now
-
-- [README](README.md)
-- [STATUS](STATUS.md)
-- [DOWNLOAD](DOWNLOAD.md)
-- [HELP](HELP.md)
-
-"""
+START_HERE_BLOCKS = {
+    "STATUS.md": "Quick links: [Home](README.md) | [Download](DOWNLOAD.md) | [Help](HELP.md)\n\n",
+    "DOWNLOAD.md": "Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)\n\n",
+    "HELP.md": "Quick links: [Home](README.md) | [Status](STATUS.md) | [Download](DOWNLOAD.md)\n\n",
+}
 
 WRAPPERS = {
     "START_HERE.md": """# Start Here
@@ -182,7 +179,6 @@ def _copy_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
 
 
 START_HERE_TRANSFORMS = {
-    "README.md": "\n## What Chummer6 is\n",
     "STATUS.md": "\n## Right now\n",
     "DOWNLOAD.md": "\n## What is available today\n",
     "HELP.md": "\n## If install or update goes sideways\n",
@@ -197,13 +193,16 @@ def _render_with_start_here(src: Path, relative_path: str, anchor: str) -> str:
     if not src.exists():
         raise FileNotFoundError(src)
     source_text = src.read_text(encoding="utf-8")
+    start_here_block = START_HERE_BLOCKS.get(relative_path, "")
+    if not start_here_block:
+        return source_text if source_text.endswith("\n") else source_text + "\n"
     for old, new in TEXT_REWRITES.get(relative_path, ()):
         source_text = source_text.replace(old, new)
-    if START_HERE_BLOCK in source_text:
+    if start_here_block in source_text:
         return source_text if source_text.endswith("\n") else source_text + "\n"
     if anchor not in source_text:
         raise ValueError(f"unable to place Start here block in {src}")
-    rendered = source_text.replace(anchor, f"\n{START_HERE_BLOCK}{anchor.lstrip()}", 1)
+    rendered = source_text.replace(anchor, f"\n{start_here_block}{anchor.lstrip()}", 1)
     return rendered if rendered.endswith("\n") else rendered + "\n"
 
 
