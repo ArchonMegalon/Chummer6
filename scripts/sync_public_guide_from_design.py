@@ -29,6 +29,15 @@ SYNC_DIRS = (
     "assets",
 )
 
+START_HERE_BLOCK = """## Start here now
+
+- [README](README.md)
+- [STATUS](STATUS.md)
+- [DOWNLOAD](DOWNLOAD.md)
+- [HELP](HELP.md)
+
+"""
+
 WRAPPERS = {
     "START_HERE.md": """# Start Here
 
@@ -67,6 +76,8 @@ Use the first-party path that matches the kind of help you need.
 
 - [Help](HELP.md) explains install support, private crash reporting, and participation guidance.
 - [Contact](CONTACT.md) is the first-party intake for practical product trouble and feedback.
+- Guided contribution is the opt-in booster lane for supporters who want to lend bounded extra help on top of the normal free path.
+- Open the Hub participation page when you want that guided contribution lane: `/participate/codex`
 - The public issue tracker is still available when you intentionally want a public technical trail: <https://github.com/ArchonMegalon/Chummer6/issues>
 
 If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).
@@ -171,6 +182,66 @@ def _copy_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
     shutil.copy2(src, dest)
 
 
+START_HERE_TRANSFORMS = {
+    "README.md": "\n## Product promise\n",
+    "STATUS.md": "\n## Current picture\n",
+    "DOWNLOAD.md": "\n## Current public downloads\n",
+    "HELP.md": "\n## Start with the release page and download help\n",
+}
+
+TEXT_REWRITES = {
+    "DOWNLOAD.md": (
+        (
+            "This page describes the public preview shelf and the download formats that are actually available today.",
+            "This page describes the current public downloads and the package formats that are actually available today.",
+        ),
+        ("## Current public download\n", "## Current public downloads\n"),
+        ("- Current public download:", "- Current public downloads:"),
+    ),
+}
+
+
+def _render_with_start_here(src: Path, relative_path: str, anchor: str) -> str:
+    if not src.exists():
+        raise FileNotFoundError(src)
+    source_text = src.read_text(encoding="utf-8")
+    for old, new in TEXT_REWRITES.get(relative_path, ()):
+        source_text = source_text.replace(old, new)
+    if START_HERE_BLOCK in source_text:
+        return source_text if source_text.endswith("\n") else source_text + "\n"
+    if anchor not in source_text:
+        raise ValueError(f"unable to place Start here block in {src}")
+    rendered = source_text.replace(anchor, f"\n{START_HERE_BLOCK}{anchor.lstrip()}", 1)
+    return rendered if rendered.endswith("\n") else rendered + "\n"
+
+
+def _sync_transformed_file(
+    src: Path,
+    dest: Path,
+    anchor: str,
+    check: bool,
+    failures: list[str],
+) -> None:
+    if not src.exists():
+        failures.append(f"missing source file: {src}")
+        return
+    try:
+        expected = _render_with_start_here(src, dest.name, anchor)
+    except (FileNotFoundError, ValueError) as exc:
+        failures.append(str(exc))
+        return
+    if check:
+        if not dest.exists():
+            failures.append(f"missing destination file: {dest}")
+            return
+        actual = dest.read_text(encoding="utf-8")
+        if actual != expected:
+            failures.append(f"file drift: {dest} != rendered {src}")
+        return
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(expected, encoding="utf-8")
+
+
 def _sync_dir(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
     if not src.exists():
         failures.append(f"missing source directory: {src}")
@@ -228,7 +299,18 @@ def main(argv: list[str]) -> int:
     source_root = args.source.resolve()
     failures: list[str] = []
 
+    for relative_path, anchor in START_HERE_TRANSFORMS.items():
+        _sync_transformed_file(
+            source_root / relative_path,
+            REPO_ROOT / relative_path,
+            anchor,
+            args.check,
+            failures,
+        )
+
     for relative_path in SYNC_FILES:
+        if relative_path in START_HERE_TRANSFORMS:
+            continue
         _copy_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
 
     for relative_path in SYNC_DIRS:

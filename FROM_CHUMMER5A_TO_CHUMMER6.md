@@ -20,17 +20,17 @@ This page is for serious Chummer5a users who want the fast answer: what still fe
 - Local-first continuity is supposed to survive bad connectivity and device drift more gracefully.
 - Release, support, and recovery truth are being pushed closer to the product instead of forcing users to reverse-engineer the state from repo or issue trails.
 
-## Desktop truth right now
+## Desktop today
 
 - Primary desktop route: `Chummer.Avalonia`.
 - Fallback desktop route: `Chummer.Blazor.Desktop` only when the shelf and status pages label it that way.
-- Current platform posture: The current desktop proof is still centered on Linux.
+- Best-supported desktop path today: Linux plus at least one additional desktop platform appears in the current shelf data, but promotion still depends on release proof.
 - Today this should still be read as a serious preview, not a finished gold replacement.
 
 ## What is still not honest to overclaim
 
-- The flagship parity registry still has 11 family groups below veteran-approved proof.
-- The flagship parity registry still has 11 family groups below gold-ready proof.
+- The flagship parity registry still has 0 family groups below veteran-approved proof.
+- The flagship parity registry still has 0 family groups below gold-ready proof.
 - If you need a replacement that is fully signed off as a no-step-back Chummer5a flagship successor, keep reading the status page instead of assuming that bar is closed.
 
 ## Read next
