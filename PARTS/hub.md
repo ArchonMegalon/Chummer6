@@ -16,16 +16,16 @@ It keeps accounts, shared coordination, and community features from turning into
 
 - sign-in and account pages
 - public landing, home, and participation entry points
-- shared coordination, release status, and recognition views that make sense without a backend tour
+- shared coordination, release status, and recognition views that make sense without learning the plumbing behind them
 
 ## Current limits
 
-- it is not where the rules math becomes true
-- some deeper admin and support work still sits behind the customer-facing layer
+- it is not the rules engine
+- some deeper support and admin screens are still being simplified
 
 ## Current state
 
-Hub already powers identity, landing and home views, participation, and community features, but it is still simplifying the handoff between customer-facing coordination and deeper admin work.
+Hub already powers sign-in, landing and home views, participation, and community features, and it is still getting simpler behind the scenes.
 
 ## Go deeper
 

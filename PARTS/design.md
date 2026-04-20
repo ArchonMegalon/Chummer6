@@ -6,17 +6,17 @@ The long-range product map and decision filter.
 
 ## When you care
 
-You want to understand why a feature exists, what is real today, or where to go deeper after the friendly tour.
+You want the bigger picture: what is already real, what is still coming, or where to click next after the front page.
 
 ## Why you care
 
-It keeps the public story, the landing page, the guide, and the future ideas tied to one shared plan instead of a pile of clever guesses.
+It keeps the big story straight so the main pages, future ideas, and release notes do not contradict each other.
 
 ## What you notice
 
 - clearer labels about what is real now, what is preview, and what is still future-facing
-- a stable product story before you dive into implementation detail
-- one place that keeps the public-facing surfaces aligned
+- a stable big-picture explanation before you dive into code or implementation detail
+- one place that keeps the main pages and future ideas aligned
 
 ## Current limits
 
@@ -25,7 +25,7 @@ It keeps the public story, the landing page, the guide, and the future ideas tie
 
 ## Current state
 
-Design already owns the public landing story, guide policy, horizons, participation language, and the line between public story and deeper source material.
+Design currently drives the public story, the roadmap pages, and the line between simple reader-facing pages and deeper technical material.
 
 ## Go deeper
 

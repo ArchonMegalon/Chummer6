@@ -1,18 +1,18 @@
 # What Chummer stores, and what it does not
 
-This is the practical hosted-product picture right now: what the account keeps, what stays out of Hub, and how install linking and support work today.
+This is the simple privacy picture right now: what your account stores, what stays out, and how support and linked installs work.
 
-## Hub keeps the account, preferences, and access state together
+## Your account keeps sign-in, preferences, and support together
 
-The hosted account keeps your basic profile, linked sign-in methods, devices and access state, support cases, and preview preferences so the public and signed-in pages stay coherent.
+Your Chummer account keeps your basic profile, linked sign-in methods, device access, support cases, and preview preferences together so you do not have to rebuild that history by hand.
 
-## The published package stays the same; the account handoff is separate
+## The download file is the same for everyone
 
-The installer stays the same for everyone when one is published, and the same rule applies to the current public package. Chummer does not personalize the published package. When linked handoff is available, the account-aware part is the signed-in receipt and short-lived code that can reconnect a local copy back to your account.
+When Chummer publishes a download, everyone gets the same file. Chummer does not build a private installer just for your account. If linked handoff is available, the account-aware piece is the short-lived receipt or code that reconnects a local copy back to your account.
 
-## Temporary provider auth material and raw secrets do not belong in Hub
+## Temporary sign-in tokens and raw secrets stay out of your account record
 
-Temporary third-party auth material stays on the execution host. Hub keeps consent, support, and receipt state; it does not become a bucket for raw provider secrets.
+Short-lived third-party tokens stay on the machine or service using them. Your account keeps consent, support, and access records, not raw secret keys.
 
 ## Recognition should not force publicity
 

@@ -1,7 +1,7 @@
 # Parts
 
-This is the deeper product map, not the first stop for most readers.
-Use it after the friendly tour, when you want to understand how the experience is split behind the scenes.
+This is the inside tour, not the first stop for most readers.
+Open it when you want to see how the app, phone companion, updater, and support tools fit together.
 
 ![Chummer6 parts index art](../assets/pages/parts-index.png)
 

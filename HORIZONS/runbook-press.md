@@ -1,6 +1,6 @@
 # RUNBOOK PRESS
 
-Long-form publishing becomes governed, reusable, and materially better than one-off document hacks.
+Long-form publishing becomes something you can actually reuse instead of a ten-tool scramble.
 
 ![RUNBOOK PRESS horizon art](../assets/horizons/runbook-press.png)
 
@@ -8,7 +8,7 @@ Long-form publishing becomes governed, reusable, and materially better than one-
 
 I want real primers, handbooks, and campaign books without duct-taping ten tools together.
 
-Picture the scene: A creator turns approved Chummer source material into a district guide or campaign book without making vendor dashboards the source of truth.
+Picture the scene: A creator turns approved Chummer material into a district guide or campaign book without juggling a pile of unrelated publishing tools.
 
 
 ## Current stage
@@ -22,7 +22,7 @@ GMs, creators, and publishers need consistent long-form books such as primers, c
 
 ## What it would do
 
-Chummer would help teams turn approved source material into primers, handbooks, district guides, campaign books, and convention modules without making third-party dashboards the source of truth.
+Chummer would help teams turn approved material into primers, handbooks, district guides, campaign books, and convention modules without forcing creators to juggle a pile of third-party dashboards.
 It complements JACKPOINT instead of duplicating it.
 
 ## What has to be true first
@@ -34,4 +34,4 @@ It complements JACKPOINT instead of duplicating it.
 
 ## Why it is not ready yet
 
-Long-form output only matters if the approved source, edit trail, and publication package stay intact from draft to release.
+Long-form output only matters if the draft, edit trail, and final package stay consistent from first draft to release.

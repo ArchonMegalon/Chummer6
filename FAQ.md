@@ -46,7 +46,7 @@ Because some parts are good enough to try before every platform, install flow, a
 
 ### Will guided-preview access open wider later?
 
-That is the goal. Early guided access may stay narrow while support cost, polish work, or approvals are still unusually expensive.
+That is the goal. Early access may stay narrow while support cost, polish work, or approvals are still unusually high.
 
 ### Can I participate privately?
 
@@ -54,17 +54,17 @@ Yes. Public recognition should remain opt-in, and private participation should s
 
 ### What are badges and leaderboards for?
 
-They are recognition and visibility layers, not authority. They should celebrate verified contribution without replacing review or rules truth.
+They are recognition and visibility features, not authority. They should celebrate verified contribution without replacing review or the rules themselves.
 
 ## If you want the behind-the-scenes details
 
 ### Where does the deeper plan live?
 
-In the design notes used by the team to plan the product and generate the public guide.
+In the planning notes that shape the roadmap and the public guide.
 
 ### Where does the actual code live?
 
-In the project code repositories. Most users never need them to install Chummer6, use it, or report a problem.
+In the Chummer code. Most people never need it to install Chummer6, use it, or report a problem.
 
 ### Where do I propose public-facing changes?
 

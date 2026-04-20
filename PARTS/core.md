@@ -16,16 +16,16 @@ This is where Chummer earns trust. If the math cannot be reproduced and explaine
 
 - reproducible rules outcomes
 - readable receipts for why a pool or result changed
-- a cleaner boundary between rules truth and everything that only decorates it
+- a cleaner split between rules math and the extra features layered around it
 
 ## Current limits
 
-- this is not the hosted service layer
-- this is not the table-side experience by itself
+- this is not the online account or update side
+- this is not the table-side play view by itself
 
 ## Current state
 
-Core already anchors the rules truth, and the current work is about keeping it strict enough that future explain, play, and simulation layers can trust it.
+Core already anchors the rules engine, and the current work is about keeping it strict enough that explain, play, and sync features can rely on it.
 
 ## Go deeper
 

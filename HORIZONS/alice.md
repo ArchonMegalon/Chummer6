@@ -1,6 +1,6 @@
 # ALICE
 
-Builders get grounded what-if analysis without trusting black-box suggestions.
+Builders get grounded what-if checks instead of vague AI advice.
 
 ![ALICE horizon art](../assets/horizons/alice.png)
 
@@ -8,7 +8,7 @@ Builders get grounded what-if analysis without trusting black-box suggestions.
 
 We only discover weak builds after they explode in public.
 
-Picture the scene: A player compares two builds and sees grounded tradeoffs with the math and the source trail still visible.
+Picture the scene: A player compares two builds and sees the tradeoffs, the math, and the likely trouble spots before the session starts.
 
 
 ## Current stage
@@ -32,4 +32,4 @@ Chummer would compare builds, catch trouble before play, and explain tradeoffs w
 
 ## Why it is not ready yet
 
-The product still needs reliable comparison and explanation surfaces before it should hand out higher-level build advice.
+Chummer still needs sturdier compare-and-explain views before it should start giving confident build advice.

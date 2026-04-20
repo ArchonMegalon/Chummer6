@@ -15,17 +15,17 @@ Shared visual primitives keep the split from feeling like several products prete
 ## What you notice
 
 - more consistent chrome, badges, banners, and dense-data presentation
-- fewer one-off UI reinventions in each surface
+- fewer one-off UI reinventions from page to page
 - stronger accessibility and a reusable component system
 
 ## Current limits
 
-- it is a shared package layer, not a standalone product
+- it is shared design infrastructure, not a standalone app
 - it only counts when the other heads visibly get smaller because it exists
 
 ## Current state
 
-UI Kit is real enough to matter, and the next proof point is whether the rest of the product can consume it instead of rebuilding visual boundaries one page at a time.
+UI Kit is real enough to matter, and the next proof is whether the rest of the product can use it instead of rebuilding the same visual pieces over and over.
 
 ## Go deeper
 

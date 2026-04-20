@@ -1,7 +1,7 @@
 # Horizons
 
 Use this index when you want to see where Chummer6 could go next after you understand the current product picture.
-These are product bets and research lanes, not promises that every idea below is ready today.
+These are future ideas, not features you can use today.
 
 ![Chummer6 horizons index art](../assets/pages/horizons-index.png)
 

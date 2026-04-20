@@ -1,6 +1,6 @@
 # Public Surfaces
 
-The core public guide pages in this repo are:
+If you only want the main public pages, use these:
 
 - [../README.md](../README.md)
 - [../FROM_CHUMMER5A_TO_CHUMMER6.md](../FROM_CHUMMER5A_TO_CHUMMER6.md)
@@ -9,4 +9,4 @@ The core public guide pages in this repo are:
 - [../HELP.md](../HELP.md)
 - [../CONTACT.md](../CONTACT.md)
 
-Use those pages as the current public reference set.
+Those pages are the main public guide.

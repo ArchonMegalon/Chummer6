@@ -1,15 +1,15 @@
 # Preview terms in plain language
 
-The current hosted promise is straightforward: early access, honest labels, the public download that is honestly available today, and support that should explain the current boundary instead of hiding it.
+These are the plain rules for the current preview: early access, honest labels, real downloads, and straightforward support.
 
 ## The product is real, but still early access
 
 Expect real pages, current downloads, visible proof, and explicit preview labels when support, compatibility, or breadth are still moving.
 
-## Accounts should be boring, support should be first-party
+## Sign-in is simple, and support starts with Chummer
 
-Sign-in keeps access, devices, and support together. Contact and Account > Support are the default help paths before any deeper public issue path.
+Sign-in keeps your access, devices, and support history together. Help and Contact are the normal first stops before any public issue thread.
 
 ## Use the current public download first; advanced packages only when necessary
 
-Public downloads should match what is honestly on the shelf right now. Promoted installers can become the default path when they exist, but manual packages remain a fallback for edge cases or support-directed setup.
+Public downloads should match what is honestly available right now. If a regular installer exists later, it becomes the normal path, while manual packages stay as fallback for edge cases or support-directed setup.

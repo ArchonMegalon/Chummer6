@@ -1,20 +1,20 @@
 # UI
 
-The workbench and inspect-everything surface.
+The detailed character-building and inspection view.
 
 ![UI guide art](../assets/parts/ui.png)
 
 ## When you care
 
-You want the heavy prep view, comparison tools, bigger inspectors, or the place where you stare at a build until it confesses.
+You want the deeper build view, comparison tools, or the place where you can inspect why a result changed.
 
 ## Why you care
 
-This is where Chummer stops feeling mystical and starts feeling inspectable.
+This is where Chummer stops feeling opaque and starts feeling readable.
 
 ## What you notice
 
-- bigger prep and review surfaces
+- larger build and review views
 - clearer build inspectors and comparison flows
 - a stronger distinction between deep prep and live table use
 
@@ -25,7 +25,7 @@ This is where Chummer stops feeling mystical and starts feeling inspectable.
 
 ## Current state
 
-UI already carries the heavy prep view, and the current cleanup work is about keeping that power without quietly swallowing play-first or hosted work.
+UI already handles the heavy build view, and current cleanup work is about keeping that power without letting it turn into the table-side or hosted experience.
 
 ## Go deeper
 
