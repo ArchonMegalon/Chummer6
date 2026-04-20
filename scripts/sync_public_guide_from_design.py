@@ -99,7 +99,7 @@ Go deeper only when you want more than the friendly tour:
 
 - [Horizons index](HORIZONS/README.md): future ideas and research.
 - [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- The design notes and code repositories carry the deeper planning and implementation trail once the public guide stops being enough.
+- The design notes and code repositories are there if you want to see how the work is planned and built.
 
 The point of this guide is to save normal readers from having to reverse-engineer the project just to decide whether Chummer6 is for them.
 """,

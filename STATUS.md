@@ -11,7 +11,7 @@ This is the blunt answer on what you can use today.
 
 ## Right now
 
-- State today: Usable preview.
+- Today: Usable preview.
 - Published: April 20, 2026 at 7:23 UTC.
 - Release status: Published.
 - Downloads are currently live for Linux and macOS.
@@ -26,5 +26,5 @@ Start with the download page. It should tell you which file to use, what is miss
 
 - Start with the recommended installer for your platform.
 - Use the other package only if the installer gives you trouble.
-- Create an account when you want tracked support, recovery, and linked installs.
-- If your platform is missing, the status and download pages should say so directly.
+- Create an account if you want your support history, recovery, and downloads tied to one place.
+- If your platform is missing, the status and download pages will say so.

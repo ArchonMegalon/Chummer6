@@ -17,7 +17,7 @@ This page tells you what you can download right now and which file to start with
 
 ## What is available today
 
-- State today: Usable preview.
+- Today: Usable preview.
 - Published: April 20, 2026 at 7:23 UTC.
 - Release status: Published.
 - Downloads are currently live for Linux and macOS.

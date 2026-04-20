@@ -8,7 +8,7 @@ Use install or update for package and launcher trouble, product bug for broken b
 
 ## Create an account when you want support history inside Chummer
 
-You can submit help here without a GitHub account. Create a Chummer account when you want case history and follow-up to stay visible in Account.
+You can submit help here without a GitHub account. Create a Chummer account if you want to see your support history later in one place.
 
 ## GitHub is the advanced public bug path, not the main support door
 

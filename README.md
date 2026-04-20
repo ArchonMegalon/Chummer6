@@ -33,7 +33,7 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 
 ## What is live right now
 
-- State today: Usable preview.
+- Today: Usable preview.
 - Still missing from the public download page: Windows.
 - Help, contact, privacy, and terms pages are live.
 - More long-campaign depth and broader desktop support are still coming.

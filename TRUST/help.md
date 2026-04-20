@@ -8,8 +8,8 @@ Start with the download page. It should tell you which file to use, what is miss
 
 - Start with the recommended installer for your platform.
 - Use the other package only if the installer gives you trouble.
-- Create an account when you want tracked support, recovery, and linked installs.
-- If your platform is missing, the status and download pages should say so directly.
+- Create an account if you want your support history, recovery, and downloads tied to one place.
+- If your platform is missing, the status and download pages will say so.
 
 ## Keep access and recovery on one calm path
 
@@ -24,7 +24,7 @@ Account creation, sign-in, and recovery should stay boring. Use the account page
 Use Contact first for install trouble, product bugs, and practical feedback. GitHub is there when you want a public bug thread, not as the normal support door.
 
 - Use Contact for install trouble, product bugs, or UX friction.
-- Use Account > Support when you want tracked case history attached to your account.
+- Use Account > Support if you want your support history saved in one place.
 - Use GitHub only when you want a public bug thread.
 
 ## Ask from inside Chummer first
