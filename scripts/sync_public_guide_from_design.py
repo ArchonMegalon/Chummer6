@@ -127,33 +127,32 @@ Those pages are the main public guide.
 """,
     "UPDATES/README.md": """# Updates
 
-This folder tracks notable public-guide refreshes for Chummer6.
+This folder keeps short notes on the bigger guide refreshes.
 
-## Start here now
+## Start with the live pages
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)
 - [../DOWNLOAD.md](../DOWNLOAD.md)
 - [../HELP.md](../HELP.md)
 
-Status, download, and help pages stay aligned with the current public guide.
+If you only care about what works right now, those pages matter more than this archive.
 
-## Latest substantial pushes
+## Recent guide work
 
-- The public guide now leads with a clearer product story, support paths, and first-contact art.
-- The first-contact images have been refreshed to feel more like Shadowrun and less like placeholders.
-- Status, download, and support pages now answer the practical user questions faster.
+- The front door now answers the basic product questions faster.
+- The cover art is stronger and less placeholder-looking than before.
+- Status, download, and help pages are easier to skim when you just want an answer.
 
-## Monthly archive
+## Archive
 
-- Monthly refresh notes will live here as the public guide evolves.
 - [2026-03](2026-03.md)
 """,
     "UPDATES/2026-03.md": """# 2026-03
 
-The March 2026 refresh sharpened the public guide for Chummer6.
+March 2026 was the first big pass to make the guide sound more like a product and less like a planning note.
 
-Start here now:
+If you want the current version instead of the archive, start with:
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)
