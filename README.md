@@ -1,6 +1,6 @@
-# Chummer Public Guide
+# Chummer6
 
-Start here if you want the public answer first: what Chummer6 does, what is real today, and whether the current preview is worth your time.
+Use this guide to answer the practical questions first: what Chummer6 is, whether it is worth trying today, what to download, and where to get help.
 
 ## Start here now
 
@@ -9,36 +9,34 @@ Start here if you want the public answer first: what Chummer6 does, what is real
 - [DOWNLOAD](DOWNLOAD.md)
 - [HELP](HELP.md)
 
-## Product promise
+## What Chummer6 is
 
-Shadowrun rules truth, with receipts.
+Chummer6 is Shadowrun character software that tries to show its work instead of hiding the math.
 
-Build characters, inspect rulings, and keep sessions moving with explainable math, durable state, and clear proof of what works today.
+The goal is simple: help you build faster, understand why numbers changed, and keep playing even when setup or connectivity gets messy.
 
-- Public preview, honest status, and clear proof of what works today.
-
-## What people usually want to know
+## Most people start here
 
 - I want to try the preview: [Download](DOWNLOAD.md).
 - I want the honest current picture: [Status](STATUS.md).
 - I am coming from Chummer5a: [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 - I want the two-minute product story: [What Chummer6 Is](WHAT_CHUMMER6_IS.md).
-- I need support or want to report pain: [Help](HELP.md) and [Contact](CONTACT.md).
-- I only care about future ideas: [Horizons](HORIZONS/README.md).
+- I need help or want to report a problem: [Help](HELP.md) and [Contact](CONTACT.md).
+- I only care about what may come later: [Horizons](HORIZONS/README.md).
 
-## Desktop today
+## Can I use it today?
 
-- Primary desktop route: `Chummer.Avalonia`.
-- Fallback desktop route: `Chummer.Blazor.Desktop` only where the shelf and status pages label it as fallback or compatibility.
-- Best-supported desktop path today: Linux installer proof is the strongest currently published desktop lane.
-- What flagship quality still requires: The parity registry is fully gold-ready, so release truth now depends on live desktop proof and a fully proven help experience.
+- Short answer: yes, as an early preview.
+- Downloads are currently live for Linux and macOS.
+- If you see both desktop apps, start with the Avalonia desktop app; use Blazor desktop app only when a page clearly labels it as a fallback or compatibility option.
+- The rules coverage story is strong; the remaining rough edges are mostly release polish, platform coverage, and support experience.
 
-## What is real now
+## What is live right now
 
 - Current stage: Public preview.
-- Published downloads are currently visible for Linux and macOS.
+- Still missing from the public download page: Windows.
 - Help, privacy, terms, contact, and release guidance are live as first-party product pages.
-- More campaign depth, broader platform coverage, and stronger proof trails are still opening next.
+- More campaign depth, broader platform coverage, and clearer product polish are still opening next.
 
 ## First contact
 
@@ -57,19 +55,19 @@ Build characters, inspect rulings, and keep sessions moving with explainable mat
 - [Contact](CONTACT.md)
 - [Roadmap and future ideas](HORIZONS/README.md)
 
-## Why people keep watching
+## Why people care
 
-- Deterministic engine: the same inputs are supposed to produce the same answer, not a vibe-based approximation.
-- Rules receipts: the modifier trail is meant to stay attached to the result instead of disappearing behind a black box.
-- Local-first continuity: the product is being shaped to survive device drift and bad connectivity without losing the thread.
+- It tries to show why a number changed instead of hiding the math.
+- It is being built to stay calmer when devices or connectivity get weird.
+- The status, downloads, and help story is meant to live in plain sight instead of being scattered.
 
-## Product parts
+## Go deeper when you want to
 
-You do not need this map first. Use it when you want the behind-the-scenes split after the friendly tour.
+Most people can stop at the pages above. Use these only when you want more detail.
 
-- [Parts index](PARTS/README.md): the behind-the-scenes product map once you already care how the experience is split.
-- [Horizons index](HORIZONS/README.md): future bets and research lanes, clearly separated from what is ready today.
+- [Parts index](PARTS/README.md): the technical breakdown of how the product is split up.
+- [Horizons index](HORIZONS/README.md): future ideas and research that are not being sold as ready today.
 
 ## Need help
 
-Use the first-party product path first: download help, account recovery, current release truth, and a real support intake before you fall through to deeper technical material.
+Start here for download help, account recovery, and support before you dig into technical material.

@@ -1,6 +1,6 @@
 # Help
 
-Use the first-party support path first.
+Start here if installation, updates, sign-in, or bugs are getting in the way.
 
 ## Start here now
 
@@ -9,14 +9,14 @@ Use the first-party support path first.
 - [DOWNLOAD](DOWNLOAD.md)
 - [HELP](HELP.md)
 
-## Start with the release page and download help
+## If install or update goes sideways
 
-The release page should answer the normal download and setup questions directly: recommended installer, known issues, update status, and the next support step if the path still is not clear.
+Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 
 - Start with the recommended installer for your platform.
-- Alternative builds and manual packages are advanced paths.
+- Use the manual package only if the installer does not fit your setup.
 - Create an account when you want tracked support, recovery, and linked installs.
-- Devices and access is where linked copies and claim paths stay visible later.
+- If your platform is missing, the status and download pages should say so directly.
 
 ## Keep access and recovery on one calm path
 
@@ -36,7 +36,7 @@ The first-party intake is the default path for install trouble, product bugs, an
 
 ## Ask from inside Chummer first
 
-Normal preview questions should be answerable from inside the product. Support and FAQ exist so you do not need to infer the answer from implementation language or implementation details.
+Normal preview questions should be answerable from inside the product. Support and FAQ exist so you do not have to dig through technical details just to get a clear answer.
 
 - FAQ answers the normal preview and product questions in plain language.
 - Support cases stay separate from optional participation.

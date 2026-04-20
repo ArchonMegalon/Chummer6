@@ -1,6 +1,12 @@
 # Download
 
-This page describes the current public downloads and the package formats that are actually available today.
+This page tells you what you can download right now and which file to start with.
+
+## What should I download first?
+
+- There is no public Windows download today.
+- For Linux, start with Avalonia Desktop Linux X64 Installer.
+- For macOS, start with Avalonia Desktop macOS ARM64 Installer if you can sign in. If you want a public file without signing in, use Avalonia Desktop macOS ARM64 archive package.
 
 ## Start here now
 
@@ -9,22 +15,20 @@ This page describes the current public downloads and the package formats that ar
 - [DOWNLOAD](DOWNLOAD.md)
 - [HELP](HELP.md)
 
-## Current public downloads
+## What is available today
 
 - Current stage: Public preview.
-- Release channel: Preview channel.
 - Published: April 20, 2026 at 7:23 UTC.
 - Release status: Published.
 - Current build: `run-20260420-072339`.
-- Current public downloads: Avalonia Desktop Linux X64 Installer, Blazor Desktop Linux X64 Installer, Avalonia Desktop macOS ARM64 Installer, Blazor Desktop macOS ARM64 Installer, Avalonia Desktop macOS ARM64 archive package, and Blazor Desktop macOS ARM64 archive package.
-- Shelf truth: Published downloads are currently visible for Linux and macOS.
-- Release verification: Recent release verification passed across setup and recovery, build and publish, campaign session continuity, support follow-up, and organize community and close loop.
-- Known issues: Known issue: required desktop tuple coverage is incomplete (platforms: windows; pairs: avalonia:windows; tuples: avalonia:win-x64:windows).
-- Fix availability: Do not send fixed notices until required desktop tuple coverage is complete for the promoted shelf.
+- Downloads are currently live for Linux and macOS.
+- Recent checks: Recent release verification passed across setup and recovery, build and publish, campaign session continuity, support follow-up, and community coordination.
+- Current warning: Desktop coverage is still incomplete. Windows still needs additional release work.
+- Update note: Expect the missing-platform warning to stay in place until the remaining desktop downloads are posted.
 
 ### Windows
 
-- No current published Windows download is on the public shelf.
+- There is no public Windows download today.
 
 ### Linux
 
@@ -62,9 +66,9 @@ This page describes the current public downloads and the package formats that ar
 - Size: 43.0 MiB (45080078 bytes)
 - Access: Public download.
 
-## Current package format
+## Package formats
 
-- The current shelf includes at least one installer, so installer-first language is warranted for those published platforms.
+- Where an installer exists, start there. Manual packages are fallback options.
 - Avalonia Desktop Linux X64 Installer via `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - Blazor Desktop Linux X64 Installer via `/downloads/files/chummer-blazor-desktop-linux-x64-installer.deb`
 - Avalonia Desktop macOS ARM64 Installer via `/downloads/files/chummer-avalonia-osx-arm64-installer.dmg`
@@ -72,7 +76,7 @@ This page describes the current public downloads and the package formats that ar
 - Avalonia Desktop macOS ARM64 archive package via `/downloads/files/chummer-avalonia-osx-arm64.tar.gz`
 - Blazor Desktop macOS ARM64 archive package via `/downloads/files/chummer-blazor-desktop-osx-arm64.tar.gz`
 
-## SHA256
+## Checksums
 
 - Avalonia Desktop Linux X64 Installer: `84d5c3a7065666286c5e3a5feccbc2ee3c04117cf5afaa116c09e1e2d9e44643`
 - Blazor Desktop Linux X64 Installer: `755de1de2a11d363f5f127dd81d9a00a1f33d9b20f6e75adb569d1c97e3faa94`
@@ -81,16 +85,16 @@ This page describes the current public downloads and the package formats that ar
 - Avalonia Desktop macOS ARM64: `3466279179e7be99be59097bffee666632276817383f7c22ff65b3ab4dd4f9c5`
 - Blazor Desktop macOS ARM64: `5d4f1e75a70e1c729347217ad9aa25d94fd5ba64acf51c129964f27143738df3`
 
-## Recent release verification
+## Recent checks
 
 - Status: Passed.
 - Last checked: April 19, 2026 at 17:41 UTC.
-- Summary: Recent release verification passed across setup and recovery, build and publish, campaign session continuity, support follow-up, and organize community and close loop.
+- Summary: Recent release verification passed across setup and recovery, build and publish, campaign session continuity, support follow-up, and community coordination.
 
-### Checked flows
+### What was checked
 
 - download, reconnect, restore, and continue
 - build, explain, and publish
 - campaign session recovery and recap
-- support reporting and release follow-up
-- organize community and close loop
+- support and release follow-up
+- community coordination and follow-up

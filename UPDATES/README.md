@@ -1,6 +1,6 @@
 # Updates
 
-The March 2026 refresh sharpened this repo as a public guide surface for Chummer6.
+This folder tracks notable public-guide refreshes for Chummer6.
 
 ## Start here now
 
@@ -9,15 +9,15 @@ The March 2026 refresh sharpened this repo as a public guide surface for Chummer
 - [../DOWNLOAD.md](../DOWNLOAD.md)
 - [../HELP.md](../HELP.md)
 
-Status, release, and help pages stay aligned with the current product guide.
+Status, download, and help pages stay aligned with the current public guide.
 
 ## Latest substantial pushes
 
-- The public guide now leads with a clearer product story, support paths, and first-contact trust surface.
-- Flagship art direction is being tightened around short Shadowrun story beats plus anticipatory AR overlays that surface the next useful runner question.
-- Status, horizons, and proof surfaces are being pushed toward a harder flagship bar instead of settling for placeholder preview language.
+- The public guide now leads with a clearer product story, support paths, and first-contact art.
+- The first-contact images have been refreshed to feel more like Shadowrun and less like placeholders.
+- Status, download, and support pages now answer the practical user questions faster.
 
 ## Monthly archive
 
-- Monthly update rollups and deeper push summaries will live here as the public proof trail thickens.
+- Monthly refresh notes will live here as the public guide evolves.
 - [2026-03](2026-03.md)

@@ -50,12 +50,12 @@ If you only want one answer fast, start with the question in front of you.
 - I need help or want to report a problem: [Help](HELP.md) and [Contact](CONTACT.md)
 - I only care about future ideas: [Horizons](HORIZONS/README.md)
 
-You do not need the parts map to decide whether Chummer6 is relevant to you.
-If you want the behind-the-scenes map after the friendly tour, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
+You do not need the technical breakdown to decide whether Chummer6 is worth your time.
+If you want that later, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "WHAT_CHUMMER6_IS.md": """# What Chummer6 Is
 
-Chummer6 is Shadowrun character software built around one public promise: the answer should be visible, not mysterious.
+Chummer6 is Shadowrun character software built around one simple idea: the answer should be visible, not mysterious.
 
 The point is to help you:
 
@@ -63,22 +63,21 @@ The point is to help you:
 - inspect why a pool or modifier changed
 - keep continuity readable when devices or connectivity drift
 
-This repo should help you decide quickly whether the current preview is real enough for you, whether the product fits how you play, and where to go for help next.
+This guide is here to help you decide quickly whether the current preview is real enough for you, whether the product fits how you play, and where to go for help next.
 
 Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
 If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
-If you want future bets after that, use [Horizons](HORIZONS/README.md).
-If you want the behind-the-scenes map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
+If you want future ideas after that, use [Horizons](HORIZONS/README.md).
+If you want the deeper technical map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "HOW_CAN_I_HELP.md": """# How Can I Help?
 
-Use the first-party path that matches the kind of help you need.
+If you hit a bug, confusing rules math, or rough wording, start with the normal help path first.
 
-- [Help](HELP.md) explains install support, private crash reporting, and participation guidance.
-- [Contact](CONTACT.md) is the first-party intake for practical product trouble and feedback.
-- Guided contribution is the opt-in booster lane for supporters who want to lend bounded extra help on top of the normal free path.
-- Open the Hub participation page when you want that guided contribution lane: `/participate/codex`
-- The public issue tracker is still available when you intentionally want a public technical trail: <https://github.com/ArchonMegalon/Chummer6/issues>
+- [Help](HELP.md) covers install help, updates, sign-in, and private crash reporting.
+- [Contact](CONTACT.md) is the main place to report product trouble or give feedback.
+- If you want to help more directly, there is also an optional guided contribution path at `/participate/codex`.
+- Use the public issue tracker when you specifically want a public technical discussion: <https://github.com/ArchonMegalon/Chummer6/issues>
 
 If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).
 """,
@@ -98,11 +97,11 @@ Start there:
 
 Go deeper only when you want more than the friendly tour:
 
-- [Horizons index](HORIZONS/README.md): future product bets and research lanes.
-- [Parts index](PARTS/README.md)
-- The design workspace and owning code repos carry the planning and implementation trail once the public guide stops being enough.
+- [Horizons index](HORIZONS/README.md): future ideas and research.
+- [Parts index](PARTS/README.md): the technical breakdown of the product.
+- The design notes and code repositories carry the deeper planning and implementation trail once the public guide stops being enough.
 
-The point of this repo is to save normal readers from having to reverse-engineer the product from internal project structure.
+The point of this guide is to save normal readers from having to reverse-engineer the project just to decide whether Chummer6 is for them.
 """,
     "NOW/current-phase.md": """# Current Phase
 
@@ -131,7 +130,7 @@ Use those pages as the current public reference set.
 """,
     "UPDATES/README.md": """# Updates
 
-The March 2026 refresh sharpened this repo as a public guide surface for Chummer6.
+This folder tracks notable public-guide refreshes for Chummer6.
 
 ## Start here now
 
@@ -140,22 +139,22 @@ The March 2026 refresh sharpened this repo as a public guide surface for Chummer
 - [../DOWNLOAD.md](../DOWNLOAD.md)
 - [../HELP.md](../HELP.md)
 
-Status, release, and help pages stay aligned with the current product guide.
+Status, download, and help pages stay aligned with the current public guide.
 
 ## Latest substantial pushes
 
-- The public guide now leads with a clearer product story, support paths, and first-contact trust surface.
-- Flagship art direction is being tightened around short Shadowrun story beats plus anticipatory AR overlays that surface the next useful runner question.
-- Status, horizons, and proof surfaces are being pushed toward a harder flagship bar instead of settling for placeholder preview language.
+- The public guide now leads with a clearer product story, support paths, and first-contact art.
+- The first-contact images have been refreshed to feel more like Shadowrun and less like placeholders.
+- Status, download, and support pages now answer the practical user questions faster.
 
 ## Monthly archive
 
-- Monthly update rollups and deeper push summaries will live here as the public proof trail thickens.
+- Monthly refresh notes will live here as the public guide evolves.
 - [2026-03](2026-03.md)
 """,
     "UPDATES/2026-03.md": """# 2026-03
 
-The March 2026 refresh sharpened this repo as a public guide surface for Chummer6.
+The March 2026 refresh sharpened the public guide for Chummer6.
 
 Start here now:
 
@@ -183,21 +182,14 @@ def _copy_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
 
 
 START_HERE_TRANSFORMS = {
-    "README.md": "\n## Product promise\n",
-    "STATUS.md": "\n## Current picture\n",
-    "DOWNLOAD.md": "\n## Current public downloads\n",
-    "HELP.md": "\n## Start with the release page and download help\n",
+    "README.md": "\n## What Chummer6 is\n",
+    "STATUS.md": "\n## Right now\n",
+    "DOWNLOAD.md": "\n## What is available today\n",
+    "HELP.md": "\n## If install or update goes sideways\n",
 }
 
 TEXT_REWRITES = {
-    "DOWNLOAD.md": (
-        (
-            "This page describes the public preview shelf and the download formats that are actually available today.",
-            "This page describes the current public downloads and the package formats that are actually available today.",
-        ),
-        ("## Current public download\n", "## Current public downloads\n"),
-        ("- Current public download:", "- Current public downloads:"),
-    ),
+    "DOWNLOAD.md": (),
 }
 
 

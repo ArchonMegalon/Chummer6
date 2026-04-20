@@ -14,8 +14,8 @@ Start there:
 
 Go deeper only when you want more than the friendly tour:
 
-- [Horizons index](HORIZONS/README.md): future product bets and research lanes.
-- [Parts index](PARTS/README.md)
-- The design workspace and owning code repos carry the planning and implementation trail once the public guide stops being enough.
+- [Horizons index](HORIZONS/README.md): future ideas and research.
+- [Parts index](PARTS/README.md): the technical breakdown of the product.
+- The design notes and code repositories carry the deeper planning and implementation trail once the public guide stops being enough.
 
-The point of this repo is to save normal readers from having to reverse-engineer the product from internal project structure.
+The point of this guide is to save normal readers from having to reverse-engineer the project just to decide whether Chummer6 is for them.

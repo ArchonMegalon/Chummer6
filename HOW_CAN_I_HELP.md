@@ -1,11 +1,10 @@
 # How Can I Help?
 
-Use the first-party path that matches the kind of help you need.
+If you hit a bug, confusing rules math, or rough wording, start with the normal help path first.
 
-- [Help](HELP.md) explains install support, private crash reporting, and participation guidance.
-- [Contact](CONTACT.md) is the first-party intake for practical product trouble and feedback.
-- Guided contribution is the opt-in booster lane for supporters who want to lend bounded extra help on top of the normal free path.
-- Open the Hub participation page when you want that guided contribution lane: `/participate/codex`
-- The public issue tracker is still available when you intentionally want a public technical trail: <https://github.com/ArchonMegalon/Chummer6/issues>
+- [Help](HELP.md) covers install help, updates, sign-in, and private crash reporting.
+- [Contact](CONTACT.md) is the main place to report product trouble or give feedback.
+- If you want to help more directly, there is also an optional guided contribution path at `/participate/codex`.
+- Use the public issue tracker when you specifically want a public technical discussion: <https://github.com/ArchonMegalon/Chummer6/issues>
 
 If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).
