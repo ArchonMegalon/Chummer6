@@ -56,7 +56,7 @@ Yes. Public recognition should remain opt-in, and private participation should s
 
 They are recognition and visibility layers, not authority. They should celebrate verified contribution without replacing review or rules truth.
 
-## If you want the project details
+## If you want the behind-the-scenes details
 
 ### Where does the deeper plan live?
 

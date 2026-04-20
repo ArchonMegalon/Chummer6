@@ -20,9 +20,8 @@ This page tells you what you can download right now and which file to start with
 - State today: Usable preview.
 - Published: April 20, 2026 at 7:23 UTC.
 - Release status: Published.
-- Build label: `run-20260420-072339`.
 - Downloads are currently live for Linux and macOS.
-- Recent checks: Passed for installs and recovery, release publishing, campaign session recovery, and support follow-up.
+- Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Current warning: There is still no public Windows download.
 - Update note: That warning will stay in place until the missing desktop downloads are posted.
 
@@ -89,7 +88,7 @@ This page tells you what you can download right now and which file to start with
 
 - Status: Passed.
 - Last checked: April 19, 2026 at 17:41 UTC.
-- Summary: Passed for installs and recovery, release publishing, campaign session recovery, and support follow-up.
+- Summary: Passed for installs and recovery, campaign session recovery, and support follow-up.
 
 ### What was checked
 

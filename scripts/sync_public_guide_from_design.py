@@ -50,7 +50,7 @@ If you only want one answer fast, start with the question in front of you.
 - I need help or want to report a problem: [Help](HELP.md) and [Contact](CONTACT.md)
 - I only care about future ideas: [Horizons](HORIZONS/README.md)
 
-You do not need the technical breakdown to decide whether Chummer6 is worth your time.
+You do not need the behind-the-scenes breakdown to decide whether Chummer6 is worth your time.
 If you want that later, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "WHAT_CHUMMER6_IS.md": """# What Chummer6 Is
@@ -68,7 +68,7 @@ This guide is here to help you decide quickly whether Chummer6 is worth your tim
 Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
 If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 If you want future ideas after that, use [Horizons](HORIZONS/README.md).
-If you want the deeper project map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
+If you want the behind-the-scenes guide, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "HOW_CAN_I_HELP.md": """# How Can I Help?
 
@@ -98,7 +98,7 @@ Start there:
 Go deeper only when you want more than the friendly tour:
 
 - [Horizons index](HORIZONS/README.md): future ideas and research.
-- [Parts index](PARTS/README.md): the deeper breakdown of the product.
+- [Parts index](PARTS/README.md): an inside view of how the app is put together.
 - The design notes and code repositories carry the deeper planning and implementation trail once the public guide stops being enough.
 
 The point of this guide is to save normal readers from having to reverse-engineer the project just to decide whether Chummer6 is for them.

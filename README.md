@@ -42,9 +42,8 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 
 ![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
 
-## Start here
+## More pages
 
-- [Start here](START_HERE.md)
 - [Status](STATUS.md)
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [How can I help](HOW_CAN_I_HELP.md)
@@ -53,7 +52,7 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)
-- [Roadmap and future ideas](HORIZONS/README.md)
+- [Future ideas](HORIZONS/README.md)
 
 ## Why people care
 
@@ -65,7 +64,7 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 
 Most people can stop at the pages above. Use these only when you want more detail.
 
-- [Parts index](PARTS/README.md): the technical breakdown of how the product is split up.
+- [Parts index](PARTS/README.md): an inside view of how the app is put together.
 - [Horizons index](HORIZONS/README.md): future ideas and research that are not being sold as ready today.
 
 ## Need help
