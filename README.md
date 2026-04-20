@@ -28,15 +28,15 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 
 - Short answer: yes, as an early preview.
 - Downloads are currently live for Linux and macOS.
-- If you see both desktop apps, start with the Avalonia desktop app; use Blazor desktop app only when a page clearly labels it as a fallback or compatibility option.
-- The rules coverage story is strong; the remaining rough edges are mostly release polish, platform coverage, and support experience.
+- If you see both desktop apps, start with the Avalonia desktop app. Use Blazor desktop app only if a page tells you it is the backup option for your case.
+- Character math is already solid. The rough edges are mostly installers, Windows support, and support polish.
 
 ## What is live right now
 
-- Current stage: Public preview.
+- State today: Usable preview.
 - Still missing from the public download page: Windows.
-- Help, privacy, terms, contact, and release guidance are live as first-party product pages.
-- More campaign depth, broader platform coverage, and clearer product polish are still opening next.
+- Help, contact, privacy, and terms pages are live.
+- More long-campaign depth and broader desktop support are still coming.
 
 ## First contact
 
@@ -70,4 +70,4 @@ Most people can stop at the pages above. Use these only when you want more detai
 
 ## Need help
 
-Start here for download help, account recovery, and support before you dig into technical material.
+Start here for downloads, sign-in recovery, and support.

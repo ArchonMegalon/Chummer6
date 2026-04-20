@@ -17,14 +17,14 @@ This page tells you what you can download right now and which file to start with
 
 ## What is available today
 
-- Current stage: Public preview.
+- State today: Usable preview.
 - Published: April 20, 2026 at 7:23 UTC.
 - Release status: Published.
-- Current build: `run-20260420-072339`.
+- Build label: `run-20260420-072339`.
 - Downloads are currently live for Linux and macOS.
-- Recent checks: Recent release verification passed across setup and recovery, build and publish, campaign session continuity, support follow-up, and community coordination.
-- Current warning: Desktop coverage is still incomplete. Windows still needs additional release work.
-- Update note: Expect the missing-platform warning to stay in place until the remaining desktop downloads are posted.
+- Recent checks: Passed for installs and recovery, release publishing, campaign session recovery, and support follow-up.
+- Current warning: There is still no public Windows download.
+- Update note: That warning will stay in place until the missing desktop downloads are posted.
 
 ### Windows
 
@@ -68,7 +68,7 @@ This page tells you what you can download right now and which file to start with
 
 ## Package formats
 
-- Where an installer exists, start there. Manual packages are fallback options.
+- Where an installer exists, start there. Use the other package only if you need it.
 - Avalonia Desktop Linux X64 Installer via `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - Blazor Desktop Linux X64 Installer via `/downloads/files/chummer-blazor-desktop-linux-x64-installer.deb`
 - Avalonia Desktop macOS ARM64 Installer via `/downloads/files/chummer-avalonia-osx-arm64-installer.dmg`
@@ -89,12 +89,12 @@ This page tells you what you can download right now and which file to start with
 
 - Status: Passed.
 - Last checked: April 19, 2026 at 17:41 UTC.
-- Summary: Recent release verification passed across setup and recovery, build and publish, campaign session continuity, support follow-up, and community coordination.
+- Summary: Passed for installs and recovery, release publishing, campaign session recovery, and support follow-up.
 
 ### What was checked
 
-- download, reconnect, restore, and continue
-- build, explain, and publish
-- campaign session recovery and recap
+- install, sign back in, restore, and keep going
+- build and publish the release
+- resume a campaign session
 - support and release follow-up
-- community coordination and follow-up
+- community follow-up

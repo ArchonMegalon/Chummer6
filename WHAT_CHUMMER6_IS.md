@@ -8,9 +8,9 @@ The point is to help you:
 - inspect why a pool or modifier changed
 - keep continuity readable when devices or connectivity drift
 
-This guide is here to help you decide quickly whether the current preview is real enough for you, whether the product fits how you play, and where to go for help next.
+This guide is here to help you decide quickly whether Chummer6 is worth your time right now and where to go for help next.
 
 Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
 If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 If you want future ideas after that, use [Horizons](HORIZONS/README.md).
-If you want the deeper technical map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
+If you want the deeper project map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).

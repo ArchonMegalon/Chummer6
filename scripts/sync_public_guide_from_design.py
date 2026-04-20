@@ -63,12 +63,12 @@ The point is to help you:
 - inspect why a pool or modifier changed
 - keep continuity readable when devices or connectivity drift
 
-This guide is here to help you decide quickly whether the current preview is real enough for you, whether the product fits how you play, and where to go for help next.
+This guide is here to help you decide quickly whether Chummer6 is worth your time right now and where to go for help next.
 
 Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
 If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 If you want future ideas after that, use [Horizons](HORIZONS/README.md).
-If you want the deeper technical map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
+If you want the deeper project map, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "HOW_CAN_I_HELP.md": """# How Can I Help?
 
@@ -77,7 +77,7 @@ If you hit a bug, confusing rules math, or rough wording, start with the normal 
 - [Help](HELP.md) covers install help, updates, sign-in, and private crash reporting.
 - [Contact](CONTACT.md) is the main place to report product trouble or give feedback.
 - If you want to help more directly, there is also an optional guided contribution path at `/participate/codex`.
-- Use the public issue tracker when you specifically want a public technical discussion: <https://github.com/ArchonMegalon/Chummer6/issues>
+- Use the public issue tracker when you specifically want a public bug thread: <https://github.com/ArchonMegalon/Chummer6/issues>
 
 If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).
 """,
@@ -98,7 +98,7 @@ Start there:
 Go deeper only when you want more than the friendly tour:
 
 - [Horizons index](HORIZONS/README.md): future ideas and research.
-- [Parts index](PARTS/README.md): the technical breakdown of the product.
+- [Parts index](PARTS/README.md): the deeper breakdown of the product.
 - The design notes and code repositories carry the deeper planning and implementation trail once the public guide stops being enough.
 
 The point of this guide is to save normal readers from having to reverse-engineer the project just to decide whether Chummer6 is for them.
@@ -113,7 +113,7 @@ Read [../STATUS.md](../STATUS.md) for the current product picture and [../DOWNLO
 
 The current public status page lives at [../STATUS.md](../STATUS.md).
 
-Use that page for the current picture, release status, and first-party support guidance.
+Use that page for the current picture, release status, and help links.
 """,
     "NOW/public-surfaces.md": """# Public Surfaces
 
