@@ -194,9 +194,12 @@ def _render_manifest(src: Path) -> str:
     manifest = json.loads(src.read_text(encoding="utf-8"))
     generated_from = manifest.get("generated_from")
     if isinstance(generated_from, str):
+        normalized_generated_from = generated_from.replace("\\", "/")
         marker = "products/chummer/"
-        if marker in generated_from:
-            manifest["generated_from"] = generated_from[generated_from.index(marker) :]
+        if marker in normalized_generated_from:
+            manifest["generated_from"] = normalized_generated_from[
+                normalized_generated_from.index(marker) :
+            ]
     return json.dumps(manifest, indent=2) + "\n"
 
 

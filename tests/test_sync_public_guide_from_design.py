@@ -79,6 +79,23 @@ class RenderManifestTests(unittest.TestCase):
         self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
         self.assertNotIn("/docker/chummercomplete/chummer-design/", rendered)
 
+    def test_generated_from_windows_path_is_normalized_to_repo_relative_path(self) -> None:
+        source = """{
+  "generated_by": "materialize_public_guide_bundle.py",
+  "generated_from": "C:\\\\work\\\\chummer-design\\\\products\\\\chummer\\\\PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
+  "status": "ok"
+}
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "manifest.generated.json"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_manifest(source_path)
+
+        self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
+        self.assertNotIn("C:\\\\work\\\\chummer-design\\\\", rendered)
+
 
 if __name__ == "__main__":
     unittest.main()
