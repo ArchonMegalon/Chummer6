@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.sync_public_guide_from_design import _render_with_start_here
+from scripts.sync_public_guide_from_design import _render_manifest, _render_with_start_here
 
 
 class RenderWithStartHereTests(unittest.TestCase):
@@ -59,6 +59,25 @@ In the planning notes that shape the roadmap and the public guide.
             "In the planning notes that shape the roadmap and the public guide.",
             rendered,
         )
+
+
+class RenderManifestTests(unittest.TestCase):
+    def test_generated_from_is_normalized_to_repo_relative_path(self) -> None:
+        source = """{
+  "generated_by": "materialize_public_guide_bundle.py",
+  "generated_from": "/docker/chummercomplete/chummer-design/products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
+  "status": "ok"
+}
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "manifest.generated.json"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_manifest(source_path)
+
+        self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
+        self.assertNotIn("/docker/chummercomplete/chummer-design/", rendered)
 
 
 if __name__ == "__main__":

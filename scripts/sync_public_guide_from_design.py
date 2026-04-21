@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import filecmp
+import json
 import shutil
 import sys
 from pathlib import Path
@@ -187,6 +188,18 @@ def _copy_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
     shutil.copy2(src, dest)
 
 
+def _render_manifest(src: Path) -> str:
+    if not src.exists():
+        raise FileNotFoundError(src)
+    manifest = json.loads(src.read_text(encoding="utf-8"))
+    generated_from = manifest.get("generated_from")
+    if isinstance(generated_from, str):
+        marker = "products/chummer/"
+        if marker in generated_from:
+            manifest["generated_from"] = generated_from[generated_from.index(marker) :]
+    return json.dumps(manifest, indent=2) + "\n"
+
+
 START_HERE_TRANSFORMS = {
     "STATUS.md": ("\n## Current picture\n", "\n## Right now\n"),
     "DOWNLOAD.md": ("\n## Current public download\n", "\n## Current preview shelf\n", "\n## What is available today\n"),
@@ -246,6 +259,32 @@ def _sync_rendered_file(
     try:
         expected = _render_with_start_here(src, dest.name, "")
     except (FileNotFoundError, ValueError) as exc:
+        failures.append(str(exc))
+        return
+    if check:
+        if not dest.exists():
+            failures.append(f"missing destination file: {dest}")
+            return
+        actual = dest.read_text(encoding="utf-8")
+        if actual != expected:
+            failures.append(f"file drift: {dest} != rendered {src}")
+        return
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(expected, encoding="utf-8")
+
+
+def _sync_manifest_file(
+    src: Path,
+    dest: Path,
+    check: bool,
+    failures: list[str],
+) -> None:
+    if not src.exists():
+        failures.append(f"missing source file: {src}")
+        return
+    try:
+        expected = _render_manifest(src)
+    except (FileNotFoundError, json.JSONDecodeError) as exc:
         failures.append(str(exc))
         return
     if check:
@@ -355,6 +394,9 @@ def main(argv: list[str]) -> int:
 
     for relative_path in SYNC_FILES:
         if relative_path in START_HERE_TRANSFORMS:
+            continue
+        if relative_path == "manifest.generated.json":
+            _sync_manifest_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
             continue
         if relative_path in TEXT_REWRITES:
             _sync_rendered_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
