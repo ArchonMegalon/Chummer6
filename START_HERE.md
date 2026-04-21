@@ -9,5 +9,5 @@ If you only want one answer fast, start with the question in front of you.
 - I need help or want to report a problem: [Help](HELP.md) and [Contact](CONTACT.md)
 - I only care about future ideas: [Horizons](HORIZONS/README.md)
 
-You do not need the behind-the-scenes breakdown to decide whether Chummer6 is worth your time.
+You do not need the deeper breakdown to decide whether Chummer6 is worth your time.
 If you want that later, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).

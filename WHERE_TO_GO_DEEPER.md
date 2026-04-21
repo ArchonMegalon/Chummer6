@@ -16,6 +16,6 @@ Go deeper only when you want more than the main public pages:
 
 - [Horizons index](HORIZONS/README.md): future ideas and experiments.
 - [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- The planning notes and code are there too if you really want them, but most readers will not need them.
+- Most readers can stop there. The rest of the repo is only for people who want extra detail.
 
-The point of this guide is that normal readers should not have to dig through planning notes or code just to decide whether Chummer6 is for them.
+The point of this guide is that normal readers should not have to dig through internal detail just to decide whether Chummer6 is for them.

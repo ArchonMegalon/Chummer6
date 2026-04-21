@@ -4,7 +4,7 @@ This is the blunt answer on what you can use today.
 
 Quick links: [Home](README.md) | [Download](DOWNLOAD.md) | [Help](HELP.md)
 
-## Right now
+## Current picture
 
 - Today: Usable preview.
 - Published: April 20, 2026 at 15:29 UTC.
@@ -14,7 +14,7 @@ Quick links: [Home](README.md) | [Download](DOWNLOAD.md) | [Help](HELP.md)
 - Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
 - Help, contact, privacy, and terms pages are live.
 
-## If install or update goes sideways
+## Start with the release page and download help
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 

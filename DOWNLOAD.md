@@ -11,7 +11,7 @@ This page tells you what you can download right now and which file to start with
 
 Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)
 
-## What is available today
+## Current public download
 
 - Today: Usable preview.
 - Published: April 20, 2026 at 15:29 UTC.
@@ -20,6 +20,10 @@ Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
 - Update note: Only expect fix notices after the affected download is available on the same public shelf.
+
+## Current build matrix
+
+If you want the raw release shelf and attached artifacts, use GitHub releases: <https://github.com/ArchonMegalon/Chummer6/releases>.
 
 ### Windows
 
@@ -65,7 +69,7 @@ Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)
 - Size: 43.0 MiB (45080078 bytes)
 - Access: Public download.
 
-## Package formats
+## Current package format
 
 - Where an installer exists, start there. Archive packages are the fallback.
 - Avalonia Desktop Linux X64 Installer via `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
@@ -76,7 +80,7 @@ Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)
 - Avalonia Desktop macOS ARM64 archive package via `/downloads/files/chummer-avalonia-osx-arm64.tar.gz`
 - Blazor Desktop macOS ARM64 archive package via `/downloads/files/chummer-blazor-desktop-osx-arm64.tar.gz`
 
-## Checksums
+## SHA256
 
 - Avalonia Desktop Linux X64 Installer: `84d5c3a7065666286c5e3a5feccbc2ee3c04117cf5afaa116c09e1e2d9e44643`
 - Blazor Desktop Linux X64 Installer: `755de1de2a11d363f5f127dd81d9a00a1f33d9b20f6e75adb569d1c97e3faa94`
@@ -86,7 +90,7 @@ Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)
 - Avalonia Desktop macOS ARM64: `3466279179e7be99be59097bffee666632276817383f7c22ff65b3ab4dd4f9c5`
 - Blazor Desktop macOS ARM64: `5d4f1e75a70e1c729347217ad9aa25d94fd5ba64acf51c129964f27143738df3`
 
-## Recent checks
+## Recent release verification
 
 - Status: Passed.
 - Last checked: April 19, 2026 at 17:41 UTC.

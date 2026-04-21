@@ -47,7 +47,7 @@ If you only want one answer fast, start with the question in front of you.
 - I need help or want to report a problem: [Help](HELP.md) and [Contact](CONTACT.md)
 - I only care about future ideas: [Horizons](HORIZONS/README.md)
 
-You do not need the behind-the-scenes breakdown to decide whether Chummer6 is worth your time.
+You do not need the deeper breakdown to decide whether Chummer6 is worth your time.
 If you want that later, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "WHAT_CHUMMER6_IS.md": """# What Chummer6 Is
@@ -65,7 +65,7 @@ This guide is here to help you decide quickly whether Chummer6 is worth your tim
 Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
 If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 If you want future ideas after that, use [Horizons](HORIZONS/README.md).
-If you want the behind-the-scenes guide, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
+If you want the deeper guide after that, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "HOW_CAN_I_HELP.md": """# How Can I Help?
 
@@ -73,8 +73,18 @@ If you hit a bug, confusing rules math, or rough wording, start with the normal 
 
 - [Help](HELP.md) covers install help, updates, sign-in, and private crash reporting.
 - [Contact](CONTACT.md) is the main place to report product trouble or give feedback.
-- If you want to help more directly, there is also an optional guided contribution path at `/participate/codex`.
+- If you want to help more directly, there is also an optional guided contribution and booster path at <https://chummer.run/participate>.
 - Use the public issue tracker when you specifically want a public bug thread: <https://github.com/ArchonMegalon/Chummer6/issues>
+
+## Participation safety
+
+- the cheap baseline remains the default path
+- guided contribution is not a merge bypass
+- final landing still goes through review
+- people can stop or revoke later
+- private recognition settings remain valid even when badges or leaderboards exist
+
+Some guided-preview lanes are resource-heavy today, but the long-run intent is free later rather than keeping the useful parts locked behind a permanent paywall.
 
 If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).
 """,
@@ -96,9 +106,9 @@ Go deeper only when you want more than the main public pages:
 
 - [Horizons index](HORIZONS/README.md): future ideas and experiments.
 - [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- The planning notes and code are there too if you really want them, but most readers will not need them.
+- Most readers can stop there. The rest of the repo is only for people who want extra detail.
 
-The point of this guide is that normal readers should not have to dig through planning notes or code just to decide whether Chummer6 is for them.
+The point of this guide is that normal readers should not have to dig through internal detail just to decide whether Chummer6 is for them.
 """,
     "NOW/current-phase.md": """# Current Phase
 
@@ -138,21 +148,21 @@ This folder keeps short notes on the bigger guide refreshes.
 
 If you only care about what works right now, those pages matter more than this archive.
 
-## Recent guide work
+## Latest substantial pushes
 
 - The front door now answers the basic product questions faster.
 - The cover art is stronger and less placeholder-looking than before.
 - Status, download, and help pages are easier to skim when you just want an answer.
 
-## Archive
+## Monthly archive
 
 - [2026-03](2026-03.md)
 """,
     "UPDATES/2026-03.md": """# 2026-03
 
-March 2026 was the first big pass to make the guide sound more like a product and less like a planning note.
+This archive note marks the March 2026 pass that pushed the guide toward a clearer product-facing front door.
 
-If you want the current version instead of the archive, start with:
+For the live version instead of the archive, start with:
 
 - [../README.md](../README.md)
 - [../STATUS.md](../STATUS.md)
@@ -178,13 +188,24 @@ def _copy_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
 
 
 START_HERE_TRANSFORMS = {
-    "STATUS.md": "\n## Right now\n",
-    "DOWNLOAD.md": "\n## What is available today\n",
-    "HELP.md": "\n## If install or update goes sideways\n",
+    "STATUS.md": ("\n## Current picture\n", "\n## Right now\n"),
+    "DOWNLOAD.md": ("\n## Current public download\n", "\n## Current preview shelf\n", "\n## What is available today\n"),
+    "HELP.md": ("\n## Start with the release page and download help\n", "\n## If install or update goes sideways\n"),
+    "FAQ.md": "",
 }
 
 TEXT_REWRITES = {
     "DOWNLOAD.md": (),
+    "FAQ.md": (
+        (
+            "## If you want the behind-the-scenes details",
+            "## If you want more detail",
+        ),
+        (
+            "In the planning notes that shape the roadmap and the public guide.",
+            "Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.",
+        ),
+    ),
 }
 
 
@@ -192,16 +213,18 @@ def _render_with_start_here(src: Path, relative_path: str, anchor: str) -> str:
     if not src.exists():
         raise FileNotFoundError(src)
     source_text = src.read_text(encoding="utf-8")
+    for old, new in TEXT_REWRITES.get(relative_path, ()):
+        source_text = source_text.replace(old, new)
     start_here_block = START_HERE_BLOCKS.get(relative_path, "")
     if not start_here_block:
         return source_text if source_text.endswith("\n") else source_text + "\n"
-    for old, new in TEXT_REWRITES.get(relative_path, ()):
-        source_text = source_text.replace(old, new)
     if start_here_block in source_text:
         return source_text if source_text.endswith("\n") else source_text + "\n"
-    if anchor not in source_text:
+    anchors = anchor if isinstance(anchor, tuple) else (anchor,)
+    selected_anchor = next((candidate for candidate in anchors if candidate in source_text), "")
+    if not selected_anchor:
         raise ValueError(f"unable to place Start here block in {src}")
-    rendered = source_text.replace(anchor, f"\n{start_here_block}{anchor.lstrip()}", 1)
+    rendered = source_text.replace(selected_anchor, f"\n{start_here_block}{selected_anchor.lstrip()}", 1)
     return rendered if rendered.endswith("\n") else rendered + "\n"
 
 

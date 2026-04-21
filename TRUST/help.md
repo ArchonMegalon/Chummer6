@@ -2,7 +2,7 @@
 
 Start here for downloads, sign-in recovery, and support.
 
-## If install or update goes sideways
+## Start with the release page and download help
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 

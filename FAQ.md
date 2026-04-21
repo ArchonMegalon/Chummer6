@@ -56,11 +56,11 @@ Yes. Public recognition should remain opt-in, and private participation should s
 
 They are recognition and visibility features, not authority. They should celebrate verified contribution without replacing review or the rules themselves.
 
-## If you want the behind-the-scenes details
+## If you want more detail
 
 ### Where does the deeper plan live?
 
-In the planning notes that shape the roadmap and the public guide.
+Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.
 
 ### Where does the actual code live?
 

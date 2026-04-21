@@ -4,7 +4,7 @@ Start here if installation, updates, sign-in, or bugs are getting in the way.
 
 Quick links: [Home](README.md) | [Status](STATUS.md) | [Download](DOWNLOAD.md)
 
-## If install or update goes sideways
+## Start with the release page and download help
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 
