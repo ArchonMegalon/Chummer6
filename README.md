@@ -26,7 +26,6 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [How can I help](HOW_CAN_I_HELP.md)
-- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)

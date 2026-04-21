@@ -195,6 +195,12 @@ START_HERE_TRANSFORMS = {
 }
 
 TEXT_REWRITES = {
+    "README.md": (
+        (
+            "- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n",
+            "- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n",
+        ),
+    ),
     "DOWNLOAD.md": (),
     "FAQ.md": (
         (
@@ -226,6 +232,32 @@ def _render_with_start_here(src: Path, relative_path: str, anchor: str) -> str:
         raise ValueError(f"unable to place Start here block in {src}")
     rendered = source_text.replace(selected_anchor, f"\n{start_here_block}{selected_anchor.lstrip()}", 1)
     return rendered if rendered.endswith("\n") else rendered + "\n"
+
+
+def _sync_rendered_file(
+    src: Path,
+    dest: Path,
+    check: bool,
+    failures: list[str],
+) -> None:
+    if not src.exists():
+        failures.append(f"missing source file: {src}")
+        return
+    try:
+        expected = _render_with_start_here(src, dest.name, "")
+    except (FileNotFoundError, ValueError) as exc:
+        failures.append(str(exc))
+        return
+    if check:
+        if not dest.exists():
+            failures.append(f"missing destination file: {dest}")
+            return
+        actual = dest.read_text(encoding="utf-8")
+        if actual != expected:
+            failures.append(f"file drift: {dest} != rendered {src}")
+        return
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(expected, encoding="utf-8")
 
 
 def _sync_transformed_file(
@@ -323,6 +355,9 @@ def main(argv: list[str]) -> int:
 
     for relative_path in SYNC_FILES:
         if relative_path in START_HERE_TRANSFORMS:
+            continue
+        if relative_path in TEXT_REWRITES:
+            _sync_rendered_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
             continue
         _copy_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
 

@@ -8,6 +8,31 @@ from scripts.sync_public_guide_from_design import _render_with_start_here
 
 
 class RenderWithStartHereTests(unittest.TestCase):
+    def test_readme_start_here_links_are_unique(self) -> None:
+        source = """# Chummer Public Guide
+
+## Start here
+
+- [Download](DOWNLOAD.md)
+- [Status](STATUS.md)
+- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
+- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
+- [How can I help](HOW_CAN_I_HELP.md)
+- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
+- [Help](HELP.md)
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "README.md"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_with_start_here(source_path, "README.md", "")
+
+        self.assertEqual(
+            rendered.count("[From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)"),
+            1,
+        )
+
     def test_faq_rewrites_heading_and_body(self) -> None:
         source = """# FAQ
 
