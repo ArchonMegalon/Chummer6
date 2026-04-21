@@ -1,0 +1,52 @@
+{
+  "accepted_on_round": "1",
+  "allow_credit_burn": true,
+  "allow_paid_fast_lane": false,
+  "blocking_issue_counts": [
+    0
+  ],
+  "core_rescue_reason": null,
+  "diff_added": 0,
+  "diff_removed": 0,
+  "files_touched": 0,
+  "groundwork_workers_used": [],
+  "implementation_workers_used": [
+    "acct-shared-b"
+  ],
+  "issue_fingerprints": [],
+  "jury_verdicts": [
+    "accept"
+  ],
+  "landed_at": "2026-04-21T19:15:46Z",
+  "landed_sha": "",
+  "landing_commit_ref": "self",
+  "landing_lane": "core",
+  "lane_sequence": [
+    "core"
+  ],
+  "needs_core_rescue": false,
+  "project_id": "guide",
+  "repeat_issue_count": 0,
+  "review_rounds_used": 1,
+  "schema_version": 1,
+  "shadow_phase": [],
+  "shadow_worker_used": false,
+  "slice_id": "fix-feedback-2026-03-1-more-feedback-note-s",
+  "timing_ms": {
+    "core_total": 0,
+    "groundwork_total": 0,
+    "jury_total": 131000,
+    "lead_time_total": 329091,
+    "queue_wait_total": 198091,
+    "shadow_groundwork_total": 0
+  },
+  "title": "Fix feedback: 2026-03 (+1 more feedback note(s))",
+  "usage_estimates": {
+    "core_runs": 1,
+    "groundwork_runs": 0,
+    "jury_reviews": 0
+  },
+  "verify_passed": true,
+  "worker_topology": {},
+  "workflow_kind": "default"
+}
