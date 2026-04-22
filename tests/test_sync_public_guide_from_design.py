@@ -1,10 +1,19 @@
 from __future__ import annotations
 
+import importlib.util
 import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.sync_public_guide_from_design import _render_manifest, _render_with_start_here
+
+MODULE_PATH = Path("/docker/chummercomplete/Chummer6/scripts/sync_public_guide_from_design.py")
+SPEC = importlib.util.spec_from_file_location("sync_public_guide_from_design", MODULE_PATH)
+assert SPEC is not None and SPEC.loader is not None
+guide_sync = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(guide_sync)
+
+_render_manifest = guide_sync._render_manifest
+_render_with_start_here = guide_sync._render_with_start_here
 
 
 class RenderWithStartHereTests(unittest.TestCase):
@@ -95,6 +104,22 @@ class RenderManifestTests(unittest.TestCase):
 
         self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
         self.assertNotIn("C:\\\\work\\\\chummer-design\\\\", rendered)
+
+    def test_generated_from_repo_relative_path_without_leading_separator_is_preserved(self) -> None:
+        source = """{
+  "generated_by": "materialize_public_guide_bundle.py",
+  "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
+  "status": "ok"
+}
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "manifest.generated.json"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_manifest(source_path)
+
+        self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
 
 
 if __name__ == "__main__":

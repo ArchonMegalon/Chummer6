@@ -11,3 +11,5 @@ These are future ideas, not features you can use today.
 - [JACKPOINT](jackpoint.md)
 - [RUNSITE](runsite.md)
 - [RUNBOOK PRESS](runbook-press.md)
+- [BLACK LEDGER](black-ledger.md)
+- [SHADOWCASTERS NETWORK](shadowcasters-network.md)

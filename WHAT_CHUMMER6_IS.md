@@ -1,12 +1,14 @@
 # What Chummer6 Is
 
-Chummer6 is Shadowrun character software built around one simple idea: the answer should be visible, not mysterious.
+Chummer6 is the explainable Shadowrun campaign OS.
+
+Its first must-win job is being the most trustworthy way to build, inspect, and advance a Shadowrun character.
 
 The point is to help you:
 
-- build a character without mystery math
+- build and advance a character without mystery math
 - inspect why a pool or modifier changed
-- keep continuity readable when devices or connectivity drift
+- keep session and campaign continuity readable when devices or connectivity drift
 
 This guide is here to help you decide quickly whether Chummer6 is worth your time right now and where to go for help next.
 

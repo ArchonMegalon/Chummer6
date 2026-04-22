@@ -53,13 +53,15 @@ If you want that later, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 """,
     "WHAT_CHUMMER6_IS.md": """# What Chummer6 Is
 
-Chummer6 is Shadowrun character software built around one simple idea: the answer should be visible, not mysterious.
+Chummer6 is the explainable Shadowrun campaign OS.
+
+Its first must-win job is being the most trustworthy way to build, inspect, and advance a Shadowrun character.
 
 The point is to help you:
 
-- build a character without mystery math
+- build and advance a character without mystery math
 - inspect why a pool or modifier changed
-- keep continuity readable when devices or connectivity drift
+- keep session and campaign continuity readable when devices or connectivity drift
 
 This guide is here to help you decide quickly whether Chummer6 is worth your time right now and where to go for help next.
 
@@ -195,11 +197,11 @@ def _render_manifest(src: Path) -> str:
     generated_from = manifest.get("generated_from")
     if isinstance(generated_from, str):
         normalized_generated_from = generated_from.replace("\\", "/")
-        marker = "products/chummer/"
-        if marker in normalized_generated_from:
-            manifest["generated_from"] = normalized_generated_from[
-                normalized_generated_from.index(marker) :
-            ]
+        parts = [part for part in normalized_generated_from.split("/") if part]
+        for index in range(len(parts) - 1):
+            if parts[index] == "products" and parts[index + 1] == "chummer":
+                manifest["generated_from"] = "/".join(parts[index:])
+                break
     return json.dumps(manifest, indent=2) + "\n"
 
 

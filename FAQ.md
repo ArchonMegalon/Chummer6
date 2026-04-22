@@ -56,6 +56,14 @@ Yes. Public recognition should remain opt-in, and private participation should s
 
 They are recognition and visibility features, not authority. They should celebrate verified contribution without replacing review or the rules themselves.
 
+### Would I need a Windows PC to join a run?
+
+No. The intended direction is that browsing runs, applying with a quickstart or approved runner, acknowledging table expectations, and receiving scheduling and handoff details should work without assuming a Windows-only setup.
+
+### Is Chummer trying to replace Discord or VTTs?
+
+No. The intended posture is that Chummer owns rules, applications, schedule receipts, and world consequences, while Discord, Teams, and VTTs remain play or communication surfaces.
+
 ## If you want more detail
 
 ### Where does the deeper plan live?

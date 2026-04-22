@@ -1,12 +1,14 @@
 # Chummer Public Guide
 
-Use this guide to answer the practical questions first: what Chummer6 promises, what is real today, what to download, and where to get help.
+Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.
 
 ## Product promise
 
-Chummer6 is Shadowrun character software that tries to show its work instead of hiding the math.
+Chummer6 is the explainable Shadowrun campaign OS.
 
-The goal is simple: help you build faster, understand why numbers changed, and keep playing even when setup or connectivity gets messy.
+Its first must-win job is being the most trustworthy way to build, inspect, and advance a Shadowrun character.
+
+The goal is simple: build correctly, explain clearly, run reliably, recover calmly, and carry the campaign forward.
 
 ## What is real now
 
@@ -17,7 +19,7 @@ The goal is simple: help you build faster, understand why numbers changed, and k
 - Today: Usable preview.
 - Public downloads are visible on every promised desktop platform.
 - Help, contact, privacy, and terms pages are live.
-- More long-campaign depth and steadier desktop polish are still coming.
+- More campaign-ledger depth and steadier desktop polish are still coming.
 
 ## Start here
 
@@ -46,9 +48,9 @@ If you want the optional guided contribution path instead of normal product help
 
 ## Why people care
 
-- It tries to show why a number changed instead of hiding the math.
-- It is being built to stay calmer when devices or connectivity get weird.
-- The status, downloads, and help story is meant to live in plain sight instead of being scattered.
+- It shows why a number changed instead of hiding the math.
+- It is being built to keep sessions and campaigns recoverable when devices or connectivity drift.
+- The status, downloads, and help story is meant to stay in plain sight instead of being scattered.
 
 ## Product parts
 
