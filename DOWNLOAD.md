@@ -4,7 +4,7 @@ This page tells you what you can download right now and which file to start with
 
 ## What should I download first?
 
-- For Windows, start with Avalonia Desktop Windows X64 Installer.
+- For Windows, start with the Windows X64 Desktop Installer. It installs both desktop heads and launches Avalonia by default.
 - For Linux, start with Avalonia Desktop Linux X64 Installer.
 - For macOS, start with Avalonia Desktop macOS ARM64 Installer if you can sign in. If you want a public file without signing in, use Avalonia Desktop macOS ARM64 archive package.
 - If both Avalonia and Blazor appear for your platform, start with Avalonia. Use Blazor only if a page or support tells you to.
@@ -27,11 +27,12 @@ If you want the raw release shelf and attached artifacts, use GitHub releases: <
 
 ### Windows
 
-- Avalonia Desktop Windows X64 Installer.
+- Desktop Windows X64 Installer.
 - Download: `/downloads/files/chummer-avalonia-win-x64-installer.exe`
 - File: `chummer-avalonia-win-x64-installer.exe`
 - Size: 92.0 MiB (96466473 bytes)
 - Access: Public download.
+- Contents: installs both `Chummer6 Avalonia` and `Chummer6 Blazor Desktop` in one Windows install.
 
 ### Linux
 
@@ -76,7 +77,7 @@ If you want the raw release shelf and attached artifacts, use GitHub releases: <
 - Blazor Desktop Linux X64 Installer via `/downloads/files/chummer-blazor-desktop-linux-x64-installer.deb`
 - Avalonia Desktop macOS ARM64 Installer via `/downloads/files/chummer-avalonia-osx-arm64-installer.dmg`
 - Blazor Desktop macOS ARM64 Installer via `/downloads/files/chummer-blazor-desktop-osx-arm64-installer.dmg`
-- Avalonia Desktop Windows X64 Installer via `/downloads/files/chummer-avalonia-win-x64-installer.exe`
+- Windows X64 Desktop Installer via `/downloads/files/chummer-avalonia-win-x64-installer.exe` and it includes both Avalonia and Blazor desktop heads
 - Avalonia Desktop macOS ARM64 archive package via `/downloads/files/chummer-avalonia-osx-arm64.tar.gz`
 - Blazor Desktop macOS ARM64 archive package via `/downloads/files/chummer-blazor-desktop-osx-arm64.tar.gz`
 
