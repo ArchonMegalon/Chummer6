@@ -4,7 +4,7 @@ This page tells you what you can download right now and which file to start with
 
 ## What should I download first?
 
-- For Windows, start with Avalonia Desktop Windows X64 Installer. Sign-in required.
+- For Windows, start with Avalonia Desktop Windows X64 Installer.
 - For Linux, start with Avalonia Desktop Linux X64 Installer.
 - For macOS, start with Avalonia Desktop macOS ARM64 Installer if you can sign in. If you want a public file without signing in, use Avalonia Desktop macOS ARM64 archive package.
 - If both Avalonia and Blazor appear for your platform, start with Avalonia. Use Blazor only if a page or support tells you to.
@@ -31,7 +31,7 @@ If you want the raw release shelf and attached artifacts, use GitHub releases: <
 - Download: `/downloads/files/chummer-avalonia-win-x64-installer.exe`
 - File: `chummer-avalonia-win-x64-installer.exe`
 - Size: 92.0 MiB (96466473 bytes)
-- Access: Sign-in required.
+- Access: Public download.
 
 ### Linux
 
