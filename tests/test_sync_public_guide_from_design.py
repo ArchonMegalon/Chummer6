@@ -6,7 +6,8 @@ import unittest
 from pathlib import Path
 
 
-MODULE_PATH = Path("/docker/chummercomplete/Chummer6/scripts/sync_public_guide_from_design.py")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+MODULE_PATH = REPO_ROOT / "scripts" / "sync_public_guide_from_design.py"
 SPEC = importlib.util.spec_from_file_location("sync_public_guide_from_design", MODULE_PATH)
 assert SPEC is not None and SPEC.loader is not None
 guide_sync = importlib.util.module_from_spec(SPEC)
