@@ -19,7 +19,7 @@ Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)
 - Downloads are currently live for Windows, Linux, and macOS.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Proof scope: Public proof language is scoped to the files, named flows, and recent checks posted on the current shelf that a person can inspect today; it is not a blanket flagship-grade claim.
-- Claim boundary: Flagship wording is reserved for surfaces that meet the current public release bar; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.
+- Claim boundary: Flagship wording is reserved for surfaces that clearly meet the current public release expectations; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.
 - Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
 - Update note: Only expect fix notices after the affected download is available on the same public shelf.
 
