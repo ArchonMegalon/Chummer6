@@ -71,8 +71,72 @@ In the planning notes that shape the roadmap and the public guide.
             rendered,
         )
 
+    def test_download_rewrites_internal_acceptance_reference(self) -> None:
+        source = """# Download
+
+## What should I download first?
+
+- Start with the installer for your platform.
+
+## Current public download
+
+- Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "DOWNLOAD.md"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_with_start_here(
+                source_path,
+                "DOWNLOAD.md",
+                "## Current public download\n",
+            )
+
+        self.assertIn(
+            "Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
+            rendered,
+        )
+        self.assertNotIn("FLAGSHIP_RELEASE_ACCEPTANCE.yaml", rendered)
+
 
 class RenderManifestTests(unittest.TestCase):
+    def test_assets_are_derived_from_bundle_contents(self) -> None:
+        source = """{
+  "generated_by": "materialize_public_guide_bundle.py",
+  "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
+  "assets": [
+    "assets/hero/chummer6-hero.png"
+  ],
+  "status": "ok"
+}
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir)
+            source_path = tmp_path / "manifest.generated.json"
+            source_path.write_text(source, encoding="utf-8")
+            for relative_path in (
+                "assets/hero/chummer6-hero.avif",
+                "assets/hero/chummer6-hero.png",
+                "assets/hero/chummer6-hero.webp",
+                "assets/pages/horizons-index.avif",
+            ):
+                asset_path = tmp_path / relative_path
+                asset_path.parent.mkdir(parents=True, exist_ok=True)
+                asset_path.write_text("stub", encoding="utf-8")
+
+            rendered = _render_manifest(source_path)
+
+        self.assertIn('"assets/hero/chummer6-hero.avif"', rendered)
+        self.assertIn('"assets/hero/chummer6-hero.png"', rendered)
+        self.assertIn('"assets/hero/chummer6-hero.webp"', rendered)
+        self.assertIn('"assets/pages/horizons-index.avif"', rendered)
+        self.assertNotIn(
+            '"assets": [\n    "assets/hero/chummer6-hero.png"\n  ]',
+            rendered,
+        )
+
     def test_generated_from_is_normalized_to_repo_relative_path(self) -> None:
         source = """{
   "generated_by": "materialize_public_guide_bundle.py",

@@ -194,6 +194,13 @@ def _render_manifest(src: Path) -> str:
     if not src.exists():
         raise FileNotFoundError(src)
     manifest = json.loads(src.read_text(encoding="utf-8"))
+    assets_root = src.parent / "assets"
+    if assets_root.exists():
+        manifest["assets"] = [
+            path.relative_to(src.parent).as_posix()
+            for path in sorted(assets_root.rglob("*"))
+            if path.is_file()
+        ]
     generated_from = manifest.get("generated_from")
     if isinstance(generated_from, str):
         # Normalize path separators and harmless dot prefixes before trimming to
@@ -219,8 +226,17 @@ TEXT_REWRITES = {
             "- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n",
             "- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n",
         ),
+        (
+            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
+            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
+        ),
     ),
-    "DOWNLOAD.md": (),
+    "DOWNLOAD.md": (
+        (
+            "Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.",
+            "Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
+        ),
+    ),
     "FAQ.md": (
         (
             "## If you want the behind-the-scenes details",
