@@ -196,8 +196,9 @@ def _render_manifest(src: Path) -> str:
     manifest = json.loads(src.read_text(encoding="utf-8"))
     generated_from = manifest.get("generated_from")
     if isinstance(generated_from, str):
-        normalized_generated_from = generated_from.replace("\\", "/")
-        parts = [part for part in normalized_generated_from.split("/") if part]
+        # Normalize path separators and harmless dot prefixes before trimming to
+        # the repo-relative products/chummer manifest path.
+        parts = [part for part in generated_from.replace("\\", "/").split("/") if part and part != "."]
         for index in range(len(parts) - 1):
             if parts[index] == "products" and parts[index + 1] == "chummer":
                 manifest["generated_from"] = "/".join(parts[index:])

@@ -9,7 +9,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = REPO_ROOT / "scripts" / "sync_public_guide_from_design.py"
 SPEC = importlib.util.spec_from_file_location("sync_public_guide_from_design", MODULE_PATH)
-assert SPEC is not None and SPEC.loader is not None
+if SPEC is None or SPEC.loader is None:
+    raise ImportError(f"Unable to load module from {MODULE_PATH}")
 guide_sync = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(guide_sync)
 
@@ -121,6 +122,40 @@ class RenderManifestTests(unittest.TestCase):
             rendered = _render_manifest(source_path)
 
         self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
+
+    def test_generated_from_dot_prefixed_repo_relative_path_is_normalized(self) -> None:
+        source = """{
+  "generated_by": "materialize_public_guide_bundle.py",
+  "generated_from": "./products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
+  "status": "ok"
+}
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "manifest.generated.json"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_manifest(source_path)
+
+        self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
+        self.assertNotIn('"generated_from": "./products/chummer/', rendered)
+
+    def test_generated_from_windows_dot_prefixed_repo_relative_path_is_normalized(self) -> None:
+        source = """{
+  "generated_by": "materialize_public_guide_bundle.py",
+  "generated_from": ".\\\\products\\\\chummer\\\\PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
+  "status": "ok"
+}
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "manifest.generated.json"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_manifest(source_path)
+
+        self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
+        self.assertNotIn('"generated_from": ".\\\\products\\\\chummer\\\\', rendered)
 
 
 if __name__ == "__main__":
