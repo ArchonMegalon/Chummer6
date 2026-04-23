@@ -7,7 +7,7 @@ Quick links: [Home](README.md) | [Download](DOWNLOAD.md) | [Help](HELP.md)
 ## Current picture
 
 - Today: Usable preview.
-- Published: April 23, 2026 at 8:55 UTC.
+- Published: April 23, 2026 at 11:36 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows, Linux, and macOS.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.

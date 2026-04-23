@@ -6,7 +6,7 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 - It is still aiming for a dense desktop workbench, not a stripped-down dashboard.
 - Character editing, file work, settings, and roster tasks are supposed to stay close at hand.
-- If both desktop apps appear for your platform, the Avalonia desktop app is the main one to try and the Blazor desktop app is the backup option.
+- If both desktop apps appear for your platform, the Avalonia desktop app is the main one to try and the Blazor desktop app is the fallback path only when the download page or support explicitly tells you to use it.
 
 ## What gets better
 
@@ -25,6 +25,7 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 - Downloads are currently live for Windows, Linux, and macOS.
 - Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
+- Posted proof is scoped to the current files and flows you can inspect today; it is not a blanket flagship claim.
 - It should still be read as a serious preview, not a finished no-step-back replacement yet.
 
 ## Read next

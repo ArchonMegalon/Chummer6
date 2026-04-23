@@ -14,7 +14,9 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 - Short answer: yes, as an early preview.
 - Downloads are currently live for Windows, Linux, and macOS.
-- If you see both desktop apps, start with the Avalonia desktop app. Use Blazor desktop app only if a page tells you it is the backup option for your case.
+- Proof on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; it is not a blanket flagship-complete claim and it does not outrank the recommended install route.
+- Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
+- If you see both desktop apps, start with the Avalonia desktop app. Treat Blazor desktop app as a fallback path only when the download page or support explicitly tells you to use it.
 - Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 - Today: Usable preview.
 - Public downloads are visible on every promised desktop platform.
