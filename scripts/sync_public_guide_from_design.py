@@ -194,13 +194,6 @@ def _render_manifest(src: Path) -> str:
     if not src.exists():
         raise FileNotFoundError(src)
     manifest = json.loads(src.read_text(encoding="utf-8"))
-    assets_root = src.parent / "assets"
-    if assets_root.exists():
-        manifest["assets"] = [
-            path.relative_to(src.parent).as_posix()
-            for path in sorted(assets_root.rglob("*"))
-            if path.is_file()
-        ]
     generated_from = manifest.get("generated_from")
     if isinstance(generated_from, str):
         # Normalize path separators and harmless dot prefixes before trimming to
