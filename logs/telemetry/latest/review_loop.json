@@ -1,23 +1,23 @@
 {
   "accepted_on_round_counts": {
-    "1": 147
+    "1": 148
   },
   "cheap_loop_only_share": 1.0,
   "conditional_r2_accept_rate": 0.0,
   "conditional_r3_accept_rate": 0.0,
   "core_rescue_rate": 0.0,
   "first_pass_accept_rate": 1.0,
-  "generated_at": "2026-04-24T02:13:58Z",
+  "generated_at": "2026-04-24T02:15:54Z",
   "landed_slices_per_day": {
     "2026-04-21": 5,
     "2026-04-23": 92,
-    "2026-04-24": 50
+    "2026-04-24": 51
   },
   "paid_lane_activation_count": 0,
   "review_bottleneck": "review",
-  "review_wait_fraction": 0.966,
+  "review_wait_fraction": 0.965,
   "schema_version": 1,
   "shadow_assist_rate": 0.0,
-  "total_landed_slices": 147,
+  "total_landed_slices": 148,
   "zero_credit_slices_landed": 7
 }
