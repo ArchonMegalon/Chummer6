@@ -1,35 +1,49 @@
 # ALICE
 
-Builders get grounded what-if checks instead of vague AI advice.
+![ALICE banner](../assets/horizons/alice.png "simulation before regret.")<br>_[simulation before regret.](../assets/horizons/alice.png)_
 
-![ALICE horizon art](../assets/horizons/alice.png)
+**Grounded what-if analysis before the bad build hits public view.**
 
-## Why this matters
+_Status: Horizon only — future idea, not active build work._
 
-We only discover weak builds after they explode in public.
+## What problem does this solve?
 
-Picture the scene: A player compares two builds and sees the tradeoffs, the math, and the likely trouble spots before the session starts.
+It is cheaper to catch a weak build early than to apologize for it later.
+
+## A real table scene
+
+Player: I thought this build was clean.
+GM: ALICE says the weak point shows up on turn two, not after the campaign starts.
+Decker: Good. I would rather get roasted by a preflight than by the whole table.
+Chummer6: The hallway goes loud, your soak folds, and the plan stops being clever.
+Player: Show me the evidence, not the vibes.
+GM: Exactly. Humiliation is cheaper in preview.
+
+<p align="center"><img src="../assets/horizons/details/alice-scene.png" alt="ALICE dialogue scene still" width="420"></p>
 
 
-## Current stage
+## Meanwhile, Chummer is doing this
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Comparative analysis has to stay tied to visible proof instead of fuzzy assistant theater
+- Preflight checks only matter if they are explainable enough for a skeptical table
 
-## The problem
+## Why that would be great
 
-Players often discover bad builds, illegal interactions, or weak upgrade paths only after the run has already gone sideways.
+It could catch weak assumptions before they become public embarrassment or campaign drag.
 
-## What it would do
+## Why it is still a Horizon
 
-Chummer would compare builds, catch trouble before play, and explain tradeoffs without making up rules or legality.
+Advice that sounds clever but cannot show its work is worse than silence, so this stays hypothetical until the evidence holds.
 
-## What has to be true first
+## What would need to exist first
 
-* explain views that show their work
-* deterministic runtime data
-* strong comparison flows
+- D0
+- D2
+- E0
 
-## Why it is not ready yet
+## Pitch your own future
 
-Chummer still needs sturdier compare-and-explain views before it should start giving confident build advice.
+Catch the weak build before the table has to.
+---
+
+<sub>Updated: 2026-04-25</sub>

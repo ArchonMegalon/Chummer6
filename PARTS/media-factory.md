@@ -1,16 +1,14 @@
 # Media Factory
 
-The dedicated media studio.
+![Media Factory banner](../assets/parts/media-factory.png "where the image experiments get pushed through the grinder.")<br>_[where the image experiments get pushed through the grinder.](../assets/parts/media-factory.png)_
 
-![Media Factory guide art](../assets/parts/media-factory.png)
-
-## When you care
-
-You care about finished images, teaser media, dossiers, narrated packets, or other polished outputs that still need a clear source trail.
-
-## Why you care
+**The dedicated media studio.**
 
 This is how the product can look finished without letting style quietly rewrite the facts.
+
+## You touch this when...
+
+You care about finished images, teaser media, dossiers, narrated packets, or other polished outputs that still need a clear source trail.
 
 ## What you notice
 
@@ -18,16 +16,19 @@ This is how the product can look finished without letting style quietly rewrite 
 - a stronger line between content rendering and product meaning
 - a path toward richer teaser and release media without forcing every product area to become its own studio
 
-## Current limits
+## What you do not need to care about yet
 
 - this is not the decision-maker for what a session means
 - it should stay focused on media production even when the outputs get more ambitious
 
-## Current state
+## What is true right now
 
 Media Factory is where polished media gets produced and curated, and the current work is about making richer outputs possible without blurring where the material came from or who owns it.
 
 ## Go deeper
 
-- ../NOW/public-surfaces.md
-- ../WHERE_TO_GO_DEEPER.md
+- [Public surfaces](../NOW/public-surfaces.md)
+- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+---
+
+<sub>Updated: 2026-04-25</sub>

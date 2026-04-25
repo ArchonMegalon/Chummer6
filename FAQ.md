@@ -64,11 +64,11 @@ No. The intended direction is that browsing runs, applying with a quickstart or 
 
 No. The intended posture is that Chummer owns rules, applications, schedule receipts, and world consequences, while Discord, Teams, and VTTs remain play or communication surfaces.
 
-## If you want more detail
+## If you want the behind-the-scenes details
 
 ### Where does the deeper plan live?
 
-Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.
+In the planning notes that shape the roadmap and the public guide.
 
 ### Where does the actual code live?
 
@@ -77,3 +77,10 @@ In the Chummer code. Most people never need it to install Chummer6, use it, or r
 ### Where do I propose public-facing changes?
 
 Use the Chummer6 issue tracker for documentation feedback, bug reports, and feature requests.
+
+## Support and participation
+
+If you want the public help lane or the bounded booster flow, read [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md) and, when you are ready, open the public participation page at [https://chummer.run/participate](https://chummer.run/participate).
+---
+
+<sub>Updated: 2026-04-25</sub>

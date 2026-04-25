@@ -1,22 +1,70 @@
 # Updates
 
-This folder keeps short notes on the bigger guide refreshes.
+If you are checking whether this idea is still moving, this is the shortest honest shelf.
 
-## Start with the live pages
-
-- [../README.md](../README.md)
-- [../STATUS.md](../STATUS.md)
-- [../DOWNLOAD.md](../DOWNLOAD.md)
-- [../HELP.md](../HELP.md)
-
-If you only care about what works right now, those pages matter more than this archive.
+These entries track Chummer-facing repos only. Fleet and EA pushes do not appear here.
 
 ## Latest substantial pushes
 
-- The front door now answers the basic product questions faster.
-- The cover art is stronger and less placeholder-looking than before.
-- Status, download, and help pages are easier to skim when you just want an answer.
+### 2026-04-24 · Fix feedback: GitHub Codex Review (+1 more feedback note(s)).
+
+- Surface: Guide
+- Source push: `Fix feedback: GitHub Codex Review (+1 more feedback note(s))`
+- What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-04-24 · Close M112 core campaign portability slice.
+
+- Surface: Design
+- Source push: `Close M112 core campaign portability slice`
+- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-04-24 · Honor requested channel override in public channel materialization.
+
+- Surface: Registry
+- Source push: `Honor requested channel override in public channel materialization`
+- What changed for you: The visible Chummer surface moved a little, even if most of the work is still beneath the floorboards.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-04-24 · The public rules for the project got tighter.
+
+- Surface: chummer.run
+- Source push: `Normalize promoted canonical metadata to merged compatibility projection`
+- What changed for you: The repos are doing a little less free-styling about what should be visible to normal humans.
+- Still not promised: that the implementation already lives up to that contract.
+
+### 2026-04-23 · Close M110 hub runsite orientation metadata.
+
+- Surface: Design
+- Source push: `Close M110 hub runsite orientation metadata`
+- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-04-23 · Close M110 runsite orientation request proof.
+
+- Surface: chummer.run
+- Source push: `Close M110 runsite orientation request proof`
+- What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-04-23 · Close M108 media-factory successor package.
+
+- Surface: Design
+- Source push: `Close M108 media-factory successor package`
+- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
+### 2026-04-23 · The visuals moved a little closer to intention.
+
+- Surface: Design
+- Source push: `Close M108 desktop campaign-home artifacts`
+- What changed for you: The guide imagery and scene language are being pushed away from filler and toward something worth looking at.
+- Still not promised: that every image is final or even good yet.
 
 ## Monthly archive
 
-- [2026-03](2026-03.md)
+- [2026-04](./2026-04.md)
+---
+
+<sub>Updated: 2026-04-25</sub>

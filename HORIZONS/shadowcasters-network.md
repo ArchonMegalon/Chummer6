@@ -1,66 +1,54 @@
 # SHADOWCASTERS NETWORK
 
-A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
+![SHADOWCASTERS NETWORK banner](../assets/horizons/shadowcasters-network.png)
 
-![SHADOWCASTERS NETWORK horizon art](../assets/horizons/shadowcasters-network.png)
+**Open-run recruiting, scheduling, prep, and closeout built on governed campaign truth.**
 
-## Why this matters
+_Status: Horizon only — future idea, not active build work._
 
-Finding a table still means juggling community rules, approvals, chats, calendars, and follow-up by hand.
+## What problem does this solve?
 
-Picture the scene: A player finds a beginner-friendly run, applies with a legal runner or quickstart decker, gets scheduled, and the finished session changes the city.
+Finding a run is easy to fake; finding the right table, legal runner, consent boundary, and closeout loop is not.
+
+## A real table scene
+
+Player: I found a beginner-friendly run, but I need to know whether my runner actually fits.
+Chummer6: Seat request checked against table limits, consent tags, and prep packet requirements.
+GM: I want scheduling handled, not another loose chat thread.
+Organizer: And the result has to close back into the city after the run.
+Chummer6: Roster, handoff, and resolution report stay attached to the same job.
+Player: Good. I want a table, not a rumor with a calendar link.
+
+<p align="center"><img src="../assets/horizons/details/shadowcasters-network-scene.png" alt="SHADOWCASTERS NETWORK dialogue scene still" width="420"></p>
 
 
-## Current stage
+## Meanwhile, Chummer is doing this
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Open-run access only works if job packets, runner legality, consent, and scheduling stay governed
+- BLACK LEDGER consequences must be trustworthy enough before open tables can feed them
+- Closeout needs to return useful world truth without exposing private table details
 
-## The problem
+## Why that would be great
 
-Finding a table still means juggling community rules, approvals, chats, calendars, meeting links, roster notes, and after-session follow-up just to get the right people to the table and close the loop afterward.
+It could turn campaign prep into a practical network where players find real seats, GMs get usable rosters, and completed sessions feed the living world with reviewable closeout.
 
-## What it would do
+## Why it is still a Horizon
 
-SHADOWCASTERS NETWORK would turn BLACK LEDGER and campaign prep into a practical recruitment, scheduling, prep, and closeout layer.
+The network should wait until job packets, authority handoff, consent policy, and BLACK LEDGER consequence flow can hold up under real community use.
 
-It would let a GM:
+## What would need to exist first
 
-* publish an open run from a job packet, custom run, or creator module
-* accept join requests tied to player accounts and runner dossiers or approved quickstarts
-* apply a visible community rule environment and application preflight before roster lock
-* give players a clear table contract before scheduling
-* schedule the session through a Chummer-owned receipt path
-* hand accepted players off to Discord, Teams, or another meeting space without giving those tools run truth
-* export runner, opposition, and handout packets to play surfaces without making those play surfaces authoritative
-* give a first-time GM enough autopilot structure to run a beginner table
-* collect a resolution report that feeds the living world back into BLACK LEDGER
-* optionally award seasonal honors and runner-legends from typed, spoiler-safe events
+- C0
+- C1
+- D0
+- D1
+- D2
+- E2b
+- F1
 
-The public fantasy is:
+## Pitch your own future
 
-> A GM opens a run on the map.
-> The right players find it.
-> Chummer gets the table into the session.
-> The outcome changes the city.
+Find the run, fit the runner, schedule the table, and close the result back into the city.
+---
 
-## What has to be true first
-
-* BLACK LEDGER job packets and world consequences must already be trustworthy enough to seed open runs
-* campaign and run truth must remain Chummer-owned even when meeting platforms are involved
-* community rule environments, roster fit, and rule-environment preflight must be explainable rather than magical
-* quickstart and mobile-first entry paths must be good enough that “no Windows PC” is not an automatic exclusion
-* a beginner GM must be able to open, staff, prep, schedule, and close a starter run without stitching together five external tools
-* observer and debrief lanes must be strictly consent-gated
-* reputation and seasonal honors must derive from typed source events rather than hidden scoring
-
-## Why it is not ready yet
-
-This only works if Chummer can prove four things at once:
-
-1. open-run listings, roster truth, and meeting handoff stay in one trustworthy system,
-2. community-rule environments, quickstarts, and preflight make it easier to join instead of adding another review maze,
-3. third-party scheduling, meeting, and play surfaces never outrank Chummer-owned receipts,
-4. observer and debrief assistance never slips into hidden surveillance, and seasonal honors stay motivating without turning into a toxic ranking game.
-
-Until those boundaries are strong enough, SHADOWCASTERS NETWORK should remain a horizon rather than a shipped community promise.
+<sub>Updated: 2026-04-25</sub>

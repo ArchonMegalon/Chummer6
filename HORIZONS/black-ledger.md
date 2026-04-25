@@ -1,53 +1,54 @@
 # BLACK LEDGER
 
-The world gives the GM a live job board, practical prep hooks, and a visible memory of what the table changed.
+![BLACK LEDGER banner](../assets/horizons/black-ledger.png)
 
-![BLACK LEDGER horizon art](../assets/horizons/black-ledger.png)
+**A governed city memory that turns finished runs into useful future pressure.**
 
-## Why this matters
+_Status: Horizon only — future idea, not active build work._
 
-I want the city to matter between sessions without needing a metagame spreadsheet to prep the next run.
+## What problem does this solve?
 
-Picture the scene: A GM opens Seattle, sees which districts are hot, picks a job with grounded opposition and consequences, runs it, and later watches the map remember the fallout.
+Campaign worlds feel alive only if consequences survive the session without stealing authority from the GM.
+
+## A real table scene
+
+GM: The Redmond job is done, but the city should not forget it by next week.
+Chummer6: Resolution report staged. District pressure rises, one faction project advances, one player-safe rumor is ready.
+Player: Can the table see the fallout without seeing every spoiler?
+Fixer: I want the next job to feel connected, not prewritten.
+GM: Good. The map remembers, but I still approve what becomes true.
+Chummer6: Consequence waits for GM signoff before the ledger talks back.
+
+<p align="center"><img src="../assets/horizons/details/black-ledger-scene.png" alt="BLACK LEDGER dialogue scene still" width="420"></p>
 
 
-## Current stage
+## Meanwhile, Chummer is doing this
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- World memory only helps if GM approval, spoiler boundaries, and source trails stay clear
+- Mission-market hooks have to improve prep without turning the campaign into an autonomous strategy game
+- Player-safe city news must be useful without leaking private campaign truth
 
-## The problem
+## Why that would be great
 
-Campaigns can feel sealed off from each other, the city rarely pushes back on its own, and GMs often have to invent heat, corp agendas, district pressure, opposition, and fresh jobs from nothing between sessions.
+It could make campaigns feel connected across jobs by turning approved consequences into map pressure, prep hooks, faction motion, and player-safe news the table can actually use.
 
-## What it would do
+## Why it is still a Horizon
 
-BLACK LEDGER would add a governed world map and mission-market layer above the campaign spine. District pressure, reviewed intel, faction projects, and completed runs would feed a living GM job board, planned and completed run markers, practical prep hooks, and player-safe city news without taking campaign authority away from the GM.
+The layer has to prove authority boundaries, spoiler policy, and consequence receipts before it deserves to affect a living campaign.
 
-The public fantasy is:
+## What would need to exist first
 
-> The city keeps scheming between sessions, and every run changes who owns tomorrow.
+- C0
+- C1
+- D0
+- D1
+- D2
+- E2b
+- F1
 
-## What has to be true first
+## Pitch your own future
 
-* campaign truth and world truth stay separate, with the GM still deciding what becomes real for one table
-* world-linked offers, pressure, and consequences stay receipt-backed instead of becoming invisible simulation drift
-* organizer, GM, curator, and later faction-seat authority are clearly separated
-* scheduling, resolution, and publication outputs never outrank run truth or leak private state
-* player-safe city news can be published without letting synthesis or media lanes become canonical truth
+Let the city remember the run without letting the software become the GM.
+---
 
-## Why it is not ready yet
-
-This only works if Chummer can prove three things at once:
-1. campaigns stay the center of play instead of becoming subordinate to a metagame,
-2. world-linked pressure, jobs, prep hooks, and rewards stay inspectable through receipts and approvals,
-3. organizer, GM, and future manager-player authority are separated cleanly enough that the city feels alive without becoming arbitrary.
-
-The first proof gate should be a deliberately small vertical slice rather than a full simulation:
-
-> A GM can open the map, understand why a job exists, get usable prep from it, schedule it, report the result, and watch the world change.
-
-That first proof is not a giant faction simulator.
-It is one city, one tick, one adopted job, one scheduled session, one reported outcome, and one visible consequence.
-
-Until those boundaries are trustworthy, BLACK LEDGER should stay a horizon rather than a shipment promise.
+<sub>Updated: 2026-04-25</sub>

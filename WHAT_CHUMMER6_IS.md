@@ -1,18 +1,73 @@
 # What Chummer6 Is
 
-Chummer6 is the explainable Shadowrun campaign OS.
+![What Chummer6 is banner](assets/pages/what-chummer6-is.png "less mystical rulings, more visible receipts.")<br>_[less mystical rulings, more visible receipts.](assets/pages/what-chummer6-is.png)_
 
-Its first must-win job is being the most trustworthy way to build, inspect, and advance a Shadowrun character.
+Chummer6 is Shadowrun campaign-OS tooling aimed at making rulings, prep, and table state inspectable instead of mystical.
 
-The point is to help you:
+The pitch is visible reasoning, clearer modifier trails, grounded campaign artifacts, and a more trustworthy prep-to-play surface. The public preview is still moving, but the value proposition is concrete enough to judge on its merits instead of waiting for folklore or wishful thinking.
 
-- build and advance a character without mystery math
-- inspect why a pool or modifier changed
-- keep session and campaign continuity readable when devices or connectivity drift
+## What it is becoming for players and GMs
 
-This guide is here to help you decide quickly whether Chummer6 is worth your time right now and where to go for help next.
+Chummer6 is not just trying to be a character manager with nicer chrome. It is trying to become a toolkit that helps players and GMs:
 
-Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
-If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
-If you want future ideas after that, use [Horizons](HORIZONS/README.md).
-If you want the deeper guide after that, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
+- get a ruling quickly
+- see why that ruling happened
+- keep playing when the network misbehaves
+- carry different rules eras without pretending they are identical
+- handle odd table logic in code instead of folklore
+
+## A real table moment
+
+> **GM**<br>
+> "You are wounded, sustaining, and standing in bad weather. Roll it."
+
+> **Player**<br>
+> "Why is my pool lower than I expected?"
+
+> **Chummer6**<br>
+> "Base 11. Wounds -1. Sustaining -1. Weather -1. Final 8."
+
+> **GM**<br>
+> "Good. We move."
+
+That is the product story in miniature. Not "trust me, bro." Not "dig through source." Just a fast answer with enough proof to keep the table moving.
+
+## Why that matters at the table
+
+When the number moves, the table should not have to stop and reverse-engineer folklore. When the network gets stupid, the session should not die. When a table uses a weird era mix or one cursed house rule, that weirdness should have a real home instead of a pile of "remember this next time" notes.
+
+## What feels different from older opaque tool behavior
+
+The project is leaning harder into explicit trust:
+
+- same inputs should produce the same result
+- the result should come with a readable receipt
+- the session should survive local or offline reality
+- the active rules and config stack should be visible
+- the ugly edge cases should have a real extension lane
+
+## The kinds of trust it wants to earn
+
+- **Math trust:** the number should be reproducible.
+- **Receipt trust:** the path to the number should be visible.
+- **Session trust:** your table should not collapse because Wi-Fi had a mood.
+- **Change trust:** custom rules, era differences, and future expansions should be legible instead of spooky.
+
+## What you would actually notice on game night
+
+- fewer "wait, why did that number move?" pauses
+- fewer arguments that depend on memory or volume
+- faster recovery when one device falls out of the session
+- clearer separation between verified facts, inferred summaries, and made-up nonsense
+- more honest labels about what is real now versus still moving
+
+## Why there are multiple parts
+
+The project has multiple parts because each job is different. Rules truth, prep, live play, online coordination, shared UI, artifact handling, render jobs, and the long-range plan all need room to do their work without turning into one giant haunted monolith.
+
+If you want that map, go to [PARTS/README.md](PARTS/README.md).
+
+Need the long-range plan or implementation trail after the product story? Start with [PARTS/README.md](PARTS/README.md) or [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md).
+---
+
+<sub>Updated: 2026-04-25</sub>

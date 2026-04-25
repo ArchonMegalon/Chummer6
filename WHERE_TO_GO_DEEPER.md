@@ -1,21 +1,31 @@
 # Where To Go Deeper
 
-If you are still deciding whether Chummer6 is useful to you, stay on the public guide first.
+![Where to go deeper banner](assets/pages/where-to-go-deeper.png "the archive path once the front door stops being enough.")<br>_[the archive path once the front door stops being enough.](assets/pages/where-to-go-deeper.png)_
 
-Start there:
+This is the path for when the friendly tour stops being enough.
 
-- [README.md](README.md)
-- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [Help](HELP.md)
-- [FAQ](FAQ.md)
-- [Contact](CONTACT.md)
+If you want the long-range plan, the actual software, or the place to call out stale/confusing guide copy, start here instead of guessing which page or tracker is secretly in charge.
 
-Go deeper only when you want more than the main public pages:
+## Start here when you want more than the tour
 
-- [Horizons index](HORIZONS/README.md): future ideas and experiments.
-- [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- Most readers can stop there. The rest of the repo is only for people who want extra detail.
+- Read the design notes when you want the long-range plan.
+- Open the application workspaces when you want the software itself.
+- Use [How Can I Help?](HOW_CAN_I_HELP.md) when you want the public support lane or the Hub booster flow.
+- Come back to Chummer6 when you want the friendly guided version again.
 
-The point of this guide is that normal readers should not have to dig through internal detail just to decide whether Chummer6 is for them.
+## What each place is for
+
+- Design notes: the long-range plan and deeper tradeoffs
+- Application workspaces: the working software and implementation detail
+- Chummer6: the friendly guide, examples, and public-facing orientation
+
+## If you want the source of truth
+
+Chummer6 is the friendly guide.
+
+- The design notes hold the long-range plan
+- the application workspaces hold the software
+- if this guide feels stale or confusing, call it out here so it can be fixed
+---
+
+<sub>Updated: 2026-04-25</sub>

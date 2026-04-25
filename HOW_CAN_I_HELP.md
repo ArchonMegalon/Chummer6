@@ -1,13 +1,33 @@
 # How Can I Help?
 
-If you hit a bug, confusing rules math, or rough wording, start with the normal help path first.
+If you want to support Chummer6, there are two clean lanes: public feedback and booster help.
 
-- [Help](HELP.md) covers install help, updates, sign-in, and private crash reporting.
-- [Contact](CONTACT.md) is the main place to report product trouble or give feedback.
-- If you want to help more directly, there is also an optional guided contribution and booster path at <https://chummer.run/participate>.
-- Use the public issue tracker when you specifically want a public bug thread: <https://github.com/ArchonMegalon/Chummer6/issues>
+## Public feedback lane
 
-## Participation safety
+If you want to help without touching premium participation at all, use the public front door:
+
+* file a public bug
+* send lightweight product feedback
+* flag confusing public copy
+* suggest a future lane
+* point at a horizon that sounds more useful than the current list
+* suggest or vote on a public ProductLift idea when it is not support, account, install, crash, private campaign, or copyrighted rules text
+
+That keeps feedback public and legible instead of making normal humans spelunk through design canon.
+
+ProductLift feedback is public. Do not post private logs, account data, campaign spoilers, copyrighted source text, crash dumps, or support requests there. Use Chummer Help for support.
+
+ProductLift roadmap and changelog pages are projections from Chummer-owned truth. They are not implementation priority, release authority, or support-case state.
+
+## Booster lane
+
+
+
+## Start the participation flow
+
+- [Open the public participation page](https://chummer.run/participate)
+
+## Privacy and review safety
 
 - the cheap baseline remains the default path
 - guided contribution is not a merge bypass
@@ -15,6 +35,20 @@ If you hit a bug, confusing rules math, or rough wording, start with the normal 
 - people can stop or revoke later
 - private recognition settings remain valid even when badges or leaderboards exist
 
-Some guided-preview lanes are resource-heavy today, but the long-run intent is free later rather than keeping the useful parts locked behind a permanent paywall.
+## Free later note
 
-If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).
+Some expensive future lanes may begin as **guided previews** while approvals, compatibility, editorial work, provenance, or support cost remain unusually heavy.
+
+That is not the same thing as a permanent paywall.
+When those lanes become cheaper and safer to operate broadly, the long-run intent is wider access rather than keeping the interesting parts locked forever.
+
+## Primary CTAs
+
+- Open the public participation page
+- File a public issue
+- Send a private crash report from the recovery flow when Chummer closes unexpectedly
+- Link this copy to your account if you want fix-status follow-up and account-aware support history
+- Read current status before promising yourself too much
+---
+
+<sub>Updated: 2026-04-25</sub>

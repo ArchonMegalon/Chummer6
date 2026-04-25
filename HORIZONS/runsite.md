@@ -1,38 +1,50 @@
 # RUNSITE
 
-Mission spaces become explorable and legible before the action starts.
+![RUNSITE banner](../assets/horizons/runsite.png)
 
-![RUNSITE horizon art](../assets/horizons/runsite.png)
+**Mission spaces that become legible before the bullets do.**
 
-## Why this matters
+_Status: Horizon only — future idea, not active build work._
 
-My players still misread the space even after the briefing.
+## What problem does this solve?
 
-Picture the scene: A GM sends an explorable safehouse pack with hotspots, floor plans, route overlays, and optional narration before the session.
+A briefing is still doing half the work if the table cannot read the space.
+
+## A real table scene
+
+A ghosted floor plan climbs the wet concrete between the crates.
+GM: Here is the site before anyone has to improvise the floor plan from memory.
+Player: Good. I would like to know where the exits are before I need one.
+Rigger: Route overlay makes sense for once.
+Chummer6: West stair choke point marked. Two cleaner ingress lanes still open.
+Face: So the room stops being a surprise punishment box.
+GM: Exactly.
+
+<p align="center"><img src="../assets/horizons/details/runsite-scene.png" alt="RUNSITE dialogue scene still" width="420"></p>
 
 
-## Current stage
+## Meanwhile, Chummer is doing this
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Briefing-space artifacts have to stay bounded and useful instead of drifting into fake live-session truth
+- The lane only works if mission-space clarity gets better without pretending to be a VTT replacement
 
-## The problem
+## Why that would be great
 
-GMs spend too long describing spaces, and players still misread compounds, clubs, hotels, museums, arcologies, and safehouses once the action starts.
+It could make mission spaces easier to read before the action starts, which is usually when that clarity matters most.
 
-## What it would do
+## Why it is still a Horizon
 
-Chummer would publish explorable location packs linked to mission briefings.
-They could include floor plans, hotspots, route overlays, optional narration, and static map context, but they stay focused on helping you understand the space before the run starts, not on replacing live combat tools or a VTT.
-RUNSITE is for briefing, planning, and spatial understanding before things go loud.
+Spatial help is only worth shipping if it stays bounded to briefing and planning instead of promising a whole combat shell by accident.
 
-## What has to be true first
+## What would need to exist first
 
-* clean media manifests
-* permissioned publication links
-* preview and embed receipts
-* reliable map and render adapters
+- C1
+- C1c
+- E2b
 
-## Why it is not ready yet
+## Pitch your own future
 
-The new vendor path makes this more plausible, but Chummer still needs a reliable permission model and a clear source trail before it should present RUNSITE as a real feature.
+Make the site legible before the run makes it urgent.
+---
+
+<sub>Updated: 2026-04-25</sub>
