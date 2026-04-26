@@ -600,41 +600,6 @@ It makes Chummer more than the place where your runner sheet lives.
 It becomes the place where factions scheme, GMs find jobs, players join runs, runners become legends, intel becomes opportunity, sessions become consequences, news tells the story, and the city changes.
 
 **BLACK LEDGER is where the shadows remember.**
-
-## Canon Links
-
-* `products/chummer/WORLD_STATE_AND_MISSION_MARKET_MODEL.md`
-* `products/chummer/WORLD_MAP_AND_INTEL_ECONOMY_MODEL.md`
-* `products/chummer/WORLD_TICK_OPERATOR_PROCESS.md`
-* `products/chummer/NEWSREEL_AND_CITY_TICKER_MODEL.md`
-* `products/chummer/BLACK_LEDGER_MAP_AND_NEWSREEL_WORKFLOWS.yaml`
-* `products/chummer/BLACK_LEDGER_ADMIN_WORKBENCH_MODEL.md`
-* `products/chummer/BLACK_LEDGER_SEASON_OPERATOR_PLAYBOOK.md`
-* `products/chummer/SIGNITIC_FACTION_WAR_AND_WORLD_TICK_CAMPAIGNS.md`
-* `products/chummer/SHADOWCASTERS_OPERATIONS_MODEL.md`
-
-## Why that would be great
-
-BLACK LEDGER is Chummer's living-world layer: a persistent Shadowrun power struggle where factions, GMs, players, runners, creators, and organizers all push on the same city, and the city pushes back.
-
-## Why it is still a Horizon
-
-BLACK LEDGER only works if Chummer proves three things at once: campaigns stay the center of play, world-linked pressure stays inspectable through receipts and approvals, and organizer, GM, and future faction-seat authority stay cleanly separated.
-
-## What would need to exist first
-
-- C0 - campaign, run, and Hub-owned receipt boundaries
-- C1 - campaign authority and player-safe visibility gates
-- D0 - deterministic projections from Chummer-owned state
-- D1 - sync and restore behavior for world-linked state
-- D2 - portability, receipts, and missing-package warnings
-- E2b - media artifact provenance and publication review
-- F1 - public-surface and community trust controls
-- Product Governor review for world-tick, public-news, and artifact publication
-
-## Pitch your own future
-
-Let the city remember the run without letting the software become the GM.
 ---
 
 <sub>Updated: 2026-04-26</sub>

@@ -653,35 +653,6 @@ Chummer should make it safe.
 It is where a GM's table rule becomes a campaign environment. Where a community's tradition becomes an approved season pack. Where a creator's variant becomes something other tables can inspect and reuse. Where BLACK LEDGER's world consequences become playable rewards and threats. Where Chummer5a's custom-data legacy becomes a safer future.
 
 KARMA FORGE is the place where tables shape their own Shadowrun without burning down the campaign.
-
-## Canon Links
-
-* `products/chummer/KARMA_FORGE_DISCOVERY_AND_HOUSE_RULE_INTAKE.md`
-* `products/chummer/KARMA_FORGE_DISCOVERY_LAB_WORKFLOWS.yaml`
-* `products/chummer/HOUSE_RULE_DISCOVERY_REGISTRY.yaml`
-* `products/chummer/EXTERNAL_TOOLS_PLANE.md`
-* `products/chummer/PREMIUM_AND_COMMUNITY_PACKAGING_MODEL.md`
-
-## Why that would be great
-
-KARMA FORGE is Chummer's governed house-rule and custom-rules layer. It turns a table rule into an explicit rule environment with packages, manifests, compatibility metadata, activation receipts, impact previews, approval posture, rollback, and restore behavior.
-
-## Why it is still a Horizon
-
-Rule changes can fracture tables quickly if compatibility, rollback, visibility, and restore behavior are not dependable first. KARMA FORGE should stay a horizon until a small vertical slice proves that a rule package can be activated, explained, tested against real runner dossiers, restored on another device, rolled back, and reviewed without violating engine authority.
-
-## What would need to exist first
-
-- A1 - deterministic rules packages and catalog authority
-- A2 - ruleset ABI discipline and compatibility metadata
-- C0 - Hub-owned campaign and registry receipts
-- D2 - restore-safe sync, package portability, and missing-package warnings
-- Product Governor approval paths for package promotion, public copy, and discovery outcomes
-- External-tool boundaries from EXTERNAL_TOOLS_PLANE.md
-
-## Pitch your own future
-
-Evolve the rules without pretending every clever hack deserves to become canon.
 ---
 
 <sub>Updated: 2026-04-26</sub>
