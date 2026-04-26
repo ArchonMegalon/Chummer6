@@ -1,20 +1,20 @@
-# BLACK LEDGER — the city keeps scheming
+# BLACK LEDGER
 
-**BLACK LEDGER is Chummer’s living-world layer: a persistent Shadowrun power struggle where megacorps, factions, GMs, players, runners, organizers, creators, and community organizers all push on the same city — and the city pushes back.**
+The world gives the GM a live job board, practical prep hooks, and a visible memory of what the table changed.
 
-Chummer already helps you build runners, explain rules, manage campaigns, and publish artifacts. BLACK LEDGER goes one level higher:
+![BLACK LEDGER city map with augmented-reality overlays](../assets/horizons/black-ledger.png)
 
-> **What if the world between runs was alive?**  
-> What if every completed run changed the map?  
-> What if player-submitted intel became future mission hooks?  
-> What if megacorps had goals, budgets, rivalries, secrets, and propaganda?  
-> What if GMs could open the job board and see runs that emerged from real faction pressure?
+## Why this matters
 
-BLACK LEDGER is where that happens.
+I want the city to matter between sessions without needing a metagame spreadsheet to prep the next run.
 
-It is not just a random mission generator. It is a **living mission market**, **world map**, **faction engine**, **intel network**, and **campaign memory layer** for Chummer.
+Picture the scene: A GM opens Seattle, sees which districts are hot, picks a job with grounded opposition and consequences, runs it, and later watches the map remember the fallout.
 
----
+
+## Current stage
+
+- Today: Future concept.
+- Next: Research and prototypes.
 
 ## The promise
 

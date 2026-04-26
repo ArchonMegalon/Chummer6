@@ -20,26 +20,28 @@ SYNC_FILES = (
     "HELP.md",
     "FAQ.md",
     "CONTACT.md",
-    "GLOSSARY.md",
     "manifest.generated.json",
 )
 
 SYNC_DIRS = (
     "PARTS",
     "HORIZONS",
-    "NOW",
     "TRUST",
-    "UPDATES",
     "assets",
 )
+
+OPTIONAL_SYNC_FILES = ("GLOSSARY.md",)
+OPTIONAL_SYNC_DIRS = ("NOW", "UPDATES")
 
 START_HERE_BLOCKS = {}
 
 WRAPPERS = {}
 
 
-def _copy_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
+def _copy_file(src: Path, dest: Path, check: bool, failures: list[str], optional: bool = False) -> None:
     if not src.exists():
+        if optional:
+            return
         failures.append(f"missing source file: {src}")
         return
     if check:
@@ -177,8 +179,10 @@ def _sync_transformed_file(
     dest.write_text(expected, encoding="utf-8")
 
 
-def _sync_dir(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
+def _sync_dir(src: Path, dest: Path, check: bool, failures: list[str], optional: bool = False) -> None:
     if not src.exists():
+        if optional:
+            return
         failures.append(f"missing source directory: {src}")
         return
     if check:
@@ -186,17 +190,27 @@ def _sync_dir(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
             failures.append(f"missing destination directory: {dest}")
             return
         src_files = sorted(path.relative_to(src) for path in src.rglob("*") if path.is_file())
-        dest_files = sorted(path.relative_to(dest) for path in dest.rglob("*") if path.is_file())
-        if src_files != dest_files:
-            failures.append(f"directory drift: {dest} file set != {src}")
-            return
         for relative_path in src_files:
+            if not (dest / relative_path).exists():
+                failures.append(f"missing destination file: {dest / relative_path}")
+                continue
             if not filecmp.cmp(src / relative_path, dest / relative_path, shallow=False):
                 failures.append(f"file drift: {dest / relative_path} != {src / relative_path}")
         return
     if dest.exists():
-        shutil.rmtree(dest)
-    shutil.copytree(src, dest)
+        if not dest.is_dir():
+            failures.append(f"destination path is not a directory: {dest}")
+            return
+    else:
+        dest.mkdir(parents=True, exist_ok=True)
+    for source_file in src.rglob("*"):
+        relative_path = source_file.relative_to(src)
+        destination_file = dest / relative_path
+        if source_file.is_dir():
+            destination_file.mkdir(parents=True, exist_ok=True)
+            continue
+        destination_file.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source_file, destination_file)
 
 
 def _sync_wrapper(relative_path: str, content: str, check: bool, failures: list[str]) -> None:
@@ -252,10 +266,22 @@ def main(argv: list[str]) -> int:
         if relative_path in TEXT_REWRITES:
             _sync_rendered_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
             continue
-        _copy_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
+        _copy_file(
+            source_root / relative_path,
+            REPO_ROOT / relative_path,
+            args.check,
+            failures,
+            optional=relative_path in OPTIONAL_SYNC_FILES,
+        )
 
     for relative_path in SYNC_DIRS:
-        _sync_dir(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
+        _sync_dir(
+            source_root / relative_path,
+            REPO_ROOT / relative_path,
+            args.check,
+            failures,
+            optional=relative_path in OPTIONAL_SYNC_DIRS,
+        )
 
     for relative_path, content in WRAPPERS.items():
         _sync_wrapper(relative_path, content, args.check, failures)
