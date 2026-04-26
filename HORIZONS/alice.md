@@ -1,36 +1,35 @@
 # ALICE
 
-![ALICE banner](../assets/horizons/alice.png "simulation before regret.")<br>_[simulation before regret.](../assets/horizons/alice.png)_
+Builders get grounded what-if checks instead of vague AI advice.
 
-**Grounded what-if analysis before the bad build hits public view.**
+![ALICE horizon art](../assets/horizons/alice.png)
 
-_Status: Horizon only — future idea, not active build work._
-
-## What problem does this solve?
+## Why this matters
 
 We only discover weak builds after they explode in public.
 
-## A real table scene
-
-Player: I thought this build was clean.
-GM: ALICE says the weak point shows up on turn two, not after the campaign starts.
-Decker: Good. I would rather get roasted by a preflight than by the whole table.
-Chummer6: The hallway goes loud, your soak folds, and the plan stops being clever.
-Player: Show me the evidence, not the vibes.
-GM: Exactly. Humiliation is cheaper in preview.
-
-<p align="center"><img src="../assets/horizons/details/alice-scene.png" alt="ALICE dialogue scene still" width="420"></p>
+Picture the scene: A player compares two builds and sees the tradeoffs, the math, and the likely trouble spots before the session starts.
 
 
-## Meanwhile, Chummer is doing this
+## Current stage
 
-- Comparative analysis has to stay tied to visible proof instead of fuzzy assistant theater
-- Preflight checks only matter if they are explainable enough for a skeptical table
+- Today: Future concept.
+- Next: Research and prototypes.
 
-## Why that would be great
+## The problem
 
-Builders get grounded what-if checks instead of vague AI advice.
+Players often discover bad builds, illegal interactions, or weak upgrade paths only after the run has already gone sideways.
 
-## Why it is still a Horizon
+## What it would do
 
-Because the engine and explain seams still need to become cleaner before simulation gets to wear a lab coat.
+Chummer would compare builds, catch trouble before play, and explain tradeoffs without making up rules or legality.
+
+## What has to be true first
+
+* explain views that show their work
+* deterministic runtime data
+* strong comparison flows
+
+## Why it is not ready yet
+
+Chummer still needs sturdier compare-and-explain views before it should start giving confident build advice.
