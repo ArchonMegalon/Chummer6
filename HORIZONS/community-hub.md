@@ -1,6 +1,6 @@
-# SHADOWCASTERS NETWORK
+# COMMUNITY HUB
 
-![SHADOWCASTERS NETWORK banner](../assets/horizons/shadowcasters-network.png)
+![COMMUNITY HUB banner](../assets/horizons/community-hub.png)
 
 **Open-run recruiting, scheduling, prep, and closeout built on governed campaign truth.**
 
@@ -19,7 +19,7 @@ Organizer: And the result has to close back into the city after the run.
 Chummer6: Roster, handoff, and resolution report stay attached to the same job.
 Player: Good. I want a table, not a rumor with a calendar link.
 
-<p align="center"><img src="../assets/horizons/details/shadowcasters-network-scene.png" alt="SHADOWCASTERS NETWORK dialogue scene still" width="420"></p>
+<p align="center"><img src="../assets/horizons/details/community-hub-scene.png" alt="COMMUNITY HUB dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this

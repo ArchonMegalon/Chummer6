@@ -198,7 +198,7 @@ A community can define a `CommunityRuleEnvironment`.
 Example:
 
 ```text
-Shadowcasters Seattle Season 01
+Community Hub Seattle Season 01
 
 Allowed:
 SR6 base

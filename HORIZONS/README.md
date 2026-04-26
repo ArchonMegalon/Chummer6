@@ -17,7 +17,7 @@
 - **My players still misread the space even after the briefing.** [RUNSITE](runsite.md)
 - **I want real primers, handbooks, and campaign books without duct-taping ten tools together.** [RUNBOOK PRESS](runbook-press.md)
 - **Campaign worlds often feel sealed off from each other. The city rarely pushes back on its own, completed runs disappear into memory, and GMs have to invent heat.** [BLACK LEDGER](black-ledger.md)
-- **Finding a table still means juggling community rules, approvals, chats, calendars, and follow-up by hand.** [SHADOWCASTERS NETWORK](shadowcasters-network.md)
+- **Finding a table still means juggling community rules, approvals, chats, calendars, and follow-up by hand.** [COMMUNITY HUB](community-hub.md)
 
                 ## What you get on each page
 
