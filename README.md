@@ -102,7 +102,7 @@ Horizons are future campaign-OS lanes: vivid table problems, clear boundaries, a
 
 ## Preview builds
 
-![POC warning banner](assets/hero/poc-warning.png "a quarantined proof shelf showing what must be checked before it reaches a table.")<br>_[a quarantined proof shelf showing what must be checked before it reaches a table.](assets/hero/poc-warning.png)_
+![Preview warning banner](assets/hero/preview-warning.png "a quarantined proof shelf showing what must be checked before it reaches a table.")<br>_[a quarantined proof shelf showing what must be checked before it reaches a table.](assets/hero/preview-warning.png)_
 
 Want to know whether any of this exists as software yet? Start with the current preview builds.
 
