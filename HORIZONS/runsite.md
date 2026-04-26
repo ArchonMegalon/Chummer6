@@ -8,7 +8,7 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-A briefing is still doing half the work if the table cannot read the space.
+My players still misread the space even after the briefing.
 
 ## A real table scene
 
@@ -30,11 +30,11 @@ GM: Exactly.
 
 ## Why that would be great
 
-It could make mission spaces easier to read before the action starts, which is usually when that clarity matters most.
+Mission spaces become explorable and legible before the action starts.
 
 ## Why it is still a Horizon
 
-Spatial help is only worth shipping if it stays bounded to briefing and planning instead of promising a whole combat shell by accident.
+horizon
 
 ## What would need to exist first
 

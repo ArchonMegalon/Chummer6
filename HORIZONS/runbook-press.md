@@ -8,7 +8,7 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-A real primer should not need ten tools, three dashboards, and a superstition to stay coherent.
+I want real primers, handbooks, and campaign books without duct-taping ten tools together.
 
 ## A real table scene
 
@@ -30,11 +30,11 @@ GM: That would be a first.
 
 ## Why that would be great
 
-It could make primers, handbooks, and campaign books feel like real products instead of heroic document salvage.
+Long-form publishing becomes something you can actually reuse instead of a ten-tool scramble.
 
 ## Why it is still a Horizon
 
-A handbook only earns trust once revisions stop making the source harder to trace and the next edition less reusable.
+horizon
 
 ## What would need to exist first
 

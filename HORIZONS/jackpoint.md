@@ -8,7 +8,7 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Dossiers and recaps get much less useful the moment polish starts making facts up.
+I want dossiers, recaps, and briefings that feel good without making things up.
 
 ## A real table scene
 
@@ -28,11 +28,11 @@ GM: Exactly. Clean enough to brief from, honest enough to cross-check.
 
 ## Why that would be great
 
-It could turn grim notes into packets people actually want to open, use, and share at the table.
+The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show their source trail.
 
 ## Why it is still a Horizon
 
-A dossier that reads beautifully but blurs the evidence is still a bad brief, so this stays hypothetical until the proof survives the polish.
+horizon
 
 ## What would need to exist first
 

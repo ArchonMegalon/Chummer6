@@ -8,7 +8,7 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-It is cheaper to catch a weak build early than to apologize for it later.
+We only discover weak builds after they explode in public.
 
 ## A real table scene
 
@@ -29,11 +29,11 @@ GM: Exactly. Humiliation is cheaper in preview.
 
 ## Why that would be great
 
-It could catch weak assumptions before they become public embarrassment or campaign drag.
+Builders get grounded what-if checks instead of vague AI advice.
 
 ## Why it is still a Horizon
 
-Advice that sounds clever but cannot show its work is worse than silence, so this stays hypothetical until the evidence holds.
+horizon
 
 ## What would need to exist first
 

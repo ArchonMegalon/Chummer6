@@ -8,7 +8,7 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Tables want variation without turning every campaign into unreadable folklore.
+Every Shadowrun table has house rules, campaign-specific bans, local traditions, legacy custom data, and judgment calls. The pain is not that tables change rules. The pain is that changes become hidden folder magic, scattered Discord pins, private spreadsheets, incompatible forks, and surprise character legality problems.
 
 ## A real table scene
 
@@ -31,11 +31,11 @@ Player: Good. Keep the receipts hotter than the hype.
 
 ## Why that would be great
 
-It could let tables evolve rules without splintering into silent canon, unreadable forks, or post-hoc apology culture.
+KARMA FORGE is Chummer's governed house-rule and custom-rules layer. It turns a table rule into an explicit rule environment with packages, manifests, compatibility metadata, activation receipts, impact previews, approval posture, rollback, and restore behavior.
 
 ## Why it is still a Horizon
 
-At most this starts as an optional paid preview because safe review still costs real effort, and even then the pass may still produce nothing useful or shippable.
+Rule changes can fracture tables quickly if compatibility, rollback, visibility, and restore behavior are not dependable first. KARMA FORGE should stay a horizon until a small vertical slice proves that a rule package can be activated, explained, tested against real runner dossiers, restored on another device, rolled back, and reviewed without violating engine authority.
 
 ## What would need to exist first
 

@@ -8,7 +8,7 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Campaign worlds feel alive only if consequences survive the session without stealing authority from the GM.
+Campaign worlds often feel sealed off from each other. The city rarely pushes back on its own, completed runs disappear into memory, and GMs have to invent heat, corp agendas, district pressure, opposition, rumors, and fresh jobs from nothing between sessions.
 
 ## A real table scene
 
@@ -30,11 +30,11 @@ Chummer6: Consequence waits for GM signoff before the ledger talks back.
 
 ## Why that would be great
 
-It could make campaigns feel connected across jobs by turning approved consequences into map pressure, prep hooks, faction motion, and player-safe news the table can actually use.
+BLACK LEDGER is Chummer's living-world layer: a persistent Shadowrun power struggle where factions, GMs, players, runners, creators, and organizers all push on the same city, and the city pushes back.
 
 ## Why it is still a Horizon
 
-The layer has to prove authority boundaries, spoiler policy, and consequence receipts before it deserves to affect a living campaign.
+BLACK LEDGER only works if Chummer proves three things at once: campaigns stay the center of play, world-linked pressure stays inspectable through receipts and approvals, and organizer, GM, and future faction-seat authority stay cleanly separated.
 
 ## What would need to exist first
 

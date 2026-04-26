@@ -8,7 +8,7 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-Finding a run is easy to fake; finding the right table, legal runner, consent boundary, and closeout loop is not.
+Finding a table still means juggling community rules, approvals, chats, calendars, and follow-up by hand.
 
 ## A real table scene
 
@@ -30,11 +30,11 @@ Player: Good. I want a table, not a rumor with a calendar link.
 
 ## Why that would be great
 
-It could turn campaign prep into a practical network where players find real seats, GMs get usable rosters, and completed sessions feed the living world with reviewable closeout.
+A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
 
 ## Why it is still a Horizon
 
-The network should wait until job packets, authority handoff, consent policy, and BLACK LEDGER consequence flow can hold up under real community use.
+horizon
 
 ## What would need to exist first
 

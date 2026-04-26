@@ -8,7 +8,7 @@ _Status: Horizon only — future idea, not active build work._
 
 ## What problem does this solve?
 
-A reconnect should be annoying, not campaign-threatening.
+My devices drift and the table loses confidence.
 
 ## A real table scene
 
@@ -30,11 +30,11 @@ GM: That is the whole fantasy.
 
 ## Why that would be great
 
-It could let the session survive dirty reconnects without making the table re-litigate what was true five minutes ago.
+Shared state survives device churn without the table losing trust.
 
 ## Why it is still a Horizon
 
-Shared state is only useful if reconnects preserve trust instead of inventing a cleaner history than the session actually had.
+horizon
 
 ## What would need to exist first
 
