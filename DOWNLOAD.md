@@ -64,6 +64,3 @@ The current shelf is honest about the artifact shape. If a target is still a pre
 - It is a real preview shelf, not a promise that every surface is polished.
 - If the artifact format is still an advanced manual preview archive for your platform, installer-grade packaging has not been published for that target yet.
 - If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
----
-
-<sub>Updated: 2026-04-26</sub>

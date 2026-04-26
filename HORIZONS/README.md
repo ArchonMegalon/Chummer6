@@ -6,13 +6,9 @@
 
                 They map where Chummer6 is heading and why those lanes matter, without confusing exploration work for shipped commitments.
 
-                > **Reality check from the troll behind the curtain**
-                > These are horizon ideas, not signed blood contracts. Some may ship. Some may mutate. Some may remain beautiful nonsense forever.
-                > If your table pain is different, pitch a better future. Later there should be a better way for chummers to help signal which rabbit holes deserve the next flashlight.
-                >
-                > Also, if any of this sounds too certain, distrust the sentence before you trust the horizon.
+                These are future ideas, not shipment promises. They are here to show the table problems Chummer6 wants to solve later.
 
-                ## Pick the pain, then the codename
+                ## Pick the problem
 
 - **My devices drift and the table loses confidence.** [NEXUS-PAN](nexus-pan.md)
 - **We only discover weak builds after they explode in public.** [ALICE](alice.md)
@@ -30,11 +26,4 @@
                 - what Chummer would be doing while the table keeps playing
                 - the payoff if it ever lands
                 - the reason it is still parked
-                - the foundations that have to exist first
-
-                ## Pitch your own future
-
-                If your table pain is not on this list, good. Horizons is not holy scripture. Bring a better problem and a sharper idea.
----
-
-<sub>Updated: 2026-04-26</sub>
+                - the first useful version when that is known

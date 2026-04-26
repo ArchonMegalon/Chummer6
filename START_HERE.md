@@ -4,9 +4,9 @@
 
 Start with the problem you have tonight, not with a lecture about how the software is arranged.
 
-Chummer6 is here for four common moments: you need to run a live session, prove why a number changed, support a cursed house rule, or peek at the future rabbit holes.
+Chummer6 is here for four common moments: you need to run a live session, prove why a number changed, support a house rule, or see the future ideas.
 
-You do not need the internal map first. You need the shortest path to the page that tells you whether this can run a session, explain a weird number, support a cursed table rule, or show you what the project is trying to become.
+You do not need the internal map first. You need the shortest path to the page that tells you whether this can run a session, explain a weird number, support a table rule, or show you what the project is trying to become.
 
 ## I want to try a build first
 
@@ -34,9 +34,9 @@ Start here: [PARTS/core.md](PARTS/core.md)
 
 ## I want to bend the rules for my table
 
-You want the lane that handles scripted edge cases, multi-era weirdness, and the deeper docs behind custom behavior.
+You want the lane that handles custom table behavior, edge cases, and deeper explanations.
 
-Tonight: your table has a house rule, an SR4 habit, or a cursed exception that needs a real home instead of a sticky note.
+Tonight: your table has a house rule, an older-edition habit, or an exception that needs a real home instead of a sticky note.
 
 Start here: [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md)
 
@@ -44,15 +44,15 @@ Start here: [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md)
 
 You want the future-facing ideas: the problems the project wants to solve later, the table pain behind them, and the stuff that is still firmly in dream territory.
 
-Tonight: you already get the current pitch and now want to know what the next rabbit holes could be.
+Tonight: you already get the current pitch and want to know what future ideas are on the table.
 
 Start here: [HORIZONS/README.md](HORIZONS/README.md)
 
 ## I want to help the project
 
-You want the shortest path to public bug reports, feature ideas, or the new booster flow for explicitly lending temporary premium help without turning the whole project into premium-by-default chaos.
+You want the shortest path to public bug reports, feature ideas, or the booster flow for explicitly lending temporary premium help without turning the whole project into premium-by-default.
 
-Tonight: you like what the project is trying to do and want a clean way to support it without guessing which repo cave to shout into.
+Tonight: you like what the project is trying to do and want a clean way to support it without guessing where to go.
 
 Start here: [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md)
 
@@ -60,7 +60,7 @@ Start here: [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md)
 
 You want the short human version of what changed recently, why it matters, and what is still very much not promised.
 
-Tonight: you do not need a commit feed. You need proof that the idea is either crawling forward or still face-down in a puddle.
+Tonight: you need a quick read on whether anything visible moved.
 
 Start here: [UPDATES/README.md](UPDATES/README.md)
 
@@ -71,6 +71,3 @@ Read [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md).
 ## If you want the full map later
 
 Read [PARTS/README.md](PARTS/README.md) when you actually care how the parts fit together.
----
-
-<sub>Updated: 2026-04-26</sub>

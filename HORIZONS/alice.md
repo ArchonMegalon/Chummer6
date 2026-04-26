@@ -33,17 +33,4 @@ Builders get grounded what-if checks instead of vague AI advice.
 
 ## Why it is still a Horizon
 
-horizon
-
-## What would need to exist first
-
-- D0
-- D2
-- E0
-
-## Pitch your own future
-
-Catch the weak build before the table has to.
----
-
-<sub>Updated: 2026-04-26</sub>
+Because the engine and explain seams still need to become cleaner before simulation gets to wear a lab coat.

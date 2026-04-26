@@ -34,21 +34,4 @@ A GM opens a run, Chummer preflights the right players and rule environment, get
 
 ## Why it is still a Horizon
 
-horizon
-
-## What would need to exist first
-
-- C0
-- C1
-- D0
-- D1
-- D2
-- E2b
-- F1
-
-## Pitch your own future
-
-Find the run, fit the runner, schedule the table, and close the result back into the city.
----
-
-<sub>Updated: 2026-04-26</sub>
+The network should wait until job packets, authority handoff, consent policy, and BLACK LEDGER consequence flow can hold up under real community use.

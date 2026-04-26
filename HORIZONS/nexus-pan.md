@@ -34,17 +34,4 @@ Shared state survives device churn without the table losing trust.
 
 ## Why it is still a Horizon
 
-horizon
-
-## What would need to exist first
-
-- D1
-- D2
-- B0
-
-## Pitch your own future
-
-Let the session survive the reconnect without pretending the drift never happened.
----
-
-<sub>Updated: 2026-04-26</sub>
+Because the play split still needs its event-log, cache, and sync foundations to become real before the dream gets chrome.

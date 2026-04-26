@@ -20,9 +20,6 @@ If you are using Chummer6 at the table tonight, read this phase as: trust work f
 
 ## Why that matters
 
-This is the work that makes later wow-ideas cheap instead of chaotic.
+This is the work that makes later ideas safer to build.
 
-No neon spoiler matters if the frame is still loose.
----
-
-<sub>Updated: 2026-04-26</sub>
+No future feature matters if the basics are still unreliable.

@@ -16,7 +16,7 @@ If you want the long-range plan, the actual software, or the place to call out s
 ## What each place is for
 
 - Design notes: the long-range plan and deeper tradeoffs
-- Application workspaces: the working software and implementation detail
+- Application workspaces: the working software and technical detail
 - Chummer6: the friendly guide, examples, and public-facing orientation
 
 ## If you want the source of truth
@@ -26,6 +26,3 @@ Chummer6 is the friendly guide.
 - The design notes hold the long-range plan
 - the application workspaces hold the software
 - if this guide feels stale or confusing, call it out here so it can be fixed
----
-
-<sub>Updated: 2026-04-26</sub>

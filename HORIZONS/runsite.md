@@ -34,17 +34,4 @@ Mission spaces become explorable and legible before the action starts.
 
 ## Why it is still a Horizon
 
-horizon
-
-## What would need to exist first
-
-- C1
-- C1c
-- E2b
-
-## Pitch your own future
-
-Make the site legible before the run makes it urgent.
----
-
-<sub>Updated: 2026-04-26</sub>
+Spatial help is only worth shipping if it stays bounded to briefing and planning instead of promising a whole combat shell by accident.

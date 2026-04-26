@@ -29,6 +29,3 @@ Media Factory is where polished media gets produced and curated, and the current
 
 - [Public surfaces](../NOW/public-surfaces.md)
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
----
-
-<sub>Updated: 2026-04-26</sub>

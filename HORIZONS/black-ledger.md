@@ -600,6 +600,3 @@ It makes Chummer more than the place where your runner sheet lives.
 It becomes the place where factions scheme, GMs find jobs, players join runs, runners become legends, intel becomes opportunity, sessions become consequences, news tells the story, and the city changes.
 
 **BLACK LEDGER is where the shadows remember.**
----
-
-<sub>Updated: 2026-04-26</sub>

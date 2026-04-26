@@ -32,18 +32,4 @@ The table gets polished short-to-medium-form dossiers, recaps, and briefings tha
 
 ## Why it is still a Horizon
 
-horizon
-
-## What would need to exist first
-
-- C0
-- C1
-- C1c
-- E2b
-
-## Pitch your own future
-
-Make the packet feel finished without making the facts up.
----
-
-<sub>Updated: 2026-04-26</sub>
+Because grounded evidence and render boundaries need to settle first. Style without receipts is just prettier confusion.

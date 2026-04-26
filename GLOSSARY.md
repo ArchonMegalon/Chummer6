@@ -8,6 +8,3 @@
 - **ruleset**: the era or package of Shadowrun rules currently in play
 - **POC**: a build or surface that is real enough to try, but still rough enough to bite
 - **horizon**: a future idea that is being explored, not promised
----
-
-<sub>Updated: 2026-04-26</sub>

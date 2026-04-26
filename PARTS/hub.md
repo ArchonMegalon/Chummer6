@@ -29,6 +29,3 @@ Hub already powers sign-in, landing and home views, participation, and community
 
 - [Current status](../NOW/current-status.md)
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
----
-
-<sub>Updated: 2026-04-26</sub>

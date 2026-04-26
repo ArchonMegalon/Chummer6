@@ -29,6 +29,3 @@ Core already anchors the rules engine, and the current work is about keeping it 
 
 - [What Chummer6 is](../WHAT_CHUMMER6_IS.md)
 - [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
----
-
-<sub>Updated: 2026-04-26</sub>

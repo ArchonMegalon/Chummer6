@@ -34,7 +34,7 @@ That is the product story in miniature. Not "trust me, bro." Not "dig through so
 
 ## Why that matters at the table
 
-When the number moves, the table should not have to stop and reverse-engineer folklore. When the network gets stupid, the session should not die. When a table uses a weird era mix or one cursed house rule, that weirdness should have a real home instead of a pile of "remember this next time" notes.
+When the number moves, the table should not have to stop and reverse-engineer folklore. When the network gets unreliable, the session should not die. When a table uses an older-edition mix or one house rule, that rule should have a real home instead of a pile of "remember this next time" notes.
 
 ## What feels different from older opaque tool behavior
 
@@ -67,7 +67,4 @@ The project has multiple parts because each job is different. Rules truth, prep,
 
 If you want that map, go to [PARTS/README.md](PARTS/README.md).
 
-Need the long-range plan or implementation trail after the product story? Start with [PARTS/README.md](PARTS/README.md) or [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md).
----
-
-<sub>Updated: 2026-04-26</sub>
+Need the long-range plan after the product story? Start with [PARTS/README.md](PARTS/README.md) or [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md).

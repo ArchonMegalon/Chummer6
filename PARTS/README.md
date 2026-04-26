@@ -38,6 +38,3 @@
                 If you want the strongest answer to "why should I trust the math?", read [core](core.md).
 
                 If you want the whole-program ownership map, read [design](design.md).
----
-
-<sub>Updated: 2026-04-26</sub>

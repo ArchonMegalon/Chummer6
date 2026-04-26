@@ -653,6 +653,3 @@ Chummer should make it safe.
 It is where a GM's table rule becomes a campaign environment. Where a community's tradition becomes an approved season pack. Where a creator's variant becomes something other tables can inspect and reuse. Where BLACK LEDGER's world consequences become playable rewards and threats. Where Chummer5a's custom-data legacy becomes a safer future.
 
 KARMA FORGE is the place where tables shape their own Shadowrun without burning down the campaign.
----
-
-<sub>Updated: 2026-04-26</sub>

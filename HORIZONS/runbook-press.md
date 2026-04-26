@@ -34,17 +34,4 @@ Long-form publishing becomes something you can actually reuse instead of a ten-t
 
 ## Why it is still a Horizon
 
-horizon
-
-## What would need to exist first
-
-- C0
-- C1
-- E2b
-
-## Pitch your own future
-
-Publish the book without turning it into an archaeological site.
----
-
-<sub>Updated: 2026-04-26</sub>
+A handbook only earns trust once revisions stop making the source harder to trace and the next edition less reusable.
