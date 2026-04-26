@@ -6,6 +6,13 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
+### 2026-04-26 · Integrate governed LTD operating loops.
+
+- Surface: Design
+- Source push: `Integrate governed LTD operating loops`
+- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
+- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+
 ### 2026-04-26 · The public guide got stricter.
 
 - Surface: Guide
@@ -53,13 +60,6 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 - Surface: chummer.run
 - Source push: `Close M110 runsite orientation request proof`
 - What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-
-### 2026-04-23 · Close M108 media-factory successor package.
-
-- Surface: Design
-- Source push: `Close M108 media-factory successor package`
-- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
 ## Monthly archive
