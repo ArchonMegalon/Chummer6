@@ -47,4 +47,4 @@ Spatial help is only worth shipping if it stays bounded to briefing and planning
 Make the site legible before the run makes it urgent.
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>

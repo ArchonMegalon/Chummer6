@@ -49,8 +49,8 @@ The current shelf is honest about the artifact shape. If a target is still a pre
 
 - Download: [chummer-avalonia-linux-x64-installer.deb](https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb)
 - Format: installer
-- SHA256: `84d5c3a7065666286c5e3a5feccbc2ee3c04117cf5afaa116c09e1e2d9e44643`
-- Size: `35010278` bytes
+- SHA256: `b62a01e934396b0740d60763032201ae55e819e1815df09693a772f4075795a3`
+- Size: `34259130` bytes
 
 ### Blazor Desktop Linux X64 Installer
 
@@ -66,4 +66,4 @@ The current shelf is honest about the artifact shape. If a target is still a pre
 - If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>

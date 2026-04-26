@@ -18,4 +18,4 @@
                 What is visible today is the guide, the horizon shelf, support and contact paths, and a growing set of proof artifacts. Some surfaces are still moving, but there is enough in public to evaluate the product direction without pretending nothing exists.
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>

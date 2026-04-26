@@ -47,4 +47,4 @@ Shared state is only useful if reconnects preserve trust instead of inventing a 
 Let the session survive the reconnect without pretending the drift never happened.
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>

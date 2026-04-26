@@ -118,4 +118,4 @@ The binaries are built from the working Chummer6 application, not from this orie
 Need the long-range plan or implementation trail after that? [Where to go deeper](WHERE_TO_GO_DEEPER.md).
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>

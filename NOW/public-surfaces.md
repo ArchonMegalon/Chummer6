@@ -17,4 +17,4 @@ Canonical preview surfaces from `STATUS_PLANE.generated.yaml`:
 It means the surface is there, but the software, release, and support story do not line up cleanly enough yet to call it the real promoted version.
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>

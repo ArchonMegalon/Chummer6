@@ -6,6 +6,13 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
+### 2026-04-25 · The public guide got stricter.
+
+- Surface: Guide
+- Source push: `Refresh Chummer6 guide`
+- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
+- Still not promised: that the visible surface is reliable just because it has a page.
+
 ### 2026-04-24 · Fix feedback: GitHub Codex Review (+1 more feedback note(s)).
 
 - Surface: Guide
@@ -55,16 +62,9 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 - What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
 - Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
 
-### 2026-04-23 · The visuals moved a little closer to intention.
-
-- Surface: Design
-- Source push: `Close M108 desktop campaign-home artifacts`
-- What changed for you: The guide imagery and scene language are being pushed away from filler and toward something worth looking at.
-- Still not promised: that every image is final or even good yet.
-
 ## Monthly archive
 
 - [2026-04](./2026-04.md)
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>

@@ -20,159 +20,22 @@ SYNC_FILES = (
     "HELP.md",
     "FAQ.md",
     "CONTACT.md",
+    "GLOSSARY.md",
     "manifest.generated.json",
 )
 
 SYNC_DIRS = (
     "PARTS",
     "HORIZONS",
+    "NOW",
     "TRUST",
+    "UPDATES",
     "assets",
 )
 
-START_HERE_BLOCKS = {
-    "STATUS.md": "Quick links: [Home](README.md) | [Download](DOWNLOAD.md) | [Help](HELP.md)\n\n",
-    "DOWNLOAD.md": "Quick links: [Home](README.md) | [Status](STATUS.md) | [Help](HELP.md)\n\n",
-    "HELP.md": "Quick links: [Home](README.md) | [Status](STATUS.md) | [Download](DOWNLOAD.md)\n\n",
-}
+START_HERE_BLOCKS = {}
 
-WRAPPERS = {
-    "START_HERE.md": """# Start Here
-
-If you only want one answer fast, start with the question in front of you.
-
-- I want to try Chummer6 right now: [Download](DOWNLOAD.md)
-- I want the honest current picture: [Status](STATUS.md)
-- I am moving from Chummer5a: [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
-- I want the two-minute product story: [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
-- I need help or want to report a problem: [Help](HELP.md) and [Contact](CONTACT.md)
-- I only care about future ideas: [Horizons](HORIZONS/README.md)
-
-You do not need the deeper breakdown to decide whether Chummer6 is worth your time.
-If you want that later, use [Where to go deeper](WHERE_TO_GO_DEEPER.md).
-""",
-    "WHAT_CHUMMER6_IS.md": """# What Chummer6 Is
-
-Chummer6 is the explainable Shadowrun campaign OS.
-
-Its first must-win job is being the most trustworthy way to build, inspect, and advance a Shadowrun character.
-
-The point is to help you:
-
-- build and advance a character without mystery math
-- inspect why a pool or modifier changed
-- keep session and campaign continuity readable when devices or connectivity drift
-
-This guide is here to help you decide quickly whether Chummer6 is worth your time right now and where to go for help next.
-
-Start with [README.md](README.md), [Status](STATUS.md), and [Download](DOWNLOAD.md).
-If you are coming from Chummer5a, also read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
-If you want future ideas after that, use [Horizons](HORIZONS/README.md).
-If you want the deeper guide after that, use [Where To Go Deeper](WHERE_TO_GO_DEEPER.md).
-""",
-    "HOW_CAN_I_HELP.md": """# How Can I Help?
-
-If you hit a bug, confusing rules math, or rough wording, start with the normal help path first.
-
-- [Help](HELP.md) covers install help, updates, sign-in, and private crash reporting.
-- [Contact](CONTACT.md) is the main place to report product trouble or give feedback.
-- If you want to help more directly, there is also an optional guided contribution and booster path at <https://chummer.run/participate>.
-- Use the public issue tracker when you specifically want a public bug thread: <https://github.com/ArchonMegalon/Chummer6/issues>
-
-## Participation safety
-
-- the cheap baseline remains the default path
-- guided contribution is not a merge bypass
-- final landing still goes through review
-- people can stop or revoke later
-- private recognition settings remain valid even when badges or leaderboards exist
-
-Some guided-preview lanes are resource-heavy today, but the long-run intent is free later rather than keeping the useful parts locked behind a permanent paywall.
-
-If you want the short product picture before opening anything, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Status](STATUS.md).
-""",
-    "WHERE_TO_GO_DEEPER.md": """# Where To Go Deeper
-
-If you are still deciding whether Chummer6 is useful to you, stay on the public guide first.
-
-Start there:
-
-- [README.md](README.md)
-- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [Help](HELP.md)
-- [FAQ](FAQ.md)
-- [Contact](CONTACT.md)
-
-Go deeper only when you want more than the main public pages:
-
-- [Horizons index](HORIZONS/README.md): future ideas and experiments.
-- [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- Most readers can stop there. The rest of the repo is only for people who want extra detail.
-
-The point of this guide is that normal readers should not have to dig through internal detail just to decide whether Chummer6 is for them.
-""",
-    "NOW/current-phase.md": """# Current Phase
-
-The current public status lives in the main guide.
-
-Read [../STATUS.md](../STATUS.md) for the current product picture and [../DOWNLOAD.md](../DOWNLOAD.md) for the current release shelf.
-""",
-    "NOW/current-status.md": """# Current Status
-
-The current public status page lives at [../STATUS.md](../STATUS.md).
-
-Use that page for the current picture, release status, and help links.
-""",
-    "NOW/public-surfaces.md": """# Public Surfaces
-
-If you only want the main public pages, use these:
-
-- [../README.md](../README.md)
-- [../FROM_CHUMMER5A_TO_CHUMMER6.md](../FROM_CHUMMER5A_TO_CHUMMER6.md)
-- [../STATUS.md](../STATUS.md)
-- [../DOWNLOAD.md](../DOWNLOAD.md)
-- [../HELP.md](../HELP.md)
-- [../CONTACT.md](../CONTACT.md)
-
-Those pages are the main public guide.
-""",
-    "UPDATES/README.md": """# Updates
-
-This folder keeps short notes on the bigger guide refreshes.
-
-## Start with the live pages
-
-- [../README.md](../README.md)
-- [../STATUS.md](../STATUS.md)
-- [../DOWNLOAD.md](../DOWNLOAD.md)
-- [../HELP.md](../HELP.md)
-
-If you only care about what works right now, those pages matter more than this archive.
-
-## Latest substantial pushes
-
-- The front door now answers the basic product questions faster.
-- The cover art is stronger and less placeholder-looking than before.
-- Status, download, and help pages are easier to skim when you just want an answer.
-
-## Monthly archive
-
-- [2026-03](2026-03.md)
-""",
-    "UPDATES/2026-03.md": """# 2026-03
-
-This archive note marks the March 2026 pass that pushed the guide toward a clearer product-facing front door.
-
-For the live version instead of the archive, start with:
-
-- [../README.md](../README.md)
-- [../STATUS.md](../STATUS.md)
-- [../DOWNLOAD.md](../DOWNLOAD.md)
-- [../HELP.md](../HELP.md)
-""",
-}
+WRAPPERS = {}
 
 
 def _copy_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
@@ -213,34 +76,7 @@ START_HERE_TRANSFORMS = {
     "FAQ.md": "",
 }
 
-TEXT_REWRITES = {
-    "README.md": (
-        (
-            "- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n",
-            "- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n",
-        ),
-        (
-            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
-            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
-        ),
-    ),
-    "DOWNLOAD.md": (
-        (
-            "Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.",
-            "Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
-        ),
-    ),
-    "FAQ.md": (
-        (
-            "## If you want the behind-the-scenes details",
-            "## If you want more detail",
-        ),
-        (
-            "In the planning notes that shape the roadmap and the public guide.",
-            "Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.",
-        ),
-    ),
-}
+TEXT_REWRITES = {}
 
 
 def _render_with_start_here(src: Path, relative_path: str, anchor: str) -> str:

@@ -46,4 +46,4 @@ A dossier that reads beautifully but blurs the evidence is still a bad brief, so
 Make the packet feel finished without making the facts up.
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>

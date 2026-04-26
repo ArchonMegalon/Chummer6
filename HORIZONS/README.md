@@ -37,4 +37,4 @@
                 If your table pain is not on this list, good. Horizons is not holy scripture. Bring a better problem and a sharper idea.
 ---
 
-<sub>Updated: 2026-04-25</sub>
+<sub>Updated: 2026-04-26</sub>
