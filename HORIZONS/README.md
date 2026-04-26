@@ -16,11 +16,11 @@
 
 - **My devices drift and the table loses confidence.** [NEXUS-PAN](nexus-pan.md)
 - **We only discover weak builds after they explode in public.** [ALICE](alice.md)
-- **I want house rules without fork chaos.** [KARMA FORGE](karma-forge.md)
+- **Every Shadowrun table has house rules, campaign-specific bans, local traditions, legacy custom data, and judgment calls. The pain is not that tables change rule.** [KARMA FORGE](karma-forge.md)
 - **I want dossiers, recaps, and briefings that feel good without making things up.** [JACKPOINT](jackpoint.md)
 - **My players still misread the space even after the briefing.** [RUNSITE](runsite.md)
 - **I want real primers, handbooks, and campaign books without duct-taping ten tools together.** [RUNBOOK PRESS](runbook-press.md)
-- **I want the city to matter between sessions without needing a metagame spreadsheet to prep the next run.** [BLACK LEDGER](black-ledger.md)
+- **Campaign worlds often feel sealed off from each other. The city rarely pushes back on its own, completed runs disappear into memory, and GMs have to invent heat.** [BLACK LEDGER](black-ledger.md)
 - **Finding a table still means juggling community rules, approvals, chats, calendars, and follow-up by hand.** [SHADOWCASTERS NETWORK](shadowcasters-network.md)
 
                 ## What you get on each page

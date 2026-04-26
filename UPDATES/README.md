@@ -6,7 +6,7 @@ These entries track Chummer-facing repos only. Fleet and EA pushes do not appear
 
 ## Latest substantial pushes
 
-### 2026-04-25 · The public guide got stricter.
+### 2026-04-26 · The public guide got stricter.
 
 - Surface: Guide
 - Source push: `Refresh Chummer6 guide`
