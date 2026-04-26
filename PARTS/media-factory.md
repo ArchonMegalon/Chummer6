@@ -8,7 +8,7 @@ This is how the product can look finished without letting style quietly rewrite 
 
 ## You touch this when...
 
-You care about finished images, teaser media, dossiers, narrated packets, or other polished outputs that still need a clear source trail.
+You care about finished images, teaser media, dossiers, narrated packets, or other polished outputs that still need clear proof of where the material came from.
 
 ## What you notice
 

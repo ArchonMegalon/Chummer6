@@ -28,7 +28,7 @@ GM: Exactly. Clean enough to brief from, honest enough to cross-check.
 
 ## Why that would be great
 
-The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show their source trail.
+The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show where the facts came from.
 
 ## Why it is still a Horizon
 

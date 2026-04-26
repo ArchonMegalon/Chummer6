@@ -24,7 +24,7 @@ Chummer6: Consequence waits for GM signoff before the ledger talks back.
 
 ## Meanwhile, Chummer is doing this
 
-- World memory only helps if GM approval, spoiler boundaries, and source trails stay clear
+- World memory only helps if GM approval, spoiler boundaries, and the path back to each approved event stay clear
 - Mission-market hooks have to improve prep without turning the campaign into an autonomous strategy game
 - Player-safe city news must be useful without leaking private campaign truth
 
