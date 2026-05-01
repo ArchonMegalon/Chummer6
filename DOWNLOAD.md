@@ -1,108 +1,66 @@
-# Download
+# Try Chummer6
 
-This page tells you what you can download right now and which file to start with.
-
-## What should I download first?
-
-- For Windows, start with Avalonia Desktop Windows X64 Installer. Sign-in required.
-- For Linux, start with Avalonia Desktop Linux X64 Installer. Sign-in required.
-- For macOS, start with Avalonia Desktop macOS ARM64 Installer if you can sign in. If you want a public file without signing in, use Avalonia Desktop macOS ARM64 archive package.
-- If both Avalonia and Blazor appear for your platform, start with Avalonia. Use Blazor only if a page or support tells you to.
-
-## Current public download
-
-- Today: Usable preview.
-- Published: April 26, 2026 at 8:49 UTC.
-- Release status: Published.
-- Downloads are currently live for Windows, Linux, and macOS.
-- Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
-- Proof scope: Public proof language is scoped to the files, named flows, and recent checks posted on the current shelf that a person can inspect today; it is not a blanket flagship-grade claim.
-- Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.
-- Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
-- Update note: Only expect fix notices after the affected download is available on the same public shelf.
+If you want to inspect the current Chummer6 artifacts without digging through a generic releases page first, start here.
 
 ## Current build matrix
 
-Official client downloads start at chummer.run. GitHub is for source and public development evidence, not installer, archive, update payload, or preview-client downloads.
-If you are looking for the code or public evidence trail, use GitHub releases and the repository history. If you are looking for something to install, stay on the current chummer.run shelf.
+- Version: `run-20260429-233209`
+- Channel: `preview`
+- Published: `2026-05-01T09:39:50Z`
 
-### Windows
+The current shelf is honest about the artifact shape. If a target is still a preview archive instead of an installer or DMG, this page says so instead of pretending otherwise.
 
-- Avalonia Desktop Windows X64 Installer.
-- Download: `/downloads/files/chummer-avalonia-win-x64-installer.exe`
-- File: `chummer-avalonia-win-x64-installer.exe`
-- Size: 138.1 MiB (144794665 bytes)
-- Access: Sign-in required.
+### Avalonia Desktop Windows X64 Portable
 
-### Linux
+- Download: [chummer-avalonia-win-x64.zip](https://chummer.run/downloads/files/chummer-avalonia-win-x64.zip)
+- Format: advanced manual preview archive
+- SHA256: `1b9092b1d2a631b29c2edbe7882d835cb3a4337ef8fb2abf224c8c848e061468`
+- Size: `45044846` bytes
 
-- Avalonia Desktop Linux X64 Installer.
-- Download: `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
-- File: `chummer-avalonia-linux-x64-installer.deb`
-- Size: 33.4 MiB (35010278 bytes)
-- Access: Sign-in required.
-- Blazor Desktop Linux X64 Installer.
-- Download: `/downloads/files/chummer-blazor-desktop-linux-x64-installer.deb`
-- File: `chummer-blazor-desktop-linux-x64-installer.deb`
-- Size: 35.6 MiB (37378650 bytes)
-- Access: Sign-in required.
+### Avalonia Desktop Windows X64 Installer
 
-### macOS
+- Download: [chummer-avalonia-win-x64-installer.exe](https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe)
+- Format: installer
+- SHA256: `bb9b31fcf3bf1386b6f968029f312ca30681f1a02b2c536b6a4d8cb8fe4109fe`
+- Size: `142037086` bytes
 
-- Avalonia Desktop macOS ARM64 Installer.
-- Download: `/downloads/files/chummer-avalonia-osx-arm64-installer.dmg`
-- File: `chummer-avalonia-osx-arm64-installer.dmg`
-- Size: 49.3 MiB (51703625 bytes)
-- Access: Sign-in required.
-- Blazor Desktop macOS ARM64 Installer.
-- Download: `/downloads/files/chummer-blazor-desktop-osx-arm64-installer.dmg`
-- File: `chummer-blazor-desktop-osx-arm64-installer.dmg`
-- Size: 49.2 MiB (51586470 bytes)
-- Access: Sign-in required.
-- Avalonia Desktop macOS ARM64 archive package.
-- Posture: Fallback or recovery package, not an equal flagship default.
-- Download: `/downloads/files/chummer-avalonia-osx-arm64.tar.gz`
-- File: `chummer-avalonia-osx-arm64.tar.gz`
-- Size: 43.1 MiB (45231049 bytes)
-- Access: Public download.
-- Blazor Desktop macOS ARM64 archive package.
-- Posture: Fallback or recovery package, not an equal flagship default.
-- Download: `/downloads/files/chummer-blazor-desktop-osx-arm64.tar.gz`
-- File: `chummer-blazor-desktop-osx-arm64.tar.gz`
-- Size: 43.0 MiB (45080078 bytes)
-- Access: Public download.
+### Avalonia Desktop Windows X64 Portable
 
-## Current package format
+- Download: [chummer-avalonia-win-x64.exe](https://chummer.run/downloads/files/chummer-avalonia-win-x64.exe)
+- Format: portable executable
+- SHA256: `414ba2c2db61c459920ea3b92aeb28442a0b84dbcdf3cd3725042c42ebc15ee6`
+- Size: `433152` bytes
 
-- Where an installer exists, start there. Archive packages, packet-detail artifacts, and explainer bundles are fallback, recovery, or inspection paths, not equal flagship routes.
-- Avalonia Desktop Linux X64 Installer via `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
-- Blazor Desktop Linux X64 Installer via `/downloads/files/chummer-blazor-desktop-linux-x64-installer.deb`
-- Avalonia Desktop macOS ARM64 Installer via `/downloads/files/chummer-avalonia-osx-arm64-installer.dmg`
-- Blazor Desktop macOS ARM64 Installer via `/downloads/files/chummer-blazor-desktop-osx-arm64-installer.dmg`
-- Avalonia Desktop Windows X64 Installer via `/downloads/files/chummer-avalonia-win-x64-installer.exe`
-- Avalonia Desktop macOS ARM64 archive package via `/downloads/files/chummer-avalonia-osx-arm64.tar.gz`
-- Blazor Desktop macOS ARM64 archive package via `/downloads/files/chummer-blazor-desktop-osx-arm64.tar.gz`
+### Avalonia Desktop macOS ARM64
 
-## SHA256
+- Download: [chummer-avalonia-osx-arm64.tar.gz](https://chummer.run/downloads/files/chummer-avalonia-osx-arm64.tar.gz)
+- Format: advanced manual preview archive
+- SHA256: `1e2c6f7e7f9b494b49058faa35565d02ceb9ab8906676712457c94f98dc06942`
+- Size: `45255650` bytes
 
-- Avalonia Desktop Linux X64 Installer: `84d5c3a7065666286c5e3a5feccbc2ee3c04117cf5afaa116c09e1e2d9e44643`
-- Blazor Desktop Linux X64 Installer: `755de1de2a11d363f5f127dd81d9a00a1f33d9b20f6e75adb569d1c97e3faa94`
-- Avalonia Desktop macOS ARM64 Installer: `ca6c25f0cdaf48bddfe83e3e983ff87b8763d973e671100165248c9edcd044bd`
-- Blazor Desktop macOS ARM64 Installer: `8c1f85e688667daf8ad576ab2d3152294f5d27a55b4005e059dff022356a2df4`
-- Avalonia Desktop Windows X64 Installer: `0daa5607090eb64199c6d28c8f006ee3657408dce7860955e6afbb4d11f1713a`
-- Avalonia Desktop macOS ARM64: `3466279179e7be99be59097bffee666632276817383f7c22ff65b3ab4dd4f9c5`
-- Blazor Desktop macOS ARM64: `5d4f1e75a70e1c729347217ad9aa25d94fd5ba64acf51c129964f27143738df3`
+### Avalonia Desktop macOS ARM64 Installer
 
-## Recent release verification
+- Download: [chummer-avalonia-osx-arm64-installer.dmg](https://chummer.run/downloads/files/chummer-avalonia-osx-arm64-installer.dmg)
+- Format: installer
+- SHA256: `62e410197697915a84b011cc3b15293fa98a5f2852613fa59a930b910a55d354`
+- Size: `51740511` bytes
 
-- Status: Passed.
-- Last checked: April 26, 2026 at 8:49 UTC.
-- Summary: Passed for installs and recovery, campaign session recovery, and support follow-up.
+### Blazor Desktop macOS ARM64
 
-### What was checked
+- Download: [chummer-blazor-desktop-osx-arm64.tar.gz](https://chummer.run/downloads/files/chummer-blazor-desktop-osx-arm64.tar.gz)
+- Format: advanced manual preview archive
+- SHA256: `9c126afd17c00a2723b69d301cbff53b540a962b83a4e3051fd1f5e4df37bb69`
+- Size: `45102636` bytes
 
-- install, sign back in, restore, and keep going
-- build and publish the release
-- resume a campaign session
-- support and release follow-up
-- community follow-up
+### Blazor Desktop macOS ARM64 Installer
+
+- Download: [chummer-blazor-desktop-osx-arm64-installer.dmg](https://chummer.run/downloads/files/chummer-blazor-desktop-osx-arm64-installer.dmg)
+- Format: installer
+- SHA256: `f8a9f3647a9859c2810c7980d917cf7241ee685105c67df53ea99d4dfcabb2f9`
+- Size: `51614941` bytes
+
+## If this build is rough
+
+- It is a real preview shelf, not a promise that every surface is polished.
+- If the artifact format is still an advanced manual preview archive for your platform, installer-grade packaging has not been published for that target yet.
+- If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).

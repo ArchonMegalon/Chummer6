@@ -2,7 +2,7 @@
 
 ![Current status banner](../assets/pages/current-status.png)
 
-                Status first: the guide, support surface, and visible proof lanes are live enough to inspect honestly.
+                Status first: the guide, horizon shelf, and proof surfaces are live and inspectable.
 
                 ## The short version
 
@@ -15,4 +15,4 @@
 
                 ## What that means for normal humans
 
-                What is visible today is the guide, the horizon shelf, support and contact paths, and a growing set of proof artifacts. Some surfaces are still moving, but there is enough in public to evaluate the product direction without pretending nothing exists.
+                What is visible today is deliberate, public, and useful for evaluation. Some lanes are still moving, so status calls out current boundaries and next checks explicitly.

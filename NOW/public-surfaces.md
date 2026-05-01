@@ -2,11 +2,11 @@
 
 ![Public surfaces banner](../assets/pages/public-surfaces.png)
 
-The deliberate public surfaces are the guide, support paths, status readout, horizon shelf, issue flow, and visible proof artifacts.
+The deliberate public surfaces are the guide, the horizon shelf, and the issue tracker.
 
 ## Current public reality
 
-If a build, screenshot, or proof asset is public, treat it as part of the preview surface and judge it by clarity, trust, and follow-through. Do not mistake preview for finished polish, but do not downplay visible work into nonexistence either.
+Proof artifacts and screenshots are there to make behavior inspectable and discussable in public, with clear boundaries on what is currently supported.
 
 Current visible surfaces:
 

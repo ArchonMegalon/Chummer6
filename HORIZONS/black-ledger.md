@@ -1,20 +1,33 @@
-# BLACK LEDGER
+# BLACK LEDGER — the city keeps scheming
 
-The world gives the GM a live job board, practical prep hooks, and a visible memory of what the table changed.
+![BLACK LEDGER — the city keeps scheming banner](../assets/horizons/black-ledger.png)
 
-![BLACK LEDGER city map with augmented-reality overlays](../assets/horizons/black-ledger.png)
+**A governed city memory that turns finished runs into useful future pressure.**
 
-## Why this matters
+_Status: Horizon only — future idea, not active build work._
+
+## What problem does this solve?
 
 I want the city to matter between sessions without needing a metagame spreadsheet to prep the next run.
 
-Picture the scene: A GM opens Seattle, sees which districts are hot, picks a job with grounded opposition and consequences, runs it, and later watches the map remember the fallout.
+## A real table scene
+
+GM: The Redmond job is done, but the city should not forget it by next week.
+Chummer6: Resolution report staged. District pressure rises, one faction project advances, one player-safe rumor is ready.
+Player: Can the table see the fallout without seeing every spoiler?
+Fixer: I want the next job to feel connected, not prewritten.
+GM: Good. The map remembers, but I still approve what becomes true.
+Chummer6: Consequence waits for GM signoff before the ledger talks back.
+
+<p align="center"><img src="../assets/horizons/details/black-ledger-scene.png" alt="BLACK LEDGER — the city keeps scheming dialogue scene still" width="420"></p>
 
 
-## Current stage
+## Meanwhile, Chummer is doing this
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- World memory only helps if GM approval, spoiler boundaries, and receipts stay clear
+- Mission-market hooks have to improve prep without turning the campaign into an autonomous strategy game
+- Player-safe city news must be useful without leaking private campaign truth
+
 
 ## The promise
 

@@ -1,41 +1,37 @@
 # NEXUS-PAN
 
-Shared state survives device churn without the table losing trust.
+![NEXUS-PAN banner](../assets/horizons/nexus-pan.png "session continuity after the link gets ugly.")<br>_[session continuity after the link gets ugly.](../assets/horizons/nexus-pan.png)_
 
-![NEXUS-PAN horizon art](../assets/horizons/nexus-pan.png)
+**Shared state survives dirty reconnects without turning the table into a trust exercise.**
 
-## Why this matters
+_Status: Horizon only — future idea, not active build work._
+
+## What problem does this solve?
 
 My devices drift and the table loses confidence.
 
-Picture the scene: A player reconnects in the middle of a session and gets back in step without the GM rebuilding everything by memory.
+## A real table scene
+
+The dead zone lifts just as the van starts rolling again.
+GM: Your phone died; the run did not.
+Player: Good. I only want to lose battery, not state.
+Rigger: The loadout came back where I left it.
+Chummer6: Missed actions replayed. Current penalties still attached.
+Face: So we keep moving instead of rebuilding the scene from memory.
+GM: That is the whole fantasy.
+
+<p align="center"><img src="../assets/horizons/details/nexus-pan-scene.png" alt="NEXUS-PAN dialogue scene still" width="420"></p>
 
 
-## Current stage
+## Meanwhile, Chummer is doing this
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Shared-state continuity only counts if reconnects are boring and honest
+- Reconnect chaos and drift cleanup still have to stop lying before this becomes real
 
-## The problem
+## Why that would be great
 
-When phones, tablets, or laptops drift apart during play, the whole table stops trusting what is on screen.
+Shared state survives device churn without the table losing trust.
 
-## What it would do
+## Why it is still a Horizon
 
-Chummer would keep reconnects and shared session state steady enough that players can jump back in without the GM rebuilding context by hand.
-It would build on the existing session record instead of creating a separate version of events.
-It would also handle bad signals and device handoffs honestly: clear offline status, safe local continuity, and visible conflict recovery when reconnecting goes wrong.
-
-## What has to be true first
-
-* durable session state
-* reliable sync bundles
-* visible reconnect explanations
-* in-session reliability
-* offline-capable local state
-* explicit stale, pending, and conflicted state
-
-## Why it is not ready yet
-
-The live release still needs boringly reliable session continuity.
-Until reconnects and shared-state handoffs stay solid under stress, a richer PAN layer would add confusion instead of removing it.
+Because the play split still needs its event-log, cache, and sync foundations to become real before the dream gets chrome.

@@ -2,9 +2,9 @@
 
 ![Current phase banner](../assets/pages/current-phase.png)
 
-The current phase is public preview with the trust surface moving into focus.
+The current phase is trust work before product posture.
 
-The product is earning confidence through a sharper guide, a clearer status readout, stronger support paths, and proof artifacts that are becoming easier to inspect. That is still an unfinished phase, but it is no longer just abstract concept framing.
+The product focus is inspectable reasoning, bounded behavior, and clear recovery paths before expansion. In public that shows up through the guide, horizon shelf, issue tracker, and growing proof surfaces.
 
 ## The focus right now
 
