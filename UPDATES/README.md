@@ -2,7 +2,7 @@
 
 If you are checking whether the idea is still moving, start here.
 
-## Latest visible changes
+## Latest substantial pushes
 
 ### 2026-04-26 · The visuals moved a little closer to intention.
 

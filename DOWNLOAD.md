@@ -24,6 +24,7 @@ This page tells you what you can download right now and which file to start with
 ## Current build matrix
 
 Official client downloads start at chummer.run. GitHub is for source and public development evidence, not installer, archive, update payload, or preview-client downloads.
+If you are looking for the code or public evidence trail, use GitHub releases and the repository history. If you are looking for something to install, stay on the current chummer.run shelf.
 
 ### Windows
 
