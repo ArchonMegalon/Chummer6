@@ -1,14 +1,16 @@
 # UI
 
-![UI banner](../assets/parts/ui.png "the inspection lane before the run starts arguing back.")<br>_[the inspection lane before the run starts arguing back.](../assets/parts/ui.png)_
+The detailed character-building and inspection view.
 
-**The detailed character-building and inspection view.**
+![UI guide art](../assets/parts/ui.png)
 
-This is where Chummer stops feeling opaque and starts feeling readable.
-
-## You touch this when...
+## When you care
 
 You want the deeper build view, comparison tools, or the place where you can inspect why a result changed.
+
+## Why you care
+
+This is where Chummer stops feeling opaque and starts feeling readable.
 
 ## What you notice
 
@@ -16,16 +18,16 @@ You want the deeper build view, comparison tools, or the place where you can ins
 - clearer build inspectors and comparison flows
 - a stronger distinction between deep prep and live table use
 
-## What you do not need to care about yet
+## Current limits
 
 - this is not the player-first table view
 - some workbench polish is still catching up to the cleaner split
 
-## What is true right now
+## Current state
 
 UI already handles the heavy build view, and current cleanup work is about keeping that power without letting it turn into the table-side or hosted experience.
 
 ## Go deeper
 
-- [Start here](../START_HERE.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../START_HERE.md
+- ../WHERE_TO_GO_DEEPER.md

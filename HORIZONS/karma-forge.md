@@ -1,34 +1,20 @@
-# KARMA FORGE — house rules without table chaos
+# KARMA FORGE
 
-![KARMA FORGE — house rules without table chaos banner](../assets/horizons/karma-forge.png "rule experiments under diff, approval, and rollback pressure.")<br>_[rule experiments under diff, approval, and rollback pressure.](../assets/horizons/karma-forge.png)_
+Tables can evolve house rules without splintering into unreadable forks.
 
-**House rules with governance instead of fork chaos.**
+![KARMA FORGE horizon art](../assets/horizons/karma-forge.png)
 
-_Status: Horizon only — future idea, not active build work._
-
-## What problem does this solve?
+## Why this matters
 
 I want house rules without fork chaos.
 
-## A real table scene
-
-GM: I want the house rule, not the forked-code religion that comes with it.
-Chummer6: Diff strip loaded. Two collisions, one rollback path, one approval still pending.
-Player: Fine, but I want to know whether it still plays nice with the rest of the sheet.
-Rigger: And I want rollback before somebody ships a clever disaster.
-A stamped approval card lands on the bench and nobody trusts it yet.
-GM: That is why this is a forge and not a pastebin.
-Player: Good. Keep the receipts hotter than the hype.
-
-<p align="center"><img src="../assets/horizons/details/karma-forge-scene.png" alt="KARMA FORGE — house rules without table chaos dialogue scene still" width="420"></p>
+Picture the scene: A GM promotes a house-rule pack with visible impact, approval history, and reversible publication state.
 
 
-## Meanwhile, Chummer is doing this
+## Current stage
 
-- Approval, compatibility, and rollback still eat real effort before any ruleset preview is safe
-- It is still expensive, review-heavy, and easy to overpromise if the receipts are weak
-- Broader access later is still the hope, but nobody should read that as a promise that the work lands cleanly or soon
-
+- Today: Future concept.
+- Next: Research and prototypes.
 
 ## The promise
 
@@ -36,15 +22,15 @@ Player: Good. Keep the receipts hotter than the hype.
 
 KARMA FORGE lets a campaign say:
 
-> “These are the rules we play with.  
-> This is what changed.  
-> This is why your runner is legal, blocked, or different.  
-> This is what happens if you join this campaign.  
+> “These are the rules we play with.
+> This is what changed.
+> This is why your runner is legal, blocked, or different.
+> This is what happens if you join this campaign.
 > This is what happens if the package changes later.”
 
-The player does not have to guess.  
-The GM does not have to police everything manually.  
-The creator does not have to ship fragile house-rule notes.  
+The player does not have to guess.
+The GM does not have to police everything manually.
+The creator does not have to ship fragile house-rule notes.
 The organizer does not have to maintain twelve conflicting Discord pins.
 
 Chummer shows the rule environment, the active packages, the impact, the compatibility, and the next safe action.
@@ -228,8 +214,8 @@ The player can click:
 - Use a quickstart runner
 - Decline this campaign
 
-No surprises.  
-No silent rule drift.  
+No surprises.
+No silent rule drift.
 No “I thought that was allowed.”
 
 ---
@@ -359,8 +345,8 @@ The important part:
 
 > BLACK LEDGER can create pressure and opportunity, but KARMA FORGE makes the rule impact explicit.
 
-No invisible world-state mutation.  
-No surprise rule changes.  
+No invisible world-state mutation.
+No surprise rule changes.
 No faction manager secretly changing character legality.
 
 Everything is packaged, scoped, explained, and approved.
@@ -596,8 +582,8 @@ Next safe action:
 Download package, switch environment, or open in read-only mode.
 ```
 
-No mystery drift.  
-No wrong compute.  
+No mystery drift.
+No wrong compute.
 No silent mismatch.
 
 ---

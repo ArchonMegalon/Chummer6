@@ -1,14 +1,16 @@
 # Design
 
-![Design banner](../assets/parts/design.png "the long-range plan, still mostly a promise to future selves.")<br>_[the long-range plan, still mostly a promise to future selves.](../assets/parts/design.png)_
+The long-range product map and decision filter.
 
-**The long-range product map and decision filter.**
+![Design guide art](../assets/parts/design.png)
 
-It keeps the big story straight so the main pages, future ideas, and release notes do not contradict each other.
-
-## You touch this when...
+## When you care
 
 You want the bigger picture: what is already real, what is still coming, or where to click next after the front page.
+
+## Why you care
+
+It keeps the big story straight so the main pages, future ideas, and release notes do not contradict each other.
 
 ## What you notice
 
@@ -16,16 +18,16 @@ You want the bigger picture: what is already real, what is still coming, or wher
 - a stable big-picture explanation before you dive into code or implementation detail
 - one place that keeps the main pages and future ideas aligned
 
-## What you do not need to care about yet
+## Current limits
 
 - you should not need this first for normal use
 - it is the map, not the running software
 
-## What is true right now
+## Current state
 
 Design currently drives the public story, the roadmap pages, and the line between simple reader-facing pages and deeper technical material.
 
 ## Go deeper
 
-- [Current status](../NOW/current-status.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../NOW/current-status.md
+- ../WHERE_TO_GO_DEEPER.md

@@ -77,7 +77,3 @@ In the Chummer code. Most people never need it to install Chummer6, use it, or r
 ### Where do I propose public-facing changes?
 
 Use the Chummer6 issue tracker for documentation feedback, bug reports, and feature requests.
-
-## Support and participation
-
-If you want the public help lane or the bounded booster flow, read [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md) and, when you are ready, open the public participation page at [https://chummer.run/participate](https://chummer.run/participate).
