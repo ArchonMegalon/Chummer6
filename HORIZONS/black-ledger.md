@@ -1,20 +1,22 @@
-# BLACK LEDGER
+# BLACK LEDGER — the city keeps scheming
 
-The world gives the GM a live job board, practical prep hooks, and a visible memory of what the table changed.
+![BLACK LEDGER — the city keeps scheming banner](../assets/horizons/black-ledger.png)
 
-![BLACK LEDGER city map with augmented-reality overlays](../assets/horizons/black-ledger.png)
+**The world gives the GM a live job board, practical prep hooks, and a visible memory of what the table changed.**
 
-## Why this matters
+_Status: Horizon only — future idea, not active build work._
+
+## What problem does this solve?
 
 I want the city to matter between sessions without needing a metagame spreadsheet to prep the next run.
 
-Picture the scene: A GM opens Seattle, sees which districts are hot, picks a job with grounded opposition and consequences, runs it, and later watches the map remember the fallout.
+## A real table scene
+
+The world gives the GM a live job board, practical prep hooks, and a visible memory of what the table changed.
+
+<p align="center"><img src="../assets/horizons/details/black-ledger-scene.png" alt="BLACK LEDGER — the city keeps scheming dialogue scene still" width="420"></p>
 
 
-## Current stage
-
-- Today: Future concept.
-- Next: Research and prototypes.
 
 ## The promise
 

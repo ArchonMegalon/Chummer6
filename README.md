@@ -1,67 +1,118 @@
-# Chummer Public Guide
+# Chummer6
 
-Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.
+> **An idea for less mystical Shadowrun rulings.**
+>
+> Chummer6 is a flagship Shadowrun companion focused on inspectable rulings and trust under pressure.
 
-## Product promise
+If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
 
-Chummer6 is the explainable Shadowrun campaign OS.
+## Pick your path
 
-Its first must-win job is being the most trustworthy way to build, inspect, and advance a Shadowrun character.
+- **I am new here:** [Start Here](START_HERE.md)
+- **Give me the product story:** [What Chummer6 is](WHAT_CHUMMER6_IS.md)
+- **Tell me what is real today:** [Current status](NOW/current-status.md)
+- **Show me future ideas:** [Horizons](HORIZONS/README.md)
+- **Show me the parts when I actually care:** [Program map](PARTS/README.md)
+- **I want to help without decoding project internals:** [How can I help?](HOW_CAN_I_HELP.md)
+- **Take me deeper when I am ready:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
+- **Inspect the current advanced preview builds:** [Download builds](DOWNLOAD.md)
 
-The goal is simple: build correctly, explain clearly, run reliably, recover calmly, and carry the campaign forward.
+## Current posture
 
-## What is real now
+Chummer6 is still early, but the public route is not imaginary. Start with the guide and current status page, use the download page when you want a preview artifact, and trust the platform story exactly as it is labeled there.
 
-- Short answer: yes, as an early preview.
-- Downloads are currently live for Windows.
-- Proof on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; it is not a blanket flagship-complete claim and it does not outrank the recommended install route.
-- Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
-- If you see both desktop apps, start with the Avalonia desktop app. Treat Blazor desktop app as a fallback path only when the download page or support explicitly tells you to use it.
-- Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
-- Today: Usable preview.
-- Still missing from the public download page: Linux and macOS.
-- Help, contact, privacy, and terms pages are live.
-- More campaign-ledger depth and steadier desktop polish are still coming.
+If you are coming from older Chummer habits, read the product story and current status before deciding whether the current preview fits your table.
 
-## Start here
+![Chummer6 hero banner](assets/hero/chummer6-hero.png "a streetdoc fitting a new cyberarm while the table asks whether the proof holds.")<br>_[a streetdoc fitting a new cyberarm while the table asks whether the proof holds.](assets/hero/chummer6-hero.png)_
 
-- [Download](DOWNLOAD.md)
-- [Status](STATUS.md)
-- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
-- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
-- [How can I help](HOW_CAN_I_HELP.md)
-- [Help](HELP.md)
-- [FAQ](FAQ.md)
-- [Contact](CONTACT.md)
-- [Future ideas](HORIZONS/README.md)
+## What this means at a real table
+
+> **GM**<br>
+> "Rain, noise, and recoil all apply here."
+
+> **Player**<br>
+> "Then why did my pool drop to 9?"
+
+> **Chummer6**<br>
+> "Base 11. Rain -1. Wounds -1. Recoil -1. Final 9."
+
+The project favors visible reasoning over trust-me table lore. Use the guide, current status, horizons, and proof surfaces to evaluate where it is strong today and where it is still tightening.
+
+## Why this is worth watching
+
+If you care about receipts, future session resilience, and tools that earn trust in public, this is the campaign OS worth watching.
+
+- a clearer trust path for rulings tools
+- less trust-me math through visible receipts
+- a saner long-range path from prep to live play
+
+If that sounds like your kind of software, the next stop is [What Chummer6 is](WHAT_CHUMMER6_IS.md).
 
 ## How can I help?
 
-If you want the optional guided contribution path instead of normal product help, start with [How can I help](HOW_CAN_I_HELP.md).
+If you want to do more than watch, start with [How can I help?](HOW_CAN_I_HELP.md).
 
-- The public participation door is <https://chummer.run/participate>.
-- The cheap baseline stays the default path; guided contribution is extra, not the normal support door.
-- Final landing still goes through review before anything ships.
+The short version: public bugs and feature ideas still go through the [Chummer6 issue tracker](https://github.com/ArchonMegalon/Chummer6/issues), and the guided contribution path is only for people who explicitly want a more hands-on, review-bound lane.
 
-## First contact
+- [Open the public participation page](https://chummer.run/participate)
 
-![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
+## Try it now
+
+- [Check the current downloads](DOWNLOAD.md)
+- Use the download page to see which file is recommended first and which platforms are not public yet.
+- If you want the raw tag history anyway, [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
 
 
-## Why people care
 
-- It shows why a number changed instead of hiding the math.
-- It is being built to keep sessions and campaigns recoverable when devices or connectivity drift.
-- The status, downloads, and help story is meant to stay in plain sight instead of being scattered.
+## What is happening right now
 
-## Product parts
+Right now the project is doing trust work before promising more than the preview can carry.
+the guide must stay precise about current boundaries without downplaying the product
 
-- [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- [Horizons index](HORIZONS/README.md): future ideas that are not ready today.
+Current focus:
+- honest public trust surfaces with explicit boundaries
+- future lanes framed as concrete table upgrades
+- inspectable evidence instead of vague claims
+- keep public previews honestly labeled until they become the real thing
 
-## Need help
+- [Current phase](NOW/current-phase.md)
+- [Current status](NOW/current-status.md)
+- [Public surfaces](NOW/public-surfaces.md)
 
-Start here for downloads, sign-in recovery, and support.
+## When you want the map
 
-- Start with [Help](HELP.md) if install, updates, sign-in, or bugs are getting in the way.
-- Use [Contact](CONTACT.md) when you want to report a problem or send feedback.
+You do not need the program map first, but it is here when you need it:
+
+- **Rules receipts** live in [Core](PARTS/core.md)
+- **Prep and inspect** lives in [UI](PARTS/ui.md)
+- **Table play** lives in [Mobile](PARTS/mobile.md)
+- **Online coordination** lives in [Hub](PARTS/hub.md)
+- **Shared chrome** lives in [UI Kit](PARTS/ui-kit.md)
+- **Artifacts and compatibility** live in [Hub Registry](PARTS/hub-registry.md)
+- **Render jobs** live in [Media Factory](PARTS/media-factory.md)
+- **Long-range plan** lives in [Design](PARTS/design.md)
+
+If you want the full guided version, read the [Program map](PARTS/README.md).
+
+## Future ideas
+
+Horizons are future campaign-OS lanes: vivid table problems, clear boundaries, and no fake shipping promises.
+
+- [Horizons index](HORIZONS/README.md)
+
+## Preview builds
+
+![Preview warning banner](assets/hero/preview-warning.png "a quarantined proof shelf showing what must be checked before it reaches a table.")<br>_[a quarantined proof shelf showing what must be checked before it reaches a table.](assets/hero/preview-warning.png)_
+
+Want to know whether any of this exists as software yet? Start with the current preview builds.
+
+- [Download builds](DOWNLOAD.md)
+- [Raw GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases)
+
+> **Preview warning:** these builds are for curious testers, not cautious production use.<br>
+> They may be unstable, unfinished, or awkward to install.<br>
+> Install at your own risk.
+
+The binaries are built from the working Chummer6 application, not from this orientation guide.
+
+Need the long-range plan after that? [Where to go deeper](WHERE_TO_GO_DEEPER.md).

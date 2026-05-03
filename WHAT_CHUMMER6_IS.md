@@ -2,13 +2,13 @@
 
 ![What Chummer6 is banner](assets/pages/what-chummer6-is.png "less mystical rulings, more visible receipts.")<br>_[less mystical rulings, more visible receipts.](assets/pages/what-chummer6-is.png)_
 
-Chummer6 is Shadowrun tooling for campaign-OS work: rulings, prep, and table state made inspectable instead of mystical.
+Chummer6 is Shadowrun tooling for character builds, rulings, prep, and session continuity.
 
-The promise is visible reasoning, receipts, grounded campaign artifacts, and table-facing trust under pressure. Judge it through the public guide, status surfaces, and proof lanes rather than opaque claims.
+The promise is visible reasoning, readable receipts, and table-facing trust under pressure. Judge it through the public guide, current status, and proof lanes rather than opaque claims.
 
 ## What it is becoming for players and GMs
 
-Chummer6 is not just trying to be a character manager with nicer chrome. It is trying to become a toolkit that helps players and GMs:
+Chummer6 is not just trying to be a character manager with nicer chrome. It is trying to become tooling that helps players and GMs:
 
 - get a ruling quickly
 - see why that ruling happened
