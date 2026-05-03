@@ -2,9 +2,9 @@
 
 ![Parts overview banner](../assets/pages/parts-index.png)
 
-                Chummer6 is a series of specialized lanes built to kill off the "trust-me" math of messy firefights and stop your campaign from drifting into a memory hole between sessions.
+                The parts map shows how the product is organized for clear ownership and trust boundaries.
 
-                Choose your entry point based on the friction you're feeling at the table. Players can already generate portable dossiers to inspect the receipts behind specific math proofs, ensuring you know exactly why a modifier is hitting your pool before the dice roll. GMs can investigate the campaign ledger, a long-range tool for stabilizing session state so the world actually remembers the consequences of your last run. For those building primers or gear-guide artifacts, the Creator lane offers a preview of how to publish briefing reels that stay grounded in verifiable receipts.
+                Use it to find the lane that matches your problem quickly. Each part describes responsibilities, visible surfaces, and where to inspect deeper evidence.
 
                 ## What you actually notice first
 

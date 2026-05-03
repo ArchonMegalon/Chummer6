@@ -2,7 +2,7 @@
 
 ![KARMA FORGE — house rules without table chaos banner](../assets/horizons/karma-forge.png "rule experiments under diff, approval, and rollback pressure.")<br>_[rule experiments under diff, approval, and rollback pressure.](../assets/horizons/karma-forge.png)_
 
-**Tables can evolve house rules without splintering into unreadable forks.**
+**House rules with governance instead of fork chaos.**
 
 _Status: Horizon only — future idea, not active build work._
 
@@ -12,29 +12,22 @@ I want house rules without fork chaos.
 
 ## A real table scene
 
-The table wants one spicy house rule and zero repo divorces.
-
-> **GM**<br>
-> "I want recoil changed, but I do not want a fork, a feud, and three mystery regressions."
-
-> **Player**<br>
-> "Can we keep our weird initiative patch too?"
-
-> **Chummer6**<br>
-> "Overlay stack loaded. Conflict report ready. Rollback available before the clever idea turns into folklore."
-
-> **GM**<br>
-> "Good. Homebrew with receipts, not folklore with combat boots."
+GM: I want the house rule, not the forked-code religion that comes with it.
+Chummer6: Diff strip loaded. Two collisions, one rollback path, one approval still pending.
+Player: Fine, but I want to know whether it still plays nice with the rest of the sheet.
+Rigger: And I want rollback before somebody ships a clever disaster.
+A stamped approval card lands on the bench and nobody trusts it yet.
+GM: That is why this is a forge and not a pastebin.
+Player: Good. Keep the receipts hotter than the hype.
 
 <p align="center"><img src="../assets/horizons/details/karma-forge-scene.png" alt="KARMA FORGE — house rules without table chaos dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- layering rule overlays in a controlled stack
-- surfacing conflicts before they hit the table
-- keeping every tweak attached to a readable receipt
-- making rollback possible when the experiment catches fire
+- Approval, compatibility, and rollback still eat real effort before any ruleset preview is safe
+- It is still expensive, review-heavy, and easy to overpromise if the receipts are weak
+- Broader access later is still the hope, but nobody should read that as a promise that the work lands cleanly or soon
 
 
 ## The promise

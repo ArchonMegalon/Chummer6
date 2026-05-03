@@ -2,7 +2,7 @@
 
 ![ALICE banner](../assets/horizons/alice.png "simulation before regret.")<br>_[simulation before regret.](../assets/horizons/alice.png)_
 
-**Builders can branch the same runner into temporary build ghosts, compare grounded tradeoffs, and commit only the variant they trust.**
+**Grounded what-if analysis before the bad build hits public view.**
 
 _Status: Horizon only — future idea, not active build work._
 
@@ -12,35 +12,20 @@ We only discover weak builds after they explode in public.
 
 ## A real table scene
 
-The player is bragging. The sim bench is about to take that personally.
-
-> **Player**<br>
-> "My infiltrator is unstoppable."
-
-> **GM**<br>
-> "Last run you got flash-banged by a rent-a-cop and cried."
-
-> **Player**<br>
-> "That was tactical sorrow."
-
-> **Chummer6**<br>
-> "Ran 500 seeded breach sims. In 71 percent of them, you fold the moment the hallway goes loud."
-
-> **Player**<br>
-> "Rude."
-
-> **Chummer6**<br>
-> "Suggested fixes: stop treating Body as decorative."
+Player: I thought this build was clean.
+GM: ALICE says the weak point shows up on turn two, not after the campaign starts.
+Decker: Good. I would rather get roasted by a preflight than by the whole table.
+Chummer6: The hallway goes loud, your soak folds, and the plan stops being clever.
+Player: Show me the evidence, not the vibes.
+GM: Exactly. Humiliation is cheaper in preview.
 
 <p align="center"><img src="../assets/horizons/details/alice-scene.png" alt="ALICE dialogue scene still" width="420"></p>
 
 
 ## Meanwhile, Chummer is doing this
 
-- replaying a seeded scenario with the same inputs
-- holding the runtime stack constant between runs
-- tracing the collapse point instead of just reporting failure
-- showing which rule path, modifier, or choice killed the build
+- Comparative analysis has to stay tied to visible proof instead of fuzzy assistant theater
+- Preflight checks only matter if they are explainable enough for a skeptical table
 
 ## Why that would be great
 
