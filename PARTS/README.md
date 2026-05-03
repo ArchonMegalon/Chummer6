@@ -2,9 +2,9 @@
 
 ![Parts overview banner](../assets/pages/parts-index.png)
 
-                The parts map shows how the product is organized for clear ownership and trust boundaries.
+                Use the parts guide to pick the lane that matches the problem in front of you.
 
-                Use it to find the lane that matches your problem quickly. Each part describes responsibilities, visible surfaces, and where to inspect deeper evidence.
+                Each part explains what it helps with, which visible surface or work zone you would notice, and where to go deeper if that lane matters to your table.
 
                 ## What you actually notice first
 
