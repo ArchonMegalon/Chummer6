@@ -57,6 +57,22 @@ But ALICE must never invent rules.
 
 Every claim needs a receipt.
 
+## Build Ghost operating rule
+
+Build Ghosts are temporary derived work copies, not new canonical runners.
+
+That means:
+
+- the source runner stays untouched while you explore variants
+- Ghost A and Ghost B can diverge from the same snapshot
+- legality, nuyen, and role-fit checks come from Chummer-owned engine truth
+- assistant language may explain a computed delta, but it does not replace the math
+- the canonical runner only changes through an explicit `Apply Ghost` action
+- every apply or discard path should leave a receipt and an undo anchor
+
+Facepop is out of scope here.
+It belongs to public concierge and testimonial capture, not runtime build simulation.
+
 ## What it feels like
 
 A player compares two builds:
@@ -194,16 +210,30 @@ It should help users think, not replace them.
 
 The first ALICE slice should be:
 
-**Build comparison brief**
+**Build Ghost compare bench**
 
 It should let a user:
 
-1. select two snapshots or variants
-2. compare legality
-3. compare role fit
-4. compare major costs/tradeoffs
-5. see receipts
-6. export a short explain brief
+1. spawn Ghost A and Ghost B from the current runner snapshot
+2. change selected build inputs inside each ghost without touching the source runner
+3. compare legality, nuyen posture, role fit, and weak-link callouts
+4. inspect receipts and grounded deltas before committing anything
+5. discard one ghost or apply one reviewed ghost delta
+6. keep an undo anchor back to the source snapshot
+
+The first good UI posture is a three-column compare surface:
+
+- source runner
+- Ghost A
+- Ghost B
+
+The action rail should stay blunt:
+
+- `Discard Ghost`
+- `Apply Ghost`
+- `Show math`
+- `Show receipts`
+- `Compare against campaign`
 
 Success looks like:
 
