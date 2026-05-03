@@ -37,6 +37,29 @@ Chummer shows the rule environment, the active packages, the impact, the compati
 
 ---
 
+## Key tool posture
+
+KARMA FORGE benefits from discovery, review, and governed-process LTDs, but none of them become rule truth.
+
+* `Icanpreneur` - bounded discovery interview and synthesis lane for repeated house-rule demand
+* `Deftform` - structured intake and pre-screen lane for rule proposals
+* `Lunacal` - follow-up clinic and scheduling lane for rule-review sessions
+* `MetaSurvey` - quantitative validation lane after a proposal cluster forms
+* `Teable` - review-board and AdminIntent projection surface
+* `NextStep` - governed process runner for discovery sprints, approvals, and closeout discipline
+* `ApproveThis` - bounded approval edge when external signoff is useful
+* bounded `FacePop`, `Signitic`, `Emailit`, `Taja`, and `vidBoard` - recruitment, followthrough, and approved explainer lanes only
+* bounded `Prompting Systems` and `AI Magicx` - proposal-summary and approved-explainer helper lanes only
+
+Chummer still owns:
+
+* rule truth
+* compatibility truth
+* publication truth
+* rollback truth
+
+---
+
 ## What KARMA FORGE does
 
 KARMA FORGE turns house rules into explicit, inspectable objects.

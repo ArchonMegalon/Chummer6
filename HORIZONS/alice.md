@@ -1,6 +1,6 @@
 # ALICE
 
-Builders get grounded what-if checks instead of vague AI advice.
+Builders can branch the same runner into temporary build ghosts, compare grounded tradeoffs, and commit only the variant they trust.
 
 ![ALICE horizon art](../assets/horizons/alice.png)
 
@@ -8,7 +8,7 @@ Builders get grounded what-if checks instead of vague AI advice.
 
 We only discover weak builds after they explode in public.
 
-Picture the scene: A player compares two builds and sees the tradeoffs, the math, and the likely trouble spots before the session starts.
+Picture the scene: A player compares two temporary ghosts of the same runner, sees the tradeoffs, the math, and the likely trouble spots, then applies only the reviewed variant.
 
 
 ## Current stage
@@ -17,6 +17,12 @@ Picture the scene: A player compares two builds and sees the tradeoffs, the math
 - Next: Research and prototypes.
 
 **ALICE is Chummer’s build-simulation and what-if horizon: the future where players can compare builds, catch trouble, test upgrade paths, and understand tradeoffs before the table discovers the mistake under pressure.**
+
+Its first real product-shaped move should be:
+
+> **BUILD GHOST**
+>
+> Branch this runner, try the change, inspect the delta, and only commit if you trust the result.
 
 Many weak builds are not obvious at creation time.
 
@@ -80,6 +86,7 @@ Buttons:
 
 - Show math
 - Show receipts
+- Spawn Build Ghost
 - Compare team role fit
 - Fix budget issue
 - Keep my chaos
@@ -94,6 +101,7 @@ Compare:
 
 - current build vs snapshot
 - variant A vs variant B
+- live runner vs Ghost A vs Ghost B
 - runner vs campaign rule environment
 - runner vs team needs
 - current build vs upgrade goal

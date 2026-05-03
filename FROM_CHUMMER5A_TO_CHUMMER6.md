@@ -16,14 +16,14 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## Should you switch today?
 
-- Today you can try preview builds on Windows, Linux, and macOS.
-- Public downloads are already visible on every promised desktop platform.
+- Today you can try preview builds on Windows.
+- If you rely on Linux and macOS as your main platform, wait before switching full time.
 - If you like trying real previews and helping shape the rough edges, it is worth a serious look.
 - If you need a fully settled, every-platform replacement for Chummer5a right now, wait.
 
 ## What is still rough
 
-- Downloads are currently live for Windows, Linux, and macOS.
+- Downloads are currently live for Windows.
 - Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
 - Posted proof is scoped to the current files and flows you can inspect today; it is not a blanket flagship claim.
 - It should still be read as a serious preview, not a finished no-step-back replacement yet.
