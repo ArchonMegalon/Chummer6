@@ -4,6 +4,11 @@ If you want the shortest read on how the public Chummer6 picture is changing, st
 
 ## Latest signals
 
+### 2026-05-04 · Refresh Chummer6 public updates tone.
+
+- What changed for you: The public guide got easier to scan and a little closer to sounding like a product page instead of a project log.
+- Still not promised: that this is already the finished product.
+
 ### 2026-05-04 · The Chummer6 story got sharper.
 
 - What changed for you: It is easier to tell what Chummer6 is, what is live now, and where to click next.
@@ -19,30 +24,25 @@ If you want the shortest read on how the public Chummer6 picture is changing, st
 - What changed for you: The fast answers for first-time visitors are a little easier to scan.
 - Still not promised: that every first-run question is already answered.
 
-### 2026-05-03 · Strengthen ALICE build ghost public design.
+### 2026-05-03 · ALICE became easier to picture.
 
-- What changed for you: The public story and the deeper planning docs are pulling in the same direction more often.
-- Still not promised: that this is already the finished product.
+- What changed for you: The build-simulation horizon now reads a little more like a real future feature and a little less like internal scaffolding.
+- Still not promised: that ALICE is already a shipped product surface.
 
-### 2026-05-02 · Add mac release cleanup guidance.
+### 2026-05-02 · The Mac preview path got sturdier.
 
-- What changed for you: The front door feels a little more like a real product surface and a little less like scaffolding.
-- Still not promised: that this is already the finished product.
+- What changed for you: The Mac route looks a little less fragile behind the scenes.
+- Still not promised: that the Mac experience is already broad or polished.
 
-### 2026-05-02 · Relax mac packaging disk guard.
+### 2026-05-01 · The visuals got more deliberate.
 
-- What changed for you: The front door feels a little more like a real product surface and a little less like scaffolding.
-- Still not promised: that this is already the finished product.
+- What changed for you: The guide is moving a little further away from filler art and a little closer to a real product mood.
+- Still not promised: that every visual is final.
 
-### 2026-05-02 · Harden Mac bootstrap checkout retries.
+### 2026-04-30 · The public shelf got tidier.
 
-- What changed for you: The front door feels a little more like a real product surface and a little less like scaffolding.
-- Still not promised: that this is already the finished product.
-
-### 2026-05-02 · Track latest GitHub main in Mac bootstrap.
-
-- What changed for you: The front door feels a little more like a real product surface and a little less like scaffolding.
-- Still not promised: that this is already the finished product.
+- What changed for you: The visible release picture is a little easier to keep straight.
+- Still not promised: that every published path is already settled.
 
 ## Monthly archive
 
