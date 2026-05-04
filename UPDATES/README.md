@@ -1,48 +1,48 @@
 # Updates
 
-If you are checking whether the idea is still moving, start here.
+If you want the shortest read on how the public Chummer6 picture is changing, start here.
 
-## Latest visible changes
+## Latest signals
 
-### 2026-05-04 · The public guide got stricter.
+### 2026-05-04 · The Chummer6 story got sharper.
 
-- What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
-- Still not promised: that the visible surface is reliable just because it has a page.
+- What changed for you: It is easier to tell what Chummer6 is, what is live now, and where to click next.
+- Still not promised: that a page automatically means the feature is finished.
 
-### 2026-05-04 · Refresh Chummer6 FAQ entry points.
+### 2026-05-04 · The public story got tighter.
 
-- What changed for you: The public guide moved a little closer to something you can skim without guessing where to click next.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+- What changed for you: The visitor-facing pages are a little less likely to contradict each other.
+- Still not promised: that the shipped product already matches every internal rule behind it.
 
-### 2026-05-04 · Promote Chummer6 FAQ quick answers.
+### 2026-05-04 · The newcomer path got clearer.
 
-- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+- What changed for you: The fast answers for first-time visitors are a little easier to scan.
+- Still not promised: that every first-run question is already answered.
 
 ### 2026-05-03 · Strengthen ALICE build ghost public design.
 
-- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+- What changed for you: The public story and the deeper planning docs are pulling in the same direction more often.
+- Still not promised: that this is already the finished product.
 
 ### 2026-05-02 · Add mac release cleanup guidance.
 
-- What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
-
-### 2026-05-02 · Add mac release cleanup reminder.
-
-- What changed for you: The public-facing rules for what Chummer should expose got less contradictory.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+- What changed for you: The front door feels a little more like a real product surface and a little less like scaffolding.
+- Still not promised: that this is already the finished product.
 
 ### 2026-05-02 · Relax mac packaging disk guard.
 
-- What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+- What changed for you: The front door feels a little more like a real product surface and a little less like scaffolding.
+- Still not promised: that this is already the finished product.
 
 ### 2026-05-02 · Harden Mac bootstrap checkout retries.
 
-- What changed for you: The public-facing shell moved a little closer to behaving like a real front door instead of a clever stub.
-- Still not promised: that any visible surface is finished, stable, or something you should bet a session on.
+- What changed for you: The front door feels a little more like a real product surface and a little less like scaffolding.
+- Still not promised: that this is already the finished product.
+
+### 2026-05-02 · Track latest GitHub main in Mac bootstrap.
+
+- What changed for you: The front door feels a little more like a real product surface and a little less like scaffolding.
+- Still not promised: that this is already the finished product.
 
 ## Monthly archive
 
