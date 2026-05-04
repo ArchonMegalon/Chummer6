@@ -20,7 +20,7 @@ Start with the download page. It should tell you which package is real, what is 
 - Create an account if you want your support history, recovery, or future downloads tied to one place.
 - Check the download page before assuming another platform is available.
 
-## Keep access and recovery on one calm path
+## Sign in and recover access
 
 Account creation, sign-in, and recovery should stay boring. Use the account page and the recovery flow before you fall back to manual troubleshooting.
 
@@ -28,7 +28,7 @@ Account creation, sign-in, and recovery should stay boring. Use the account page
 - Use recovery email so one sign-in method is never the whole story.
 - Devices and access stay separate from identity recovery.
 
-## Product help should become a support case, not a rumor
+## Report a problem without guessing
 
 Use Contact first for install trouble, product bugs, and practical feedback. GitHub is there when you want a public bug thread, not as the normal support door.
 
@@ -36,7 +36,7 @@ Use Contact first for install trouble, product bugs, and practical feedback. Git
 - Use Account > Support if you want your support history saved in one place.
 - Use GitHub only when you want a public bug thread.
 
-## Ask from inside Chummer first
+## Product questions in plain language
 
 Normal preview questions should be answerable from inside the product. Support and FAQ exist so you do not have to dig through project details just to get a clear answer.
 

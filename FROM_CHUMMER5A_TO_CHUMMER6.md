@@ -49,6 +49,14 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 ## Read next
 
 - [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
+- [Download builds](DOWNLOAD.md)
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [Help](HELP.md)
+
+## First things to compare for yourself
+
+- menu and toolbar density
+- the builder flow
+- roster behavior
+- settings and account recovery
+- import and export paths
