@@ -2,16 +2,6 @@
 
 This page is for Chummer5a users who want the blunt answer: what still feels familiar, what gets better, and whether now is the right time to switch.
 
-## Real preview comparison
-
-![Chummer journey screenshot before save and reload](assets/screenshots/migration-before.png)
-
-*Before: a real journey capture from the current workspace flow before the save and reload step.*
-
-![Chummer journey screenshot after save and reload](assets/screenshots/migration-after.png)
-
-*After: the same journey after save and reload, used as concrete migration proof.*
-
 ## What will feel familiar
 
 - It is still aiming for a dense desktop workbench, not a stripped-down dashboard.
