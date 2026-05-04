@@ -1,6 +1,6 @@
 # How Can I Help?
 
-If you want to help Chummer6, start with the public route that matches what happened. Guided contribution is optional.
+If you want to help Chummer6, start with the public route that matches what happened. Public feedback comes first. Guided contribution is optional.
 
 ## Report a bug or confusing page
 
