@@ -203,6 +203,11 @@ def _sync_dir(src: Path, dest: Path, check: bool, failures: list[str], optional:
             return
     else:
         dest.mkdir(parents=True, exist_ok=True)
+    if dest.name == "assets":
+        source_screenshots = src / "screenshots"
+        dest_screenshots = dest / "screenshots"
+        if not source_screenshots.exists() and dest_screenshots.exists():
+            shutil.rmtree(dest_screenshots)
     for source_file in src.rglob("*"):
         relative_path = source_file.relative_to(src)
         destination_file = dest / relative_path

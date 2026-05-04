@@ -21,13 +21,6 @@ Start here when you want the right file first.
 - Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
 - Update note: Only expect fix notices after the affected download is available on the same public shelf.
 
-## Real preview proof
-
-![Real Chummer6 preview workspace screenshot](assets/screenshots/download-preview-workspace.png)
-
-*Real preview workspace from the current app, captured during an acceptance journey.*
-
-
 ## Current build matrix
 
 Use chummer.run for downloads. Use GitHub only when you want source or a public bug thread.
