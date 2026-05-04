@@ -13,7 +13,7 @@ If you want to help Chummer6, start with the public route that matches what happ
 - Use Chummer Help or Contact when the problem is support, install, account, crash, or anything private.
 - Do not post private logs, account data, campaign spoilers, or copyrighted rules text in public feedback lanes.
 
-## Suggest a feature or future lane
+## Suggest a feature or future idea
 
 If you want to help without touching the optional guided contribution path at all, use the normal public routes:
 
