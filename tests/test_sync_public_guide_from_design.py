@@ -20,7 +20,7 @@ _render_with_start_here = guide_sync._render_with_start_here
 
 class RenderWithStartHereTests(unittest.TestCase):
     def test_readme_start_here_links_are_unique(self) -> None:
-        source = """# Chummer Public Guide
+        source = """# Chummer6
 
 ## Start here
 
@@ -45,7 +45,7 @@ class RenderWithStartHereTests(unittest.TestCase):
         )
 
     def test_readme_rewrites_internal_acceptance_bar_phrase(self) -> None:
-        source = """# Chummer Public Guide
+        source = """# Chummer6
 
 Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
 """
