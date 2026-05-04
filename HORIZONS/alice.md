@@ -55,7 +55,7 @@ It can help answer:
 
 But ALICE must never invent rules.
 
-Every claim needs a receipt.
+Every claim needs a clear source trail.
 
 ## What it feels like
 
@@ -85,7 +85,7 @@ Are you joining a Matrix-heavy campaign or a mixed-op open run?
 Buttons:
 
 - Show math
-- Show receipts
+- Show breakdown
 - Spawn Build Ghost
 - Compare team role fit
 - Fix budget issue
@@ -175,7 +175,7 @@ Yes. It can show whether a runner fits a GM’s open-run joining policy.
 
 ### Can it be funny?
 
-Yes. The companion can comment. The receipts still do the serious work.
+Yes. The companion can comment. The breakdown still does the serious work.
 
 ## What it is not
 
@@ -186,7 +186,7 @@ ALICE is not:
 - an AI rules engine
 - a powergaming-only tool
 - legality by vibes
-- advice without receipts
+- advice without grounded explanations
 
 It should help users think, not replace them.
 
@@ -202,7 +202,7 @@ It should let a user:
 2. compare legality
 3. compare role fit
 4. compare major costs/tradeoffs
-5. see receipts
+5. see the breakdown
 6. export a short explain brief
 
 Success looks like:
@@ -219,4 +219,4 @@ It should also answer:
 
 > “Will this actually work for what I am trying to do?”
 
-**ALICE is where Chummer becomes a build mentor with receipts.**
+**ALICE is where Chummer becomes a build mentor with grounded explanations.**
