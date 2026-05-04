@@ -63,7 +63,7 @@ The project is leaning harder into explicit trust:
 ## The kinds of trust it wants to earn
 
 - **Math trust:** the number should be reproducible.
-- **Receipt trust:** the path to the number should be visible.
+- **Explanation trust:** the path to the number should be visible.
 - **Session trust:** your table should not collapse because Wi-Fi had a mood.
 - **Change trust:** custom rules, era differences, and future expansions should be legible instead of spooky.
 
