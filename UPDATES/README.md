@@ -4,7 +4,7 @@ If you are checking whether the idea is still moving, start here.
 
 ## Latest visible changes
 
-### 2026-05-03 · The public guide got stricter.
+### 2026-05-04 · The public guide got stricter.
 
 - What changed for you: The docs are a little clearer about what is an idea, what is visible, and where to poke next.
 - Still not promised: that the visible surface is reliable just because it has a page.

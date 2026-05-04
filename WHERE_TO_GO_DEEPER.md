@@ -1,26 +1,21 @@
 # Where To Go Deeper
 
-This is the path for when the friendly tour stops being enough.
+Use this page when the friendly tour is no longer enough.
 
-If you want the long-range plan, the actual software, or the place to call out stale or confusing guide copy, start here.
+## Read one level deeper
 
-## Start here when you want more than the tour
+- Read the design notes when you want the long-range plan and the deeper tradeoffs.
+- Open the software repos when you want implementation details instead of the public tour.
+- Use [How Can I Help?](HOW_CAN_I_HELP.md) when you want the participation page, public bug route, or optional guided contribution path.
 
-- Read the design notes when you want the long-range plan.
-- Open the software repos when you want the implementation details.
-- Use [How Can I Help?](HOW_CAN_I_HELP.md) when you want the public support lane or the optional guided contribution path.
-- Come back to Chummer6 when you want the friendly guided version again.
+## Which path is which?
 
-## What each place is for
+- Design notes: the long-range plan
+- Software repos: the working software
+- Chummer6: the friendly guide and public orientation
 
-- Design notes: the long-range plan and deeper tradeoffs
-- Software repos: the working software and technical detail
-- Chummer6: the friendly guide, examples, and public-facing orientation
+## When to come back here
 
-## If you want the source of truth
+If the guide feels stale or confusing, call it out through the public issue path.
 
-Chummer6 is the friendly guide.
-
-- The design notes hold the long-range plan
-- the software repos hold the implementation
-- if this guide feels stale or confusing, call it out through the public issue path so it can be fixed
+If you want the simpler public version again, come back to Chummer6.

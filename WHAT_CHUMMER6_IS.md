@@ -6,6 +6,10 @@ Chummer6 is Shadowrun tooling for character builds, rulings, prep, and session c
 
 The promise is visible reasoning, readable receipts, and table-facing trust under pressure. Judge it through the public guide, current status, and proof lanes rather than opaque claims.
 
+## The short product answer
+
+Chummer6 is Shadowrun tooling for character builds, rulings, prep, and session continuity.
+
 ## What it is becoming for players and GMs
 
 Chummer6 is not just trying to be a character manager with nicer chrome. It is trying to become tooling that helps players and GMs:
@@ -31,6 +35,14 @@ Chummer6 is not just trying to be a character manager with nicer chrome. It is t
 > "Good. We move."
 
 That is the product story in miniature. Not "trust me, bro." Not "dig through source." Just a fast answer with enough proof to keep the table moving.
+
+## Quick proof
+
+- Base pool: 11
+- Wounds: -1
+- Sustaining: -1
+- Weather: -1
+- Final pool: 8
 
 ## Why that matters at the table
 

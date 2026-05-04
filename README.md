@@ -1,25 +1,29 @@
 # Chummer6
 
-> **An idea for less mystical Shadowrun rulings.**
+> **Shadowrun tooling that shows its work.**
 >
 > Chummer6 is a flagship Shadowrun companion focused on inspectable rulings and trust under pressure.
 
-If you only need the one-sentence pitch, it is this: Chummer6 is trying to help players and GMs answer "what just happened?" fast enough that the run keeps moving.
+Build a runner, check a ruling, and keep the session moving without a folklore argument in the middle of the run.
 
-## Pick your path
+## Start here
 
-- **I am new here:** [Start Here](START_HERE.md)
-- **Give me the product story:** [What Chummer6 is](WHAT_CHUMMER6_IS.md)
-- **Tell me what is real today:** [Current status](NOW/current-status.md)
-- **Show me future ideas:** [Horizons](HORIZONS/README.md)
-- **Show me the parts when I actually care:** [Program map](PARTS/README.md)
-- **I want to help without decoding project internals:** [How can I help?](HOW_CAN_I_HELP.md)
-- **Take me deeper when I am ready:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
-- **Inspect the current advanced preview builds:** [Download builds](DOWNLOAD.md)
+- **New here:** [Start Here](START_HERE.md)
+- **What is Chummer6?** [What Chummer6 is](WHAT_CHUMMER6_IS.md)
+- **What works today?** [Current status](NOW/current-status.md)
+- **Download a preview build:** [Download builds](DOWNLOAD.md)
+- **See future ideas:** [Horizons](HORIZONS/README.md)
+- **See the parts guide:** [PARTS/README.md](PARTS/README.md)
+- **Help or feedback:** [How can I help?](HOW_CAN_I_HELP.md)
+- **Read deeper design notes:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
 
-## Current posture
+## What is real today
 
-Chummer6 is still early, but the public route is not imaginary. Start with the guide and current status page, use the download page when you want a preview artifact, and trust the platform story exactly as it is labeled there.
+- The guide and current status pages are the safest front door.
+- Windows preview builds exist today when the download page lists them.
+- The most concrete value right now is inspectable rules reasoning and visible proof surfaces.
+- Linux and macOS are not public unless the download page says otherwise.
+- Installer, update, and support polish are still catching up.
 
 If you are coming from older Chummer habits, read the product story and current status before deciding whether the current preview fits your table.
 

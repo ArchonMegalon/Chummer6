@@ -1,10 +1,11 @@
 # Try Chummer6
 
-Start here if you just need the right file and the honest platform story.
+Use this page when you want the right download first and the shortest honest answer about platform support.
 
 ## Download first
 
 - Recommended right now: [chummer-avalonia-win-x64.zip](https://chummer.run/downloads/files/chummer-avalonia-win-x64.zip)
+- Windows preview builds are the public starting point today.
 - Start with the Avalonia desktop app when it is listed here.
 - Use the Blazor desktop app only when this page or support points you there.
 - Linux and macOS are not public unless they are listed below with a real artifact.
@@ -15,7 +16,7 @@ Start here if you just need the right file and the honest platform story.
 - Channel: `preview`
 - Published: `2026-05-03T16:35:02.366961Z`
 
-Right now this shelf is advanced manual preview archives only. They are real artifacts for curious testers, not the intended normal-user install path, and installer-grade packaging is not here yet.
+These are real preview builds, but they are still archive downloads for curious testers rather than a finished installer path for normal users.
 
 ### Avalonia Desktop Windows X64 Portable
 
@@ -26,6 +27,6 @@ Right now this shelf is advanced manual preview archives only. They are real art
 
 ## If this build is rough
 
-- It is a real preview shelf, not a promise that every surface is polished.
-- If the artifact format is still an advanced manual preview archive for your platform, installer-grade packaging has not been published for that target yet.
+- These are real preview builds, not a claim that every surface is polished yet.
+- If your platform is still getting an archive instead of an installer or DMG, packaging and update polish are still catching up there.
 - If you want the raw tag history anyway, use [GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
