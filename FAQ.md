@@ -1,5 +1,12 @@
 # FAQ
 
+## Start with these answers
+
+- **Which desktop app should I start with?** Start with the Avalonia desktop app when the download page offers it.
+- **What platforms are publicly available today?** Windows preview builds are the public path today unless the download page says otherwise.
+- **I use Chummer5a now. Where should I start?** Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Current status](NOW/current-status.md).
+- **Do I need GitHub for anything normal?** No. Use the guide, download page, and help flow first.
+
 ## Using Chummer6
 
 ### Can I actually use this now?
@@ -93,7 +100,3 @@ In the Chummer software repos. Most people never need them to install Chummer6, 
 ### Where do I propose public-facing changes?
 
 Use the Chummer6 issue tracker for documentation feedback, bug reports, and feature requests.
-
-## Support and participation
-
-If you want bug-report guidance, the optional guided contribution path, or the participation page, read [HOW_CAN_I_HELP.md](HOW_CAN_I_HELP.md) and then open [https://chummer.run/participate](https://chummer.run/participate) when you are ready.
