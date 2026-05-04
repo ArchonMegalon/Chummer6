@@ -1,15 +1,24 @@
 # Help
 
-Start here if installation, updates, sign-in, or bugs are getting in the way.
+If you just need the right file, go to [Download](DOWNLOAD.md). If something broke, start here instead of guessing.
 
-## Start with the release page and download help
+## Quick triage
 
-Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
+- **Installer will not start:** Start with the recommended download for your platform, then contact support if setup still fails.
+- **I cannot sign in:** Use the account recovery flow before trying random reinstall steps.
+- **I lost access:** Use recovery email or the account page so identity and device problems stay separate.
+- **An update failed:** Go back to the current download page, then contact support with the version and platform if the retry still fails.
+- **I need to report a bug:** Use [Contact](CONTACT.md) first. Use GitHub only when you want a public bug thread.
+- **I need private help:** Use Contact or in-account support instead of posting private details publicly.
 
-- Start with the recommended installer for your platform.
-- Use the other package only if the installer gives you trouble.
-- Create an account if you want your support history, recovery, and downloads tied to one place.
-- If your platform is missing, the status and download pages will say so.
+## Download and install first
+
+Start with the download page. It should tell you which package is real, what is missing, and where to ask for help.
+
+- The current public path is the published Avalonia Desktop Windows X64 Portable archive package.
+- Setup currently starts from a downloaded package, not an installer.
+- Create an account if you want your support history, recovery, or future downloads tied to one place.
+- Check the download page before assuming another platform is available.
 
 ## Keep access and recovery on one calm path
 

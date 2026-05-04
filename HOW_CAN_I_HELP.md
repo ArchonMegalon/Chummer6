@@ -8,6 +8,11 @@ If you want to help Chummer6, start with the public route that matches what happ
 - Flag confusing guide copy when a visitor would get lost before they reach the product.
 - Use Chummer Help instead of the idea board for support, account, install, crash, or private cases.
 
+## Get help privately
+
+- Use Chummer Help or Contact when the problem is support, install, account, crash, or anything private.
+- Do not post private logs, account data, campaign spoilers, or copyrighted rules text in public feedback lanes.
+
 ## Suggest a feature or future lane
 
 If you want to help without touching the optional guided contribution path at all, use the normal public routes:
@@ -25,7 +30,7 @@ Public idea-board feedback is public. Do not post private logs, account data, ca
 
 The public idea board is not the support queue, the release checklist, or the final roadmap authority.
 
-## Optional guided contribution
+## Use the optional guided contribution path
 
 Guided contribution is for people who want to help with real execution work, not just leave feedback.
 
@@ -36,14 +41,14 @@ It is:
 - separate from the normal free feedback path
 - still subject to review before anything lands
 
-## Open the participation page
+## Choose a route
 
 - [Open the public participation page](https://chummer.run/participate)
 - [File a public issue](https://github.com/ArchonMegalon/Chummer6/issues)
 
 ## Privacy and review safety
 
-- the cheap baseline remains the default path
+- the normal public feedback remains the default path
 - guided contribution is not a merge bypass
 - final landing still goes through review
 - people can stop or revoke later

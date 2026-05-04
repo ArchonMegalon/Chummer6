@@ -17,3 +17,11 @@ Short-lived third-party tokens stay on the machine or service using them. Your a
 ## Recognition should not force publicity
 
 Participation and recognition remain optional layers. Private product use, private support, and a quiet account setup remain valid even while community pages exist.
+
+## What is collected and how to stop it
+
+Chummer keeps hosted Tier-2 telemetry opt-out by default for normal releases. You can disable hosted telemetry on first run and later in settings. Support and crash uploads remain explicit opt-in workflows.
+
+- What we collect is bounded to install-level health and usability fields, not private campaign names or raw runner sheets.
+- Opting out stops hosted telemetry emission while local install and support history remain on-device.
+- Critical support workflows and explicit crash diagnostics are opt-in and receipt-led.

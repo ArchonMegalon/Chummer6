@@ -83,6 +83,7 @@
     "public_guide_image_curation": "products/chummer/PUBLIC_GUIDE_IMAGE_CURATION.yaml",
     "public_guide_policy": "products/chummer/PUBLIC_GUIDE_POLICY.md",
     "public_media_policy": "products/chummer/PUBLIC_MEDIA_AND_GUIDE_ASSET_POLICY.md",
+    "public_screenshot_registry": "products/chummer/PUBLIC_SCREENSHOT_REGISTRY.yaml",
     "public_signal_pipeline": "products/chummer/PUBLIC_SIGNAL_TO_CANON_PIPELINE.md",
     "public_site_visibility_policy": "products/chummer/PUBLIC_SITE_VISIBILITY_AND_SEARCH_OPTIMIZATION.md",
     "public_user_model": "products/chummer/PUBLIC_USER_MODEL.md"
