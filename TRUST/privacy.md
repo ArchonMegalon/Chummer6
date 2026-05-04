@@ -8,7 +8,7 @@ Your Chummer account keeps your basic profile, linked sign-in methods, device ac
 
 ## The download file is the same for everyone
 
-When Chummer publishes a download, everyone gets the same file. Chummer does not build a private installer just for your account. If linked handoff is available, the account-aware piece is the short-lived receipt or code that reconnects a local copy back to your account.
+When Chummer publishes a download, everyone gets the same file. Chummer does not build a private installer just for your account. If linked handoff is available, the account-aware piece is the short-lived handoff code that reconnects a local copy back to your account.
 
 ## Temporary sign-in tokens and raw secrets stay out of your account record
 
@@ -24,4 +24,4 @@ Chummer keeps hosted Tier-2 telemetry opt-out by default for normal releases. Yo
 
 - What we collect is bounded to install-level health and usability fields, not private campaign names or raw runner sheets.
 - Opting out stops hosted telemetry emission while local install and support history remain on-device.
-- Critical support workflows and explicit crash diagnostics are opt-in and receipt-led.
+- Critical support workflows and explicit crash diagnostics stay explicit opt-in.
