@@ -6,7 +6,7 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 - It is still aiming for a dense desktop workbench, not a stripped-down dashboard.
 - Character editing, file work, settings, and roster tasks are supposed to stay close at hand.
-- If both desktop apps appear for your platform, the Avalonia desktop app is the main one to try and the Blazor desktop app is the fallback path only when the download page or support explicitly tells you to use it.
+- The current desktop preview path is the Avalonia desktop app.
 
 ## What gets better
 

@@ -27,7 +27,7 @@ Available today means you can open it or download it right now. Preview means yo
 
 ### Which desktop app should I start with?
 
-Start with the Avalonia desktop app when the download page offers it. Use the Blazor desktop app only when the download page or support tells you to.
+Start with the Avalonia desktop app when the download page offers it.
 
 ### What platforms are publicly available today?
 

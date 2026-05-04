@@ -14,8 +14,7 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 - Short answer: yes, as an early preview.
 - Downloads are currently live for Windows.
-- If you see both desktop apps, start with the Avalonia desktop app. Treat Blazor desktop app as a fallback path only when the download page or support explicitly tells you to use it.
-- Use Avalonia first when the download page offers it.
+- Start with the Avalonia desktop app when the download page offers it.
 - Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 - Today: Usable preview.
 - Still missing from the public download page: Linux and macOS.
