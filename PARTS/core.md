@@ -15,7 +15,7 @@ This is where Chummer earns trust. If the math cannot be reproduced and explaine
 ## What you notice
 
 - reproducible rules outcomes
-- readable receipts for why a pool or result changed
+- readable explanations for why a pool or result changed
 - a cleaner split between rules math and the extra features layered around it
 
 ## Current limits
