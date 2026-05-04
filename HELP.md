@@ -11,6 +11,12 @@ If you just need the right file, go to [Download](DOWNLOAD.md). If something bro
 - **I need to report a bug:** Use [Contact](CONTACT.md) first. Use GitHub only when you want a public bug thread.
 - **I need private help:** Use Contact or in-account support instead of posting private details publicly.
 
+## Real preview proof
+
+![Real Chummer6 preview navigation screenshot](assets/screenshots/help-preview-workspace.png)
+
+*Real preview shell from a navigation sanity journey, used as proof that the current help flow is attached to a live app.*
+
 ## Download and install first
 
 Start with the download page. It should tell you which package is real, what is missing, and where to ask for help.

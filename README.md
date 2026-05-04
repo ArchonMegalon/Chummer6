@@ -27,6 +27,7 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 - [Download builds](DOWNLOAD.md)
 - [Status](STATUS.md)
+- [Current status](NOW/current-status.md)
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [Moving from Chummer5a](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [How can I help](HOW_CAN_I_HELP.md)
