@@ -22,7 +22,7 @@ Start here: [Public surfaces](NOW/public-surfaces.md)
 
 Follow where a modifier came from and why the total changed.
 
-Start here: [Core rules receipts](PARTS/core.md)
+Start here: [Core rules reasoning](PARTS/core.md)
 
 ## I want to bend the rules for my table
 

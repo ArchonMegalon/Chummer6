@@ -2,7 +2,7 @@
 
 ![Current status banner](../assets/pages/current-status.png)
 
-                Status first: the guide, horizon shelf, and proof surfaces are live and inspectable.
+                Status first: the guide, horizon shelf, and public pages are live and easy to inspect.
 
                 ## The short version
 
