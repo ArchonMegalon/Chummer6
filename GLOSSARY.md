@@ -1,6 +1,6 @@
 # Glossary
 
-- **receipt**: the readable explanation of how a ruling or modifier was calculated
+- **explanation**: the readable breakdown of how a ruling or modifier was calculated
 - **provenance**: where each rule, modifier, or artifact fact came from
 - **local-first**: the important stuff keeps working even when the network gets stupid
 - **preview**: visible and usable, but still moving toward its final public shape

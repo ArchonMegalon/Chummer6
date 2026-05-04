@@ -4,7 +4,7 @@
 
 The current phase is trust work before product posture.
 
-The product focus is inspectable reasoning, bounded behavior, and clear recovery paths before expansion. In public that shows up through the guide, horizon shelf, issue tracker, and growing proof surfaces.
+The product focus is inspectable reasoning, bounded behavior, and clear recovery paths before expansion. In public that shows up through the guide, horizon shelf, issue tracker, and clearer public pages.
 
 ## The focus right now
 

@@ -1,10 +1,10 @@
 # What Chummer6 Is
 
-![What Chummer6 is banner](assets/pages/what-chummer6-is.png "less mystical rulings, more visible receipts.")<br>_[less mystical rulings, more visible receipts.](assets/pages/what-chummer6-is.png)_
+![What Chummer6 is banner](assets/pages/what-chummer6-is.png "less mystical rulings, more visible explanations.")<br>_[less mystical rulings, more visible explanations.](assets/pages/what-chummer6-is.png)_
 
 Chummer6 is Shadowrun tooling for character builds, rulings, prep, and session continuity.
 
-The promise is visible reasoning, readable receipts, and table-facing trust under pressure. Judge it through the public guide, current status, and proof lanes rather than opaque claims.
+The promise is visible reasoning, clearer explanations, and calmer table decisions. Judge it through the guide and current status, not vague claims.
 
 ## The short product answer
 
@@ -36,9 +36,9 @@ Chummer6 is not just trying to be a character manager with nicer chrome. It is t
 > **GM**<br>
 > "Good. We move."
 
-That is the product story in miniature. Not "trust me, bro." Not "dig through source." Just a fast answer with enough proof to keep the table moving.
+That is the product story in miniature. Not hand-waving. Not archive-diving. Just a fast answer clear enough to keep the table moving.
 
-## Quick proof
+## Quick example
 
 - Base pool: 11
 - Wounds: -1
@@ -55,7 +55,7 @@ When the number moves, the table should not have to stop and reverse-engineer fo
 The project is leaning harder into explicit trust:
 
 - same inputs should produce the same result
-- the result should come with a readable receipt
+- the result should come with a readable explanation
 - the session should survive local or offline reality
 - the active rules and config stack should be visible
 - the ugly edge cases should have a real extension lane
