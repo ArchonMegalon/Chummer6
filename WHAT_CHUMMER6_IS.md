@@ -10,6 +10,8 @@ The promise is visible reasoning, readable receipts, and table-facing trust unde
 
 Chummer6 is Shadowrun tooling for character builds, rulings, prep, and session continuity.
 
+The goal is not just nicer chrome. It is faster trust at the table.
+
 ## What it is becoming for players and GMs
 
 Chummer6 is not just trying to be a character manager with nicer chrome. It is trying to become tooling that helps players and GMs:

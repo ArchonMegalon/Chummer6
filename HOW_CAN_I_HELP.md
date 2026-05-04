@@ -11,24 +11,30 @@ If you want to help Chummer6, start with the public route that matches what happ
 ## Suggest a feature or future lane
 
 If you want to help without touching the optional guided contribution path at all, use the normal public routes:
-* file a public bug
-* send lightweight product feedback
-* flag confusing public copy
-* suggest a future lane
-* point at a horizon that sounds more useful than the current list
-* suggest or vote on a public idea when it is not support, account, install, crash, private campaign, or copyrighted rules text
+
+- file a public bug
+- send lightweight product feedback
+- flag confusing public copy
+- suggest a future lane
+- point at a horizon that sounds more useful than the current list
+- suggest or vote on a public idea when it is not support, account, install, crash, private campaign, or copyrighted rules text
+
 That keeps feedback public and searchable instead of sending normal users into private side channels or project archaeology.
+
 Public idea-board feedback is public. Do not post private logs, account data, campaign spoilers, copyrighted source text, crash dumps, or support requests there. Use Chummer Help for support.
+
 The public idea board is not the support queue, the release checklist, or the final roadmap authority.
 
 ## Optional guided contribution
 
-Guided contribution is the bounded "I want to help with real execution" lane.
+Guided contribution is for people who want to help with real execution work, not just leave feedback.
+
 It is:
-* opt-in
-* temporary
-* additive on top of the free baseline
-* still subject to review before anything lands
+
+- opt-in
+- temporary
+- separate from the normal free feedback path
+- still subject to review before anything lands
 
 ## Open the participation page
 

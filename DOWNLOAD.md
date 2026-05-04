@@ -1,6 +1,7 @@
-# Try Chummer6
+# Download Chummer6
 
 Use this page when you want the right download first and the shortest honest answer about platform support.
+You do not need GitHub for the normal download path. Start here first.
 
 ## Download first
 

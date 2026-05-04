@@ -6,6 +6,8 @@
 
 Build a runner, check a ruling, and keep the session moving without a folklore argument in the middle of the run.
 
+If you use Chummer5a today, start with the product story and current status before you decide whether the current preview fits your table.
+
 ## Start here
 
 - **New here:** [Start Here](START_HERE.md)
@@ -13,7 +15,7 @@ Build a runner, check a ruling, and keep the session moving without a folklore a
 - **What works today?** [Current status](NOW/current-status.md)
 - **Download a preview build:** [Download builds](DOWNLOAD.md)
 - **See future ideas:** [Horizons](HORIZONS/README.md)
-- **See the parts guide:** [PARTS/README.md](PARTS/README.md)
+- **See the parts guide:** [Parts guide](PARTS/README.md)
 - **Help or feedback:** [How can I help?](HOW_CAN_I_HELP.md)
 - **Read deeper design notes:** [Where to go deeper](WHERE_TO_GO_DEEPER.md)
 
@@ -21,11 +23,10 @@ Build a runner, check a ruling, and keep the session moving without a folklore a
 
 - The guide and current status pages are the safest front door.
 - Windows preview builds exist today when the download page lists them.
+- Use Avalonia first when the download page offers it.
 - The most concrete value right now is inspectable rules reasoning and visible proof surfaces.
 - Linux and macOS are not public unless the download page says otherwise.
 - Installer, update, and support polish are still catching up.
-
-If you are coming from older Chummer habits, read the product story and current status before deciding whether the current preview fits your table.
 
 ![Chummer6 hero banner](assets/hero/chummer6-hero.png "a streetdoc fitting a new cyberarm while the table asks whether the proof holds.")<br>_[a streetdoc fitting a new cyberarm while the table asks whether the proof holds.](assets/hero/chummer6-hero.png)_
 
