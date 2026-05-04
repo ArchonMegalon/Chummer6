@@ -117,7 +117,7 @@ World offers
 Threat tags
 Scenario modifiers
 Compatibility fingerprint
-Activation receipts
+Activation records
 Approval posture
 ```
 
@@ -125,17 +125,17 @@ That means a runner is not just “an SR6 character.”
 
 A runner is:
 
-> “An SR6 runner built under this exact campaign environment, with these source packs, this amend graph, these options, this fingerprint, and these receipts.”
+> “An SR6 runner built under this exact campaign environment, with these source packs, this amend graph, these options, this fingerprint, and this activation record.”
 
 When the environment changes, Chummer can show what changed before anyone plays under the wrong assumptions.
 
 ---
 
-## Activation receipts
+## Activation records
 
-Every meaningful rule change should create an **Activation Receipt**.
+Every meaningful rule change should create an **Activation Record**.
 
-An activation receipt tells the table:
+An activation record tells the table:
 
 - what package graph was requested
 - what compiled successfully
@@ -147,7 +147,7 @@ An activation receipt tells the table:
 - what became lossy
 - what compatibility fingerprint was used
 
-That receipt is the table’s safety rail.
+That record is the table’s safety rail.
 
 A GM can say:
 
@@ -159,7 +159,7 @@ A player can ask:
 
 Chummer can answer:
 
-> “Three gear categories changed availability. Two items in your build are now campaign-restricted. One item remains legal because it was grandfathered by the GM. Here is the receipt.”
+> “Three gear categories changed availability. Two items in your build are now campaign-restricted. One item remains legal because it was grandfathered by the GM. Here is the breakdown.”
 
 That is the kind of trust tabletop tools usually do not give you.
 
@@ -446,7 +446,7 @@ Likely categories:
 - Chummer5a amend packs
 - legacy custom data
 - old campaign package behavior
-- explicit lossy/blocking receipts
+- explicit lossy/blocking notes
 
 ---
 
@@ -478,7 +478,7 @@ A creator might say:
 
 KARMA FORGE should discover the real publishing requirement:
 
-> “The creator needs a versioned rule pack with compatibility labels, examples, preview receipts, and table adoption guidance.”
+> “The creator needs a versioned rule pack with compatibility labels, examples, preview summaries, and table adoption guidance.”
 
 That is why KARMA FORGE includes a discovery pipeline:
 
@@ -512,7 +512,7 @@ User words:
 “I want to mark gear unavailable until my campaign unlocks it.”
 
 Interpreted need:
-Campaign-scoped availability overlay with build-impact preview and player-visible receipts.
+Campaign-scoped availability overlay with build-impact preview and player-visible change notes.
 
 Affected domains:
 - gear
@@ -555,7 +555,7 @@ That means supporting the useful shapes:
 - deterministic catalog merges
 - selector-targeted add / replace / append / remove operations
 - legacy import where possible
-- explicit lossy receipts where not possible
+- explicit lossy notes where not possible
 - manifest, priority, checksum, and compatibility validation
 
 But Chummer6 should not preserve raw folder magic as the main experience.
@@ -579,7 +579,7 @@ KARMA FORGE must preserve:
 - active rule-environment reference
 - source pack references
 - amend package references
-- activation receipts
+- activation records
 - compatibility fingerprint
 - approval posture
 - missing-package warnings
@@ -623,7 +623,7 @@ A GM or creator should be able to:
 4. preview the impact
 5. test against example runners
 6. see compatibility warnings
-7. generate an activation receipt
+7. generate an activation record
 8. publish privately, to a campaign, to a community, or to the registry
 9. revise with version history
 10. retire or roll back when needed
@@ -792,7 +792,7 @@ Creators get:
 - a way to publish reusable rule packs
 - compatibility labels
 - versioning
-- preview receipts
+- preview summaries
 - example builds
 - community adoption paths
 - public trust
@@ -876,7 +876,7 @@ Core still owns deterministic rules computation.
 
 KARMA FORGE is **not** hidden custom-data magic.
 
-Every package needs a manifest, fingerprint, and receipt.
+Every package needs a manifest, fingerprint, and change record.
 
 KARMA FORGE is **not** automatic AI house-rule creation.
 
@@ -904,7 +904,7 @@ Yes. That is one of the main points. Chummer should show before/after impact and
 
 ### Can I roll back a house rule?
 
-Yes. Rule changes need receipts and rollback semantics so a campaign can recover safely.
+Yes. Rule changes need change logs and rollback semantics so a campaign can recover safely.
 
 ### Can I publish my house rules?
 
@@ -912,7 +912,7 @@ Eventually, yes. Creator and community publishing is a core reason for KARMA FOR
 
 ### Can I import Chummer5a custom data?
 
-The goal is to preserve useful amend-pack power through safer legacy import. Some legacy behavior may import cleanly; some may produce lossy or blocking receipts.
+The goal is to preserve useful amend-pack power through safer legacy import. Some legacy behavior may import cleanly; some may produce lossy or blocking notes.
 
 ### Can BLACK LEDGER unlock rules or rewards?
 
@@ -920,7 +920,7 @@ Yes, through explicit world offers, threat tags, scenario modifiers, or campaign
 
 ### Can a GM change rules mid-campaign?
 
-Yes, but Chummer should show affected runners, require the right visibility, and preserve activation receipts.
+Yes, but Chummer should show affected runners, require the right visibility, and preserve activation records.
 
 ### Can communities define approved rule environments?
 
@@ -928,7 +928,7 @@ Yes. Community rule environments are one of the most important KARMA FORGE use c
 
 ### Can AI generate rules?
 
-Not as authority. AI may help draft or discover demand. Chummer-owned rule packages, reviews, and receipts determine what is real.
+Not as authority. AI may help draft or discover demand. Chummer-owned rule packages, reviews, and change records determine what is real.
 
 ### Will this make every table incompatible?
 
@@ -949,7 +949,7 @@ It should let a GM:
 3. preview affected gear
 4. test against existing runner dossiers
 5. show player-visible impact
-6. activate with a receipt
+6. activate with a record
 7. restore on another device
 8. roll back safely
 9. share as a reusable candidate package
