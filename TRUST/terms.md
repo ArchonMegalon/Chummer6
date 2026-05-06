@@ -12,4 +12,4 @@ Sign-in keeps your access, devices, and support history together. Help and Conta
 
 ## Use the current public download first; advanced packages only when necessary
 
-Public downloads should match what is honestly available right now. If a regular installer exists later, it becomes the normal path, while manual packages stay as fallback for edge cases or support-directed setup.
+Public downloads should match what is honestly available right now. Public-copy remains explicitly labeled with explicit preview labels, and these terms stay consistent across help, release, and trust surfaces. If a regular installer exists later, it becomes the normal path, while manual packages stay as fallback for edge cases or support-directed setup.

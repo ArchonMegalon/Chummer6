@@ -4,12 +4,12 @@ Start here for downloads, sign-in recovery, and support.
 
 ## Download and install first
 
-Start with the download page. It should tell you which package is real, what is missing, and where to ask for help.
+Start with the download page. It should tell you which file to use, what is missing, and the next safe step if setup fails.
 
-- The current public path is the published Avalonia Desktop Windows X64 Portable archive package.
-- Setup currently starts from a downloaded package, not an installer.
-- Create an account if you want your support history, recovery, or future downloads tied to one place.
-- Check the download page before assuming another platform is available.
+- Start with the recommended installer for your platform.
+- Use the other package only if the installer gives you trouble.
+- Create an account if you want your support history, recovery, and downloads tied to one place.
+- If your platform is missing, the status and download pages will say so.
 
 ## Sign in and recover access
 

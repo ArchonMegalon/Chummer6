@@ -6,7 +6,7 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 - It is still aiming for a dense desktop workbench, not a stripped-down dashboard.
 - Character editing, file work, settings, and roster tasks are supposed to stay close at hand.
-- The current desktop preview path is the Avalonia desktop app.
+- If more than one desktop app appears for your platform, start with the Avalonia desktop app.
 
 ## What gets better
 
@@ -25,14 +25,14 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What is still rough
 
-- Downloads are currently live for Windows.
+- Downloads are currently live for Windows, Linux, and macOS.
 - Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
-- If you rely on Linux and macOS as your main platform, wait before switching full time.
+- Public downloads are already visible on every promised desktop platform.
 - Treat the current shelf as a serious preview, not a fully settled every-platform replacement yet.
 
 ## Should you switch today?
 
-- Today you can try preview builds on Windows.
+- Today you can try preview builds on Windows, Linux, and macOS.
 
 ### If you mostly live on Windows and like testing real previews
 

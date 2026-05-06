@@ -4,6 +4,16 @@ If you want the shortest read on how the public Chummer6 picture is changing, st
 
 ## Latest signals
 
+### 2026-05-04 · Refresh Chummer6 teaser copy.
+
+- What changed for you: The public guide got easier to scan and a little closer to sounding like a product page instead of a project log.
+- Still not promised: that this is already the finished product.
+
+### 2026-05-04 · Refresh Chummer6 update headline copy.
+
+- What changed for you: The public guide got easier to scan and a little closer to sounding like a product page instead of a project log.
+- Still not promised: that this is already the finished product.
+
 ### 2026-05-04 · The public updates got cleaner.
 
 - What changed for you: The public changelog reads a little more like product communication and a little less like project bookkeeping.
@@ -33,16 +43,6 @@ If you want the shortest read on how the public Chummer6 picture is changing, st
 
 - What changed for you: The Mac route looks a little less fragile behind the scenes.
 - Still not promised: that the Mac experience is already broad or polished.
-
-### 2026-05-01 · The visuals got more deliberate.
-
-- What changed for you: The guide is moving a little further away from filler art and a little closer to a real product mood.
-- Still not promised: that every visual is final.
-
-### 2026-04-30 · The public shelf got tidier.
-
-- What changed for you: The visible release picture is a little easier to keep straight.
-- Still not promised: that every published path is already settled.
 
 ## Monthly archive
 
