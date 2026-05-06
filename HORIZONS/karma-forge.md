@@ -16,6 +16,27 @@ Picture the scene: A GM promotes a house-rule pack with visible impact, approval
 - Today: Future concept.
 - Next: Research and prototypes.
 
+## The promise
+
+**Change the table. Keep the trust.**
+
+KARMA FORGE lets a campaign say:
+
+> “These are the rules we play with.
+> This is what changed.
+> This is why your runner is legal, blocked, or different.
+> This is what happens if you join this campaign.
+> This is what happens if the package changes later.”
+
+The player does not have to guess.
+The GM does not have to police everything manually.
+The creator does not have to ship fragile house-rule notes.
+The organizer does not have to maintain twelve conflicting Discord pins.
+
+Chummer shows the rule environment, the active packages, the impact, the compatibility, and the next safe action.
+
+---
+
 ## Key tool posture
 
 KARMA FORGE benefits from discovery, review, and governed-process LTDs, but none of them become rule truth.

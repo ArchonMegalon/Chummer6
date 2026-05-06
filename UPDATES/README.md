@@ -44,6 +44,16 @@ If you want the shortest read on how the public Chummer6 picture is changing, st
 - What changed for you: The Mac route looks a little less fragile behind the scenes.
 - Still not promised: that the Mac experience is already broad or polished.
 
+### 2026-05-01 · The visuals got more deliberate.
+
+- What changed for you: The guide is moving a little further away from filler art and a little closer to a real product mood.
+- Still not promised: that every visual is final.
+
+### 2026-04-30 · The public shelf got tidier.
+
+- What changed for you: The visible release picture is a little easier to keep straight.
+- Still not promised: that every published path is already settled.
+
 ## Monthly archive
 
 - [2026-05](./2026-05.md)
