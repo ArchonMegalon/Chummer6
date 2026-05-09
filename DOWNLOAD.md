@@ -9,7 +9,7 @@ Start here when you want the right file first.
 - For macOS, start with Avalonia Desktop macOS ARM64 archive package. There is no installer posted for this platform yet.
 - If both Avalonia and Blazor appear for your platform, start with Avalonia. Use Blazor only if a page or support tells you to.
 - You do not need GitHub for the normal download path.
-- Raw GitHub releases: <https://github.com/ArchonMegalon/Chummer6/releases>.
+- The source repository remains a development and audit evidence surface, not the normal public download path.
 
 ## Current public download
 
@@ -24,7 +24,7 @@ Start here when you want the right file first.
 
 ## Current build matrix
 
-Use chummer.run for downloads. Use GitHub only when you want source or a public bug thread.
+Use chummer.run for downloads. Use the source repository only when you want source history or a public bug thread.
 
 ### Windows
 
