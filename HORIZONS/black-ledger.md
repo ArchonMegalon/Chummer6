@@ -50,13 +50,13 @@ The result is a Shadowrun world that feels less like a static backdrop and more 
 
 BLACK LEDGER benefits from a split between operator lanes and downstream world-output lanes.
 
-* operator projection workbenches can help queue review, world-tick prep, and curation without becoming authority
-* governed process runners can keep world-tick, closeout, and checklist discipline coherent
-* bounded external approvals can assist when shared-city or guest review matters
-* first-party outreach destinations can carry passive world-tick, faction, and season updates after approval
-* digest and notification delivery can close the loop after Hub decides the message should exist
-* approved world-output and recap lanes can publish outward-facing artifacts without owning truth
-* discovery, intake, scheduling, capture, and support helpers can assist operators without becoming mission-market or world authority
+* `Teable` - operator projection and AdminIntent workbench for review queues, world-tick prep, and curation
+* `NextStep` - governed world-tick, closeout, and operator checklist discipline
+* `ApproveThis` - bounded external approval edge where shared-city or guest review matters
+* `Signitic` - passive world-tick, faction, and season projection into first-party destinations
+* `Emailit` - digest, closeout, and notification delivery after Hub decides the message should exist
+* bounded `vidBoard`, `MarkupGo`, `PeekShot`, `Soundmadeseen`, and `Taja` - approved world-output and recap lanes only
+* bounded `MetaSurvey`, `Deftform`, `Lunacal`, `BrowserAct`, and `Documentation.AI` - discovery, intake, scheduling, capture, and support helpers only
 
 Those tools can help operate, publish, and close the loop.
 They do not own world truth, campaign truth, faction state, mission-market truth, or operator authority.
@@ -518,11 +518,11 @@ News can become:
 * faction newsletter
 * GM-only briefing
 * player-safe recap
-* narrated news anchor reel
-* short recap clip
-* image card
-* bulletin graphic
-* email banner
+* vidBoard news anchor reel
+* Taja short
+* PeekShot card
+* MarkupGo bulletin
+* Signitic email banner
 
 The same event can have multiple versions:
 

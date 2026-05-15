@@ -16,40 +16,19 @@ Picture the scene: A GM promotes a house-rule pack with visible impact, approval
 - Today: Future concept.
 - Next: Research and prototypes.
 
-## The promise
-
-**Change the table. Keep the trust.**
-
-KARMA FORGE lets a campaign say:
-
-> “These are the rules we play with.
-> This is what changed.
-> This is why your runner is legal, blocked, or different.
-> This is what happens if you join this campaign.
-> This is what happens if the package changes later.”
-
-The player does not have to guess.
-The GM does not have to police everything manually.
-The creator does not have to ship fragile house-rule notes.
-The organizer does not have to maintain twelve conflicting Discord pins.
-
-Chummer shows the rule environment, the active packages, the impact, the compatibility, and the next safe action.
-
----
-
 ## Key tool posture
 
-KARMA FORGE benefits from discovery, review, and governed-process helpers, but none of them become rule truth.
+KARMA FORGE benefits from discovery, review, and governed-process LTDs, but none of them become rule truth.
 
-* bounded discovery interviews can surface repeated house-rule demand
-* structured intake can pre-screen rule proposals before they reach governed review
-* scheduling and clinic support can coordinate follow-up sessions without owning decisions
-* survey lanes can validate proposal clusters after a pattern becomes visible
-* operator review boards can project AdminIntent safely without becoming package authority
-* governed process runners can enforce approvals, rollback discipline, and closeout timing
-* bounded external approvals can assist when shared-city or guest signoff is useful
-* recruitment, followthrough, and approved explainer lanes can amplify the work without owning rule truth
-* proposal-summary and approved-explainer helpers can assist only after Chummer-owned review exists
+* `Icanpreneur` - bounded discovery interview and synthesis lane for repeated house-rule demand
+* `Deftform` - structured intake and pre-screen lane for rule proposals
+* `Lunacal` - follow-up clinic and scheduling lane for rule-review sessions
+* `MetaSurvey` - quantitative validation lane after a proposal cluster forms
+* `Teable` - review-board and AdminIntent projection surface
+* `NextStep` - governed process runner for discovery sprints, approvals, and closeout discipline
+* `ApproveThis` - bounded approval edge when external signoff is useful
+* bounded `FacePop`, `Signitic`, `Emailit`, `Taja`, and `vidBoard` - recruitment, followthrough, and approved explainer lanes only
+* bounded `Prompting Systems` and `AI Magicx` - proposal-summary and approved-explainer helper lanes only
 
 Chummer still owns:
 

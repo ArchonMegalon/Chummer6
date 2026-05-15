@@ -5,11 +5,12 @@ This is the blunt answer on what you can use today.
 ## Current picture
 
 - Today: Usable preview.
-- Published: May 3, 2026 at 16:35 UTC.
+- Published: May 13, 2026 at 14:04 UTC.
 - Release status: Published.
-- Downloads are currently live for Windows, Linux, and macOS.
+- Downloads are currently live for Windows and Linux.
+- Still missing from the public download page: macOS.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
-- Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
+- Current warning: The docker shelf remains visible, but stale or incomplete proof receipts mean current output readiness must stay review-required.
 - Help, contact, privacy, and terms pages are live.
 
 ## Download and install first

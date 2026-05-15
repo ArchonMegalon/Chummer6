@@ -25,14 +25,14 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What is still rough
 
-- Downloads are currently live for Windows, Linux, and macOS.
+- Downloads are currently live for Windows and Linux.
 - Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
-- Public downloads are already visible on every promised desktop platform.
+- If you rely on macOS as your main platform, wait before switching full time.
 - Treat the current shelf as a serious preview, not a fully settled every-platform replacement yet.
 
 ## Should you switch today?
 
-- Today you can try preview builds on Windows, Linux, and macOS.
+- Today you can try preview builds on Windows and Linux.
 
 ### If you mostly live on Windows and like testing real previews
 
