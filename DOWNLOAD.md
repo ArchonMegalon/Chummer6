@@ -13,13 +13,13 @@ Start here when you want the right file first.
 ## Current public download
 
 - Today: Usable preview.
-- Published: May 13, 2026 at 14:04 UTC.
+- Published: May 14, 2026 at 6:02 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows and Linux.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - These are real preview builds, not a finished flagship release yet.
-- Current warning: The docker shelf remains visible, but stale or incomplete proof receipts mean current output readiness must stay review-required.
-- Update note: Do not send fixed notices until stale or incomplete proof receipts are refreshed for the current download shelf.
+- Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
+- Update note: Only expect fix notices after the affected download is available on the same public shelf.
 
 ## Current build matrix
 
@@ -75,7 +75,7 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 ## Recent release verification
 
 - Status: Passed.
-- Last checked: May 14, 2026 at 8:35 UTC.
+- Last checked: May 15, 2026 at 16:07 UTC.
 - Summary: Passed for installs and recovery, campaign session recovery, and support follow-up.
 
 ### What was checked
