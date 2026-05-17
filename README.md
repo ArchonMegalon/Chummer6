@@ -12,14 +12,14 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 ## What is real now
 
-- Short answer: yes, as an early preview.
+- Short answer: yes, for Windows and Linux.
 - Downloads are currently live for Windows and Linux as open-public routes.
 - If more than one desktop app is offered, start with the Avalonia desktop app.
 - Use Avalonia first when the download page offers it.
 - Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 - Today: Windows/Linux public release.
 - Still missing from the public download page: macOS.
-- The current shelf should be read as a real preview, not a finished no-step-back release.
+- The current shelf should be read as a real public release for Windows/Linux, not a settled every-platform release.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 
