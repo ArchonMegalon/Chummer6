@@ -4,21 +4,20 @@ Start here when you want the right file first.
 
 ## What should I download first?
 
-- For Windows, start with Avalonia Desktop Windows X64 Installer. Sign-in required.
-- For Linux, start with Avalonia Desktop Linux X64 Installer. Sign-in required.
+- For Windows, start with Avalonia Desktop Windows X64 Installer. Public download.
+- For Linux, start with Avalonia Desktop Linux X64 Installer. Public download.
 - There is no public macOS download today.
 - You do not need GitHub for the normal download path.
 - The source repository remains for source history and issue threads, not downloads.
 
 ## Current public download
 
-- Today: Usable preview.
+- Today: Windows/Linux public release.
 - Published: May 14, 2026 at 6:02 UTC.
 - Release status: Published.
-- Downloads are currently live for Windows and Linux.
+- Downloads are currently live for Windows and Linux as open-public routes.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
-- These are real preview builds, not a finished flagship release yet.
-- Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
+- Current public truth: Windows/Linux are live public-release lanes with recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
 - Update note: Only expect fix notices after the affected download is available on the same public shelf.
 
 ## Current build matrix
@@ -31,13 +30,13 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 - Download: `/downloads/files/chummer-avalonia-win-x64-installer.exe`
 - File: `chummer-avalonia-win-x64-installer.exe`
 - Size: 228.5 MiB (239554300 bytes)
-- Access: Sign-in required.
+- Access: Open public.
 - Avalonia Desktop Windows X64 Portable archive package.
 - Posture: Fallback or recovery package, not an equal flagship default.
 - Download: `/downloads/files/chummer-avalonia-win-x64.zip`
 - File: `chummer-avalonia-win-x64.zip`
 - Size: 89.5 MiB (93841824 bytes)
-- Access: Sign-in required.
+- Access: Open public.
 
 ### Linux
 
@@ -45,13 +44,13 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 - Download: `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - File: `chummer-avalonia-linux-x64-installer.deb`
 - Size: 33.4 MiB (34999182 bytes)
-- Access: Sign-in required.
+- Access: Open public.
 - Avalonia Desktop Linux X64 archive package.
 - Posture: Fallback or recovery package, not an equal flagship default.
 - Download: `/downloads/files/chummer-avalonia-linux-x64.tar.gz`
 - File: `chummer-avalonia-linux-x64.tar.gz`
 - Size: 41.1 MiB (43079243 bytes)
-- Access: Sign-in required.
+- Access: Open public.
 
 ### macOS
 
