@@ -38,8 +38,8 @@ Use Contact first for install trouble, product bugs, and practical feedback. Git
 
 ## Product questions in plain language
 
-Normal preview questions should be answerable from inside the product. Support and FAQ exist so you do not have to dig through project details just to get a clear answer.
+Normal product questions should be answerable from inside the product. Support and FAQ exist so you do not have to dig through project details just to get a clear answer.
 
-- FAQ answers the normal preview and product questions in plain language.
+- FAQ answers the normal product questions in plain language.
 - Support cases stay separate from optional participation.
 - You do not need a GitHub account to ask for help.
