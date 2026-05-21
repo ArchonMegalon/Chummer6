@@ -29,5 +29,5 @@ UI already handles the heavy build view, and current cleanup work is about keepi
 
 ## Go deeper
 
-- [Start here](../START_HERE.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../START_HERE.md
+- ../WHERE_TO_GO_DEEPER.md

@@ -29,5 +29,5 @@ UI Kit is real enough to matter, and the next proof is whether the rest of the p
 
 ## Go deeper
 
-- [Current status](../NOW/current-status.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../NOW/current-status.md
+- ../WHERE_TO_GO_DEEPER.md

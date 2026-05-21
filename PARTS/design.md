@@ -29,5 +29,5 @@ Design currently drives the public story, the roadmap pages, and the line betwee
 
 ## Go deeper
 
-- [Current status](../NOW/current-status.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../NOW/current-status.md
+- ../WHERE_TO_GO_DEEPER.md

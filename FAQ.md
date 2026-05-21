@@ -1,17 +1,10 @@
 # FAQ
 
-## Start with these answers
-
-- **Which desktop app should I start with?** Start with the Avalonia desktop app when the download page offers it.
-- **What platforms are publicly available today?** Windows, Linux, and macOS are publicly available when the download page lists them on the current shelf.
-- **I use Chummer5a now. Where should I start?** Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Current status](NOW/current-status.md).
-- **Do I need GitHub for anything normal?** No. Use the guide, download page, and help flow first.
-
 ## Using Chummer6
 
 ### Can I actually use this now?
 
-Yes. Chummer6 has a live public release: there are current downloads, current pages, and clear labels for what still needs attention.
+Yes. Chummer6 is still preview software, but the preview is real: there are live downloads, current pages, and clear labels for what is still rough.
 
 ### Is it offline-safe?
 
@@ -25,25 +18,9 @@ Because Chummer6 is trying to show how it reached an answer instead of asking yo
 
 Available today means you can open it or download it right now. Preview means you can use it, but parts of the release, compatibility, or support story are still changing.
 
-### Which desktop app should I start with?
-
-Start with the Avalonia desktop app when the download page offers it.
-
-### What platforms are publicly available today?
-
-Windows, Linux, and macOS are public when the download page lists them on the current shelf. The download page is the authority for exactly which artifacts are live.
-
-### Do I need GitHub for anything normal?
-
-No. Use the guide, download page, and help flow first. GitHub is mainly for issue reports, following changes, or checking raw release artifacts.
-
-### I use Chummer5a now. Where should I start?
-
-Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Current status](NOW/current-status.md), then decide whether the current preview matches your table.
-
 ### What should I show a skeptical GM or player first?
 
-Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [Current status](NOW/current-status.md), then [Download](DOWNLOAD.md). If the real argument is about how the math is explained, show them [Core](PARTS/core.md).
+Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [Status](STATUS.md), then [Download](DOWNLOAD.md). If the real argument is about how the math is explained, show them [Core](PARTS/core.md).
 
 ## Helping and feedback
 
@@ -65,7 +42,7 @@ Use the in-product private crash path when logs or diagnostics are involved. Use
 
 ### Why are some things preview-only?
 
-Because some parts can still be route-visible before every surrounding workflow or proof family is equally mature.
+Because some parts are good enough to try before every platform, install flow, and support path is equally polished.
 
 ### Will guided-preview access open wider later?
 
@@ -85,17 +62,17 @@ No. The intended direction is that browsing runs, applying with a quickstart or 
 
 ### Is Chummer trying to replace Discord or VTTs?
 
-No. The intended posture is that Chummer owns rules, applications, scheduling records, and world consequences, while Discord, Teams, and VTTs remain play or communication surfaces.
+No. The intended posture is that Chummer owns rules, applications, schedule receipts, and world consequences, while Discord, Teams, and VTTs remain play or communication surfaces.
 
-## If you want more detail
+## If you want the behind-the-scenes details
 
 ### Where does the deeper plan live?
 
-In the design notes that shape the long-range plan and the public guide.
+In the planning notes that shape the roadmap and the public guide.
 
 ### Where does the actual code live?
 
-In the Chummer software repos. Most people never need them to install Chummer6, use it, or report a problem.
+In the Chummer code. Most people never need it to install Chummer6, use it, or report a problem.
 
 ### Where do I propose public-facing changes?
 

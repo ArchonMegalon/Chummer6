@@ -16,7 +16,6 @@ It keeps accounts, shared coordination, and community features from turning into
 
 - sign-in and account pages
 - public landing, home, and participation entry points
-- account-aware home and account posture for claim, participation, reward, and recovery
 - shared coordination, release status, and recognition views that make sense without learning the plumbing behind them
 
 ## Current limits
@@ -26,9 +25,9 @@ It keeps accounts, shared coordination, and community features from turning into
 
 ## Current state
 
-Hub already powers sign-in, landing and home views, participation, and community features on the same community-ledger path, and it is still getting simpler behind the scenes.
+Hub already powers sign-in, landing and home views, participation, and community features, and it is still getting simpler behind the scenes.
 
 ## Go deeper
 
-- [Current status](../NOW/current-status.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../NOW/current-status.md
+- ../WHERE_TO_GO_DEEPER.md

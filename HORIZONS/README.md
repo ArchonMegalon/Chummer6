@@ -2,8 +2,6 @@
 
 Use this index when you want to see where Chummer6 could go next after you understand the current product picture.
 These are future ideas, not features you can use today.
-This page only lists the horizons that the root `HORIZON_REGISTRY.yaml` marks as public-guide eligible, in that same order.
-If a horizon here gains preview proof, guided preview, or research detail later, that detail must still stay inside the build-path and owner-handoff limits defined by the design canon.
 
 ![Chummer6 horizons index art](../assets/pages/horizons-index.png)
 

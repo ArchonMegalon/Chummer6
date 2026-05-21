@@ -1,6 +1,6 @@
 # ALICE
 
-Builders can branch the same runner into temporary build ghosts, compare grounded tradeoffs, and commit only the variant they trust.
+Builders get grounded what-if checks instead of vague AI advice.
 
 ![ALICE horizon art](../assets/horizons/alice.png)
 
@@ -8,7 +8,7 @@ Builders can branch the same runner into temporary build ghosts, compare grounde
 
 We only discover weak builds after they explode in public.
 
-Picture the scene: A player compares two temporary ghosts of the same runner, sees the tradeoffs, the math, and the likely trouble spots, then applies only the reviewed variant.
+Picture the scene: A player compares two builds and sees the tradeoffs, the math, and the likely trouble spots before the session starts.
 
 
 ## Current stage
@@ -17,12 +17,6 @@ Picture the scene: A player compares two temporary ghosts of the same runner, se
 - Next: Research and prototypes.
 
 **ALICE is Chummer’s build-simulation and what-if horizon: the future where players can compare builds, catch trouble, test upgrade paths, and understand tradeoffs before the table discovers the mistake under pressure.**
-
-Its first real product-shaped move should be:
-
-> **BUILD GHOST**
->
-> Branch this runner, try the change, inspect the delta, and only commit if you trust the result.
 
 Many weak builds are not obvious at creation time.
 
@@ -55,7 +49,7 @@ It can help answer:
 
 But ALICE must never invent rules.
 
-Every claim needs a clear source trail.
+Every claim needs a receipt.
 
 ## What it feels like
 
@@ -85,8 +79,7 @@ Are you joining a Matrix-heavy campaign or a mixed-op open run?
 Buttons:
 
 - Show math
-- Show breakdown
-- Spawn Build Ghost
+- Show receipts
 - Compare team role fit
 - Fix budget issue
 - Keep my chaos
@@ -101,7 +94,6 @@ Compare:
 
 - current build vs snapshot
 - variant A vs variant B
-- live runner vs Ghost A vs Ghost B
 - runner vs campaign rule environment
 - runner vs team needs
 - current build vs upgrade goal
@@ -175,7 +167,7 @@ Yes. It can show whether a runner fits a GM’s open-run joining policy.
 
 ### Can it be funny?
 
-Yes. The companion can comment. The breakdown still does the serious work.
+Yes. The companion can comment. The receipts still do the serious work.
 
 ## What it is not
 
@@ -186,7 +178,7 @@ ALICE is not:
 - an AI rules engine
 - a powergaming-only tool
 - legality by vibes
-- advice without grounded explanations
+- advice without receipts
 
 It should help users think, not replace them.
 
@@ -202,7 +194,7 @@ It should let a user:
 2. compare legality
 3. compare role fit
 4. compare major costs/tradeoffs
-5. see the breakdown
+5. see receipts
 6. export a short explain brief
 
 Success looks like:
@@ -219,4 +211,4 @@ It should also answer:
 
 > “Will this actually work for what I am trying to do?”
 
-**ALICE is where Chummer becomes a build mentor with grounded explanations.**
+**ALICE is where Chummer becomes a build mentor with receipts.**

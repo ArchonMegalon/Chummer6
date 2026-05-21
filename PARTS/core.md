@@ -15,7 +15,7 @@ This is where Chummer earns trust. If the math cannot be reproduced and explaine
 ## What you notice
 
 - reproducible rules outcomes
-- readable explanations for why a pool or result changed
+- readable receipts for why a pool or result changed
 - a cleaner split between rules math and the extra features layered around it
 
 ## Current limits
@@ -29,5 +29,5 @@ Core already anchors the rules engine, and the current work is about keeping it 
 
 ## Go deeper
 
-- [What Chummer6 Is](../WHAT_CHUMMER6_IS.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../WHAT_CHUMMER6_IS.md
+- ../WHERE_TO_GO_DEEPER.md

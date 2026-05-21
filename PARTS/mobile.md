@@ -29,5 +29,5 @@ Mobile is where the live-session promise becomes real, and the current work is a
 
 ## Go deeper
 
-- [What is visible today](../NOW/public-surfaces.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../NOW/public-surfaces.md
+- ../WHERE_TO_GO_DEEPER.md

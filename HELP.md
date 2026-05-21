@@ -1,26 +1,17 @@
 # Help
 
-If you just need the right file, go to [Download](DOWNLOAD.md). If something broke, start here instead of guessing.
+Start here if installation, updates, sign-in, or bugs are getting in the way.
 
-## Quick triage
+## Start with the release page and download help
 
-- **Installer will not start:** Start with the recommended download for your platform, then contact support if setup still fails.
-- **I cannot sign in:** Use the account recovery flow before trying random reinstall steps.
-- **I lost access:** Use recovery email or the account page so identity and device problems stay separate.
-- **An update failed:** Go back to the current download page, then contact support with the version and platform if the retry still fails.
-- **I need to report a bug:** Use [Contact](CONTACT.md) first. Use GitHub only when you want a public bug thread.
-- **I need private help:** Use Contact or in-account support instead of posting private details publicly.
-
-## Download and install first
-
-Start with the download page. It should tell you which file to use, what is missing, and the next safe step if setup fails.
+Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 
 - Start with the recommended installer for your platform.
 - Use the other package only if the installer gives you trouble.
 - Create an account if you want your support history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.
 
-## Sign in and recover access
+## Keep access and recovery on one calm path
 
 Account creation, sign-in, and recovery should stay boring. Use the account page and the recovery flow before you fall back to manual troubleshooting.
 
@@ -28,7 +19,7 @@ Account creation, sign-in, and recovery should stay boring. Use the account page
 - Use recovery email so one sign-in method is never the whole story.
 - Devices and access stay separate from identity recovery.
 
-## Report a problem without guessing
+## Product help should become a support case, not a rumor
 
 Use Contact first for install trouble, product bugs, and practical feedback. GitHub is there when you want a public bug thread, not as the normal support door.
 
@@ -36,10 +27,10 @@ Use Contact first for install trouble, product bugs, and practical feedback. Git
 - Use Account > Support if you want your support history saved in one place.
 - Use GitHub only when you want a public bug thread.
 
-## Product questions in plain language
+## Ask from inside Chummer first
 
-Normal product questions should be answerable from inside the product. Support and FAQ exist so you do not have to dig through project details just to get a clear answer.
+Normal preview questions should be answerable from inside the product. Support and FAQ exist so you do not have to dig through project details just to get a clear answer.
 
-- FAQ answers the normal product questions in plain language.
+- FAQ answers the normal preview and product questions in plain language.
 - Support cases stay separate from optional participation.
 - You do not need a GitHub account to ask for help.

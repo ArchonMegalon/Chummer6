@@ -29,5 +29,5 @@ Hub Registry is the growing record for published releases and compatibility, and
 
 ## Go deeper
 
-- [What is visible today](../NOW/public-surfaces.md)
-- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
+- ../NOW/public-surfaces.md
+- ../WHERE_TO_GO_DEEPER.md

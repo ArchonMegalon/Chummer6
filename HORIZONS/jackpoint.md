@@ -149,7 +149,7 @@ For complex events:
 - source packets
 - images/cards
 - markers
-- source trails
+- receipts
 - replay links
 - related intel
 
@@ -198,7 +198,7 @@ JACKPOINT is not:
 - a spoiler leak machine
 - a media tool owning campaign truth
 
-It is an artifact studio with source trails.
+It is an artifact studio with receipts.
 
 ## The first slice
 

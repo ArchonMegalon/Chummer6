@@ -16,26 +16,24 @@ Picture the scene: A GM promotes a house-rule pack with visible impact, approval
 - Today: Future concept.
 - Next: Research and prototypes.
 
-## Key tool posture
+## The promise
 
-KARMA FORGE benefits from discovery, review, and governed-process LTDs, but none of them become rule truth.
+**Change the table. Keep the trust.**
 
-* `Icanpreneur` - bounded discovery interview and synthesis lane for repeated house-rule demand
-* `Deftform` - structured intake and pre-screen lane for rule proposals
-* `Lunacal` - follow-up clinic and scheduling lane for rule-review sessions
-* `MetaSurvey` - quantitative validation lane after a proposal cluster forms
-* `Teable` - review-board and AdminIntent projection surface
-* `NextStep` - governed process runner for discovery sprints, approvals, and closeout discipline
-* `ApproveThis` - bounded approval edge when external signoff is useful
-* bounded `FacePop`, `Signitic`, `Emailit`, `Taja`, and `vidBoard` - recruitment, followthrough, and approved explainer lanes only
-* bounded `Prompting Systems` and `AI Magicx` - proposal-summary and approved-explainer helper lanes only
+KARMA FORGE lets a campaign say:
 
-Chummer still owns:
+> “These are the rules we play with.
+> This is what changed.
+> This is why your runner is legal, blocked, or different.
+> This is what happens if you join this campaign.
+> This is what happens if the package changes later.”
 
-* rule truth
-* compatibility truth
-* publication truth
-* rollback truth
+The player does not have to guess.
+The GM does not have to police everything manually.
+The creator does not have to ship fragile house-rule notes.
+The organizer does not have to maintain twelve conflicting Discord pins.
+
+Chummer shows the rule environment, the active packages, the impact, the compatibility, and the next safe action.
 
 ---
 
@@ -96,7 +94,7 @@ World offers
 Threat tags
 Scenario modifiers
 Compatibility fingerprint
-Activation records
+Activation receipts
 Approval posture
 ```
 
@@ -104,17 +102,17 @@ That means a runner is not just “an SR6 character.”
 
 A runner is:
 
-> “An SR6 runner built under this exact campaign environment, with these source packs, this amend graph, these options, this fingerprint, and this activation record.”
+> “An SR6 runner built under this exact campaign environment, with these source packs, this amend graph, these options, this fingerprint, and these receipts.”
 
 When the environment changes, Chummer can show what changed before anyone plays under the wrong assumptions.
 
 ---
 
-## Activation records
+## Activation receipts
 
-Every meaningful rule change should create an **Activation Record**.
+Every meaningful rule change should create an **Activation Receipt**.
 
-An activation record tells the table:
+An activation receipt tells the table:
 
 - what package graph was requested
 - what compiled successfully
@@ -126,7 +124,7 @@ An activation record tells the table:
 - what became lossy
 - what compatibility fingerprint was used
 
-That record is the table’s safety rail.
+That receipt is the table’s safety rail.
 
 A GM can say:
 
@@ -138,7 +136,7 @@ A player can ask:
 
 Chummer can answer:
 
-> “Three gear categories changed availability. Two items in your build are now campaign-restricted. One item remains legal because it was grandfathered by the GM. Here is the breakdown.”
+> “Three gear categories changed availability. Two items in your build are now campaign-restricted. One item remains legal because it was grandfathered by the GM. Here is the receipt.”
 
 That is the kind of trust tabletop tools usually do not give you.
 
@@ -425,7 +423,7 @@ Likely categories:
 - Chummer5a amend packs
 - legacy custom data
 - old campaign package behavior
-- explicit lossy/blocking notes
+- explicit lossy/blocking receipts
 
 ---
 
@@ -457,7 +455,7 @@ A creator might say:
 
 KARMA FORGE should discover the real publishing requirement:
 
-> “The creator needs a versioned rule pack with compatibility labels, examples, preview summaries, and table adoption guidance.”
+> “The creator needs a versioned rule pack with compatibility labels, examples, preview receipts, and table adoption guidance.”
 
 That is why KARMA FORGE includes a discovery pipeline:
 
@@ -491,7 +489,7 @@ User words:
 “I want to mark gear unavailable until my campaign unlocks it.”
 
 Interpreted need:
-Campaign-scoped availability overlay with build-impact preview and player-visible change notes.
+Campaign-scoped availability overlay with build-impact preview and player-visible receipts.
 
 Affected domains:
 - gear
@@ -534,7 +532,7 @@ That means supporting the useful shapes:
 - deterministic catalog merges
 - selector-targeted add / replace / append / remove operations
 - legacy import where possible
-- explicit lossy notes where not possible
+- explicit lossy receipts where not possible
 - manifest, priority, checksum, and compatibility validation
 
 But Chummer6 should not preserve raw folder magic as the main experience.
@@ -558,7 +556,7 @@ KARMA FORGE must preserve:
 - active rule-environment reference
 - source pack references
 - amend package references
-- activation records
+- activation receipts
 - compatibility fingerprint
 - approval posture
 - missing-package warnings
@@ -602,7 +600,7 @@ A GM or creator should be able to:
 4. preview the impact
 5. test against example runners
 6. see compatibility warnings
-7. generate an activation record
+7. generate an activation receipt
 8. publish privately, to a campaign, to a community, or to the registry
 9. revise with version history
 10. retire or roll back when needed
@@ -771,7 +769,7 @@ Creators get:
 - a way to publish reusable rule packs
 - compatibility labels
 - versioning
-- preview summaries
+- preview receipts
 - example builds
 - community adoption paths
 - public trust
@@ -855,7 +853,7 @@ Core still owns deterministic rules computation.
 
 KARMA FORGE is **not** hidden custom-data magic.
 
-Every package needs a manifest, fingerprint, and change record.
+Every package needs a manifest, fingerprint, and receipt.
 
 KARMA FORGE is **not** automatic AI house-rule creation.
 
@@ -883,7 +881,7 @@ Yes. That is one of the main points. Chummer should show before/after impact and
 
 ### Can I roll back a house rule?
 
-Yes. Rule changes need change logs and rollback semantics so a campaign can recover safely.
+Yes. Rule changes need receipts and rollback semantics so a campaign can recover safely.
 
 ### Can I publish my house rules?
 
@@ -891,7 +889,7 @@ Eventually, yes. Creator and community publishing is a core reason for KARMA FOR
 
 ### Can I import Chummer5a custom data?
 
-The goal is to preserve useful amend-pack power through safer legacy import. Some legacy behavior may import cleanly; some may produce lossy or blocking notes.
+The goal is to preserve useful amend-pack power through safer legacy import. Some legacy behavior may import cleanly; some may produce lossy or blocking receipts.
 
 ### Can BLACK LEDGER unlock rules or rewards?
 
@@ -899,7 +897,7 @@ Yes, through explicit world offers, threat tags, scenario modifiers, or campaign
 
 ### Can a GM change rules mid-campaign?
 
-Yes, but Chummer should show affected runners, require the right visibility, and preserve activation records.
+Yes, but Chummer should show affected runners, require the right visibility, and preserve activation receipts.
 
 ### Can communities define approved rule environments?
 
@@ -907,7 +905,7 @@ Yes. Community rule environments are one of the most important KARMA FORGE use c
 
 ### Can AI generate rules?
 
-Not as authority. AI may help draft or discover demand. Chummer-owned rule packages, reviews, and change records determine what is real.
+Not as authority. AI may help draft or discover demand. Chummer-owned rule packages, reviews, and receipts determine what is real.
 
 ### Will this make every table incompatible?
 
@@ -928,7 +926,7 @@ It should let a GM:
 3. preview affected gear
 4. test against existing runner dossiers
 5. show player-visible impact
-6. activate with a record
+6. activate with a receipt
 7. restore on another device
 8. roll back safely
 9. share as a reusable candidate package

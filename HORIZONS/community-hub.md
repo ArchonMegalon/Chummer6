@@ -41,7 +41,7 @@ It connects:
 - quickstart runners
 - community rule environments
 - join policies
-- scheduling records
+- scheduling receipts
 - meeting handoff
 - campaign pulse
 - resolution reports
@@ -166,7 +166,7 @@ Chummer owns:
 - run plan
 - roster
 - accepted players
-- scheduling record
+- scheduling receipt
 - meeting handoff
 - session status
 
@@ -217,7 +217,7 @@ Yes, if the run is linked and the GM/organizer approves the resolution.
 
 ### Can reputation become toxic?
 
-It must not. Use seasonal honors, typed event records, and no public shame boards.
+It must not. Use seasonal honors, typed event receipts, and no public shame boards.
 
 ## What it is not
 
