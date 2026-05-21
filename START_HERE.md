@@ -14,7 +14,7 @@ Start here: [Download builds](DOWNLOAD.md)
 
 ## I want to run a session
 
-Check what is usable now, what is still preview, and what is safe to trust tonight.
+Check what is usable now, what is still missing, and what is safe to trust tonight.
 
 Start here: [Public surfaces](NOW/public-surfaces.md)
 

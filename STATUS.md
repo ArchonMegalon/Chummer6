@@ -4,12 +4,12 @@ This is the blunt answer on what you can use today.
 
 ## Current picture
 
-- Today: Usable preview.
-- Published: May 3, 2026 at 16:35 UTC.
+- Today: Public release review required.
+- Published: May 14, 2026 at 6:02 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows, Linux, and macOS.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
-- Preview note: This is still a preview, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
+- Current note: The public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.
 - Help, contact, privacy, and terms pages are live.
 
 ## Download and install first
