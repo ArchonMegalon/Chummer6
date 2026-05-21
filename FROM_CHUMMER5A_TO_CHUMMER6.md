@@ -21,20 +21,20 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 | Build or tweak a runner | A similar dense desktop flow, but with a stronger push to explain why totals changed. |
 | Chase a weird modifier | A clearer receipt trail instead of reconstructing the math from memory. |
 | Come back after a bad install, lost device, or broken update | Recovery, download, and help are treated as product work instead of an afterthought. |
-| Check whether the preview is ready for you | The status page, download shelf, and help page are meant to answer that directly. |
+| Check whether the current public release is ready for you | The status page, download shelf, and help page are meant to answer that directly. |
 
 ## What is still rough
 
-- Downloads are currently live for Windows and Linux.
+- Downloads are currently live for Windows and Linux as open-public routes.
 - Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
 - If you rely on macOS as your main platform, wait before switching full time.
-- Treat the current shelf as a serious preview, not a fully settled every-platform replacement yet.
+- Treat the current shelf as a real Windows/Linux public release, not a fully settled every-platform replacement yet.
 
 ## Should you switch today?
 
-- Today you can try preview builds on Windows and Linux.
+- Today you can use the public Windows/Linux release builds.
 
-### If you mostly live on Windows and like testing real previews
+### If you mostly live on Windows and want the current public release
 
 - It is worth a serious look.
 
