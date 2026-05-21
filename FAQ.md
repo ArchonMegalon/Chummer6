@@ -3,7 +3,7 @@
 ## Start with these answers
 
 - **Which desktop app should I start with?** Start with the Avalonia desktop app when the download page offers it.
-- **What platforms are publicly available today?** Windows and Linux public release builds are the public path today unless the download page says otherwise.
+- **What platforms are publicly available today?** Windows, Linux, and macOS are publicly available when the download page lists them on the current shelf.
 - **I use Chummer5a now. Where should I start?** Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Current status](NOW/current-status.md).
 - **Do I need GitHub for anything normal?** No. Use the guide, download page, and help flow first.
 
@@ -11,7 +11,7 @@
 
 ### Can I actually use this now?
 
-Yes. Chummer6 is publicly available now on Windows and Linux, with live downloads, current pages, and clear labels for what is still rough or still missing.
+Yes. Chummer6 has a live public release: there are current downloads, current pages, and clear labels for what still needs attention.
 
 ### Is it offline-safe?
 
@@ -21,7 +21,7 @@ That is one of the core goals. Chummer6 is being built so bad connectivity does 
 
 Because Chummer6 is trying to show how it reached an answer instead of asking you to accept mystery math.
 
-### What is available today?
+### What is preview versus available today?
 
 Available today means you can open it or download it right now. Preview means you can use it, but parts of the release, compatibility, or support story are still changing.
 
@@ -31,7 +31,7 @@ Start with the Avalonia desktop app when the download page offers it.
 
 ### What platforms are publicly available today?
 
-Windows and Linux public release builds are the path today. The download page is the authority for exactly which artifacts are live, and macOS is not public unless that page says it is.
+Windows, Linux, and macOS are public when the download page lists them on the current shelf. The download page is the authority for exactly which artifacts are live.
 
 ### Do I need GitHub for anything normal?
 
@@ -39,7 +39,7 @@ No. Use the guide, download page, and help flow first. GitHub is mainly for issu
 
 ### I use Chummer5a now. Where should I start?
 
-Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Current status](NOW/current-status.md), then decide whether the current public release matches your table.
+Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Current status](NOW/current-status.md), then decide whether the current preview matches your table.
 
 ### What should I show a skeptical GM or player first?
 
@@ -65,7 +65,7 @@ Use the in-product private crash path when logs or diagnostics are involved. Use
 
 ### Why are some things preview-only?
 
-Because some parts are good enough to try before every platform, install flow, and support path is equally polished.
+Because some parts can still be route-visible before every surrounding workflow or proof family is equally mature.
 
 ### Will guided-preview access open wider later?
 

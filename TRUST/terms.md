@@ -1,10 +1,10 @@
 # Preview terms in plain language
 
-These are the plain rules for the current public Windows/Linux release: honest labels, real downloads, and straightforward support.
+These are the plain rules for the current preview: early access, honest labels, real downloads, and straightforward support.
 
 ## The product is real, but still early access
 
-Expect real pages, current downloads, visible proof, and explicit labels when support, compatibility, or breadth are still moving.
+Expect real pages, current downloads, visible proof, and explicit preview labels when support, compatibility, or breadth are still moving.
 
 ## Sign-in is simple, and support starts with Chummer
 
@@ -12,4 +12,4 @@ Sign-in keeps your access, devices, and support history together. Help and Conta
 
 ## Use the current public download first; advanced packages only when necessary
 
-Public downloads should match what is honestly available right now. Public-copy remains explicitly labeled with platform and support boundaries, and these terms stay consistent across help, release, and trust surfaces. If a regular installer exists later, it becomes the normal path, while manual packages stay as fallback for edge cases or support-directed setup.
+Public downloads should match what is honestly available right now. Public-copy remains explicitly labeled with explicit preview labels, and these terms stay consistent across help, release, and trust surfaces. If a regular installer exists later, it becomes the normal path, while manual packages stay as fallback for edge cases or support-directed setup.
