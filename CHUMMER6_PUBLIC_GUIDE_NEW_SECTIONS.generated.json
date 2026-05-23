@@ -1,0 +1,112 @@
+{
+  "sections": [
+    {
+      "canonical_sources": [
+        "products/chummer/HORIZON_REGISTRY.yaml",
+        "products/chummer/horizons/table-pulse.md",
+        "products/chummer/TABLE_PULSE_HEAT_REACTION_AUDIT_20260523.md"
+      ],
+      "expected_representation": "omitted_with_receipt_until_public_guide_enabled",
+      "horizon_public_guide_enabled": false,
+      "id": "table-pulse",
+      "page_class": "future_concept_page",
+      "public_guide_verdict": "future_concept_disabled_horizon",
+      "representation_status": "omitted_with_receipt",
+      "required_proof": [
+        "horizon_registry_public_guide_disabled"
+      ],
+      "shipped_claim_allowed": false,
+      "title": "Table Pulse"
+    },
+    {
+      "canonical_sources": [
+        "products/chummer/BEHUMAN_GM_SESSION_VENUE_SPEC.md",
+        "products/chummer/BEHUMAN_EVENT_PROVIDER_BOUNDARY.md"
+      ],
+      "expected_representation": "omitted_with_receipt_private_by_default",
+      "horizon_public_guide_enabled": null,
+      "id": "behuman-gm-sessions",
+      "page_class": "event_venue_page",
+      "public_guide_verdict": "private_operator_surface",
+      "representation_status": "omitted_with_receipt",
+      "required_proof": [
+        "provider_verification",
+        "manual_link_mode"
+      ],
+      "shipped_claim_allowed": false,
+      "title": "BeHuman GM Sessions"
+    },
+    {
+      "canonical_sources": [
+        "products/chummer/ANSWERLY_SUPPORT_AND_HUMANIZER_SPEC.md",
+        "products/chummer/ANSWERLY_RULESAFE_BOUNDARY.md",
+        "products/chummer/RULES_COACH_ROUTER_SPEC.md"
+      ],
+      "expected_representation": "support_only_with_first_party_fallback",
+      "horizon_public_guide_enabled": null,
+      "id": "answerly-support-humanizer",
+      "page_class": "support_assistant_page",
+      "public_guide_verdict": "help_support_page_content",
+      "representation_status": "support_only_with_receipt",
+      "required_proof": [
+        "support_mode_enabled_or_first_party_fallback",
+        "rulesafe_boundary"
+      ],
+      "shipped_claim_allowed": false,
+      "title": "Answerly Support Assistant"
+    },
+    {
+      "canonical_sources": [
+        "products/chummer/LIVING_WORLD_BIG_REDESIGN_V3_AUDIT_20260523.md",
+        "products/chummer/TABLE_PULSE_LIVING_WORLD_STACK_20260523.md",
+        "products/chummer/TABLE_PULSE_LIVING_WORLD_DRAMA6_BRIEF_20260523.md"
+      ],
+      "expected_representation": "omitted_with_receipt_design_surface_pending",
+      "horizon_public_guide_enabled": null,
+      "id": "signal-deck",
+      "page_class": "living_world_surface_page",
+      "public_guide_verdict": "design_canon_only",
+      "representation_status": "omitted_with_receipt",
+      "required_proof": [
+        "redesigned_surface_receipts"
+      ],
+      "shipped_claim_allowed": false,
+      "title": "Signal Deck"
+    },
+    {
+      "canonical_sources": [
+        "products/chummer/RUNNER_PASSPORT_SPEC.md",
+        "products/chummer/RUNNER_PASSPORT_AND_CROSS_COMMUNITY_TRUST.md"
+      ],
+      "expected_representation": "omitted_with_receipt_until_page_registry_entry_exists",
+      "horizon_public_guide_enabled": null,
+      "id": "runner-passport",
+      "page_class": "live_session_feature_page",
+      "public_guide_verdict": "public_route_live",
+      "representation_status": "omitted_with_receipt",
+      "required_proof": [
+        "public_route",
+        "live_receipt_rails"
+      ],
+      "shipped_claim_allowed": true,
+      "title": "Runner Passport"
+    },
+    {
+      "canonical_sources": [
+        "products/chummer/LIVING_WORLD_ENGAGEMENT_AUDIT_20260523.md",
+        "products/chummer/TABLE_PULSE_LIVING_WORLD_STACK_20260523.md"
+      ],
+      "expected_representation": "omitted_with_receipt_program_direction_only",
+      "horizon_public_guide_enabled": null,
+      "id": "living-world-engagement",
+      "page_class": "future_concept_page",
+      "public_guide_verdict": "design_canon_only",
+      "representation_status": "omitted_with_receipt",
+      "required_proof": [
+        "bounded_engagement_receipts"
+      ],
+      "shipped_claim_allowed": false,
+      "title": "Living World Engagement"
+    }
+  ]
+}

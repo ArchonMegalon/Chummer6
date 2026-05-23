@@ -65,7 +65,7 @@
   ],
   "generated_by": "materialize_public_guide_bundle.py",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
-  "page_count": 29,
+  "page_count": 30,
   "sources": {
     "faq_registry": "products/chummer/PUBLIC_FAQ_REGISTRY.yaml",
     "help_copy": "products/chummer/PUBLIC_HELP_COPY.md",
@@ -81,6 +81,7 @@
     "public_feedback_registry": "products/chummer/PUBLIC_FEEDBACK_AND_CONTENT_REGISTRY.yaml",
     "public_feedback_taxonomy": "products/chummer/PUBLIC_FEEDBACK_TAXONOMY.yaml",
     "public_guide_image_curation": "products/chummer/PUBLIC_GUIDE_IMAGE_CURATION.yaml",
+    "public_guide_new_section_verdict": "products/chummer/PUBLIC_GUIDE_NEW_SECTION_VERDICT.yaml",
     "public_guide_policy": "products/chummer/PUBLIC_GUIDE_POLICY.md",
     "public_media_policy": "products/chummer/PUBLIC_MEDIA_AND_GUIDE_ASSET_POLICY.md",
     "public_signal_pipeline": "products/chummer/PUBLIC_SIGNAL_TO_CANON_PIPELINE.md",

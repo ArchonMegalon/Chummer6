@@ -234,6 +234,24 @@ class RenderManifestTests(unittest.TestCase):
         self.assertIn('"generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml"', rendered)
         self.assertNotIn('"generated_from": ".\\\\products\\\\chummer\\\\', rendered)
 
+    def test_sync_files_include_public_guide_proof_bundle(self) -> None:
+        self.assertIn(
+            "CHUMMER6_PUBLIC_GUIDE_TRUTH_AUDIT.generated.json",
+            guide_sync.SYNC_FILES,
+        )
+        self.assertIn(
+            "CHUMMER6_PUBLIC_GUIDE_NEW_SECTIONS.generated.json",
+            guide_sync.SYNC_FILES,
+        )
+        self.assertIn(
+            "CHUMMER6_GUIDE_GENERATOR_REGISTRY_ALIGNMENT.generated.json",
+            guide_sync.SYNC_FILES,
+        )
+        self.assertIn(
+            "FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md",
+            guide_sync.SYNC_FILES,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

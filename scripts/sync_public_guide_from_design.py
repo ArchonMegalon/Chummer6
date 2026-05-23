@@ -10,7 +10,10 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SOURCE = REPO_ROOT.parent / "chummer-design" / "products" / "chummer" / "public-guide"
+DEFAULT_SOURCE_CANDIDATES = (
+    REPO_ROOT.parent / "chummer-design" / "products" / "chummer" / "public-guide",
+    REPO_ROOT.parent / "chummer-design-m114" / "products" / "chummer" / "public-guide",
+)
 
 SYNC_FILES = (
     "README.md",
@@ -21,6 +24,10 @@ SYNC_FILES = (
     "FAQ.md",
     "CONTACT.md",
     "manifest.generated.json",
+    "CHUMMER6_PUBLIC_GUIDE_TRUTH_AUDIT.generated.json",
+    "CHUMMER6_PUBLIC_GUIDE_NEW_SECTIONS.generated.json",
+    "CHUMMER6_GUIDE_GENERATOR_REGISTRY_ALIGNMENT.generated.json",
+    "FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md",
 )
 
 SYNC_DIRS = (
@@ -36,6 +43,13 @@ OPTIONAL_SYNC_DIRS = ("NOW", "UPDATES")
 START_HERE_BLOCKS = {}
 
 WRAPPERS = {}
+
+
+def _default_source() -> Path:
+    for candidate in DEFAULT_SOURCE_CANDIDATES:
+        if candidate.exists():
+            return candidate
+    return DEFAULT_SOURCE_CANDIDATES[0]
 
 
 def _copy_file(src: Path, dest: Path, check: bool, failures: list[str], optional: bool = False) -> None:
@@ -78,7 +92,81 @@ START_HERE_TRANSFORMS = {
     "FAQ.md": "",
 }
 
-TEXT_REWRITES = {}
+TEXT_REWRITES = {
+    "README.md": (
+        (
+            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
+            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
+        ),
+        (
+            "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.",
+            "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, where the world-facing surfaces live, how account and recovery fit together, and where to get help.",
+        ),
+        (
+            "## Start here\n\n- [Download](DOWNLOAD.md)\n- [Status](STATUS.md)\n- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n- [Help](HELP.md)\n- [FAQ](FAQ.md)\n- [Contact](CONTACT.md)\n- [Future ideas](HORIZONS/README.md)\n",
+            "## Flagship guide map\n\n- [Home](README.md)\n- [Get Chummer](DOWNLOAD.md)\n- [What works today](STATUS.md)\n- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)\n- [Worlds](HORIZONS/README.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [Account](HELP.md#keep-access-and-recovery-on-one-calm-path)\n- [Help](HELP.md)\n- [FAQ](FAQ.md)\n- [Contact](CONTACT.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n",
+        ),
+        ("## How can I help?\n", "## Account and contribution paths\n"),
+        ("## Product parts\n", "## Worlds and deeper parts\n"),
+        ("## Need help\n", "## Help\n"),
+    ),
+    "DOWNLOAD.md": (
+        (
+            "Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.",
+            "Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
+        ),
+        (
+            "This page tells you what you can download right now and which file to start with.\n",
+            "This page tells you what you can download right now and which file to start with.\n\nGuide fit: this is the `Get Chummer` page in the flagship shell.\n",
+        ),
+    ),
+    "STATUS.md": (
+        (
+            "This is the blunt answer on what you can use today.\n",
+            "This is the blunt answer on what you can use today.\n\nGuide fit: this is the `What works today` page in the flagship shell.\n",
+        ),
+        (
+            "## Start with the release page and download help\n",
+            "## Get Chummer, then use Help if setup goes sideways\n",
+        ),
+    ),
+    "HELP.md": (
+        (
+            "Start here if installation, updates, sign-in, or bugs are getting in the way.\n",
+            "Start here if installation, updates, sign-in, or bugs are getting in the way.\n\nGuide fit: this is the `Help` page in the flagship shell, with the account and recovery path kept adjacent instead of treated as a separate old-style section.\n",
+        ),
+        (
+            "## Start with the release page and download help\n",
+            "## Start with Get Chummer and What works today\n",
+        ),
+        (
+            "## Keep access and recovery on one calm path\n",
+            "## Account: keep access and recovery on one calm path\n",
+        ),
+        (
+            "## Product help should become a support case, not a rumor\n",
+            "## Help should become a support case, not a rumor\n",
+        ),
+    ),
+    "FAQ.md": (
+        (
+            "# FAQ\n\n## Using Chummer6\n",
+            "# FAQ\n\nThis page supports the flagship shell by answering the normal questions around `Home`, `Get Chummer`, `What works today`, `Worlds`, `Account`, and `Help`.\n\n## Home, Get Chummer, and What works today\n",
+        ),
+        (
+            "## If you want the behind-the-scenes details",
+            "## If you want more detail",
+        ),
+        (
+            "In the planning notes that shape the roadmap and the public guide.",
+            "Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.",
+        ),
+        (
+            "## Helping and feedback\n",
+            "## Worlds, Account, and Help\n",
+        ),
+    ),
+}
 
 
 def _render_with_start_here(src: Path, relative_path: str, anchor: str) -> str:
@@ -87,6 +175,17 @@ def _render_with_start_here(src: Path, relative_path: str, anchor: str) -> str:
     source_text = src.read_text(encoding="utf-8")
     for old, new in TEXT_REWRITES.get(relative_path, ()):
         source_text = source_text.replace(old, new)
+    if relative_path == "README.md":
+        duplicated = "[From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)"
+        seen = False
+        deduped: list[str] = []
+        for line in source_text.splitlines():
+            if line.strip() == f"- {duplicated}":
+                if seen:
+                    continue
+                seen = True
+            deduped.append(line)
+        source_text = "\n".join(deduped)
     start_here_block = START_HERE_BLOCKS.get(relative_path, "")
     if not start_here_block:
         return source_text if source_text.endswith("\n") else source_text + "\n"
@@ -240,8 +339,8 @@ def main(argv: list[str]) -> int:
     parser.add_argument(
         "--source",
         type=Path,
-        default=DEFAULT_SOURCE,
-        help=f"Path to the generated design public-guide bundle (default: {DEFAULT_SOURCE})",
+        default=_default_source(),
+        help=f"Path to the generated design public-guide bundle (default: {_default_source()})",
     )
     parser.add_argument(
         "--check",
