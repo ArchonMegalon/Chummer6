@@ -13,8 +13,8 @@ Picture the scene: A GM opens Seattle, sees which districts are hot, picks a job
 
 ## Current stage
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Today: Signed-in command lane is live.
+- Next: Expand bounded coaching and fallout follow-through.
 
 ## The promise
 
@@ -216,8 +216,9 @@ Use them when you want the theatrical layer instead of the dry faction file:
 
 Each promo rail is supposed to feel like propaganda with receipts:
 
-* a playable faction video
+* a first-party motion-video file
 * captions
+* a route-backed JSON brief
 * a storyboard fallback
 * a validation route back into the ledger
 

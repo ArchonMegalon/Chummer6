@@ -51,7 +51,7 @@ If you want the optional guided contribution path instead of normal product help
 ![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
 
 
-- [Watch the Chummer6 promo video](https://chummer.run/ledger#newsreel-player)
+- [Watch the Chummer6 promo video](https://chummer.run/media/promo/chummer6-flagship-promo.mp4)
 - [Open the Black Ledger command map](https://chummer.run/ledger/map#ledger-map)
 
 ## Why people care

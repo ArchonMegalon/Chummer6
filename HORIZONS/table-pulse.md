@@ -13,8 +13,8 @@ Picture the scene: After an online session, the GM opens a coaching packet and s
 
 ## Current stage
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Today: Signed-in command lane is live.
+- Next: Expand bounded coaching and fallout follow-through.
 
 ## The problem
 
@@ -40,6 +40,22 @@ It then widens into:
 
 It is for reflection, pressure handling, and bounded follow-up after play. It is not live
 surveillance, player scoring, or moderation truth.
+
+## What is live now
+
+The whole coaching and observer stack is not universally shipped.
+
+What is live today is the signed-in command lane:
+
+* a Table Pulse packet on the Black Ledger notifications route
+* bounded remote reaction mini-games
+* GM adjudication and leader follow-through
+* Signal Deck and Runner Passport continuity
+* Living Newsroom watch framing
+* governed aftermath return loops
+
+So the command-to-fallout loop is real now, while the broader coaching, transcript, and narrated
+summary stack remains future-facing, consent-bounded, and explicitly non-authoritative.
 
 ## What players and remote users would actually see
 

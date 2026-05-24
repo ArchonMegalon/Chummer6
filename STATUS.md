@@ -9,8 +9,7 @@ Guide fit: this is the `What works today` page in the flagship shell.
 - Today: Usable preview.
 - Published: May 22, 2026 at 19:33 UTC.
 - Release status: Published.
-- Downloads are currently live for Windows and Linux.
-- Still missing from the public download page: macOS.
+- Downloads are currently live for Windows, Linux, and macOS.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Current warning: Current release proof is green, and the shelf has recent setup, device recovery, clustered release notification, community closure, offline-ready prefetch, and support verification instead of only a posted file.
 - Help, contact, privacy, and terms pages are live.

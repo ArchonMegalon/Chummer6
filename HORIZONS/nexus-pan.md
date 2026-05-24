@@ -13,8 +13,8 @@ Picture the scene: A player reconnects in the middle of a session and gets back 
 
 ## Current stage
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Today: Signed-in command lane is live.
+- Next: Expand bounded coaching and fallout follow-through.
 
 ## The problem
 

@@ -13,8 +13,8 @@ Picture the scene: A GM promotes a house-rule pack with visible impact, approval
 
 ## Current stage
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Today: Signed-in command lane is live.
+- Next: Expand bounded coaching and fallout follow-through.
 
 ## The promise
 
