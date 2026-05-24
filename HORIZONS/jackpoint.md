@@ -36,6 +36,9 @@ JACKPOINT should do the opposite.
 
 It makes artifacts feel good **because** they are grounded.
 
+The signed-in command lane is already live at `https://chummer.run/jackpoint`.
+That lane currently carries first-party briefing packets on real markdown and JSON routes without pretending the whole long-form publishing roadmap is done.
+
 ## The promise
 
 **Turn campaign truth into polished artifacts without making things up.**

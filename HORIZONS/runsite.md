@@ -13,8 +13,8 @@ Picture the scene: A GM sends an explorable safehouse pack with hotspots, floor 
 
 ## Current stage
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Today: Signed-in command lane is live.
+- Next: Expand bounded coaching and fallout follow-through.
 
 **RUNSITE is Chummer’s spatial-prep horizon: the future where mission locations become explorable, understandable, and briefing-ready before the action starts.**
 
@@ -25,6 +25,9 @@ A club, museum, warehouse, arcology floor, or black clinic can matter enormously
 RUNSITE fixes that.
 
 It helps the table understand the space before it starts.
+
+The signed-in command lane is already live at `https://chummer.run/runsites`.
+That lane currently carries first-party runsite packs on real markdown and JSON routes without pretending the whole spatial roadmap is done.
 
 ## The promise
 

@@ -13,8 +13,8 @@ Picture the scene: A player finds a beginner-friendly run, applies with a legal 
 
 ## Current stage
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Today: Signed-in command lane is live.
+- Next: Expand bounded coaching and fallout follow-through.
 
 ## The problem
 
@@ -45,6 +45,9 @@ The public fantasy is:
 > The outcome changes the city.
 
 COMMUNITY HUB is the product name for that lane.
+
+The signed-in command lane is already live at `https://chummer.run/community`.
+That lane currently carries governed open-run packets, venue handoff, and community closeout without pretending the whole long-range community roadmap is done.
 
 ## What has to be true first
 

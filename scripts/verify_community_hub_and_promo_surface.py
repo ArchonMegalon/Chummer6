@@ -16,11 +16,12 @@ README_REQUIRED = (
 COMMUNITY_HUB_REQUIRED = (
     "# COMMUNITY HUB",
     "A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.",
-    "- Today: Future concept.",
-    "- Next: Research and prototypes.",
+    "- Today: Signed-in command lane is live.",
+    "- Next: Expand bounded coaching and fallout follow-through.",
     "COMMUNITY HUB would turn BLACK LEDGER and campaign prep into a practical recruitment, scheduling, prep, and closeout layer.",
     "COMMUNITY HUB is the product name for that lane.",
-    "Until those boundaries are strong enough, COMMUNITY HUB should remain a horizon rather than a shipped community promise.",
+    "The signed-in command lane is already live at `https://chummer.run/community`.",
+    "That lane currently carries governed open-run packets, venue handoff, and community closeout without pretending the whole long-range community roadmap is done.",
 )
 
 FORBIDDEN = (
