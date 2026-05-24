@@ -1,14 +1,14 @@
 # TABLE PULSE
 
-GMs get opt-in post-session coaching about table dynamics without turning Chummer into surveillance.
+GMs get a governed live heat-and-reaction rail today and a separate private aftermath coaching rail as the broader Table Pulse promise grows.
 
 ![TABLE PULSE horizon art](../assets/horizons/table-pulse.png)
 
 ## Why this matters
 
-I know the table drifted, but I cannot say where the energy, pacing, or spotlight balance broke.
+I need a live pressure rail during play and a private coaching rail after play, without confusing the two or turning either into surveillance.
 
-Picture the scene: After an online session, the GM opens a coaching packet and sees spotlight balance, pacing heat zones, disengagement markers, and one or two concrete suggestions for the next run.
+Picture the scene: During a run, heat crosses a threshold and the GM receives a governed reaction packet; after the run, the GM can later open a private aftermath packet for pacing, spotlight, and confusion follow-through.
 
 
 ## Current stage
@@ -18,34 +18,53 @@ Picture the scene: After an online session, the GM opens a coaching packet and s
 
 ## The problem
 
-The GM knows something went off after a session, but cannot clearly reconstruct where pacing dragged, who lost the room, or which scene actually landed.
+The GM needs two different things:
 
-## What it would do
+* a live or near-live pressure rail that can surface in-world heat without auto-mutating canon
+* a private aftermath rail that can help explain where pacing, spotlight, or confusion drifted
 
-TABLE PULSE turns live-session pressure into bounded follow-up packets and post-session coaching.
+Those are different kinds of heat. If the page collapses them into one concept, the design becomes
+muddy and reads like surveillance plus mini-games instead of two bounded product rails.
 
-It starts with:
+## The two rails
 
-* heat domains and threshold events
+### Table Pulse Live
+
+TABLE PULSE LIVE is the in-world command and reaction layer.
+
+It covers:
+
+* world heat domains and threshold events
 * recipient decision packets
 * GM pulse policy
-* player-safe delivery and mute controls
+* player-safe delivery, mute controls, and consent posture
+* remote reaction mini-games
+* governed BLACK LEDGER aftermath projection
+
+Its job is to let heat cross a threshold, produce a packet, and return a bounded result to the GM.
+It is not automatic table mutation.
+
+### Table Pulse Aftermath
+
+TABLE PULSE AFTERMATH is the private coaching and recap layer.
+
+It covers:
+
+* pacing heat
+* spotlight imbalance
+* interruption or confusion spikes
+* disengagement markers
 * optional narrated summaries
+* follow-up suggestions for the next run
 
-It then widens into:
-
-* between-session rumor, order, and Passport hooks
-* remote reaction mini-games for outside players or role-holders
-* public-safe BLACK LEDGER aftermath projection
-
-It is for reflection, pressure handling, and bounded follow-up after play. It is not live
-surveillance, player scoring, or moderation truth.
+Its job is to help the GM reflect after play. It is not a live command surface, public scoreboard,
+or moderation truth system.
 
 ## What is live now
 
 The whole coaching and observer stack is not universally shipped.
 
-What is live today is the signed-in command lane:
+What is live today is Table Pulse Live on the signed-in command lane:
 
 * a Table Pulse packet on the Black Ledger notifications route
 * bounded remote reaction mini-games
@@ -54,8 +73,9 @@ What is live today is the signed-in command lane:
 * Living Newsroom watch framing
 * governed aftermath return loops
 
-So the command-to-fallout loop is real now, while the broader coaching, transcript, and narrated
-summary stack remains future-facing, consent-bounded, and explicitly non-authoritative.
+So the command-to-fallout loop is real now, while Table Pulse Aftermath and the broader coaching,
+transcript, and narrated-summary stack remain future-facing, consent-bounded, and explicitly
+non-authoritative.
 
 ## What players and remote users would actually see
 
@@ -69,16 +89,48 @@ The first public-safe version is not a giant dashboard. It is a handful of sharp
 Remote users would only see packets they are explicitly allowed to see under campaign policy,
 quiet hours, and recipient rules.
 
-## Heat and reaction model
+## Heat vocabulary
 
-TABLE PULSE treats heat as a governed pressure signal, not generic drama text.
+TABLE PULSE uses two different heat vocabularies and should say so plainly.
+
+### World heat
+
+World heat belongs to Table Pulse Live.
 
 Examples:
 
-* pacing heat
+* security pressure
+* matrix pressure
+* magic or astral pressure
+* faction pressure
+* law, media, or public pressure
+
+World heat can produce a packet, a bounded remote reaction, and a GM adjudication choice.
+
+### Table-dynamics heat
+
+Table-dynamics heat belongs to Table Pulse Aftermath.
+
+Examples:
+
+* pacing drag
 * spotlight imbalance
-* interruption or confusion spikes
+* interruption spikes
+* confusion points
+* disengagement markers
+
+Table-dynamics heat is private GM coaching, not in-world pressure truth.
+
+## Heat and reaction model
+
+TABLE PULSE LIVE treats world heat as a governed pressure signal, not generic drama text.
+
+Examples:
+
 * faction or public pressure after a noisy result
+* security pressure around a research breach
+* matrix pressure after a loud hack
+* magic or astral pressure after an awakened spike
 * consequence pressure that can spill into BLACK LEDGER
 
 Heat does not mutate table truth by itself. It creates a bounded packet that a GM can inspect,
@@ -110,6 +162,20 @@ They are not:
 * public scoreboards
 * a replacement for the GM
 
+## Table Pulse Aftermath boundaries
+
+TABLE PULSE AFTERMATH is explicitly:
+
+* GM-private
+* opt-in
+* consent-bounded
+* not surveillance
+* not player scoring
+* not public trust or moderation truth
+
+It may eventually widen into transcript structure, narrated recap, or highlight support, but only
+after privacy, retention, receipt, and adjudication proof are complete.
+
 ## Likely owners
 
 * `chummer6-hub`
@@ -139,6 +205,7 @@ See also: `HEDY_AI_TABLE_PULSE_DESIGN.md`
 
 ## Hard boundary
 
+* Table Pulse Live is not automatic world authority
 * not live surveillance
 * not player scoring
 * not moderation truth
@@ -147,6 +214,12 @@ See also: `HEDY_AI_TABLE_PULSE_DESIGN.md`
 
 ## Why it is not ready yet
 
-This only works if it stays consensual, private, and clearly separate from moderation or rules truth.
-Until Chummer can prove those guardrails end to end, TABLE PULSE remains a future-facing horizon
-page rather than a claim that the full heat, remote-user, and mini-game stack is already shipped.
+This only works if the two rails stay separate:
+
+* Table Pulse Live must remain GM-controlled, receipt-backed, and fail-closed
+* Table Pulse Aftermath must remain private, consent-bounded, and clearly separate from moderation
+or rules truth
+
+Until Chummer can prove those guardrails end to end, TABLE PULSE remains a split horizon page with
+one live rail and one future-facing rail rather than a claim that the full coaching, transcript,
+remote-user, and mini-game stack is already universally shipped.

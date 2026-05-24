@@ -214,7 +214,7 @@ Use them when you want the theatrical layer instead of the dry faction file:
 * [Glass Tower Compact promo](https://chummer.run/ledger/factions/glass-tower-compact/promo)
 * [Rust Market Syndicate promo](https://chummer.run/ledger/factions/rust-market-syndicate/promo)
 
-Each promo rail is supposed to feel like propaganda with receipts:
+Each promo rail is supposed to feel like a recruitment bulletin with receipts, not a soft teaser:
 
 * a first-party motion-video file
 * captions
@@ -328,7 +328,7 @@ Intel can become:
 * a district activity note
 * a job seed
 * a news item
-* a faction clue
+* a faction pressure lead
 * a creator prompt
 * a private campaign-only hook
 

@@ -20,12 +20,20 @@ def main() -> int:
     for needle in (
         "- Today: Signed-in command lane is live.",
         "- Next: Expand bounded coaching and fallout follow-through.",
+        "live heat-and-reaction rail today and a separate private aftermath coaching rail",
+        "## The two rails",
+        "### Table Pulse Live",
+        "### Table Pulse Aftermath",
+        "### World heat",
+        "### Table-dynamics heat",
         "## What is live now",
-        "signed-in command lane",
+        "Table Pulse Live on the signed-in command lane",
         "Black Ledger notifications route",
         "bounded remote reaction mini-games",
         "Living Newsroom watch framing",
         "governed aftermath return loops",
+        "GM-private",
+        "not surveillance",
     ):
         if needle not in text:
             raise ValueError(f"Table Pulse guide is missing connected-lane proof: {needle}")

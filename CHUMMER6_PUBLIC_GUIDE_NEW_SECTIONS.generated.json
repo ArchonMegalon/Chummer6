@@ -72,7 +72,8 @@
       "representation_status": "public_route_live_page",
       "required_proof": [
         "first_party_signal_deck_route",
-        "first_party_signal_deck_receipts"
+        "first_party_signal_deck_receipts",
+        "live_receipt_rails"
       ],
       "shipped_claim_allowed": true,
       "title": "Signal Deck"
@@ -109,7 +110,8 @@
       "representation_status": "public_route_live_page",
       "required_proof": [
         "first_party_living_world_route",
-        "first_party_living_world_receipts"
+        "first_party_living_world_receipts",
+        "live_receipt_rails"
       ],
       "shipped_claim_allowed": true,
       "title": "Living World Engagement"
