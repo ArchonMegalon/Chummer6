@@ -293,12 +293,16 @@ def _sync_dir(src: Path, dest: Path, check: bool, failures: list[str], optional:
             failures.append(f"missing destination directory: {dest}")
             return
         src_files = sorted(path.relative_to(src) for path in src.rglob("*") if path.is_file())
+        dest_files = sorted(path.relative_to(dest) for path in dest.rglob("*") if path.is_file())
         for relative_path in src_files:
             if not (dest / relative_path).exists():
                 failures.append(f"missing destination file: {dest / relative_path}")
                 continue
             if not filecmp.cmp(src / relative_path, dest / relative_path, shallow=False):
                 failures.append(f"file drift: {dest / relative_path} != {src / relative_path}")
+        for relative_path in dest_files:
+            if not (src / relative_path).exists():
+                failures.append(f"stale destination file: {dest / relative_path}")
         return
     if dest.exists():
         if not dest.is_dir():
@@ -311,6 +315,18 @@ def _sync_dir(src: Path, dest: Path, check: bool, failures: list[str], optional:
         dest_screenshots = dest / "screenshots"
         if not source_screenshots.exists() and dest_screenshots.exists():
             shutil.rmtree(dest_screenshots)
+    source_entries = {path.relative_to(src) for path in src.rglob("*")}
+    dest_entries = sorted(
+        path.relative_to(dest)
+        for path in dest.rglob("*")
+    )
+    for relative_path in reversed(dest_entries):
+        if relative_path not in source_entries:
+            stale_path = dest / relative_path
+            if stale_path.is_dir():
+                shutil.rmtree(stale_path)
+            else:
+                stale_path.unlink()
     for source_file in src.rglob("*"):
         relative_path = source_file.relative_to(src)
         destination_file = dest / relative_path
