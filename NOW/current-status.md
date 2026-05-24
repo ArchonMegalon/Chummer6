@@ -2,6 +2,8 @@
 
 ![Current status banner](../assets/pages/current-status.png)
 
+                Guide fit: this page is the short `What works today` handoff inside the flagship shell.
+
                 Status first: the guide, horizon shelf, and public pages are live and easy to inspect.
 
                 ## The short version

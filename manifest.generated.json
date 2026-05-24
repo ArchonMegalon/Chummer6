@@ -32,6 +32,9 @@
     "assets/horizons/runsite.avif",
     "assets/horizons/runsite.png",
     "assets/horizons/runsite.webp",
+    "assets/horizons/table-pulse.avif",
+    "assets/horizons/table-pulse.png",
+    "assets/horizons/table-pulse.webp",
     "assets/pages/horizons-index.avif",
     "assets/pages/horizons-index.png",
     "assets/pages/horizons-index.webp",
@@ -65,7 +68,7 @@
   ],
   "generated_by": "materialize_public_guide_bundle.py",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
-  "page_count": 30,
+  "page_count": 32,
   "sources": {
     "faq_registry": "products/chummer/PUBLIC_FAQ_REGISTRY.yaml",
     "help_copy": "products/chummer/PUBLIC_HELP_COPY.md",

@@ -236,6 +236,14 @@ class RenderManifestTests(unittest.TestCase):
 
     def test_sync_files_include_public_guide_proof_bundle(self) -> None:
         self.assertIn(
+            "RUNNER_PASSPORT.md",
+            guide_sync.SYNC_FILES,
+        )
+        self.assertIn(
+            "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
+            guide_sync.SYNC_FILES,
+        )
+        self.assertIn(
             "CHUMMER6_PUBLIC_GUIDE_TRUTH_AUDIT.generated.json",
             guide_sync.SYNC_FILES,
         )

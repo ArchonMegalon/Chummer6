@@ -1,6 +1,6 @@
 # Chummer Public Guide
 
-Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.
+Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, where the world-facing surfaces live, how account and recovery fit together, and where to get help.
 
 ## Product promise
 
@@ -15,8 +15,8 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - Short answer: yes, as an early preview.
 - Downloads are currently live for Windows and Linux.
 - Proof on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; it is not a blanket flagship-complete claim and it does not outrank the recommended install route.
-- Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
-- If you see both desktop apps, start with the Avalonia desktop app. Treat Blazor desktop app as a fallback path only when the download page or support explicitly tells you to use it.
+- Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.
+- If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
 - Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 - Today: Usable preview.
 - Still missing from the public download page: macOS.
@@ -30,12 +30,13 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [How can I help](HOW_CAN_I_HELP.md)
+- [Runner Passport](RUNNER_PASSPORT.md)
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)
 - [Future ideas](HORIZONS/README.md)
 
-## How can I help?
+## Account and contribution paths
 
 If you want the optional guided contribution path instead of normal product help, start with [How can I help](HOW_CAN_I_HELP.md).
 
@@ -48,18 +49,21 @@ If you want the optional guided contribution path instead of normal product help
 ![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
 
 
+- [Watch the Chummer6 promo video](https://chummer.run/ledger#newsreel-player)
+- [Open the Black Ledger command map](https://chummer.run/ledger/map#ledger-map)
+
 ## Why people care
 
 - It shows why a number changed instead of hiding the math.
 - It is being built to keep sessions and campaigns recoverable when devices or connectivity drift.
 - The status, downloads, and help story is meant to stay in plain sight instead of being scattered.
 
-## Product parts
+## Worlds and deeper parts
 
 - [Parts index](PARTS/README.md): an inside view of how the app is put together.
 - [Horizons index](HORIZONS/README.md): future ideas that are not ready today.
 
-## Need help
+## Help
 
 Start here for downloads, sign-in recovery, and support.
 

@@ -148,11 +148,11 @@ The GM decides.
 
 ---
 
-## Open Runs and the Shadowcasters Network
+## Open Runs and the Open Runs Board
 
 A GM can turn a mission into an **Open Run**.
 
-That run can appear on the world map or the Shadowcasters Network with a player-safe listing:
+That run can appear on the world map or the Open Runs board with a player-safe listing:
 
 * title
 * pitch
@@ -198,6 +198,30 @@ After the GM accepts players, Chummer can route them to the right place: Discord
 
 Chummer does not replace your table tools.
 It makes the table flow structured, visible, and remembered.
+
+---
+
+## Faction promo rails
+
+BLACK LEDGER is not only a map and a board. It also has public-safe faction promo rails that show how each banner sells itself to the city.
+
+Use them when you want the theatrical layer instead of the dry faction file:
+
+* [Ashline Circle promo](https://chummer.run/ledger/factions/ashline-circle/promo)
+* [Neon Docks Union promo](https://chummer.run/ledger/factions/neon-docks-union/promo)
+* [Ghostline Network promo](https://chummer.run/ledger/factions/ghostline-network/promo)
+* [Barrens Free Wardens promo](https://chummer.run/ledger/factions/barrens-free-wardens/promo)
+* [Glass Tower Compact promo](https://chummer.run/ledger/factions/glass-tower-compact/promo)
+* [Rust Market Syndicate promo](https://chummer.run/ledger/factions/rust-market-syndicate/promo)
+
+Each promo rail is supposed to feel like propaganda with receipts:
+
+* a playable faction video
+* captions
+* a storyboard fallback
+* a validation route back into the ledger
+
+That is the line BLACK LEDGER tries to hold everywhere: it is allowed to look dramatic, but it is not allowed to outrun proof.
 
 ---
 

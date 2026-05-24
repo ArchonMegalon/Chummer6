@@ -2,7 +2,9 @@
 
 Start here if installation, updates, sign-in, or bugs are getting in the way.
 
-## Start with the release page and download help
+Guide fit: this is the `Help` page in the flagship shell, with the account and recovery path kept adjacent instead of treated as a separate old-style section.
+
+## Start with Get Chummer and What works today
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 
@@ -11,7 +13,7 @@ Start with the download page. It should tell you which file to use, what is miss
 - Create an account if you want your support history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.
 
-## Keep access and recovery on one calm path
+## Account: keep access and recovery on one calm path
 
 Account creation, sign-in, and recovery should stay boring. Use the account page and the recovery flow before you fall back to manual troubleshooting.
 
@@ -19,7 +21,7 @@ Account creation, sign-in, and recovery should stay boring. Use the account page
 - Use recovery email so one sign-in method is never the whole story.
 - Devices and access stay separate from identity recovery.
 
-## Product help should become a support case, not a rumor
+## Help should become a support case, not a rumor
 
 Use Contact first for install trouble, product bugs, and practical feedback. GitHub is there when you want a public bug thread, not as the normal support door.
 

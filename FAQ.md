@@ -1,6 +1,8 @@
 # FAQ
 
-## Using Chummer6
+This page supports the flagship shell by answering the normal questions around `Home`, `Get Chummer`, `What works today`, `Worlds`, `Account`, and `Help`.
+
+## Home, Get Chummer, and What works today
 
 ### Can I actually use this now?
 
@@ -22,7 +24,7 @@ Available today means you can open it or download it right now. Preview means yo
 
 Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [Status](STATUS.md), then [Download](DOWNLOAD.md). If the real argument is about how the math is explained, show them [Core](PARTS/core.md).
 
-## Helping and feedback
+## Worlds, Account, and Help
 
 ### How can I help?
 
@@ -64,11 +66,11 @@ No. The intended direction is that browsing runs, applying with a quickstart or 
 
 No. The intended posture is that Chummer owns rules, applications, schedule receipts, and world consequences, while Discord, Teams, and VTTs remain play or communication surfaces.
 
-## If you want the behind-the-scenes details
+## If you want more detail
 
 ### Where does the deeper plan live?
 
-In the planning notes that shape the roadmap and the public guide.
+Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.
 
 ### Where does the actual code live?
 

@@ -4,16 +4,19 @@
       "canonical_sources": [
         "products/chummer/HORIZON_REGISTRY.yaml",
         "products/chummer/horizons/table-pulse.md",
-        "products/chummer/TABLE_PULSE_HEAT_REACTION_AUDIT_20260523.md"
+        "products/chummer/TABLE_PULSE_HEAT_REACTION_AUDIT_20260523.md",
+        "products/chummer/TABLE_PULSE_OPTOUT_REMOTE_REACTION_AUDIT_20260523.md",
+        "products/chummer/TABLE_PULSE_LIVING_WORLD_STACK_20260523.md"
       ],
-      "expected_representation": "omitted_with_receipt_until_public_guide_enabled",
-      "horizon_public_guide_enabled": false,
+      "expected_representation": "public_horizon_page_with_receipts_and_future_facing_boundaries",
+      "horizon_public_guide_enabled": true,
       "id": "table-pulse",
-      "page_class": "future_concept_page",
-      "public_guide_verdict": "future_concept_disabled_horizon",
-      "representation_status": "omitted_with_receipt",
+      "page_class": "horizon_detail_page",
+      "public_guide_verdict": "public_safe_horizon_page",
+      "representation_status": "public_horizon_page",
       "required_proof": [
-        "horizon_registry_public_guide_disabled"
+        "horizon_registry_public_guide_enabled",
+        "bounded_privacy_and_consent_posture"
       ],
       "shipped_claim_allowed": false,
       "title": "Table Pulse"
@@ -78,12 +81,12 @@
         "products/chummer/RUNNER_PASSPORT_SPEC.md",
         "products/chummer/RUNNER_PASSPORT_AND_CROSS_COMMUNITY_TRUST.md"
       ],
-      "expected_representation": "omitted_with_receipt_until_page_registry_entry_exists",
+      "expected_representation": "public_route_live_page_with_receipts",
       "horizon_public_guide_enabled": null,
       "id": "runner-passport",
       "page_class": "live_session_feature_page",
       "public_guide_verdict": "public_route_live",
-      "representation_status": "omitted_with_receipt",
+      "representation_status": "public_route_live_page",
       "required_proof": [
         "public_route",
         "live_receipt_rails"

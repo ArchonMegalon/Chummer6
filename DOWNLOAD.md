@@ -2,6 +2,8 @@
 
 This page tells you what you can download right now and which file to start with.
 
+Guide fit: this is the `Get Chummer` page in the flagship shell.
+
 ## What should I download first?
 
 - For Windows, start with Avalonia Desktop Windows X64 Installer if you can sign in. If you want a public file without signing in, use Avalonia Desktop Windows X64 Portable archive package.
@@ -11,12 +13,12 @@ This page tells you what you can download right now and which file to start with
 ## Current public download
 
 - Today: Usable preview.
-- Published: May 14, 2026 at 18:02 UTC.
+- Published: May 22, 2026 at 19:33 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows and Linux.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Proof scope: Public proof language is scoped to the files, named flows, and recent checks posted on the current shelf that a person can inspect today; it is not a blanket flagship-grade claim.
-- Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.
+- Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.
 - Current warning: Current release proof is green, and the shelf has recent setup, device recovery, clustered release notification, community closure, offline-ready prefetch, and support verification instead of only a posted file.
 - Update note: Only expect fix notices after the affected download is available on the same public shelf.
 

@@ -11,5 +11,6 @@ These are future ideas, not features you can use today.
 - [JACKPOINT](jackpoint.md)
 - [RUNSITE](runsite.md)
 - [RUNBOOK PRESS](runbook-press.md)
+- [TABLE PULSE](table-pulse.md)
 - [BLACK LEDGER](black-ledger.md)
 - [COMMUNITY HUB](community-hub.md)
