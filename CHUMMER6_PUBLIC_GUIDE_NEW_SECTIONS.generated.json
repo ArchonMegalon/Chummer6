@@ -60,20 +60,21 @@
     },
     {
       "canonical_sources": [
-        "products/chummer/LIVING_WORLD_BIG_REDESIGN_V3_AUDIT_20260523.md",
-        "products/chummer/TABLE_PULSE_LIVING_WORLD_STACK_20260523.md",
-        "products/chummer/TABLE_PULSE_LIVING_WORLD_DRAMA6_BRIEF_20260523.md"
+        "products/chummer/SIGNAL_DECK_SPEC.md",
+        "products/chummer/horizons/table-pulse.md",
+        "products/chummer/TABLE_PULSE_LIVING_WORLD_STACK_20260523.md"
       ],
-      "expected_representation": "omitted_with_receipt_design_surface_pending",
+      "expected_representation": "public_route_live_page_with_receipts",
       "horizon_public_guide_enabled": null,
       "id": "signal-deck",
-      "page_class": "living_world_surface_page",
-      "public_guide_verdict": "design_canon_only",
-      "representation_status": "omitted_with_receipt",
+      "page_class": "live_session_feature_page",
+      "public_guide_verdict": "public_route_live",
+      "representation_status": "public_route_live_page",
       "required_proof": [
-        "redesigned_surface_receipts"
+        "first_party_signal_deck_route",
+        "first_party_signal_deck_receipts"
       ],
-      "shipped_claim_allowed": false,
+      "shipped_claim_allowed": true,
       "title": "Signal Deck"
     },
     {
@@ -96,19 +97,21 @@
     },
     {
       "canonical_sources": [
-        "products/chummer/LIVING_WORLD_ENGAGEMENT_AUDIT_20260523.md",
-        "products/chummer/TABLE_PULSE_LIVING_WORLD_STACK_20260523.md"
+        "products/chummer/LIVING_WORLD_SPEC.md",
+        "products/chummer/TABLE_PULSE_LIVING_WORLD_STACK_20260523.md",
+        "products/chummer/LIVING_WORLD_ENGAGEMENT_AUDIT_20260523.md"
       ],
-      "expected_representation": "omitted_with_receipt_program_direction_only",
+      "expected_representation": "public_route_live_page_with_receipts",
       "horizon_public_guide_enabled": null,
       "id": "living-world-engagement",
-      "page_class": "future_concept_page",
-      "public_guide_verdict": "design_canon_only",
-      "representation_status": "omitted_with_receipt",
+      "page_class": "live_session_feature_page",
+      "public_guide_verdict": "public_route_live",
+      "representation_status": "public_route_live_page",
       "required_proof": [
-        "bounded_engagement_receipts"
+        "first_party_living_world_route",
+        "first_party_living_world_receipts"
       ],
-      "shipped_claim_allowed": false,
+      "shipped_claim_allowed": true,
       "title": "Living World Engagement"
     }
   ]

@@ -13,13 +13,13 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 ## What is real now
 
 - Short answer: yes, as an early preview.
-- Downloads are currently live for Windows and Linux.
+- Downloads are currently live for Windows, Linux, and macOS.
 - Proof on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; it is not a blanket flagship-complete claim and it does not outrank the recommended install route.
 - Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.
 - If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
 - Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 - Today: Usable preview.
-- Still missing from the public download page: macOS.
+- Public downloads are visible on every promised desktop platform.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 
@@ -31,6 +31,8 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [How can I help](HOW_CAN_I_HELP.md)
 - [Runner Passport](RUNNER_PASSPORT.md)
+- [Signal Deck](SIGNAL_DECK.md)
+- [Living World](LIVING_WORLD.md)
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)

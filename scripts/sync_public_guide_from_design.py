@@ -19,6 +19,8 @@ SYNC_FILES = (
     "README.md",
     "FROM_CHUMMER5A_TO_CHUMMER6.md",
     "RUNNER_PASSPORT.md",
+    "SIGNAL_DECK.md",
+    "LIVING_WORLD.md",
     "STATUS.md",
     "DOWNLOAD.md",
     "HELP.md",

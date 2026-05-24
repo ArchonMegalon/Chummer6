@@ -30,6 +30,19 @@ Communities do not just care whether a runner exists. They care whether the runn
 - Start-from-today adoption without rebuilding trust by hand
 - Creator or organizer review lanes
 
+## Connected lane
+
+Runner Passport is also the continuity rail for the signed-in Table Pulse loop.
+
+It now connects cleanly to:
+
+- the signed-in Table Pulse inbox
+- leader briefing and faction command
+- Living Newsroom watch framing
+- governed aftermath return loops
+
+That means a remote reaction can stay public-safe on the Passport side while still returning to real command, review, and aftermath follow-through on first-party routes.
+
 ## Receipt rails
 
 - `/passport/receipts/runner_return_posture.md`
@@ -41,6 +54,9 @@ Communities do not just care whether a runner exists. They care whether the runn
 
 ## Read next
 
+- [Black Ledger notifications](/account/ledger/notifications)
+- [Leader briefing](/account/ledger/factions/ashline-circle/leader-briefing)
+- [Work aftermath rail](/account/work#aftermath-packages)
 - [Black Ledger](HORIZONS/black-ledger.md)
 - [Table Pulse](HORIZONS/table-pulse.md)
 - [Help](HELP.md)
