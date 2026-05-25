@@ -7,21 +7,21 @@ Guide fit: this is the `Get Chummer` page in the flagship shell.
 ## What should I download first?
 
 - For Windows, start with Avalonia Desktop Windows X64 Installer if you can sign in. If you want a public file without signing in, use Avalonia Desktop Windows X64 Portable archive package.
-- For Linux, start with Avalonia Desktop Linux X64 archive package. There is no installer posted for this platform yet.
+- For Linux, start with Avalonia Desktop Linux X64 Installer.
 - For macOS, start with Avalonia Desktop macOS ARM64 archive package. There is no installer posted for this platform yet.
 - If both Avalonia and Blazor appear for your platform, start with Avalonia. Use Blazor only if a page or support tells you to.
 
 ## Current public download
 
 - Today: Usable preview.
-- Published: May 22, 2026 at 19:33 UTC.
+- Published: May 25, 2026 at 7:28 UTC.
 - Release status: Published.
-- Downloads are currently live for Windows, Linux, and macOS.
+- Downloads are currently live for Windows and Linux, but macOS still lacks the promoted desktop installer proof this release says they need.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Proof scope: Public proof language is scoped to the files, named flows, and recent checks posted on the current shelf that a person can inspect today; it is not a blanket flagship-grade claim.
 - Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.
-- Current warning: Current release proof is green, and the shelf has recent setup, device recovery, clustered release notification, community closure, offline-ready prefetch, and support verification instead of only a posted file.
-- Update note: Only expect fix notices after the affected download is available on the same public shelf.
+- Current warning: There is still no public macOS installer.
+- Update note: That warning will stay in place until the missing desktop installer proof is posted.
 
 ## Current build matrix
 
@@ -43,6 +43,11 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 
 ### Linux
 
+- Avalonia Desktop Linux X64 Installer.
+- Download: `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
+- File: `chummer-avalonia-linux-x64-installer.deb`
+- Size: 33.4 MiB (34999182 bytes)
+- Access: Public download.
 - Avalonia Desktop Linux X64 archive package.
 - Posture: Fallback or recovery package, not an equal flagship default.
 - Download: `/downloads/files/chummer-avalonia-linux-x64.tar.gz`
@@ -68,6 +73,7 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 ## Current package format
 
 - Where an installer exists, start there. Archive packages, packet-detail artifacts, and explainer bundles are fallback, recovery, or inspection paths, not equal flagship routes.
+- Avalonia Desktop Linux X64 Installer via `/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - Avalonia Desktop Windows X64 Installer via `/downloads/files/chummer-avalonia-win-x64-installer.exe`
 - Avalonia Desktop Linux X64 archive package via `/downloads/files/chummer-avalonia-linux-x64.tar.gz`
 - Avalonia Desktop macOS ARM64 archive package via `/downloads/files/chummer-avalonia-osx-arm64.tar.gz`
@@ -76,6 +82,7 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 
 ## SHA256
 
+- Avalonia Desktop Linux X64 Installer: `ae0b9ac6e932a160c10da7b92f01425713ce6d63d15834864b8e425b706cfe67`
 - Avalonia Desktop Windows X64 Installer: `54966da8ac6f1ca7321b301b025bfb626398f461c78441c132d5c59d9c2bedde`
 - Avalonia Desktop Linux X64: `203635c1bf0b3f7aaa2d278c10cc051785e6739261b43ee627fbd5f1945e676a`
 - Avalonia Desktop macOS ARM64: `ecdcf43d707d132f810c916f2a862d969048288802f89f0de2519a0061fb0f9c`

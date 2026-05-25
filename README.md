@@ -13,13 +13,13 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 ## What is real now
 
 - Short answer: yes, as an early preview.
-- Downloads are currently live for Windows, Linux, and macOS.
+- Downloads are currently live for Windows and Linux, but macOS still lacks the promoted desktop installer proof this release says they need.
 - Proof on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; it is not a blanket flagship-complete claim and it does not outrank the recommended install route.
 - Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.
 - If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
-- Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
+- Some rules coverage and release polish are still moving, so treat this as a preview with inspectable proof rather than a flagship-complete replacement.
 - Today: Usable preview.
-- Public downloads are visible on every promised desktop platform.
+- Still missing from the public download page: macOS.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 

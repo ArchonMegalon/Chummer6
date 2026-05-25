@@ -10,7 +10,7 @@ README = ROOT / "README.md"
 COMMUNITY_HUB = ROOT / "HORIZONS" / "community-hub.md"
 
 README_REQUIRED = (
-    "- [Watch the Chummer6 promo video](https://chummer.run/media/promo/chummer6-flagship-promo.mp4)",
+    "- [Watch the Chummer6 flagship war bulletin](https://chummer.run/media/promo/chummer6-flagship-promo.mp4)",
 )
 
 COMMUNITY_HUB_REQUIRED = (
