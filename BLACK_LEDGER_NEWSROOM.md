@@ -1,7 +1,36 @@
 # Black Ledger Newsroom
 
-Black Ledger Newsroom turns public-safe Chummer receipts into short video bulletins.
+Black Ledger Newsroom turns public-safe Chummer receipts into believable in-world video bulletins.
 
-Some visuals are generated reconstructions. They are not private table footage and they are not product proof. The source receipts remain the truth.
+It should feel like a real broadcast from the Chummer world, not a website animation.
 
-Today, the newsroom is published only when an episode has source receipts, media QA, public-safety checks, and human review.
+## Public routes
+
+- Latest bulletin rail: `/ledger/newsroom`
+- Episode watch route: `/ledger/newsroom/turn-1-newsreel`
+- Transcript route: `/ledger/newsroom/turn-1-newsreel/transcript`
+- Receipt packet route: `/ledger/newsroom/turn-1-newsreel/receipts`
+
+## What it has to do
+
+- Keep a host, lower thirds, captions, audio, and first-party media assets on one governed public rail.
+- Turn public-safe receipts into a bounded newsroom bulletin instead of loose promo fragments.
+- Keep transcript and receipt links adjacent to the watch surface so the story stays inspectable.
+- Make clear when footage is reconstructed from public-safe receipts instead of literal capture.
+
+## Hard boundaries
+
+- No private campaign details.
+- No runner names without consent.
+- No GM secrets.
+- No sourcebook text.
+- No real person or public figure likenesses.
+- No provider branding or unproven product claims.
+
+## Read next
+
+- [Living World](LIVING_WORLD.md)
+- [Signal Deck](SIGNAL_DECK.md)
+- [Runner Passport](RUNNER_PASSPORT.md)
+- [Black Ledger](HORIZONS/black-ledger.md)
+- [Help](HELP.md)

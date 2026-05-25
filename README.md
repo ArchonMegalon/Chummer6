@@ -13,14 +13,14 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 ## What is real now
 
 - Short answer: yes, as an early preview.
-- Downloads are currently live for Windows and Linux, but macOS still lacks the promoted desktop installer proof this release says they need.
+- Downloads are currently live for macOS.
 - Proof on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; it is not a blanket flagship-complete claim and it does not outrank the recommended install route.
 - Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.
 - If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
 - Some rules coverage and release polish are still moving, so treat this as a preview with inspectable proof rather than a flagship-complete replacement.
 - Today: Usable preview.
-- Still missing from the promoted installer lane: macOS.
-- Current public desktop scope covers Linux x64, Windows x64, and macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
+- Promoted installer coverage is visible on every promised desktop platform.
+- Current public desktop scope covers macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 
@@ -34,6 +34,7 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - [Runner Passport](RUNNER_PASSPORT.md)
 - [Signal Deck](SIGNAL_DECK.md)
 - [Living World](LIVING_WORLD.md)
+- [Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)
