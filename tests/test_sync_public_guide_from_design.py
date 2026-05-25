@@ -19,6 +19,27 @@ _render_with_start_here = guide_sync._render_with_start_here
 
 
 class RenderWithStartHereTests(unittest.TestCase):
+    def test_sync_files_include_black_ledger_newsroom_page(self) -> None:
+        self.assertIn("BLACK_LEDGER_NEWSROOM.md", guide_sync.SYNC_FILES)
+
+    def test_readme_can_carry_black_ledger_newsroom_link(self) -> None:
+        source = """# Chummer6
+
+## Start here
+
+- [Download](DOWNLOAD.md)
+- [Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)
+- [Help](HELP.md)
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "README.md"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_with_start_here(source_path, "README.md", "")
+
+        self.assertIn("[Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)", rendered)
+
     def test_readme_start_here_links_are_unique(self) -> None:
         source = """# Chummer6
 
