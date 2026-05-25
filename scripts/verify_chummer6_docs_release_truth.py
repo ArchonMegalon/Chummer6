@@ -38,6 +38,14 @@ def main() -> int:
     release_status = str(packet.get("release_status") or "").strip()
     if release_status:
         _require_contains("STATUS.md", status, f"- Release status: {release_status}.")
+    missing_installer_lane_line = str(packet.get("missing_installer_lane_line") or "").strip()
+    architecture_scope_line = str(packet.get("architecture_scope_line") or "").strip()
+    if missing_installer_lane_line:
+        _require_contains("README.md", readme, missing_installer_lane_line)
+        _require_contains("STATUS.md", status, missing_installer_lane_line)
+    if architecture_scope_line:
+        _require_contains("README.md", readme, architecture_scope_line)
+        _require_contains("STATUS.md", status, architecture_scope_line)
 
     if "Proof scope:" not in download or "blanket flagship" not in download:
         raise ValueError("DOWNLOAD.md lost the proof-scope boundary")
@@ -75,17 +83,6 @@ def main() -> int:
             )
         _require_contains("FROM_CHUMMER5A_TO_CHUMMER6.md", migration, wait_line)
         _require_contains("DOWNLOAD.md", download, warning_line)
-
-    if missing_platforms:
-        missing_line = f"Still missing from the public download page: {', '.join(missing_platforms[:-1]) + (' and ' if len(missing_platforms) > 1 else '') + missing_platforms[-1]}."
-        if len(missing_platforms) == 2:
-            missing_line = f"Still missing from the public download page: {missing_platforms[0]} and {missing_platforms[1]}."
-        elif len(missing_platforms) > 2:
-            missing_line = (
-                f"Still missing from the public download page: {', '.join(missing_platforms[:-1])}, and {missing_platforms[-1]}."
-            )
-        _require_contains("README.md", readme, missing_line)
-        _require_contains("STATUS.md", status, missing_line)
 
     print("chummer6_docs_release_truth:ok")
     return 0

@@ -19,7 +19,8 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
 - Some rules coverage and release polish are still moving, so treat this as a preview with inspectable proof rather than a flagship-complete replacement.
 - Today: Usable preview.
-- Still missing from the public download page: macOS.
+- Still missing from the promoted installer lane: macOS.
+- Current public desktop scope covers Linux x64, Windows x64, and macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 

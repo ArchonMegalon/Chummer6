@@ -1,4 +1,5 @@
 {
+  "architecture_scope_line": "Current public desktop scope covers Linux x64, Windows x64, and macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.",
   "available_platforms": [
     "Windows",
     "Linux"
@@ -12,6 +13,7 @@
   "fix_availability_summary": "That warning will stay in place until the missing desktop installer proof is posted.",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
   "known_issue_summary": "There is still no public macOS installer.",
+  "missing_installer_lane_line": "Still missing from the promoted installer lane: macOS.",
   "missing_platforms": [
     "macOS"
   ],

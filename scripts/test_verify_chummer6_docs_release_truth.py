@@ -23,6 +23,8 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "release_status": "Published",
             "available_platforms": available_platforms,
             "missing_platforms": missing_platforms,
+            "missing_installer_lane_line": "Still missing from the promoted installer lane: macOS.",
+            "architecture_scope_line": "Current public desktop scope covers Windows x64, Linux x64, and macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, or macOS x64 on the current shelf.",
         }
         (root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json").write_text(
             json.dumps(packet, indent=2) + "\n",
@@ -35,7 +37,8 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                     packet["shelf_truth_line"],
                     packet["proof_scope_line"],
                     "This page keeps the clear public proof boundary intact.",
-                    "Still missing from the public download page: macOS.",
+                    packet["missing_installer_lane_line"],
+                    packet["architecture_scope_line"],
                 ]
             ),
             encoding="utf-8",
@@ -46,7 +49,8 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                     "# Status",
                     f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
-                    "Still missing from the public download page: macOS.",
+                    packet["missing_installer_lane_line"],
+                    packet["architecture_scope_line"],
                 ]
             ),
             encoding="utf-8",
