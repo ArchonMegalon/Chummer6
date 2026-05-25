@@ -218,6 +218,29 @@ Each promo rail is supposed to feel like a recruitment bulletin with receipts, n
 
 * a first-party motion-video file
 * captions
+
+## Black Ledger Newsroom
+
+BLACK LEDGER now also has a dedicated newsroom lane.
+
+The newsroom is not allowed to behave like a generic motion-card teaser. It must stay downstream of Chummer-owned receipts and, at flagship quality, ship as a real broadcast-style bulletin with:
+
+* a believable host
+* B-roll or geoscape inserts
+* lower thirds and ticker
+* captions
+* public-safety disclosure
+* linked source receipts
+
+The canonical newsroom bar lives in:
+
+* `BLACK_LEDGER_NEWSROOM_CANON.md`
+* `BLACK_LEDGER_ANCHOR_BIBLE.yaml`
+* `BLACK_LEDGER_BROADCAST_STYLE_GUIDE.md`
+* `BLACK_LEDGER_NEWSROOM_EDITORIAL_POLICY.md`
+* `BLACK_LEDGER_NEWSROOM_QUALITY_GATES.yaml`
+
+If those gates are not met, the result is a preview or fallback artifact, not a flagship Black Ledger bulletin.
 * a route-backed JSON brief
 * a storyboard fallback
 * a validation route back into the ledger

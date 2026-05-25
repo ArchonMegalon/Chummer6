@@ -22,7 +22,6 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - Still missing from the promoted installer lane: macOS.
 - Current public desktop scope covers Linux x64, Windows x64, and macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
 - Help, contact, privacy, and terms pages are live.
-- Black Ledger Newsroom is now defined as a governed public bulletin lane, but it is still preview-only until a photoreal render provider, media QA, and human review are proven.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 
 ## Start here
@@ -35,7 +34,6 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - [Runner Passport](RUNNER_PASSPORT.md)
 - [Signal Deck](SIGNAL_DECK.md)
 - [Living World](LIVING_WORLD.md)
-- [Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)
 - [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)
