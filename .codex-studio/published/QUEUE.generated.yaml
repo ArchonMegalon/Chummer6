@@ -1,0 +1,33 @@
+mode: append
+items:
+- title: Generate README, STATUS, DOWNLOAD, FAQ, and adjacent public-guide pages from one release-truth packet so the Chummer6 docs stop drifting between manually phrased surfaces.
+  task: Generate README, STATUS, DOWNLOAD, FAQ, and adjacent public-guide pages from one release-truth packet so the Chummer6 docs stop drifting between manually phrased surfaces.
+  package_id: next90-m153-guide-release-truth-unification
+  work_task_id: '153.2'
+  frontier_id: 1532015302
+  milestone_id: 153
+  status: not_started
+  wave: W31
+  repo: Chummer6
+  allowed_paths:
+  - .
+  - scripts
+  owned_surfaces:
+  - generated_release_truth_packet:guide
+  - public_docs_release_truth_alignment:guide
+- title: Surface Runner Passport honestly in the generated Chummer6 guide or emit an explicit omission receipt that stays visible and machine-checked from the same verdict system.
+  task: Surface Runner Passport honestly in the generated Chummer6 guide or emit an explicit omission receipt that stays visible and machine-checked from the same verdict system.
+  package_id: next90-m153-guide-runner-passport-surface-closeout
+  work_task_id: '153.3'
+  frontier_id: 1533015303
+  milestone_id: 153
+  status: not_started
+  wave: W31
+  repo: Chummer6
+  allowed_paths:
+  - .
+  - scripts
+  owned_surfaces:
+  - runner_passport_public_visibility:guide
+  - verdict_backed_omission_receipts:guide
+source_queue_fingerprint: 97d170e1550eee4afc0af065b78cda302a97674c
