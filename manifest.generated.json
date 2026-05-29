@@ -68,7 +68,7 @@
   ],
   "generated_by": "materialize_public_guide_bundle.py",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
-  "page_count": 34,
+  "page_count": 35,
   "sources": {
     "faq_registry": "products/chummer/PUBLIC_FAQ_REGISTRY.yaml",
     "help_copy": "products/chummer/PUBLIC_HELP_COPY.md",

@@ -1,7 +1,7 @@
 {
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
   "release_source_status": "published",
-  "sign_in_required_windows_artifact_count": 1,
+  "sign_in_required_windows_artifact_count": 0,
   "source_count": 20,
-  "windows_artifact_count": 2
+  "windows_artifact_count": 0
 }
