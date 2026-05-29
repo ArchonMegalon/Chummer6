@@ -1,0 +1,23 @@
+{
+  "generated_at_utc": "2026-05-29T19:30:00Z",
+  "release_truth_owner": "Chummer/Fleet",
+  "qa_gates": {
+    "rafter": {
+      "required": true,
+      "verdict_file": "fleet/_completion/rafter/RAFTER_SECURITY_GOLD_GATE.generated.json",
+      "status": "fail"
+    },
+    "pixefy": {
+      "required": true,
+      "verdict_file": "fleet/_completion/pixefy/PIXEFY_RESPONSIVE_VISUAL_QA.generated.json",
+      "status": "fail"
+    },
+    "combined": {
+      "required": true,
+      "verdict_file": "fleet/_completion/rafter_pixefy/FINAL_RAFTER_PIXEFY_QA_STACK_VERDICT.md",
+      "required_value": "RAFTER_PIXEFY_QA_STACK_READY",
+      "status": "NOT_READY"
+    }
+  },
+  "gold_claim_allowed": false
+}
