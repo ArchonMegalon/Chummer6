@@ -1,0 +1,4 @@
+# Binary payloads are published out-of-band; never commit generated binaries.
+*.bin
+*.exe
+
