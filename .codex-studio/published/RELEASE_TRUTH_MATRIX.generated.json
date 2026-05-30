@@ -1,6 +1,6 @@
 {
   "contract_name": "chummer.full_product_reaudit_v16.release_truth_matrix",
-  "generated_at_utc": "2026-05-30T05:22:08Z",
+  "generated_at_utc": "2026-05-30T05:28:57Z",
   "gold_claim_allowed": false,
   "live_truth": {
     "downloads_page": {
