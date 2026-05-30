@@ -1,23 +1,49 @@
 {
-  "generated_at_utc": "2026-05-29T19:30:00Z",
-  "release_truth_owner": "Chummer/Fleet",
+  "contract_name": "chummer.full_product_reaudit_v16.release_truth_matrix",
+  "generated_at_utc": "2026-05-30T04:50:26Z",
+  "gold_claim_allowed": false,
+  "live_truth": {
+    "downloads_page": {
+      "contains_demo_language": false,
+      "contains_linux": true,
+      "contains_macos": true,
+      "contains_windows": true,
+      "status_code": 200
+    },
+    "status_page": {
+      "contains_not_gold_ready": false,
+      "contains_release_version": true,
+      "contains_stale_language": false,
+      "status_code": 200
+    }
+  },
   "qa_gates": {
-    "rafter": {
+    "combined": {
       "required": true,
-      "verdict_file": "fleet/_completion/rafter/RAFTER_SECURITY_GOLD_GATE.generated.json",
-      "status": "fail"
+      "required_value": "RAFTER_PIXEFY_QA_STACK_READY",
+      "status": "RAFTER_PIXEFY_QA_STACK_READY",
+      "verdict_file": "fleet/_completion/rafter_pixefy/FINAL_RAFTER_PIXEFY_QA_STACK_VERDICT.md"
     },
     "pixefy": {
       "required": true,
-      "verdict_file": "fleet/_completion/pixefy/PIXEFY_RESPONSIVE_VISUAL_QA.generated.json",
-      "status": "fail"
+      "status": "pass",
+      "verdict_file": "fleet/_completion/pixefy/PIXEFY_RESPONSIVE_VISUAL_QA.generated.json"
     },
-    "combined": {
+    "rafter": {
       "required": true,
-      "verdict_file": "fleet/_completion/rafter_pixefy/FINAL_RAFTER_PIXEFY_QA_STACK_VERDICT.md",
-      "required_value": "RAFTER_PIXEFY_QA_STACK_READY",
-      "status": "NOT_READY"
+      "status": "pass",
+      "verdict_file": "fleet/_completion/rafter/RAFTER_SECURITY_GOLD_GATE.generated.json"
     }
   },
-  "gold_claim_allowed": false
+  "release_manifest": {
+    "channel": "public_stable",
+    "download_count": 6,
+    "proofStatus": "passed",
+    "supportabilityState": "gold_supported",
+    "version": "run-20260518-220935"
+  },
+  "source_zip": "/docker/chummercomplete/chummer.run-services/Chummer.Portal/downloads/chummer6_full_product_reaudit_v16_20260529.zip",
+  "source_zip_sha256": "94951e55c710fd1511df6401b5834381ff8a219433855b264f2fb8b6945773f1",
+  "status": "pass",
+  "verdict": "RELEASE_TRUTH_ALIGNED"
 }
