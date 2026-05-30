@@ -13,8 +13,8 @@ Picture the scene: After a run, the GM exports a dossier-plus-recap packet with 
 
 ## Current stage
 
-- Today: Signed-in command lane is live.
-- Next: Expand bounded coaching and fallout follow-through.
+- Today: Future concept.
+- Next: Research and prototypes.
 
 **JACKPOINT is Chummer’s short-to-medium-form artifact studio: the future where campaigns produce polished dossiers, mission briefings, recaps, evidence rooms, and narrated packets without losing source trail.**
 
