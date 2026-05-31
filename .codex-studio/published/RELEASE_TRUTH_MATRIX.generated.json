@@ -1,6 +1,6 @@
 {
   "contract_name": "chummer.full_product_reaudit_v16.release_truth_matrix",
-  "generated_at_utc": "2026-05-30T05:28:57Z",
+  "generated_at_utc": "2026-05-31T09:25:19Z",
   "gold_claim_allowed": false,
   "live_truth": {
     "downloads_page": {
@@ -37,13 +37,14 @@
   },
   "release_manifest": {
     "channel": "public_stable",
-    "download_count": 6,
+    "download_count": 3,
     "proofStatus": "passed",
     "supportabilityState": "gold_supported",
-    "version": "run-20260518-220935"
+    "version": "run-20260530-184515"
   },
-  "source_zip": "/docker/chummercomplete/chummer.run-services/Chummer.Portal/downloads/chummer6_full_product_reaudit_v16_20260529.zip",
-  "source_zip_sha256": "94951e55c710fd1511df6401b5834381ff8a219433855b264f2fb8b6945773f1",
+  "source_zip": "/home/tibor/chummer6_full_product_reaudit_v16_20260531.zip",
+  "source_zip_sha256": "12f678f24e9faed8c7d9b351e141410d7d6db856529d2dc7f6edc45728c3e54f",
   "status": "pass",
+  "unpacked_audit_root": "/tmp/chummer6_full_product_reaudit_v16_20260531/chummer6_full_product_reaudit_v16_20260531",
   "verdict": "RELEASE_TRUTH_ALIGNED"
 }
