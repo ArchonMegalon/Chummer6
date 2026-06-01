@@ -64,7 +64,7 @@ No. The intended direction is that browsing runs, applying with a quickstart or 
 
 ### Is Chummer trying to replace Discord or VTTs?
 
-No. The intended posture is that Chummer owns rules, applications, schedule receipts, and world consequences, while Discord, Teams, and VTTs remain play or communication surfaces.
+No. The intended posture is that Chummer owns rules, applications, scheduling records, and world consequences, while Discord, Teams, and VTTs remain play or communication surfaces.
 
 ## If you want more detail
 
