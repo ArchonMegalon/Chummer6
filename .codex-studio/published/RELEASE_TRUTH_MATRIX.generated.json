@@ -1,6 +1,6 @@
 {
   "contract_name": "chummer.full_product_reaudit_v16.release_truth_matrix",
-  "generated_at_utc": "2026-05-31T16:29:48Z",
+  "generated_at_utc": "2026-06-02T16:38:18Z",
   "gold_claim_allowed": true,
   "live_truth": {
     "downloads_page": {
@@ -40,7 +40,7 @@
     "download_count": 3,
     "proofStatus": "passed",
     "supportabilityState": "gold_supported",
-    "version": "run-20260530-184515"
+    "version": "run-20260601-070650"
   },
   "source_zip": "/home/tibor/chummer6_full_product_reaudit_v16_20260531.zip",
   "source_zip_sha256": "12f678f24e9faed8c7d9b351e141410d7d6db856529d2dc7f6edc45728c3e54f",
