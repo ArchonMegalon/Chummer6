@@ -13,8 +13,8 @@ Picture the scene: A GM sends an explorable safehouse pack with hotspots, floor 
 
 ## Current stage
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Today: shipped mvp.
+- Next: flagship depth hardening.
 
 **RUNSITE is Chummer’s spatial-prep horizon: the future where mission locations become explorable, understandable, and briefing-ready before the action starts.**
 

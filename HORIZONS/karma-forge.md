@@ -13,7 +13,7 @@ Picture the scene: A GM promotes a house-rule pack with visible impact, approval
 
 ## Current stage
 
-- Today: Signed-in command lane is live.
+- Today: shipped mvp.
 - Next: Expand bounded coaching and fallout follow-through.
 
 ## The promise

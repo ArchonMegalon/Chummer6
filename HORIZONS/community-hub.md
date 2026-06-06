@@ -13,8 +13,8 @@ Picture the scene: A player finds a beginner-friendly run, applies with a legal 
 
 ## Current stage
 
-- Today: Future concept.
-- Next: Research and prototypes.
+- Today: shipped mvp.
+- Next: flagship depth hardening.
 
 ## The problem
 
@@ -46,8 +46,9 @@ The public fantasy is:
 
 COMMUNITY HUB is the product name for that lane.
 
-The signed-in command lane is already live at `https://chummer.run/community`.
-That lane currently carries governed open-run packets, venue handoff, and community closeout without pretending the whole long-range community roadmap is done.
+The public route is live at `https://chummer.run/community`.
+The named signed-in command lane now ships at `https://chummer.run/account/community`.
+Those lanes currently carry governed open-run board posture, venue handoff, join review, scheduling, and community closeout without pretending the whole long-range community roadmap is done.
 
 ## What has to be true first
 
@@ -58,14 +59,3 @@ That lane currently carries governed open-run packets, venue handoff, and commun
 * a beginner GM must be able to open, staff, prep, schedule, and close a starter run without stitching together five external tools
 * observer and debrief lanes must be strictly consent-gated
 * reputation and seasonal honors must derive from typed source events rather than hidden scoring
-
-## Why it is not ready yet
-
-This only works if Chummer can prove four things at once:
-
-1. open-run listings, roster truth, and meeting handoff stay in one trustworthy system,
-2. community-rule environments, quickstarts, and preflight make it easier to join instead of adding another review maze,
-3. third-party scheduling, meeting, and play surfaces never outrank Chummer-owned receipts,
-4. observer and debrief assistance never slips into hidden surveillance, and seasonal honors stay motivating without turning into a toxic ranking game.
-
-Until those boundaries are strong enough, COMMUNITY HUB should remain a horizon rather than a shipped community promise.

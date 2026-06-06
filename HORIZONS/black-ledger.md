@@ -13,7 +13,7 @@ Picture the scene: A GM opens Seattle, sees which districts are hot, picks a job
 
 ## Current stage
 
-- Today: Signed-in command lane is live.
+- Today: shipped mvp.
 - Next: Expand bounded coaching and fallout follow-through.
 
 ## The promise

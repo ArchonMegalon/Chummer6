@@ -11,7 +11,7 @@
   "fallback_heads": [
     "Chummer.Blazor.Desktop"
   ],
-  "fix_availability_summary": "Only expect fix notices after the affected download is available on the same public shelf.",
+  "fix_availability_summary": "Fix notices should stay pending until a published shelf exists.",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
   "known_issue_summary": "Current release proof is green, and the shelf has recent setup, device recovery, clustered release notification, community closure, offline-ready prefetch, and support verification instead of only a posted file.",
   "missing_installer_lane_line": "Promoted installer coverage is visible on every promised desktop platform.",
@@ -20,7 +20,7 @@
   "primary_head": "Chummer.Avalonia",
   "proof_scope_line": "Proof on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; it is not a blanket flagship-complete claim and it does not outrank the recommended install route.",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "June 2, 2026 at 7:22 UTC",
+  "published_at": "June 5, 2026 at 15:02 UTC",
   "quality_gap_line": "Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.",
   "release_status": "Published",
   "release_status_slug": "published",

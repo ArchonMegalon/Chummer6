@@ -7,7 +7,7 @@ Guide fit: this is the `What works today` page in the flagship shell.
 ## Current picture
 
 - Today: Usable preview.
-- Published: June 2, 2026 at 7:22 UTC.
+- Published: June 5, 2026 at 15:02 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows, Linux, and macOS.
 - Promoted installer coverage is visible on every promised desktop platform.
