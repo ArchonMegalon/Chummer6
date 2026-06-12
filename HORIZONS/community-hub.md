@@ -14,7 +14,7 @@ Picture the scene: A player finds a beginner-friendly run, applies with a legal 
 ## Current stage
 
 - Today: shipped mvp.
-- Next: flagship depth hardening.
+- Next: Expand bounded coaching and fallout follow-through.
 
 ## The problem
 
@@ -46,9 +46,10 @@ The public fantasy is:
 
 COMMUNITY HUB is the product name for that lane.
 
-The public route is live at `https://chummer.run/community`.
-The named signed-in command lane now ships at `https://chummer.run/account/community`.
-Those lanes currently carry governed open-run board posture, venue handoff, join review, scheduling, and community closeout without pretending the whole long-range community roadmap is done.
+The signed-in command lane is already live at `https://chummer.run/community`.
+That lane currently carries governed open-run packets, venue handoff, and community closeout without pretending the whole long-range community roadmap is done.
+No-desktop participation is not a stretch goal after the fact. That is a core goal. Quickstart runners and mobile-first application paths should reduce the Windows-only chokepoint.
+No. Chummer owns campaign logic. Discord can remain the community and meeting surface.
 
 ## What has to be true first
 

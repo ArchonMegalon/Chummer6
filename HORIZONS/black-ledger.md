@@ -13,8 +13,18 @@ Picture the scene: A GM opens Seattle, sees which districts are hot, picks a job
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: Signed-in command lane is live.
 - Next: Expand bounded coaching and fallout follow-through.
+
+## Faction promo rails
+
+BLACK LEDGER is not only a map and a board. It also has public-safe faction promo rails that show how each banner sells itself to the city.
+
+- a first-party motion-video file
+- captions
+- a route-backed JSON brief
+- a storyboard fallback
+- a validation route back into the ledger
 
 ## The promise
 

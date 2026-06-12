@@ -13,7 +13,7 @@ Picture the scene: During a run, heat crosses a threshold and the GM receives a 
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: Signed-in command lane is live.
 - Next: Expand bounded coaching and fallout follow-through.
 
 ## The problem

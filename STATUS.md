@@ -11,7 +11,7 @@ Guide fit: this is the `What works today` page in the flagship shell.
 - Release status: Published.
 - Downloads are currently live for Windows, Linux, and macOS.
 - Promoted installer coverage is visible on every promised desktop platform.
-- Current public desktop scope covers Linux x64, macOS ARM64, and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
+- Current public desktop scope covers Linux x64, macOS ARM64, and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current downloads page.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Current warning: Current release proof is green, and the shelf has recent setup, device recovery, clustered release notification, community closure, offline-ready prefetch, and support verification instead of only a posted file.
 - Help, contact, privacy, and terms pages are live.

@@ -1,20 +1,20 @@
 {
   "contract_name": "chummer.full_product_reaudit_v16.release_truth_matrix",
-  "generated_at_utc": "2026-06-07T17:57:31Z",
-  "gold_claim_allowed": false,
+  "generated_at_utc": "2026-06-12T08:09:11Z",
+  "gold_claim_allowed": true,
   "live_truth": {
     "downloads_page": {
       "contains_demo_language": false,
-      "contains_linux": false,
-      "contains_macos": false,
-      "contains_windows": false,
-      "status_code": 530
+      "contains_linux": true,
+      "contains_macos": true,
+      "contains_windows": true,
+      "status_code": 200
     },
     "status_page": {
       "contains_not_gold_ready": false,
-      "contains_release_version": false,
+      "contains_release_version": true,
       "contains_stale_language": false,
-      "status_code": 530
+      "status_code": 200
     }
   },
   "qa_gates": {
@@ -36,15 +36,16 @@
     }
   },
   "release_manifest": {
-    "channel": null,
-    "download_count": 0,
-    "proofStatus": null,
-    "supportabilityState": null,
-    "version": null
+    "channel": "public_stable",
+    "download_count": 5,
+    "platform_download_count": 3,
+    "proofStatus": "passed",
+    "supportabilityState": "gold_supported",
+    "version": "run-20260601-070650"
   },
   "source_zip": "/home/tibor/chummer6_full_product_reaudit_v16_20260531.zip",
   "source_zip_sha256": "12f678f24e9faed8c7d9b351e141410d7d6db856529d2dc7f6edc45728c3e54f",
-  "status": "fail",
+  "status": "pass",
   "unpacked_audit_root": "/tmp/chummer6_full_product_reaudit_v16_20260531/chummer6_full_product_reaudit_v16_20260531",
-  "verdict": "NOT_GOLD"
+  "verdict": "RELEASE_TRUTH_ALIGNED"
 }

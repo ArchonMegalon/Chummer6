@@ -1,5 +1,5 @@
 {
-  "architecture_scope_line": "Current public desktop scope covers Linux x64, macOS ARM64, and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.",
+  "architecture_scope_line": "Current public desktop scope covers Linux x64, macOS ARM64, and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current downloads page.",
   "available_platforms": [
     "Windows",
     "Linux",
