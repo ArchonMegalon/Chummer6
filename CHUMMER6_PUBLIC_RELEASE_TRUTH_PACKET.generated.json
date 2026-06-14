@@ -13,7 +13,7 @@
   ],
   "fix_availability_summary": "Only expect fix notices after the affected download is available on the same public shelf.",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
-  "known_issue_summary": "Current release checks are clear, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.",
+  "known_issue_summary": "No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.",
   "missing_installer_lane_line": "Promoted installer coverage is visible on every promised desktop platform.",
   "missing_platforms": [],
   "phase_label": "Public Stable",

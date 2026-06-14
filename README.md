@@ -12,13 +12,14 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 ## What is real now
 
-- Short answer: yes, as an early preview.
+- Short answer: yes, as the current public release candidate.
 - Downloads are currently live for Windows, Linux, and macOS.
 - Evidence on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; downloads remain the primary route for trying Chummer.
+- The current release uses clear public proof for the posted files, named flows, and recent checks instead of asking you to trust a vague release claim.
 - Preview evidence and fallback routes can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
 - If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
 - Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
-- Today: Public Stable.
+- Today: current public release candidate.
 - Promoted installer coverage is visible on every promised desktop platform.
 - Current public desktop scope covers Linux x64, macOS ARM64, and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
 - Help, contact, privacy, and terms pages are live.

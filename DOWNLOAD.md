@@ -19,7 +19,7 @@ Guide fit: this is the `Get Chummer` page in the flagship shell.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Proof scope: Public proof language is scoped to the files, named flows, and recent checks posted on the current public release page that a person can inspect today; it is not a blanket flagship-grade claim.
 - Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.
-- Current warning: Current release checks are clear, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.
+- Current warning: No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.
 - Update note: Only expect fix notices after the affected download is available on the same public shelf.
 
 ## Current build matrix

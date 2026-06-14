@@ -13,7 +13,7 @@ Guide fit: this is the `What works today` page in the flagship shell.
 - Promoted installer coverage is visible on every promised desktop platform.
 - Current public desktop scope covers Linux x64, macOS ARM64, and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: Current release checks are clear, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.
+- Current warning: No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.
 - Help, contact, privacy, and terms pages are live.
 
 ## Get Chummer, then use Help if setup goes sideways
