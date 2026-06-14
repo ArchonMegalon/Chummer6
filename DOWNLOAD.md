@@ -12,7 +12,7 @@ Guide fit: this is the `Get Chummer` page in the flagship shell.
 
 ## Current public download
 
-- Today: Usable preview.
+- Today: Public Stable.
 - Published: June 13, 2026 at 18:49 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows, Linux, and macOS.

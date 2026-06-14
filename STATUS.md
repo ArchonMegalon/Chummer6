@@ -6,7 +6,7 @@ Guide fit: this is the `What works today` page in the flagship shell.
 
 ## Current picture
 
-- Today: Usable preview.
+- Today: Public Stable.
 - Published: June 13, 2026 at 18:49 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows, Linux, and macOS.
