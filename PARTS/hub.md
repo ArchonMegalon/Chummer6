@@ -25,7 +25,7 @@ It keeps accounts, shared coordination, and community features from turning into
 
 ## Current state
 
-Hub already powers sign-in, landing and home views, participation, and community features, and it is still getting simpler behind the scenes.
+Hub already powers sign-in, landing and home views, participation, and community features, and it is still getting simpler behind the scenes. It now carries account-aware home and account posture for claim, participation, reward, and recovery on the same community-ledger path.
 
 ## Go deeper
 
