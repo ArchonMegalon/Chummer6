@@ -2,21 +2,19 @@
 
 This is the blunt answer on what you can use today.
 
-Guide fit: this is the `What works today` page in the flagship shell.
-
 ## Current picture
 
-- Today: Public Stable.
-- Published: June 13, 2026 at 18:49 UTC.
+- Today: Current release build.
+- Published: June 16, 2026 at 11:13 UTC.
 - Release status: Published.
-- Downloads are currently live for Windows, Linux, and macOS.
+- Downloads are currently live for Windows and Linux.
 - Promoted installer coverage is visible on every promised desktop platform.
-- Current public desktop scope covers Linux x64, macOS ARM64, and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
-- Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.
+- Current public desktop scope covers Linux x64 and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
+- Recent checks: Treat the current release as review-required until release proof and support closure checks pass.
+- Current warning: The preview shelf is visible, but known-issue review should stay front-and-center until proof is refreshed.
 - Help, contact, privacy, and terms pages are live.
 
-## Get Chummer, then use Help if setup goes sideways
+## Start with the release page and download help
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 

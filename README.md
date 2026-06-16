@@ -1,6 +1,6 @@
 # Chummer Public Guide
 
-Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, where the world-facing surfaces live, how account and recovery fit together, and where to get help.
+Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.
 
 ## Product promise
 
@@ -12,16 +12,15 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 ## What is real now
 
-- Short answer: yes, as the current public release candidate.
-- Downloads are currently live for Windows, Linux, and macOS.
+- Short answer: yes, as an early preview.
+- Downloads are currently live for Windows and Linux.
 - Evidence on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; downloads remain the primary route for trying Chummer.
-- The current release uses clear public proof for the posted files, named flows, and recent checks instead of asking you to trust a vague release claim.
 - Preview evidence and fallback routes can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
 - If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
 - Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
-- Today: current public release candidate.
+- Today: Current release build.
 - Promoted installer coverage is visible on every promised desktop platform.
-- Current public desktop scope covers Linux x64, macOS ARM64, and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
+- Current public desktop scope covers Linux x64 and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 
@@ -41,7 +40,7 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - [Contact](CONTACT.md)
 - [Future ideas](HORIZONS/README.md)
 
-## Account and contribution paths
+## How can I help?
 
 If you want the optional guided contribution path instead of normal product help, start with [How can I help](HOW_CAN_I_HELP.md).
 
@@ -63,12 +62,12 @@ If you want the optional guided contribution path instead of normal product help
 - It is being built to keep sessions and campaigns recoverable when devices or connectivity drift.
 - The status, downloads, and help story is meant to stay in plain sight instead of being scattered.
 
-## Worlds and deeper parts
+## Product parts
 
 - [Parts index](PARTS/README.md): an inside view of how the app is put together.
 - [Horizons index](HORIZONS/README.md): future ideas that are not ready today.
 
-## Help
+## Need help
 
 Start here for downloads, sign-in recovery, and support.
 
