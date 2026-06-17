@@ -14,7 +14,14 @@ Picture the scene: A player compares two builds and sees the tradeoffs, the math
 ## Current stage
 
 - Today: shipped native desktop workbench with origin-first chargen handoff.
-- Next: `Origin Dossier Bundle` canon approval, portrait selection, dossier export, audiobook, scene render, and short dossier video.
+- Today: shipped `Origin Dossier Bundle` core in desktop:
+  - canon approval
+  - local dossier PDF
+  - selectable default and alternate audiobook lanes
+  - local portrait candidates with canonical selection
+  - local scene candidates with canonical selection
+  - dossier video storyboard, poster, and `vidBoard` packet
+- Next: provider-rendered portrait/video execution and richer derivative media polish on top of the approved canon bundle.
 
 **ALICE is Chummer’s build-simulation and what-if workbench: the desktop lane where players compare builds, catch trouble, test upgrade paths, ask rules questions, and understand tradeoffs before the table discovers the mistake under pressure.**
 
