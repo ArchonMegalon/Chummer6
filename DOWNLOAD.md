@@ -6,9 +6,11 @@ Guide fit: this is the `Get Chummer` page in the flagship shell.
 
 ## What should I download first?
 
-- For Windows, start with Avalonia Desktop Windows X64 Installer.
-- For Linux, start with Avalonia Desktop Linux X64 Installer.
-- There is no public macOS installer today. Only archive previews are posted.
+- Use the `Nightly` button when you want the newest rolling public build on Windows or Linux.
+- Use the `Stable` button when you want the slower promoted lane.
+- For Windows, the public flagship route is Avalonia Desktop Windows X64 Installer.
+- For Linux, the public flagship route is Avalonia Desktop Linux X64 Installer.
+- There is no public macOS installer today.
 
 ## Current release download
 
@@ -16,11 +18,11 @@ Guide fit: this is the `Get Chummer` page in the flagship shell.
 - Published: June 17, 2026 at 11:36 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows and Linux.
+- The public web shelf exposes `Nightly` and `Stable` directly.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Proof scope: Public proof language is scoped to the files, named flows, and recent checks posted on the current public release page that a person can inspect today; it is not a blanket flagship-grade claim.
 - Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.
-- Current warning: No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.
-- Update note: That warning will stay in place until the missing desktop installer proof is posted.
+- Current warning: public Windows and Linux installers are live, but full cross-platform installer proof is still not complete.
 
 ## Current build matrix
 
@@ -33,6 +35,7 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 - File: `chummer-avalonia-win-x64-installer.exe`
 - Size: 49.4 MiB (51847749 bytes)
 - Access: Public download.
+- Update path: startup auto-update is built in for packaged desktop installs.
 
 ### Linux
 
@@ -41,14 +44,15 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 - File: `chummer-avalonia-linux-x64-installer.deb`
 - Size: 33.7 MiB (35377368 bytes)
 - Access: Public download.
+- Update path: startup auto-update can hand off to the newer installer when a newer public manifest is posted.
 
 ### macOS
 
-- There is no public macOS installer today. Only archive previews are posted.
+- There is no public macOS installer today.
 
 ## Current package format
 
-- Where an installer exists, start there. Archive packages, packet-detail artifacts, and explainer bundles are fallback, recovery, or inspection paths, not equal flagship routes.
+- Where an installer exists, start there. The public shelf is installer-only for Windows and Linux.
 - Avalonia Desktop Linux X64 Installer via `https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - Avalonia Desktop Windows X64 Installer via `https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe`
 

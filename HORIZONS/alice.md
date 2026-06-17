@@ -13,10 +13,10 @@ Picture the scene: A player compares two builds and sees the tradeoffs, the math
 
 ## Current stage
 
-- Today: shipped mvp.
-- Next: Expand bounded coaching and fallout follow-through.
+- Today: shipped native desktop workbench.
+- Next: deeper continuity, richer comparison cards, and bounded origin-to-build translation.
 
-**ALICE is Chummer’s build-simulation and what-if horizon: the future where players can compare builds, catch trouble, test upgrade paths, and understand tradeoffs before the table discovers the mistake under pressure.**
+**ALICE is Chummer’s build-simulation and what-if workbench: the desktop lane where players compare builds, catch trouble, test upgrade paths, ask rules questions, and understand tradeoffs before the table discovers the mistake under pressure.**
 
 Many weak builds are not obvious at creation time.
 
@@ -35,6 +35,14 @@ ALICE exists so Chummer can say:
 **Grounded build advice without invented mechanics.**
 
 ALICE should compare, simulate, and explain using Chummer-owned engine truth.
+
+The current shipped slice already includes:
+
+- native desktop build-help turns
+- native desktop rules-coach turns
+- persistent conversation history in the workbench
+- bounded starter prompts
+- first-party handoff into account ALICE routes
 
 It can help answer:
 
@@ -184,22 +192,22 @@ It should help users think, not replace them.
 
 ## The first slice
 
-The first ALICE slice should be:
+The first shipped ALICE slice is:
 
-**Build comparison brief**
+**Native build-help and rules-coach workbench**
 
-It should let a user:
+It lets a user:
 
-1. select two snapshots or variants
-2. compare legality
-3. compare role fit
-4. compare major costs/tradeoffs
-5. see receipts
-6. export a short explain brief
+1. ask grounded build questions
+2. ask grounded rules questions
+3. stay inside the native desktop workbench
+4. inspect evidence and suggested next actions
+5. keep per-mode conversation continuity
+6. hand off into account ALICE when deeper follow-through is needed
 
 Success looks like:
 
-> A player understands why one legal build is worse for their intended run before the session starts.
+> A player stays inside the desktop, asks what to add next or what rule they are missing, and gets a bounded answer without being dumped into a vague public chat lane.
 
 ## The vision
 
