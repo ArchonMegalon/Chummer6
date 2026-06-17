@@ -13,8 +13,8 @@ Picture the scene: A player compares two builds and sees the tradeoffs, the math
 
 ## Current stage
 
-- Today: shipped native desktop workbench.
-- Next: deeper continuity, richer comparison cards, and bounded origin-to-build translation.
+- Today: shipped native desktop workbench with origin-first chargen handoff.
+- Next: `Origin Dossier Bundle` canon approval, portrait selection, dossier export, audiobook, scene render, and short dossier video.
 
 **ALICE is Chummer’s build-simulation and what-if workbench: the desktop lane where players compare builds, catch trouble, test upgrade paths, ask rules questions, and understand tradeoffs before the table discovers the mistake under pressure.**
 
@@ -40,9 +40,16 @@ The current shipped slice already includes:
 
 - native desktop build-help turns
 - native desktop rules-coach turns
+- native `Origin draft` turns
 - persistent conversation history in the workbench
 - bounded starter prompts
+- `Start from Origin` wizard before normal chargen
+- ALICE build translation from origin into a guided creation lane
 - first-party handoff into account ALICE routes
+
+The next design layer is:
+
+**Origin Dossier Bundle = approved narrative canon plus derivative media, with ALICE translating canon into a grounded build path.**
 
 It can help answer:
 
@@ -95,6 +102,36 @@ Buttons:
 That is ALICE.
 
 ## What it should include
+
+### Origin Dossier Bundle
+
+The premium narrative-first lane is not just “write a backstory.”
+
+It is a two-stage product:
+
+1. **Canon formation**
+2. **Derivative rendering**
+
+Canon formation produces the stable origin package that Chummer keeps as truth-adjacent continuity:
+
+- approved origin summary
+- approved full origin
+- build implications
+- contradiction flags
+- approved portrait
+- approved scene brief
+- ALICE build translation
+- GM-safe summary
+
+Derivative rendering hangs off that approved canon:
+
+- portrait set
+- audiobook
+- PDF dossier
+- scene stills
+- short dossier video
+
+That separation matters. Media can regenerate. Approved canon should not drift silently.
 
 ### Build comparison
 
@@ -155,6 +192,115 @@ For campaigns and open runs:
 - build conflicts
 - quickstart recommendations
 
+### Origin-first chargen
+
+The origin-first lane should feel like a modern successor to life modules:
+
+1. `Start from Origin`
+2. structured wizard choices
+3. origin review
+4. ALICE build translation
+5. guided chargen handoff
+
+Wizard inputs stay structured and short:
+
+- background
+- turning point
+- training path
+- pressure / cost
+- upgrade exposure
+- present motivation
+- tone
+- optional note
+
+ALICE then offers:
+
+- most grounded build
+- stylized build
+- stretch build
+
+Each recommendation should show:
+
+- likely metatype
+- likely archetype
+- likely build method
+- likely quality posture
+- likely augment / magic / matrix direction
+- where the choice is grounded versus stretch
+
+Nothing is auto-applied. The user still confirms real build choices in chargen.
+
+### Portraits
+
+Portrait generation should be constrained:
+
+- 4 candidates max
+- 1 selected canonical portrait
+- optional regenerate
+
+Too many portrait candidates make the surface feel cheap. The bundle should feel curated.
+
+### Scenes
+
+Do not render random action art.
+
+First create a **scene brief**:
+
+- setting
+- mood
+- framing
+- visible augment / magic / matrix cues
+- why the moment matters
+
+Then render:
+
+- 2-3 scene candidates
+- 1 selected canonical scene
+
+Best scene categories:
+
+- turning point
+- clinic / upgrade memory
+- before the run
+- street survival
+- quiet character moment
+
+### Audiobook
+
+Two audio outputs are better than one:
+
+- `Origin Reading`
+- `Dossier Brief`
+
+The first is atmospheric. The second is practical.
+
+### PDF dossier
+
+The PDF should be a real dossier, not just exported prose:
+
+1. portrait
+2. origin summary
+3. full origin
+4. build logic
+5. hooks
+6. contradictions
+7. ALICE recommendation
+8. GM-safe excerpt
+
+### Video
+
+The video should be short and structured:
+
+- 45–75 seconds
+- title card
+- selected portrait
+- selected scene
+- narrated summary
+- one build implication card
+- close card
+
+This is a dossier clip, not a trailer.
+
 ## What users want to know
 
 ### Is ALICE AI?
@@ -194,20 +340,54 @@ It should help users think, not replace them.
 
 The first shipped ALICE slice is:
 
-**Native build-help and rules-coach workbench**
+**Native build-help, rules-coach, and origin-to-build workbench**
 
 It lets a user:
 
 1. ask grounded build questions
 2. ask grounded rules questions
-3. stay inside the native desktop workbench
-4. inspect evidence and suggested next actions
-5. keep per-mode conversation continuity
-6. hand off into account ALICE when deeper follow-through is needed
+3. start from an origin-first wizard before chargen
+4. let ALICE translate that origin into a guided build lane
+5. stay inside the native desktop workbench
+6. inspect evidence and suggested next actions
+7. keep per-mode conversation continuity
+8. hand off into account ALICE when deeper follow-through is needed
 
 Success looks like:
 
 > A player stays inside the desktop, asks what to add next or what rule they are missing, and gets a bounded answer without being dumped into a vague public chat lane.
+
+## Product rules
+
+Hard guardrails:
+
+- Chummer owns rules truth and build truth.
+- ALICE suggests; it does not silently mutate the build.
+- Portraits and scenes do not imply mechanics.
+- Audiobook, PDF, and video are derivative outputs only.
+- Canon approval must be explicit.
+- Regenerating media must not overwrite approved canon silently.
+
+## Suggested rollout
+
+Phase 1:
+
+1. origin wizard
+2. origin review
+3. ALICE build translation
+4. canon approval
+5. guided chargen handoff
+
+Phase 2:
+
+1. portrait set
+2. PDF dossier
+
+Phase 3:
+
+1. audiobook
+2. scene render
+3. short dossier video
 
 ## The vision
 
