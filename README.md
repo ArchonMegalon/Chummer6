@@ -1,6 +1,6 @@
 # Chummer Public Guide
 
-Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.
+Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, where the world-facing surfaces live, how account and recovery fit together, and where to get help.
 
 ## Product promise
 
@@ -40,7 +40,7 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 - [Contact](CONTACT.md)
 - [Future ideas](HORIZONS/README.md)
 
-## How can I help?
+## Account and contribution paths
 
 If you want the optional guided contribution path instead of normal product help, start with [How can I help](HOW_CAN_I_HELP.md).
 
@@ -62,12 +62,12 @@ If you want the optional guided contribution path instead of normal product help
 - It is being built to keep sessions and campaigns recoverable when devices or connectivity drift.
 - The status, downloads, and help story is meant to stay in plain sight instead of being scattered.
 
-## Product parts
+## Worlds and deeper parts
 
 - [Parts index](PARTS/README.md): an inside view of how the app is put together.
 - [Horizons index](HORIZONS/README.md): future ideas that are not ready today.
 
-## Need help
+## Help
 
 Start here for downloads, sign-in recovery, and support.
 

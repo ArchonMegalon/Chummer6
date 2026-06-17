@@ -2,6 +2,8 @@
 
 This is the blunt answer on what you can use today.
 
+Guide fit: this is the `What works today` page in the flagship shell.
+
 ## Current picture
 
 - Today: Current release build.
@@ -14,7 +16,7 @@ This is the blunt answer on what you can use today.
 - Current warning: The preview shelf is visible, but known-issue review should stay front-and-center until proof is refreshed.
 - Help, contact, privacy, and terms pages are live.
 
-## Start with the release page and download help
+## Get Chummer, then use Help if setup goes sideways
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 
