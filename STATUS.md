@@ -7,13 +7,13 @@ Guide fit: this is the `What works today` page in the flagship shell.
 ## Current picture
 
 - Today: Current release build.
-- Published: June 16, 2026 at 11:13 UTC.
+- Published: June 17, 2026 at 3:54 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows and Linux.
 - Promoted installer coverage is visible on every promised desktop platform.
 - Current public desktop scope covers Linux x64 and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
-- Recent checks: Treat the current release as review-required until release proof and support closure checks pass.
-- Current warning: The preview shelf is visible, but known-issue review should stay front-and-center until proof is refreshed.
+- Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
+- Current warning: No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.
 - Help, contact, privacy, and terms pages are live.
 
 ## Get Chummer, then use Help if setup goes sideways

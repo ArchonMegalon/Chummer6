@@ -10,19 +10,19 @@
   "fallback_heads": [
     "Chummer.Blazor.Desktop"
   ],
-  "fix_availability_summary": "Verify fix availability against the live channel artifact before closing support loops.",
+  "fix_availability_summary": "Only expect fix notices after the affected download is available on the same public shelf.",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
-  "known_issue_summary": "The preview shelf is visible, but known-issue review should stay front-and-center until proof is refreshed.",
+  "known_issue_summary": "No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.",
   "missing_installer_lane_line": "Promoted installer coverage is visible on every promised desktop platform.",
   "missing_platforms": [],
   "phase_label": "Current release build",
   "primary_head": "Chummer.Avalonia",
   "proof_scope_line": "Evidence on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; downloads remain the primary route for trying Chummer.",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "June 16, 2026 at 11:13 UTC",
+  "published_at": "June 17, 2026 at 3:54 UTC",
   "quality_gap_line": "Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.",
   "release_status": "Published",
   "release_status_slug": "published",
-  "release_verification_summary": "Treat the current release as review-required until release proof and support closure checks pass.",
+  "release_verification_summary": "Passed for installs and recovery, campaign session recovery, and support follow-up.",
   "shelf_truth_line": "Downloads are currently live for Windows and Linux."
 }
