@@ -13,8 +13,8 @@ Picture the scene: A GM opens the current run, sees the active scene, the next s
 
 ## Current stage
 
-- Today: A bounded first playable slice is live.
-- Next: flagship depth hardening.
+- Today: You can try the first real slice today.
+- Next: Make the slice richer, steadier, and easier to trust.
 
 **RUN CONTROL is Chummer’s GM operations horizon: the future where campaign prep, rosters, scenes, agendas, live state, recaps, and handoffs live in one trustworthy workspace instead of scattered notebooks, chats, calendars, and memory.**
 

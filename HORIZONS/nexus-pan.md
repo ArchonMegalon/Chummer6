@@ -13,8 +13,8 @@ Picture the scene: A player reconnects in the middle of a session and gets back 
 
 ## Current stage
 
-- Today: A bounded first playable slice is live.
-- Next: Expand bounded coaching and fallout follow-through.
+- Today: You can try the first real slice today.
+- Next: Make the coaching deeper without loosening the boundaries.
 
 ## Explanation videos
 

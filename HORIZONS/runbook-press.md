@@ -13,8 +13,8 @@ Picture the scene: A creator turns approved Chummer material into a district gui
 
 ## Current stage
 
-- Today: A bounded first playable slice is live.
-- Next: flagship depth hardening.
+- Today: You can try the first real slice today.
+- Next: Make the slice richer, steadier, and easier to trust.
 
 ## Explanation video
 

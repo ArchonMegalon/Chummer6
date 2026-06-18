@@ -14,7 +14,7 @@ Picture the scene: A player finds a beginner-friendly run, applies with a legal 
 ## Current stage
 
 - Today: Signed-in command lane is live.
-- Next: Expand bounded coaching and fallout follow-through.
+- Next: Make the coaching deeper without loosening the boundaries.
 
 ## Explanation video
 

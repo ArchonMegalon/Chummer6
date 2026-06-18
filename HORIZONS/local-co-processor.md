@@ -13,8 +13,8 @@ Picture the scene: A creator with a strong local machine opts into accelerated e
 
 ## Current stage
 
-- Today: A bounded first playable slice is live.
-- Next: flagship depth hardening.
+- Today: You can try the first real slice today.
+- Next: Make the slice richer, steadier, and easier to trust.
 
 ## The problem
 

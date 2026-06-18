@@ -14,7 +14,7 @@ Picture the scene: After a run, the GM exports a dossier-plus-recap packet with 
 ## Current stage
 
 - Today: Signed-in command lane is live.
-- Next: Expand bounded coaching and fallout follow-through.
+- Next: Make the coaching deeper without loosening the boundaries.
 
 ## Explanation video
 

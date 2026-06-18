@@ -13,8 +13,8 @@ Picture the scene: A player drafts a troll decker, the GM adds a clinic-favor co
 
 ## Current stage
 
-- Today: A bounded first playable slice is live.
-- Next: flagship depth hardening.
+- Today: You can try the first real slice today.
+- Next: Make the slice richer, steadier, and easier to trust.
 
 ## The problem
 
@@ -122,9 +122,9 @@ That distinction matters:
 
 Origin canon can guide suggestions. It cannot overrule the engine.
 
-## What it must never do
+## What it does not do
 
-Origin Dossier must not:
+Origin Dossier does not:
 
 * silently rewrite the character sheet
 * turn GM narrative steer into automatic mechanics
@@ -135,16 +135,16 @@ Origin Dossier must not:
 * blur player-safe material with GM-only constraints
 * expose a global Audiobookshelf library, vendor token, or raw media path to the desktop client
 
-## What has to be true first
+## Before it grows
 
-Before this lane widens, Chummer needs durable proof that:
+Before this lane widens, Chummer needs durable confidence that:
 
 * approved origin canon and bundle lineage are stable
 * GM steer stays advisory until normal mechanics edits happen
 * selected portraits, scenes, narration, and videos carry source trail
 * humanized prose remains source-bound and does not change facts
 * origin-story audiobooks carry the same approval lineage and scoped-access receipt as the rest of the bundle
-* provider outputs can be rejected without harming the runner dossier
+* media outputs can be rejected without harming the runner dossier
 * later ALICE follow-up can use origin context without confusing story truth and rules truth
 * private and GM-only context stays scoped
 
@@ -152,6 +152,6 @@ Before this lane widens, Chummer needs durable proof that:
 
 The first playable slice is live, but the full horizon is larger.
 
-The flagship version should make a runner feel like a person with history, pressure, obligations, and presentation-ready artifacts while still preserving the table’s authority. That requires careful approval, media retention, export, deletion, and provider-lineage work.
+The flagship version should make a runner feel like a person with history, pressure, obligations, and presentation-ready artifacts while still preserving the table’s authority. That requires careful approval, media retention, export, deletion, and media-lineage work.
 
 Origin Dossier is ready to be named as a Chummer horizon because it has a real desktop foothold and a clear product boundary. It should stay bounded until the dossier-media loop proves it can be beautiful without becoming fake truth.

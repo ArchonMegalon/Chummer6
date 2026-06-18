@@ -1,20 +1,20 @@
 # Onramp
 
 
-![Onramp starter path art](assets/horizons/onramp.png)
+![Onramp starter path art](assets/pages/onramp.png)
 
 
-Onramp is Chummer's first-run and recovery path.
+Onramp is Chummer's first-run and recovery path: the practical route for someone who wants a table-ready runner, a clear next step, or a calm way back when setup gets stuck.
 
-It is not a horizon. It is the route for people who are new, rusty, returning after a long break, or trying to get a table-ready runner without drowning in terminology.
+It is not a horizon. It is maintenance-level product guidance for first run, recovery, and getting back to the real workbench.
 
-## Reader Questions
+## What You Might Need
 
 ### I am new. Where do I start?
 
-Start with a guided starter workspace, not with the full parts map.
+Start with a guided starter workspace, not the full parts map.
 
-Onramp should help a new player answer:
+Onramp answers the questions a new player usually has first:
 
 - What kind of runner am I trying to play?
 - What is the next safe choice?
@@ -22,42 +22,37 @@ Onramp should help a new player answer:
 - What has to be fixed before this runner is table-ready?
 - What can I ignore until later?
 
-### I am a Chummer5a veteran. Why should I care?
+### I know Chummer already. Why open this?
 
-Onramp should not patronize experienced users. It should give them a fast orientation path:
+For veterans, Onramp stays out of the way and points straight to the useful places:
 
-- where the real workbench is
-- where legality and explanations live
-- how recovery works
+- the real workbench
+- legality and explanations
+- recovery
 - what is preview-only today
 - how to continue a runner instead of starting from scratch
 
 ### I am blocked. What now?
 
-Onramp is also the calm recovery route. It should show the next useful action when setup, account linking, restore, or first-run state gets stuck.
+Onramp is also the recovery route. If setup, account linking, restore, or first-run state gets stuck, it should show the next useful action instead of sending the user into project details.
 
-## Public Routes
+## Where It Opens
 
-The current starter lane is anchored by:
+The public app should make Onramp reachable from:
 
-- `/onramp`
-- `/onramp/packets/starter_lane.md`
-- `/onramp/packets/recovery_lane.md`
-- `/account/onramp`
-- `/account/onramp/open`
-- `/account/onramp/starter`
+- Start Here
+- Download and setup help
+- first run
+- signed-in account recovery
+- the starter workspace
 
-Typed starter and recovery APIs exist for the signed-in path:
+Wherever it opens, the promise is the same: Onramp gives the next useful action, then hands the user back to the real Chummer workbench.
 
-- `/api/v1/campaign-spine/me/onramp/dashboard`
-- `/api/v1/campaign-spine/me/onramp/starter`
-- `/api/v1/campaign-spine/me/onramp/recovery`
+## What It Does And Does Not Do
 
-## Product Boundary
+Onramp can guide, explain, and recover.
 
-Onramp may guide, explain, and recover.
-
-It must not:
+It does not:
 
 - auto-build a character and hide the rules
 - choose for the user without explanation
@@ -65,35 +60,15 @@ It must not:
 - pretend every table conflict is solved
 - trap expert users in beginner copy
 
-## Good Onramp Copy
+## Tone
 
-Good Onramp copy sounds like:
+Good Onramp copy is short, direct, and practical:
 
-```text
-You can start with a safe starter path, then open the full builder when you are ready.
-```
+- Start with a safe starter path, then open the full builder when you are ready.
+- This warning matters now. These three choices can wait.
+- Your runner is not table-ready yet because this availability conflict needs a GM decision.
 
-```text
-This warning matters now. These three choices can wait.
-```
-
-```text
-Your runner is not table-ready yet because this availability conflict needs a GM decision.
-```
-
-Bad Onramp copy sounds like:
-
-```text
-A future guided-mastery concept will eventually...
-```
-
-```text
-A provider suggests an optimized build.
-```
-
-```text
-The system knows what you meant.
-```
+Avoid roadmap language, magic-tool language, and copy that implies Chummer knows what the player meant without showing the reasoning.
 
 ## What Makes It Feel Premium
 
