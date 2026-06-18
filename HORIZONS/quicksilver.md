@@ -2,7 +2,7 @@
 
 The same first-party truth becomes meaningfully faster without becoming less explainable.
 
-![QUICKSILVER horizon art](../assets/horizons/quicksilver.png)
+![QUICKSILVER feature art](../assets/horizons/quicksilver.png)
 
 ## Why this matters
 

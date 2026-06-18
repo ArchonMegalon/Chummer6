@@ -2,7 +2,7 @@
 
 The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show where the facts came from.
 
-![JACKPOINT horizon art](../assets/horizons/jackpoint.png)
+![JACKPOINT feature art](../assets/horizons/jackpoint.png)
 
 ## Why this matters
 

@@ -2,7 +2,7 @@
 
 Long-form publishing becomes something you can actually reuse instead of a ten-tool scramble.
 
-![RUNBOOK PRESS horizon art](../assets/horizons/runbook-press.png)
+![RUNBOOK PRESS feature art](../assets/horizons/runbook-press.png)
 
 ## Why this matters
 

@@ -2,7 +2,7 @@
 
 Shared state survives device churn without the table losing trust.
 
-![NEXUS-PAN horizon art](../assets/horizons/nexus-pan.png)
+![NEXUS-PAN feature art](../assets/horizons/nexus-pan.png)
 
 ## Why this matters
 

@@ -32,7 +32,7 @@ def main() -> int:
         "Build a Shadowrun runner",
         "[Start Here](START_HERE.md)",
         "[Onramp](ONRAMP.md)",
-        "[Worlds and future work](HORIZONS/README.md)",
+        "[Campaign tools](HORIZONS/README.md)",
     )
     for marker in required_readme:
         if marker not in readme:

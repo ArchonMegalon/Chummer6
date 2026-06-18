@@ -60,7 +60,6 @@ class RenderWithStartHereTests(unittest.TestCase):
 - [Status](STATUS.md)
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
-- [How can I help](HOW_CAN_I_HELP.md)
 - [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [Help](HELP.md)
 """
@@ -75,6 +74,30 @@ class RenderWithStartHereTests(unittest.TestCase):
             rendered.count("[From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)"),
             1,
         )
+
+    def test_readme_rewrites_noisy_first_contact_labels(self) -> None:
+        source = """# Chummer6
+
+Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.
+
+When you are ready for more, use: [How can I help](HOW_CAN_I_HELP.md), [Help](HELP.md), [Worlds and future work](HORIZONS/README.md).
+
+## Product parts
+
+Use [Worlds and future work](HORIZONS/README.md) for longer-running campaign lanes.
+"""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            source_path = Path(tmpdir) / "README.md"
+            source_path.write_text(source, encoding="utf-8")
+
+            rendered = _render_with_start_here(source_path, "README.md", "")
+
+        self.assertIn("[Campaign tools](HORIZONS/README.md)", rendered)
+        self.assertIn("[Contact](CONTACT.md)", rendered)
+        self.assertIn("## Campaign tools", rendered)
+        self.assertNotIn("Worlds and future work", rendered)
+        self.assertNotIn("How can I help", rendered)
 
     def test_readme_rewrites_internal_acceptance_bar_phrase(self) -> None:
         sources = (

@@ -2,7 +2,7 @@
 
 The player gets approved origin canon, dossier media, and later ALICE context without letting story prose rewrite the sheet.
 
-![ORIGIN DOSSIER horizon art](../assets/horizons/origin-dossier.png)
+![ORIGIN DOSSIER feature art](../assets/horizons/origin-dossier.png)
 
 ## Why this matters
 

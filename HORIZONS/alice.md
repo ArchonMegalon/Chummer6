@@ -2,7 +2,7 @@
 
 Builders get grounded what-if checks instead of vague AI advice.
 
-![ALICE horizon art](../assets/horizons/alice.png)
+![ALICE feature art](../assets/horizons/alice.png)
 
 ## Why this matters
 

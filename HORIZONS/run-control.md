@@ -2,7 +2,7 @@
 
 Session board, active-scene continuity, reconnect posture, and recap return stay on one first-party control rail.
 
-![RUN CONTROL horizon art](../assets/horizons/run-control.png)
+![RUN CONTROL feature art](../assets/horizons/run-control.png)
 
 ## Why this matters
 

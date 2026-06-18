@@ -31,11 +31,11 @@ More campaign-ledger depth and steadier desktop polish are still coming.
 Start with [Start Here](START_HERE.md).
 Move to [Onramp](ONRAMP.md), [Download](DOWNLOAD.md), [Status](STATUS.md), [What Chummer6 Is](WHAT_CHUMMER6_IS.md), and [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md) when those are your next step.
 
-When you are ready for more, use: [How can I help](HOW_CAN_I_HELP.md), [Runner Passport](RUNNER_PASSPORT.md), [Living World](LIVING_WORLD.md), [Help](HELP.md), [FAQ](FAQ.md), [Contact](CONTACT.md), [Worlds and future work](HORIZONS/README.md).
+When you are ready for more, use: [Contact](CONTACT.md), [Runner Passport](RUNNER_PASSPORT.md), [Living World](LIVING_WORLD.md), [Help](HELP.md), [FAQ](FAQ.md), [Campaign tools](HORIZONS/README.md).
 
 ## Account and contribution paths
 
-If you want the optional guided contribution path instead of normal product help, start with [How can I help](HOW_CAN_I_HELP.md).
+For support or concrete feedback, start with [Contact](CONTACT.md).
 
 The public participation door is <https://chummer.run/participate>.
 The baseline path stays default, and guided contribution is optional.
@@ -55,10 +55,10 @@ It gives new users a clear Onramp while staying useful for experienced players t
 It is being built to keep sessions recoverable when devices, updates, or connectivity drift.
 Campaign layers are designed to expand the table story without replacing GM or rules authority.
 
-## Worlds and deeper parts
+## Campaign tools
 
 Use [Parts index](PARTS/README.md) when you want the full structure.
-Use [Worlds and future work](HORIZONS/README.md) for longer-running campaign lanes and what is live versus still emerging.
+Use [Campaign tools](HORIZONS/README.md) for longer-running campaign lanes and what is live versus still emerging.
 
 ## Help
 

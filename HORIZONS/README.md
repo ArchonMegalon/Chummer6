@@ -1,4 +1,4 @@
-# Worlds and future work
+# Campaign tools
 
 Use this index when you want the larger campaign picture: living-world tools, dossiers, table control, publishing, and long-term ideas around the character builder.
 Some pages describe early slices that already exist. Others are future-facing. Start with the current status when you need the exact availability picture.

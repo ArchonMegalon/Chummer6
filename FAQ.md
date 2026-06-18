@@ -26,7 +26,7 @@ Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [Status](STATUS.md), th
 
 ## Worlds, Account, and Help
 
-### How can I help?
+### How do I report something?
 
 Start with bug reports, documentation feedback, and feature requests. If you want to help more directly, there is also an optional guided contribution path.
 

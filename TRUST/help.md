@@ -28,10 +28,12 @@ Use Contact first for install trouble, product bugs, and practical feedback. Pub
 - Use Account > Support if you want your support history saved in one place.
 - Choose a public issue thread only when the bug should be public.
 
-## Ask from inside Chummer first
+## Ask Chummer first
 
-Normal preview questions should be answerable from inside the product. Support and FAQ exist so you do not have to dig through project details just to get a clear answer.
+Most questions should start with a short answer, an optional video, and a repair or check when Chummer can run one.
 
-- FAQ answers the normal preview and product questions in plain language.
+- FAQ answers normal product questions in plain language.
+- Use Show me when a current walkthrough video is available.
+- Run the suggested check or repair before opening a longer report.
 - Support cases stay separate from optional participation.
 - You do not need another account to ask for help.

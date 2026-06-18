@@ -2,7 +2,7 @@
 
 Tables can evolve house rules without splintering into unreadable forks.
 
-![KARMA FORGE horizon art](../assets/horizons/karma-forge.png)
+![KARMA FORGE feature art](../assets/horizons/karma-forge.png)
 
 ## Why this matters
 

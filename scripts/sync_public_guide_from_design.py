@@ -151,14 +151,16 @@ TEXT_REWRITES = {
         ),
         (
             "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.",
-            "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, where the world-facing surfaces live, how account and recovery fit together, and where to get help.",
+            "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, how account and recovery fit together, and where to get help.",
         ),
         (
             "## Start here\n\n- [Download](DOWNLOAD.md)\n- [Status](STATUS.md)\n- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n- [Help](HELP.md)\n- [FAQ](FAQ.md)\n- [Contact](CONTACT.md)\n- [Future ideas](HORIZONS/README.md)\n",
-            "## Flagship guide map\n\n- [Home](README.md)\n- [Get Chummer](DOWNLOAD.md)\n- [What works today](STATUS.md)\n- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)\n- [Worlds](HORIZONS/README.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [Account](HELP.md#keep-access-and-recovery-on-one-calm-path)\n- [Help](HELP.md)\n- [FAQ](FAQ.md)\n- [Contact](CONTACT.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n",
+            "## Flagship guide map\n\n- [Home](README.md)\n- [Get Chummer](DOWNLOAD.md)\n- [What works today](STATUS.md)\n- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)\n- [Campaign tools](HORIZONS/README.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [Account](HELP.md#account-keep-access-and-recovery-on-one-calm-path)\n- [Help](HELP.md)\n- [FAQ](FAQ.md)\n- [Contact](CONTACT.md)\n",
         ),
         ("## How can I help?\n", "## Account and contribution paths\n"),
-        ("## Product parts\n", "## Worlds and deeper parts\n"),
+        ("## Product parts\n", "## Campaign tools\n"),
+        ("[Worlds and future work](HORIZONS/README.md)", "[Campaign tools](HORIZONS/README.md)"),
+        ("How can I help](HOW_CAN_I_HELP.md)", "Contact](CONTACT.md)"),
         ("## Need help\n", "## Help\n"),
     ),
     "DOWNLOAD.md": (
@@ -197,6 +199,10 @@ TEXT_REWRITES = {
         (
             "## Product help should become a support case, not a rumor\n",
             "## Help should become a support case, not a rumor\n",
+        ),
+        (
+            "## Ask from inside Chummer first\n",
+            "## Ask Chummer first\n",
         ),
     ),
     "FAQ.md": (

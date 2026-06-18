@@ -2,7 +2,7 @@
 
 GMs get a governed live heat-and-reaction rail today and a separate private aftermath coaching rail as the broader Table Pulse promise grows.
 
-![TABLE PULSE horizon art](../assets/horizons/table-pulse.png)
+![TABLE PULSE feature art](../assets/horizons/table-pulse.png)
 
 ## Why this matters
 

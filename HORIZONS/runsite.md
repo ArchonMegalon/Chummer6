@@ -2,7 +2,7 @@
 
 Mission spaces become explorable and legible before the action starts.
 
-![RUNSITE horizon art](../assets/horizons/runsite.png)
+![RUNSITE feature art](../assets/horizons/runsite.png)
 
 ## Why this matters
 

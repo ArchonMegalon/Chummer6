@@ -20,7 +20,7 @@ If you want one page that explains how this edition is different, open [What Chu
 
 ## I want the campaign layer
 
-When the core build flow is steady, continue to [Worlds and future work](HORIZONS/README.md).
+When the core build flow is steady, continue to [Campaign tools](HORIZONS/README.md).
 
 ## I am blocked
 
@@ -29,4 +29,4 @@ If installation, updates, or sign-in stops you, open [Help](HELP.md).
 ## I want to report an issue or help improve the project
 
 For concrete feedback, use [Contact](CONTACT.md).
-If you want to contribute directly, use [How can I help?](HOW_CAN_I_HELP.md).
+If you want to contribute directly, use the participation link from the current public site.

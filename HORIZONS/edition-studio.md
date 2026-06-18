@@ -2,7 +2,7 @@
 
 SR4, SR5, and SR6 keep authored head posture without splitting the product into disconnected apps.
 
-![EDITION STUDIO horizon art](../assets/horizons/edition-studio.png)
+![EDITION STUDIO feature art](../assets/horizons/edition-studio.png)
 
 ## Why this matters
 

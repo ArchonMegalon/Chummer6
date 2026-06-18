@@ -2,7 +2,7 @@
 
 Tables can replay, inspect, and compare what happened without forking durable session truth.
 
-![GHOSTWIRE horizon art](../assets/horizons/ghostwire.png)
+![GHOSTWIRE feature art](../assets/horizons/ghostwire.png)
 
 ## Why this matters
 

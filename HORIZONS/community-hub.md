@@ -2,7 +2,7 @@
 
 A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
 
-![COMMUNITY HUB horizon art](../assets/horizons/community-hub.png)
+![COMMUNITY HUB feature art](../assets/horizons/community-hub.png)
 
 ## Why this matters
 
