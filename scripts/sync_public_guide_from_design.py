@@ -20,7 +20,6 @@ SYNC_FILES = (
     "BLACK_LEDGER_NEWSROOM.md",
     "FROM_CHUMMER5A_TO_CHUMMER6.md",
     "RUNNER_PASSPORT.md",
-    "SIGNAL_DECK.md",
     "LIVING_WORLD.md",
     "STATUS.md",
     "DOWNLOAD.md",
@@ -44,6 +43,7 @@ SYNC_DIRS = (
 
 OPTIONAL_SYNC_FILES = ("GLOSSARY.md",)
 OPTIONAL_SYNC_DIRS = ("NOW", "UPDATES")
+REMOVABLE_SYNC_FILES = ("SIGNAL_DECK.md",)
 
 START_HERE_BLOCKS = {}
 
@@ -72,6 +72,18 @@ def _copy_file(src: Path, dest: Path, check: bool, failures: list[str], optional
         return
     dest.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(src, dest)
+
+
+def _sync_removable_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
+    if not src.exists():
+        if check:
+            if dest.exists():
+                failures.append(f"stale destination file: {dest}")
+            return
+        if dest.exists():
+            dest.unlink()
+        return
+    _copy_file(src, dest, check, failures)
 
 
 def _render_manifest(src: Path) -> str:
@@ -406,6 +418,9 @@ def main(argv: list[str]) -> int:
             failures,
             optional=relative_path in OPTIONAL_SYNC_FILES,
         )
+
+    for relative_path in REMOVABLE_SYNC_FILES:
+        _sync_removable_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
 
     for relative_path in SYNC_DIRS:
         _sync_dir(

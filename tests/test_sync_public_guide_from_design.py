@@ -16,11 +16,29 @@ SPEC.loader.exec_module(guide_sync)
 
 _render_manifest = guide_sync._render_manifest
 _render_with_start_here = guide_sync._render_with_start_here
+_sync_removable_file = guide_sync._sync_removable_file
 
 
 class RenderWithStartHereTests(unittest.TestCase):
     def test_sync_files_include_black_ledger_newsroom_page(self) -> None:
         self.assertIn("BLACK_LEDGER_NEWSROOM.md", guide_sync.SYNC_FILES)
+
+    def test_signal_deck_is_removable_when_design_omits_it(self) -> None:
+        self.assertIn("SIGNAL_DECK.md", guide_sync.REMOVABLE_SYNC_FILES)
+        self.assertNotIn("SIGNAL_DECK.md", guide_sync.SYNC_FILES)
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir)
+            missing_source = tmp_path / "source" / "SIGNAL_DECK.md"
+            destination = tmp_path / "dest" / "SIGNAL_DECK.md"
+            destination.parent.mkdir(parents=True)
+            destination.write_text("# Signal Deck\n", encoding="utf-8")
+            failures: list[str] = []
+
+            _sync_removable_file(missing_source, destination, False, failures)
+
+            self.assertEqual([], failures)
+            self.assertFalse(destination.exists())
 
     def test_readme_can_carry_black_ledger_newsroom_link(self) -> None:
         source = """# Chummer6

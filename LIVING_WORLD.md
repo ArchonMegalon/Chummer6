@@ -35,7 +35,6 @@ Living World now connects cleanly to:
 
 ## Read next
 
-- [Signal Deck](SIGNAL_DECK.md)
 - [Runner Passport](RUNNER_PASSPORT.md)
 - [Black Ledger](HORIZONS/black-ledger.md)
 - [Table Pulse](HORIZONS/table-pulse.md)

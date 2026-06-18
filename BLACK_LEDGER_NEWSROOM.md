@@ -30,7 +30,6 @@ It should feel like a real broadcast from the Chummer world, not a website anima
 ## Read next
 
 - [Living World](LIVING_WORLD.md)
-- [Signal Deck](SIGNAL_DECK.md)
 - [Runner Passport](RUNNER_PASSPORT.md)
 - [Black Ledger](HORIZONS/black-ledger.md)
 - [Help](HELP.md)

@@ -64,18 +64,18 @@
         "products/chummer/horizons/table-pulse.md",
         "products/chummer/TABLE_PULSE_LIVING_WORLD_STACK_20260523.md"
       ],
-      "expected_representation": "public_route_live_page_with_receipts",
+      "expected_representation": "omitted_with_receipt_design_canon_only",
       "horizon_public_guide_enabled": null,
       "id": "signal-deck",
       "page_class": "live_session_feature_page",
-      "public_guide_verdict": "public_route_live",
-      "representation_status": "public_route_live_page",
+      "public_guide_verdict": "design_canon_only",
+      "representation_status": "omitted_with_receipt",
       "required_proof": [
-        "first_party_signal_deck_route",
-        "first_party_signal_deck_receipts",
-        "live_receipt_rails"
+        "design_canon_retained",
+        "public_guide_omission_receipt",
+        "no_public_route_claim"
       ],
-      "shipped_claim_allowed": true,
+      "shipped_claim_allowed": false,
       "title": "Signal Deck"
     },
     {

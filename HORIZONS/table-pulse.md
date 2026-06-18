@@ -90,7 +90,7 @@ What is live today is:
 * a Table Pulse packet on the Black Ledger notifications route
 * bounded remote reaction mini-games
 * GM adjudication and leader follow-through
-* Signal Deck and Runner Passport continuity
+* Runner Passport continuity and governed follow-through
 * Living Newsroom watch framing
 * governed aftermath return loops
 
