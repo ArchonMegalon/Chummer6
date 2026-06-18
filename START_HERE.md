@@ -1,35 +1,35 @@
 # Start Here
 
 
-Start with what you need tonight. You do not need the repo map first.
+Start with what you need now. You do not need the full repo map first.
 
 ## I am new or rusty
 
-Use the guided first-run and recovery path before you open the whole workbench.
+Open Onramp first and keep the guided route for setup, recovery, and first steps.
 
 Start here: [Onramp](ONRAMP.md)
 
 ## I want to try Chummer
 
-Get the right file for your platform and see the honest preview status.
+Take the direct path to the right file for your platform and the current preview status.
 
 Start here: [Download](DOWNLOAD.md)
 
 ## I want to know what works today
 
-See the current release picture, what is available, and what is still being polished.
+Check what is truly live, what is available, and what is still being polished.
 
 Start here: [Status](STATUS.md)
 
 ## I want to understand the pitch
 
-Read the short product story and the reason Chummer6 is different from a plain builder.
+Read the short product story and the practical difference from a plain builder.
 
 Start here: [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 
-## I want the cool campaign layer
+## I want the campaign layer
 
-Explore the living-world, campaign, dossier, and newsroom ideas after you know the current product picture.
+Open campaign and horizon paths once you are comfortable with the current product picture.
 
 Start here: [Worlds and future work](HORIZONS/README.md)
 
@@ -41,6 +41,6 @@ Start here: [Help](HELP.md)
 
 ## I want to report or contribute
 
-Use the public bug, feedback, or optional guided contribution path.
+Use the contribution lane for direct feedback or structured bug reports.
 
 Start here: [How can I help?](HOW_CAN_I_HELP.md)
