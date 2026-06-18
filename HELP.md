@@ -22,13 +22,13 @@ Account creation, sign-in, and recovery should stay boring. Use the account page
 - Use recovery email so one sign-in method is never the whole story.
 - Devices and access stay separate from identity recovery.
 
-## Help should become a support case, not a rumor
+## Product help should start in the right place
 
-Use Contact first for install trouble, product bugs, and practical feedback. GitHub is there when you want a public bug thread, not as the normal support door.
+Use Contact first for install trouble, product bugs, and practical feedback. Public issue threads are optional for technical bugs you intentionally want public.
 
 - Use Contact for install trouble, product bugs, or UX friction.
 - Use Account > Support if you want your support history saved in one place.
-- Use GitHub only when you want a public bug thread.
+- Choose a public issue thread only when the bug should be public.
 
 ## Ask from inside Chummer first
 
@@ -36,4 +36,4 @@ Normal preview questions should be answerable from inside the product. Support a
 
 - FAQ answers the normal preview and product questions in plain language.
 - Support cases stay separate from optional participation.
-- You do not need a GitHub account to ask for help.
+- You do not need another account to ask for help.

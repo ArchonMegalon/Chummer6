@@ -10,7 +10,7 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What gets better
 
-- It tries to show why a number changed instead of leaving you with mystery math.
+- It shows why a number changed instead of hiding the calculation.
 - Recovery and continuity are being treated as core product work, not as an afterthought.
 - Status, downloads, and help are easier to find without digging around for the current answer.
 

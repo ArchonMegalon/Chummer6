@@ -14,7 +14,7 @@ That is one of the core goals. Chummer6 is being built so bad connectivity does 
 
 ### Why would I trust it more than old opaque tool behavior?
 
-Because Chummer6 is trying to show how it reached an answer instead of asking you to accept mystery math.
+Because Chummer shows the result, the calculation, and the current release state in the product.
 
 ### What is preview versus available today?
 
