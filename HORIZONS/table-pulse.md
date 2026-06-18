@@ -16,6 +16,25 @@ Picture the scene: During a run, heat crosses a threshold and the GM receives a 
 - Today: A bounded first playable slice is live.
 - Next: Expand bounded coaching and fallout follow-through.
 
+## Explanation video
+
+[Watch the TABLE PULSE 90-second deep dive](https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4) - MP4 with AAC audio. [Captions](https://chummer.run/media/horizons/table-pulse-90s-deepdive.vtt).
+
+Table Pulse has two rails. The design only works if those rails stay explicit.
+
+**Table Pulse Live** is the GM-controlled heat and reaction rail. During a session or in the
+immediate aftermath of a session, security, matrix, magic, astral, faction, law, media, or public
+pressure can cross a threshold. If the GM allows it, Chummer can notify eligible players or
+faction contacts, let them play a bounded reaction mini-game, and return the result to the GM for
+approval.
+
+**Table Pulse Aftermath** is the private coaching rail. After a session, the GM can review pacing,
+spotlight balance, confusion points, disengagement markers, and follow-up suggestions without
+turning Chummer into surveillance or player scoring.
+
+The live rail and the coaching rail may share receipts, mute controls, and GM policy, but they are
+not the same product promise and should not be described as if they are one heat system.
+
 ## The problem
 
 The GM needs two different things:

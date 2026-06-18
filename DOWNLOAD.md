@@ -16,7 +16,7 @@ Guide fit: this is the `Get Chummer` page in the flagship shell.
 ## Current release download
 
 - Today: Current release build.
-- Published: June 18, 2026 at 10:26 UTC.
+- Published: June 18, 2026 at 11:41 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows and Linux.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
@@ -34,7 +34,7 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 - Avalonia Desktop Windows X64 Installer.
 - Download: `https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe`
 - File: `chummer-avalonia-win-x64-installer.exe`
-- Size: 94.4 MiB (98934813 bytes)
+- Size: 94.3 MiB (98922316 bytes)
 - Access: Public download.
 
 ### Linux
@@ -42,7 +42,7 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 - Avalonia Desktop Linux X64 Installer.
 - Download: `https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - File: `chummer-avalonia-linux-x64-installer.deb`
-- Size: 35.2 MiB (36865078 bytes)
+- Size: 35.1 MiB (36856734 bytes)
 - Access: Public download.
 
 ### macOS
@@ -57,8 +57,8 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 
 ## SHA256
 
-- Avalonia Desktop Linux X64 Installer: `fd7a0772ab0f01e09bcfe200f4d391e392abafe6b2235ab5dbb63c33d18347da`
-- Avalonia Desktop Windows X64 Installer: `581f37f5f72483c1753435f5666c8ab224fd77f593cd7507d9c613ec86db11ab`
+- Avalonia Desktop Linux X64 Installer: `8c94a822520e251fbce52b1ef1ce7b5ee420e3501df17a6f28d62b46297ed8fd`
+- Avalonia Desktop Windows X64 Installer: `9633242d5aace7fc5ec41ea7a6dd6512252bee42f664c0b4b28a6e7fbca5fcee`
 
 ## Recent release verification
 

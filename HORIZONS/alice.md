@@ -16,6 +16,10 @@ Picture the scene: A player compares two builds and sees the tradeoffs, the math
 - Today: A bounded first playable slice is live.
 - Next: Expand bounded coaching and fallout follow-through.
 
+## Explanation video
+
+[Watch the ALICE 90-second deep dive](https://chummer.run/media/horizons/alice-90s-deepdive.mp4) - MP4 with AAC audio. [Captions](https://chummer.run/media/horizons/alice-90s-deepdive.vtt).
+
 ## The problem
 
 Players often discover bad builds, illegal interactions, or weak upgrade paths only after the run has already gone sideways.

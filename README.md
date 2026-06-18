@@ -14,8 +14,9 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 - Short answer: yes, as an early preview.
 - Downloads are currently live for Windows and Linux.
-- Evidence on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; downloads remain the primary route for trying Chummer.
-- Preview evidence and fallback routes can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.
+- clear public proof means posted downloads, visible status, and inspectable checks for the current files and flows; it is not a whole-product gold claim.
+- Public pages focus on the builds, platforms, and workflows a player can actually try today; downloads remain the primary route for trying Chummer.
+- Experimental surfaces stay behind lab routes until their visuals, behavior, and tests are ready for normal users.
 - If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
 - Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 - Today: Current release build.
