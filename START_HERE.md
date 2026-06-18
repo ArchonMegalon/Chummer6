@@ -1,46 +1,36 @@
-# Start Here
-
-
-Start with what you need now. You do not need the full repo map first.
+# Start here
 
 ## I am new or rusty
 
-Open Onramp first and keep the guided route for setup, recovery, and first steps.
-
 Start here: [Onramp](ONRAMP.md)
 
-## I want to try Chummer
+If you are new, rusty, or just coming back, do not read everything first. Open one page and do the next action.
 
-Take the direct path to the right file for your platform and the current preview status.
+## Start now
 
-Start here: [Download](DOWNLOAD.md)
+You likely want [Onramp](ONRAMP.md) first. It gets you from “I need help” to “I’m in a useful table state” with minimal friction.
 
-## I want to know what works today
+## I want to try it now
 
-Check what is truly live, what is available, and what is still being polished.
+If your goal is a working build, jump to [Download](DOWNLOAD.md).
 
-Start here: [Status](STATUS.md)
+## I need to know what is live today
 
-## I want to understand the pitch
+If you want the truth on what you can use right now, start with [Status](STATUS.md).
 
-Read the short product story and the practical difference from a plain builder.
+## I want to understand what this version is
 
-Start here: [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
+If you want one page that explains how this edition is different, open [What Chummer6 Is](WHAT_CHUMMER6_IS.md).
 
 ## I want the campaign layer
 
-Open campaign and horizon paths once you are comfortable with the current product picture.
+When the core build flow is steady, continue to [Worlds and future work](HORIZONS/README.md).
 
-Start here: [Worlds and future work](HORIZONS/README.md)
+## I am blocked
 
-## I want help or recovery
+If installation, updates, or sign-in stops you, open [Help](HELP.md).
 
-Use this when install, updates, sign-in, recovery, or bugs get in the way.
+## I want to report an issue or help improve the project
 
-Start here: [Help](HELP.md)
-
-## I want to report or contribute
-
-Use the contribution lane for direct feedback or structured bug reports.
-
-Start here: [How can I help?](HOW_CAN_I_HELP.md)
+For concrete feedback, use [Contact](CONTACT.md).
+If you want to contribute directly, use [How can I help?](HOW_CAN_I_HELP.md).

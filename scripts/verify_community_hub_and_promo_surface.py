@@ -10,14 +10,14 @@ README = ROOT / "README.md"
 COMMUNITY_HUB = ROOT / "HORIZONS" / "community-hub.md"
 
 README_REQUIRED = (
-    "- [Watch the Chummer6 flagship war bulletin](https://chummer.run/media/promo/chummer6-flagship-promo.mp4)",
+    "Watch the flagship war bulletin: https://chummer.run/media/promo/chummer6-flagship-promo.mp4, MP4 with AAC audio. Captions are at https://chummer.run/media/promo/chummer6-flagship-promo.vtt.",
 )
 
 COMMUNITY_HUB_REQUIRED = (
     "# COMMUNITY HUB",
     "A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.",
     "- Today: Signed-in command lane is live.",
-    "- Next: Expand bounded coaching and fallout follow-through.",
+    "- Next: Make the coaching deeper without loosening the boundaries.",
     "COMMUNITY HUB would turn BLACK LEDGER and campaign prep into a practical recruitment, scheduling, prep, and closeout layer.",
     "COMMUNITY HUB is the product name for that lane.",
     "The signed-in command lane is already live at `https://chummer.run/community`.",
