@@ -13,7 +13,7 @@ CHECK_FILES = (
     ROOT / "LIVING_WORLD.md",
     ROOT / "HORIZONS" / "table-pulse.md",
 )
-RECEIPT = ROOT / "CHUMMER6_GUIDE_GENERATOR_REGISTRY_ALIGNMENT.generated.json"
+RECEIPT = ROOT / ".guide-internal" / "receipts" / "CHUMMER6_GUIDE_GENERATOR_REGISTRY_ALIGNMENT.generated.json"
 
 
 def main() -> int:

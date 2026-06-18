@@ -1,8 +1,10 @@
-# Chummer Public Guide
+# Chummer6
 
-Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, where the world-facing surfaces live, how account and recovery fit together, and where to get help.
+Build a Shadowrun runner, understand why the numbers changed, and keep the table moving when the campaign gets complicated.
 
-## Product promise
+This repo is the public guide: start here if you want to try Chummer6, understand the preview, or see the bigger campaign tools growing around the builder.
+
+## Why it exists
 
 Chummer6 is the explainable Shadowrun campaign OS.
 
@@ -10,11 +12,11 @@ Its first must-win job is being the most trustworthy way to build, inspect, and 
 
 The goal is simple: build correctly, explain clearly, run reliably, recover calmly, and carry the campaign forward.
 
-## What is real now
+## What can I do today?
 
-- Short answer: yes, as an early preview.
+- Try the current preview on the platforms listed below.
 - Downloads are currently live for Windows and Linux.
-- clear public proof means posted downloads, visible status, and inspectable checks for the current files and flows; it is not a whole-product gold claim.
+- Public wording stays tied to files and flows that are actually available now.
 - Public pages focus on the builds, platforms, and workflows a player can actually try today; downloads remain the primary route for trying Chummer.
 - Experimental surfaces stay behind lab routes until their visuals, behavior, and tests are ready for normal users.
 - If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
@@ -27,18 +29,20 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 ## Start here
 
+- [Start Here](START_HERE.md)
+- [Onramp](ONRAMP.md)
 - [Download](DOWNLOAD.md)
 - [Status](STATUS.md)
 - [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 - [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
 - [How can I help](HOW_CAN_I_HELP.md)
 - [Runner Passport](RUNNER_PASSPORT.md)
-- [Help](HELP.md)
 - [Living World](LIVING_WORLD.md)
 - [Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)
+- [Help](HELP.md)
 - [FAQ](FAQ.md)
 - [Contact](CONTACT.md)
-- [Future ideas](HORIZONS/README.md)
+- [Worlds and future work](HORIZONS/README.md)
 
 ## Account and contribution paths
 
@@ -59,13 +63,14 @@ If you want the optional guided contribution path instead of normal product help
 ## Why people care
 
 - It shows why a number changed instead of hiding the math.
+- It gives new or rusty users a guided Onramp without trapping experts in tutorial copy.
 - It is being built to keep sessions and campaigns recoverable when devices or connectivity drift.
-- The status, downloads, and help story is meant to stay in plain sight instead of being scattered.
+- The campaign layers are meant to feel alive without taking authority away from the GM or the rules engine.
 
 ## Worlds and deeper parts
 
-- [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- [Horizons index](HORIZONS/README.md): future ideas that are not ready today.
+- [Parts index](PARTS/README.md): the deeper product parts when you want to understand how Chummer fits together.
+- [Worlds and future work](HORIZONS/README.md): larger campaign layers, some with early slices now and some still future-facing.
 
 ## Help
 

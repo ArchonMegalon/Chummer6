@@ -48,7 +48,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                     "# Readme",
                     packet["shelf_truth_line"],
                     packet["proof_scope_line"],
-                    "This page keeps the clear public proof boundary intact.",
+                    "Public wording stays tied to files and flows that are actually available now.",
                     packet["missing_installer_lane_line"],
                     packet["architecture_scope_line"],
                 ]

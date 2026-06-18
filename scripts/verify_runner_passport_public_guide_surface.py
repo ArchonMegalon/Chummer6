@@ -7,7 +7,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 README_PATH = REPO_ROOT / "README.md"
 PASSPORT_PATH = REPO_ROOT / "RUNNER_PASSPORT.md"
-VERDICT_PATH = REPO_ROOT / "FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md"
+VERDICT_PATH = REPO_ROOT / ".guide-internal" / "receipts" / "FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md"
 
 
 def _load_text(path: Path) -> str:

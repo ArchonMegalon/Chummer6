@@ -1,12 +1,13 @@
-# Horizons
+# Worlds and future work
 
-Use this index when you want to see where Chummer6 could go next after you understand the current product picture.
-These are future ideas, not features you can use today.
+Use this index when you want the larger campaign picture: living-world tools, dossiers, table control, publishing, and long-term ideas around the character builder.
+Some pages describe early slices that already exist. Others are future-facing. Start with the current status when you need the exact availability picture.
 
 ![Chummer6 horizons index art](../assets/pages/horizons-index.png)
 
 - [NEXUS-PAN](nexus-pan.md)
 - [ALICE](alice.md)
+- [ORIGIN DOSSIER](origin-dossier.md)
 - [KARMA FORGE](karma-forge.md)
 - [JACKPOINT](jackpoint.md)
 - [RUNSITE](runsite.md)
@@ -14,7 +15,6 @@ These are future ideas, not features you can use today.
 - [GHOSTWIRE](ghostwire.md)
 - [TABLE PULSE](table-pulse.md)
 - [RUN CONTROL](run-control.md)
-- [ONRAMP](onramp.md)
 - [EDITION STUDIO](edition-studio.md)
 - [LOCAL CO-PROCESSOR](local-co-processor.md)
 - [BLACK LEDGER](black-ledger.md)

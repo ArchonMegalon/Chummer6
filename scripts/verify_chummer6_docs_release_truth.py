@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-PACKET_PATH = REPO_ROOT / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+PACKET_PATH = REPO_ROOT / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
 README_PATH = REPO_ROOT / "README.md"
 STATUS_PATH = REPO_ROOT / "STATUS.md"
 DOWNLOAD_PATH = REPO_ROOT / "DOWNLOAD.md"
@@ -31,8 +31,8 @@ def main() -> int:
 
     _require_contains("README.md", readme, str(packet.get("shelf_truth_line") or ""))
     _require_contains("README.md", readme, str(packet.get("proof_scope_line") or ""))
-    if "clear public proof" not in readme:
-        raise ValueError("README.md lost the public-proof boundary rewrite")
+    if "Public wording stays tied to files and flows that are actually available now." not in readme:
+        raise ValueError("README.md lost the user-facing availability boundary rewrite")
 
     _require_contains("STATUS.md", status, str(packet.get("shelf_truth_line") or ""))
     release_status = str(packet.get("release_status") or "").strip()

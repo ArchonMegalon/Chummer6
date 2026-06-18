@@ -17,6 +17,8 @@ DEFAULT_SOURCE_CANDIDATES = (
 
 SYNC_FILES = (
     "README.md",
+    "START_HERE.md",
+    "ONRAMP.md",
     "BLACK_LEDGER_NEWSROOM.md",
     "FROM_CHUMMER5A_TO_CHUMMER6.md",
     "RUNNER_PASSPORT.md",
@@ -26,13 +28,16 @@ SYNC_FILES = (
     "HELP.md",
     "FAQ.md",
     "CONTACT.md",
-    "manifest.generated.json",
-    "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
-    "CHUMMER6_PUBLIC_GUIDE_TRUTH_AUDIT.generated.json",
-    "CHUMMER6_PUBLIC_GUIDE_NEW_SECTIONS.generated.json",
-    "CHUMMER6_GUIDE_GENERATOR_REGISTRY_ALIGNMENT.generated.json",
-    "FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md",
 )
+
+INTERNAL_SYNC_FILES = {
+    "manifest.generated.json": ".guide-internal/manifest.generated.json",
+    "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json": ".guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
+    "CHUMMER6_PUBLIC_GUIDE_TRUTH_AUDIT.generated.json": ".guide-internal/receipts/CHUMMER6_PUBLIC_GUIDE_TRUTH_AUDIT.generated.json",
+    "CHUMMER6_PUBLIC_GUIDE_NEW_SECTIONS.generated.json": ".guide-internal/receipts/CHUMMER6_PUBLIC_GUIDE_NEW_SECTIONS.generated.json",
+    "CHUMMER6_GUIDE_GENERATOR_REGISTRY_ALIGNMENT.generated.json": ".guide-internal/receipts/CHUMMER6_GUIDE_GENERATOR_REGISTRY_ALIGNMENT.generated.json",
+    "FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md": ".guide-internal/receipts/FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md",
+}
 
 SYNC_DIRS = (
     "PARTS",
@@ -43,7 +48,19 @@ SYNC_DIRS = (
 
 OPTIONAL_SYNC_FILES = ("GLOSSARY.md",)
 OPTIONAL_SYNC_DIRS = ("NOW", "UPDATES")
-REMOVABLE_SYNC_FILES = ("SIGNAL_DECK.md",)
+REMOVABLE_SYNC_FILES = (
+    "SIGNAL_DECK.md",
+    "HORIZONS/onramp.md",
+)
+
+STALE_ROOT_FILES = (
+    "manifest.generated.json",
+    "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
+    "CHUMMER6_PUBLIC_GUIDE_TRUTH_AUDIT.generated.json",
+    "CHUMMER6_PUBLIC_GUIDE_NEW_SECTIONS.generated.json",
+    "CHUMMER6_GUIDE_GENERATOR_REGISTRY_ALIGNMENT.generated.json",
+    "FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md",
+)
 
 START_HERE_BLOCKS = {}
 
@@ -86,6 +103,15 @@ def _sync_removable_file(src: Path, dest: Path, check: bool, failures: list[str]
     _copy_file(src, dest, check, failures)
 
 
+def _remove_stale_file(dest: Path, check: bool, failures: list[str]) -> None:
+    if check:
+        if dest.exists():
+            failures.append(f"stale destination file: {dest}")
+        return
+    if dest.exists():
+        dest.unlink()
+
+
 def _render_manifest(src: Path) -> str:
     if not src.exists():
         raise FileNotFoundError(src)
@@ -113,15 +139,15 @@ TEXT_REWRITES = {
     "README.md": (
         (
             "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
-            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
+            "Preview notes, fallback routes, artifact explainers, and packet details can show real progress, but we only use flagship wording on pages a visitor can actually inspect and use.",
         ),
         (
             "Preview proof, fallback routes, and artifact explainers can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
-            "Preview proof, fallback routes, and artifact explainers can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
+            "Preview notes, fallback routes, and artifact explainers can show real progress, but we only use flagship wording on pages a visitor can actually inspect and use.",
         ),
         (
             "Preview evidence and fallback routes can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
-            "Preview evidence and fallback routes can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
+            "Preview evidence and fallback routes can show real progress, but we only use flagship wording on pages a visitor can actually inspect and use.",
         ),
         (
             "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.",
@@ -405,9 +431,6 @@ def main(argv: list[str]) -> int:
     for relative_path in SYNC_FILES:
         if relative_path in START_HERE_TRANSFORMS:
             continue
-        if relative_path == "manifest.generated.json":
-            _sync_manifest_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
-            continue
         if relative_path in TEXT_REWRITES:
             _sync_rendered_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
             continue
@@ -419,8 +442,27 @@ def main(argv: list[str]) -> int:
             optional=relative_path in OPTIONAL_SYNC_FILES,
         )
 
+    for source_relative_path, destination_relative_path in INTERNAL_SYNC_FILES.items():
+        if source_relative_path == "manifest.generated.json":
+            _sync_manifest_file(
+                source_root / source_relative_path,
+                REPO_ROOT / destination_relative_path,
+                args.check,
+                failures,
+            )
+            continue
+        _copy_file(
+            source_root / source_relative_path,
+            REPO_ROOT / destination_relative_path,
+            args.check,
+            failures,
+        )
+
     for relative_path in REMOVABLE_SYNC_FILES:
         _sync_removable_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
+
+    for relative_path in STALE_ROOT_FILES:
+        _remove_stale_file(REPO_ROOT / relative_path, args.check, failures)
 
     for relative_path in SYNC_DIRS:
         _sync_dir(

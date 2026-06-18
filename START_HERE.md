@@ -1,57 +1,46 @@
 # Start Here
 
-![Start here banner](assets/pages/start-here.png "pick the lane that matches tonight's table question.")<br>_[pick the lane that matches tonight's table question.](assets/pages/start-here.png)_
 
-Start with the problem you have tonight.
+Start with what you need tonight. You do not need the repo map first.
 
-You do not need the repo map first. You need the shortest path to the next useful answer.
+## I am new or rusty
 
-## I want to try a build
+Use the guided first-run and recovery path before you open the whole workbench.
 
-Get the right file first and the honest platform story.
+Start here: [Onramp](ONRAMP.md)
 
-Start here: [Download builds](DOWNLOAD.md)
+## I want to try Chummer
 
-## I want to run a session
+Get the right file for your platform and see the honest preview status.
 
-Check what is usable now, what is still missing, and what is safe to trust tonight.
+Start here: [Download](DOWNLOAD.md)
 
-Start here: [Public surfaces](NOW/public-surfaces.md)
+## I want to know what works today
 
-## I want to check whether the math is right
+See the current release picture, what is available, and what is still being polished.
 
-Follow where a modifier came from and why the total changed.
+Start here: [Status](STATUS.md)
 
-Start here: [Core rules reasoning](PARTS/core.md)
+## I want to understand the pitch
 
-## I want to bend the rules for my table
+Read the short product story and the reason Chummer6 is different from a plain builder.
 
-Use this when your table has a house rule, a deeper question, or an edge case that needs a real home.
+Start here: [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
 
-Start here: [Where to go deeper](WHERE_TO_GO_DEEPER.md)
+## I want the cool campaign layer
 
-## I want to see where the project is going
+Explore the living-world, campaign, dossier, and newsroom ideas after you know the current product picture.
 
-See the future-facing ideas, the table pain behind them, and what is still future work.
+Start here: [Worlds and future work](HORIZONS/README.md)
 
-Start here: [Horizons](HORIZONS/README.md)
+## I want help or recovery
 
-## I want to report or help
+Use this when install, updates, sign-in, recovery, or bugs get in the way.
+
+Start here: [Help](HELP.md)
+
+## I want to report or contribute
 
 Use the public bug, feedback, or optional guided contribution path.
 
 Start here: [How can I help?](HOW_CAN_I_HELP.md)
-
-## I want to see what changed
-
-Get the short human version of what changed recently and what is still not promised.
-
-Start here: [Recent updates](UPDATES/README.md)
-
-## If you want the two-minute product story
-
-Read [WHAT_CHUMMER6_IS.md](WHAT_CHUMMER6_IS.md).
-
-## If you want the full parts guide later
-
-Read [PARTS/README.md](PARTS/README.md) when you care how the parts fit together.

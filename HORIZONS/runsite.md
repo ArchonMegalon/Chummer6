@@ -13,8 +13,13 @@ Picture the scene: A GM sends an explorable safehouse pack with hotspots, floor 
 
 ## Current stage
 
-- Today: A bounded first playable slice is live.
-- Next: flagship depth hardening.
+- Today: Signed-in command lane is live.
+- Next: Expand bounded coaching and fallout follow-through.
+
+## Explanation video
+
+[Watch the RUNSITE 90-second deep dive](https://chummer.run/media/horizons/runsite-90s-deepdive.mp4) - MP4 with AAC audio. [Captions](https://chummer.run/media/horizons/runsite-90s-deepdive.vtt).
+
 
 **RUNSITE is Chummer’s spatial-prep horizon: the future where mission locations become explorable, understandable, and briefing-ready before the action starts.**
 

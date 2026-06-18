@@ -16,6 +16,11 @@ Picture the scene: A creator turns approved Chummer material into a district gui
 - Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
+## Explanation video
+
+[Watch the RUNBOOK PRESS 90-second deep dive](https://chummer.run/media/horizons/runbook-press-90s-deepdive.mp4) - MP4 with AAC audio. [Captions](https://chummer.run/media/horizons/runbook-press-90s-deepdive.vtt).
+
+
 **RUNBOOK PRESS is Chummer’s long-form publishing horizon: the future where approved Chummer material can become primers, handbooks, district guides, campaign books, convention modules, and creator-ready publications without duct-taping ten unrelated tools together.**
 
 Short recaps are not enough.

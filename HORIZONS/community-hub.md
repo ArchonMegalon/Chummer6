@@ -13,8 +13,13 @@ Picture the scene: A player finds a beginner-friendly run, applies with a legal 
 
 ## Current stage
 
-- Today: A bounded first playable slice is live.
-- Next: flagship depth hardening.
+- Today: Signed-in command lane is live.
+- Next: Expand bounded coaching and fallout follow-through.
+
+## Explanation video
+
+[Watch the COMMUNITY HUB 90-second deep dive](https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4) - MP4 with AAC audio. [Captions](https://chummer.run/media/horizons/community-hub-90s-deepdive.vtt).
+
 
 ## The problem
 
@@ -46,9 +51,8 @@ The public fantasy is:
 
 COMMUNITY HUB is the product name for that lane.
 
-The public route is live at `https://chummer.run/community`.
-The named signed-in command lane now ships at `https://chummer.run/account/community`.
-Those lanes currently carry governed open-run board posture, venue handoff, join review, scheduling, and community closeout without pretending the whole long-range community roadmap is done.
+The signed-in command lane is already live at `https://chummer.run/community`.
+That lane currently carries governed open-run packets, venue handoff, and community closeout without pretending the whole long-range community roadmap is done.
 
 ## What has to be true first
 
