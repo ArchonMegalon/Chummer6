@@ -13,7 +13,7 @@ Picture the scene: A player finds a beginner-friendly run, applies with a legal 
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
 ## The problem

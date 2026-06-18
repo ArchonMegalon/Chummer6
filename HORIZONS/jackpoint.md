@@ -13,7 +13,7 @@ Picture the scene: After a run, the GM exports a dossier-plus-recap packet with 
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
 **JACKPOINT is Chummer’s short-to-medium-form artifact studio: the future where campaigns produce polished dossiers, mission briefings, recaps, evidence rooms, and narrated packets without losing source trail.**

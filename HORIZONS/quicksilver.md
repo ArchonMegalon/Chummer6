@@ -13,7 +13,7 @@ Picture the scene: A veteran GM jumps from build compare to rules answer to prep
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
 **QUICKSILVER is Chummer’s expert-speed horizon: the future where power users stop waiting on the interface and start moving through dense builds, comparisons, inspections, and edits as fast as they can think.**

@@ -13,7 +13,7 @@ Picture the scene: A GM promotes a house-rule pack with visible impact, approval
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: Expand bounded coaching and fallout follow-through.
 
 ## The promise

@@ -66,22 +66,26 @@ class RenderWithStartHereTests(unittest.TestCase):
         )
 
     def test_readme_rewrites_internal_acceptance_bar_phrase(self) -> None:
-        source = """# Chummer6
+        sources = (
+            """# Chummer6
 
 Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
-"""
+""",
+            """# Chummer6
 
-        with tempfile.TemporaryDirectory() as tmpdir:
-            source_path = Path(tmpdir) / "README.md"
-            source_path.write_text(source, encoding="utf-8")
-
-            rendered = _render_with_start_here(source_path, "README.md", "")
-
-        self.assertIn(
-            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
-            rendered,
+Preview evidence and fallback routes can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
+""",
         )
-        self.assertNotIn("flagship acceptance bar", rendered)
+
+        for source in sources:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                source_path = Path(tmpdir) / "README.md"
+                source_path.write_text(source, encoding="utf-8")
+
+                rendered = _render_with_start_here(source_path, "README.md", "")
+
+            self.assertIn("clear public proof", rendered)
+            self.assertNotIn("flagship acceptance bar", rendered)
 
     def test_faq_rewrites_heading_and_body(self) -> None:
         source = """# FAQ

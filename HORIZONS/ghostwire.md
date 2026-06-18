@@ -13,7 +13,7 @@ Picture the scene: A GM replays a contested combat turn, sees receipts over time
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
 **GHOSTWIRE is Chummer’s replay and after-action forensics horizon: the future where the table can reconstruct what happened, compare outcomes, and generate grounded after-action packets without rewriting history.**

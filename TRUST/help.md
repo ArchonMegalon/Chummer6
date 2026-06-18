@@ -6,8 +6,9 @@ Start here for downloads, sign-in recovery, and support.
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 
-- Start with the installer for your platform.
-- Choose `Nightly` for the newest public build or `Stable` for the slower promoted lane.
+- Use `Nightly` when you want the newest rolling public build on Windows or Linux.
+- Use `Stable` when you want the slower promoted lane.
+- Use the Windows or Linux installer; portable builds are not the public primary path.
 - Create an account if you want your support history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.
 
@@ -31,7 +32,6 @@ Use Contact first for install trouble, product bugs, and practical feedback. Git
 
 Normal preview questions should be answerable from inside the product. Support and FAQ exist so you do not have to dig through project details just to get a clear answer.
 
-- ALICE is available inside the desktop for build-help and rules-coach questions.
 - FAQ answers the normal preview and product questions in plain language.
 - Support cases stay separate from optional participation.
 - You do not need a GitHub account to ask for help.

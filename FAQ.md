@@ -8,10 +8,6 @@ This page supports the flagship shell by answering the normal questions around `
 
 Yes. Chummer6 is still preview software, but the preview is real: there are live downloads, current pages, and clear labels for what is still rough.
 
-### Does the desktop update itself?
-
-It can check for a newer public build at startup and hand off to the newer installer on packaged desktop installs. That updater behavior is part of the desktop now, not just a future note.
-
 ### Is it offline-safe?
 
 That is one of the core goals. Chummer6 is being built so bad connectivity does not destroy your flow or your work.
@@ -23,10 +19,6 @@ Because Chummer6 is trying to show how it reached an answer instead of asking yo
 ### What is preview versus available today?
 
 Available today means you can open it or download it right now. Preview means you can use it, but parts of the release, compatibility, or support story are still changing.
-
-### Can I ask ALICE from inside the desktop?
-
-Yes. The native desktop ALICE workbench now ships a real assistant rail for build help and rules coaching. It stays on first-party Chummer rails instead of acting like a detached public chat widget.
 
 ### What should I show a skeptical GM or player first?
 

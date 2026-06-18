@@ -6,23 +6,24 @@ Guide fit: this is the `Get Chummer` page in the flagship shell.
 
 ## What should I download first?
 
-- Use the `Nightly` button when you want the newest rolling public build on Windows or Linux.
-- Use the `Stable` button when you want the slower promoted lane.
-- For Windows, the public flagship route is Avalonia Desktop Windows X64 Installer.
-- For Linux, the public flagship route is Avalonia Desktop Linux X64 Installer.
-- There is no public macOS installer today.
+- Use `Nightly` when you want the newest rolling public build on Windows or Linux.
+- Use `Stable` when you want the slower promoted lane.
+- The public shelf is installer-first; portable builds are not the primary public route.
+- For Windows, start with Avalonia Desktop Windows X64 Installer.
+- For Linux, start with Avalonia Desktop Linux X64 Installer.
+- There is no public macOS installer today. Only archive previews are posted.
 
 ## Current release download
 
 - Today: Current release build.
-- Published: June 17, 2026 at 11:36 UTC.
+- Published: June 18, 2026 at 10:26 UTC.
 - Release status: Published.
 - Downloads are currently live for Windows and Linux.
-- The public web shelf exposes `Nightly` and `Stable` directly.
 - Recent checks: Passed for installs and recovery, campaign session recovery, and support follow-up.
 - Proof scope: Public proof language is scoped to the files, named flows, and recent checks posted on the current public release page that a person can inspect today; it is not a blanket flagship-grade claim.
 - Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.
-- Current warning: public Windows and Linux installers are live, but full cross-platform installer proof is still not complete.
+- Current warning: No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.
+- Update note: Only expect fix notices after the affected download is available on the same public shelf.
 
 ## Current build matrix
 
@@ -33,38 +34,36 @@ Official client downloads start at chummer.run. GitHub is for source and public 
 - Avalonia Desktop Windows X64 Installer.
 - Download: `https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe`
 - File: `chummer-avalonia-win-x64-installer.exe`
-- Size: 49.4 MiB (51847749 bytes)
+- Size: 94.4 MiB (98934813 bytes)
 - Access: Public download.
-- Update path: startup auto-update is built in for packaged desktop installs.
 
 ### Linux
 
 - Avalonia Desktop Linux X64 Installer.
 - Download: `https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - File: `chummer-avalonia-linux-x64-installer.deb`
-- Size: 33.7 MiB (35377368 bytes)
+- Size: 35.2 MiB (36865078 bytes)
 - Access: Public download.
-- Update path: startup auto-update can hand off to the newer installer when a newer public manifest is posted.
 
 ### macOS
 
-- There is no public macOS installer today.
+- There is no public macOS installer today. Only archive previews are posted.
 
 ## Current package format
 
-- Where an installer exists, start there. The public shelf is installer-only for Windows and Linux.
+- Where an installer exists, start there. Archive packages, packet-detail artifacts, and explainer bundles are fallback, recovery, or inspection paths, not equal flagship routes.
 - Avalonia Desktop Linux X64 Installer via `https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb`
 - Avalonia Desktop Windows X64 Installer via `https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe`
 
 ## SHA256
 
-- Avalonia Desktop Linux X64 Installer: `e26e9c5f7b66da6852b346458e196fb4d66f2962f632b727757092c6b4199613`
-- Avalonia Desktop Windows X64 Installer: `77a6d5cf663d46944ffba024618b9098f445e892640ddb9f1d7db87845f7d5a3`
+- Avalonia Desktop Linux X64 Installer: `fd7a0772ab0f01e09bcfe200f4d391e392abafe6b2235ab5dbb63c33d18347da`
+- Avalonia Desktop Windows X64 Installer: `581f37f5f72483c1753435f5666c8ab224fd77f593cd7507d9c613ec86db11ab`
 
 ## Recent release verification
 
 - Status: Passed.
-- Last checked: June 17, 2026 at 11:36 UTC.
+- Last checked: June 18, 2026 at 2:39 UTC.
 - Summary: Passed for installs and recovery, campaign session recovery, and support follow-up.
 
 ### What was checked

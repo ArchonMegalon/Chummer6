@@ -104,6 +104,14 @@ TEXT_REWRITES = {
             "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
         ),
         (
+            "Preview proof, fallback routes, and artifact explainers can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
+            "Preview proof, fallback routes, and artifact explainers can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
+        ),
+        (
+            "Preview evidence and fallback routes can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
+            "Preview evidence and fallback routes can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.",
+        ),
+        (
             "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.",
             "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, where the world-facing surfaces live, how account and recovery fit together, and where to get help.",
         ),

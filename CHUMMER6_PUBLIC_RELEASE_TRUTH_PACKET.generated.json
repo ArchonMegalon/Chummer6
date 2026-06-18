@@ -10,7 +10,7 @@
   "fallback_heads": [
     "Chummer.Blazor.Desktop"
   ],
-  "fix_availability_summary": "That warning will stay in place until the missing desktop installer proof is posted.",
+  "fix_availability_summary": "Only expect fix notices after the affected download is available on the same public shelf.",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
   "known_issue_summary": "No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.",
   "missing_installer_lane_line": "Promoted installer coverage is visible on every promised desktop platform.",
@@ -19,7 +19,7 @@
   "primary_head": "Chummer.Avalonia",
   "proof_scope_line": "Evidence on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; downloads remain the primary route for trying Chummer.",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "June 17, 2026 at 11:36 UTC",
+  "published_at": "June 18, 2026 at 10:26 UTC",
   "quality_gap_line": "Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.",
   "release_status": "Published",
   "release_status_slug": "published",

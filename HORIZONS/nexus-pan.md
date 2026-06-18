@@ -13,7 +13,7 @@ Picture the scene: A player reconnects in the middle of a session and gets back 
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: Expand bounded coaching and fallout follow-through.
 
 ## The problem

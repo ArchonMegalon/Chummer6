@@ -12,19 +12,17 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 ## What is real now
 
-- Short answer: yes, as a real preview you can install and use.
-- The live public shelf currently publishes Windows x64 and Linux x64 installers.
-- The website exposes a rolling `Nightly` lane and a separate `Stable` lane instead of hiding the newest build behind source-only evidence.
-- Downloads remain the primary route for trying Chummer. GitHub is source and public development evidence, not the normal install shelf.
-- The public shelf is installer-first. Windows portable and archive packages are not the flagship public route.
-- The desktop now ships a real native ALICE workbench with build help and rules-coach lanes on first-party rails.
-- Avalonia Desktop is the main client. Blazor Desktop is not the public flagship install route.
-- Auto-update is built into the desktop startup flow for packaged builds when a newer public manifest is available.
-- Character math is already solid. The rougher edges are mostly final platform breadth, installer proof breadth, and support polish.
+- Short answer: yes, as an early preview.
+- Downloads are currently live for Windows and Linux.
+- Evidence on the public shelf is scoped to the posted files, named flows, and recent checks you can inspect today; downloads remain the primary route for trying Chummer.
+- Preview evidence and fallback routes can show real progress, but we only use flagship wording on pages that already stand on their own with clear public proof.
+- If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.
+- Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 - Today: Current release build.
-- Current public desktop scope covers Linux x64 and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, or macOS x64 on the current shelf.
+- Promoted installer coverage is visible on every promised desktop platform.
+- Current public desktop scope covers Linux x64 and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
 - Help, contact, privacy, and terms pages are live.
-- More campaign-ledger depth, richer ALICE continuity, and broader platform proof are still coming.
+- More campaign-ledger depth and steadier desktop polish are still coming.
 
 ## Start here
 

@@ -13,7 +13,7 @@ Picture the scene: A creator turns approved Chummer material into a district gui
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
 **RUNBOOK PRESS is Chummer’s long-form publishing horizon: the future where approved Chummer material can become primers, handbooks, district guides, campaign books, convention modules, and creator-ready publications without duct-taping ten unrelated tools together.**

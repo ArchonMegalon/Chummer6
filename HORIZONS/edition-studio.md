@@ -13,7 +13,7 @@ Picture the scene: A veteran player opens the ruleset-head receipt and sees why 
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
 **EDITION STUDIO is Chummer’s authored-edition horizon: the future where SR4, SR5, and SR6 do not feel like one generic shell with different data, but like deliberately crafted experiences that preserve each edition’s meaning.**

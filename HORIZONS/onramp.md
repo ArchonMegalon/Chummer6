@@ -13,7 +13,7 @@ Picture the scene: A new player signs in, lands on a starter workspace, sees the
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
 **ONRAMP is Chummer’s guided-mastery horizon: the future where new, rusty, or overwhelmed users can build confidence before they drown in options, jargon, and legality warnings.**

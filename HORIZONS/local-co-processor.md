@@ -13,7 +13,7 @@ Picture the scene: A creator with a strong local machine opts into accelerated e
 
 ## Current stage
 
-- Today: shipped mvp.
+- Today: A bounded first playable slice is live.
 - Next: flagship depth hardening.
 
 ## The problem
