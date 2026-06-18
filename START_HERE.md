@@ -1,14 +1,10 @@
 # Start here
 
-## I am new or rusty
-
-Start here: [Onramp](ONRAMP.md)
-
 If you are new, rusty, or just coming back, do not read everything first. Open one page and do the next action.
 
-## Start now
+## I am new or rusty
 
-You likely want [Onramp](ONRAMP.md) first. It gets you from “I need help” to “I’m in a useful table state” with minimal friction.
+Start here: [Onramp](ONRAMP.md). It gets you from “I need help” to “I’m in a useful table state” with minimal friction.
 
 ## I want to try it now
 

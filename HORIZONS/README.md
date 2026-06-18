@@ -17,6 +17,5 @@ Some pages describe early slices that already exist. Others are future-facing. S
 - [RUN CONTROL](run-control.md)
 - [EDITION STUDIO](edition-studio.md)
 - [LOCAL CO-PROCESSOR](local-co-processor.md)
-- [BLACK LEDGER](black-ledger.md)
 - [QUICKSILVER](quicksilver.md)
 - [COMMUNITY HUB](community-hub.md)

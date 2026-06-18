@@ -31,7 +31,7 @@ More campaign-ledger depth and steadier desktop polish are still coming.
 Start with [Start Here](START_HERE.md).
 Move to [Onramp](ONRAMP.md), [Download](DOWNLOAD.md), [Status](STATUS.md), [What Chummer6 Is](WHAT_CHUMMER6_IS.md), and [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md) when those are your next step.
 
-When you are ready for more, use: [How can I help](HOW_CAN_I_HELP.md), [Runner Passport](RUNNER_PASSPORT.md), [Living World](LIVING_WORLD.md), [Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md), [Help](HELP.md), [FAQ](FAQ.md), [Contact](CONTACT.md), [Worlds and future work](HORIZONS/README.md).
+When you are ready for more, use: [How can I help](HOW_CAN_I_HELP.md), [Runner Passport](RUNNER_PASSPORT.md), [Living World](LIVING_WORLD.md), [Help](HELP.md), [FAQ](FAQ.md), [Contact](CONTACT.md), [Worlds and future work](HORIZONS/README.md).
 
 ## Account and contribution paths
 
@@ -46,8 +46,7 @@ Final shipping stays behind review and release checks.
 ![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
 
 
-Watch the flagship war bulletin: https://chummer.run/media/promo/chummer6-flagship-promo.mp4, MP4 with AAC audio. Captions are at https://chummer.run/media/promo/chummer6-flagship-promo.vtt.
-Open the Black Ledger command map: https://chummer.run/ledger/map#ledger-map
+Watch the current product reel: https://chummer.run/media/promo/chummer6-flagship-promo.mp4, MP4 with AAC audio. Captions are at https://chummer.run/media/promo/chummer6-flagship-promo.vtt.
 
 ## Why people care
 

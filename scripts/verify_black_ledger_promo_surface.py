@@ -7,42 +7,37 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BLACK_LEDGER = ROOT / "HORIZONS" / "black-ledger.md"
-
-REQUIRED = (
-    "## Faction promo rails",
-    "BLACK LEDGER is not only a map and a board. It also has public-safe faction promo rails that show how each banner sells itself to the city.",
-    "- Today: Signed-in command lane is live.",
-    "- Next: Expand bounded coaching and fallout follow-through.",
-    "* a first-party motion-video file",
-    "* captions",
-    "* a route-backed JSON brief",
-    "* a storyboard fallback",
-    "* a validation route back into the ledger",
-)
+README = ROOT / "README.md"
+HORIZONS_INDEX = ROOT / "HORIZONS" / "README.md"
+NEWSROOM = ROOT / "BLACK_LEDGER_NEWSROOM.md"
 
 FORBIDDEN = (
-    "* a playable faction video",
+    "Open the Black Ledger command map",
+    "[BLACK LEDGER](black-ledger.md)",
+    "[Black Ledger](HORIZONS/black-ledger.md)",
+    "[Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)",
 )
 
 
 def main() -> int:
-    text = BLACK_LEDGER.read_text(encoding="utf-8")
     failures: list[str] = []
 
-    for marker in REQUIRED:
-        if marker not in text:
-            failures.append(f"HORIZONS/black-ledger.md missing marker: {marker}")
+    if BLACK_LEDGER.exists():
+        failures.append("HORIZONS/black-ledger.md should stay out of the public guide until Black Ledger is ready.")
 
-    for marker in FORBIDDEN:
-        if marker in text:
-            failures.append(f"HORIZONS/black-ledger.md still contains forbidden marker: {marker}")
+    checked_files = (README, HORIZONS_INDEX, NEWSROOM)
+    for path in checked_files:
+        text = path.read_text(encoding="utf-8")
+        for marker in FORBIDDEN:
+            if marker in text:
+                failures.append(f"{path.relative_to(ROOT)} still exposes Black Ledger primary navigation: {marker}")
 
     if failures:
         for failure in failures:
             print(failure, file=sys.stderr)
         return 1
 
-    print("black_ledger_promo_surface:ok")
+    print("black_ledger_public_guide_visibility:ok")
     return 0
 
 

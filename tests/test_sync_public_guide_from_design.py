@@ -23,6 +23,17 @@ class RenderWithStartHereTests(unittest.TestCase):
     def test_sync_files_include_black_ledger_newsroom_page(self) -> None:
         self.assertIn("BLACK_LEDGER_NEWSROOM.md", guide_sync.SYNC_FILES)
 
+    def test_black_ledger_stays_out_of_primary_public_navigation(self) -> None:
+        readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+        horizons = (REPO_ROOT / "HORIZONS" / "README.md").read_text(encoding="utf-8")
+        newsroom = (REPO_ROOT / "BLACK_LEDGER_NEWSROOM.md").read_text(encoding="utf-8")
+
+        self.assertNotIn("Open the Black Ledger command map", readme)
+        self.assertNotIn("[Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)", readme)
+        self.assertNotIn("[BLACK LEDGER](black-ledger.md)", horizons)
+        self.assertNotIn("[Black Ledger](HORIZONS/black-ledger.md)", newsroom)
+        self.assertFalse((REPO_ROOT / "HORIZONS" / "black-ledger.md").exists())
+
     def test_signal_deck_is_removable_when_design_omits_it(self) -> None:
         self.assertIn("SIGNAL_DECK.md", guide_sync.REMOVABLE_SYNC_FILES)
         self.assertNotIn("SIGNAL_DECK.md", guide_sync.SYNC_FILES)
@@ -39,24 +50,6 @@ class RenderWithStartHereTests(unittest.TestCase):
 
             self.assertEqual([], failures)
             self.assertFalse(destination.exists())
-
-    def test_readme_can_carry_black_ledger_newsroom_link(self) -> None:
-        source = """# Chummer6
-
-## Start here
-
-- [Download](DOWNLOAD.md)
-- [Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)
-- [Help](HELP.md)
-"""
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            source_path = Path(tmpdir) / "README.md"
-            source_path.write_text(source, encoding="utf-8")
-
-            rendered = _render_with_start_here(source_path, "README.md", "")
-
-        self.assertIn("[Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)", rendered)
 
     def test_readme_start_here_links_are_unique(self) -> None:
         source = """# Chummer6

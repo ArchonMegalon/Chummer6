@@ -57,6 +57,5 @@ That means a remote reaction can stay public-safe on the Passport side while sti
 - [Black Ledger notifications](/account/ledger/notifications)
 - [Leader briefing](/account/ledger/factions/ashline-circle/leader-briefing)
 - [Work aftermath rail](/account/work#aftermath-packages)
-- [Black Ledger](HORIZONS/black-ledger.md)
 - [Table Pulse](HORIZONS/table-pulse.md)
 - [Help](HELP.md)

@@ -27,7 +27,7 @@ Guide fit: this is the `Get Chummer` page in the flagship shell.
 
 ## Current build matrix
 
-Official client downloads start at chummer.run. Source repositories are not the installer shelf.
+Official client downloads start at chummer.run. GitHub is for source and public development evidence, not installer, archive, update payload, or preview-client downloads.
 
 ### Windows
 

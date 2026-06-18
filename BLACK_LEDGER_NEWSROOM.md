@@ -31,5 +31,4 @@ It should feel like a real broadcast from the Chummer world, not a website anima
 
 - [Living World](LIVING_WORLD.md)
 - [Runner Passport](RUNNER_PASSPORT.md)
-- [Black Ledger](HORIZONS/black-ledger.md)
 - [Help](HELP.md)

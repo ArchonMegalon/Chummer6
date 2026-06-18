@@ -36,6 +36,5 @@ Living World now connects cleanly to:
 ## Read next
 
 - [Runner Passport](RUNNER_PASSPORT.md)
-- [Black Ledger](HORIZONS/black-ledger.md)
 - [Table Pulse](HORIZONS/table-pulse.md)
 - [Work aftermath rail](/account/work#aftermath-packages)
