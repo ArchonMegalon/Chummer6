@@ -14,7 +14,7 @@ Most visitors do not need to care about it yet.
 
 A generic shell can technically support SR4, SR5, and SR6 while still flattening the differences players actually need.
 
-For example, a veteran player compares SR4, SR5, and SR6 support and sees why each edition keeps different emphasis, density, and terminology inside the same Chummer family.
+For example, a veteran player opens the ruleset-head record and sees why SR4, SR5, and SR6 keep different emphasis, density, and terminology on the same built-in area.
 
 
 ## Can I use it?

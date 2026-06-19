@@ -1,6 +1,6 @@
 # Quicksilver
 
-The same Chummer work becomes meaningfully faster without becoming harder to understand.
+The same built-in record becomes meaningfully faster without becoming less explainable.
 
 ![Quicksilver feature art](../assets/horizons/quicksilver.png)
 

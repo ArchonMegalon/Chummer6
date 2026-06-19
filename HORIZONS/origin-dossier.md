@@ -16,7 +16,7 @@ If the player asks for audio, the accepted origin can become a private audiobook
 
 A runner can start as math before they feel like a person.
 
-For example, a player drafts a troll decker, the GM adds a clinic-favor constraint, and Chummer turns the accepted origin into a dossier bundle that ALICE can use later.
+For example, a player drafts a troll decker, the GM adds a clinic-favor constraint, and Chummer turns the approved origin into a dossier bundle that ALICE can use later.
 
 
 ## Can I use it?

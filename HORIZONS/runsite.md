@@ -22,8 +22,3 @@ For example, a GM sends an explorable safehouse pack with hotspots, floor plans,
 ## Can I use it?
 
 Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
-
-
-## Explanation video
-
-[Watch the Runsite 90-second deep dive](https://chummer.run/media/horizons/runsite-90s-deepdive.mp4).

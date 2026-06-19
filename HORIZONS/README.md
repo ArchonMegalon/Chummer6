@@ -17,7 +17,7 @@ Shared state survives device churn without the table losing trust.
 
 ### [ALICE](alice.md)
 
-Builders get clear what-if tests instead of black-box advice.
+Builders get grounded what-if tests instead of vague assistant advice.
 
 ### [Origin Dossier](origin-dossier.md)
 
@@ -25,7 +25,7 @@ The player gets an accepted origin story, portraits, narration, and later ALICE 
 
 ### [Table Pulse](table-pulse.md)
 
-GMs get a live heat-and-reaction tool today, plus private aftermath notes that stay away from player scoring.
+GMs get a reviewed live heat-and-reaction path today and a separate private aftermath coaching path as the broader Table Pulse promise grows.
 
 
 ## Bigger ideas
@@ -38,7 +38,7 @@ Tables can evolve house rules without splintering into unreadable forks.
 
 ### [Jackpoint](jackpoint.md)
 
-The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show what they are based on.
+The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show where what it is based on.
 
 ### [Runsite](runsite.md)
 
@@ -50,7 +50,7 @@ Long-form publishing becomes something you can actually reuse instead of a ten-t
 
 ### [Ghostwire](ghostwire.md)
 
-Tables can replay, inspect, and compare what happened without making a second version of the session.
+Tables can replay, inspect, and compare what happened without forking official session record.
 
 ### [Community Hub](community-hub.md)
 

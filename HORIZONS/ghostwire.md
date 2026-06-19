@@ -1,6 +1,6 @@
 # Ghostwire
 
-Tables can replay, inspect, and compare what happened without making a second version of the session.
+Tables can replay, inspect, and compare what happened without forking official session record.
 
 ![Ghostwire feature art](../assets/horizons/ghostwire.png)
 
@@ -14,7 +14,7 @@ It should help a GM answer, "what actually happened?" without turning the sessio
 
 We know something went wrong, but we cannot reconstruct what actually happened.
 
-For example, a GM replays a contested combat turn, follows the sequence over time, and writes an after-action recap everyone can understand.
+For example, a GM replays a contested combat turn, sees records over time, and generates a grounded after-action recap.
 
 
 ## Can I use it?

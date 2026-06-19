@@ -16,14 +16,9 @@ This is for tables that want flexibility without custom-rule soup.
 
 I want house rules without fork chaos.
 
-For example, a GM shares a house-rule set with visible impact, approval history, and a clear way back if it breaks the game.
+For example, a GM promotes a house-rule pack with visible impact, approval history, and reversible publication state.
 
 
 ## Can I use it?
 
 There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
-
-
-## Explanation video
-
-[Watch the Karma Forge 90-second deep dive](https://chummer.run/media/horizons/karma-forge-90s-deepdive.mp4).

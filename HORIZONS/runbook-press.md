@@ -22,8 +22,3 @@ For example, a creator turns approved Chummer material into a district guide or 
 ## Can I use it?
 
 There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.
-
-
-## Explanation video
-
-[Watch the Runbook Press 90-second deep dive](https://chummer.run/media/horizons/runbook-press-90s-deepdive.mp4).

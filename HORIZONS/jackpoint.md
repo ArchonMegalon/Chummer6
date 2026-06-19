@@ -1,6 +1,6 @@
 # Jackpoint
 
-The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show what they are based on.
+The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show where what it is based on.
 
 <a href="https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
   <img src="../assets/horizons/jackpoint.png" alt="Jackpoint video preview" />
@@ -16,14 +16,9 @@ The writing can be polished, but the facts still have to come from the session m
 
 I want dossiers, recaps, and briefings that feel good without making things up.
 
-For example, after a run, the GM exports a dossier-plus-recap bundle with narration, reference rooms, and share-safe previews.
+For example, after a run, the GM exports a dossier-plus-recap bundle with narration, evidence rooms, and share-safe previews.
 
 
 ## Can I use it?
 
 Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
-
-
-## Explanation video
-
-[Watch the Jackpoint 90-second deep dive](https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4).

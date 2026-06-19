@@ -22,9 +22,3 @@ For example, a player reconnects in the middle of a session and gets back in ste
 ## Can I use it?
 
 There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
-
-
-## Explanation videos
-
-* [Watch the NEXUS-PAN 90-second deep dive](https://chummer.run/media/horizons/nexus-pan-90s-deepdive.mp4).
-* [Watch the NEXUS-PAN epic reel](https://chummer.run/media/horizons/nexus-pan-epic-90s.mp4).

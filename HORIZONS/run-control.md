@@ -1,6 +1,6 @@
 # Run Control
 
-The GM can see the active scene, reconnect state, and recap handoff in one place.
+Session board, active-scene continuity, reconnect state, and recap return stay on one built-in control path.
 
 ![Run Control feature art](../assets/horizons/run-control.png)
 

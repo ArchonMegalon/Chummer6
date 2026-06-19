@@ -22,8 +22,3 @@ For example, a player finds a beginner-friendly run, applies with a legal runner
 ## Can I use it?
 
 Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
-
-
-## Explanation video
-
-[Watch the Community Hub 90-second deep dive](https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4).

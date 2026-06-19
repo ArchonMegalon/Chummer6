@@ -23,7 +23,7 @@ It is not the rules engine and some deeper support and admin screens are still b
 
 ## Current shape
 
-Hub already powers sign-in, landing and home views, participation, and community features, and it is still getting simpler behind the scenes. It connects account home, participation, rewards, and recovery without making users learn the plumbing.
+Hub already powers sign-in, landing and home views, participation, and community features, and it is still getting simpler behind the scenes. It exposes account-aware home and account state for claim, participation, reward, and recovery through the same account history path without making users learn the plumbing.
 
 ## Next
 
