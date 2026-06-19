@@ -22,6 +22,6 @@ Public ideas are public, so keep private campaign material out of them.
 
 ## You want to test a fix
 
-Use the participation page when you want hands-on testing or focused follow-up: [chummer.run/participate](https://chummer.run/participate). For normal public reports, use the GitHub issue tracker: [ArchonMegalon/Chummer6 issues](https://github.com/ArchonMegalon/Chummer6/issues).
+Use the [participation page](https://chummer.run/participate) when you want hands-on testing or focused follow-up. For normal public reports, use the GitHub issue tracker: [ArchonMegalon/Chummer6 issues](https://github.com/ArchonMegalon/Chummer6/issues).
 
 Participation is optional. It does not replace normal feedback, does not bypass review, and does not make a change real until it lands in an actual release.

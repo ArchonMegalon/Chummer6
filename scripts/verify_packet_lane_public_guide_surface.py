@@ -15,7 +15,9 @@ JACKPOINT_REQUIRED = (
     "The writing can be polished, but the facts still have to come from the session material the GM accepted.",
     "## The table problem",
     "## Can I use it?",
-    "https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4",
+    '<a href="https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">',
+    '<img src="../assets/horizons/jackpoint.png" alt="Jackpoint video preview" />',
+    "[Watch the Jackpoint 90-second deep dive](https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4).",
 )
 
 RUNSITE_REQUIRED = (
@@ -24,7 +26,9 @@ RUNSITE_REQUIRED = (
     "It is not a VTT replacement.",
     "## The table problem",
     "## Can I use it?",
-    "https://chummer.run/media/horizons/runsite-90s-deepdive.mp4",
+    '<a href="https://chummer.run/media/horizons/runsite-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">',
+    '<img src="../assets/horizons/runsite.png" alt="Runsite video preview" />',
+    "[Watch the Runsite 90-second deep dive](https://chummer.run/media/horizons/runsite-90s-deepdive.mp4).",
 )
 
 
@@ -33,7 +37,7 @@ def _check(path: Path, required: tuple[str, ...], failures: list[str]) -> None:
     for marker in required:
         if marker not in text:
             failures.append(f"{path.name} missing marker: {marker}")
-    for marker in ("signed-in command lane", "first-party briefing packets", "JSON routes", "connected-lane proof"):
+    for marker in ("signed-in command lane", "first-party briefing packets", "JSON routes", "connected-lane proof", "[Captions]", ".vtt"):
         if marker in text:
             failures.append(f"{path.name} still contains internal marker: {marker}")
 

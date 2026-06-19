@@ -27,14 +27,16 @@ The numbers should explain themselves faster. New or rusty users should have a f
 
 If something breaks, start with [Help](HELP.md) or [Contact](CONTACT.md). If the issue is safe to discuss in public, the help pages point you to the GitHub issue tracker too.
 
-If you want to help test a fix, use <https://chummer.run/participate>. Most people do not need that path; a clear bug report, a confusing sentence, or a screenshot of the broken thing is already useful.
+If you want to help test a fix, use the [participation page](https://chummer.run/participate). Most people do not need that path; a clear bug report, a confusing sentence, or a screenshot of the broken thing is already useful.
 
 ## First contact
 
-![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
+<a href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4" target="_blank" rel="noopener noreferrer">
+  <img src="assets/hero/chummer6-hero.png" alt="Chummer6 flagship promo preview" />
+</a>
 
 
-Watch [Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4). [Captions](https://chummer.run/media/promo/chummer6-flagship-promo.vtt).
+[Watch the Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).
 
 ## Campaign tools
 

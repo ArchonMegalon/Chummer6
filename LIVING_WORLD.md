@@ -6,7 +6,7 @@ It is for GMs and players who want the world to remember what just happened with
 
 ## When you use it
 
-Use [chummer.run/living-world](https://chummer.run/living-world) when a session leaves news, faction movement, or aftermath choices on the table and you want to keep the consequences together so the GM does not rebuild them from chat fragments.
+Use the [Living World page](https://chummer.run/living-world) when a session leaves news, faction movement, or aftermath choices on the table and you want to keep the consequences together so the GM does not rebuild them from chat fragments.
 
 ## What it gives the table
 

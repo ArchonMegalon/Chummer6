@@ -13,7 +13,7 @@ Help, contact, privacy, and terms pages are live.
 
 ## Release details
 
-- Published: June 19, 2026 at 0:49 UTC.
+- Published: June 19, 2026 at 14:05 UTC.
 - Release status: Published.
 
 ## Get Chummer, then use Help if setup goes sideways

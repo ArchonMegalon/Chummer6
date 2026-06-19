@@ -36,7 +36,7 @@ def main() -> int:
             raise ValueError(f"Runner Passport guide still reads like a route card: {marker}")
     for needle in (
         "Can this runner sit at my table without turning setup into homework?",
-        "[chummer.run/passport](https://chummer.run/passport)",
+        "](https://chummer.run/passport)",
         "A player sends one link for Kestrel",
         "what still needs a GM decision",
         "It is not a social score",

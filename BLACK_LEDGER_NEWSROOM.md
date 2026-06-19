@@ -6,7 +6,7 @@ It should feel like a real broadcast from the Chummer world, not a website anima
 
 ## Where to watch
 
-Start with the newsroom at [chummer.run/ledger/newsroom](https://chummer.run/ledger/newsroom). A sample episode lives at [chummer.run/ledger/newsroom/turn-1-newsreel](https://chummer.run/ledger/newsroom/turn-1-newsreel), with [transcript](https://chummer.run/ledger/newsroom/turn-1-newsreel/transcript) and supporting details beside it.
+Start with the [Black Ledger newsroom](https://chummer.run/ledger/newsroom). A [sample episode](https://chummer.run/ledger/newsroom/turn-1-newsreel) has its transcript and supporting details beside it.
 
 ## What to look for
 

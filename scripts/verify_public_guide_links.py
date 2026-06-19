@@ -17,8 +17,11 @@ DEFAULT_PUBLIC_ORIGIN = "https://chummer.run"
 LINK_RE = re.compile(
     r"!?\[[^\]]+\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)"
     r"|<((?:https?://|mailto:)[^>]+)>"
-    r"|(https?://[^\s)>,]+)"
+    r"|(https?://[^\s)>,\"']+)"
 )
+VISIBLE_AUTOLINK_RE = re.compile(r"`https?://[^`]+`|<https?://[^>]+>")
+URL_LINK_TEXT_RE = re.compile(r"\[((?:https?://|www\.|chummer\.run/)[^\]]+)\]\((https?://[^)]+)\)")
+CAPTION_FILE_RE = re.compile(r"\.vtt(?:\)|\s|$)", re.IGNORECASE)
 
 
 def _iter_markdown_files(root: Path) -> list[Path]:
@@ -73,6 +76,24 @@ def _check_http(url: str, timeout: int) -> str | None:
         return f"{exc.__class__.__name__}: {exc}"
 
 
+def _check_public_link_presentation(markdown_path: Path, root: Path, text: str) -> list[str]:
+    failures: list[str] = []
+    for line_number, line in enumerate(text.splitlines(), 1):
+        if VISIBLE_AUTOLINK_RE.search(line):
+            failures.append(
+                f"{markdown_path.relative_to(root)}:{line_number}: visible raw URL; use a titled link instead"
+            )
+        if URL_LINK_TEXT_RE.search(line):
+            failures.append(
+                f"{markdown_path.relative_to(root)}:{line_number}: URL used as link text; use a human-readable title"
+            )
+        if CAPTION_FILE_RE.search(line):
+            failures.append(
+                f"{markdown_path.relative_to(root)}:{line_number}: caption sidecar linked from public markdown"
+            )
+    return failures
+
+
 def _check_local_link(root: Path, source: Path, target: str) -> str | None:
     path_part, raw_fragment = _split_target(target)
     fragment = urllib.parse.unquote(raw_fragment)
@@ -97,6 +118,7 @@ def verify(root: Path, public_origin: str, check_http: bool, timeout: int) -> li
     failures: list[str] = []
     for markdown_path in _iter_markdown_files(root):
         text = markdown_path.read_text(encoding="utf-8")
+        failures.extend(_check_public_link_presentation(markdown_path, root, text))
         for line_number, line in enumerate(text.splitlines(), 1):
             for match in LINK_RE.finditer(line):
                 target = _clean_target(next(group for group in match.groups() if group))

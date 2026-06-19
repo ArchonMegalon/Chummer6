@@ -155,7 +155,7 @@ def main() -> int:
 
     if "Can this runner sit at my table without turning setup into homework?" not in runner_passport:
         failures.append("RUNNER_PASSPORT.md does not lead with the GM/player decision")
-    if "[chummer.run/passport](https://chummer.run/passport)" not in runner_passport:
+    if "](https://chummer.run/passport)" not in runner_passport:
         failures.append("RUNNER_PASSPORT.md is missing the public Runner Passport link")
     if "A player sends one link for Kestrel" not in runner_passport:
         failures.append("RUNNER_PASSPORT.md is missing a concrete human example")

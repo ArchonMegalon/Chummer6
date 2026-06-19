@@ -2,7 +2,9 @@
 
 Tables can evolve house rules without splintering into unreadable forks.
 
-![Karma Forge feature art](../assets/horizons/karma-forge.png)
+<a href="https://chummer.run/media/horizons/karma-forge-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/horizons/karma-forge.png" alt="Karma Forge video preview" />
+</a>
 
 ## When this helps
 
@@ -24,4 +26,4 @@ There is an early version you can try. It is real enough to learn from and still
 
 ## Explanation video
 
-[Watch the KARMA FORGE 90-second deep dive](https://chummer.run/media/horizons/karma-forge-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/karma-forge-90s-deepdive.vtt).
+[Watch the Karma Forge 90-second deep dive](https://chummer.run/media/horizons/karma-forge-90s-deepdive.mp4).

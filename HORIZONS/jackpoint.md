@@ -2,7 +2,9 @@
 
 The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show what they are based on.
 
-![Jackpoint feature art](../assets/horizons/jackpoint.png)
+<a href="https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/horizons/jackpoint.png" alt="Jackpoint video preview" />
+</a>
 
 ## When this helps
 
@@ -24,4 +26,4 @@ Parts of this already exist after sign-in, but I would still treat the larger id
 
 ## Explanation video
 
-[Watch the JACKPOINT 90-second deep dive](https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/jackpoint-90s-deepdive.vtt).
+[Watch the Jackpoint 90-second deep dive](https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4).

@@ -25,12 +25,14 @@ def main() -> int:
         "## The table problem",
         "## Can I use it?",
         "Parts of this already exist after sign-in",
-        "https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4",
+        '<a href="https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">',
+        '<img src="../assets/horizons/table-pulse.png" alt="Table Pulse video preview" />',
+        "[Watch the Table Pulse 90-second deep dive](https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4).",
         "without a surveillance dashboard",
     ):
         if needle not in text:
             raise ValueError(f"Table Pulse guide is missing humanized marker: {needle}")
-    for forbidden in ("signed-in command lane", "connected-lane proof", "governed aftermath", "bounded remote reaction"):
+    for forbidden in ("signed-in command lane", "connected-lane proof", "governed aftermath", "bounded remote reaction", "[Captions]", ".vtt"):
         if forbidden in text:
             raise ValueError(f"Table Pulse guide still contains internal marker: {forbidden}")
 

@@ -2,7 +2,9 @@
 
 GMs get a live heat-and-reaction tool today, plus private aftermath notes that stay away from player scoring.
 
-![Table Pulse feature art](../assets/horizons/table-pulse.png)
+<a href="https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/horizons/table-pulse.png" alt="Table Pulse video preview" />
+</a>
 
 ## When this helps
 
@@ -24,4 +26,4 @@ Parts of this already exist after sign-in, but I would still treat the larger id
 
 ## Explanation video
 
-[Watch the TABLE PULSE 90-second deep dive](https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/table-pulse-90s-deepdive.vtt).
+[Watch the Table Pulse 90-second deep dive](https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4).

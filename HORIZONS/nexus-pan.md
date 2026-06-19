@@ -2,7 +2,9 @@
 
 Shared state survives device churn without the table losing trust.
 
-![NEXUS-PAN feature art](../assets/horizons/nexus-pan.png)
+<a href="https://chummer.run/media/horizons/nexus-pan-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/horizons/nexus-pan.png" alt="NEXUS-PAN video preview" />
+</a>
 
 ## When this helps
 
@@ -24,5 +26,5 @@ There is an early version you can try. It is real enough to learn from and still
 
 ## Explanation videos
 
-* [Watch the NEXUS-PAN 90-second deep dive](https://chummer.run/media/horizons/nexus-pan-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/nexus-pan-90s-deepdive.vtt).
-* [Watch the NEXUS-PAN epic reel](https://chummer.run/media/horizons/nexus-pan-epic-90s.mp4). [Captions](https://chummer.run/media/horizons/nexus-pan-epic-90s.vtt).
+* [Watch the NEXUS-PAN 90-second deep dive](https://chummer.run/media/horizons/nexus-pan-90s-deepdive.mp4).
+* [Watch the NEXUS-PAN epic reel](https://chummer.run/media/horizons/nexus-pan-epic-90s.mp4).

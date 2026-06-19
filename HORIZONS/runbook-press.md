@@ -2,7 +2,9 @@
 
 Long-form publishing becomes something you can actually reuse instead of a ten-tool scramble.
 
-![Runbook Press feature art](../assets/horizons/runbook-press.png)
+<a href="https://chummer.run/media/horizons/runbook-press-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/horizons/runbook-press.png" alt="Runbook Press video preview" />
+</a>
 
 ## When this helps
 
@@ -24,4 +26,4 @@ There is an early version you can try. It is real enough to learn from and still
 
 ## Explanation video
 
-[Watch the RUNBOOK PRESS 90-second deep dive](https://chummer.run/media/horizons/runbook-press-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/runbook-press-90s-deepdive.vtt).
+[Watch the Runbook Press 90-second deep dive](https://chummer.run/media/horizons/runbook-press-90s-deepdive.mp4).

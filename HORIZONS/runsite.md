@@ -2,7 +2,9 @@
 
 Mission spaces become explorable and legible before the action starts.
 
-![Runsite feature art](../assets/horizons/runsite.png)
+<a href="https://chummer.run/media/horizons/runsite-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/horizons/runsite.png" alt="Runsite video preview" />
+</a>
 
 ## When this helps
 
@@ -24,4 +26,4 @@ Parts of this already exist after sign-in, but I would still treat the larger id
 
 ## Explanation video
 
-[Watch the RUNSITE 90-second deep dive](https://chummer.run/media/horizons/runsite-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/runsite-90s-deepdive.vtt).
+[Watch the Runsite 90-second deep dive](https://chummer.run/media/horizons/runsite-90s-deepdive.mp4).

@@ -6,7 +6,7 @@ It gives the organizer a clean character summary, the active ruleset, unresolved
 
 ## What you send
 
-When you are applying for an open run, joining a community game, or carrying a runner between tables, send the passport link: [chummer.run/passport](https://chummer.run/passport).
+When you are applying for an open run, joining a community game, or carrying a runner between tables, send the [passport page](https://chummer.run/passport).
 
 ## A normal example
 

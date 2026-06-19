@@ -10,8 +10,9 @@ README = ROOT / "README.md"
 COMMUNITY_HUB = ROOT / "HORIZONS" / "community-hub.md"
 
 README_REQUIRED = (
-    "Watch [Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).",
-    "[Captions](https://chummer.run/media/promo/chummer6-flagship-promo.vtt).",
+    '<a href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4" target="_blank" rel="noopener noreferrer">',
+    '<img src="assets/hero/chummer6-hero.png" alt="Chummer6 flagship promo preview" />',
+    "[Watch the Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).",
 )
 
 COMMUNITY_HUB_REQUIRED = (
@@ -22,7 +23,9 @@ COMMUNITY_HUB_REQUIRED = (
     "## The table problem",
     "## Can I use it?",
     "Parts of this already exist after sign-in",
-    "https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4",
+    '<a href="https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">',
+    '<img src="../assets/horizons/community-hub.png" alt="Community Hub video preview" />',
+    "[Watch the Community Hub 90-second deep dive](https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4).",
 )
 
 FORBIDDEN = (
@@ -32,6 +35,9 @@ FORBIDDEN = (
     "signed-in command lane",
     "governed open-run packets",
     "product name for that lane",
+    "[Captions]",
+    ".vtt",
+    "<https://chummer.run",
 )
 
 

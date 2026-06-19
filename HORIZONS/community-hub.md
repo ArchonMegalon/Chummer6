@@ -2,7 +2,9 @@
 
 A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
 
-![Community Hub feature art](../assets/horizons/community-hub.png)
+<a href="https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
+  <img src="../assets/horizons/community-hub.png" alt="Community Hub video preview" />
+</a>
 
 ## When this helps
 
@@ -24,4 +26,4 @@ Parts of this already exist after sign-in, but I would still treat the larger id
 
 ## Explanation video
 
-[Watch the COMMUNITY HUB 90-second deep dive](https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/community-hub-90s-deepdive.vtt).
+[Watch the Community Hub 90-second deep dive](https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4).
