@@ -30,9 +30,10 @@ def main() -> int:
     migration = _load_text(MIGRATION_PATH)
 
     _require_contains("README.md", readme, str(packet.get("shelf_truth_line") or ""))
-    _require_contains("README.md", readme, str(packet.get("proof_scope_line") or ""))
-    if "Public wording stays tied to files and flows that are actually available now." not in readme:
-        raise ValueError("README.md lost the user-facing availability boundary rewrite")
+    _require_contains("README.md", readme, str(packet.get("short_release_summary") or ""))
+    _require_contains("README.md", readme, str(packet.get("desktop_pick_line") or ""))
+    if "honest pitch" not in readme or "Start here if you just want the answer" not in readme:
+        raise ValueError("README.md lost the human first-answer framing")
 
     _require_contains("STATUS.md", status, str(packet.get("shelf_truth_line") or ""))
     release_status = str(packet.get("release_status") or "").strip()
@@ -40,49 +41,52 @@ def main() -> int:
         _require_contains("STATUS.md", status, f"- Release status: {release_status}.")
     missing_installer_lane_line = str(packet.get("missing_installer_lane_line") or "").strip()
     architecture_scope_line = str(packet.get("architecture_scope_line") or "").strip()
-    if missing_installer_lane_line:
-        _require_contains("README.md", readme, missing_installer_lane_line)
+    missing_platforms = list(packet.get("missing_platforms") or [])
+    if missing_platforms and missing_installer_lane_line:
         _require_contains("STATUS.md", status, missing_installer_lane_line)
     if architecture_scope_line:
-        _require_contains("README.md", readme, architecture_scope_line)
         _require_contains("STATUS.md", status, architecture_scope_line)
 
-    if "Proof scope:" not in download or "blanket flagship" not in download:
-        raise ValueError("DOWNLOAD.md lost the proof-scope boundary")
+    if "Proof scope:" in download or "Claim boundary:" in download or "blanket flagship" in download:
+        raise ValueError("DOWNLOAD.md reintroduced proof-scope copy")
+    if "That is the human answer." not in download:
+        raise ValueError("DOWNLOAD.md lost the human download recommendation")
     if "chummer.run" not in download:
         raise ValueError("DOWNLOAD.md lost the chummer.run download authority")
     _require_contains("DOWNLOAD.md", download, str(packet.get("shelf_truth_line") or ""))
+    _require_contains("DOWNLOAD.md", download, str(packet.get("release_verification_summary") or ""))
+    _require_contains("DOWNLOAD.md", download, str(packet.get("known_issue_summary") or ""))
 
     visible_platforms = list(packet.get("available_platforms") or packet.get("desktop_platforms_visible") or [])
-    missing_platforms = list(packet.get("missing_platforms") or [])
 
     if visible_platforms:
         if len(visible_platforms) == 1:
-            try_line = f"- Today you can try preview builds on {visible_platforms[0]}."
+            try_line = f"Today you can try preview builds on {visible_platforms[0]}."
         elif len(visible_platforms) == 2:
-            try_line = f"- Today you can try preview builds on {visible_platforms[0]} and {visible_platforms[1]}."
+            try_line = f"Today you can try preview builds on {visible_platforms[0]} and {visible_platforms[1]}."
         else:
-            try_line = f"- Today you can try preview builds on {', '.join(visible_platforms[:-1])}, and {visible_platforms[-1]}."
+            try_line = f"Today you can try preview builds on {', '.join(visible_platforms[:-1])}, and {visible_platforms[-1]}."
         _require_contains("FROM_CHUMMER5A_TO_CHUMMER6.md", migration, try_line)
 
     if missing_platforms:
         if len(missing_platforms) == 1:
-            wait_line = f"- If you rely on {missing_platforms[0]} as your main platform, wait before switching full time."
-            warning_line = f"- Current warning: There is still no public {missing_platforms[0]} installer."
+            wait_line = f"If you rely on {missing_platforms[0]} as your main platform, wait before switching full time."
+            warning_line = (
+                f"{missing_platforms[0]} does not have a normal installer yet."
+            )
         elif len(missing_platforms) == 2:
-            wait_line = f"- If you rely on {missing_platforms[0]} and {missing_platforms[1]} as your main platform, wait before switching full time."
-            warning_line = f"- Current warning: Public installers are still missing for {missing_platforms[0]} and {missing_platforms[1]}."
+            wait_line = f"If you rely on {missing_platforms[0]} and {missing_platforms[1]} as your main platform, wait before switching full time."
+            warning_line = f"{missing_platforms[0]} and {missing_platforms[1]} do not have normal installers yet."
         else:
             wait_line = (
-                f"- If you rely on {', '.join(missing_platforms[:-1])}, and {missing_platforms[-1]} as your main platform, "
+                f"If you rely on {', '.join(missing_platforms[:-1])}, and {missing_platforms[-1]} as your main platform, "
                 "wait before switching full time."
             )
             warning_line = (
-                f"- Current warning: Public installers are still missing for {', '.join(missing_platforms[:-1])}, "
-                f"and {missing_platforms[-1]}."
+                f"{', '.join(missing_platforms[:-1])}, and {missing_platforms[-1]} do not have normal installers yet."
             )
         _require_contains("FROM_CHUMMER5A_TO_CHUMMER6.md", migration, wait_line)
-        _require_contains("DOWNLOAD.md", download, warning_line)
+        _require_contains("STATUS.md", status, warning_line)
 
     print("chummer6_docs_release_truth:ok")
     return 0

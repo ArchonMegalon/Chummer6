@@ -1,31 +1,25 @@
 # Black Ledger Newsroom
 
-Black Ledger Newsroom turns public-safe Chummer receipts into believable in-world video bulletins.
+Black Ledger Newsroom turns selected campaign events into believable in-world video bulletins.
 
 It should feel like a real broadcast from the Chummer world, not a website animation.
 
-## Public routes
+## Where to watch
 
-- Latest bulletin rail: `/ledger/newsroom`
-- Episode watch route: `/ledger/newsroom/turn-1-newsreel`
-- Transcript route: `/ledger/newsroom/turn-1-newsreel/transcript`
-- Receipt packet route: `/ledger/newsroom/turn-1-newsreel/receipts`
+Start with the newsroom at [chummer.run/ledger/newsroom](https://chummer.run/ledger/newsroom). A sample episode lives at [chummer.run/ledger/newsroom/turn-1-newsreel](https://chummer.run/ledger/newsroom/turn-1-newsreel), with [transcript](https://chummer.run/ledger/newsroom/turn-1-newsreel/transcript) and supporting details beside it.
 
-## What it has to do
+## What to look for
 
-- Keep a host, lower thirds, captions, audio, and first-party media assets on one governed public rail.
-- Turn public-safe receipts into a bounded newsroom bulletin instead of loose promo fragments.
-- Keep transcript and receipt links adjacent to the watch surface so the story stays inspectable.
-- Make clear when footage is reconstructed from public-safe receipts instead of literal capture.
+A good bulletin keeps the host, lower thirds, captions, audio, transcript, and supporting details together. It should feel like an in-world broadcast made from selected campaign events, while staying clear when footage is reconstructed rather than literal table capture.
 
-## Hard boundaries
+## What stays out
 
 - No private campaign details.
 - No runner names without consent.
 - No GM secrets.
 - No sourcebook text.
 - No real person or public figure likenesses.
-- No provider branding or unproven product claims.
+- No tool branding or marketing promises the current page cannot support.
 
 ## Read next
 

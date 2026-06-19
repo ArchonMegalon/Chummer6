@@ -10,17 +10,21 @@ JACKPOINT = ROOT / "HORIZONS" / "jackpoint.md"
 RUNSITE = ROOT / "HORIZONS" / "runsite.md"
 
 JACKPOINT_REQUIRED = (
-    "- Today: Signed-in command lane is live.",
-    "- Next: Expand bounded coaching and fallout follow-through.",
-    "The signed-in command lane is already live at `https://chummer.run/jackpoint`.",
-    "That lane currently carries first-party briefing packets on real markdown and JSON routes without pretending the whole long-form publishing roadmap is done.",
+    "# Jackpoint",
+    "Use this when a recap, dossier, or briefing needs to look finished enough to share.",
+    "The writing can be polished, but the facts still have to come from the session material the GM accepted.",
+    "## The table problem",
+    "## Can I use it?",
+    "https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4",
 )
 
 RUNSITE_REQUIRED = (
-    "- Today: Signed-in command lane is live.",
-    "- Next: Expand bounded coaching and fallout follow-through.",
-    "The signed-in command lane is already live at `https://chummer.run/runsites`.",
-    "That lane currently carries first-party runsite packs on real markdown and JSON routes without pretending the whole spatial roadmap is done.",
+    "# Runsite",
+    "Use this before a mission when the players keep misreading the space.",
+    "It is not a VTT replacement.",
+    "## The table problem",
+    "## Can I use it?",
+    "https://chummer.run/media/horizons/runsite-90s-deepdive.mp4",
 )
 
 
@@ -29,6 +33,9 @@ def _check(path: Path, required: tuple[str, ...], failures: list[str]) -> None:
     for marker in required:
         if marker not in text:
             failures.append(f"{path.name} missing marker: {marker}")
+    for marker in ("signed-in command lane", "first-party briefing packets", "JSON routes", "connected-lane proof"):
+        if marker in text:
+            failures.append(f"{path.name} still contains internal marker: {marker}")
 
 
 def main() -> int:

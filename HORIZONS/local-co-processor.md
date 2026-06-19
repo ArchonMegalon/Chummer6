@@ -1,28 +1,22 @@
-# LOCAL CO-PROCESSOR
+# Local Co-Processor
 
 Local acceleration improves privacy and responsiveness where available without becoming mandatory infrastructure.
 
-![LOCAL CO-PROCESSOR feature art](../assets/horizons/local-co-processor.png)
+![Local Co-Processor feature art](../assets/horizons/local-co-processor.png)
 
-## Why this matters
+## When this helps
+
+This should stay quiet. If someone has a strong local machine, some expensive explain or media work may get faster. If they do not, Chummer should still work.
+
+A feature that only works on one monster PC is not a normal product feature.
+
+## The table problem
 
 Some tasks would be cheaper or faster locally, but the product cannot assume local compute exists.
 
-Picture the scene: A creator with a strong local machine opts into accelerated explain or media assistance while the same workflow still works hosted-only for everyone else.
+For example, a creator with a strong local machine opts into accelerated explain or media assistance while the same workflow still works hosted-only for everyone else.
 
 
-## Current stage
+## Can I use it?
 
-- Today: You can try the first real slice today.
-- Next: Make the slice richer, steadier, and easier to trust.
-
-## The problem
-
-Some explain, search, and media-assist workloads would be cheaper, faster, or more private with optional local acceleration, but the product cannot require every user to run local compute.
-
-## What has to be true first
-
-* portable deterministic engine host strategy
-* hosted-first parity
-* explicit non-mandatory local runtime policy
-* disableable local acceleration paths
+There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.

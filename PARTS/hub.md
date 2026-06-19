@@ -4,30 +4,27 @@ The online side that keeps sign-in, coordination, and community features boring.
 
 ![Hub guide art](../assets/parts/hub.png)
 
-## When you care
+## When this matters
 
 You sign in, sync across devices, follow what is coming next, or use participation and recognition features.
 
-## Why you care
+## Why it exists
 
 It keeps accounts, shared coordination, and community features from turning into manual glue work.
 
-## What you notice
+## What you should feel
 
-- sign-in and account pages
-- public landing, home, and participation entry points
-- shared coordination, release status, and recognition views that make sense without learning the plumbing behind them
+Sign-in and account pages, public landing, home, and participation entry points, and shared coordination, release status, and recognition views that make sense without learning the plumbing behind them.
 
-## Current limits
+## What not to expect here
 
-- it is not the rules engine
-- some deeper support and admin screens are still being simplified
+It is not the rules engine and some deeper support and admin screens are still being simplified.
 
-## Current state
 
-Hub already powers sign-in, landing and home views, participation, and community features, and it is still getting simpler behind the scenes. It now carries account-aware home and account posture for claim, participation, reward, and recovery on the same community-ledger path.
+## Current shape
 
-## Go deeper
+Hub already powers sign-in, landing and home views, participation, and community features, and it is still getting simpler behind the scenes. It connects account home, participation, rewards, and recovery without making users learn the plumbing.
 
-- ../NOW/current-status.md
-- ../WHERE_TO_GO_DEEPER.md
+## Next
+
+Then read [Where To Go Deeper](../WHERE_TO_GO_DEEPER.md).

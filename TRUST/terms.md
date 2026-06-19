@@ -1,10 +1,10 @@
-# Preview terms in plain language
+# Terms in plain language
 
-These are the plain rules for the current preview: early access, honest labels, real downloads, and straightforward support.
+These are the plain rules for the current app: honest labels, real downloads, and straightforward support.
 
-## The product is real, but still early access
+## Labels should say what you can install
 
-Expect real pages, current downloads, visible proof, and explicit preview labels when support, compatibility, or breadth are still moving.
+Expect current downloads and explicit labels when support, compatibility, or breadth are still moving.
 
 ## Sign-in is simple, and support starts with Chummer
 

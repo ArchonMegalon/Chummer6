@@ -1,28 +1,27 @@
 {
-  "architecture_scope_line": "Current public desktop scope covers Linux x64 and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.",
+  "architecture_scope_line": "Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.",
   "available_platforms": [
     "Windows",
     "Linux"
   ],
   "build_label": "",
-  "claim_boundary_line": "Experimental surfaces stay behind lab routes until their visuals, behavior, and tests are ready for normal users.",
-  "desktop_pick_line": "If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it.",
+  "desktop_pick_line": "Because my capsule-region insult did not exactly upgrade my decision-making process, I have not made the final Avalonia-versus-Blazor call yet. For today: start with Avalonia, and treat Blazor Desktop as the alternate if a page or support points you there.",
   "fallback_heads": [
     "Chummer.Blazor.Desktop"
   ],
-  "fix_availability_summary": "Only expect fix notices after the affected download is available on the same public shelf.",
+  "fix_availability_summary": "Only expect fix notices after the affected download is available on the download page.",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
-  "known_issue_summary": "No blocking release caveat is mirrored, and the downloads page has recent setup, account return, release updates, community wrap-up, offline-ready prefetch, and current support follow-up coverage.",
-  "missing_installer_lane_line": "Promoted installer coverage is visible on every promised desktop platform.",
+  "known_issue_summary": "No blocking download issue is listed for the current installers.",
+  "missing_installer_lane_line": "Normal installers are available on every promised desktop platform.",
   "missing_platforms": [],
   "phase_label": "Current release build",
   "primary_head": "Chummer.Avalonia",
-  "proof_scope_line": "Public pages focus on the builds, platforms, and workflows a player can actually try today; downloads remain the primary route for trying Chummer.",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "June 19, 2026 at 0:29 UTC",
+  "published_at": "June 19, 2026 at 0:49 UTC",
   "quality_gap_line": "Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.",
   "release_status": "Published",
   "release_status_slug": "published",
-  "release_verification_summary": "Passed for installs and recovery, campaign session recovery, and support follow-up.",
-  "shelf_truth_line": "Downloads are currently live for Windows and Linux."
+  "release_verification_summary": "This build handles installs and recovery, campaign session recovery, and support follow-up.",
+  "shelf_truth_line": "Windows and Linux downloads are posted.",
+  "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time."
 }

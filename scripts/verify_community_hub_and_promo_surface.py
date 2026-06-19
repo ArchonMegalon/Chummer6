@@ -10,24 +10,28 @@ README = ROOT / "README.md"
 COMMUNITY_HUB = ROOT / "HORIZONS" / "community-hub.md"
 
 README_REQUIRED = (
-    "Watch the current product reel: https://chummer.run/media/promo/chummer6-flagship-promo.mp4, MP4 with AAC audio. Captions are at https://chummer.run/media/promo/chummer6-flagship-promo.vtt.",
+    "Watch [Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).",
+    "[Captions](https://chummer.run/media/promo/chummer6-flagship-promo.vtt).",
 )
 
 COMMUNITY_HUB_REQUIRED = (
-    "# COMMUNITY HUB",
+    "# Community Hub",
     "A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.",
-    "- Today: Signed-in command lane is live.",
-    "- Next: Make the coaching deeper without loosening the boundaries.",
-    "COMMUNITY HUB would turn BLACK LEDGER and campaign prep into a practical recruitment, scheduling, prep, and closeout layer.",
-    "COMMUNITY HUB is the product name for that lane.",
-    "The signed-in command lane is already live at `https://chummer.run/community`.",
-    "That lane currently carries governed open-run packets, venue handoff, and community closeout without pretending the whole long-range community roadmap is done.",
+    "Use this when the hard part is no longer one legal character, but getting a real table together.",
+    "A GM should be able to publish a beginner-friendly run and see who fits before the evening dissolves into chat archaeology.",
+    "## The table problem",
+    "## Can I use it?",
+    "Parts of this already exist after sign-in",
+    "https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4",
 )
 
 FORBIDDEN = (
     "SHADOWCASTERS NETWORK",
     "Shadowcasters Network",
     "https://chummer.run/ledger#newsreel-player",
+    "signed-in command lane",
+    "governed open-run packets",
+    "product name for that lane",
 )
 
 

@@ -1,40 +1,19 @@
 # Living World
 
-Living World is the first-party between-session continuity route that keeps the watch package, Table Pulse follow-through, Runner Passport, and aftermath rail attached to the same governed turn.
+Living World is the between-session page for tables that want campaign consequences to stay visible after the session ends.
 
-## Public route
+It is for GMs and players who want the world to remember what just happened without turning Chummer into an automatic storyteller with a clipboard.
 
-- Live route: `/living-world`
-- Public posture: governed between-session continuity
-- Boundary: not autonomous simulation and not detached world authority
+## When you use it
 
-## What it does
+Use [chummer.run/living-world](https://chummer.run/living-world) when a session leaves news, faction movement, or aftermath choices on the table and you want to keep the consequences together so the GM does not rebuild them from chat fragments.
 
-- Keeps Living Newsroom watch framing attached to the same turn as command follow-through
-- Connects inbox reactions, leader command, Runner Passport, and aftermath return
-- Gives the between-session lane a first-party page instead of leaving it as concept-only copy
+## What it gives the table
 
-## Connected lane
+A place for watch packages, inbox reactions, leader briefings, Runner Passport continuity, and aftermath follow-up to stay attached to the same turn instead of spreading across five chats and half a brain's worth of memory.
 
-Living World now connects cleanly to:
+## What it is not
 
-- the public-safe watch package
-- the signed-in Table Pulse inbox
-- leader briefing and faction command
-- Runner Passport continuity
-- governed aftermath return loops
+It does not replace the GM, reveal secrets, or run the campaign by itself.
 
-## Receipt rails
-
-- `/living-world/receipts/watch_package_posture.md`
-- `/living-world/receipts/watch_package_posture.json`
-- `/living-world/receipts/command_followthrough_boundary.md`
-- `/living-world/receipts/command_followthrough_boundary.json`
-- `/living-world/receipts/newsroom_aftermath_loop.md`
-- `/living-world/receipts/newsroom_aftermath_loop.json`
-
-## Read next
-
-- [Runner Passport](RUNNER_PASSPORT.md)
-- [Table Pulse](HORIZONS/table-pulse.md)
-- [Work aftermath rail](/account/work#aftermath-packages)
+If the next question is whether a runner belongs at the table, use [Runner Passport](RUNNER_PASSPORT.md). If the table wants live pressure during play, read [Table Pulse](HORIZONS/table-pulse.md).

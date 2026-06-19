@@ -1,65 +1,27 @@
-# COMMUNITY HUB
+# Community Hub
 
 A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
 
-![COMMUNITY HUB feature art](../assets/horizons/community-hub.png)
+![Community Hub feature art](../assets/horizons/community-hub.png)
 
-## Why this matters
+## When this helps
+
+Use this when the hard part is no longer one legal character, but getting a real table together. The useful version is not a new social network; it is a cleaner path from open run to accepted players, scheduling, table expectations, and closeout.
+
+A GM should be able to publish a beginner-friendly run and see who fits before the evening dissolves into chat archaeology.
+
+## The table problem
 
 Finding a table still means juggling community rules, approvals, chats, calendars, and follow-up by hand.
 
-Picture the scene: A player finds a beginner-friendly run, applies with a legal runner or quickstart decker, gets scheduled, and the finished session changes the city.
+For example, a player finds a beginner-friendly run, applies with a legal runner or quickstart decker, gets scheduled, and the finished session changes the city.
 
 
-## Current stage
+## Can I use it?
 
-- Today: Signed-in command lane is live.
-- Next: Make the coaching deeper without loosening the boundaries.
+Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
+
 
 ## Explanation video
 
-[Watch the COMMUNITY HUB 90-second deep dive](https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4) - MP4 with AAC audio. [Captions](https://chummer.run/media/horizons/community-hub-90s-deepdive.vtt).
-
-
-## The problem
-
-Finding a table still means juggling community rules, approvals, chats, calendars, meeting links, roster notes, and after-session follow-up just to get the right people to the table and close the loop afterward.
-
-## What it would do
-
-COMMUNITY HUB would turn BLACK LEDGER and campaign prep into a practical recruitment, scheduling, prep, and closeout layer.
-
-It would let a GM:
-
-* publish an open run from a job packet, custom run, or creator module
-* accept join requests tied to player accounts and runner dossiers or approved quickstarts
-* apply a visible community rule environment and application preflight before roster lock
-* give players a clear table contract before scheduling
-* schedule the session through a Chummer-owned receipt path
-* hand accepted players off to Discord, Teams, or another meeting space without giving those tools run truth
-* export runner, opposition, and handout packets to play surfaces without making those play surfaces authoritative
-* give a first-time GM enough autopilot structure to run a beginner table
-* collect a resolution report that feeds the living world back into BLACK LEDGER
-* optionally award seasonal honors and runner-legends from typed, spoiler-safe events
-
-The public fantasy is:
-
-> A GM opens a run on the map.
-> The right players find it.
-> Chummer gets the table into the session.
-> The outcome changes the city.
-
-COMMUNITY HUB is the product name for that lane.
-
-The signed-in command lane is already live at `https://chummer.run/community`.
-That lane currently carries governed open-run packets, venue handoff, and community closeout without pretending the whole long-range community roadmap is done.
-
-## What has to be true first
-
-* BLACK LEDGER job packets and world consequences must already be trustworthy enough to seed open runs
-* campaign and run truth must remain Chummer-owned even when meeting platforms are involved
-* community rule environments, roster fit, and rule-environment preflight must be explainable rather than magical
-* quickstart and mobile-first entry paths must be good enough that “no Windows PC” is not an automatic exclusion
-* a beginner GM must be able to open, staff, prep, schedule, and close a starter run without stitching together five external tools
-* observer and debrief lanes must be strictly consent-gated
-* reputation and seasonal honors must derive from typed source events rather than hidden scoring
+[Watch the COMMUNITY HUB 90-second deep dive](https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/community-hub-90s-deepdive.vtt).

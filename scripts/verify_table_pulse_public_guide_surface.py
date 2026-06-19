@@ -18,25 +18,21 @@ def main() -> int:
     text = _load_text(TABLE_PULSE_PATH)
 
     for needle in (
-        "- Today: Signed-in command lane is live.",
-        "- Next: Expand bounded coaching and fallout follow-through.",
-        "live heat-and-reaction rail today and a separate private aftermath coaching rail",
-        "## The two rails",
-        "### Table Pulse Live",
-        "### Table Pulse Aftermath",
-        "### World heat",
-        "### Table-dynamics heat",
-        "## What is live now",
-        "Table Pulse Live on the signed-in command lane",
-        "Black Ledger notifications route",
-        "bounded remote reaction mini-games",
-        "Living Newsroom watch framing",
-        "governed aftermath return loops",
-        "GM-private",
-        "not surveillance",
+        "# Table Pulse",
+        "GMs get a live heat-and-reaction tool today, plus private aftermath notes that stay away from player scoring.",
+        "Use Table Pulse when the table needs live pressure without a surveillance dashboard.",
+        "Private aftermath, remote reactions, quiet hours, and opt-outs are part of the feature",
+        "## The table problem",
+        "## Can I use it?",
+        "Parts of this already exist after sign-in",
+        "https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4",
+        "without a surveillance dashboard",
     ):
         if needle not in text:
-            raise ValueError(f"Table Pulse guide is missing connected-lane proof: {needle}")
+            raise ValueError(f"Table Pulse guide is missing humanized marker: {needle}")
+    for forbidden in ("signed-in command lane", "connected-lane proof", "governed aftermath", "bounded remote reaction"):
+        if forbidden in text:
+            raise ValueError(f"Table Pulse guide still contains internal marker: {forbidden}")
 
     print("table_pulse_public_guide_surface:ok")
     return 0

@@ -1,21 +1,64 @@
 # Campaign tools
 
-Use this index when you want the larger campaign picture: living-world tools, dossiers, table control, publishing, and long-term ideas around the character builder.
-Some pages describe early slices that already exist. Others are future-facing. Start with the current status when you need the exact availability picture.
+Open this when the character builder is no longer the whole question and the table starts asking, "what happens next?"
+
+The goal is not a shelf full of shiny names. The goal is to make campaign work easier without burying the GM under another pile of dashboards. If a name does not help a player or GM decide what to do next, it does not deserve front-page real estate.
 
 ![Chummer6 horizons index art](../assets/pages/horizons-index.png)
 
-- [NEXUS-PAN](nexus-pan.md)
-- [ALICE](alice.md)
-- [ORIGIN DOSSIER](origin-dossier.md)
-- [KARMA FORGE](karma-forge.md)
-- [JACKPOINT](jackpoint.md)
-- [RUNSITE](runsite.md)
-- [RUNBOOK PRESS](runbook-press.md)
-- [GHOSTWIRE](ghostwire.md)
-- [TABLE PULSE](table-pulse.md)
-- [RUN CONTROL](run-control.md)
-- [EDITION STUDIO](edition-studio.md)
-- [LOCAL CO-PROCESSOR](local-co-processor.md)
-- [QUICKSILVER](quicksilver.md)
-- [COMMUNITY HUB](community-hub.md)
+
+## Closest to the table
+
+Start here when you want help with the runner, the session, or what carries over afterward.
+
+### [NEXUS-PAN](nexus-pan.md)
+
+Shared state survives device churn without the table losing trust.
+
+### [ALICE](alice.md)
+
+Builders get clear what-if tests instead of black-box advice.
+
+### [Origin Dossier](origin-dossier.md)
+
+The player gets an accepted origin story, portraits, narration, and later ALICE context without letting backstory prose rewrite the sheet.
+
+### [Table Pulse](table-pulse.md)
+
+GMs get a live heat-and-reaction tool today, plus private aftermath notes that stay away from player scoring.
+
+
+## Bigger ideas
+
+Read these when you want to see where Chummer can go after the builder works for you.
+
+### [Karma Forge](karma-forge.md)
+
+Tables can evolve house rules without splintering into unreadable forks.
+
+### [Jackpoint](jackpoint.md)
+
+The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show what they are based on.
+
+### [Runsite](runsite.md)
+
+Mission spaces become explorable and legible before the action starts.
+
+### [Runbook Press](runbook-press.md)
+
+Long-form publishing becomes something you can actually reuse instead of a ten-tool scramble.
+
+### [Ghostwire](ghostwire.md)
+
+Tables can replay, inspect, and compare what happened without making a second version of the session.
+
+### [Community Hub](community-hub.md)
+
+A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
+
+
+## Better inside the normal app
+
+Some ideas work better as quiet support than as another named place to visit. Devs are allowed to be roasted when every helper becomes a product name.
+
+That is where Run Control, Edition Studio, Local Co-Processor, and Quicksilver belong right now.

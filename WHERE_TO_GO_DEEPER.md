@@ -1,20 +1,21 @@
 # Where To Go Deeper
 
-Use this page when the friendly tour is no longer enough.
+Use this after the quick pages stop being enough.
 
-## Pick the deeper path that matches your question
+## I want the product answer
 
-- Read the design notes when you want the long-range plan, tradeoffs, and future direction.
-- Open the software repos when you want the technical details behind the current work.
-- Use [How Can I Help?](HOW_CAN_I_HELP.md) when you want to report a problem, suggest an improvement, or use the optional guided contribution path.
+Most players and GMs should read [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [Status](STATUS.md), then [Download](DOWNLOAD.md). If something fails, [Help](HELP.md) is the next stop.
 
-## What each path is for
+## I want the campaign tools
 
-- Design notes: the long-range plan
-- Software repos: the working software
-- Chummer6: the short public guide
+[Campaign tools](HORIZONS/README.md) covers the larger table story: ALICE, Origin Dossier, Table Pulse, NEXUS-PAN, and the ideas that matter after the character sheet is no longer the whole problem.
 
-## When to come back to the simple version
+## I want to report or improve something
 
-If the guide feels stale or confusing, call it out through the public issue path.
-If you want the shorter visitor-first version again, come back to Chummer6.
+Use [How Can I Help?](HOW_CAN_I_HELP.md) for bugs, confusing docs, feature requests, and hands-on testing.
+
+## I want the technical details
+
+The software repos and design notes are for implementation details and long-range tradeoffs. Most people never need them to install Chummer6, try it, or report a problem.
+
+Come back here when you want the shorter user-facing version again.

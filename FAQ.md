@@ -1,8 +1,8 @@
 # FAQ
 
-This page supports the flagship shell by answering the normal questions around `Home`, `Get Chummer`, `What works today`, `Worlds`, `Account`, and `Help`.
+Ask the questions a GM, player, or tired maintainer would ask before trusting this at a table.
 
-## Home, Get Chummer, and What works today
+## Questions people actually ask first
 
 ### Can I actually use this now?
 
@@ -14,7 +14,7 @@ That is one of the core goals. Chummer6 is being built so bad connectivity does 
 
 ### Why would I trust it more than old opaque tool behavior?
 
-Because Chummer6 is trying to show how it reached an answer instead of asking you to accept mystery math.
+Because Chummer6 is trying to show the pieces behind a result instead of asking you to accept mystery math.
 
 ### What is preview versus available today?
 
@@ -24,19 +24,19 @@ Available today means you can open it or download it right now. Preview means yo
 
 Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [Status](STATUS.md), then [Download](DOWNLOAD.md). If the real argument is about how the math is explained, show them [Core](PARTS/core.md).
 
-## Worlds, Account, and Help
+## When something is weird or broken
 
 ### How do I report something?
 
-Start with bug reports, documentation feedback, and feature requests. If you want to help more directly, there is also an optional guided contribution path.
+Start with a bug report, documentation note, or feature request. If you want to help test or shape a fix, use the participation page.
 
-### What is guided contribution?
+### Can I help with fixes or testing?
 
-Guided contribution is an optional hands-on path for people who want to help more directly. It does not replace normal feedback or bug reports.
+Yes. The participation page explains hands-on help for people who want to do more than leave feedback. It does not replace normal bug reports.
 
-### Do I need to join guided contribution to help?
+### Do I need to join anything to help?
 
-No. Normal bug reports, documentation feedback, and feature requests still matter. Guided contribution is optional.
+No. Normal bug reports, documentation feedback, and feature requests still matter.
 
 ### Should I use the public issue tracker for a crash?
 
@@ -46,7 +46,7 @@ Use the in-product private crash path when logs or diagnostics are involved. Use
 
 Because some parts are good enough to try before every platform, install flow, and support path is equally polished.
 
-### Will guided-preview access open wider later?
+### Will preview access open wider later?
 
 That is the goal. Early access may stay narrow while support cost, polish work, or approvals are still unusually high.
 
@@ -56,7 +56,7 @@ Yes. Public recognition should remain opt-in, and private participation should s
 
 ### What are badges and leaderboards for?
 
-They are recognition and visibility features, not authority. They should celebrate verified contribution without replacing review or the rules themselves.
+They are thank-yous, not power. They should celebrate useful help without replacing review or the rules themselves.
 
 ### Would I need a Windows PC to join a run?
 
@@ -64,13 +64,13 @@ No. The intended direction is that browsing runs, applying with a quickstart or 
 
 ### Is Chummer trying to replace Discord or VTTs?
 
-No. The intended posture is that Chummer owns rules, applications, scheduling records, and world consequences, while Discord, Teams, and VTTs remain play or communication surfaces.
+No. Chummer should handle rules, applications, scheduling records, and campaign consequences while Discord, Teams, and VTTs stay useful places to talk and play.
 
 ## If you want more detail
 
-### Where does the deeper plan live?
+### Where should I look after this?
 
-Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.
+Start with Where To Go Deeper. It points to the optional pages without making most readers wade through planning material first.
 
 ### Where does the actual code live?
 

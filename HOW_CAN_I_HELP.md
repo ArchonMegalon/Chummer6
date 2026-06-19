@@ -1,70 +1,27 @@
 # How Can I Help?
 
-If you want to help Chummer6, start with the public route that matches what happened. Public feedback comes first. Guided contribution is optional.
+No short answers yet. Seriously: ask me, folks.
 
-## Report a bug or confusing page
+Good feedback usually starts with the actual moment that failed: what you tried, what happened, and what you expected. That is more useful than a perfect bug-report template written by someone with functioning fingers and a suspicious amount of sleep.
 
-- File a public bug when something breaks or behaves strangely.
-- Flag confusing guide copy when a visitor would get lost before they reach the product.
-- Use Chummer Help instead of the idea board for support, account, install, crash, or private cases.
+## Something broke
 
-## Get help privately
+Use a public issue when the bug is safe to discuss in public. Use Chummer Help or Contact for crashes, account trouble, private logs, campaign spoilers, or anything with personal data.
 
-- Use Chummer Help or Contact when the problem is support, install, account, crash, or anything private.
-- Do not post private logs, account data, campaign spoilers, or copyrighted rules text in public feedback lanes.
+Tell us the page, build, operating system, and the shortest path that reproduces the problem. A screenshot is welcome when it saves everyone from guessing.
 
-## Suggest a feature or future idea
+## Something was confusing
 
-If you want to help without touching the optional guided contribution path at all, use the normal public routes:
+Point to the exact sentence, screen, or download step that lost you. If you came from Chummer5a, say which old habit did not map cleanly. That is how the docs get less weird.
 
-- file a public bug
-- send lightweight product feedback
-- flag confusing public copy
-- suggest a future lane
-- point at a horizon that sounds more useful than the current list
-- suggest or vote on a public idea when it is not support, account, install, crash, private campaign, or copyrighted rules text
+## You have an idea
 
-That keeps feedback public and searchable instead of sending normal users into private side channels or project archaeology.
+Feature requests are welcome when they describe a real table problem. "I need this because my GM/player/table does X" beats a broad roadmap wish every time.
 
-Public idea-board feedback is public. Do not post private logs, account data, campaign spoilers, copyrighted source text, crash dumps, or support requests there. Use Chummer Help for support.
+Public ideas are public, so keep private campaign material out of them.
 
-The public idea board is not the support queue, the release checklist, or the final roadmap authority.
+## You want to test a fix
 
-## Use the optional guided contribution path
+Use the participation page when you want hands-on testing or focused follow-up: [chummer.run/participate](https://chummer.run/participate). For normal public reports, use the GitHub issue tracker: [ArchonMegalon/Chummer6 issues](https://github.com/ArchonMegalon/Chummer6/issues).
 
-Guided contribution is for people who want to help with real execution work, not just leave feedback.
-
-It is:
-
-- opt-in
-- temporary
-- separate from the normal free feedback path
-- still subject to review before anything lands
-
-## Choose a route
-
-- [Open the public participation page](https://chummer.run/participate)
-- [File a public issue](https://github.com/ArchonMegalon/Chummer6/issues)
-
-## Privacy and review safety
-
-- the normal public feedback remains the default path
-- guided contribution is not a merge bypass
-- final landing still goes through review
-- people can stop or revoke later
-- private recognition settings remain valid even when badges or leaderboards exist
-
-## Free later note
-
-Some expensive future lanes may begin as **guided previews** while approvals, compatibility, editorial work, provenance, or support cost remain unusually heavy.
-
-That is not the same thing as a permanent paywall.
-When those lanes become cheaper and safer to operate broadly, the long-run intent is wider access rather than keeping the interesting parts locked forever.
-
-## Useful next steps
-
-- Open the public participation page
-- File a public issue
-- Send a private crash report from the recovery flow when Chummer closes unexpectedly
-- Link this copy to your account if you want follow-up on fixes and account-aware support history
-- Read current status before promising yourself too much
+Participation is optional. It does not replace normal feedback, does not bypass review, and does not make a change real until it lands in an actual release.

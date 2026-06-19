@@ -25,14 +25,25 @@ def main() -> int:
         raise ValueError("README.md is missing the Runner Passport route")
     if "`runner-passport`: `public_route_live` -> `public_route_live_page`" not in verdict:
         raise ValueError("docs verdict does not recognize Runner Passport as a live public page")
+    for marker in (
+        "## Open it",
+        "Open it at",
+        "Share it when someone needs",
+        "connected-lane proof",
+        "public route",
+    ):
+        if marker.lower() in passport.lower():
+            raise ValueError(f"Runner Passport guide still reads like a route card: {marker}")
     for needle in (
-        "## Connected lane",
-        "signed-in Table Pulse inbox",
-        "Living Newsroom watch framing",
-        "governed aftermath return loops",
+        "Can this runner sit at my table without turning setup into homework?",
+        "[chummer.run/passport](https://chummer.run/passport)",
+        "A player sends one link for Kestrel",
+        "what still needs a GM decision",
+        "It is not a social score",
+        "without becoming a reputation score",
     ):
         if needle not in passport:
-            raise ValueError(f"Runner Passport guide is missing connected-lane proof: {needle}")
+            raise ValueError(f"Runner Passport guide is missing user-facing marker: {needle}")
 
     print("runner_passport_public_guide_surface:ok")
     return 0

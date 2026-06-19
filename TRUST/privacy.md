@@ -4,11 +4,11 @@ This is the simple privacy picture right now: what your account stores, what sta
 
 ## Your account keeps sign-in, preferences, and support together
 
-Your Chummer account keeps your basic profile, linked sign-in methods, device access, support cases, and preview preferences together so you do not have to rebuild that history by hand.
+Your Chummer account keeps your basic profile, linked sign-in methods, device access, support cases, and preferences together so you do not have to rebuild that history by hand.
 
 ## The download file is the same for everyone
 
-When Chummer publishes a download, everyone gets the same file. Chummer does not build a private installer just for your account. If linked handoff is available, the account-aware piece is the short-lived receipt or code that reconnects a local copy back to your account.
+When Chummer publishes a download, everyone gets the same file. Chummer does not build a private installer just for your account. If account linking is available, the account step is a short-lived code that reconnects a local copy back to your account.
 
 ## Temporary sign-in tokens and raw secrets stay out of your account record
 

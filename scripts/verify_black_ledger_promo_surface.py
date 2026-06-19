@@ -16,6 +16,12 @@ FORBIDDEN = (
     "[BLACK LEDGER](black-ledger.md)",
     "[Black Ledger](HORIZONS/black-ledger.md)",
     "[Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)",
+    "## Watch and inspect",
+    "Latest bulletins:",
+    "Watch the episode:",
+    "Read the transcript:",
+    "Open supporting details:",
+    "## Hard boundaries",
 )
 
 
@@ -31,6 +37,16 @@ def main() -> int:
         for marker in FORBIDDEN:
             if marker in text:
                 failures.append(f"{path.relative_to(ROOT)} still exposes Black Ledger primary navigation: {marker}")
+
+    newsroom_text = NEWSROOM.read_text(encoding="utf-8")
+    for marker in (
+        "## Where to watch",
+        "https://chummer.run/ledger/newsroom",
+        "## What to look for",
+        "## What stays out",
+    ):
+        if marker not in newsroom_text:
+            failures.append(f"BLACK_LEDGER_NEWSROOM.md is missing visitor-facing marker: {marker}")
 
     if failures:
         for failure in failures:

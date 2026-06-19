@@ -31,8 +31,11 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
     ) -> None:
         packet = {
             "shelf_truth_line": shelf_truth_line,
-            "proof_scope_line": "Proof on the public shelf is scoped to the posted files and flows you can inspect today; it is not a blanket flagship-complete claim.",
+            "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.",
+            "desktop_pick_line": "If you see both desktop apps, start with Avalonia.",
             "release_status": "Published",
+            "release_verification_summary": "This build handles installs and recovery.",
+            "known_issue_summary": "No blocking download issue is listed for the current installers.",
             "available_platforms": available_platforms,
             "missing_platforms": missing_platforms,
             "missing_installer_lane_line": missing_installer_lane_line,
@@ -46,11 +49,11 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Readme",
+                    "If you are here to decide whether this is worth your time, the honest pitch is simple.",
+                    "## Start here if you just want the answer",
                     packet["shelf_truth_line"],
-                    packet["proof_scope_line"],
-                    "Public wording stays tied to files and flows that are actually available now.",
-                    packet["missing_installer_lane_line"],
-                    packet["architecture_scope_line"],
+                    packet["short_release_summary"],
+                    packet["desktop_pick_line"],
                 ]
             ),
             encoding="utf-8",
@@ -61,8 +64,8 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                     "# Status",
                     f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
-                    packet["missing_installer_lane_line"],
                     packet["architecture_scope_line"],
+                    packet["missing_installer_lane_line"],
                 ]
             ),
             encoding="utf-8",
@@ -71,9 +74,11 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Download",
+                    "That is the human answer.",
                     packet["shelf_truth_line"],
-                    "Proof scope: this is not a blanket flagship promise.",
                     "Downloads are served from chummer.run.",
+                    packet["release_verification_summary"],
+                    packet["known_issue_summary"],
                     download_warning_line,
                 ]
             ),
@@ -92,14 +97,14 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             root = Path(temp_dir)
             self._write_fixture(
                 root,
-                shelf_truth_line="Downloads are currently live for Windows and Linux, but macOS still lacks the promoted desktop installer proof this release says they need.",
+                shelf_truth_line="Windows and Linux downloads are posted.",
                 available_platforms=["Windows", "Linux"],
                 missing_platforms=["macOS"],
-                missing_installer_lane_line="Still missing from the promoted installer lane: macOS.",
-                architecture_scope_line="Current public desktop scope covers Windows x64, Linux x64, and macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, or macOS x64 on the current shelf.",
-                download_warning_line="- Current warning: There is still no public macOS installer.",
-                migration_preview_line="- Today you can try preview builds on Windows and Linux.",
-                migration_wait_line="- If you rely on macOS as your main platform, wait before switching full time.",
+                missing_installer_lane_line="macOS does not have a normal installer yet.",
+                architecture_scope_line="Desktop downloads are available for Windows x64 and Linux x64 only.",
+                download_warning_line="macOS currently has archive previews only.",
+                migration_preview_line="Today you can try preview builds on Windows and Linux.",
+                migration_wait_line="If you rely on macOS as your main platform, wait before switching full time.",
             )
             original_root = MODULE.REPO_ROOT
             original_packet = MODULE.PACKET_PATH
@@ -128,17 +133,17 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             root = Path(temp_dir)
             self._write_fixture(
                 root,
-                shelf_truth_line="Downloads are currently live for Windows and Linux, but macOS still lacks the promoted desktop installer proof this release says they need.",
+                shelf_truth_line="Windows and Linux downloads are posted.",
                 available_platforms=["Windows", "Linux"],
                 missing_platforms=["macOS"],
-                missing_installer_lane_line="Still missing from the promoted installer lane: macOS.",
-                architecture_scope_line="Current public desktop scope covers Windows x64, Linux x64, and macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, or macOS x64 on the current shelf.",
-                download_warning_line="- Current warning: There is still no public macOS installer.",
-                migration_preview_line="- Today you can try preview builds on Windows and Linux.",
-                migration_wait_line="- If you rely on macOS as your main platform, wait before switching full time.",
+                missing_installer_lane_line="macOS does not have a normal installer yet.",
+                architecture_scope_line="Desktop downloads are available for Windows x64 and Linux x64 only.",
+                download_warning_line="macOS currently has archive previews only.",
+                migration_preview_line="Today you can try preview builds on Windows and Linux.",
+                migration_wait_line="If you rely on macOS as your main platform, wait before switching full time.",
             )
             (root / "FROM_CHUMMER5A_TO_CHUMMER6.md").write_text(
-                "# From Chummer5a to Chummer6\n- Today you can try preview builds on Windows.\n- If you rely on macOS as your main platform, wait before switching full time.\n",
+                "# From Chummer5a to Chummer6\nToday you can try preview builds on Windows.\nIf you rely on macOS as your main platform, wait before switching full time.\n",
                 encoding="utf-8",
             )
             original_root = MODULE.REPO_ROOT
@@ -169,13 +174,13 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             root = Path(temp_dir)
             self._write_fixture(
                 root,
-                shelf_truth_line="Downloads are currently live for macOS.",
+                shelf_truth_line="macOS downloads are posted.",
                 available_platforms=["macOS"],
                 missing_platforms=[],
-                missing_installer_lane_line="Promoted installer coverage is visible on every promised desktop platform.",
-                architecture_scope_line="Current public desktop scope covers macOS ARM64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.",
-                download_warning_line="- Current warning: Preview caveats still apply, but the current public downloads have recent proof for setup, recovery, offline-ready behavior, release follow-up, and support.",
-                migration_preview_line="- Today you can try preview builds on macOS.",
+                missing_installer_lane_line="Normal installers are available on every promised desktop platform.",
+                architecture_scope_line="Desktop downloads are available for macOS ARM64 only.",
+                download_warning_line="This is still a preview.",
+                migration_preview_line="Today you can try preview builds on macOS.",
             )
             original_root = MODULE.REPO_ROOT
             original_packet = MODULE.PACKET_PATH

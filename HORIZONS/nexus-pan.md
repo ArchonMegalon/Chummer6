@@ -4,33 +4,25 @@ Shared state survives device churn without the table losing trust.
 
 ![NEXUS-PAN feature art](../assets/horizons/nexus-pan.png)
 
-## Why this matters
+## When this helps
+
+Use NEXUS-PAN when the campaign has to survive real devices: a laptop sleeps, a phone reconnects, a tablet sees stale state, or a remote player returns mid-scene.
+
+The point is not another named product shelf. The point is boringly reliable continuity, visible conflicts, and a calm way back into the session.
+
+## The table problem
 
 My devices drift and the table loses confidence.
 
-Picture the scene: A player reconnects in the middle of a session and gets back in step without the GM rebuilding everything by memory.
+For example, a player reconnects in the middle of a session and gets back in step without the GM rebuilding everything by memory.
 
 
-## Current stage
+## Can I use it?
 
-- Today: You can try the first real slice today.
-- Next: Make the coaching deeper without loosening the boundaries.
+There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
+
 
 ## Explanation videos
 
-* [Watch the NEXUS-PAN 90-second deep dive](https://chummer.run/media/horizons/nexus-pan-90s-deepdive.mp4) - MP4 with AAC audio. [Captions](https://chummer.run/media/horizons/nexus-pan-90s-deepdive.vtt).
-* [Watch the NEXUS-PAN epic reel](https://chummer.run/media/horizons/nexus-pan-epic-90s.mp4) - MP4 with AAC audio. [Captions](https://chummer.run/media/horizons/nexus-pan-epic-90s.vtt).
-
-
-## The problem
-
-When phones, tablets, or laptops drift apart during play, the whole table stops trusting what is on screen.
-
-## What has to be true first
-
-* durable session state
-* reliable sync bundles
-* visible reconnect explanations
-* in-session reliability
-* offline-capable local state
-* explicit stale, pending, and conflicted state
+* [Watch the NEXUS-PAN 90-second deep dive](https://chummer.run/media/horizons/nexus-pan-90s-deepdive.mp4). [Captions](https://chummer.run/media/horizons/nexus-pan-90s-deepdive.vtt).
+* [Watch the NEXUS-PAN epic reel](https://chummer.run/media/horizons/nexus-pan-epic-90s.mp4). [Captions](https://chummer.run/media/horizons/nexus-pan-epic-90s.vtt).

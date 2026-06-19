@@ -1,32 +1,27 @@
 # Start here
 
-If you are new, rusty, or just coming back, do not read everything first. Open one page and do the next action.
+Do not read the repo like homework. You probably came here for one of four reasons: to install Chummer, to check whether this preview is safe enough for tonight, to understand what changed since Chummer5a, or to get help because something already annoyed you.
 
-## I am new or rusty
+If you only open three pages, make them [Download](DOWNLOAD.md), [Status](STATUS.md), and [Help](HELP.md). That keeps the finger-count problem under control.
 
-Start here: [Onramp](ONRAMP.md). It gets you from “I need help” to “I’m in a useful table state” with minimal friction.
+## I want to try it
 
-## I want to try it now
+Use [Download](DOWNLOAD.md) for the files. Use [Status](STATUS.md) first if you want the blunt answer on platforms, rough edges, and whether this is a good day to switch.
 
-If your goal is a working build, jump to [Download](DOWNLOAD.md).
+## I am new, rusty, or coming back from Chummer5a
 
-## I need to know what is live today
+Start with the [first session guide](ONRAMP.md). It is starter help, not another grand product shelf.
 
-If you want the truth on what you can use right now, start with [Status](STATUS.md).
+If you already know Chummer5a and want the shorter bridge, read [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md).
 
-## I want to understand what this version is
+## I want to understand the product
 
-If you want one page that explains how this edition is different, open [What Chummer6 Is](WHAT_CHUMMER6_IS.md).
+Read [What Chummer6 Is](WHAT_CHUMMER6_IS.md). It explains the builder, rules explanations, recovery, and campaign tools without making you trawl through planning notes.
 
-## I want the campaign layer
+## I care about campaign play
 
-When the core build flow is steady, continue to [Campaign tools](HORIZONS/README.md).
+[Runner Passport](RUNNER_PASSPORT.md) is the clean character summary for a GM. [Living World](LIVING_WORLD.md) is for consequences after the session. [Campaign tools](HORIZONS/README.md) is where the bigger ideas live once the sheet is no longer the whole problem.
 
-## I am blocked
+## Something is blocking me
 
-If installation, updates, or sign-in stops you, open [Help](HELP.md).
-
-## I want to report an issue or help improve the project
-
-For concrete feedback, use [Contact](CONTACT.md).
-If you want to contribute directly, use the participation link from the current public site.
+Use [Help](HELP.md) for install, update, sign-in, and recovery issues. Use [Contact](CONTACT.md) when you have a concrete report or feedback.

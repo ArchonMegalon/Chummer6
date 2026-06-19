@@ -1,44 +1,14 @@
 # What Chummer6 Is
 
-![What Chummer6 is banner](assets/pages/what-chummer6-is.png "less mystical rulings, more visible explanations.")<br>_[less mystical rulings, more visible explanations.](assets/pages/what-chummer6-is.png)_
-
 Chummer6 is Shadowrun tooling for character builds, rulings, prep, and session continuity.
 
-The promise is visible reasoning, clearer explanations, and calmer table decisions. Judge it through the guide and current status, not vague claims.
+The short version: it should help a player or GM understand the character, the numbers, and the next table decision faster than digging through notes or arguing from memory.
 
-## The short product answer
+## The table moment it is built for
 
-Chummer6 is Shadowrun tooling for character builds, rulings, prep, and session continuity.
+A player asks why a dice pool changed. The GM wants to keep the scene moving. Chummer6 should show the base pool, each modifier, and the final number in a way both people can follow.
 
-The goal is not just nicer chrome. It is faster trust at the table.
-
-## What it is becoming for players and GMs
-
-Chummer6 is not just trying to be a character manager with nicer chrome. It is trying to become tooling that helps players and GMs:
-
-- get a ruling quickly
-- see why that ruling happened
-- keep playing when the network misbehaves
-- carry different rules eras without pretending they are identical
-- handle odd table logic in code instead of folklore
-
-## A real table moment
-
-> **GM**<br>
-> "You are wounded, sustaining, and standing in bad weather. Roll it."
-
-> **Player**<br>
-> "Why is my pool lower than I expected?"
-
-> **Chummer6**<br>
-> "Base 11. Wounds -1. Sustaining -1. Weather -1. Final 8."
-
-> **GM**<br>
-> "Good. We move."
-
-That is the product story in miniature. Not hand-waving. Not archive-diving. Just a fast answer clear enough to keep the table moving.
-
-## Quick example
+A tiny example:
 
 - Base pool: 11
 - Wounds: -1
@@ -46,39 +16,18 @@ That is the product story in miniature. Not hand-waving. Not archive-diving. Jus
 - Weather: -1
 - Final pool: 8
 
-## Why that matters at the table
+That is the product in miniature: less archive-diving, fewer mystery numbers, and a faster return to play.
 
-When the number moves, the table should not have to stop and reverse-engineer folklore. When the network gets unreliable, the session should not die. When a table uses an older-edition mix or one house rule, that rule should have a real home instead of a pile of "remember this next time" notes.
+## What you should notice
 
-## What feels different from older opaque tool behavior
+Fewer pauses when a number changes. Clearer explanations for rules and modifiers. Better recovery when a device, update, or connection gets in the way. A cleaner home for custom rules, era differences, and table notes. Campaign tools that support the table without replacing the GM.
 
-The project is leaning harder into explicit trust:
+## What works today
 
-- same inputs should produce the same result
-- the result should come with a readable explanation
-- the session should survive local or offline reality
-- the active rules and config stack should be visible
-- the ugly edge cases should have a real extension lane
-
-## The kinds of trust it wants to earn
-
-- **Math trust:** the number should be reproducible.
-- **Explanation trust:** the path to the number should be visible.
-- **Session trust:** your table should not collapse because Wi-Fi had a mood.
-- **Change trust:** custom rules, era differences, and future expansions should be legible instead of spooky.
-
-## What you would actually notice on game night
-
-- fewer "wait, why did that number move?" pauses
-- fewer arguments that depend on memory or volume
-- faster recovery when one device falls out of the session
-- clearer separation between verified facts, inferred summaries, and made-up nonsense
-- more honest labels about what is real now versus still moving
+Use [Status](STATUS.md) for the current answer and [Download](DOWNLOAD.md) for the files. Windows and Linux have normal downloads today. macOS is still preview-only.
 
 ## Why there are multiple parts
 
-The project has multiple parts because each job is different. Rules truth, prep, live play, online coordination, shared UI, artifact handling, render jobs, and the long-range plan all need room to do their work without turning into one giant haunted monolith.
+The character builder, rules explanation, prep tools, campaign layer, media work, and long-range ideas are separate because they solve different problems. Most users only need the builder, the current status, and help pages; the rest is for people who want to understand where the campaign side is going.
 
-If you want that map, go to [PARTS/README.md](PARTS/README.md).
-
-Need the long-range plan after the product story? Start with [PARTS/README.md](PARTS/README.md) or [WHERE_TO_GO_DEEPER.md](WHERE_TO_GO_DEEPER.md).
+If you want the map behind the product, open [Parts](PARTS/README.md). If you just want to try Chummer6, start with [Download](DOWNLOAD.md).

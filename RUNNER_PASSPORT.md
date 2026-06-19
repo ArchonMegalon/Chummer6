@@ -1,61 +1,27 @@
 # Runner Passport
 
-Runner Passport is the public-safe trust card that lets a runner move between tables without restarting the whole approval story from scratch.
+Runner Passport answers the question a GM actually asks before letting a character into a run: "Can this runner sit at my table without turning setup into homework?"
 
-## Public route
+It gives the organizer a clean character summary, the active ruleset, unresolved warnings, and what still needs a GM decision. The player does not have to paste half a dossier into chat, and the GM does not have to reverse-engineer the sheet from screenshots.
 
-- Live route: `/passport`
-- Public posture: trust without surveillance
-- Boundary: not a permanent social score and not a hidden provider-owned reputation engine
+## What you send
 
-## Why this matters
+When you are applying for an open run, joining a community game, or carrying a runner between tables, send the passport link: [chummer.run/passport](https://chummer.run/passport).
 
-Communities do not just care whether a runner exists. They care whether the runner is legal for the current rules lane, reviewed for the current community, and safe to fast-track into a run without Discord archaeology.
+## A normal example
 
-## What it carries
+A player sends one link for Kestrel: street-level infiltrator, legal SIN warning, two GM notes still unresolved. The GM sees the ruleset, the warnings, and whether the runner is ready for tonight without asking for three screenshots and a small archaeological dig through chat.
 
-- Runner identity reference
-- Active ruleset and environment fingerprint
-- Approval state and review timestamp
-- Known conflicts or unresolved warnings
-- Quickstart or full-dossier posture
-- Export or play-surface eligibility
-- A bounded validity window
+## What the GM sees
 
-## What it is for
+Identity, ruleset, review state, warnings, expiry, and the remaining GM calls sit together so the runner can be accepted, questioned, or sent back for changes quickly.
 
-- Open-run application preflight
-- Community rule-environment checks
-- No-desktop participation paths
-- Start-from-today adoption without rebuilding trust by hand
-- Creator or organizer review lanes
+## What it is not
 
-## Connected lane
+It is not a social score, a hidden reputation system, or a way for Chummer to overrule the GM. It should help a table say yes, no, or fix this first without becoming a reputation score.
 
-Runner Passport is also the continuity rail for the signed-in Table Pulse loop.
+## Around the table
 
-It now connects cleanly to:
+When a table also uses Table Pulse, Runner Passport carries the clean character summary while the live review and aftermath work stays in Chummer.
 
-- the signed-in Table Pulse inbox
-- leader briefing and faction command
-- Living Newsroom watch framing
-- governed aftermath return loops
-
-That means a remote reaction can stay public-safe on the Passport side while still returning to real command, review, and aftermath follow-through on first-party routes.
-
-## Receipt rails
-
-- `/passport/receipts/runner_return_posture.md`
-- `/passport/receipts/runner_return_posture.json`
-- `/passport/receipts/cross_table_identity_boundary.md`
-- `/passport/receipts/cross_table_identity_boundary.json`
-- `/passport/receipts/privacy_safe_participation_proof.md`
-- `/passport/receipts/privacy_safe_participation_proof.json`
-
-## Read next
-
-- [Black Ledger notifications](/account/ledger/notifications)
-- [Leader briefing](/account/ledger/factions/ashline-circle/leader-briefing)
-- [Work aftermath rail](/account/work#aftermath-packages)
-- [Table Pulse](HORIZONS/table-pulse.md)
-- [Help](HELP.md)
+After that, [Living World](LIVING_WORLD.md) keeps the consequences together and [Help](HELP.md) is the fallback when a passport or build does not behave.

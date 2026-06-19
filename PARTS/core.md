@@ -1,33 +1,30 @@
 # Core
 
-The deterministic rules engine.
+The rules engine that keeps the numbers explainable.
 
 ![Core guide art](../assets/parts/core.png)
 
-## When you care
+## When this matters
 
-A number looks wrong, a modifier needs explaining, or you want proof instead of vibe-based tool behavior.
+A number looks wrong, a modifier needs explaining, or you want the math shown instead of hand-waved.
 
-## Why you care
+## Why it exists
 
 This is where Chummer earns trust. If the math cannot be reproduced and explained here, the rest of the product becomes expensive theater.
 
-## What you notice
+## What you should feel
 
-- reproducible rules outcomes
-- readable receipts for why a pool or result changed
-- a cleaner split between rules math and the extra features layered around it
+Reproducible rules outcomes, readable explanations for why a pool or result changed, and a cleaner split between rules math and the extra features layered around it.
 
-## Current limits
+## What not to expect here
 
-- this is not the online account or update side
-- this is not the table-side play view by itself
+This is not the online account or update side and this is not the table-side play view by itself.
 
-## Current state
+
+## Current shape
 
 Core already anchors the rules engine, and the current work is about keeping it strict enough that explain, play, and sync features can rely on it.
 
-## Go deeper
+## Next
 
-- ../WHAT_CHUMMER6_IS.md
-- ../WHERE_TO_GO_DEEPER.md
+Then read [What Chummer6 Is](../WHAT_CHUMMER6_IS.md) and [Where To Go Deeper](../WHERE_TO_GO_DEEPER.md).

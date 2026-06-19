@@ -21,13 +21,17 @@ SYNC_FILES = (
     "ONRAMP.md",
     "BLACK_LEDGER_NEWSROOM.md",
     "FROM_CHUMMER5A_TO_CHUMMER6.md",
+    "WHAT_CHUMMER6_IS.md",
     "RUNNER_PASSPORT.md",
     "LIVING_WORLD.md",
     "STATUS.md",
     "DOWNLOAD.md",
     "HELP.md",
     "FAQ.md",
+    "HOW_CAN_I_HELP.md",
+    "WHERE_TO_GO_DEEPER.md",
     "CONTACT.md",
+    "GLOSSARY.md",
 )
 
 INTERNAL_SYNC_FILES = {
@@ -46,7 +50,7 @@ SYNC_DIRS = (
     "assets",
 )
 
-OPTIONAL_SYNC_FILES = ("GLOSSARY.md",)
+OPTIONAL_SYNC_FILES = ()
 OPTIONAL_SYNC_DIRS = ("NOW", "UPDATES")
 REMOVABLE_SYNC_FILES = (
     "SIGNAL_DECK.md",
@@ -112,6 +116,19 @@ def _remove_stale_file(dest: Path, check: bool, failures: list[str]) -> None:
         dest.unlink()
 
 
+def _remove_stale_dir(dest: Path, check: bool, failures: list[str]) -> None:
+    if check:
+        if dest.exists():
+            failures.append(f"stale destination directory: {dest}")
+        return
+    if not dest.exists():
+        return
+    if not dest.is_dir():
+        failures.append(f"destination path is not a directory: {dest}")
+        return
+    shutil.rmtree(dest)
+
+
 def _render_manifest(src: Path) -> str:
     if not src.exists():
         raise FileNotFoundError(src)
@@ -168,26 +185,14 @@ TEXT_REWRITES = {
             "Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.",
             "Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
         ),
-        (
-            "This page tells you what you can download right now and which file to start with.\n",
-            "This page tells you what you can download right now and which file to start with.\n\nGuide fit: this is the `Get Chummer` page in the flagship shell.\n",
-        ),
     ),
     "STATUS.md": (
-        (
-            "This is the blunt answer on what you can use today.\n",
-            "This is the blunt answer on what you can use today.\n\nGuide fit: this is the `What works today` page in the flagship shell.\n",
-        ),
         (
             "## Start with the release page and download help\n",
             "## Get Chummer, then use Help if setup goes sideways\n",
         ),
     ),
     "HELP.md": (
-        (
-            "Start here if installation, updates, sign-in, or bugs are getting in the way.\n",
-            "Start here if installation, updates, sign-in, or bugs are getting in the way.\n\nGuide fit: this is the `Help` page in the flagship shell, with the account and recovery path kept adjacent instead of treated as a separate old-style section.\n",
-        ),
         (
             "## Start with the release page and download help\n",
             "## Start with Get Chummer and What works today\n",
@@ -208,7 +213,7 @@ TEXT_REWRITES = {
     "FAQ.md": (
         (
             "# FAQ\n\n## Using Chummer6\n",
-            "# FAQ\n\nThis page supports the flagship shell by answering the normal questions around `Home`, `Get Chummer`, `What works today`, `Worlds`, `Account`, and `Help`.\n\n## Home, Get Chummer, and What works today\n",
+            "# FAQ\n\nAsk the questions a GM, player, or tired maintainer would ask before trusting this at a table.\n\n## Questions people actually ask first\n",
         ),
         (
             "## If you want the behind-the-scenes details",
@@ -478,6 +483,14 @@ def main(argv: list[str]) -> int:
             failures,
             optional=relative_path in OPTIONAL_SYNC_DIRS,
         )
+
+    for relative_path in OPTIONAL_SYNC_DIRS:
+        source_dir = source_root / relative_path
+        destination_dir = REPO_ROOT / relative_path
+        if source_dir.exists():
+            _sync_dir(source_dir, destination_dir, args.check, failures, optional=True)
+        else:
+            _remove_stale_dir(destination_dir, args.check, failures)
 
     for relative_path, content in WRAPPERS.items():
         _sync_wrapper(relative_path, content, args.check, failures)

@@ -4,33 +4,26 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What will feel familiar
 
-- It is still aiming for a dense desktop workbench, not a stripped-down dashboard.
-- Character editing, file work, settings, and roster tasks are supposed to stay close at hand.
-- If both desktop apps appear for your platform, the Avalonia is the main one to try and the Blazor Desktop is the fallback path only when the download page or support explicitly tells you to use it.
+It is still aiming for a dense desktop workbench, not a stripped-down dashboard. Character editing, file work, settings, and roster tasks are supposed to stay close at hand.
+
+Because my capsule-region insult did not exactly upgrade my decision-making process, I have not made the final Avalonia-versus-Blazor call yet. For today: start with Avalonia, and treat Blazor Desktop as the alternate if a page or support points you there.
 
 ## What gets better
 
-- It tries to show why a number changed instead of leaving you with mystery math.
-- Recovery and continuity are being treated as core product work, not as an afterthought.
-- Status, downloads, and help are easier to find without digging around for the current answer.
+It tries to show why a number changed instead of leaving you with mystery math. Recovery and continuity are being treated as core product work, not as an afterthought. Status, downloads, and help are easier to find without digging around for the current answer.
 
 ## Should you switch today?
 
-- Today you can try preview builds on Windows and Linux.
-- Public downloads are already visible on every promised desktop platform.
-- If you like trying real previews and helping shape the rough edges, it is worth a serious look.
-- If you need a fully settled, every-platform replacement for Chummer5a right now, wait.
+Today you can try preview builds on Windows and Linux. Public downloads are already visible on every promised desktop platform.
+
+If you like trying real previews and helping shape the rough edges, it is worth a serious look. If you need a fully settled, every-platform replacement for Chummer5a right now, wait.
 
 ## What is still rough
 
-- Downloads are currently live for Windows and Linux.
-- Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
-- Posted proof is scoped to the current files and flows you can inspect today; it is not a blanket flagship claim.
-- It should still be read as a serious preview, not a finished no-step-back replacement yet.
+Windows and Linux downloads are posted. Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
 
-## Read next
+It should still be read as a serious preview, not a finished no-step-back replacement yet.
 
-- [Status](STATUS.md)
-- [Download](DOWNLOAD.md)
-- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
-- [Help](HELP.md)
+## Next
+
+Check [Status](STATUS.md), then [Download](DOWNLOAD.md). If you want the broader explanation before installing, read [What Chummer6 Is](WHAT_CHUMMER6_IS.md).

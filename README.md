@@ -1,68 +1,41 @@
 # Chummer6
 
-Build a Shadowrun runner, understand why the numbers changed, and keep the table moving when the campaign gets complicated.
+Build a Shadowrun runner, see why the numbers changed, and keep game night moving when the campaign gets messy.
 
-This repo is the public guide: start here if you want to try Chummer6, understand the preview, or see the bigger campaign tools growing around the builder.
+If you are here to decide whether this is worth your time, the honest pitch is simple: Chummer6 is trying to make dense Shadowrun character work readable again without sanding away the parts veteran players care about.
+
+## Start here if you just want the answer
+
+Use [Download](DOWNLOAD.md) for files, [Status](STATUS.md) for the blunt current state, and [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md) if you already know the old app and want to know whether switching is sane.
+
+Windows and Linux downloads are posted.
+Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
+Because my capsule-region insult did not exactly upgrade my decision-making process, I have not made the final Avalonia-versus-Blazor call yet. For today: start with Avalonia, and treat Blazor Desktop as the alternate if a page or support points you there. Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
 
 ## Why it exists
 
-Chummer6 is the explainable Shadowrun campaign OS.
+Shadowrun characters carry a lot of math, choices, edge cases, and table agreements. Chummer6 is for the moment when someone asks, "why did that number change?" and the table deserves a better answer than shoulder-shrugging and memory.
 
-Its first must-win job is being the most trustworthy way to build, inspect, and advance a Shadowrun character.
+When a dice pool changes, the table should see why. When a device drops, the whole night should not fall apart. When you are prepping before a session with functioning fingers, limited patience, and maybe only half a brain online, the next useful action should be obvious.
 
-The goal is simple: build correctly, explain clearly, run reliably, recover calmly, and carry the campaign forward.
+## What should feel different
 
-## What should you do now?
+The numbers should explain themselves faster. New or rusty users should have a first-session path. Help should be findable before frustration becomes a GitHub archaeology expedition. The rough edges are still installer polish, update polish, support polish, and deeper campaign tooling.
 
-Try the current preview where you already have a path, then check what changed in the release shelf before making your next move.
 
-Downloads are currently live for Windows and Linux.
-Public pages focus on the builds, platforms, and workflows a player can actually try today; downloads remain the primary route for trying Chummer. Experimental surfaces stay behind lab routes until their visuals, behavior, and tests are ready for normal users.
-Public wording stays tied to files and flows that are actually available now.
-If you see both desktop apps, start with the Avalonia. Treat Blazor Desktop as a fallback path only when the download page or support explicitly tells you to use it. Character math is already solid. The rough edges are mostly installer polish, update polish, and support polish.
-Today: Current release build.
-Promoted installer coverage is visible on every promised desktop platform.
-Current public desktop scope covers Linux x64 and Windows x64 only. No public route is posted for Windows ARM64, Linux ARM64, and macOS x64 on the current shelf.
-Help, contact, privacy, and terms pages are live.
-More campaign-ledger depth and steadier desktop polish are still coming.
+## Help and feedback
 
-## Start here
+If something breaks, start with [Help](HELP.md) or [Contact](CONTACT.md). If the issue is safe to discuss in public, the help pages point you to the GitHub issue tracker too.
 
-Start with [Start Here](START_HERE.md).
-Move to [Onramp](ONRAMP.md), [Download](DOWNLOAD.md), [Status](STATUS.md), [What Chummer6 Is](WHAT_CHUMMER6_IS.md), and [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md) when those are your next step.
-
-When you are ready for more, use: [Contact](CONTACT.md), [Runner Passport](RUNNER_PASSPORT.md), [Living World](LIVING_WORLD.md), [Help](HELP.md), [FAQ](FAQ.md), [Campaign tools](HORIZONS/README.md).
-
-## Account and contribution paths
-
-For support or concrete feedback, start with [Contact](CONTACT.md).
-
-The public participation door is <https://chummer.run/participate>.
-The baseline path stays default, and guided contribution is optional.
-Final shipping stays behind review and release checks.
+If you want to help test a fix, use <https://chummer.run/participate>. Most people do not need that path; a clear bug report, a confusing sentence, or a screenshot of the broken thing is already useful.
 
 ## First contact
 
 ![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
 
 
-Watch the current product reel: https://chummer.run/media/promo/chummer6-flagship-promo.mp4, MP4 with AAC audio. Captions are at https://chummer.run/media/promo/chummer6-flagship-promo.vtt.
-
-## Why people care
-
-It shows why a number changed instead of hiding the math.
-It gives new users a clear Onramp while staying useful for experienced players too.
-It is being built to keep sessions recoverable when devices, updates, or connectivity drift.
-Campaign layers are designed to expand the table story without replacing GM or rules authority.
+Watch [Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4). [Captions](https://chummer.run/media/promo/chummer6-flagship-promo.vtt).
 
 ## Campaign tools
 
-Use [Parts index](PARTS/README.md) when you want the full structure.
-Use [Campaign tools](HORIZONS/README.md) for longer-running campaign lanes and what is live versus still emerging.
-
-## Help
-
-Start here for downloads, sign-in recovery, and support.
-
-Start with [Help](HELP.md) if install, updates, sign-in, or bugs are getting in the way.
-Use [Contact](CONTACT.md) when you want to report a concrete issue or send feedback.
+[Runner Passport](RUNNER_PASSPORT.md) gives a GM a clean character summary. [Living World](LIVING_WORLD.md) keeps aftermath and consequences in one place. [Campaign tools](HORIZONS/README.md) is the larger map for ALICE, Origin Dossier, Table Pulse, and the ideas that only matter once the sheet is no longer the whole problem.

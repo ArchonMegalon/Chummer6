@@ -4,21 +4,20 @@
 ![Onramp starter path art](assets/pages/onramp.png)
 
 
-Onramp is the practical first-run lane for Chummer6.  
-It is not a horizon.
+Onramp is the practical first-run guide for Chummer6.
 
-Use this page when you are new, returning, or blocked.
+Use it when you are new, returning after a break, or blocked before the first real build.
 
 If you installed today and want to build immediately, this is the safest first step.
 If you are coming back after a break, this brings you back to the right state.
-If setup, sign-in, or recovery is still blocked, this maps your next move in one pass.
+If setup, sign-in, or recovery is still blocked, this keeps the next move obvious.
 
-You are not expected to solve everything here. You are expected to leave onramp in a usable state.
+You are not expected to solve everything here. You are expected to leave with Chummer in a usable state.
 
-When it is working, Onramp sends you to one of three places:
-first-run setup moves into [Download](DOWNLOAD.md),
-the live-table decision point is [Status](STATUS.md),
-and blockers move to [Help](HELP.md).
+When it is doing its job, it sends you to one of three places:
+[Download](DOWNLOAD.md) when you need files,
+[Status](STATUS.md) when you need the honest "should I use this today?" answer,
+and [Help](HELP.md) when something is still in the way.
 
 ## Read next
 
