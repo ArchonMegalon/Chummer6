@@ -8,9 +8,9 @@ If you are here to decide whether this is worth your time, the honest pitch is s
 
 Use [Download](DOWNLOAD.md) for files, [Status](STATUS.md) for the blunt current state, and [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md) if you already know the old app and want to know whether switching is sane.
 
-Windows and Linux downloads are posted; macOS does not have a normal installer yet.
+Windows and Linux downloads are posted.
 Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
-For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there. The core build path is usable. The remaining work is desktop parity, installer polish, update polish, and deeper campaign tooling.
+For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there. The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper campaign tooling.
 
 ## Why it exists
 

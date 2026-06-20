@@ -4,7 +4,7 @@
     "Windows",
     "Linux"
   ],
-  "build_label": "run-258",
+  "build_label": "",
   "desktop_pick_line": "For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there.",
   "fallback_heads": [
     "Chummer.Blazor.Desktop"
@@ -12,18 +12,16 @@
   "fix_availability_summary": "Only expect fix notices after the affected download is available on the download page.",
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
   "known_issue_summary": "No blocking download issue is listed for the current installers.",
-  "missing_installer_lane_line": "macOS does not have a normal installer yet.",
-  "missing_platforms": [
-    "macOS"
-  ],
+  "missing_installer_lane_line": "Normal installers are available on every promised desktop platform.",
+  "missing_platforms": [],
   "phase_label": "Current release build",
   "primary_head": "Chummer.Avalonia",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "June 19, 2026 at 19:53 UTC",
-  "quality_gap_line": "The core build path is usable. The remaining work is desktop parity, installer polish, update polish, and deeper campaign tooling.",
+  "published_at": "June 20, 2026 at 8:00 UTC",
+  "quality_gap_line": "The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper campaign tooling.",
   "release_status": "Published",
   "release_status_slug": "published",
   "release_verification_summary": "This build handles installs and recovery, campaign session recovery, and support follow-up.",
-  "shelf_truth_line": "Windows and Linux downloads are posted; macOS does not have a normal installer yet.",
+  "shelf_truth_line": "Windows and Linux downloads are posted.",
   "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time."
 }

@@ -16,8 +16,8 @@ The exact files and hashes are below.
 ## What is available
 
 Today: Current release build.
-Published: June 19, 2026 at 19:53 UTC.
-Windows and Linux downloads are posted; macOS does not have a normal installer yet.
+Published: June 20, 2026 at 8:00 UTC.
+Windows and Linux downloads are posted.
 This build handles installs and recovery, campaign session recovery, and support follow-up.
 No blocking download issue is listed for the current installers.
 Only expect fix notices after the affected download is available on the download page.
@@ -59,5 +59,5 @@ Official client downloads start on the [Chummer6 downloads page](https://chummer
 
 ## Build notes
 
-- Last updated: June 20, 2026.
+- Last updated: June 20, 2026 at 20:52 UTC.
 - This build handles installs and recovery, campaign session recovery, and support follow-up.

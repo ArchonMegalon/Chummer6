@@ -10,7 +10,6 @@ Start with the download page. It should tell you which file to use, what is miss
 
 - Use `Nightly` when you want the newest rolling public build on Windows or Linux.
 - Use `Stable` when you want the slower release channel.
-- If Nightly and Stable show the same build, there is no newer Nightly at that moment.
 - Use the Windows or Linux installer.
 - Create an account if you want your support history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.
