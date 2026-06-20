@@ -49,7 +49,7 @@ def main() -> int:
 
     if "Proof scope:" in download or "Claim boundary:" in download or "blanket flagship" in download:
         raise ValueError("DOWNLOAD.md reintroduced proof-scope copy")
-    if "That is the human answer." not in download:
+    if "start with the Avalonia installer" not in download:
         raise ValueError("DOWNLOAD.md lost the human download recommendation")
     if "chummer.run" not in download:
         raise ValueError("DOWNLOAD.md lost the chummer.run download authority")

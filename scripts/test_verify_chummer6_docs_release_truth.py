@@ -74,7 +74,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Download",
-                    "That is the human answer.",
+                    "If you are on Windows or Linux, start with the Avalonia installer.",
                     packet["shelf_truth_line"],
                     "Downloads are served from chummer.run.",
                     packet["release_verification_summary"],

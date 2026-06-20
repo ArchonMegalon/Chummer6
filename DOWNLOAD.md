@@ -2,7 +2,7 @@
 
 If you are on Windows or Linux, start with the Avalonia installer. If you are on macOS, wait for the guided support path.
 
-That is the human answer. The rest of this page is here for exact files, sizes, and hashes.
+The exact files and hashes are below.
 
 ## Pick your file
 
@@ -24,7 +24,7 @@ Only expect fix notices after the affected download is available on the download
 
 ## File details
 
-Official client downloads start on the [Chummer6 downloads page](https://chummer.run/downloads). Use GitHub for source code and issue discussion, not as the normal install path.
+Official client downloads start on the [Chummer6 downloads page](https://chummer.run/downloads). Use GitHub for source code and issue discussion.
 
 ### Windows
 
@@ -57,7 +57,7 @@ Official client downloads start on the [Chummer6 downloads page](https://chummer
 - Avalonia Desktop Linux X64 Installer: `0d2fbf54d4e02bf4f95405fd7bbdbf3bce6650508ecbba30633eeeaccd2befe3`
 - Avalonia Desktop Windows X64 Installer: `c41d17cea200060b0940f37f18eea6b0bd407c447cd9cd62a8e140e965bc6a51`
 
-## What works in this build
+## Build notes
 
 - Last updated: June 20, 2026.
 - This build handles installs and recovery, campaign session recovery, and support follow-up.

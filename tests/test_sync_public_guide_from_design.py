@@ -118,8 +118,9 @@ Preview evidence and fallback routes can show real progress, but flagship wordin
 
                 rendered = _render_with_start_here(source_path, "README.md", "")
 
-            self.assertIn("visitor can actually inspect and use", rendered)
-            self.assertNotIn("flagship acceptance bar", rendered)
+        self.assertIn("visitor can actually inspect and use", rendered)
+        self.assertNotIn("flagship acceptance bar", rendered)
+        self.assertNotIn("Preview evidence", rendered)
 
     def test_faq_rewrites_heading_and_body(self) -> None:
         source = """# FAQ
@@ -171,10 +172,12 @@ In the planning notes that shape the roadmap and the public guide.
             )
 
         self.assertIn(
-            "Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
+            "Claim boundary: That stronger wording only belongs on the main release surfaces after they are ready for visitors; preview artifacts, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
             rendered,
         )
         self.assertNotIn("FLAGSHIP_RELEASE_ACCEPTANCE.yaml", rendered)
+        self.assertNotIn("proof cards", rendered)
+        self.assertNotIn("public proof", rendered)
 
 
 class RenderManifestTests(unittest.TestCase):

@@ -164,7 +164,7 @@ TEXT_REWRITES = {
         ),
         (
             "Preview evidence and fallback routes can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
-            "Preview evidence and fallback routes can show real progress, but we only use flagship wording on pages a visitor can actually inspect and use.",
+            "Preview notes and fallback routes can show real progress, but we only use flagship wording on pages a visitor can actually inspect and use.",
         ),
         (
             "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.",
@@ -183,7 +183,7 @@ TEXT_REWRITES = {
     "DOWNLOAD.md": (
         (
             "Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.",
-            "Claim boundary: That stronger wording only belongs on the main release surfaces after they have earned enough public proof; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
+            "Claim boundary: That stronger wording only belongs on the main release surfaces after they are ready for visitors; preview artifacts, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
         ),
     ),
     "STATUS.md": (

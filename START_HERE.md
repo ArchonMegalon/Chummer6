@@ -4,7 +4,7 @@ Do not read the repo like a manual. Pick the situation that matches you and take
 
 ## I want to try it
 
-Start with [Download](DOWNLOAD.md), then open [Status](STATUS.md) if you want to know what is available today.
+Start with [Download](DOWNLOAD.md), then check [Status](STATUS.md) if you want to know what is available today.
 
 ## I am new, rusty, or coming back from Chummer5a
 

@@ -6,7 +6,7 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 It is still aiming for a dense desktop workbench, not a stripped-down dashboard. Character editing, file work, settings, and roster tasks are supposed to stay close at hand.
 
-Because my capsule-region insult did not exactly upgrade my decision-making process, I have not made the final Avalonia-versus-Blazor call yet. For today: start with Avalonia, and treat Blazor Desktop as the alternate if a page or support points you there.
+For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there.
 
 ## What gets better
 
@@ -14,13 +14,13 @@ It tries to show why a number changed instead of leaving you with mystery math. 
 
 ## Should you switch today?
 
-Today you can try preview builds on Windows and Linux. Public downloads are already visible on every promised desktop platform.
+Today you can try preview builds on Windows and Linux. If you rely on macOS as your main platform, wait before switching full time.
 
 If you like trying real previews and helping shape the rough edges, it is worth a serious look. If you need a fully settled, every-platform replacement for Chummer5a right now, wait.
 
 ## What is still rough
 
-Windows and Linux downloads are posted. Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
+Windows and Linux downloads are posted; macOS does not have a normal installer yet. Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
 
 It should still be read as a serious preview, not a finished no-step-back replacement yet.
 

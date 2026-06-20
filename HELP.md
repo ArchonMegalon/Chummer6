@@ -2,7 +2,7 @@
 
 Start here if installation, updates, sign-in, or bugs are getting in the way.
 
-If the session starts soon, do not debug the whole universe. Open the download page, open status, then contact us with what happened.
+If the session starts soon, do not debug the whole universe. Check the download page, check status, then contact us with what happened.
 
 ## Start with Get Chummer and What works today
 
