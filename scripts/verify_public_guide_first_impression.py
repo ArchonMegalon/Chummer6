@@ -115,8 +115,31 @@ def main() -> int:
         failures.append("START_HERE.md does not route new/rusty users to the first session guide")
     if "starter help, not another grand product shelf" not in start_here:
         failures.append("START_HERE.md does not keep starter help out of product-area framing")
-    if "finger-count problem" not in start_here:
-        failures.append("START_HERE.md lost the human overloaded-reader joke")
+    if "overloaded-reader problem" not in start_here:
+        failures.append("START_HERE.md does not acknowledge overloaded readers plainly")
+    for stale_phrase in (
+        "finger-count problem",
+        "functioning fingers",
+        "half your brain",
+        "Character math is already solid",
+        "gold-ready",
+        "Release status is missing or stale",
+        "portable package",
+        "portable builds",
+    ):
+        combined_public_copy = "\n".join(
+            [
+                readme,
+                start_here,
+                _read("STATUS.md"),
+                _read("DOWNLOAD.md"),
+                _read("HELP.md"),
+                _read("HOW_CAN_I_HELP.md"),
+                _read("FROM_CHUMMER5A_TO_CHUMMER6.md"),
+            ]
+        )
+        if stale_phrase.lower() in combined_public_copy.lower():
+            failures.append(f"public guide contains stale or noisy phrase: {stale_phrase}")
 
     if "onramp.md" in horizons.lower() or "ONRAMP" in horizons:
         failures.append("HORIZONS/README.md still lists Onramp")

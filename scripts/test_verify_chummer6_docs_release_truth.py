@@ -169,6 +169,49 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = original_download
                 MODULE.MIGRATION_PATH = original_migration
 
+    def test_main_fails_when_public_docs_keep_stale_release_noise(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self._write_fixture(
+                root,
+                shelf_truth_line="Windows and Linux downloads are posted.",
+                available_platforms=["Windows", "Linux"],
+                missing_platforms=["macOS"],
+                missing_installer_lane_line="macOS does not have a normal installer yet.",
+                architecture_scope_line="Desktop downloads are available for Windows x64 and Linux x64 only.",
+                download_warning_line="No blocking download issue is listed for the current installers.",
+                migration_preview_line="Today you can try preview builds on Windows and Linux.",
+                migration_wait_line="If you rely on macOS as your main platform, wait before switching full time.",
+            )
+            (root / "DOWNLOAD.md").write_text(
+                (root / "DOWNLOAD.md").read_text(encoding="utf-8")
+                + "\nRelease status is missing or stale on this shelf, so preview publication is visible but not yet gold-ready.\n"
+                + "Use a portable package only for recovery.\n",
+                encoding="utf-8",
+            )
+            original_root = MODULE.REPO_ROOT
+            original_packet = MODULE.PACKET_PATH
+            original_readme = MODULE.README_PATH
+            original_status = MODULE.STATUS_PATH
+            original_download = MODULE.DOWNLOAD_PATH
+            original_migration = MODULE.MIGRATION_PATH
+            try:
+                MODULE.REPO_ROOT = root
+                MODULE.PACKET_PATH = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+                MODULE.README_PATH = root / "README.md"
+                MODULE.STATUS_PATH = root / "STATUS.md"
+                MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
+                MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
+                with self.assertRaises(ValueError):
+                    MODULE.main()
+            finally:
+                MODULE.REPO_ROOT = original_root
+                MODULE.PACKET_PATH = original_packet
+                MODULE.README_PATH = original_readme
+                MODULE.STATUS_PATH = original_status
+                MODULE.DOWNLOAD_PATH = original_download
+                MODULE.MIGRATION_PATH = original_migration
+
     def test_main_accepts_macos_only_preview_packet(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

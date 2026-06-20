@@ -1,8 +1,8 @@
 # How Can I Help?
 
-No short answers yet. Seriously: ask me, folks.
+Send the moment that failed. Include what you tried, what happened, and what you expected.
 
-Good feedback usually starts with the actual moment that failed: what you tried, what happened, and what you expected. That is more useful than a perfect bug-report template written by someone with functioning fingers and a suspicious amount of sleep.
+A short, concrete report is more useful than a perfect template.
 
 ## Something broke
 

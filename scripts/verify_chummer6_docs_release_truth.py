@@ -19,7 +19,7 @@ def _load_text(path: Path) -> str:
 
 def _require_contains(name: str, haystack: str, needle: str) -> None:
     if needle and needle not in haystack:
-        raise ValueError(f"{name} is missing required release-truth line: {needle!r}")
+        raise ValueError(f"{name} is missing required release-status line: {needle!r}")
 
 
 def main() -> int:
@@ -56,6 +56,17 @@ def main() -> int:
     _require_contains("DOWNLOAD.md", download, str(packet.get("shelf_truth_line") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("release_verification_summary") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("known_issue_summary") or ""))
+    for stale_phrase in (
+        "Release status is missing or stale",
+        "gold-ready",
+        "some release notes are still catching up",
+        "portable package",
+        "portable builds",
+        "Character math is already solid",
+    ):
+        combined = "\n".join([status, download, readme, migration])
+        if stale_phrase.lower() in combined.lower():
+            raise ValueError(f"public docs contain stale release wording: {stale_phrase}")
 
     visible_platforms = list(packet.get("available_platforms") or packet.get("desktop_platforms_visible") or [])
 

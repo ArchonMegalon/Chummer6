@@ -2,7 +2,7 @@
 
 Start here if installation, updates, sign-in, or bugs are getting in the way.
 
-If only half your brain is working because the session starts soon, do not debug the whole universe. Check the download page, check status, then contact us with what happened.
+If the session starts soon, do not debug the whole universe. Open the download page, open status, then contact us with what happened.
 
 ## Start with Get Chummer and What works today
 
@@ -10,7 +10,8 @@ Start with the download page. It should tell you which file to use, what is miss
 
 - Use `Nightly` when you want the newest rolling public build on Windows or Linux.
 - Use `Stable` when you want the slower release channel.
-- Use the Windows or Linux installer; portable builds are not the public primary path.
+- If Nightly and Stable show the same build, there is no newer Nightly at that moment.
+- Use the Windows or Linux installer.
 - Create an account if you want your support history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.
 
