@@ -318,6 +318,20 @@ class RenderManifestTests(unittest.TestCase):
     def test_onramp_horizon_page_is_removed_from_public_horizons(self) -> None:
         self.assertIn("HORIZONS/onramp.md", guide_sync.REMOVABLE_SYNC_FILES)
 
+    def test_base_client_features_sync_outside_horizons(self) -> None:
+        self.assertIn("FEATURES", guide_sync.SYNC_DIRS)
+        for relative_path in (
+            "community-hub.md",
+            "edition-studio.md",
+            "ghostwire.md",
+            "local-co-processor.md",
+            "nexus-pan.md",
+            "quicksilver.md",
+            "run-control.md",
+        ):
+            self.assertTrue((REPO_ROOT / "FEATURES" / relative_path).exists())
+            self.assertFalse((REPO_ROOT / "HORIZONS" / relative_path).exists())
+
 
 if __name__ == "__main__":
     unittest.main()

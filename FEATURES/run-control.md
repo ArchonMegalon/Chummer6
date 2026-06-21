@@ -2,7 +2,7 @@
 
 Session board, active-scene continuity, reconnect state, and recap return stay on one built-in control path.
 
-![Run Control feature art](../assets/horizons/run-control.png)
+![Run Control feature art](../assets/features/run-control.png)
 
 ## When this helps
 

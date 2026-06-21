@@ -38,6 +38,8 @@ If you want to help test a fix, use the [participation page](https://chummer.run
 
 [Watch the Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).
 
-## Campaign tools
+## Campaign tools and client features
 
-[Runner Passport](RUNNER_PASSPORT.md) gives a GM a clean character summary. [Living World](LIVING_WORLD.md) keeps aftermath and consequences in one place. [Campaign tools](HORIZONS/README.md) is the larger map for ALICE, Origin Dossier, Table Pulse, and the ideas that only matter once the sheet is no longer the whole problem.
+[Runner Passport](RUNNER_PASSPORT.md) gives a GM a clean character summary. [Living World](LIVING_WORLD.md) keeps aftermath and consequences in one place. [Campaign tools](HORIZONS/README.md) covers ALICE, Origin Dossier, Table Pulse, Jackpoint, Runsite, Runbook Press, and Karma Forge.
+
+Use [Features](FEATURES/README.md) for base-client capabilities such as NEXUS-PAN, Run Control, Edition Studio, Community Hub, Ghostwire, Local Co-Processor, and Quicksilver.

@@ -189,13 +189,32 @@ def main() -> int:
 
     campaign_tools = _read("HORIZONS/README.md")
     for marker in (
-        "If a name does not help a player or GM decide what to do next",
-        "Better inside the normal app",
+        "This page is not a shelf for every named capability",
+        "Base-client support work belongs in [Features](../FEATURES/README.md)",
         "[Origin Dossier](origin-dossier.md)",
         "[Table Pulse](table-pulse.md)",
     ):
         if marker not in campaign_tools:
             failures.append(f"HORIZONS/README.md missing humanized campaign marker: {marker}")
+    for marker in (
+        "NEXUS-PAN",
+        "Run Control",
+        "Edition Studio",
+        "Community Hub",
+        "Ghostwire",
+        "Local Co-Processor",
+        "Quicksilver",
+    ):
+        if marker in campaign_tools:
+            failures.append(f"HORIZONS/README.md still lists base-client feature: {marker}")
+    features = _read("FEATURES/README.md")
+    for marker in (
+        "[NEXUS-PAN](nexus-pan.md)",
+        "[Community Hub](community-hub.md)",
+        "[Edition Studio](edition-studio.md)",
+    ):
+        if marker not in features:
+            failures.append(f"FEATURES/README.md missing base-client feature marker: {marker}")
 
     internal_receipts = ROOT / ".guide-internal" / "receipts"
     for filename in (

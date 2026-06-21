@@ -2,7 +2,7 @@
 
 Long-form publishing becomes something you can actually reuse instead of a ten-tool scramble.
 
-<a href="https://chummer.run/media/horizons/runbook-press-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer" title="Play the Runbook Press video">
+<a href="https://chummer.run/media/horizons/runbook-press-90s-deepdive.mp4?v=20260621-runbook-clean-speech-r1" target="_blank" rel="noopener noreferrer" title="Play the Runbook Press video">
   <img src="../assets/horizons/runbook-press.png" alt="Runbook Press video preview" title="Play the Runbook Press video" />
 </a>
 

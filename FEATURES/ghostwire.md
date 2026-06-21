@@ -2,7 +2,7 @@
 
 Tables can replay, inspect, and compare what happened without forking official session record.
 
-![Ghostwire feature art](../assets/horizons/ghostwire.png)
+![Ghostwire feature art](../assets/features/ghostwire.png)
 
 ## When this helps
 

@@ -7,11 +7,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
-COMMUNITY_HUB = ROOT / "HORIZONS" / "community-hub.md"
+COMMUNITY_HUB = ROOT / "FEATURES" / "community-hub.md"
 
 README_REQUIRED = (
-    '<a href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4" target="_blank" rel="noopener noreferrer">',
-    '<img src="assets/hero/chummer6-hero.png" alt="Chummer6 flagship promo preview" />',
+    'href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4"',
+    'src="assets/hero/chummer6-hero.png" alt="Chummer6 flagship promo preview"',
     "[Watch the Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).",
 )
 
@@ -23,9 +23,8 @@ COMMUNITY_HUB_REQUIRED = (
     "## The table problem",
     "## Can I use it?",
     "Parts of this already exist after sign-in",
-    '<a href="https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">',
-    '<img src="../assets/horizons/community-hub.png" alt="Community Hub video preview" />',
-    "[Watch the Community Hub 90-second deep dive](https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4).",
+    'href="https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4"',
+    '<img src="../assets/features/community-hub.png" alt="Community Hub video preview"',
 )
 
 FORBIDDEN = (
@@ -52,7 +51,7 @@ def main() -> int:
     for marker in _require_markers(README, README_REQUIRED):
         failures.append(f"README.md missing marker: {marker}")
     for marker in _require_markers(COMMUNITY_HUB, COMMUNITY_HUB_REQUIRED):
-        failures.append(f"HORIZONS/community-hub.md missing marker: {marker}")
+        failures.append(f"FEATURES/community-hub.md missing marker: {marker}")
 
     readme_text = README.read_text(encoding="utf-8")
     community_text = COMMUNITY_HUB.read_text(encoding="utf-8")
@@ -60,7 +59,7 @@ def main() -> int:
         if marker in readme_text:
             failures.append(f"README.md still contains forbidden marker: {marker}")
         if marker in community_text:
-            failures.append(f"HORIZONS/community-hub.md still contains forbidden marker: {marker}")
+            failures.append(f"FEATURES/community-hub.md still contains forbidden marker: {marker}")
 
     if failures:
         for failure in failures:

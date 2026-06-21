@@ -2,7 +2,7 @@
 
 The same built-in record becomes meaningfully faster without becoming less explainable.
 
-![Quicksilver feature art](../assets/horizons/quicksilver.png)
+![Quicksilver feature art](../assets/features/quicksilver.png)
 
 ## When this helps
 

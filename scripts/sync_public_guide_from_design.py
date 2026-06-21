@@ -44,6 +44,7 @@ INTERNAL_SYNC_FILES = {
 }
 
 SYNC_DIRS = (
+    "FEATURES",
     "PARTS",
     "HORIZONS",
     "TRUST",

@@ -1,6 +1,6 @@
 # Jackpoint
 
-The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show where what it is based on.
+The table gets polished short-to-medium-form dossiers, recaps, and briefings that still point back to their source material.
 
 <a href="https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer" title="Play the Jackpoint video">
   <img src="../assets/horizons/jackpoint.png" alt="Jackpoint video preview" title="Play the Jackpoint video" />

@@ -2,7 +2,7 @@
 
 Local acceleration improves privacy and responsiveness where available without becoming mandatory infrastructure.
 
-![Local Co-Processor feature art](../assets/horizons/local-co-processor.png)
+![Local Co-Processor feature art](../assets/features/local-co-processor.png)
 
 ## When this helps
 

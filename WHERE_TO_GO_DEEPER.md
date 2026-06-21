@@ -8,7 +8,11 @@ Most players and GMs should read [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [
 
 ## I want the campaign tools
 
-[Campaign tools](HORIZONS/README.md) covers the larger table story: ALICE, Origin Dossier, Table Pulse, NEXUS-PAN, and the ideas that matter after the character sheet is no longer the whole problem.
+[Campaign tools](HORIZONS/README.md) covers the larger table story: ALICE, Origin Dossier, Table Pulse, Jackpoint, Runsite, Runbook Press, and Karma Forge.
+
+## I want base-client features
+
+[Features](FEATURES/README.md) covers NEXUS-PAN, Run Control, Edition Studio, Community Hub, Ghostwire, Local Co-Processor, and Quicksilver without pretending they are separate Horizons.
 
 ## I want to report or improve something
 

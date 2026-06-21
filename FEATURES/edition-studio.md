@@ -2,7 +2,7 @@
 
 SR4, SR5, and SR6 keep authored head state without splitting the product into disconnected apps.
 
-![Edition Studio feature art](../assets/horizons/edition-studio.png)
+![Edition Studio feature art](../assets/features/edition-studio.png)
 
 ## When this helps
 

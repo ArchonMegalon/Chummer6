@@ -20,6 +20,10 @@ Open [What Chummer6 Is](WHAT_CHUMMER6_IS.md). This is starter help, not another 
 
 Start with [Runner Passport](RUNNER_PASSPORT.md), [Living World](LIVING_WORLD.md), and [Campaign tools](HORIZONS/README.md).
 
+## I want normal app capabilities
+
+Use [Features](FEATURES/README.md) for NEXUS-PAN, Run Control, Edition Studio, Community Hub, Ghostwire, Local Co-Processor, and Quicksilver.
+
 ## Something is blocking me
 
 Open [Help](HELP.md) first. Use [Contact](CONTACT.md) if the problem is private, account-bound, or still unresolved.
