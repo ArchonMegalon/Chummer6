@@ -2,8 +2,8 @@
 
 Shared state survives device churn without the table losing trust.
 
-<a href="https://chummer.run/media/horizons/nexus-pan-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
-  <img src="../assets/horizons/nexus-pan.png" alt="NEXUS-PAN video preview" />
+<a href="https://chummer.run/media/horizons/nexus-pan-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer" title="Play the NEXUS-PAN video">
+  <img src="../assets/horizons/nexus-pan.png" alt="NEXUS-PAN video preview" title="Play the NEXUS-PAN video" />
 </a>
 
 ## When this helps

@@ -2,8 +2,8 @@
 
 A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
 
-<a href="https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
-  <img src="../assets/horizons/community-hub.png" alt="Community Hub video preview" />
+<a href="https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer" title="Play the Community Hub video">
+  <img src="../assets/horizons/community-hub.png" alt="Community Hub video preview" title="Play the Community Hub video" />
 </a>
 
 ## When this helps

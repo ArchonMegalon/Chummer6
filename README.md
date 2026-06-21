@@ -31,8 +31,8 @@ If you want to help test a fix, use the [participation page](https://chummer.run
 
 ## First contact
 
-<a href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4" target="_blank" rel="noopener noreferrer">
-  <img src="assets/hero/chummer6-hero.png" alt="Chummer6 flagship promo preview" />
+<a href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4" target="_blank" rel="noopener noreferrer" title="Play the Chummer6 flagship promo video">
+  <img src="assets/hero/chummer6-hero.png" alt="Chummer6 flagship promo preview" title="Play the Chummer6 flagship promo video" />
 </a>
 
 

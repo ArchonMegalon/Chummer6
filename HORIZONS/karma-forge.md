@@ -2,8 +2,8 @@
 
 Tables can evolve house rules without splintering into unreadable forks.
 
-<a href="https://chummer.run/media/horizons/karma-forge-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
-  <img src="../assets/horizons/karma-forge.png" alt="Karma Forge video preview" />
+<a href="https://chummer.run/media/horizons/karma-forge-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer" title="Play the Karma Forge video">
+  <img src="../assets/horizons/karma-forge.png" alt="Karma Forge video preview" title="Play the Karma Forge video" />
 </a>
 
 ## When this helps

@@ -2,8 +2,8 @@
 
 The table gets polished short-to-medium-form dossiers, recaps, and briefings that still show where what it is based on.
 
-<a href="https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
-  <img src="../assets/horizons/jackpoint.png" alt="Jackpoint video preview" />
+<a href="https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer" title="Play the Jackpoint video">
+  <img src="../assets/horizons/jackpoint.png" alt="Jackpoint video preview" title="Play the Jackpoint video" />
 </a>
 
 ## When this helps
