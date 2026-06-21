@@ -2,8 +2,8 @@
 
 Mission spaces become explorable and legible before the action starts.
 
-<a href="https://chummer.run/media/horizons/runsite-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
-  <img src="../assets/horizons/runsite.png" alt="Runsite video preview" />
+<a href="https://chummer.run/media/horizons/runsite-90s-deepdive.mp4?v=20260621-runsite-clean-speech-r1" target="_blank" rel="noopener noreferrer" title="Play the Runsite 90-second deep dive video">
+  <img src="../assets/horizons/runsite.png" alt="Runsite video preview" title="Play the Runsite 90-second deep dive video" />
 </a>
 
 ## When this helps
