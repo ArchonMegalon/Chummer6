@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PUBLIC_ORIGIN = "https://chummer.run"
-MEDIA_URL_RE = re.compile(r"https://chummer\.run/media/[^\s)\"']+?\.(?:mp4|webm)", re.IGNORECASE)
+MEDIA_URL_RE = re.compile(r"https://chummer\.run/media/[^\s)\"']+?\.(?:mp4|webm)(?:\?[^\s)\"']+)?", re.IGNORECASE)
 IGNORED_DIRS = {".git", ".pytest_cache", ".guide-internal"}
 DEFAULT_MEDIA_ROOTS = (
     Path("/docker/chummercomplete/chummer.run-services/Chummer.Run.Api/wwwroot"),

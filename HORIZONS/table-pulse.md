@@ -2,7 +2,7 @@
 
 GMs get a reviewed live heat-and-reaction path today and a separate private aftermath coaching path as the broader Table Pulse promise grows.
 
-<a href="https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer" title="Play the Table Pulse video">
+<a href="https://chummer.run/media/horizons/table-pulse-90s-deepdive.mp4?v=20260621-tablepulse-3fb86343" target="_blank" rel="noopener noreferrer" title="Play the Table Pulse video">
   <img src="../assets/horizons/table-pulse.png" alt="Table Pulse video preview" title="Play the Table Pulse video" />
 </a>
 
