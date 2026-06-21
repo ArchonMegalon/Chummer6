@@ -2,7 +2,7 @@
 
 Builders get grounded what-if tests instead of vague assistant advice.
 
-<a href="https://chummer.run/media/horizons/alice-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
+<a href="https://github.com/ArchonMegalon/chummer6-hub/releases/download/alice-90s-deepdive-20260621-unmixr-clean-audio/alice-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">
   <img src="../assets/horizons/alice.png" alt="ALICE video preview" />
 </a>
 
