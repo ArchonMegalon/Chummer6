@@ -4,7 +4,7 @@ Start here if installation, updates, sign-in, or bugs are getting in the way.
 
 If the session starts soon, do not debug the whole universe. Check the download page, check status, then contact us with what happened.
 
-## Start with Get Chummer and What works today
+## Get Chummer first
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 

@@ -16,7 +16,7 @@ Help, contact, privacy, and terms pages are live.
 - Published: June 21, 2026 at 5:53 UTC.
 - Release status: Published.
 
-## Get Chummer, then use Help if setup goes sideways
+## Get Chummer first
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 

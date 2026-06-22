@@ -15,7 +15,6 @@ guide_sync = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(guide_sync)
 
 _render_manifest = guide_sync._render_manifest
-_render_with_start_here = guide_sync._render_with_start_here
 _sync_removable_file = guide_sync._sync_removable_file
 
 
@@ -51,133 +50,10 @@ class RenderWithStartHereTests(unittest.TestCase):
             self.assertEqual([], failures)
             self.assertFalse(destination.exists())
 
-    def test_readme_start_here_links_are_unique(self) -> None:
-        source = """# Chummer6
-
-## Start here
-
-- [Download](DOWNLOAD.md)
-- [Status](STATUS.md)
-- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
-- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
-- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
-- [Help](HELP.md)
-"""
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            source_path = Path(tmpdir) / "README.md"
-            source_path.write_text(source, encoding="utf-8")
-
-            rendered = _render_with_start_here(source_path, "README.md", "")
-
-        self.assertEqual(
-            rendered.count("[From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)"),
-            1,
-        )
-
-    def test_readme_rewrites_noisy_first_contact_labels(self) -> None:
-        source = """# Chummer6
-
-Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.
-
-When you are ready for more, use: [How can I help](HOW_CAN_I_HELP.md), [Help](HELP.md), [Worlds and future work](HORIZONS/README.md).
-
-## Product parts
-
-Use [Worlds and future work](HORIZONS/README.md) for longer-running campaign lanes.
-"""
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            source_path = Path(tmpdir) / "README.md"
-            source_path.write_text(source, encoding="utf-8")
-
-            rendered = _render_with_start_here(source_path, "README.md", "")
-
-        self.assertIn("[Campaign tools](HORIZONS/README.md)", rendered)
-        self.assertIn("[Contact](CONTACT.md)", rendered)
-        self.assertIn("## Campaign tools", rendered)
-        self.assertNotIn("Worlds and future work", rendered)
-        self.assertNotIn("How can I help", rendered)
-
-    def test_readme_rewrites_internal_acceptance_bar_phrase(self) -> None:
-        sources = (
-            """# Chummer6
-
-Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
-""",
-            """# Chummer6
-
-Preview evidence and fallback routes can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.
-""",
-        )
-
-        for source in sources:
-            with tempfile.TemporaryDirectory() as tmpdir:
-                source_path = Path(tmpdir) / "README.md"
-                source_path.write_text(source, encoding="utf-8")
-
-                rendered = _render_with_start_here(source_path, "README.md", "")
-
-        self.assertIn("visitor can actually inspect and use", rendered)
-        self.assertNotIn("flagship acceptance bar", rendered)
-        self.assertNotIn("Preview evidence", rendered)
-
-    def test_faq_rewrites_heading_and_body(self) -> None:
-        source = """# FAQ
-
-## If you want the behind-the-scenes details
-
-### Where does the deeper plan live?
-
-In the planning notes that shape the roadmap and the public guide.
-"""
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            source_path = Path(tmpdir) / "FAQ.md"
-            source_path.write_text(source, encoding="utf-8")
-
-            rendered = _render_with_start_here(source_path, "FAQ.md", "")
-
-        self.assertIn("## If you want more detail", rendered)
-        self.assertNotIn("## If you want the behind-the-scenes details", rendered)
-        self.assertIn(
-            "Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.",
-            rendered,
-        )
-        self.assertNotIn(
-            "In the planning notes that shape the roadmap and the public guide.",
-            rendered,
-        )
-
-    def test_download_rewrites_internal_acceptance_reference(self) -> None:
-        source = """# Download
-
-## What should I download first?
-
-- Start with the installer for your platform.
-
-## Current public download
-
-- Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.
-"""
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            source_path = Path(tmpdir) / "DOWNLOAD.md"
-            source_path.write_text(source, encoding="utf-8")
-
-            rendered = _render_with_start_here(
-                source_path,
-                "DOWNLOAD.md",
-                "## Current public download\n",
-            )
-
-        self.assertIn(
-            "Claim boundary: That stronger wording only belongs on the main release surfaces after they are ready for visitors; preview artifacts, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
-            rendered,
-        )
-        self.assertNotIn("FLAGSHIP_RELEASE_ACCEPTANCE.yaml", rendered)
-        self.assertNotIn("proof cards", rendered)
-        self.assertNotIn("public proof", rendered)
+    def test_sync_uses_generated_public_copy_without_legacy_rewrite_tables(self) -> None:
+        self.assertFalse(hasattr(guide_sync, "TEXT_REWRITES"))
+        self.assertFalse(hasattr(guide_sync, "START_HERE_TRANSFORMS"))
+        self.assertFalse(hasattr(guide_sync, "_render_with_start_here"))
 
 
 class RenderManifestTests(unittest.TestCase):

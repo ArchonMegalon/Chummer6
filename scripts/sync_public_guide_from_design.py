@@ -67,8 +67,6 @@ STALE_ROOT_FILES = (
     "FINAL_CHUMMER6_DOCS_GENERATION_VERDICT.md",
 )
 
-START_HERE_BLOCKS = {}
-
 WRAPPERS = {}
 
 
@@ -146,148 +144,6 @@ def _render_manifest(src: Path) -> str:
     return json.dumps(manifest, indent=2) + "\n"
 
 
-START_HERE_TRANSFORMS = {
-    "STATUS.md": ("\n## Current picture\n", "\n## Right now\n"),
-    "DOWNLOAD.md": ("\n## Current public download\n", "\n## Current preview shelf\n", "\n## What is available today\n"),
-    "HELP.md": ("\n## Start with the release page and download help\n", "\n## If install or update goes sideways\n"),
-    "FAQ.md": "",
-}
-
-TEXT_REWRITES = {
-    "README.md": (
-        (
-            "Preview proof, fallback routes, artifact explainers, and packet-detail artifacts can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
-            "Preview notes, fallback routes, artifact explainers, and packet details can show real progress, but we only use flagship wording on pages a visitor can actually inspect and use.",
-        ),
-        (
-            "Preview proof, fallback routes, and artifact explainers can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
-            "Preview notes, fallback routes, and artifact explainers can show real progress, but we only use flagship wording on pages a visitor can actually inspect and use.",
-        ),
-        (
-            "Preview evidence and fallback routes can show real progress, but flagship wording is reserved for surfaces that independently clear the flagship acceptance bar.",
-            "Preview notes and fallback routes can show real progress, but we only use flagship wording on pages a visitor can actually inspect and use.",
-        ),
-        (
-            "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, and where to get help.",
-            "Use this guide to answer the practical questions first: what Chummer6 is, what is real today, what to download, how account and recovery fit together, and where to get help.",
-        ),
-        (
-            "## Start here\n\n- [Download](DOWNLOAD.md)\n- [Status](STATUS.md)\n- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [How can I help](HOW_CAN_I_HELP.md)\n- [Help](HELP.md)\n- [FAQ](FAQ.md)\n- [Contact](CONTACT.md)\n- [Future ideas](HORIZONS/README.md)\n",
-            "## Flagship guide map\n\n- [Home](README.md)\n- [Get Chummer](DOWNLOAD.md)\n- [What works today](STATUS.md)\n- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)\n- [Campaign tools](HORIZONS/README.md)\n- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)\n- [Account](HELP.md#account-keep-access-and-recovery-on-one-calm-path)\n- [Help](HELP.md)\n- [FAQ](FAQ.md)\n- [Contact](CONTACT.md)\n",
-        ),
-        ("## How can I help?\n", "## Account and contribution paths\n"),
-        ("## Product parts\n", "## Campaign tools\n"),
-        ("[Worlds and future work](HORIZONS/README.md)", "[Campaign tools](HORIZONS/README.md)"),
-        ("How can I help](HOW_CAN_I_HELP.md)", "Contact](CONTACT.md)"),
-        ("## Need help\n", "## Help\n"),
-    ),
-    "DOWNLOAD.md": (
-        (
-            "Claim boundary: Flagship wording is reserved for surfaces that currently satisfy FLAGSHIP_RELEASE_ACCEPTANCE.yaml; preview artifacts, proof cards, captions, packet siblings, artifact-factory explainers, and fallback routes do not earn that claim by proximity.",
-            "Claim boundary: That stronger wording only belongs on the main release surfaces after they are ready for visitors; preview artifacts, captions, packet siblings, artifact-factory explainers, and fallback routes do not inherit it just by sitting nearby.",
-        ),
-    ),
-    "STATUS.md": (
-        (
-            "## Start with the release page and download help\n",
-            "## Get Chummer, then use Help if setup goes sideways\n",
-        ),
-    ),
-    "HELP.md": (
-        (
-            "## Start with the release page and download help\n",
-            "## Start with Get Chummer and What works today\n",
-        ),
-        (
-            "## Keep access and recovery on one calm path\n",
-            "## Account: keep access and recovery on one calm path\n",
-        ),
-        (
-            "## Product help should become a support case, not a rumor\n",
-            "## Help should become a support case, not a rumor\n",
-        ),
-        (
-            "## Ask from inside Chummer first\n",
-            "## Ask Chummer first\n",
-        ),
-    ),
-    "FAQ.md": (
-        (
-            "# FAQ\n\n## Using Chummer6\n",
-            "# FAQ\n\nAsk the questions a GM, player, or tired maintainer would ask before trusting this at a table.\n\n## Questions people actually ask first\n",
-        ),
-        (
-            "## If you want the behind-the-scenes details",
-            "## If you want more detail",
-        ),
-        (
-            "In the planning notes that shape the roadmap and the public guide.",
-            "Start with [Where To Go Deeper](WHERE_TO_GO_DEEPER.md). It points to the optional deeper guide pages without sending most readers through internal planning material first.",
-        ),
-        (
-            "## Helping and feedback\n",
-            "## Worlds, Account, and Help\n",
-        ),
-    ),
-}
-
-
-def _render_with_start_here(src: Path, relative_path: str, anchor: str) -> str:
-    if not src.exists():
-        raise FileNotFoundError(src)
-    source_text = src.read_text(encoding="utf-8")
-    for old, new in TEXT_REWRITES.get(relative_path, ()):
-        source_text = source_text.replace(old, new)
-    if relative_path == "README.md":
-        duplicated = "[From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)"
-        seen = False
-        deduped: list[str] = []
-        for line in source_text.splitlines():
-            if line.strip() == f"- {duplicated}":
-                if seen:
-                    continue
-                seen = True
-            deduped.append(line)
-        source_text = "\n".join(deduped)
-    start_here_block = START_HERE_BLOCKS.get(relative_path, "")
-    if not start_here_block:
-        return source_text if source_text.endswith("\n") else source_text + "\n"
-    if start_here_block in source_text:
-        return source_text if source_text.endswith("\n") else source_text + "\n"
-    anchors = anchor if isinstance(anchor, tuple) else (anchor,)
-    selected_anchor = next((candidate for candidate in anchors if candidate in source_text), "")
-    if not selected_anchor:
-        raise ValueError(f"unable to place Start here block in {src}")
-    rendered = source_text.replace(selected_anchor, f"\n{start_here_block}{selected_anchor.lstrip()}", 1)
-    return rendered if rendered.endswith("\n") else rendered + "\n"
-
-
-def _sync_rendered_file(
-    src: Path,
-    dest: Path,
-    check: bool,
-    failures: list[str],
-) -> None:
-    if not src.exists():
-        failures.append(f"missing source file: {src}")
-        return
-    try:
-        expected = _render_with_start_here(src, dest.name, "")
-    except (FileNotFoundError, ValueError) as exc:
-        failures.append(str(exc))
-        return
-    if check:
-        if not dest.exists():
-            failures.append(f"missing destination file: {dest}")
-            return
-        actual = dest.read_text(encoding="utf-8")
-        if actual != expected:
-            failures.append(f"file drift: {dest} != rendered {src}")
-        return
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(expected, encoding="utf-8")
-
-
 def _sync_manifest_file(
     src: Path,
     dest: Path,
@@ -300,33 +156,6 @@ def _sync_manifest_file(
     try:
         expected = _render_manifest(src)
     except (FileNotFoundError, json.JSONDecodeError) as exc:
-        failures.append(str(exc))
-        return
-    if check:
-        if not dest.exists():
-            failures.append(f"missing destination file: {dest}")
-            return
-        actual = dest.read_text(encoding="utf-8")
-        if actual != expected:
-            failures.append(f"file drift: {dest} != rendered {src}")
-        return
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(expected, encoding="utf-8")
-
-
-def _sync_transformed_file(
-    src: Path,
-    dest: Path,
-    anchor: str,
-    check: bool,
-    failures: list[str],
-) -> None:
-    if not src.exists():
-        failures.append(f"missing source file: {src}")
-        return
-    try:
-        expected = _render_with_start_here(src, dest.name, anchor)
-    except (FileNotFoundError, ValueError) as exc:
         failures.append(str(exc))
         return
     if check:
@@ -431,21 +260,7 @@ def main(argv: list[str]) -> int:
     source_root = args.source.resolve()
     failures: list[str] = []
 
-    for relative_path, anchor in START_HERE_TRANSFORMS.items():
-        _sync_transformed_file(
-            source_root / relative_path,
-            REPO_ROOT / relative_path,
-            anchor,
-            args.check,
-            failures,
-        )
-
     for relative_path in SYNC_FILES:
-        if relative_path in START_HERE_TRANSFORMS:
-            continue
-        if relative_path in TEXT_REWRITES:
-            _sync_rendered_file(source_root / relative_path, REPO_ROOT / relative_path, args.check, failures)
-            continue
         _copy_file(
             source_root / relative_path,
             REPO_ROOT / relative_path,

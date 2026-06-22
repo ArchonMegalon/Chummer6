@@ -2,7 +2,7 @@
 
 Start here for downloads, sign-in recovery, and support.
 
-## Start with the release page and download help
+## Get Chummer first
 
 Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
 
