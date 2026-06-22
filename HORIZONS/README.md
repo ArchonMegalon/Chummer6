@@ -2,7 +2,7 @@
 
 Open this when the character builder is no longer the whole question and the table starts asking, "what happens next?"
 
-This page is not a shelf for every named capability in Chummer6. Horizons are the campaign-facing tools that change how a table prepares, runs, remembers, or publishes play. Base-client support work belongs in [Features](../FEATURES/README.md).
+This page is not a shelf for every named capability in Chummer6. Campaign tools are the parts that change how a table prepares, runs, remembers, or publishes play. Base-client support work belongs in [Features](../FEATURES/README.md).
 
 ![Chummer6 horizons index art](../assets/pages/horizons-index.png)
 

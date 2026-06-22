@@ -12,7 +12,7 @@ Most players and GMs should read [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [
 
 ## I want base-client features
 
-[Features](FEATURES/README.md) covers NEXUS-PAN, Run Control, Edition Studio, Community Hub, Ghostwire, Local Co-Processor, and Quicksilver without pretending they are separate Horizons.
+[Features](FEATURES/README.md) covers NEXUS-PAN, Run Control, Edition Studio, Community Hub, Ghostwire, Local Co-Processor, and Quicksilver without pretending they are campaign tools.
 
 ## I want to report or improve something
 

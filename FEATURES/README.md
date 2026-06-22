@@ -1,8 +1,8 @@
 # Features
 
-Open this when you want the normal Chummer6 client capabilities that should feel built in, not like separate Horizons.
+Open this when you want the normal Chummer6 client capabilities that should feel built in, not like separate campaign tools.
 
-The rule is simple: if a capability helps the app stay reliable, faster, better organized, or easier to operate, it belongs here. Horizons are reserved for campaign-facing tools that change preparation, play, aftermath, or publication.
+The rule is simple: if a capability helps the app stay reliable, faster, better organized, or easier to operate, it belongs here. Campaign tools are reserved for preparation, play, aftermath, and publication.
 
 
 ## Base client and support surfaces

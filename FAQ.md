@@ -60,7 +60,7 @@ They are thank-yous, not power. They should celebrate useful help without replac
 
 ### Would I need a Windows PC to join a run?
 
-No. The intended direction is that browsing runs, applying with a quickstart or approved runner, acknowledging table expectations, and receiving scheduling and handoff details should work without assuming a Windows-only setup.
+No. The intended direction is that browsing runs, applying with a quickstart or approved runner, acknowledging table expectations, and receiving schedule and session details should work without assuming a Windows-only setup.
 
 ### Is Chummer trying to replace Discord or VTTs?
 
