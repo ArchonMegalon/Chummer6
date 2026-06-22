@@ -12,7 +12,7 @@ BASE_PATH=""
 ASSUME_YES=0
 SKIP_SYSTEM_DEPS=0
 AUDIT_ONLY=0
-TOTAL_STEPS=10
+TOTAL_STEPS=11
 CURRENT_STEP=0
 START_SECONDS=$SECONDS
 LOG_FILE=""
@@ -444,9 +444,35 @@ done
 log "All required owner projects are present."
 
 step "Installing the repository-pinned .NET SDK locally"
-GLOBAL_JSON="$BASE_PATH/chummer6-ui/global.json"
-SDK_VERSION="$(sed -n 's/.*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$GLOBAL_JSON" | head -1)"
-[[ -n "$SDK_VERSION" ]] || die "Could not read the SDK version from $GLOBAL_JSON"
+read_sdk_version() {
+  local json_path="$1"
+  sed -n 's/.*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$json_path" | head -1
+}
+
+SDK_VERSIONS=()
+for json_file in \
+  "$BASE_PATH/chummer6-ui/global.json" \
+  "$BASE_PATH/chummer-core-engine/global.json" \
+  "$BASE_PATH/chummer.run-services/global.json" \
+  "$BASE_PATH/chummer-hub-registry/global.json" \
+  "$BASE_PATH/chummer-ui-kit/global.json"; do
+  if [[ -f "$json_file" ]]; then
+    version="$(read_sdk_version "$json_file")"
+    if [[ -n "$version" ]]; then
+      SDK_VERSIONS+=("$version")
+    fi
+  fi
+done
+
+if (( ${#SDK_VERSIONS[@]} == 0 )); then
+  die "Could not read any .NET SDK version from repository global.json files"
+fi
+
+SDK_VERSION="$(printf '%s\n' "${SDK_VERSIONS[@]}" | sort -V | tail -n 1)"
+if [[ -n "${CHUMMER_SDK_VERSIONS_DEBUG:-}" ]]; then
+  log "SDK versions seen: ${SDK_VERSIONS[*]}"
+  log "Selected SDK version: $SDK_VERSION"
+fi
 DOTNET_DIR="$BASE_PATH/.tools/dotnet"
 DOTNET_INSTALL="$BASE_PATH/.tools/dotnet-install.sh"
 mkdir -p "$BASE_PATH/.tools"
