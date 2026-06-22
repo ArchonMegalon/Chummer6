@@ -27,6 +27,8 @@ If you want to install packages yourself first, use:
 bash scripts/build-chummer6-linux.sh --skip-system-deps --base "$HOME/chummer6-source-build"
 ```
 
+If you mirror the repositories yourself, set `CHUMMER_REPO_BASE_URL` to the mirror base URL. The script expects repositories named `chummer6-core.git`, `chummer6-hub.git`, `chummer6-hub-registry.git`, `chummer6-ui-kit.git`, and `chummer6-ui.git`.
+
 ## What it needs
 
 - Linux with glibc.

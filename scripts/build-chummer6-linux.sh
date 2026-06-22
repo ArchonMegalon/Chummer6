@@ -3,6 +3,8 @@ set -Eeuo pipefail
 
 SCRIPT_VERSION="1.2.0"
 GITHUB_ORG="${CHUMMER_GITHUB_ORG:-ArchonMegalon}"
+REPO_BASE_URL="${CHUMMER_REPO_BASE_URL:-https://github.com/$GITHUB_ORG}"
+REPO_BASE_URL="${REPO_BASE_URL%/}"
 GIT_REF="${CHUMMER_GIT_REF:-main}"
 MIN_FREE_GIB="${CHUMMER_MIN_FREE_GIB:-25}"
 DEFAULT_BASE="${CHUMMER_BUILD_BASE:-$HOME/chummer6-source-build}"
@@ -32,7 +34,7 @@ Options:
 
 Environment overrides:
   CHUMMER_BUILD_BASE, CHUMMER_GIT_REF, CHUMMER_MIN_FREE_GIB,
-  CHUMMER_GITHUB_ORG
+  CHUMMER_GITHUB_ORG, CHUMMER_REPO_BASE_URL
 USAGE
 }
 
@@ -368,7 +370,7 @@ sync_repo() {
   local directory_name="$1"
   local repository_name="$2"
   local target="$BASE_PATH/$directory_name"
-  local expected_url="https://github.com/$GITHUB_ORG/$repository_name.git"
+  local expected_url="$REPO_BASE_URL/$repository_name.git"
 
   if [[ ! -e "$target" ]]; then
     log "Cloning $repository_name into $directory_name"
