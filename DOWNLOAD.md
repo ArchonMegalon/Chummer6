@@ -26,6 +26,8 @@ Only expect fix notices after the affected download is available on the download
 
 Official client downloads start on the [Chummer6 downloads page](https://chummer.run/downloads). Use GitHub for source code and issue discussion.
 
+Advanced users can also [build the Linux desktop client from source](SOURCE_BUILD_LINUX.md).
+
 ### Windows
 
 - Avalonia Desktop Windows X64 Installer.

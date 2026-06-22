@@ -27,6 +27,7 @@ done
 
 python3 "$repo_root/scripts/sync_public_guide_from_design.py" --check "${forward_args[@]}"
 python3 -m unittest discover -s "$repo_root/tests" -p 'test_sync_public_guide_from_design.py' >/dev/null
+python3 -m unittest discover -s "$repo_root/tests" -p 'test_linux_source_build_script.py' >/dev/null
 python3 "$repo_root/scripts/verify_public_guide_links.py" --root "$source_root"
 python3 "$repo_root/scripts/verify_public_guide_video_audio.py" --root "$source_root"
 python3 "$repo_root/scripts/test_verify_chummer6_docs_release_truth.py" >/dev/null
