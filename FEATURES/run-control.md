@@ -1,6 +1,6 @@
 # Run Control
 
-Session board, active-scene continuity, reconnect state, and recap return stay on one built-in control path.
+GM operations, active-scene continuity, and recap return in one Chummer workspace.
 
 ![Run Control feature art](../assets/features/run-control.png)
 
@@ -12,11 +12,11 @@ The bar is simple: a GM should see the current scene, the next safe action, and 
 
 ## The table problem
 
-GM session control still falls back to notes, chats, and memory even when the rest of the product is strong.
+GMs still stitch session control together from notes, memory, and chat when the operations page is not inside Chummer.
 
-For example, a GM opens the current run, sees the active scene, the next safe action, continuity state, and recap follow-through without stitching together five tools.
+For example, the current run, continuity, and next safe action stay visible inside Chummer.
 
 
 ## Can I use it?
 
-There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.
+Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.

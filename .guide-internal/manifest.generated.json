@@ -92,6 +92,7 @@
   "page_count": 46,
   "sources": {
     "faq_registry": "products/chummer/PUBLIC_FAQ_REGISTRY.yaml",
+    "feature_docs_root": "products/chummer/features",
     "help_copy": "products/chummer/PUBLIC_HELP_COPY.md",
     "horizon_docs_root": "products/chummer/horizons",
     "horizon_registry": "products/chummer/HORIZON_REGISTRY.yaml",

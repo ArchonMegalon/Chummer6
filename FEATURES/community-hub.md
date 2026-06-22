@@ -1,6 +1,6 @@
 # Community Hub
 
-A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
+Find a run, see the rules, get scheduled cleanly, and let the world remember the outcome.
 
 <a href="https://chummer.run/media/horizons/community-hub-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer" title="Play the Community Hub video">
   <img src="../assets/features/community-hub.png" alt="Community Hub video preview" title="Play the Community Hub video" />
@@ -16,9 +16,9 @@ A GM should be able to publish a beginner-friendly run and see who fits before t
 
 Finding a table still means juggling community rules, approvals, chats, calendars, and follow-up by hand.
 
-For example, a player finds a beginner-friendly run, applies with a legal runner or quickstart decker, gets scheduled, and the finished session changes the city.
+For example, chummer becomes the structured layer above community chats, calendars, and play surfaces instead of another disconnected app.
 
 
 ## Can I use it?
 
-Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
+Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.

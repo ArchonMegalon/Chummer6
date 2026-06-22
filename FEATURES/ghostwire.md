@@ -1,6 +1,6 @@
 # Ghostwire
 
-Tables can replay, inspect, and compare what happened without forking official session record.
+Replay and after-action history that survives memory drift.
 
 ![Ghostwire feature art](../assets/features/ghostwire.png)
 
@@ -12,9 +12,9 @@ It should help a GM answer, "what actually happened?" without turning the sessio
 
 ## The table problem
 
-We know something went wrong, but we cannot reconstruct what actually happened.
+People remember the drama and forget the sequence.
 
-For example, a GM replays a contested combat turn, sees records over time, and generates a grounded after-action recap.
+For example, after-action review can point at event history instead of table folklore.
 
 
 ## Can I use it?

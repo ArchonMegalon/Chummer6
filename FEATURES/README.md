@@ -15,24 +15,24 @@ Shared state survives device churn without the table losing trust.
 
 ### [Run Control](run-control.md)
 
-Session board, active-scene continuity, reconnect state, and recap return stay on one built-in control path.
+GM operations, active-scene continuity, and recap return in one Chummer workspace.
 
 ### [Edition Studio](edition-studio.md)
 
-SR4, SR5, and SR6 keep authored head state without splitting the product into disconnected apps.
+Distinct SR4, SR5, and SR6 ruleset heads without splitting the product into disconnected apps.
 
 ### [Community Hub](community-hub.md)
 
-A GM opens a run, Chummer preflights the right players and rule environment, gets the table scheduled, and the world remembers the outcome.
+Find a run, see the rules, get scheduled cleanly, and let the world remember the outcome.
 
 ### [Ghostwire](ghostwire.md)
 
-Tables can replay, inspect, and compare what happened without forking official session record.
+Replay and after-action history that survives memory drift.
 
 ### [Local Co-Processor](local-co-processor.md)
 
-Local acceleration improves privacy and responsiveness where available without becoming mandatory infrastructure.
+Optional local acceleration without turning the product into a black box.
 
 ### [Quicksilver](quicksilver.md)
 
-The same built-in record becomes meaningfully faster without becoming less explainable.
+Expert-speed jumps across builds, rules, prep, and publication desks without leaving Chummer.

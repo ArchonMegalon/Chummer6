@@ -1,6 +1,6 @@
 # Edition Studio
 
-SR4, SR5, and SR6 keep authored head state without splitting the product into disconnected apps.
+Distinct SR4, SR5, and SR6 ruleset heads without splitting the product into disconnected apps.
 
 ![Edition Studio feature art](../assets/features/edition-studio.png)
 
@@ -12,11 +12,11 @@ Most visitors do not need to care about it yet.
 
 ## The table problem
 
-A generic shell can technically support SR4, SR5, and SR6 while still flattening the differences players actually need.
+Multiple rulesets can share one shell while still losing the mental-model differences that make them understandable.
 
-For example, a veteran player opens the ruleset-head record and sees why SR4, SR5, and SR6 keep different emphasis, density, and terminology on the same built-in area.
+For example, sR4, SR5, and SR6 keep distinct handling in one product instead of flattening into generic chrome.
 
 
 ## Can I use it?
 
-There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.
+Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.

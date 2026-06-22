@@ -16,9 +16,9 @@ The point is not another named product shelf. The point is boringly reliable con
 
 My devices drift and the table loses confidence.
 
-For example, a player reconnects in the middle of a session and gets back in step without the GM rebuilding everything by memory.
+For example, shared state survives device churn without the GM rebuilding the run from memory.
 
 
 ## Can I use it?
 
-There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is clearer controls, better fit for real tables, and fewer edge-case surprises.
+There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.

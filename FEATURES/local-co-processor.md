@@ -1,6 +1,6 @@
 # Local Co-Processor
 
-Local acceleration improves privacy and responsiveness where available without becoming mandatory infrastructure.
+Optional local acceleration without turning the product into a black box.
 
 ![Local Co-Processor feature art](../assets/features/local-co-processor.png)
 
@@ -12,11 +12,11 @@ A feature that only works on one monster PC is not a normal product feature.
 
 ## The table problem
 
-Some tasks would be cheaper or faster locally, but the product cannot assume local compute exists.
+Some heavy local tasks still need more muscle.
 
-For example, a creator with a strong local machine opts into accelerated explain or media assistance while the same workflow still works hosted-only for everyone else.
+For example, local acceleration stays optional and limited instead of becoming a mystery dependency.
 
 
 ## Can I use it?
 
-There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.
+Parts of this already exist after sign-in, but I would still treat the larger idea as work in progress. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.
