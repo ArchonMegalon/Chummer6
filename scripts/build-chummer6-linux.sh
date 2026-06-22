@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-SCRIPT_VERSION="1.2.0"
+SCRIPT_VERSION="1.3.0"
 GITHUB_ORG="${CHUMMER_GITHUB_ORG:-ArchonMegalon}"
 REPO_BASE_URL="${CHUMMER_REPO_BASE_URL:-https://github.com/$GITHUB_ORG}"
 REPO_BASE_URL="${REPO_BASE_URL%/}"
@@ -16,6 +16,7 @@ TOTAL_STEPS=10
 CURRENT_STEP=0
 START_SECONDS=$SECONDS
 LOG_FILE=""
+KEEP_BUILD_TEMP="${CHUMMER_KEEP_BUILD_TEMP:-0}"
 
 usage() {
   cat <<'USAGE'
@@ -34,7 +35,7 @@ Options:
 
 Environment overrides:
   CHUMMER_BUILD_BASE, CHUMMER_GIT_REF, CHUMMER_MIN_FREE_GIB,
-  CHUMMER_GITHUB_ORG, CHUMMER_REPO_BASE_URL
+  CHUMMER_GITHUB_ORG, CHUMMER_REPO_BASE_URL, CHUMMER_KEEP_BUILD_TEMP
 USAGE
 }
 
@@ -131,11 +132,26 @@ die() {
 
 on_error() {
   local code=$?
+  cleanup_build_temp || true
   printf '\n%sBuild failed%s at line %s with exit code %s.\n' "$RED" "$RESET" "$1" "$code" >&2
   printf 'Full log: %s\n' "$LOG_FILE" >&2
   exit "$code"
 }
 trap 'on_error "$LINENO"' ERR
+
+cleanup_build_temp() {
+  if [[ "${KEEP_BUILD_TEMP:-0}" == "1" || "${KEEP_BUILD_TEMP:-0}" == "true" || "${KEEP_BUILD_TEMP:-0}" == "yes" ]]; then
+    return 0
+  fi
+
+  if [[ -n "${BASE_PATH:-}" && -d "$BASE_PATH/.tmp" ]]; then
+    rm -rf "$BASE_PATH/.tmp"
+  fi
+
+  if [[ -n "${DOTNET_INSTALL:-}" && -f "$DOTNET_INSTALL" ]]; then
+    rm -f "$DOTNET_INSTALL"
+  fi
+}
 
 confirm() {
   local prompt="$1"
@@ -459,6 +475,7 @@ export XDG_DATA_HOME="$BASE_PATH/.local/share"
 export TMPDIR="$BASE_PATH/.tmp/runtime"
 export CHUMMER_PACKAGE_PLANE_LOCK_ROOT="$BASE_PATH/.tmp/package-plane"
 export CHUMMER_BOOTSTRAP_ENGINE_CONTRACTS_FEED=1
+export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"
 mkdir -p "$DOTNET_CLI_HOME" "$NUGET_PACKAGES" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$TMPDIR" "$CHUMMER_PACKAGE_PLANE_LOCK_ROOT"
 dotnet --info
 
@@ -542,6 +559,7 @@ cat > "$PUBLISH_DIR/run-chummer6.sh" <<'LAUNCHER'
 #!/usr/bin/env bash
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"
 exec "$HERE/Chummer.Avalonia" "$@"
 LAUNCHER
 chmod +x "$PUBLISH_DIR/run-chummer6.sh"
@@ -551,6 +569,7 @@ TARBALL="$BASE_PATH/artifacts/chummer6-$RID-$RUN_ID.tar.gz"
 tar -C "$PUBLISH_DIR" -czf "$TARBALL" .
 TARBALL_SHA="$(sha256sum "$TARBALL" | awk '{print $1}')"
 printf '%s  %s\n' "$TARBALL_SHA" "$(basename "$TARBALL")" > "$TARBALL.sha256"
+cleanup_build_temp
 
 ELAPSED=$((SECONDS - START_SECONDS))
 printf '\n%sBuild complete.%s\n' "$GREEN$BOLD" "$RESET"

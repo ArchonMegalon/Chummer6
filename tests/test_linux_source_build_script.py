@@ -99,6 +99,9 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("expected_url=\"$REPO_BASE_URL/$repository_name.git\"", script_text)
         self.assertIn("DOTNET_CLI_TELEMETRY_OPTOUT=1", script_text)
         self.assertIn("AVALONIA_TELEMETRY_OPTOUT=1", script_text)
+        self.assertIn('CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"', script_text)
+        self.assertIn("CHUMMER_KEEP_BUILD_TEMP", script_text)
+        self.assertIn("cleanup_build_temp || true", script_text)
         self.assertIn("ChummerUseLocalCompatibilityTree=true", script_text)
         self.assertIn("CHUMMER_REPO_BASE_URL", script_text)
 
@@ -132,12 +135,16 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             self.assertIn("All required owner projects are present.", completed.stdout)
             self.assertIn("source-build", completed.stdout)
             self.assertTrue((base / "artifacts" / "chummer6-linux-x64" / "Chummer.Avalonia").exists())
-            self.assertTrue((base / "artifacts" / "chummer6-linux-x64" / "run-chummer6.sh").exists())
+            launcher = base / "artifacts" / "chummer6-linux-x64" / "run-chummer6.sh"
+            self.assertTrue(launcher.exists())
+            self.assertIn('CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"', launcher.read_text(encoding="utf-8"))
             manifest = (base / "artifacts" / "chummer6-linux-x64" / "BUILD-MANIFEST.txt").read_text(encoding="utf-8")
             self.assertIn("chummer6-ui", manifest)
             self.assertIn("Executable SHA256:", manifest)
             archives = list((base / "artifacts").glob("chummer6-linux-x64-*.tar.gz"))
             self.assertEqual(1, len(archives), completed.stdout)
+            self.assertFalse((base / ".tmp").exists())
+            self.assertFalse((base / ".tools" / "dotnet-install.sh").exists())
 
     @staticmethod
     def _write_fake_git_lfs(fake_bin: Path) -> None:

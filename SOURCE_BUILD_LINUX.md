@@ -4,6 +4,8 @@ Most users should use the installers on [Download](DOWNLOAD.md). This page is fo
 
 The source-build script creates a local workspace, downloads the Chummer6 repositories, installs the .NET SDK into that workspace, publishes the Avalonia desktop client, and writes a manifest with the exact source revisions used.
 
+Source-built copies check for newer published builds in notify-only mode by default. They will tell you when a newer build exists, but they will not replace themselves unless you change `CHUMMER_DESKTOP_UPDATE_MODE`.
+
 ## Quick audit
 
 Run this first from a local checkout of this docs repository. It does not install packages, clone repositories, or build Chummer. The [source-build script](scripts/build-chummer6-linux.sh) is checked in with these docs.
@@ -28,6 +30,8 @@ bash scripts/build-chummer6-linux.sh --skip-system-deps --base "$HOME/chummer6-s
 ```
 
 If you mirror the repositories yourself, set `CHUMMER_REPO_BASE_URL` to the mirror base URL. The script expects repositories named `chummer6-core.git`, `chummer6-hub.git`, `chummer6-hub-registry.git`, `chummer6-ui-kit.git`, and `chummer6-ui.git`.
+
+Set `CHUMMER_KEEP_BUILD_TEMP=1` when you need to keep temporary build directories for debugging. Otherwise the script removes temporary runtime and package-plane files after the archive is written.
 
 ## What it needs
 
@@ -57,6 +61,8 @@ Run the client with:
 ```
 
 Use `linux-arm64` instead of `linux-x64` on arm64 machines.
+
+The generated launcher sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you have not already chosen another mode.
 
 ## Safety notes
 
