@@ -104,6 +104,8 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("cleanup_build_temp || true", script_text)
         self.assertIn("ChummerUseLocalCompatibilityTree=true", script_text)
         self.assertIn("CHUMMER_REPO_BASE_URL", script_text)
+        self.assertIn("The script verifies the published binary and its native library links.", doc_text)
+        self.assertIn("real Linux desktop session with X11 or Wayland", doc_text)
 
     def test_full_flow_can_build_from_local_git_mirror_with_fake_projects(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -146,6 +148,36 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             self.assertFalse((base / ".tmp").exists())
             self.assertFalse((base / ".tools" / "dotnet-install.sh").exists())
 
+    def test_full_flow_uses_highest_sdk_version_across_cloned_repositories(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            remotes = root / "remotes"
+            work = root / "work"
+            base = root / "build"
+            fake_bin = root / "bin"
+            remotes.mkdir()
+            fake_bin.mkdir()
+
+            self._write_fake_git_lfs(fake_bin)
+            self._write_fake_dotnet(base, sdk_version="10.0.103")
+            self._create_fake_remote_repositories(work, remotes)
+
+            completed = self.run_script(
+                "--base",
+                str(base),
+                "--skip-system-deps",
+                env={
+                    "CHUMMER_MIN_FREE_GIB": "0",
+                    "CHUMMER_REPO_BASE_URL": remotes.as_uri(),
+                    "PATH": f"{fake_bin}{os.pathsep}{os.environ['PATH']}",
+                },
+            )
+
+            self.assertEqual(completed.returncode, 0, completed.stdout)
+            self.assertIn(".NET SDK: 10.0.103", completed.stdout)
+            manifest = (base / "artifacts" / "chummer6-linux-x64" / "BUILD-MANIFEST.txt").read_text(encoding="utf-8")
+            self.assertIn(".NET SDK: 10.0.103", manifest)
+
     @staticmethod
     def _write_fake_git_lfs(fake_bin: Path) -> None:
         git_lfs = fake_bin / "git-lfs"
@@ -153,7 +185,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         git_lfs.chmod(0o755)
 
     @staticmethod
-    def _write_fake_dotnet(base: Path) -> None:
+    def _write_fake_dotnet(base: Path, sdk_version: str = "10.0.100") -> None:
         dotnet_dir = base / ".tools" / "dotnet"
         dotnet_dir.mkdir(parents=True)
         dotnet = dotnet_dir / "dotnet"
@@ -163,17 +195,17 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                 #!/usr/bin/env bash
                 case "${1:-}" in
                   --list-sdks)
-                    echo "10.0.100 [/fake/sdk]"
+                    echo "__SDK_VERSION__ [/fake/sdk]"
                     ;;
                   --info)
-                    echo ".NET SDK: 10.0.100"
+                    echo ".NET SDK: __SDK_VERSION__"
                     ;;
                   *)
                     echo "fake dotnet $*"
                     ;;
                 esac
                 """
-            ),
+            ).replace("__SDK_VERSION__", sdk_version),
             encoding="utf-8",
         )
         dotnet.chmod(0o755)
@@ -229,6 +261,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         project = "<Project Sdk=\"Microsoft.NET.Sdk\"></Project>\n"
         return {
             "chummer6-core": {
+                "global.json": '{ "sdk": { "version": "10.0.103" } }\n',
                 "Chummer.Contracts/Chummer.Contracts.csproj": project,
                 "Chummer.Application/Chummer.Application.csproj": project,
                 "Chummer.Infrastructure/Chummer.Infrastructure.csproj": project,
@@ -238,14 +271,17 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                 "Chummer.Rulesets.Sr6/Chummer.Rulesets.Sr6.csproj": project,
             },
             "chummer6-hub": {
+                "global.json": '{ "sdk": { "version": "10.0.103" } }\n',
                 "Chummer.Campaign.Contracts/Chummer.Campaign.Contracts.csproj": project,
                 "Chummer.Play.Contracts/Chummer.Play.Contracts.csproj": project,
                 "Chummer.Run.Contracts/Chummer.Run.Contracts.csproj": project,
             },
             "chummer6-hub-registry": {
+                "global.json": '{ "sdk": { "version": "10.0.103" } }\n',
                 "Chummer.Hub.Registry.Contracts/Chummer.Hub.Registry.Contracts.csproj": project,
             },
             "chummer6-ui-kit": {
+                "global.json": '{ "sdk": { "version": "10.0.103" } }\n',
                 "src/Chummer.Ui.Kit/Chummer.Ui.Kit.csproj": project,
             },
             "chummer6-ui": {

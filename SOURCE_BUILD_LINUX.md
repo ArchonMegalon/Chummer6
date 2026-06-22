@@ -68,4 +68,6 @@ The generated launcher sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you h
 
 The script stops if the workspace has local changes, if the directory is not executable, if the disk is too small, if the host uses musl/Alpine, or if required native libraries are missing after publish.
 
+The script verifies the published binary and its native library links. It does not prove that the GUI can open in a headless shell; the final desktop launch check still needs a real Linux desktop session with X11 or Wayland.
+
 It does not make this source-built copy an official release. It is a local build for users who want to inspect and build the code themselves.
