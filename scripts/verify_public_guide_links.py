@@ -106,11 +106,11 @@ def _check_local_link(root: Path, source: Path, target: str) -> str | None:
     except ValueError:
         return "local link escapes public guide root"
     if not destination.exists():
-        return f"missing local target: {destination.relative_to(ROOT)}"
+        return f"missing local target: {destination.relative_to(root)}"
     if fragment and destination.suffix.lower() == ".md":
         anchors = _anchors_for(destination)
         if fragment.lower() not in anchors:
-            return f"missing anchor #{fragment} in {destination.relative_to(ROOT)}"
+            return f"missing anchor #{fragment} in {destination.relative_to(root)}"
     return None
 
 

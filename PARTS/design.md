@@ -14,7 +14,7 @@ It keeps the big story straight so the main pages, future ideas, and release not
 
 ## What you should feel
 
-Clearer labels about what is real now, what is preview, and what is still future-facing, a stable big-picture explanation before you dive into code or implementation detail, and one place that keeps the main pages and future ideas aligned.
+Clearer labels about what is available now, what is still changing, and what is still ahead, a stable big-picture explanation before you dive into code or implementation detail, and one place that keeps the main pages and future ideas aligned.
 
 ## What not to expect here
 

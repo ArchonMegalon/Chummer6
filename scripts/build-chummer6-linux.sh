@@ -10,7 +10,6 @@ MIN_FREE_GIB="${CHUMMER_MIN_FREE_GIB:-25}"
 DEFAULT_BASE="${CHUMMER_BUILD_BASE:-$HOME/chummer6-source-build}"
 BASE_PATH=""
 ASSUME_YES=0
-SKIP_SYSTEM_DEPS=0
 AUDIT_ONLY=0
 TOTAL_STEPS=11
 CURRENT_STEP=0
@@ -28,8 +27,8 @@ Usage:
 Options:
   --base PATH          Workspace base path. Prompts when omitted.
   --ref REF            Git branch or tag for all repositories. Default: main.
-  --yes, -y            Do not ask before installing system prerequisites.
-  --skip-system-deps   Do not install Linux system packages.
+  --yes, -y            Accepted for compatibility; no longer changes behavior.
+  --skip-system-deps   Accepted for compatibility; the script never installs Linux system packages.
   --audit-only         Check this host and script setup without cloning or building.
   --help, -h           Show this help.
 
@@ -56,12 +55,10 @@ while (($#)); do
       shift
       ;;
     --skip-system-deps)
-      SKIP_SYSTEM_DEPS=1
       shift
       ;;
     --audit-only)
       AUDIT_ONLY=1
-      SKIP_SYSTEM_DEPS=1
       TOTAL_STEPS=3
       shift
       ;;
@@ -148,31 +145,12 @@ cleanup_build_temp() {
     rm -rf "$BASE_PATH/.tmp"
   fi
 
+  if [[ -n "${BASE_PATH:-}" && -d "$BASE_PATH" ]]; then
+    find "$BASE_PATH" -mindepth 2 -maxdepth 2 -type d -name .tmp -prune -exec rm -rf {} +
+  fi
+
   if [[ -n "${DOTNET_INSTALL:-}" && -f "$DOTNET_INSTALL" ]]; then
     rm -f "$DOTNET_INSTALL"
-  fi
-}
-
-confirm() {
-  local prompt="$1"
-  if [[ "$ASSUME_YES" == "1" ]]; then
-    return 0
-  fi
-  if [[ ! -t 0 ]]; then
-    return 1
-  fi
-  local answer
-  read -r -p "$prompt [Y/n]: " answer
-  [[ -z "$answer" || "$answer" =~ ^[Yy]$ ]]
-}
-
-run_root() {
-  if [[ "$EUID" -eq 0 ]]; then
-    "$@"
-  elif command -v sudo >/dev/null 2>&1; then
-    sudo "$@"
-  else
-    die "Administrator privileges are required to install missing system packages, but sudo is unavailable."
   fi
 }
 
@@ -236,52 +214,58 @@ choose_package_manager() {
   fi
 }
 
-install_system_dependencies() {
-  if [[ "$SKIP_SYSTEM_DEPS" == "1" ]]; then
-    warn "Skipping system dependency installation by request."
-    return
+check_required_commands() {
+  local missing=()
+  for command_name in git git-lfs curl tar gzip flock sha256sum file; do
+    if ! command -v "$command_name" >/dev/null 2>&1; then
+      missing+=("$command_name")
+    fi
+  done
+  if ((${#missing[@]} == 0)); then
+    return 0
   fi
-
   local manager
   manager="$(choose_package_manager)"
-  [[ -n "$manager" ]] || die "Unsupported distribution/package manager. Install git, git-lfs, curl, tar, gzip, unzip, xz, flock, and standard glibc/X11/Wayland/font libraries, then rerun with --skip-system-deps."
-  confirm "Install or refresh Linux build/runtime prerequisites with $manager?" || die "System dependency installation was declined."
-
+  local hint=""
   case "$manager" in
-    apt)
-      run_root env DEBIAN_FRONTEND=noninteractive apt-get update
-      run_root env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        git git-lfs curl ca-certificates tar gzip unzip xz-utils util-linux file \
-        libc6 libgcc-s1 libgssapi-krb5-2 libicu-dev libssl-dev libstdc++6 zlib1g \
-        libx11-6 libx11-xcb1 libxcb1 libxkbcommon0 libfontconfig1 libfreetype6 \
-        libgl1 libegl1 libglx0 libgbm1 libdrm2 libice6 libsm6 libxext6 libxfixes3 \
-        libxi6 libxrandr2 libxcursor1 libxinerama1 libwayland-client0 libwayland-cursor0 dbus
-      ;;
-    dnf)
-      run_root dnf install -y \
-        git git-lfs curl ca-certificates tar gzip unzip xz util-linux file \
-        glibc libgcc krb5-libs libicu openssl-libs libstdc++ zlib \
-        libX11 libX11-xcb libxcb libxkbcommon fontconfig freetype mesa-libGL mesa-libEGL \
-        mesa-libgbm libdrm libICE libSM libXext libXfixes libXi libXrandr libXcursor \
-        libXinerama wayland-libs dbus
-      ;;
-    pacman)
-      run_root pacman -Sy --needed --noconfirm \
-        git git-lfs curl ca-certificates tar gzip unzip xz util-linux file \
-        glibc gcc-libs krb5 icu openssl zlib libx11 libxcb libxkbcommon \
-        fontconfig freetype2 mesa libglvnd libdrm libice libsm libxext libxfixes libxi \
-        libxrandr libxcursor libxinerama wayland dbus
-      ;;
-    zypper)
-      run_root zypper --non-interactive refresh
-      run_root zypper --non-interactive install \
-        git git-lfs curl ca-certificates tar gzip unzip xz util-linux file \
-        glibc libgcc_s1 libicu libopenssl3 libstdc++6 zlib \
-        libX11-6 libxcb1 libxkbcommon0 fontconfig libfreetype6 Mesa-libGL1 \
-        libICE6 libSM6 libXext6 libXfixes3 libXi6 libXrandr2 libXcursor1 \
-        libXinerama1 libwayland-client0 dbus-1
-      ;;
+    apt) hint="Install them first, for example: apt-get install git git-lfs curl tar gzip unzip xz-utils util-linux file" ;;
+    dnf) hint="Install them first, for example: dnf install git git-lfs curl tar gzip unzip xz util-linux file" ;;
+    pacman) hint="Install them first, for example: pacman -S --needed git git-lfs curl tar gzip unzip xz util-linux file" ;;
+    zypper) hint="Install them first, for example: zypper install git git-lfs curl tar gzip unzip xz util-linux file" ;;
+    *) hint="Install the missing tools with your package manager, then rerun the script." ;;
   esac
+  die "Missing required build tools: ${missing[*]}. $hint"
+}
+
+check_git_lfs_ready() {
+  if ! git lfs version >/dev/null 2>&1; then
+    die "Git LFS is required but not ready. Install git-lfs with your package manager, run 'git lfs install', then rerun the script."
+  fi
+}
+
+dotnet_runtime_hint() {
+  local manager
+  manager="$(choose_package_manager)"
+  case "$manager" in
+    apt) printf '%s' "Install ICU first, for example: apt-get install libicu72 or the current libicu package for your distro." ;;
+    dnf) printf '%s' "Install ICU first, for example: dnf install libicu." ;;
+    pacman) printf '%s' "Install ICU first, for example: pacman -S --needed icu." ;;
+    zypper) printf '%s' "Install ICU first, for example: zypper install libicu." ;;
+    *) printf '%s' "Install the ICU runtime package for your distro, then rerun the script." ;;
+  esac
+}
+
+check_local_dotnet_runtime() {
+  local info_output=""
+  if info_output="$(dotnet --info 2>&1)"; then
+    printf '%s\n' "$info_output"
+    return 0
+  fi
+  if grep -qi "Couldn't find a valid ICU package installed" <<<"$info_output"; then
+    die "The local .NET SDK started, but this host is missing the ICU runtime needed by dotnet. $(dotnet_runtime_hint)"
+  fi
+  printf '%s\n' "$info_output" >&2
+  die "The local .NET SDK could not start on this host. Check the log above, install the required runtime libraries, and rerun the script."
 }
 
 step "Inspecting this Linux host"
@@ -327,22 +311,17 @@ PACKAGE_MANAGER="$(choose_package_manager)"
 if [[ -n "$PACKAGE_MANAGER" ]]; then
   log "Detected package manager: $PACKAGE_MANAGER"
 else
-  warn "No supported package manager detected. Use --skip-system-deps after installing prerequisites manually."
+  warn "No supported package manager detected. Install prerequisites manually before the full build."
 fi
 
 if [[ "$AUDIT_ONLY" == "1" ]]; then
-  for command_name in git curl tar gzip sha256sum file; do
+  for command_name in git git-lfs curl tar gzip flock sha256sum file; do
     if command -v "$command_name" >/dev/null 2>&1; then
       log "Found command: $command_name"
     else
       warn "Missing command for full build: $command_name"
     fi
   done
-  if git lfs version >/dev/null 2>&1; then
-    log "Found Git LFS."
-  else
-    warn "Git LFS is missing; install git-lfs before a full source build."
-  fi
   ELAPSED=$((SECONDS - START_SECONDS))
   printf '\n%sAudit complete.%s\n' "$GREEN$BOLD" "$RESET"
   printf 'Host:      %s · %s · %s\n' "$DISTRO_PRETTY" "$CPU_ARCH" "$CPU_MODEL"
@@ -352,11 +331,11 @@ if [[ "$AUDIT_ONLY" == "1" ]]; then
   exit 0
 fi
 
-install_system_dependencies
-for command_name in git curl tar gzip flock sha256sum file; do
-  command -v "$command_name" >/dev/null 2>&1 || die "Required command is missing after prerequisite setup: $command_name"
-done
-git lfs version >/dev/null 2>&1 || die "Git LFS is required. Install git-lfs or rerun without --skip-system-deps."
+if [[ "$ASSUME_YES" == "1" ]]; then
+  warn "--yes is accepted for compatibility, but the script no longer installs system packages."
+fi
+check_required_commands
+check_git_lfs_ready
 git lfs install --skip-repo >/dev/null
 
 step "Cloning or updating the Chummer6 build repositories"
@@ -503,7 +482,7 @@ export CHUMMER_PACKAGE_PLANE_LOCK_ROOT="$BASE_PATH/.tmp/package-plane"
 export CHUMMER_BOOTSTRAP_ENGINE_CONTRACTS_FEED=1
 export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"
 mkdir -p "$DOTNET_CLI_HOME" "$NUGET_PACKAGES" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$TMPDIR" "$CHUMMER_PACKAGE_PLANE_LOCK_ROOT"
-dotnet --info
+check_local_dotnet_runtime
 
 step "Recording source revisions"
 MANIFEST_DIR="$BASE_PATH/artifacts"
@@ -602,8 +581,9 @@ printf '\n%sBuild complete.%s\n' "$GREEN$BOLD" "$RESET"
 printf 'Host:        %s · %s · %s\n' "$DISTRO_PRETTY" "$CPU_ARCH" "$CPU_MODEL"
 printf 'Executable: %s\n' "$BINARY"
 printf 'Launcher:   %s\n' "$PUBLISH_DIR/run-chummer6.sh"
+printf 'Executable SHA256: %s\n' "$BINARY_SHA"
 printf 'Archive:    %s\n' "$TARBALL"
-printf 'SHA256:     %s\n' "$TARBALL_SHA"
+printf 'Archive SHA256:    %s\n' "$TARBALL_SHA"
 printf 'Manifest:   %s\n' "$BUILD_MANIFEST"
 printf 'Log:        %s\n' "$LOG_FILE"
 printf 'Elapsed:    %dm %ds\n' "$((ELAPSED / 60))" "$((ELAPSED % 60))"

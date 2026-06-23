@@ -1,13 +1,11 @@
 # Download
 
-If you are on Windows or Linux, start with the Avalonia installer. If you are on macOS, wait for the guided support path.
-
-The exact files and hashes are below.
+Windows and Linux downloads start on `chummer.run`. macOS stays on a guided support path.
 
 ## Pick your file
 
-- Use `Nightly` when you want the newest rolling public build on Windows or Linux.
-- Use `Stable` when you want the slower release channel.
+- Use `Stable` for the calmer release lane.
+- Use `Nightly` for the newest published Windows or Linux build.
 - If Nightly and Stable show the same build, there is no newer Nightly at that moment.
 - For Windows, start with Avalonia Desktop Windows X64 Installer.
 - For Linux, start with Avalonia Desktop Linux X64 Installer.
@@ -18,9 +16,9 @@ The exact files and hashes are below.
 Today: Current release build.
 Published: June 21, 2026 at 5:53 UTC.
 Windows and Linux downloads are posted.
-This build handles installs and recovery, campaign session recovery, and support follow-up.
-No blocking download issue is listed for the current installers.
-Only expect fix notices after the affected download is available on the download page.
+This release covers installs and recovery, campaign session recovery, and support follow-up.
+No current download blocker is listed for these installers.
+Fix notices appear after the corrected download is live on the download page.
 
 ## File details
 
@@ -62,4 +60,4 @@ Advanced users can also [build the Linux desktop client from source](SOURCE_BUIL
 ## Build notes
 
 - Last updated: June 20, 2026 at 23:39 UTC.
-- This build handles installs and recovery, campaign session recovery, and support follow-up.
+- This release covers installs and recovery, campaign session recovery, and support follow-up.

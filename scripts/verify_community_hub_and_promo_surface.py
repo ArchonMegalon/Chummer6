@@ -10,9 +10,9 @@ README = ROOT / "README.md"
 COMMUNITY_HUB = ROOT / "FEATURES" / "community-hub.md"
 
 README_REQUIRED = (
-    'href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4"',
-    'src="assets/hero/chummer6-hero.png" alt="Chummer6 flagship promo preview"',
-    "[Watch the Chummer6 flagship promo](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).",
+    'href="https://chummer.run/media/promo/every-wonder-horizon-promo.mp4"',
+    'src="assets/hero/chummer6-hero.png" alt="Chummer6 overview video preview"',
+    "[Watch the Chummer6 overview video](https://chummer.run/media/promo/every-wonder-horizon-promo.mp4).",
 )
 
 COMMUNITY_HUB_REQUIRED = (

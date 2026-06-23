@@ -1,0 +1,88 @@
+{
+  "checks": {
+    "install_link_browser_fallback": {
+      "has_copy_claim_link_button": true,
+      "has_dedicated_fallback_panel": true,
+      "has_fallback_detail": true,
+      "has_fallback_heading": true,
+      "has_fallback_url_surface": true,
+      "has_linux_failure_runtime_test": true,
+      "has_window_fallback_copy_test": true,
+      "runtime_test_path": "/docker/chummercomplete/chummer6-ui/Chummer.Tests/DesktopInstallLinkingRuntimeTests.cs",
+      "shell_test_path": "/docker/chummercomplete/chummer6-ui/Chummer.Tests/Presentation/DesktopInstallLinkingShellChromeTests.cs",
+      "source_path": "/docker/chummercomplete/chummer6-ui/Chummer.Avalonia/DesktopInstallLinkingWindow.cs"
+    },
+    "installer_update_truth": {
+      "packaged_default_mode": "full",
+      "public_download_authority": "https://chummer.run/downloads",
+      "source_build_default_mode": "notify",
+      "status": "passed",
+      "update_modes": [
+        "full",
+        "notify",
+        "off"
+      ]
+    },
+    "linux_source_build_gate": {
+      "archive_sha256": "677eaf253a3ff49a9209dc7164050f178257a8aa1af31a18e338bdcd5b50df7e",
+      "docker_image": "debian:bookworm-slim",
+      "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
+      "rid": "linux-x64",
+      "startup_smoke_ready_checkpoint": "fresh_container_gate",
+      "startup_smoke_status": "pass",
+      "status": "passed",
+      "updater_special_mode_failure_reason": "installer_launch_failed",
+      "updater_special_mode_mode": "desktop_update_launch_installer",
+      "updater_special_mode_status": "pass",
+      "updater_special_mode_success_mode": "desktop_update_launch_installer_success",
+      "updater_special_mode_success_status": "pass"
+    },
+    "release_truth_packet": {
+      "available_platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "missing_platforms": [],
+      "published_at": "June 21, 2026 at 5:53 UTC",
+      "release_status": "Published",
+      "shelf_truth_line": "Windows and Linux downloads are posted."
+    },
+    "updater_startup_window": {
+      "has_delay_policy_tests": true,
+      "has_interruption_warning": true,
+      "has_manual_macos_recovery_copy": true,
+      "has_progress_mapping_tests": true,
+      "has_view_state_mapping": true,
+      "has_visibility_delay_policy": true,
+      "source_path": "/docker/chummercomplete/chummer6-ui/Chummer.Avalonia/DesktopStartupUpdateWindow.cs",
+      "test_path": "/docker/chummercomplete/chummer6-ui/Chummer.Tests/Presentation/DesktopStartupUpdateWindowTests.cs"
+    }
+  },
+  "coherence": {
+    "install_link_browser_fallback_has_detail_copy": true,
+    "install_link_browser_fallback_has_panel": true,
+    "install_link_browser_fallback_has_runtime_failure_test": true,
+    "install_link_browser_fallback_has_window_copy_test": true,
+    "installer_update_truth_keeps_source_build_notify_default": true,
+    "installer_update_truth_matches_release_authority": true,
+    "linux_gate_archive_sha_matches_packet": true,
+    "linux_gate_executable_sha_matches_packet": true,
+    "linux_gate_rid_matches_packet": true,
+    "linux_gate_startup_smoke_passed": true,
+    "linux_gate_status_matches_packet": true,
+    "linux_gate_updater_special_mode_passed": true,
+    "linux_gate_updater_special_mode_success_passed": true,
+    "updater_startup_window_has_delay_policy_tests": true,
+    "updater_startup_window_has_progress_mapping_tests": true,
+    "updater_startup_window_has_view_state_mapping": true,
+    "updater_startup_window_has_visibility_delay_policy": true
+  },
+  "contract_name": "ea.chummer6_release_verification_convergence.v1",
+  "generated_at_utc": "2026-06-22T22:24:57Z",
+  "generated_from": [
+    ".guide-internal/receipts/LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json",
+    ".guide-internal/receipts/INSTALLER_UPDATE_TRUTH.generated.json",
+    ".guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+  ],
+  "status": "passed"
+}

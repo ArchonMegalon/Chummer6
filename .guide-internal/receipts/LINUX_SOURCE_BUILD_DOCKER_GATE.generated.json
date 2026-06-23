@@ -1,0 +1,99 @@
+{
+  "artifacts": {
+    "build_log_name": "linux-desktop-build-20260623T034930Z.log",
+    "build_manifest_excerpt": [
+      "Chummer6 Linux desktop source build",
+      "Generated UTC: 2026-06-23T03:51:18Z",
+      "Script version: 1.3.0",
+      "Distribution: Debian GNU/Linux 12 (bookworm)",
+      "CPU: AMD EPYC-Milan Processor",
+      "Architecture: x86_64",
+      "RID: linux-x64",
+      ".NET SDK: 10.0.103",
+      "Git ref: main",
+      "",
+      "chummer6-core            9985976327486ad34575dee2766d668575a73d64",
+      "chummer6-hub             f5bb14ba925f58f3ae28b30d4223913e1467499d",
+      "chummer6-hub-registry    9059af55e76f79522a365c2856df192d3fae596a",
+      "chummer6-ui-kit          da85383dd823ecdf7b9c76b4e7c7305748ceadeb",
+      "chummer6-ui              aa2ce9b035219e16c26e317aea056457ba2950af",
+      "",
+      "Executable: Chummer.Avalonia",
+      "Executable SHA256: 0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
+      "Output directory: /work/base/artifacts/chummer6-linux-x64"
+    ],
+    "source_heads": {
+      "chummer6-core": "9985976327486ad34575dee2766d668575a73d64",
+      "chummer6-hub": "f5bb14ba925f58f3ae28b30d4223913e1467499d",
+      "chummer6-hub-registry": "9059af55e76f79522a365c2856df192d3fae596a",
+      "chummer6-ui": "aa2ce9b035219e16c26e317aea056457ba2950af",
+      "chummer6-ui-kit": "da85383dd823ecdf7b9c76b4e7c7305748ceadeb"
+    },
+    "startup_smoke_receipt_name": "startup-smoke-20260623T035217Z.receipt.json",
+    "updater_special_mode_receipt_name": "updater-special-mode-20260623T035218Z.receipt.json",
+    "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260623T035218Z.receipt.json"
+  },
+  "contract_name": "ea.chummer6_linux_source_build_docker_gate.v1",
+  "docker_image": "debian:bookworm-slim",
+  "gate": {
+    "build_script": "scripts/build-chummer6-linux.sh",
+    "container_flow": "audit_then_full_build",
+    "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
+    "name": "linux_source_build_fresh_container"
+  },
+  "generated_at_utc": "20260623T034901Z",
+  "git_ref": "main",
+  "github_org": "ArchonMegalon",
+  "output": {
+    "archive_name": "chummer6-linux-x64-20260623T034930Z.tar.gz",
+    "archive_sha256": "50bea535c52c56328a0dc154c1a63b6f37f66746c2e07cd0acf8437675c4f854",
+    "binary_name": "Chummer.Avalonia",
+    "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
+    "launcher_name": "run-chummer6.sh",
+    "rid": "linux-x64"
+  },
+  "repo_base_url": "file:///tmp/chummer-local-repo-base.1f7iIt",
+  "runtime": {
+    "startup_smoke": {
+      "artifact_digest": "sha256:0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
+      "artifact_digest_source": "process_path",
+      "channel_id": "source-build",
+      "head_id": "avalonia",
+      "ready_checkpoint": "fresh_container_gate",
+      "recorded_at_utc": "2026-06-23T03:52:18.2951823+00:00",
+      "rid": "linux-x64",
+      "status": "pass"
+    },
+    "updater_special_mode": {
+      "channel_id": "stable",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "failure_reason": "installer_launch_failed",
+      "head_id": "avalonia",
+      "last_error": "Installer payload was not found.",
+      "mode": "desktop_update_launch_installer",
+      "pending_update_channel_id": "stable",
+      "pending_update_version": "run-20260618-051119",
+      "recorded_at_utc": "2026-06-23T03:52:18.443502+00:00",
+      "rid": "linux-x64",
+      "status": "pass"
+    },
+    "updater_special_mode_success": {
+      "channel_id": "stable",
+      "dpkg_invoked": true,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "failure_reason": "",
+      "head_id": "avalonia",
+      "last_error": "",
+      "mode": "desktop_update_launch_installer_success",
+      "pending_update_channel_id": "",
+      "pending_update_version": "",
+      "recorded_at_utc": "2026-06-23T03:52:18.592100+00:00",
+      "rid": "linux-x64",
+      "stage_deleted": true,
+      "status": "pass"
+    }
+  },
+  "status": "passed"
+}

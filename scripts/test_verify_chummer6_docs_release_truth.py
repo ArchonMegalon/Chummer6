@@ -31,11 +31,20 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
     ) -> None:
         packet = {
             "shelf_truth_line": shelf_truth_line,
-            "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.",
+            "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is not listed there yet, wait before switching full time.",
             "desktop_pick_line": "If you see both desktop apps, start with Avalonia.",
+            "published_line": "Published: June 21, 2026 at 5:53 UTC.",
             "release_status": "Published",
-            "release_verification_summary": "This build handles installs and recovery.",
-            "known_issue_summary": "No blocking download issue is listed for the current installers.",
+            "release_verification_summary": "This release covers installs and recovery.",
+            "known_issue_summary": "No current download blocker is listed for these installers.",
+            "linux_source_build_gate": {
+                "status": "passed",
+                "generated_at_utc": "20260622T201728Z",
+                "docker_image": "debian:bookworm-slim",
+                "rid": "linux-x64",
+                "archive_sha256": "c045d341fd0a64b862e1546db188c5fd4ebb728fac0521133908e7724ecf44d7",
+                "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
+            },
             "available_platforms": available_platforms,
             "missing_platforms": missing_platforms,
             "missing_installer_lane_line": missing_installer_lane_line,
@@ -62,6 +71,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Status",
+                    packet["published_line"],
                     f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
                     packet["architecture_scope_line"],
@@ -74,7 +84,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Download",
-                    "If you are on Windows or Linux, start with the Avalonia installer.",
+                    "Windows and Linux downloads start on `chummer.run`. macOS stays on a guided support path.",
                     packet["shelf_truth_line"],
                     "Downloads are served from chummer.run.",
                     packet["release_verification_summary"],
@@ -103,7 +113,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 missing_installer_lane_line="macOS does not have a normal installer yet.",
                 architecture_scope_line="Desktop downloads are available for Windows x64 and Linux x64 only.",
                 download_warning_line="macOS currently has archive previews only.",
-                migration_preview_line="Today you can try preview builds on Windows and Linux.",
+                migration_preview_line="Today you can try the current builds on Windows and Linux.",
                 migration_wait_line="If you rely on macOS as your main platform, wait before switching full time.",
             )
             original_root = MODULE.REPO_ROOT
@@ -143,7 +153,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 migration_wait_line="If you rely on macOS as your main platform, wait before switching full time.",
             )
             (root / "FROM_CHUMMER5A_TO_CHUMMER6.md").write_text(
-                "# From Chummer5a to Chummer6\nToday you can try preview builds on Windows.\nIf you rely on macOS as your main platform, wait before switching full time.\n",
+                "# From Chummer5a to Chummer6\nToday you can try the current builds on Windows.\nIf you rely on macOS as your main platform, wait before switching full time.\n",
                 encoding="utf-8",
             )
             original_root = MODULE.REPO_ROOT
@@ -179,8 +189,8 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 missing_platforms=["macOS"],
                 missing_installer_lane_line="macOS does not have a normal installer yet.",
                 architecture_scope_line="Desktop downloads are available for Windows x64 and Linux x64 only.",
-                download_warning_line="No blocking download issue is listed for the current installers.",
-                migration_preview_line="Today you can try preview builds on Windows and Linux.",
+                download_warning_line="No current download blocker is listed for these installers.",
+                migration_preview_line="Today you can try the current builds on Windows and Linux.",
                 migration_wait_line="If you rely on macOS as your main platform, wait before switching full time.",
             )
             (root / "DOWNLOAD.md").write_text(
@@ -212,7 +222,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = original_download
                 MODULE.MIGRATION_PATH = original_migration
 
-    def test_main_accepts_macos_only_preview_packet(self) -> None:
+    def test_main_accepts_macos_only_release_packet(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
             self._write_fixture(
@@ -222,8 +232,8 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 missing_platforms=[],
                 missing_installer_lane_line="Normal installers are available on every promised desktop platform.",
                 architecture_scope_line="Desktop downloads are available for macOS ARM64 only.",
-                download_warning_line="This is still a preview.",
-                migration_preview_line="Today you can try preview builds on macOS.",
+                download_warning_line="This release is still changing.",
+                migration_preview_line="Today you can try the current builds on macOS.",
             )
             original_root = MODULE.REPO_ROOT
             original_packet = MODULE.PACKET_PATH
@@ -239,6 +249,46 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 self.assertEqual(MODULE.main(), 0)
+            finally:
+                MODULE.REPO_ROOT = original_root
+                MODULE.PACKET_PATH = original_packet
+                MODULE.README_PATH = original_readme
+                MODULE.STATUS_PATH = original_status
+                MODULE.DOWNLOAD_PATH = original_download
+                MODULE.MIGRATION_PATH = original_migration
+
+    def test_main_fails_when_linux_source_build_gate_is_missing(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self._write_fixture(
+                root,
+                shelf_truth_line="Windows and Linux downloads are posted.",
+                available_platforms=["Windows", "Linux"],
+                missing_platforms=[],
+                missing_installer_lane_line="Normal installers are available on every promised desktop platform.",
+                architecture_scope_line="Desktop downloads are available for Linux x64 and Windows x64 only.",
+                download_warning_line="No current download blocker is listed for these installers.",
+                migration_preview_line="Today you can try the current builds on Windows and Linux.",
+            )
+            packet_path = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            packet.pop("linux_source_build_gate", None)
+            packet_path.write_text(json.dumps(packet, indent=2) + "\n", encoding="utf-8")
+            original_root = MODULE.REPO_ROOT
+            original_packet = MODULE.PACKET_PATH
+            original_readme = MODULE.README_PATH
+            original_status = MODULE.STATUS_PATH
+            original_download = MODULE.DOWNLOAD_PATH
+            original_migration = MODULE.MIGRATION_PATH
+            try:
+                MODULE.REPO_ROOT = root
+                MODULE.PACKET_PATH = packet_path
+                MODULE.README_PATH = root / "README.md"
+                MODULE.STATUS_PATH = root / "STATUS.md"
+                MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
+                MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
+                with self.assertRaises(ValueError):
+                    MODULE.main()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet

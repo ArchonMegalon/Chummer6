@@ -26,6 +26,7 @@ SYNC_FILES = (
     "LIVING_WORLD.md",
     "STATUS.md",
     "DOWNLOAD.md",
+    "SOURCE_BUILD_LINUX.md",
     "HELP.md",
     "FAQ.md",
     "HOW_CAN_I_HELP.md",
@@ -33,6 +34,20 @@ SYNC_FILES = (
     "CONTACT.md",
     "GLOSSARY.md",
 )
+
+# These files are canonical in the Chummer6 repo and may be mirrored into the
+# generated public-guide bundle, but the sync step must never overwrite them
+# silently. If the generated bundle drifts from the owner copy, fail closed.
+#
+# Keep this set deliberately small and back every entry with a design-side
+# maintenance note or equivalent ownership policy.
+SOURCE_OWNED_SYNC_METADATA = {
+    "SOURCE_BUILD_LINUX.md": {
+        "policy": "products/chummer/maintenance/LINUX_SOURCE_BUILD_PATH.md",
+        "reason": "Linux source-build behavior and user-facing instructions are owned in Chummer6.",
+    },
+}
+SOURCE_OWNED_SYNC_FILES = frozenset(SOURCE_OWNED_SYNC_METADATA)
 
 INTERNAL_SYNC_FILES = {
     "manifest.generated.json": ".guide-internal/manifest.generated.json",
@@ -92,6 +107,22 @@ def _copy_file(src: Path, dest: Path, check: bool, failures: list[str], optional
         return
     dest.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(src, dest)
+
+
+def _sync_source_owned_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
+    if not src.exists():
+        failures.append(f"missing source file: {src}")
+        return
+    if not dest.exists():
+        if check:
+            failures.append(f"missing destination file: {dest}")
+            return
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dest)
+        return
+    if not filecmp.cmp(src, dest, shallow=False):
+        failures.append(f"source-owned file drift: {dest} != {src}")
+        return
 
 
 def _sync_removable_file(src: Path, dest: Path, check: bool, failures: list[str]) -> None:
@@ -261,6 +292,14 @@ def main(argv: list[str]) -> int:
     failures: list[str] = []
 
     for relative_path in SYNC_FILES:
+        if relative_path in SOURCE_OWNED_SYNC_FILES:
+            _sync_source_owned_file(
+                source_root / relative_path,
+                REPO_ROOT / relative_path,
+                args.check,
+                failures,
+            )
+            continue
         _copy_file(
             source_root / relative_path,
             REPO_ROOT / relative_path,

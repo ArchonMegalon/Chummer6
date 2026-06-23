@@ -1,0 +1,48 @@
+{
+  "coherence": {
+    "public_download_authority_is_chummer_run": true,
+    "release_packet_matches_installer_first_platforms": true,
+    "source_build_default_matches_policy": true
+  },
+  "contract_name": "ea.chummer6_installer_update_truth.v1",
+  "generated_at_utc": "2026-06-22T21:19:09Z",
+  "generated_from": [
+    "chummer-design/products/chummer/PUBLIC_AUTO_UPDATE_POLICY.md",
+    "chummer-design/products/chummer/DESKTOP_AUTO_UPDATE_SYSTEM.md",
+    "Chummer6/SOURCE_BUILD_LINUX.md",
+    "Chummer6/scripts/build-chummer6-linux.sh",
+    "Chummer6/.guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+  ],
+  "policy": {
+    "desktop_system_mentions_exact_modes": true,
+    "desktop_system_mentions_linked_account_full_default": true,
+    "desktop_system_mentions_packaged_full_default": true,
+    "desktop_system_mentions_source_build_notify_default": true,
+    "installer_first_platforms": [
+      "Windows",
+      "Linux"
+    ],
+    "linked_account_default_mode": "full",
+    "packaged_default_mode": "full",
+    "public_policy_mentions_modes": true,
+    "source_build_default_mode": "notify",
+    "source_build_doc_mentions_launcher_override": true,
+    "source_build_doc_mentions_notify_default": true,
+    "source_build_script_sets_notify_default": true,
+    "update_modes": [
+      "full",
+      "notify",
+      "off"
+    ]
+  },
+  "release_truth": {
+    "available_platforms": [
+      "Windows",
+      "Linux"
+    ],
+    "missing_platforms": [],
+    "public_download_authority": "https://chummer.run/downloads",
+    "shelf_truth_line": "Windows and Linux downloads are posted."
+  },
+  "status": "passed"
+}

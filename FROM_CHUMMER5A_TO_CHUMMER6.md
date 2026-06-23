@@ -14,15 +14,15 @@ It tries to show why a number changed instead of leaving you with mystery math. 
 
 ## Should you switch today?
 
-Today you can try preview builds on Windows and Linux. Public downloads are already visible on every promised desktop platform.
+Today you can try the current builds on Windows and Linux.
 
-If you like trying real previews and helping shape the rough edges, it is worth a serious look. If you need a fully settled, every-platform replacement for Chummer5a right now, wait.
+If you do not mind a few rough edges, it is worth a serious look. If you need a fully settled, every-platform replacement for Chummer5a right now, wait.
 
 ## What is still rough
 
 Windows and Linux downloads are posted. Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
 
-It should still be read as a serious preview, not a finished no-step-back replacement yet.
+It is usable now, but it is not a finished no-step-back replacement yet.
 
 ## Next
 

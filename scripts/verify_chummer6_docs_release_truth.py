@@ -35,8 +35,25 @@ def main() -> int:
     if "honest pitch" not in readme or "Start here if you just want the answer" not in readme:
         raise ValueError("README.md lost the human first-answer framing")
 
+    linux_source_build_gate = packet.get("linux_source_build_gate")
+    if not isinstance(linux_source_build_gate, dict):
+        raise ValueError("release truth packet is missing linux_source_build_gate")
+    if str(linux_source_build_gate.get("status") or "").strip() != "passed":
+        raise ValueError("linux_source_build_gate did not pass")
+    if str(linux_source_build_gate.get("docker_image") or "").strip() != "debian:bookworm-slim":
+        raise ValueError("linux_source_build_gate lost the expected docker image")
+    if not str(linux_source_build_gate.get("rid") or "").strip().startswith("linux-"):
+        raise ValueError("linux_source_build_gate lost the linux RID")
+    for field_name in ("archive_sha256", "executable_sha256"):
+        field_value = str(linux_source_build_gate.get(field_name) or "").strip()
+        if len(field_value) != 64:
+            raise ValueError(f"linux_source_build_gate has an invalid {field_name}")
+
     _require_contains("STATUS.md", status, str(packet.get("shelf_truth_line") or ""))
     release_status = str(packet.get("release_status") or "").strip()
+    published_line = str(packet.get("published_line") or "").strip()
+    if published_line:
+        _require_contains("STATUS.md", status, published_line)
     if release_status:
         _require_contains("STATUS.md", status, f"- Release status: {release_status}.")
     missing_installer_lane_line = str(packet.get("missing_installer_lane_line") or "").strip()
@@ -49,8 +66,8 @@ def main() -> int:
 
     if "Proof scope:" in download or "Claim boundary:" in download or "blanket flagship" in download:
         raise ValueError("DOWNLOAD.md reintroduced proof-scope copy")
-    if "start with the Avalonia installer" not in download:
-        raise ValueError("DOWNLOAD.md lost the human download recommendation")
+    if "Windows and Linux downloads start on `chummer.run`." not in download:
+        raise ValueError("DOWNLOAD.md lost the human download opening")
     if "chummer.run" not in download:
         raise ValueError("DOWNLOAD.md lost the chummer.run download authority")
     _require_contains("DOWNLOAD.md", download, str(packet.get("shelf_truth_line") or ""))
@@ -72,11 +89,11 @@ def main() -> int:
 
     if visible_platforms:
         if len(visible_platforms) == 1:
-            try_line = f"Today you can try preview builds on {visible_platforms[0]}."
+            try_line = f"Today you can try the current builds on {visible_platforms[0]}."
         elif len(visible_platforms) == 2:
-            try_line = f"Today you can try preview builds on {visible_platforms[0]} and {visible_platforms[1]}."
+            try_line = f"Today you can try the current builds on {visible_platforms[0]} and {visible_platforms[1]}."
         else:
-            try_line = f"Today you can try preview builds on {', '.join(visible_platforms[:-1])}, and {visible_platforms[-1]}."
+            try_line = f"Today you can try the current builds on {', '.join(visible_platforms[:-1])}, and {visible_platforms[-1]}."
         _require_contains("FROM_CHUMMER5A_TO_CHUMMER6.md", migration, try_line)
 
     if missing_platforms:

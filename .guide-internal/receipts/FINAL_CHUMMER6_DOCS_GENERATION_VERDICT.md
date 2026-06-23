@@ -4,12 +4,12 @@ Verdict: READY
 
 ## New section records
 
-- `table-pulse`: `public_safe_horizon_page` -> `public_horizon_page`
-- `behuman-gm-sessions`: `private_operator_surface` -> `omitted_with_record`
-- `answerly-support-humanizer`: `help_support_page_content` -> `support_only_with_record`
-- `signal-deck`: `design_canon_only` -> `omitted_with_record`
-- `runner-passport`: `public_route_live` -> `public_route_live_page`
-- `living-world-engagement`: `public_route_live` -> `public_route_live_page`
+- `table-pulse`: `safe to share page` -> `public horizon page`
+- `behuman-gm-sessions`: `private operator surface` -> `omitted with record`
+- `answerly-support-humanizer`: `help page content` -> `support only with record`
+- `signal-deck`: `design canon only` -> `omitted with record`
+- `runner-passport`: `live page` -> `live page guide`
+- `living-world-engagement`: `live page` -> `live page guide`
 
 ## Acceptance state
 

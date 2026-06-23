@@ -4,10 +4,10 @@ Start here for downloads, sign-in recovery, and support.
 
 ## Get Chummer first
 
-Start with the download page. It should tell you which file to use, what is missing, and what to do next if setup fails.
+Start with the download page first, then check status if something looks off.
 
-- Use `Nightly` when you want the newest rolling public build on Windows or Linux.
-- Use `Stable` when you want the slower release channel.
+- Use `Stable` for the calmer release lane.
+- Use `Nightly` for the newest published Windows or Linux build.
 - Use the Windows or Linux installer.
 - Create an account if you want your support history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.

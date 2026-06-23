@@ -7,6 +7,14 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+LINUX_SOURCE_BUILD_POLICY = (
+    REPO_ROOT.parent
+    / "chummer-design"
+    / "products"
+    / "chummer"
+    / "maintenance"
+    / "LINUX_SOURCE_BUILD_PATH.md"
+)
 MODULE_PATH = REPO_ROOT / "scripts" / "sync_public_guide_from_design.py"
 SPEC = importlib.util.spec_from_file_location("sync_public_guide_from_design", MODULE_PATH)
 if SPEC is None or SPEC.loader is None:
@@ -175,6 +183,8 @@ class RenderManifestTests(unittest.TestCase):
     def test_sync_files_keep_public_root_human_facing(self) -> None:
         self.assertIn("START_HERE.md", guide_sync.SYNC_FILES)
         self.assertIn("ONRAMP.md", guide_sync.SYNC_FILES)
+        self.assertIn("SOURCE_BUILD_LINUX.md", guide_sync.SYNC_FILES)
+        self.assertIn("SOURCE_BUILD_LINUX.md", guide_sync.SOURCE_OWNED_SYNC_FILES)
         self.assertIn(
             "RUNNER_PASSPORT.md",
             guide_sync.SYNC_FILES,
@@ -193,6 +203,49 @@ class RenderManifestTests(unittest.TestCase):
 
     def test_onramp_horizon_page_is_removed_from_public_horizons(self) -> None:
         self.assertIn("HORIZONS/onramp.md", guide_sync.REMOVABLE_SYNC_FILES)
+
+    def test_only_linux_source_build_page_is_source_owned_today(self) -> None:
+        self.assertEqual({"SOURCE_BUILD_LINUX.md"}, guide_sync.SOURCE_OWNED_SYNC_FILES)
+        self.assertNotIn("DOWNLOAD.md", guide_sync.SOURCE_OWNED_SYNC_FILES)
+        self.assertNotIn("HELP.md", guide_sync.SOURCE_OWNED_SYNC_FILES)
+        self.assertNotIn("README.md", guide_sync.SOURCE_OWNED_SYNC_FILES)
+        self.assertEqual(
+            {
+                "SOURCE_BUILD_LINUX.md": {
+                    "policy": "products/chummer/maintenance/LINUX_SOURCE_BUILD_PATH.md",
+                    "reason": "Linux source-build behavior and user-facing instructions are owned in Chummer6.",
+                }
+            },
+            guide_sync.SOURCE_OWNED_SYNC_METADATA,
+        )
+
+    def test_source_owned_linux_page_is_backed_by_design_maintenance_policy(self) -> None:
+        policy_text = LINUX_SOURCE_BUILD_POLICY.read_text(encoding="utf-8")
+        self.assertIn("Chummer6/SOURCE_BUILD_LINUX.md", policy_text)
+        self.assertIn("This path has one executable implementation and one user-facing explanation.", policy_text)
+        self.assertIn("Do not mirror the shell script into `chummer-design`.", policy_text)
+        metadata = guide_sync.SOURCE_OWNED_SYNC_METADATA["SOURCE_BUILD_LINUX.md"]
+        self.assertEqual("products/chummer/maintenance/LINUX_SOURCE_BUILD_PATH.md", metadata["policy"])
+        self.assertIn("owned in Chummer6", metadata["reason"])
+
+    def test_source_owned_linux_page_fails_closed_when_generated_copy_drifts(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir)
+            source = tmp_path / "source" / "SOURCE_BUILD_LINUX.md"
+            destination = tmp_path / "dest" / "SOURCE_BUILD_LINUX.md"
+            source.parent.mkdir(parents=True, exist_ok=True)
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            source.write_text("generated\n", encoding="utf-8")
+            destination.write_text("canonical\n", encoding="utf-8")
+            failures: list[str] = []
+
+            guide_sync._sync_source_owned_file(source, destination, False, failures)
+
+            self.assertEqual(
+                [f"source-owned file drift: {destination} != {source}"],
+                failures,
+            )
+            self.assertEqual("canonical\n", destination.read_text(encoding="utf-8"))
 
     def test_base_client_features_sync_outside_horizons(self) -> None:
         self.assertIn("FEATURES", guide_sync.SYNC_DIRS)

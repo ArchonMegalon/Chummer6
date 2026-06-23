@@ -21,4 +21,4 @@ For example, a player drafts a troll decker, the GM adds a clinic-favor constrai
 
 ## Can I use it?
 
-There is an early version you can try. It is real enough to learn from and still rough enough that feedback matters. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.
+There is an early version you can try. It is useful enough to learn from and still rough enough that feedback matters. The next useful work is depth: steadier examples, better media, and cleaner handoff back into normal character tools.

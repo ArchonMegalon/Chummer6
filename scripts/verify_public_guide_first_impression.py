@@ -50,10 +50,12 @@ def _read(relative_path: str) -> str:
 
 def _iter_public_markdown() -> list[Path]:
     ignored = {".git", ".pytest_cache", ".guide-internal"}
+    source_owned_public_docs = {"SOURCE_BUILD_LINUX.md"}
     return [
         path
         for path in sorted(ROOT.rglob("*.md"))
         if not any(part in ignored for part in path.relative_to(ROOT).parts)
+        and path.name not in source_owned_public_docs
     ]
 
 

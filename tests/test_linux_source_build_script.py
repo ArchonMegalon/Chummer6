@@ -10,6 +10,9 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts" / "build-chummer6-linux.sh"
+AUDIT_SCRIPT = REPO_ROOT / "scripts" / "check-host-chummer6-linux.sh"
+PREREQ_SCRIPT = REPO_ROOT / "scripts" / "list-chummer6-linux-prereqs.sh"
+DOCKER_GATE_SCRIPT = REPO_ROOT / "scripts" / "verify_linux_source_build_docker_gate.sh"
 DOC = REPO_ROOT / "SOURCE_BUILD_LINUX.md"
 DOWNLOAD = REPO_ROOT / "DOWNLOAD.md"
 
@@ -31,8 +34,37 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         )
 
     def test_script_has_valid_bash_syntax(self) -> None:
+        for path in (SCRIPT, AUDIT_SCRIPT, PREREQ_SCRIPT, DOCKER_GATE_SCRIPT):
+            completed = subprocess.run(
+                ["bash", "-n", str(path)],
+                cwd=REPO_ROOT,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                timeout=30,
+                check=False,
+            )
+            self.assertEqual(completed.returncode, 0, completed.stdout)
+
+    def test_host_audit_wrapper_runs_the_non_destructive_audit_path(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            completed = subprocess.run(
+                ["bash", str(AUDIT_SCRIPT), "--base", temp_dir],
+                cwd=REPO_ROOT,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                timeout=60,
+                check=False,
+            )
+        self.assertEqual(completed.returncode, 0, completed.stdout)
+        self.assertIn("Checking build script syntax...", completed.stdout)
+        self.assertIn("Running host audit...", completed.stdout)
+        self.assertIn("Audit complete", completed.stdout)
+
+    def test_prerequisite_script_prints_package_guidance(self) -> None:
         completed = subprocess.run(
-            ["bash", "-n", str(SCRIPT)],
+            ["bash", str(PREREQ_SCRIPT), "--manager", "apt"],
             cwd=REPO_ROOT,
             text=True,
             stdout=subprocess.PIPE,
@@ -41,6 +73,25 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             check=False,
         )
         self.assertEqual(completed.returncode, 0, completed.stdout)
+        self.assertIn("Package manager: apt", completed.stdout)
+        self.assertIn("Base tools:", completed.stdout)
+        self.assertIn("Runtime and desktop libraries:", completed.stdout)
+        self.assertIn("apt-get install git git-lfs curl", completed.stdout)
+
+    def test_docker_gate_help_describes_the_fresh_container_lane(self) -> None:
+        completed = subprocess.run(
+            ["bash", str(DOCKER_GATE_SCRIPT), "--help"],
+            cwd=REPO_ROOT,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=30,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stdout)
+        self.assertIn("fresh slim Docker container", completed.stdout)
+        self.assertIn("debian:bookworm-slim", completed.stdout)
+        self.assertIn("CHUMMER_KEEP_DOCKER_GATE_WORKDIR", completed.stdout)
 
     def test_help_documents_non_destructive_audit_mode(self) -> None:
         completed = self.run_script("--help")
@@ -48,6 +99,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("--audit-only", completed.stdout)
         self.assertIn("--skip-system-deps", completed.stdout)
         self.assertIn("CHUMMER_BUILD_BASE", completed.stdout)
+        self.assertIn("no longer changes behavior", completed.stdout)
 
     def test_audit_only_runs_without_network_or_package_install(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -92,8 +144,21 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
 
         self.assertIn("Build from source on Linux", doc_text)
         self.assertIn("Most users should use the installers", doc_text)
+        self.assertIn("list-chummer6-linux-prereqs.sh", doc_text)
+        self.assertIn("check-host-chummer6-linux.sh", doc_text)
         self.assertIn("--audit-only", doc_text)
         self.assertIn("--skip-system-deps", doc_text)
+        self.assertIn("verify_linux_source_build_docker_gate.sh", doc_text)
+        self.assertIn("debian:bookworm-slim", doc_text)
+        self.assertIn("never asks for `sudo`", doc_text)
+        self.assertIn("no longer installs system packages either way", doc_text)
+        self.assertIn("The updater supports three modes:", doc_text)
+        self.assertIn("`full` for automatic download and replacement.", doc_text)
+        self.assertIn("`notify` for update notices without automatic replacement.", doc_text)
+        self.assertIn("`off` to skip startup update checks.", doc_text)
+        self.assertIn(".guide-internal/receipts/LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json", doc_text)
+        self.assertIn("`.sha256` checksum file", doc_text)
+        self.assertNotIn("asks before installing Linux prerequisites", doc_text)
         self.assertIn("Advanced users can also [build the Linux desktop client from source](SOURCE_BUILD_LINUX.md).", download_text)
         self.assertIn("REPO_BASE_URL=\"${CHUMMER_REPO_BASE_URL:-https://github.com/$GITHUB_ORG}\"", script_text)
         self.assertIn("expected_url=\"$REPO_BASE_URL/$repository_name.git\"", script_text)
@@ -104,8 +169,68 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("cleanup_build_temp || true", script_text)
         self.assertIn("ChummerUseLocalCompatibilityTree=true", script_text)
         self.assertIn("CHUMMER_REPO_BASE_URL", script_text)
+        self.assertIn("Missing required build tools:", script_text)
+        self.assertIn("missing the ICU runtime needed by dotnet", script_text)
+        docker_gate_text = DOCKER_GATE_SCRIPT.read_text(encoding="utf-8")
+        self.assertIn("debian:bookworm-slim", docker_gate_text)
+        self.assertIn("bash scripts/check-host-chummer6-linux.sh --base /work/base", docker_gate_text)
+        self.assertIn("bash scripts/build-chummer6-linux.sh --base /work/base", docker_gate_text)
+        self.assertIn("CHUMMER_KEEP_DOCKER_GATE_WORKDIR", docker_gate_text)
+        self.assertIn("CHUMMER_LINUX_SOURCE_BUILD_GATE_RECEIPT_PATH", docker_gate_text)
+        self.assertIn("--startup-smoke", docker_gate_text)
+        self.assertIn("CHUMMER_DESKTOP_STARTUP_SMOKE_RECEIPT", docker_gate_text)
+        self.assertIn("CHUMMER_DESKTOP_STARTUP_SMOKE_FAILURE_PACKET", docker_gate_text)
+        self.assertIn("fresh_container_gate", docker_gate_text)
+        self.assertIn("--desktop-update-launch-installer", docker_gate_text)
+        self.assertIn("updater-special-mode-", docker_gate_text)
+        self.assertIn("updater-special-mode-success-", docker_gate_text)
+        self.assertIn("installer_launch_failed", docker_gate_text)
+        self.assertIn('cat > "$FAKE_BIN_ROOT/dpkg"', docker_gate_text)
+        self.assertIn("dpkgInvoked", docker_gate_text)
+        self.assertIn("stageDeleted", docker_gate_text)
+        self.assertIn("docker_args=(", docker_gate_text)
+        self.assertIn('docker "${docker_args[@]}"', docker_gate_text)
+        self.assertIn('docker run --rm -v "$HOST_WORK_ROOT:/cleanup" "$IMAGE"', docker_gate_text)
+        self.assertIn('if [[ "$CHUMMER_REPO_BASE_URL" == file://* ]]; then', docker_gate_text)
+        self.assertIn('docker_args+=(-v "$repo_base_path:/mirror:ro")', docker_gate_text)
+        self.assertIn('docker_args+=(-e "CHUMMER_GATE_LOCAL_REPO_MIRROR=1")', docker_gate_text)
+        self.assertIn('repo_base_url_for_container="file:///mirror"', docker_gate_text)
+        self.assertIn('if [[ "${CHUMMER_GATE_LOCAL_REPO_MIRROR:-0}" == "1" ]]; then', docker_gate_text)
+        self.assertIn("git config --global --add safe.directory '*'", docker_gate_text)
+        self.assertIn("write_receipt()", docker_gate_text)
+        self.assertIn("LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json", docker_gate_text)
+        self.assertIn('"contract_name": "ea.chummer6_linux_source_build_docker_gate.v1"', docker_gate_text)
+        self.assertIn("This script never installs packages. It only prints the package names", PREREQ_SCRIPT.read_text(encoding="utf-8"))
+        self.assertNotIn("run_root", script_text)
+        self.assertNotIn("confirm(", script_text)
+        self.assertNotIn("install_system_dependencies", script_text)
+        self.assertNotIn("sudo apt-get install", script_text)
+        self.assertNotIn("sudo dnf install", script_text)
+        self.assertNotIn("sudo pacman -S", script_text)
+        self.assertNotIn("sudo zypper install", script_text)
         self.assertIn("The script verifies the published binary and its native library links.", doc_text)
         self.assertIn("real Linux desktop session with X11 or Wayland", doc_text)
+        self.assertIn("Executable SHA256", doc_text)
+        self.assertIn("Archive SHA256", doc_text)
+        self.assertIn("ICU runtime libraries for the local .NET SDK.", doc_text)
+
+    def test_full_build_fails_cleanly_when_required_tools_are_missing(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            completed = self.run_script(
+                "--base",
+                temp_dir,
+                env={
+                    "CHUMMER_MIN_FREE_GIB": "0",
+                    "PATH": "/bin",
+                },
+            )
+
+        self.assertNotEqual(completed.returncode, 0, completed.stdout)
+        self.assertIn("Missing required build tools:", completed.stdout)
+        self.assertTrue(
+            any(hint in completed.stdout for hint in ("apt-get install", "dnf install", "pacman -S", "zypper install", "Install the missing tools with your package manager")),
+            completed.stdout,
+        )
 
     def test_full_flow_can_build_from_local_git_mirror_with_fake_projects(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -134,6 +259,8 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
 
             self.assertEqual(completed.returncode, 0, completed.stdout)
             self.assertIn("Build complete.", completed.stdout)
+            self.assertIn("Executable SHA256:", completed.stdout)
+            self.assertIn("Archive SHA256:", completed.stdout)
             self.assertIn("All required owner projects are present.", completed.stdout)
             self.assertIn("source-build", completed.stdout)
             self.assertTrue((base / "artifacts" / "chummer6-linux-x64" / "Chummer.Avalonia").exists())
@@ -147,6 +274,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             self.assertEqual(1, len(archives), completed.stdout)
             self.assertFalse((base / ".tmp").exists())
             self.assertFalse((base / ".tools" / "dotnet-install.sh").exists())
+            self.assertFalse((base / "chummer-core-engine" / ".tmp").exists())
 
     def test_full_flow_uses_highest_sdk_version_across_cloned_repositories(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -292,6 +420,9 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                     """\
                     #!/usr/bin/env bash
                     set -euo pipefail
+                    repo_root="${PWD%/chummer6-ui}"
+                    mkdir -p "$repo_root/chummer-core-engine/.tmp/ai/local-nuget"
+                    printf 'local package' > "$repo_root/chummer-core-engine/.tmp/ai/local-nuget/Chummer.Engine.Contracts.0.0.0-local.nupkg"
                     out=""
                     previous=""
                     for arg in "$@"; do
