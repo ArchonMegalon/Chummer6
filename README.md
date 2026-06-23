@@ -9,7 +9,7 @@ If you are here to decide whether this is worth your time, the honest pitch is s
 Use [Download](DOWNLOAD.md) for files, [Status](STATUS.md) for the blunt current state, and [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md) if you already know the old app and want to know whether switching is sane.
 
 Windows and Linux downloads are posted.
-Use the files linked on [Download](DOWNLOAD.md). If your platform is not listed there yet, wait before switching full time.
+Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
 For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there. The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.
 
 ## Why it exists
@@ -25,18 +25,18 @@ The numbers should explain themselves faster. New or rusty users should have a f
 
 ## Help and feedback
 
-If something breaks, start with [Help](HELP.md) or [Contact](CONTACT.md). If the issue is safe to discuss in public, those pages also point to the GitHub issue tracker.
+If something breaks, start with [Help](HELP.md) or [Contact](CONTACT.md). If the issue is safe to discuss in public, the help pages point you to the GitHub issue tracker too.
 
 If you want to help test a fix, use the [participation page](https://chummer.run/participate). Most people do not need that path; a clear bug report, a confusing sentence, or a screenshot of the broken thing is already useful.
 
 ## First contact
 
-<a href="https://chummer.run/media/promo/every-wonder-horizon-promo.mp4" target="_blank" rel="noopener noreferrer" title="Play the Chummer6 overview video">
+<a href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4" target="_blank" rel="noopener noreferrer" title="Play the Chummer6 overview video">
   <img src="assets/hero/chummer6-hero.png" alt="Chummer6 overview video preview" title="Play the Chummer6 overview video" />
 </a>
 
 
-[Watch the Chummer6 overview video](https://chummer.run/media/promo/every-wonder-horizon-promo.mp4).
+[Watch the Chummer6 overview video](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).
 
 ## Campaign tools and client features
 

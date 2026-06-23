@@ -4,7 +4,7 @@ Open this when the character builder is no longer the whole question and the tab
 
 This page is not a shelf for every named capability in Chummer6. Campaign tools are the parts that change how a table prepares, runs, remembers, or publishes play. Base-client support work belongs in [Features](../FEATURES/README.md).
 
-![Chummer6 horizons index art](../assets/pages/horizons-index.png)
+![Chummer6 campaign tools index art](../assets/pages/horizons-index.png)
 
 
 ## Closest to the table

@@ -10,7 +10,7 @@ A number looks wrong, a modifier needs explaining, or you want the math shown in
 
 ## Why it exists
 
-This is where Chummer either stays convincing or falls apart. If the math cannot be reproduced and explained here, the rest of the product turns into noise.
+This is where Chummer earns trust. If the math cannot be reproduced and explained here, the rest of the product becomes expensive theater.
 
 ## What you should feel
 
