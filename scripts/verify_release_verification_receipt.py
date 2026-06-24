@@ -23,17 +23,19 @@ def main() -> int:
     _require(bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", generated_at)), "generated_at_utc must be ISO UTC")
 
     generated_from = receipt.get("generated_from")
-    _require(isinstance(generated_from, list) and len(generated_from) == 3, "generated_from must list the source receipts")
+    _require(isinstance(generated_from, list) and len(generated_from) == 4, "generated_from must list the source receipts")
 
     checks = receipt.get("checks")
     _require(isinstance(checks, dict), "checks block missing")
     linux_gate = checks.get("linux_source_build_gate")
     installer_update_truth = checks.get("installer_update_truth")
+    desktop_update_runtime = checks.get("desktop_update_runtime")
     release_truth_packet = checks.get("release_truth_packet")
     updater_startup_window = checks.get("updater_startup_window")
     install_link_browser_fallback = checks.get("install_link_browser_fallback")
     _require(isinstance(linux_gate, dict), "linux_source_build_gate check missing")
     _require(isinstance(installer_update_truth, dict), "installer_update_truth check missing")
+    _require(isinstance(desktop_update_runtime, dict), "desktop_update_runtime check missing")
     _require(isinstance(release_truth_packet, dict), "release_truth_packet check missing")
     _require(isinstance(updater_startup_window, dict), "updater_startup_window check missing")
     _require(isinstance(install_link_browser_fallback, dict), "install_link_browser_fallback check missing")
@@ -52,6 +54,14 @@ def main() -> int:
     _require(str(installer_update_truth.get("source_build_default_mode") or "").strip() == "notify", "installer_update_truth source-build default must be notify")
     _require(str(installer_update_truth.get("packaged_default_mode") or "").strip() == "full", "installer_update_truth packaged default must be full")
     _require(str(installer_update_truth.get("public_download_authority") or "").strip() == "https://chummer.run/downloads", "installer_update_truth public download authority mismatch")
+    _require(str(desktop_update_runtime.get("status") or "").strip() == "passed", "desktop_update_runtime status must be passed")
+    _require(str(desktop_update_runtime.get("tested_repo_name") or "").strip() in {"chummer-presentation", "chummer6-ui"}, "desktop_update_runtime tested repo mismatch")
+    _require(desktop_update_runtime.get("run_desktop_update_tests_only") is True, "desktop_update_runtime must run the reduced updater lane")
+    _require(str(desktop_update_runtime.get("filter") or "").strip() == "FullyQualifiedName~DesktopUpdateRuntimeTests", "desktop_update_runtime filter mismatch")
+    _require(desktop_update_runtime.get("exit_code") == 0, "desktop_update_runtime exit code must be zero")
+    _require(desktop_update_runtime.get("mentions_passed_banner") is True, "desktop_update_runtime must report a Passed banner")
+    _require(desktop_update_runtime.get("mentions_desktop_update_runtime_tests") is True, "desktop_update_runtime must target DesktopUpdateRuntimeTests")
+    _require(desktop_update_runtime.get("mentions_total") is True, "desktop_update_runtime must report total counts")
     _require(str(release_truth_packet.get("release_status") or "").strip(), "release_truth_packet release_status missing")
     _require(isinstance(release_truth_packet.get("available_platforms"), list), "release_truth_packet available_platforms missing")
     _require(updater_startup_window.get("has_view_state_mapping") is True, "updater_startup_window must expose a deterministic view-state mapping")
@@ -80,6 +90,11 @@ def main() -> int:
         "linux_gate_updater_special_mode_success_passed",
         "installer_update_truth_matches_release_authority",
         "installer_update_truth_keeps_source_build_notify_default",
+        "desktop_update_runtime_passed",
+        "desktop_update_runtime_runs_reduced_lane",
+        "desktop_update_runtime_targets_update_tests",
+        "desktop_update_runtime_exit_code_zero",
+        "desktop_update_runtime_mentions_passed_banner",
         "updater_startup_window_has_view_state_mapping",
         "updater_startup_window_has_visibility_delay_policy",
         "updater_startup_window_has_progress_mapping_tests",

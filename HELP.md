@@ -22,11 +22,11 @@ Sign in when you want support history, recovery, and install return tied to your
 
 ## Send bugs through Contact
 
-Use Contact for install trouble, product bugs, and practical feedback. Public issue threads are optional.
+Use Contact for install trouble, product bugs, and practical feedback. Public feedback is optional.
 
 - Use Contact for install trouble, product bugs, or UX friction.
 - Use Account > Support if you want your support history saved in one place.
-- Choose a public issue thread only when the bug should be public.
+- Use public feedback only when the bug should stay public.
 
 ## Ask Chummer first
 

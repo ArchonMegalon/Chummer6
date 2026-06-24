@@ -1,9 +1,9 @@
 {
   "artifacts": {
-    "build_log_name": "linux-desktop-build-20260623T072159Z.log",
+    "build_log_name": "linux-desktop-build-20260624T133544Z.log",
     "build_manifest_excerpt": [
       "Chummer6 Linux desktop source build",
-      "Generated UTC: 2026-06-23T07:25:05Z",
+      "Generated UTC: 2026-06-24T13:39:04Z",
       "Script version: 1.3.0",
       "Distribution: Debian GNU/Linux 12 (bookworm)",
       "CPU: AMD EPYC-Milan Processor",
@@ -12,26 +12,26 @@
       ".NET SDK: 10.0.103",
       "Git ref: main",
       "",
-      "chummer6-core            820102ebbe0c319f459068355461a686479dfe49",
-      "chummer6-hub             534d79469ba42821723c60814156f5f3925673be",
-      "chummer6-hub-registry    c71c9f34d3d85b141a59be58f262257bc15c1840",
-      "chummer6-ui-kit          27398be462fda0893bf2af45402f52165526d74a",
-      "chummer6-ui              cca849c73f173320b0a6469820e90e0e98d9621f",
+      "chummer6-core            78bc591c17fba6f97c9a7b0da7f9ed662eafa75c",
+      "chummer6-hub             8a9bab086a149a5c9da1fd04d31e3d225537efa8",
+      "chummer6-hub-registry    29c74ae7ab20e365b67b9901ef3e8b84eceee72b",
+      "chummer6-ui-kit          344985ead02f48e8efb26bac2c6c7fcd5551dc6f",
+      "chummer6-ui              4623fbe559672acd9235fc33e1f8d82db1df74ec",
       "",
       "Executable: Chummer.Avalonia",
       "Executable SHA256: 0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
       "Output directory: /work/base/artifacts/chummer6-linux-x64"
     ],
     "source_heads": {
-      "chummer6-core": "820102ebbe0c319f459068355461a686479dfe49",
-      "chummer6-hub": "534d79469ba42821723c60814156f5f3925673be",
-      "chummer6-hub-registry": "c71c9f34d3d85b141a59be58f262257bc15c1840",
-      "chummer6-ui": "cca849c73f173320b0a6469820e90e0e98d9621f",
-      "chummer6-ui-kit": "27398be462fda0893bf2af45402f52165526d74a"
+      "chummer6-core": "78bc591c17fba6f97c9a7b0da7f9ed662eafa75c",
+      "chummer6-hub": "8a9bab086a149a5c9da1fd04d31e3d225537efa8",
+      "chummer6-hub-registry": "29c74ae7ab20e365b67b9901ef3e8b84eceee72b",
+      "chummer6-ui": "4623fbe559672acd9235fc33e1f8d82db1df74ec",
+      "chummer6-ui-kit": "344985ead02f48e8efb26bac2c6c7fcd5551dc6f"
     },
-    "startup_smoke_receipt_name": "startup-smoke-20260623T072622Z.receipt.json",
-    "updater_special_mode_receipt_name": "updater-special-mode-20260623T072622Z.receipt.json",
-    "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260623T072622Z.receipt.json"
+    "startup_smoke_receipt_name": "startup-smoke-20260624T134017Z.receipt.json",
+    "updater_special_mode_receipt_name": "updater-special-mode-20260624T134018Z.receipt.json",
+    "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260624T134018Z.receipt.json"
   },
   "contract_name": "ea.chummer6_linux_source_build_docker_gate.v1",
   "docker_image": "debian:bookworm-slim",
@@ -41,12 +41,12 @@
     "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
     "name": "linux_source_build_fresh_container"
   },
-  "generated_at_utc": "20260623T072125Z",
+  "generated_at_utc": "20260624T133511Z",
   "git_ref": "main",
   "github_org": "ArchonMegalon",
   "output": {
-    "archive_name": "chummer6-linux-x64-20260623T072159Z.tar.gz",
-    "archive_sha256": "cdd26860a61701ca0275109ada31ad87bec10dd255045cbc6e7631a9cee40e31",
+    "archive_name": "chummer6-linux-x64-20260624T133544Z.tar.gz",
+    "archive_sha256": "79a52e50ae1936cb49f3ff7506cd8fd9f23331033b4ee9b21c59ef3ef3a4d3fa",
     "binary_name": "Chummer.Avalonia",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
     "launcher_name": "run-chummer6.sh",
@@ -60,7 +60,7 @@
       "channel_id": "source-build",
       "head_id": "avalonia",
       "ready_checkpoint": "fresh_container_gate",
-      "recorded_at_utc": "2026-06-23T07:26:22.7528652+00:00",
+      "recorded_at_utc": "2026-06-24T13:40:18.2243325+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -74,7 +74,7 @@
       "mode": "desktop_update_launch_installer",
       "pending_update_channel_id": "stable",
       "pending_update_version": "run-20260618-051119",
-      "recorded_at_utc": "2026-06-23T07:26:22.904139+00:00",
+      "recorded_at_utc": "2026-06-24T13:40:18.369098+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -89,7 +89,7 @@
       "mode": "desktop_update_launch_installer_success",
       "pending_update_channel_id": "",
       "pending_update_version": "",
-      "recorded_at_utc": "2026-06-23T07:26:23.066946+00:00",
+      "recorded_at_utc": "2026-06-24T13:40:18.535322+00:00",
       "rid": "linux-x64",
       "stage_deleted": true,
       "status": "pass"

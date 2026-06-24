@@ -1,5 +1,16 @@
 {
   "checks": {
+    "desktop_update_runtime": {
+      "exit_code": 0,
+      "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
+      "mentions_desktop_update_runtime_tests": true,
+      "mentions_passed_banner": true,
+      "mentions_total": true,
+      "run_desktop_update_tests_only": true,
+      "status": "passed",
+      "tested_repo_name": "chummer-presentation",
+      "timeout_seconds": 900
+    },
     "install_link_browser_fallback": {
       "has_copy_claim_link_button": true,
       "has_dedicated_fallback_panel": true,
@@ -24,7 +35,7 @@
       ]
     },
     "linux_source_build_gate": {
-      "archive_sha256": "677eaf253a3ff49a9209dc7164050f178257a8aa1af31a18e338bdcd5b50df7e",
+      "archive_sha256": "79a52e50ae1936cb49f3ff7506cd8fd9f23331033b4ee9b21c59ef3ef3a4d3fa",
       "docker_image": "debian:bookworm-slim",
       "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
       "rid": "linux-x64",
@@ -43,7 +54,7 @@
         "Linux"
       ],
       "missing_platforms": [],
-      "published_at": "June 21, 2026 at 5:53 UTC",
+      "published_at": "June 23, 2026 at 10:26 UTC",
       "release_status": "Published",
       "shelf_truth_line": "Windows and Linux downloads are posted."
     },
@@ -59,6 +70,11 @@
     }
   },
   "coherence": {
+    "desktop_update_runtime_exit_code_zero": true,
+    "desktop_update_runtime_mentions_passed_banner": true,
+    "desktop_update_runtime_passed": true,
+    "desktop_update_runtime_runs_reduced_lane": true,
+    "desktop_update_runtime_targets_update_tests": true,
     "install_link_browser_fallback_has_detail_copy": true,
     "install_link_browser_fallback_has_panel": true,
     "install_link_browser_fallback_has_runtime_failure_test": true,
@@ -78,10 +94,11 @@
     "updater_startup_window_has_visibility_delay_policy": true
   },
   "contract_name": "ea.chummer6_release_verification_convergence.v1",
-  "generated_at_utc": "2026-06-22T22:24:57Z",
+  "generated_at_utc": "2026-06-24T14:19:49Z",
   "generated_from": [
     ".guide-internal/receipts/LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json",
     ".guide-internal/receipts/INSTALLER_UPDATE_TRUTH.generated.json",
+    ".guide-internal/receipts/DESKTOP_UPDATE_RUNTIME.generated.json",
     ".guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
   ],
   "status": "passed"

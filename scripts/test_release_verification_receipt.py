@@ -23,9 +23,10 @@ verify_spec.loader.exec_module(VERIFY)
 
 
 class ReleaseVerificationReceiptTests(unittest.TestCase):
-    def _write_inputs(self, root: Path) -> tuple[Path, Path, Path, Path]:
+    def _write_inputs(self, root: Path) -> tuple[Path, Path, Path, Path, Path]:
         linux_gate = root / "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json"
         installer_update_truth = root / "INSTALLER_UPDATE_TRUTH.generated.json"
+        desktop_update_runtime = root / "DESKTOP_UPDATE_RUNTIME.generated.json"
         release_packet = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
         output = root / "RELEASE_VERIFICATION_CONVERGENCE.generated.json"
         startup_window_source = root / "DesktopStartupUpdateWindow.cs"
@@ -98,6 +99,26 @@ class ReleaseVerificationReceiptTests(unittest.TestCase):
                         "rid": "linux-x64",
                         "archive_sha256": "a" * 64,
                         "executable_sha256": "b" * 64,
+                    },
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        desktop_update_runtime.write_text(
+            json.dumps(
+                {
+                    "status": "passed",
+                    "tested_repo_name": "chummer-presentation",
+                    "run_desktop_update_tests_only": True,
+                    "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
+                    "timeout_seconds": 900,
+                    "result": {
+                        "exit_code": 0,
+                        "mentions_passed_banner": True,
+                        "mentions_desktop_update_runtime_tests": True,
+                        "mentions_total": True,
                     },
                 },
                 indent=2,
@@ -180,15 +201,16 @@ public sealed class DesktopInstallLinkingRuntimeTests
             + "\n",
             encoding="utf-8",
         )
-        return linux_gate, installer_update_truth, release_packet, output, startup_window_source, startup_window_tests, install_link_window_source, install_link_window_tests, install_link_runtime_tests
+        return linux_gate, installer_update_truth, desktop_update_runtime, release_packet, output, startup_window_source, startup_window_tests, install_link_window_source, install_link_window_tests, install_link_runtime_tests
 
     def test_materialize_and_verify_roundtrip(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
-            linux_gate, installer_update_truth, release_packet, output, startup_window_source, startup_window_tests, install_link_window_source, install_link_window_tests, install_link_runtime_tests = self._write_inputs(root)
+            linux_gate, installer_update_truth, desktop_update_runtime, release_packet, output, startup_window_source, startup_window_tests, install_link_window_source, install_link_window_tests, install_link_runtime_tests = self._write_inputs(root)
 
             original_linux = MATERIALIZE.LINUX_GATE_PATH
             original_installer_update = MATERIALIZE.INSTALLER_UPDATE_TRUTH_PATH
+            original_desktop_update_runtime = MATERIALIZE.DESKTOP_UPDATE_RUNTIME_PATH
             original_packet = MATERIALIZE.RELEASE_PACKET_PATH
             original_output = MATERIALIZE.OUTPUT_PATH
             original_startup_window_source = MATERIALIZE.STARTUP_WINDOW_SOURCE_PATH
@@ -200,6 +222,7 @@ public sealed class DesktopInstallLinkingRuntimeTests
             try:
                 MATERIALIZE.LINUX_GATE_PATH = linux_gate
                 MATERIALIZE.INSTALLER_UPDATE_TRUTH_PATH = installer_update_truth
+                MATERIALIZE.DESKTOP_UPDATE_RUNTIME_PATH = desktop_update_runtime
                 MATERIALIZE.RELEASE_PACKET_PATH = release_packet
                 MATERIALIZE.OUTPUT_PATH = output
                 MATERIALIZE.STARTUP_WINDOW_SOURCE_PATH = startup_window_source
@@ -213,6 +236,7 @@ public sealed class DesktopInstallLinkingRuntimeTests
             finally:
                 MATERIALIZE.LINUX_GATE_PATH = original_linux
                 MATERIALIZE.INSTALLER_UPDATE_TRUTH_PATH = original_installer_update
+                MATERIALIZE.DESKTOP_UPDATE_RUNTIME_PATH = original_desktop_update_runtime
                 MATERIALIZE.RELEASE_PACKET_PATH = original_packet
                 MATERIALIZE.OUTPUT_PATH = original_output
                 MATERIALIZE.STARTUP_WINDOW_SOURCE_PATH = original_startup_window_source
@@ -225,14 +249,14 @@ public sealed class DesktopInstallLinkingRuntimeTests
     def test_verify_rejects_mismatched_coherence(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
-            _, _, _, output, _, _, _, _, _ = self._write_inputs(root)
+            _, _, _, _, output, _, _, _, _, _ = self._write_inputs(root)
             output.write_text(
                 json.dumps(
                     {
                         "contract_name": "ea.chummer6_release_verification_convergence.v1",
                         "status": "passed",
                         "generated_at_utc": "2026-06-22T20:30:00Z",
-                        "generated_from": ["a", "b", "c"],
+                        "generated_from": ["a", "b", "c", "d"],
                         "checks": {
                             "linux_source_build_gate": {
                             "status": "passed",
@@ -252,6 +276,16 @@ public sealed class DesktopInstallLinkingRuntimeTests
                                 "source_build_default_mode": "notify",
                                 "packaged_default_mode": "full",
                                 "public_download_authority": "https://chummer.run/downloads",
+                            },
+                            "desktop_update_runtime": {
+                                "status": "passed",
+                                "tested_repo_name": "chummer-presentation",
+                                "run_desktop_update_tests_only": True,
+                                "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
+                                "exit_code": 0,
+                                "mentions_passed_banner": True,
+                                "mentions_desktop_update_runtime_tests": True,
+                                "mentions_total": True,
                             },
                             "release_truth_packet": {
                                 "release_status": "Published",
@@ -285,6 +319,11 @@ public sealed class DesktopInstallLinkingRuntimeTests
                             "linux_gate_updater_special_mode_success_passed": True,
                             "installer_update_truth_matches_release_authority": True,
                             "installer_update_truth_keeps_source_build_notify_default": True,
+                            "desktop_update_runtime_passed": True,
+                            "desktop_update_runtime_runs_reduced_lane": True,
+                            "desktop_update_runtime_targets_update_tests": True,
+                            "desktop_update_runtime_exit_code_zero": True,
+                            "desktop_update_runtime_mentions_passed_banner": True,
                             "updater_startup_window_has_view_state_mapping": True,
                             "updater_startup_window_has_visibility_delay_policy": True,
                             "updater_startup_window_has_progress_mapping_tests": True,

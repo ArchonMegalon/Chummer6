@@ -8,7 +8,7 @@ Expect current downloads and explicit labels when support, compatibility, or bre
 
 ## Sign-in is simple, and support starts with Chummer
 
-Sign-in keeps your access, devices, and support history together. Help and Contact are the normal first stops before any public issue thread.
+Sign-in keeps your access, devices, and support history together. Help and Contact are the normal first stops before any public feedback thread.
 
 ## Use the current public download first; advanced packages only when necessary
 

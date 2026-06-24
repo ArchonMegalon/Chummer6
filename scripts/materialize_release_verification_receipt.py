@@ -10,6 +10,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
 LINUX_GATE_PATH = RECEIPTS_ROOT / "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json"
 INSTALLER_UPDATE_TRUTH_PATH = RECEIPTS_ROOT / "INSTALLER_UPDATE_TRUTH.generated.json"
+DESKTOP_UPDATE_RUNTIME_PATH = RECEIPTS_ROOT / "DESKTOP_UPDATE_RUNTIME.generated.json"
 RELEASE_PACKET_PATH = RECEIPTS_ROOT / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
 OUTPUT_PATH = RECEIPTS_ROOT / "RELEASE_VERIFICATION_CONVERGENCE.generated.json"
 STARTUP_WINDOW_SOURCE_PATH = REPO_ROOT.parent / "chummer6-ui" / "Chummer.Avalonia" / "DesktopStartupUpdateWindow.cs"
@@ -33,6 +34,7 @@ def _display_path(path: Path) -> str:
 def main() -> int:
     linux_gate = _load_json(LINUX_GATE_PATH)
     installer_update_truth = _load_json(INSTALLER_UPDATE_TRUTH_PATH)
+    desktop_update_runtime = _load_json(DESKTOP_UPDATE_RUNTIME_PATH)
     release_packet = _load_json(RELEASE_PACKET_PATH)
     startup_window_source = STARTUP_WINDOW_SOURCE_PATH.read_text(encoding="utf-8")
     startup_window_tests = STARTUP_WINDOW_TEST_PATH.read_text(encoding="utf-8")
@@ -48,6 +50,7 @@ def main() -> int:
         "generated_from": [
             _display_path(LINUX_GATE_PATH),
             _display_path(INSTALLER_UPDATE_TRUTH_PATH),
+            _display_path(DESKTOP_UPDATE_RUNTIME_PATH),
             _display_path(RELEASE_PACKET_PATH),
         ],
         "checks": {
@@ -71,6 +74,17 @@ def main() -> int:
                 "source_build_default_mode": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_default_mode") or "").strip(),
                 "packaged_default_mode": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("packaged_default_mode") or "").strip(),
                 "public_download_authority": str(((installer_update_truth.get("release_truth") or {}) if isinstance(installer_update_truth.get("release_truth"), dict) else {}).get("public_download_authority") or "").strip(),
+            },
+            "desktop_update_runtime": {
+                "status": str(desktop_update_runtime.get("status") or "").strip(),
+                "tested_repo_name": str(desktop_update_runtime.get("tested_repo_name") or "").strip(),
+                "run_desktop_update_tests_only": desktop_update_runtime.get("run_desktop_update_tests_only"),
+                "filter": str(desktop_update_runtime.get("filter") or "").strip(),
+                "timeout_seconds": desktop_update_runtime.get("timeout_seconds"),
+                "exit_code": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("exit_code"),
+                "mentions_passed_banner": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("mentions_passed_banner"),
+                "mentions_desktop_update_runtime_tests": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("mentions_desktop_update_runtime_tests"),
+                "mentions_total": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("mentions_total"),
             },
             "release_truth_packet": {
                 "release_status": str(release_packet.get("release_status") or "").strip(),
@@ -112,6 +126,11 @@ def main() -> int:
             "linux_gate_updater_special_mode_success_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode_success", {}).get("status") or "").strip() == "pass",
             "installer_update_truth_matches_release_authority": str(((installer_update_truth.get("release_truth") or {}) if isinstance(installer_update_truth.get("release_truth"), dict) else {}).get("public_download_authority") or "").strip() == str(release_packet.get("public_download_authority") or "").strip(),
             "installer_update_truth_keeps_source_build_notify_default": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_default_mode") or "").strip() == "notify",
+            "desktop_update_runtime_passed": str(desktop_update_runtime.get("status") or "").strip() == "passed",
+            "desktop_update_runtime_runs_reduced_lane": desktop_update_runtime.get("run_desktop_update_tests_only") is True,
+            "desktop_update_runtime_targets_update_tests": str(desktop_update_runtime.get("filter") or "").strip() == "FullyQualifiedName~DesktopUpdateRuntimeTests",
+            "desktop_update_runtime_exit_code_zero": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("exit_code") == 0,
+            "desktop_update_runtime_mentions_passed_banner": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("mentions_passed_banner") is True,
             "updater_startup_window_has_view_state_mapping": "DesktopStartupUpdateViewState BuildViewState" in startup_window_source,
             "updater_startup_window_has_visibility_delay_policy": "GetCompletionDisplayDelayMs" in startup_window_source,
             "updater_startup_window_has_progress_mapping_tests": "BuildViewState_maps_progress_stage_to_visible_copy_and_determinate_progress" in startup_window_tests,

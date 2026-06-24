@@ -14,7 +14,7 @@ That is one of the core goals. Chummer6 is being built so bad connectivity does 
 
 ### Why would I trust it more than old opaque tool behavior?
 
-Because Chummer6 is trying to show the pieces behind a result instead of asking you to accept mystery math.
+Because Chummer6 tries to show why a result changed instead of leaving you with a number and no explanation.
 
 ### What is preview versus available today?
 
@@ -28,7 +28,7 @@ Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md), then [Status](STATUS.md), th
 
 ### How do I report something?
 
-Start with a bug report, documentation note, or feature request. If you want to help test or shape a fix, use the participation page.
+Start with Help or Contact. If you want to help test or shape a fix in public, use the participation page.
 
 ### Can I help with fixes or testing?
 
@@ -38,9 +38,9 @@ Yes. The participation page explains hands-on help for people who want to do mor
 
 No. Normal bug reports, documentation feedback, and feature requests still matter.
 
-### Should I use the public issue tracker for a crash?
+### Should I use the participation page for a crash?
 
-Use the in-product private crash path when logs or diagnostics are involved. Use public issues for bugs that are safe to discuss in public.
+No. Use the private crash or support path when logs or diagnostics are involved. Use the participation page only for safe public follow-up.
 
 ### Why are some things preview-only?
 
@@ -74,8 +74,8 @@ Start with Where To Go Deeper. It points to the optional pages without making mo
 
 ### Where does the actual code live?
 
-In the Chummer code. Most people never need it to install Chummer6, use it, or report a problem.
+In the Chummer repositories. Most people never need them to install Chummer6, use it, or report a problem.
 
 ### Where do I propose public-facing changes?
 
-Use the Chummer6 issue tracker for documentation feedback, bug reports, and feature requests.
+Start with Help or Contact. Use the participation page when you want hands-on testing or focused public follow-up.

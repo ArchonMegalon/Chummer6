@@ -1,0 +1,67 @@
+{
+  "command": [
+    "dotnet",
+    "test",
+    "--project",
+    "/docker/chummercomplete/chummer-presentation/Chummer.Tests/Chummer.Tests.csproj",
+    "-p:RunDesktopUpdateTestsOnly=true",
+    "--filter",
+    "FullyQualifiedName~DesktopUpdateRuntimeTests",
+    "-v",
+    "minimal"
+  ],
+  "contract_name": "ea.chummer6_desktop_update_runtime.v1",
+  "desktop_repo_root": "/docker/chummercomplete/chummer-presentation",
+  "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
+  "generated_at_utc": "2026-06-24T14:19:49Z",
+  "generated_from": [
+    "Chummer.Tests/Chummer.Tests.csproj",
+    "Chummer.Tests/DesktopUpdateRuntimeTests.cs"
+  ],
+  "prebuild_commands": [
+    {
+      "command": [
+        "bash",
+        "/docker/chummercomplete/chummer-presentation/scripts/ai/with-package-plane.sh",
+        "build",
+        "/docker/chummercomplete/chummer-hub-registry/Chummer.Hub.Registry.Contracts/Chummer.Hub.Registry.Contracts.csproj",
+        "--nologo",
+        "-m:1"
+      ],
+      "exit_code": 0,
+      "project": "/docker/chummercomplete/chummer-hub-registry/Chummer.Hub.Registry.Contracts/Chummer.Hub.Registry.Contracts.csproj",
+      "summary_lines": [
+        "0 Error(s)"
+      ]
+    },
+    {
+      "command": [
+        "bash",
+        "/docker/chummercomplete/chummer-presentation/scripts/ai/with-package-plane.sh",
+        "build",
+        "/docker/chummercomplete/chummer.run-services/Chummer.Run.Contracts/Chummer.Run.Contracts.csproj",
+        "--nologo",
+        "-m:1"
+      ],
+      "exit_code": 0,
+      "project": "/docker/chummercomplete/chummer.run-services/Chummer.Run.Contracts/Chummer.Run.Contracts.csproj",
+      "summary_lines": [
+        "0 Error(s)"
+      ]
+    }
+  ],
+  "result": {
+    "exit_code": 0,
+    "mentions_desktop_update_runtime_tests": true,
+    "mentions_passed_banner": true,
+    "mentions_total": true,
+    "summary_lines": [
+      "Test run summary: Passed!",
+      "total: 43"
+    ]
+  },
+  "run_desktop_update_tests_only": true,
+  "status": "passed",
+  "tested_repo_name": "chummer-presentation",
+  "timeout_seconds": 900
+}

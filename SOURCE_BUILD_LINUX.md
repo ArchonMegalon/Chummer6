@@ -29,7 +29,14 @@ Source builds default to `CHUMMER_DESKTOP_UPDATE_MODE=notify`, so they can repor
 - ICU runtime libraries
 - about 25 GiB of free disk space
 
-The helper scripts can print package hints for Debian/Ubuntu, Fedora/RHEL-style, Arch/Manjaro-style, and openSUSE-style systems.
+Before you build, you can inspect the checked-in helpers directly:
+
+```bash
+bash scripts/list-chummer6-linux-prereqs.sh
+bash scripts/check-host-chummer6-linux.sh
+```
+
+`scripts/list-chummer6-linux-prereqs.sh` prints package hints for Debian/Ubuntu, Fedora/RHEL-style, Arch/Manjaro-style, and openSUSE-style systems. `scripts/check-host-chummer6-linux.sh` runs the same local-first host audit without cloning or publishing anything.
 
 For extra-paranoid builds, you can also run the checked-in Docker verification script:
 

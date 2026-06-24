@@ -10,11 +10,11 @@ For today, start with Avalonia. Treat Blazor Desktop as the alternate only when 
 
 ## What gets better
 
-It tries to show why a number changed instead of leaving you with mystery math. Recovery and continuity are being treated as core product work, not as an afterthought. Status, downloads, and help are easier to find without digging around for the current answer.
+It tries to show why a number changed instead of leaving you with a total and no explanation. Recovery and continuity are being treated as core product work, not as an afterthought. Status, downloads, and help are easier to find without digging around for the current answer.
 
 ## Should you switch today?
 
-Today you can try preview builds on Windows and Linux. Public downloads are already visible on every promised desktop platform.
+Today you can try the current builds on Windows and Linux. Public downloads are already visible on the desktop platforms that are currently offered.
 
 If you like trying real previews and helping shape the rough edges, it is worth a serious look. If you need a fully settled, every-platform replacement for Chummer5a right now, wait.
 

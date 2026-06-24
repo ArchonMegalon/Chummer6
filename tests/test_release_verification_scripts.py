@@ -31,6 +31,9 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         installer_update_test_line = 'python3 "$repo_root/scripts/test_installer_update_truth_receipt.py" >/dev/null'
         installer_update_materialize_line = 'python3 "$repo_root/scripts/materialize_installer_update_truth_receipt.py" >/dev/null'
         installer_update_verify_line = 'python3 "$repo_root/scripts/verify_installer_update_truth_receipt.py" >/dev/null'
+        desktop_update_test_line = 'python3 "$repo_root/scripts/test_desktop_update_runtime_receipt.py" >/dev/null'
+        desktop_update_materialize_line = 'python3 "$repo_root/scripts/materialize_desktop_update_runtime_receipt.py" >/dev/null'
+        desktop_update_verify_line = 'python3 "$repo_root/scripts/verify_desktop_update_runtime_receipt.py" >/dev/null'
         convergence_test_line = 'python3 "$repo_root/scripts/test_release_verification_receipt.py" >/dev/null'
         convergence_materialize_line = 'python3 "$repo_root/scripts/materialize_release_verification_receipt.py" >/dev/null'
         convergence_verify_line = 'python3 "$repo_root/scripts/verify_release_verification_receipt.py" >/dev/null'
@@ -43,6 +46,9 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         self.assertIn(installer_update_test_line, script_text)
         self.assertIn(installer_update_materialize_line, script_text)
         self.assertIn(installer_update_verify_line, script_text)
+        self.assertIn(desktop_update_test_line, script_text)
+        self.assertIn(desktop_update_materialize_line, script_text)
+        self.assertIn(desktop_update_verify_line, script_text)
         self.assertIn(convergence_test_line, script_text)
         self.assertIn(convergence_materialize_line, script_text)
         self.assertIn(convergence_verify_line, script_text)
@@ -53,7 +59,10 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         self.assertLess(script_text.index(guide_line), script_text.index(installer_update_test_line))
         self.assertLess(script_text.index(installer_update_test_line), script_text.index(installer_update_materialize_line))
         self.assertLess(script_text.index(installer_update_materialize_line), script_text.index(installer_update_verify_line))
-        self.assertLess(script_text.index(installer_update_verify_line), script_text.index(convergence_test_line))
+        self.assertLess(script_text.index(installer_update_verify_line), script_text.index(desktop_update_test_line))
+        self.assertLess(script_text.index(desktop_update_test_line), script_text.index(desktop_update_materialize_line))
+        self.assertLess(script_text.index(desktop_update_materialize_line), script_text.index(desktop_update_verify_line))
+        self.assertLess(script_text.index(desktop_update_verify_line), script_text.index(convergence_test_line))
         self.assertLess(script_text.index(convergence_test_line), script_text.index(convergence_materialize_line))
         self.assertLess(script_text.index(convergence_materialize_line), script_text.index(convergence_verify_line))
         self.assertIn("LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json", (REPO_ROOT / "scripts" / "verify_linux_source_build_docker_gate.sh").read_text(encoding="utf-8"))
