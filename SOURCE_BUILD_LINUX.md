@@ -18,7 +18,7 @@ If you use mirrors, set `CHUMMER_REPO_BASE_URL`. The script expects `chummer6-co
 
 Set `CHUMMER_KEEP_BUILD_TEMP=1` if you want to keep temporary build files.
 
-Source builds default to `CHUMMER_DESKTOP_UPDATE_MODE=notify`, so they can report newer published builds without replacing themselves.
+Source builds default to `CHUMMER_DESKTOP_UPDATE_MODE=notify`, so they can report newer published builds without replacing themselves. The updater supports three modes: `full` for automatic download and replacement, `notify` for update notices without automatic replacement, and `off` to skip startup update checks.
 
 ## Requirements
 
@@ -31,9 +31,7 @@ Source builds default to `CHUMMER_DESKTOP_UPDATE_MODE=notify`, so they can repor
 
 The helper scripts can print package hints for Debian/Ubuntu, Fedora/RHEL-style, Arch/Manjaro-style, and openSUSE-style systems.
 
-## Gate
-
-If you are maintaining this path, there is also a fresh-container gate:
+For extra-paranoid builds, you can also run the checked-in Docker verification script:
 
 ```bash
 bash scripts/verify_linux_source_build_docker_gate.sh
