@@ -2,9 +2,9 @@
 
 This is the simple privacy picture right now: what your account stores, what stays out, and how support and linked installs work.
 
-## Your account keeps sign-in, preferences, and support together
+## Your account keeps sign-in, preferences, and help together
 
-Your Chummer account keeps your basic profile, linked sign-in methods, device access, support cases, and preferences together so you do not have to rebuild that history by hand.
+Your Chummer account keeps your basic profile, linked sign-in methods, device access, private help history, and preferences together so you do not have to rebuild that history by hand.
 
 ## The download file is the same for everyone
 
@@ -12,7 +12,7 @@ When Chummer publishes a download, everyone gets the same file. Chummer does not
 
 ## Temporary sign-in tokens and raw secrets stay out of your account record
 
-Short-lived third-party tokens stay on the machine or service using them. Your account keeps consent, support, and access records, not raw secret keys.
+Short-lived third-party tokens stay on the machine or service using them. Your account keeps consent, help history, and access records, not raw secret keys.
 
 ## Recognition should not force publicity
 

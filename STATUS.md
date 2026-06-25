@@ -23,5 +23,5 @@ Start with the download page first, then check status if something looks off.
 - Use `Stable` for the calmer release lane.
 - Use `Nightly` for the newest published Windows or Linux build.
 - Use the Windows or Linux installer.
-- Create an account if you want your support history, recovery, and downloads tied to one place.
+- Create an account if you want your help history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.
