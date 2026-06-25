@@ -1,10 +1,10 @@
 # Contact
 
-Chummer should not make you guess where to send a problem. Start here for install help, bugs, and practical feedback.
+Choose public feedback for ideas. Use private help for install trouble, bugs, or anything with logs or account detail.
 
-## Pick the case type that matches the problem
+## Choose the closest problem
 
-Use install or update for package and launcher trouble, product bug for broken behavior, and feedback for roadmap or UX pain that is slowing the table down.
+Use install or update for setup trouble, product bug for broken behavior, and feedback for roadmap or UX friction that slows the table down.
 
 ## Create an account when you want support history inside Chummer
 
