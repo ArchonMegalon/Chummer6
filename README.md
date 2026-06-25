@@ -31,12 +31,12 @@ If you want to help test a fix, use the [participation page](https://chummer.run
 
 ## First contact
 
-<a href="https://chummer.run/media/promo/chummer6-flagship-promo.mp4" target="_blank" rel="noopener noreferrer" title="Play the Chummer6 overview video">
+<a href="https://chummer.run/media/promo/every-wonder-horizon-promo.mp4" target="_blank" rel="noopener noreferrer" title="Play the Chummer6 overview video">
   <img src="assets/hero/chummer6-hero.png" alt="Chummer6 overview video preview" title="Play the Chummer6 overview video" />
 </a>
 
 
-[Watch the Chummer6 overview video](https://chummer.run/media/promo/chummer6-flagship-promo.mp4).
+[Watch the Chummer6 overview video](https://chummer.run/media/promo/every-wonder-horizon-promo.mp4).
 
 ## Campaign tools and client features
 
