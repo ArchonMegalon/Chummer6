@@ -30,6 +30,10 @@ class LinuxSourceBuildDockerGateReceiptVerifierTests(unittest.TestCase):
                 "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
                 "build_script": "scripts/build-chummer6-linux.sh",
                 "container_flow": "audit_then_full_build",
+                "public_script_requires_sudo": False,
+                "public_script_installs_system_packages": False,
+                "build_temp_cleanup_default": True,
+                "source_build_update_mode_default": "notify",
             },
             "output": {
                 "rid": "linux-x64",
@@ -153,6 +157,54 @@ class LinuxSourceBuildDockerGateReceiptVerifierTests(unittest.TestCase):
                         "chummer6-hub-registry": "fedf0f9a5c6fadcb6f2ce7bb9562d72a5c62d1f3",
                         "chummer6-ui": "4f48a3066e8cdfa9de24fac89fedd6576ed3efd9",
                     },
+                },
+            )
+            original = MODULE.RECEIPT_PATH
+            try:
+                MODULE.RECEIPT_PATH = receipt_path
+                with self.assertRaises(ValueError):
+                    MODULE.main()
+            finally:
+                MODULE.RECEIPT_PATH = original
+
+    def test_main_rejects_receipt_that_allows_sudo(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            receipt_path = self._write_receipt(
+                root,
+                gate={
+                    "name": "linux_source_build_fresh_container",
+                    "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
+                    "build_script": "scripts/build-chummer6-linux.sh",
+                    "container_flow": "audit_then_full_build",
+                    "public_script_requires_sudo": True,
+                    "public_script_installs_system_packages": False,
+                    "build_temp_cleanup_default": True,
+                    "source_build_update_mode_default": "notify",
+                },
+            )
+            original = MODULE.RECEIPT_PATH
+            try:
+                MODULE.RECEIPT_PATH = receipt_path
+                with self.assertRaises(ValueError):
+                    MODULE.main()
+            finally:
+                MODULE.RECEIPT_PATH = original
+
+    def test_main_rejects_receipt_that_installs_system_packages(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            receipt_path = self._write_receipt(
+                root,
+                gate={
+                    "name": "linux_source_build_fresh_container",
+                    "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
+                    "build_script": "scripts/build-chummer6-linux.sh",
+                    "container_flow": "audit_then_full_build",
+                    "public_script_requires_sudo": False,
+                    "public_script_installs_system_packages": True,
+                    "build_temp_cleanup_default": True,
+                    "source_build_update_mode_default": "notify",
                 },
             )
             original = MODULE.RECEIPT_PATH

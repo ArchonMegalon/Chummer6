@@ -40,6 +40,10 @@ def main() -> int:
     _require(gate.get("host_audit_wrapper") == "scripts/check-host-chummer6-linux.sh", "gate.host_audit_wrapper is incorrect")
     _require(gate.get("build_script") == "scripts/build-chummer6-linux.sh", "gate.build_script is incorrect")
     _require(gate.get("container_flow") == "audit_then_full_build", "gate.container_flow is incorrect")
+    _require(gate.get("public_script_requires_sudo") is False, "gate.public_script_requires_sudo must be false")
+    _require(gate.get("public_script_installs_system_packages") is False, "gate.public_script_installs_system_packages must be false")
+    _require(gate.get("build_temp_cleanup_default") is True, "gate.build_temp_cleanup_default must be true")
+    _require(gate.get("source_build_update_mode_default") == "notify", "gate.source_build_update_mode_default must be notify")
 
     output = receipt.get("output")
     _require(isinstance(output, dict), "output block is missing")

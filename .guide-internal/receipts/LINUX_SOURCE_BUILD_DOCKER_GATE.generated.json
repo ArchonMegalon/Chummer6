@@ -36,10 +36,14 @@
   "contract_name": "ea.chummer6_linux_source_build_docker_gate.v1",
   "docker_image": "debian:bookworm-slim",
   "gate": {
+    "build_temp_cleanup_default": true,
     "build_script": "scripts/build-chummer6-linux.sh",
     "container_flow": "audit_then_full_build",
     "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
-    "name": "linux_source_build_fresh_container"
+    "name": "linux_source_build_fresh_container",
+    "public_script_installs_system_packages": false,
+    "public_script_requires_sudo": false,
+    "source_build_update_mode_default": "notify"
   },
   "generated_at_utc": "20260624T133511Z",
   "git_ref": "main",

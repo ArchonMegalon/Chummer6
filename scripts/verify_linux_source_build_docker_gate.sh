@@ -46,6 +46,34 @@ die() {
   exit 1
 }
 
+assert_build_script_no_privilege_escalation() {
+  python3 - "$REPO_ROOT/scripts/build-chummer6-linux.sh" <<'PY'
+from __future__ import annotations
+import re
+import sys
+from pathlib import Path
+
+script_path = Path(sys.argv[1])
+text = script_path.read_text(encoding="utf-8")
+violations: list[str] = []
+
+for index, raw_line in enumerate(text.splitlines(), start=1):
+    line = raw_line.strip()
+    if not line or line.startswith("#"):
+        continue
+    if re.search(r"(^|[;&|({]\s*)(sudo|pkexec|doas)\b", line):
+        violations.append(f"{index}: privilege escalation command: {raw_line}")
+    if re.search(r"(^|[;&|({]\s*)(apt-get|apt|dnf|pacman|zypper)\s+(install|update|upgrade|refresh|-S)\b", line):
+        violations.append(f"{index}: package-manager mutation command: {raw_line}")
+
+if violations:
+    print("The public Linux source-build script must not install packages or ask for elevated privileges.", file=sys.stderr)
+    for violation in violations:
+        print(violation, file=sys.stderr)
+    raise SystemExit(1)
+PY
+}
+
 cleanup() {
   if [[ "$KEEP_WORK_ROOT" == "1" || "$KEEP_WORK_ROOT" == "true" || "$KEEP_WORK_ROOT" == "yes" ]]; then
     return 0
@@ -60,6 +88,7 @@ trap cleanup EXIT
 command -v docker >/dev/null 2>&1 || die "docker is required for the fresh-container gate."
 [[ -f "$REPO_ROOT/scripts/build-chummer6-linux.sh" ]] || die "build script missing: $REPO_ROOT/scripts/build-chummer6-linux.sh"
 [[ -f "$REPO_ROOT/scripts/check-host-chummer6-linux.sh" ]] || die "audit wrapper missing: $REPO_ROOT/scripts/check-host-chummer6-linux.sh"
+assert_build_script_no_privilege_escalation
 
 mkdir -p "$HOST_WORK_ROOT"
 HOST_WORK_ROOT="$(cd "$HOST_WORK_ROOT" && pwd -P)"
@@ -160,6 +189,10 @@ receipt = {
         "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
         "build_script": "scripts/build-chummer6-linux.sh",
         "container_flow": "audit_then_full_build",
+        "public_script_requires_sudo": False,
+        "public_script_installs_system_packages": False,
+        "build_temp_cleanup_default": True,
+        "source_build_update_mode_default": "notify",
     },
     "output": {
         "rid": rid,
