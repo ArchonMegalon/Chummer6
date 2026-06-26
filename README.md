@@ -8,7 +8,7 @@ If you are here to decide whether this is worth your time, the honest pitch is s
 
 Use [Download](DOWNLOAD.md) for files, [Status](STATUS.md) for the blunt current state, and [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md) if you already know the old app and want to know whether switching is sane.
 
-Windows and Linux downloads are posted.
+Linux downloads are posted.
 Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
 For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there. The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.
 
@@ -27,7 +27,7 @@ The numbers should explain themselves faster. New or rusty users should have a f
 
 If something breaks, start with [Help](HELP.md) or [Contact](CONTACT.md). Use the participation page only when you want hands-on testing or focused public follow-up.
 
-If you want to help test a fix, use the [participation page](https://chummer.run/partizipate). Most people do not need that path; a clear bug report, a confusing sentence, or a screenshot of the broken thing is already useful.
+If you want to help test a fix, use the [participation page](https://chummer.run/participate). Most people do not need that path; a clear bug report, a confusing sentence, or a screenshot of the broken thing is already useful.
 
 ## First contact
 

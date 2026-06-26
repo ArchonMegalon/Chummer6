@@ -12,26 +12,23 @@ Start with the download page first, then check status if something looks off.
 - Create an account if you want your help history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.
 
-## Use Account for recovery
+## Account
 
-Sign in when you want help history, recovery, and install return tied to your account.
+Claim your copy only when you want recovery or linked installs.
 
-- Guest use is allowed.
-- Account help keeps follow-up in one place.
-- Recovery should stay boring.
+- Guest use is fine.
+- Claim only when you want recovery.
 
-## Send bugs through Contact
+## Private support
 
-Use Contact for install trouble, product bugs, and practical feedback. Public feedback is optional.
+Use Contact when logs, screenshots, crash details, or account details are involved.
 
-- Use Contact for install trouble, product bugs, or UX friction.
-- Use Account > Support if you want your help history saved in one place.
-- Use public feedback only when the bug should stay public.
+- One issue per message.
+- Discord is better for normal questions.
 
-## Ask Chummer first
+## FAQ
 
-FAQ and Help should answer the normal questions without making you dig through project details.
+Read the short answers before opening a support case.
 
-- FAQ answers normal product questions in plain language.
-- Private help stays separate from public feedback.
-- You do not need another account to ask for help.
+- No account needed.
+- Support stays private.

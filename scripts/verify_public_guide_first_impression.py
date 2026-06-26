@@ -128,6 +128,7 @@ def main() -> int:
         "Release status is missing or stale",
         "portable package",
         "portable builds",
+        "https://chummer.run/partizipate",
     ):
         combined_public_copy = "\n".join(
             [

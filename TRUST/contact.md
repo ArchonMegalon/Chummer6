@@ -1,15 +1,15 @@
 # Contact Chummer
 
-Choose public feedback for ideas. Use private help for install trouble, bugs, or anything with logs or account detail.
+For normal questions, reach me on Discord in the Chummer5 server. Use the form only for private install trouble, crashes, logs, or account detail.
 
-## Choose the closest problem
+## Use the Chummer5 server for normal contact
 
-Use install or update for setup trouble, product bug for broken behavior, and feedback for roadmap or UX friction that slows the table down.
+Questions, quick feedback, and normal discussion belong in Discord where the Chummer community already is.
 
-## Create an account when you want help history inside Chummer
+## Use the form only when Discord is the wrong place
 
-You can submit help here without another account. Create a Chummer account if you want to see your help history later in one place.
+Install failures, crashes, screenshots, logs, or account details should stay private. The form is for those cases.
 
-## Use public feedback only when the report should be public
+## Use Participate for roadmap items
 
-Most people should start with Help or Contact. Public feedback is only for technical reports you want discussed in public.
+Ideas and public UX feedback should go to Participate, not the private support form.

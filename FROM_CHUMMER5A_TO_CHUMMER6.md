@@ -14,13 +14,13 @@ It tries to show why a number changed instead of leaving you with a total and no
 
 ## Should you switch today?
 
-Today you can try the current builds on Windows and Linux. Public downloads are already visible on the desktop platforms that are currently offered.
+Today you can try the current builds on Linux. Public downloads are already visible on the desktop platforms that are currently offered.
 
 If you like trying real previews and helping shape the rough edges, it is worth a serious look. If you need a fully settled, every-platform replacement for Chummer5a right now, wait.
 
 ## What is still rough
 
-Windows and Linux downloads are posted. Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
+Linux downloads are posted. Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
 
 It should still be read as a serious preview, not a finished no-step-back replacement yet.
 

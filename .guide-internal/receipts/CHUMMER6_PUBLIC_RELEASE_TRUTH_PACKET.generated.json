@@ -1,7 +1,6 @@
 {
-  "architecture_scope_line": "Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.",
+  "architecture_scope_line": "Desktop downloads are available for Linux x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.",
   "available_platforms": [
-    "Windows",
     "Linux"
   ],
   "build_label": "",
@@ -25,12 +24,12 @@
   "phase_label": "Current release build",
   "primary_head": "Chummer.Avalonia",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "June 23, 2026 at 10:26 UTC",
-  "published_line": "Published: June 23, 2026 at 10:26 UTC.",
+  "published_at": "June 26, 2026 at 8:32 UTC",
+  "published_line": "Published: June 26, 2026 at 8:32 UTC.",
   "quality_gap_line": "The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.",
   "release_status": "Published",
   "release_status_slug": "published",
   "release_verification_summary": "This release covers installs and recovery, campaign session recovery, and support follow-up.",
-  "shelf_truth_line": "Windows and Linux downloads are posted.",
+  "shelf_truth_line": "Linux downloads are posted.",
   "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time."
 }

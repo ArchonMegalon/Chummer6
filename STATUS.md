@@ -5,15 +5,15 @@ Use this page to see whether the current public build is ready for you.
 ## The answer
 
 Today: Current release build.
-Windows and Linux downloads are posted.
-Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.
+Linux downloads are posted.
+Desktop downloads are available for Linux x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.
 This release covers installs and recovery, campaign session recovery, and support follow-up.
 No current download blocker is listed for these installers.
 Help, contact, privacy, and terms pages are live.
 
 ## Release details
 
-- Published: June 23, 2026 at 10:26 UTC.
+- Published: June 26, 2026 at 8:32 UTC.
 - Release status: Published.
 
 ## Get Chummer first

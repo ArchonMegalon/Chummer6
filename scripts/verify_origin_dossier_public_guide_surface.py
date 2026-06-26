@@ -26,8 +26,13 @@ REQUIRED = (
 )
 
 FORBIDDEN = (
+    "Subscribr",
+    "First Book ai",
     "approved origin canon",
     "dossier media",
+    "source packet",
+    "source pack",
+    "webhook",
     "## How to use this",
     "machine-generated harness",
     "generated file",

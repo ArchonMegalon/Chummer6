@@ -36,3 +36,4 @@ python3 "$repo_root/scripts/test_verify_chummer6_docs_release_truth.py" >/dev/nu
 python3 "$repo_root/scripts/verify_public_guide_first_impression.py" >/dev/null
 python3 "$repo_root/scripts/verify_chummer6_docs_release_truth.py" >/dev/null
 python3 "$repo_root/scripts/verify_origin_dossier_public_guide_surface.py" >/dev/null
+python3 "$repo_root/scripts/verify_runbook_press_public_guide_surface.py" >/dev/null

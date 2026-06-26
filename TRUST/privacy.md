@@ -4,7 +4,7 @@ This is the simple privacy picture right now: what your account stores, what sta
 
 ## Your account keeps sign-in, preferences, and help together
 
-Your Chummer account keeps your basic profile, linked sign-in methods, device access, private help history, and preferences together so you do not have to rebuild that history by hand.
+Your Chummer account keeps your basic profile, linked sign-in methods, device access, support history, and preferences together so you do not have to rebuild that history by hand.
 
 ## The download file is the same for everyone
 

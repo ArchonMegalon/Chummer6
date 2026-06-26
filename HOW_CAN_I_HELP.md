@@ -22,6 +22,6 @@ Public ideas are public, so keep private campaign material out of them.
 
 ## You want to test a fix
 
-Use the [participation page](https://chummer.run/partizipate) when you want hands-on testing or focused follow-up. For normal public reports, start with [Help](https://chummer.run/help) or [Contact](https://chummer.run/contact).
+Use the [participation page](https://chummer.run/participate) when you want hands-on testing or focused follow-up. For normal public reports, start with [Help](https://chummer.run/help) or [Contact](https://chummer.run/contact).
 
 Participation is optional. It does not replace normal feedback, does not bypass review, and does not make a change real until it lands in an actual release.
