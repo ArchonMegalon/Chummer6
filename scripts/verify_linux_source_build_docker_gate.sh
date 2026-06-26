@@ -193,6 +193,7 @@ receipt = {
         "public_script_installs_system_packages": False,
         "build_temp_cleanup_default": True,
         "source_build_update_mode_default": "notify",
+        "source_build_analytics_default": "off",
     },
     "output": {
         "rid": rid,
