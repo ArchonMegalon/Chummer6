@@ -29,11 +29,14 @@ class LinuxSourceBuildDockerGateReceiptVerifierTests(unittest.TestCase):
                 "name": "linux_source_build_fresh_container",
                 "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
                 "build_script": "scripts/build-chummer6-linux.sh",
-                "container_flow": "audit_then_full_build",
+                "install_script": "scripts/install-chummer6-linux-local.sh",
+                "container_flow": "audit_then_full_build_then_local_install",
                 "public_script_requires_sudo": False,
                 "public_script_installs_system_packages": False,
                 "build_temp_cleanup_default": True,
                 "source_build_update_mode_default": "notify",
+                "source_build_analytics_default": "off",
+                "source_build_is_explicitly_two_step": True,
             },
             "output": {
                 "rid": "linux-x64",
@@ -46,6 +49,7 @@ class LinuxSourceBuildDockerGateReceiptVerifierTests(unittest.TestCase):
             "artifacts": {
                 "build_log_name": "linux-desktop-build-20260622T201755Z.log",
                 "startup_smoke_receipt_name": "startup-smoke-20260622T201801Z.receipt.json",
+                "installed_startup_smoke_receipt_name": "installed-startup-smoke-20260622T201802Z.receipt.json",
                 "updater_special_mode_receipt_name": "updater-special-mode-20260622T201803Z.receipt.json",
                 "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260622T201804Z.receipt.json",
                 "build_manifest_excerpt": [
@@ -73,6 +77,16 @@ class LinuxSourceBuildDockerGateReceiptVerifierTests(unittest.TestCase):
                     "artifact_digest": "sha256:0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
                     "artifact_digest_source": "process_path",
                     "recorded_at_utc": "2026-06-22T20:18:01+00:00",
+                },
+                "installed_startup_smoke": {
+                    "status": "pass",
+                    "head_id": "avalonia",
+                    "channel_id": "source-build",
+                    "rid": "linux-x64",
+                    "ready_checkpoint": "fresh_container_installed_gate",
+                    "artifact_digest": "sha256:0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
+                    "artifact_digest_source": "process_path",
+                    "recorded_at_utc": "2026-06-22T20:18:02+00:00",
                 },
                 "updater_special_mode": {
                     "status": "pass",
@@ -176,11 +190,14 @@ class LinuxSourceBuildDockerGateReceiptVerifierTests(unittest.TestCase):
                     "name": "linux_source_build_fresh_container",
                     "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
                     "build_script": "scripts/build-chummer6-linux.sh",
-                    "container_flow": "audit_then_full_build",
+                    "install_script": "scripts/install-chummer6-linux-local.sh",
+                    "container_flow": "audit_then_full_build_then_local_install",
                     "public_script_requires_sudo": True,
                     "public_script_installs_system_packages": False,
                     "build_temp_cleanup_default": True,
                     "source_build_update_mode_default": "notify",
+                    "source_build_analytics_default": "off",
+                    "source_build_is_explicitly_two_step": True,
                 },
             )
             original = MODULE.RECEIPT_PATH
@@ -200,11 +217,14 @@ class LinuxSourceBuildDockerGateReceiptVerifierTests(unittest.TestCase):
                     "name": "linux_source_build_fresh_container",
                     "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
                     "build_script": "scripts/build-chummer6-linux.sh",
-                    "container_flow": "audit_then_full_build",
+                    "install_script": "scripts/install-chummer6-linux-local.sh",
+                    "container_flow": "audit_then_full_build_then_local_install",
                     "public_script_requires_sudo": False,
                     "public_script_installs_system_packages": True,
                     "build_temp_cleanup_default": True,
                     "source_build_update_mode_default": "notify",
+                    "source_build_analytics_default": "off",
+                    "source_build_is_explicitly_two_step": True,
                 },
             )
             original = MODULE.RECEIPT_PATH

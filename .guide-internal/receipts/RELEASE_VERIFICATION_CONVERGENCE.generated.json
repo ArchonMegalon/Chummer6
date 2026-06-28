@@ -24,9 +24,14 @@
       "source_path": "/docker/chummercomplete/chummer6-ui/Chummer.Avalonia/DesktopInstallLinkingWindow.cs"
     },
     "installer_update_truth": {
+      "linux_source_build_is_explicitly_two_step": true,
+      "macos_source_build_is_explicitly_two_step": true,
       "packaged_default_mode": "full",
       "public_download_authority": "https://chummer.run/downloads",
-      "source_build_default_mode": "notify",
+      "source_build_linux_analytics_default": "off",
+      "source_build_linux_default_mode": "notify",
+      "source_build_macos_analytics_default": "off",
+      "source_build_macos_default_mode": "notify",
       "status": "passed",
       "update_modes": [
         "full",
@@ -35,9 +40,11 @@
       ]
     },
     "linux_source_build_gate": {
-      "archive_sha256": "79a52e50ae1936cb49f3ff7506cd8fd9f23331033b4ee9b21c59ef3ef3a4d3fa",
+      "archive_sha256": "8ae794fd10ece94342fbdae104b8942b3847a8806de82266043e34a04087cad3",
       "docker_image": "debian:bookworm-slim",
       "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
+      "installed_startup_smoke_ready_checkpoint": "fresh_container_installed_gate",
+      "installed_startup_smoke_status": "pass",
       "rid": "linux-x64",
       "startup_smoke_ready_checkpoint": "fresh_container_gate",
       "startup_smoke_status": "pass",
@@ -48,13 +55,26 @@
       "updater_special_mode_success_mode": "desktop_update_launch_installer_success",
       "updater_special_mode_success_status": "pass"
     },
+    "macos_source_build_contract": {
+      "build_launcher_resolves_symlinks": true,
+      "doc_marks_second_script_install": true,
+      "install_launcher_resolves_symlinks": true,
+      "maintenance_policy_marks_real_build_as_macos_only": true,
+      "maintenance_policy_requires_two_step_install": true,
+      "real_macos_runtime_proof_required": true,
+      "runtime_coverage": "not_run_on_non_macos_host",
+      "scope": "script_contract_only",
+      "status": "passed",
+      "syntax_check_count": 3,
+      "unit_test_exit_code": 0
+    },
     "release_truth_packet": {
       "available_platforms": [
         "Windows",
         "Linux"
       ],
       "missing_platforms": [],
-      "published_at": "June 23, 2026 at 10:26 UTC",
+      "published_at": "June 27, 2026 at 7:51 UTC",
       "release_status": "Published",
       "shelf_truth_line": "Windows and Linux downloads are posted."
     },
@@ -79,24 +99,36 @@
     "install_link_browser_fallback_has_panel": true,
     "install_link_browser_fallback_has_runtime_failure_test": true,
     "install_link_browser_fallback_has_window_copy_test": true,
-    "installer_update_truth_keeps_source_build_notify_default": true,
+    "installer_update_truth_keeps_linux_source_build_analytics_off_default": true,
+    "installer_update_truth_keeps_linux_source_build_notify_default": true,
+    "installer_update_truth_keeps_linux_source_build_two_step_install": true,
+    "installer_update_truth_keeps_macos_source_build_analytics_off_default": true,
+    "installer_update_truth_keeps_macos_source_build_notify_default": true,
+    "installer_update_truth_keeps_macos_source_build_two_step_install": true,
     "installer_update_truth_matches_release_authority": true,
     "linux_gate_archive_sha_matches_packet": true,
     "linux_gate_executable_sha_matches_packet": true,
+    "linux_gate_installed_startup_smoke_passed": true,
     "linux_gate_rid_matches_packet": true,
     "linux_gate_startup_smoke_passed": true,
     "linux_gate_status_matches_packet": true,
     "linux_gate_updater_special_mode_passed": true,
     "linux_gate_updater_special_mode_success_passed": true,
+    "macos_source_build_contract_keeps_two_step_install": true,
+    "macos_source_build_contract_launchers_resolve_symlinks": true,
+    "macos_source_build_contract_matches_installer_update_truth_two_step_posture": true,
+    "macos_source_build_contract_passed": true,
+    "macos_source_build_contract_stays_bounded": true,
     "updater_startup_window_has_delay_policy_tests": true,
     "updater_startup_window_has_progress_mapping_tests": true,
     "updater_startup_window_has_view_state_mapping": true,
     "updater_startup_window_has_visibility_delay_policy": true
   },
   "contract_name": "ea.chummer6_release_verification_convergence.v1",
-  "generated_at_utc": "2026-06-24T14:19:49Z",
+  "generated_at_utc": "2026-06-27T22:09:03Z",
   "generated_from": [
     ".guide-internal/receipts/LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json",
+    ".guide-internal/receipts/MACOS_SOURCE_BUILD_CONTRACT.generated.json",
     ".guide-internal/receipts/INSTALLER_UPDATE_TRUTH.generated.json",
     ".guide-internal/receipts/DESKTOP_UPDATE_RUNTIME.generated.json",
     ".guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"

@@ -30,7 +30,7 @@ python3 -m unittest discover -s "$repo_root/tests" -p 'test_sync_public_guide_fr
 python3 -m unittest discover -s "$repo_root/tests" -p 'test_linux_source_build_script.py' >/dev/null
 python3 "$repo_root/scripts/test_verify_linux_source_build_surface.py" >/dev/null
 python3 "$repo_root/scripts/test_verify_public_guide_links.py" >/dev/null
-python3 "$repo_root/scripts/verify_public_guide_links.py" --root "$source_root"
+python3 "$repo_root/scripts/verify_public_guide_links.py" --root "$source_root" --source-root "$repo_root"
 python3 "$repo_root/scripts/verify_public_guide_video_audio.py" --root "$source_root"
 python3 "$repo_root/scripts/test_verify_chummer6_docs_release_truth.py" >/dev/null
 python3 "$repo_root/scripts/verify_public_guide_first_impression.py" >/dev/null

@@ -1,6 +1,6 @@
 # Contact
 
-For normal questions, reach me on Discord in the Chummer5 server. Use the form only for private install trouble, crashes, logs, or account detail.
+Discord first. Private form if needed.
 
 ## Use the Chummer5 server for normal contact
 
@@ -10,6 +10,6 @@ Questions, quick feedback, and normal discussion belong in Discord where the Chu
 
 Install failures, crashes, screenshots, logs, or account details should stay private. The form is for those cases.
 
-## Use Participate for roadmap items
+## Participate
 
-Ideas and public UX feedback should go to Participate, not the private support form.
+Public bugs, requests, and roadmap items belong on Participate.

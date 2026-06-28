@@ -13,7 +13,7 @@
   "contract_name": "ea.chummer6_desktop_update_runtime.v1",
   "desktop_repo_root": "/docker/chummercomplete/chummer-presentation",
   "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
-  "generated_at_utc": "2026-06-24T14:19:49Z",
+  "generated_at_utc": "2026-06-27T22:09:02Z",
   "generated_from": [
     "Chummer.Tests/Chummer.Tests.csproj",
     "Chummer.Tests/DesktopUpdateRuntimeTests.cs"
@@ -57,7 +57,7 @@
     "mentions_total": true,
     "summary_lines": [
       "Test run summary: Passed!",
-      "total: 43"
+      "total: 58"
     ]
   },
   "run_desktop_update_tests_only": true,

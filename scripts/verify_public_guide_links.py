@@ -13,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PUBLIC_ORIGIN = "https://chummer.run"
+SOURCE_OWNED_PUBLIC_DOCS = {"SOURCE_BUILD_LINUX.md", "SOURCE_BUILD_MACOS.md"}
 
 LINK_RE = re.compile(
     r"!?\[[^\]]+\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)"
@@ -94,27 +95,60 @@ def _check_public_link_presentation(markdown_path: Path, root: Path, text: str) 
     return failures
 
 
-def _check_local_link(root: Path, source: Path, target: str) -> str | None:
+def _check_local_link(
+    root: Path,
+    source: Path,
+    target: str,
+    source_root: Path | None = None,
+) -> str | None:
     path_part, raw_fragment = _split_target(target)
     fragment = urllib.parse.unquote(raw_fragment)
-    if not path_part:
-        destination = source
-    else:
-        destination = (source.parent / urllib.parse.unquote(path_part)).resolve()
-    try:
-        destination.relative_to(root)
-    except ValueError:
-        return "local link escapes public guide root"
-    if not destination.exists():
-        return f"missing local target: {destination.relative_to(root)}"
-    if fragment and destination.suffix.lower() == ".md":
-        anchors = _anchors_for(destination)
+    relative_target = urllib.parse.unquote(path_part)
+
+    def resolve_destination(base_source: Path) -> Path:
+        if not relative_target:
+            return base_source
+        return (base_source.parent / relative_target).resolve()
+
+    def validate_destination(destination: Path, allowed_root: Path) -> str | None:
+        try:
+            destination.relative_to(allowed_root)
+        except ValueError:
+            return "local link escapes public guide root"
+        if not destination.exists():
+            return f"missing local target: {destination.relative_to(allowed_root)}"
+        return None
+
+    destination = resolve_destination(source)
+    failure = validate_destination(destination, root)
+    resolved_destination = destination
+    resolved_root = root
+
+    if (
+        failure is not None
+        and source_root is not None
+        and source.name in SOURCE_OWNED_PUBLIC_DOCS
+        and source != source_root / source.relative_to(root)
+    ):
+        mirrored_source = source_root / source.relative_to(root)
+        fallback_destination = resolve_destination(mirrored_source)
+        fallback_failure = validate_destination(fallback_destination, source_root)
+        if fallback_failure is None:
+            failure = None
+            resolved_destination = fallback_destination
+            resolved_root = source_root
+
+    if failure is not None:
+        return failure
+
+    if fragment and resolved_destination.suffix.lower() == ".md":
+        anchors = _anchors_for(resolved_destination)
         if fragment.lower() not in anchors:
-            return f"missing anchor #{fragment} in {destination.relative_to(root)}"
+            return f"missing anchor #{fragment} in {resolved_destination.relative_to(resolved_root)}"
     return None
 
 
-def verify(root: Path, public_origin: str, check_http: bool, timeout: int) -> list[str]:
+def verify(root: Path, public_origin: str, check_http: bool, timeout: int, source_root: Path | None = None) -> list[str]:
     failures: list[str] = []
     for markdown_path in _iter_markdown_files(root):
         text = markdown_path.read_text(encoding="utf-8")
@@ -141,7 +175,7 @@ def verify(root: Path, public_origin: str, check_http: bool, timeout: int) -> li
                         if failure:
                             failures.append(f"{markdown_path.relative_to(root)}:{line_number}: {failure}: {target}")
                     continue
-                failure = _check_local_link(root, markdown_path, target)
+                failure = _check_local_link(root, markdown_path, target, source_root=source_root)
                 if failure:
                     failures.append(f"{markdown_path.relative_to(root)}:{line_number}: {failure}: {target}")
     return failures
@@ -150,12 +184,14 @@ def verify(root: Path, public_origin: str, check_http: bool, timeout: int) -> li
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate public-guide Markdown links.")
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--source-root", type=Path, default=None)
     parser.add_argument("--public-origin", default=DEFAULT_PUBLIC_ORIGIN)
     parser.add_argument("--skip-http", action="store_true", help="Only validate local files and anchors.")
     parser.add_argument("--timeout", type=int, default=20)
     args = parser.parse_args()
 
-    failures = verify(args.root.resolve(), args.public_origin, not args.skip_http, args.timeout)
+    source_root = args.source_root.resolve() if args.source_root else None
+    failures = verify(args.root.resolve(), args.public_origin, not args.skip_http, args.timeout, source_root=source_root)
     if failures:
         for failure in failures:
             print(failure, file=sys.stderr)

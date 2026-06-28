@@ -15,9 +15,7 @@ JACKPOINT_REQUIRED = (
     "The writing can be polished, but the facts still have to come from the session material the GM accepted.",
     "## The table problem",
     "## Can I use it?",
-    '<a href="https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4" target="_blank" rel="noopener noreferrer">',
-    '<img src="../assets/horizons/jackpoint.png" alt="Jackpoint video preview" />',
-    "[Watch the Jackpoint 90-second deep dive](https://chummer.run/media/horizons/jackpoint-90s-deepdive.mp4).",
+    "![Jackpoint feature art](../assets/horizons/jackpoint.png)",
 )
 
 RUNSITE_REQUIRED = (

@@ -1,9 +1,9 @@
 {
   "artifacts": {
-    "build_log_name": "linux-desktop-build-20260624T133544Z.log",
+    "build_log_name": "linux-desktop-build-20260628T193544Z.log",
     "build_manifest_excerpt": [
       "Chummer6 Linux desktop source build",
-      "Generated UTC: 2026-06-24T13:39:04Z",
+      "Generated UTC: 2026-06-28T19:38:52Z",
       "Script version: 1.3.0",
       "Distribution: Debian GNU/Linux 12 (bookworm)",
       "CPU: AMD EPYC-Milan Processor",
@@ -12,45 +12,49 @@
       ".NET SDK: 10.0.103",
       "Git ref: main",
       "",
-      "chummer6-core            78bc591c17fba6f97c9a7b0da7f9ed662eafa75c",
-      "chummer6-hub             8a9bab086a149a5c9da1fd04d31e3d225537efa8",
-      "chummer6-hub-registry    29c74ae7ab20e365b67b9901ef3e8b84eceee72b",
-      "chummer6-ui-kit          344985ead02f48e8efb26bac2c6c7fcd5551dc6f",
-      "chummer6-ui              4623fbe559672acd9235fc33e1f8d82db1df74ec",
+      "chummer6-core            63c79605a0586317698ad4b37cd933001c37a2a6",
+      "chummer6-hub             f629db81257d9e0b6c022b4f1e0fb7b0a7e10b24",
+      "chummer6-hub-registry    cdf3b5029240a9703aeee75088eeeb60177148ec",
+      "chummer6-ui-kit          e0248f4e852856eaacc668f18fd82f92c1575b8f",
+      "chummer6-ui              6c62638a3b349466825540a013917a6f82a28dc5",
       "",
       "Executable: Chummer.Avalonia",
       "Executable SHA256: 0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
       "Output directory: /work/base/artifacts/chummer6-linux-x64"
     ],
+    "installed_startup_smoke_receipt_name": "installed-startup-smoke-20260628T193959Z.receipt.json",
     "source_heads": {
-      "chummer6-core": "78bc591c17fba6f97c9a7b0da7f9ed662eafa75c",
-      "chummer6-hub": "8a9bab086a149a5c9da1fd04d31e3d225537efa8",
-      "chummer6-hub-registry": "29c74ae7ab20e365b67b9901ef3e8b84eceee72b",
-      "chummer6-ui": "4623fbe559672acd9235fc33e1f8d82db1df74ec",
-      "chummer6-ui-kit": "344985ead02f48e8efb26bac2c6c7fcd5551dc6f"
+      "chummer6-core": "63c79605a0586317698ad4b37cd933001c37a2a6",
+      "chummer6-hub": "f629db81257d9e0b6c022b4f1e0fb7b0a7e10b24",
+      "chummer6-hub-registry": "cdf3b5029240a9703aeee75088eeeb60177148ec",
+      "chummer6-ui": "6c62638a3b349466825540a013917a6f82a28dc5",
+      "chummer6-ui-kit": "e0248f4e852856eaacc668f18fd82f92c1575b8f"
     },
-    "startup_smoke_receipt_name": "startup-smoke-20260624T134017Z.receipt.json",
-    "updater_special_mode_receipt_name": "updater-special-mode-20260624T134018Z.receipt.json",
-    "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260624T134018Z.receipt.json"
+    "startup_smoke_receipt_name": "startup-smoke-20260628T193958Z.receipt.json",
+    "updater_special_mode_receipt_name": "updater-special-mode-20260628T194000Z.receipt.json",
+    "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260628T194000Z.receipt.json"
   },
   "contract_name": "ea.chummer6_linux_source_build_docker_gate.v1",
   "docker_image": "debian:bookworm-slim",
   "gate": {
-    "build_temp_cleanup_default": true,
     "build_script": "scripts/build-chummer6-linux.sh",
-    "container_flow": "audit_then_full_build",
+    "build_temp_cleanup_default": true,
+    "container_flow": "audit_then_full_build_then_local_install",
     "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
+    "install_script": "scripts/install-chummer6-linux-local.sh",
     "name": "linux_source_build_fresh_container",
     "public_script_installs_system_packages": false,
     "public_script_requires_sudo": false,
+    "source_build_analytics_default": "off",
+    "source_build_is_explicitly_two_step": true,
     "source_build_update_mode_default": "notify"
   },
-  "generated_at_utc": "20260624T133511Z",
+  "generated_at_utc": "20260628T193505Z",
   "git_ref": "main",
   "github_org": "ArchonMegalon",
   "output": {
-    "archive_name": "chummer6-linux-x64-20260624T133544Z.tar.gz",
-    "archive_sha256": "79a52e50ae1936cb49f3ff7506cd8fd9f23331033b4ee9b21c59ef3ef3a4d3fa",
+    "archive_name": "chummer6-linux-x64-20260628T193544Z.tar.gz",
+    "archive_sha256": "11e73e8bdcfc31ac38f6e72202f2d54be110934e4661306e391cc060a343992e",
     "binary_name": "Chummer.Avalonia",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
     "launcher_name": "run-chummer6.sh",
@@ -58,13 +62,23 @@
   },
   "repo_base_url": "https://github.com/ArchonMegalon",
   "runtime": {
+    "installed_startup_smoke": {
+      "artifact_digest": "sha256:0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
+      "artifact_digest_source": "process_path",
+      "channel_id": "source-build",
+      "head_id": "avalonia",
+      "ready_checkpoint": "fresh_container_installed_gate",
+      "recorded_at_utc": "2026-06-28T19:40:00.0905309+00:00",
+      "rid": "linux-x64",
+      "status": "pass"
+    },
     "startup_smoke": {
       "artifact_digest": "sha256:0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
       "artifact_digest_source": "process_path",
       "channel_id": "source-build",
       "head_id": "avalonia",
       "ready_checkpoint": "fresh_container_gate",
-      "recorded_at_utc": "2026-06-24T13:40:18.2243325+00:00",
+      "recorded_at_utc": "2026-06-28T19:39:58.6861041+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -78,7 +92,7 @@
       "mode": "desktop_update_launch_installer",
       "pending_update_channel_id": "stable",
       "pending_update_version": "run-20260618-051119",
-      "recorded_at_utc": "2026-06-24T13:40:18.369098+00:00",
+      "recorded_at_utc": "2026-06-28T19:40:00.247586+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -93,9 +107,9 @@
       "mode": "desktop_update_launch_installer_success",
       "pending_update_channel_id": "",
       "pending_update_version": "",
-      "recorded_at_utc": "2026-06-24T13:40:18.535322+00:00",
+      "recorded_at_utc": "2026-06-28T19:40:00.408492+00:00",
       "rid": "linux-x64",
-      "stage_deleted": true,
+      "stage_deleted": false,
       "status": "pass"
     }
   },

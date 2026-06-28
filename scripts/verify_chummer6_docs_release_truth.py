@@ -49,6 +49,25 @@ def main() -> int:
         if len(field_value) != 64:
             raise ValueError(f"linux_source_build_gate has an invalid {field_name}")
 
+    macos_source_build_contract = packet.get("macos_source_build_contract")
+    if not isinstance(macos_source_build_contract, dict):
+        raise ValueError("release truth packet is missing macos_source_build_contract")
+    if str(macos_source_build_contract.get("status") or "").strip() != "passed":
+        raise ValueError("macos_source_build_contract did not pass")
+    if str(macos_source_build_contract.get("scope") or "").strip() != "script_contract_only":
+        raise ValueError("macos_source_build_contract lost the bounded script-only scope")
+    if str(macos_source_build_contract.get("runtime_coverage") or "").strip() != "not_run_on_non_macos_host":
+        raise ValueError("macos_source_build_contract lost the bounded runtime coverage")
+    if macos_source_build_contract.get("real_macos_runtime_proof_required") is not True:
+        raise ValueError("macos_source_build_contract must still require real mac runtime proof")
+    for field_name in (
+        "maintenance_policy_marks_real_build_as_macos_only",
+        "maintenance_policy_requires_two_step_install",
+        "doc_marks_second_script_install",
+    ):
+        if macos_source_build_contract.get(field_name) is not True:
+            raise ValueError(f"macos_source_build_contract lost required flag: {field_name}")
+
     _require_contains("STATUS.md", status, str(packet.get("shelf_truth_line") or ""))
     release_status = str(packet.get("release_status") or "").strip()
     published_line = str(packet.get("published_line") or "").strip()

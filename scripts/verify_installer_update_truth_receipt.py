@@ -23,7 +23,7 @@ def main() -> int:
     _require(bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", generated_at)), "generated_at_utc must be ISO UTC")
 
     generated_from = receipt.get("generated_from")
-    _require(isinstance(generated_from, list) and len(generated_from) == 5, "generated_from must list the source files")
+    _require(isinstance(generated_from, list) and len(generated_from) >= 8, "generated_from must list the source files")
 
     policy = receipt.get("policy")
     _require(isinstance(policy, dict), "policy block missing")
@@ -31,16 +31,38 @@ def main() -> int:
     _require(policy.get("installer_first_platforms") == ["Windows", "Linux"], "installer_first_platforms must be Windows/Linux")
     _require(str(policy.get("packaged_default_mode") or "").strip() == "full", "packaged_default_mode must be full")
     _require(str(policy.get("linked_account_default_mode") or "").strip() == "full", "linked_account_default_mode must be full")
-    _require(str(policy.get("source_build_default_mode") or "").strip() == "notify", "source_build_default_mode must be notify")
+    _require(str(policy.get("source_build_linux_default_mode") or "").strip() == "notify", "source_build_linux_default_mode must be notify")
+    _require(str(policy.get("source_build_linux_analytics_default") or "").strip() == "off", "source_build_linux_analytics_default must be off")
+    _require(str(policy.get("source_build_macos_default_mode") or "").strip() == "notify", "source_build_macos_default_mode must be notify")
+    _require(str(policy.get("source_build_macos_analytics_default") or "").strip() == "off", "source_build_macos_analytics_default must be off")
     for key in (
         "public_policy_mentions_modes",
         "desktop_system_mentions_exact_modes",
         "desktop_system_mentions_packaged_full_default",
         "desktop_system_mentions_linked_account_full_default",
-        "desktop_system_mentions_source_build_notify_default",
-        "source_build_doc_mentions_notify_default",
-        "source_build_doc_mentions_launcher_override",
-        "source_build_script_sets_notify_default",
+        "desktop_system_mentions_linux_source_build_notify_default",
+        "desktop_system_mentions_linux_source_build_split",
+        "desktop_system_mentions_macos_local_source_build_notify_default",
+        "desktop_system_mentions_macos_local_source_build_split",
+        "linux_source_build_policy_mentions_split",
+        "mac_source_build_policy_mentions_split",
+        "source_build_linux_doc_mentions_notify_default",
+        "source_build_linux_doc_mentions_second_script_install",
+        "source_build_linux_doc_mentions_launcher_override",
+        "source_build_linux_doc_mentions_analytics_default_off",
+        "source_build_linux_build_script_mentions_second_script_install",
+        "source_build_linux_script_sets_notify_default",
+        "source_build_linux_script_sets_analytics_default_off",
+        "source_build_linux_install_script_sets_notify_default",
+        "source_build_linux_install_script_sets_analytics_default_off",
+        "source_build_macos_doc_mentions_second_script_install",
+        "source_build_macos_doc_mentions_notify_default",
+        "source_build_macos_doc_mentions_analytics_default_off",
+        "source_build_macos_build_script_mentions_second_script_install",
+        "source_build_macos_build_script_sets_notify_default",
+        "source_build_macos_build_script_sets_analytics_default_off",
+        "source_build_macos_install_script_sets_notify_default",
+        "source_build_macos_install_script_sets_analytics_default_off",
     ):
         _require(policy.get(key) is True, f"{key} must be true")
 
@@ -52,7 +74,10 @@ def main() -> int:
     coherence = receipt.get("coherence")
     _require(isinstance(coherence, dict), "coherence block missing")
     for key in (
-        "source_build_default_matches_policy",
+        "linux_source_build_defaults_match_policy",
+        "linux_source_build_is_explicitly_two_step",
+        "macos_source_build_defaults_match_policy",
+        "macos_source_build_is_explicitly_two_step",
         "release_packet_matches_installer_first_platforms",
         "public_download_authority_is_chummer_run",
     ):

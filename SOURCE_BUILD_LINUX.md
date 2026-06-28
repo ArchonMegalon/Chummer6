@@ -2,7 +2,11 @@
 
 Most users should use the installers on [Download](DOWNLOAD.md). If you want a local source build, use the checked-in script:
 
-[`scripts/build-chummer6-linux.sh`](https://github.com/ArchonMegalon/Chummer6/blob/main/scripts/build-chummer6-linux.sh)
+[`scripts/build-chummer6-linux.sh`](scripts/build-chummer6-linux.sh)
+
+and install the result afterwards with:
+
+[`scripts/install-chummer6-linux-local.sh`](scripts/install-chummer6-linux-local.sh)
 
 ## Build
 
@@ -12,13 +16,15 @@ bash scripts/build-chummer6-linux.sh --base "$HOME/chummer6-source-build"
 
 The script does its own host checks, clones the required repositories, bootstraps a local .NET SDK, publishes the Avalonia desktop client, and writes a build manifest. It does not install Linux packages and it does not ask for `sudo`.
 
+The build step never installs the user-local copy for you. It only produces the artifact directory and archive.
+
 If a required tool is missing, it stops early and tells you what to install. `--skip-system-deps` is still accepted for compatibility, but the script does not install system packages either way.
 
 If you use mirrors, set `CHUMMER_REPO_BASE_URL`. The script expects `chummer6-core.git`, `chummer6-hub.git`, `chummer6-hub-registry.git`, `chummer6-ui-kit.git`, and `chummer6-ui.git`.
 
 Set `CHUMMER_KEEP_BUILD_TEMP=1` if you want to keep temporary build files.
 
-Source builds default to `CHUMMER_DESKTOP_UPDATE_MODE=notify`, so they can report newer published builds without replacing themselves. The updater supports three modes: `full` for automatic download and replacement, `notify` for update notices without automatic replacement, and `off` to skip startup update checks.
+Source-built copies check for newer published builds in notify-only mode by default. The generated launcher sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you have not already chosen another mode. Analytics also default to `off` through `CHUMMER_DESKTOP_ANALYTICS_DEFAULT=off` unless you already chose another value. The updater supports three modes: `full` for automatic download and replacement, `notify` for update notices without automatic replacement, and `off` to skip startup update checks.
 
 ## Requirements
 
@@ -46,6 +52,34 @@ bash scripts/verify_linux_source_build_docker_gate.sh
 
 It runs the build in a clean `debian:bookworm-slim` container. Set `CHUMMER_KEEP_DOCKER_GATE_WORKDIR=1` to keep the work directory and logs.
 
+## Install the built binary
+
+The binary is installed by a second script on purpose.
+
+```bash
+bash scripts/install-chummer6-linux-local.sh --base "$HOME/chummer6-source-build" --force
+```
+
+You can also install straight from the produced archive:
+
+```bash
+bash scripts/install-chummer6-linux-local.sh \
+  --archive "$HOME/chummer6-source-build/artifacts/chummer6-linux-x64-<timestamp>.tar.gz" \
+  --force
+```
+
+The installer script creates a user-local install directory at:
+
+```text
+$HOME/.local/opt/chummer6-source-build
+```
+
+and a command link at:
+
+```text
+$HOME/.local/bin/chummer6-source-build
+```
+
 ## Output
 
 After a successful build, the target directory contains:
@@ -57,13 +91,7 @@ After a successful build, the target directory contains:
 - a `.sha256` file
 - logs under `logs/`
 
-Run it with:
-
-```bash
-~/chummer6-source-build/artifacts/chummer6-linux-x64/run-chummer6.sh
-```
-
-Use `linux-arm64` instead of `linux-x64` on arm64 systems.
+The install script turns that artifact into a user-local installed copy with a stable command link.
 
 ## Notes
 

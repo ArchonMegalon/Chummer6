@@ -2,7 +2,7 @@
 
 The player gets an accepted origin story, portraits, narration, and later ALICE context without letting backstory prose rewrite the sheet.
 
-<a href="https://chummer.run/media/horizons/origin-dossier-the-name-she-chose-20260619.mp4" target="_blank" rel="noopener noreferrer" title="Play the Origin Dossier promo video">
+<a href="https://chummer.run/media/horizons/origin-dossier-the-name-she-chose.mp4" target="_blank" rel="noopener noreferrer" title="Play the Origin Dossier promo video">
   <img src="../assets/horizons/origin-dossier.png" alt="Origin Dossier video preview" title="Play the Origin Dossier promo video" />
 </a>
 

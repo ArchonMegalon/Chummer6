@@ -30,6 +30,28 @@ class VerifyPublicGuideLinksTests(unittest.TestCase):
             failures,
         )
 
+    def test_source_owned_doc_can_resolve_links_against_chummer6_source_root(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            temp_root = Path(tmpdir)
+            public_root = temp_root / "public-guide"
+            source_root = temp_root / "Chummer6"
+            public_root.mkdir()
+            (source_root / "scripts").mkdir(parents=True)
+            markdown = public_root / "SOURCE_BUILD_MACOS.md"
+            markdown.write_text("[Build](scripts/build-chummer6-macos-local.sh)\n", encoding="utf-8")
+            (source_root / "SOURCE_BUILD_MACOS.md").write_text(markdown.read_text(encoding="utf-8"), encoding="utf-8")
+            (source_root / "scripts" / "build-chummer6-macos-local.sh").write_text("#!/usr/bin/env bash\n", encoding="utf-8")
+
+            failures = link_verifier.verify(
+                public_root,
+                "https://chummer.run",
+                check_http=False,
+                timeout=1,
+                source_root=source_root,
+            )
+
+        self.assertEqual([], failures)
+
 
 if __name__ == "__main__":
     unittest.main()

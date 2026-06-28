@@ -25,6 +25,7 @@ verify_spec.loader.exec_module(VERIFY)
 class ReleaseVerificationReceiptTests(unittest.TestCase):
     def _write_inputs(self, root: Path) -> tuple[Path, Path, Path, Path, Path]:
         linux_gate = root / "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json"
+        macos_source_build_contract = root / "MACOS_SOURCE_BUILD_CONTRACT.generated.json"
         installer_update_truth = root / "INSTALLER_UPDATE_TRUTH.generated.json"
         desktop_update_runtime = root / "DESKTOP_UPDATE_RUNTIME.generated.json"
         release_packet = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
@@ -50,6 +51,10 @@ class ReleaseVerificationReceiptTests(unittest.TestCase):
                             "status": "pass",
                             "ready_checkpoint": "fresh_container_gate",
                         },
+                        "installed_startup_smoke": {
+                            "status": "pass",
+                            "ready_checkpoint": "fresh_container_installed_gate",
+                        },
                         "updater_special_mode": {
                             "status": "pass",
                             "mode": "desktop_update_launch_installer",
@@ -66,6 +71,28 @@ class ReleaseVerificationReceiptTests(unittest.TestCase):
             + "\n",
             encoding="utf-8",
         )
+        macos_source_build_contract.write_text(
+            json.dumps(
+                {
+                    "status": "passed",
+                    "scope": "script_contract_only",
+                    "runtime_coverage": "not_run_on_non_macos_host",
+                    "real_macos_runtime_proof_required": True,
+                    "syntax_checks": [{}, {}, {}],
+                    "unit_test": {"exit_code": 0},
+                    "policy": {
+                        "maintenance_policy_marks_real_build_as_macos_only": True,
+                        "maintenance_policy_requires_two_step_install": True,
+                        "build_launcher_resolves_symlinks": True,
+                        "install_launcher_resolves_symlinks": True,
+                        "doc_marks_second_script_install": True,
+                    },
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
         installer_update_truth.write_text(
             json.dumps(
                 {
@@ -73,7 +100,14 @@ class ReleaseVerificationReceiptTests(unittest.TestCase):
                     "policy": {
                         "update_modes": ["full", "notify", "off"],
                         "packaged_default_mode": "full",
-                        "source_build_default_mode": "notify",
+                        "source_build_linux_default_mode": "notify",
+                        "source_build_linux_analytics_default": "off",
+                        "source_build_macos_default_mode": "notify",
+                        "source_build_macos_analytics_default": "off",
+                    },
+                    "coherence": {
+                        "linux_source_build_is_explicitly_two_step": True,
+                        "macos_source_build_is_explicitly_two_step": True,
                     },
                     "release_truth": {
                         "public_download_authority": "https://chummer.run/downloads",
@@ -133,7 +167,7 @@ internal sealed class DesktopStartupUpdateWindow
     internal static DesktopStartupUpdateViewState BuildViewState(object update) => default!;
     internal static int GetCompletionDisplayDelayMs(bool exitRequested, string? reason) => 0;
     private const string Interruption = "Keep this window open. Starting another copy can interrupt the update.";
-    private const string Mac = "A macOS update is ready. Open Downloads to install it manually; this copy will stay usable.";
+    private const string Mac = "A macOS update is ready. Open Update Status to install it manually; this copy will stay usable.";
 }
 
 internal sealed record DesktopStartupUpdateViewState(
@@ -201,14 +235,15 @@ public sealed class DesktopInstallLinkingRuntimeTests
             + "\n",
             encoding="utf-8",
         )
-        return linux_gate, installer_update_truth, desktop_update_runtime, release_packet, output, startup_window_source, startup_window_tests, install_link_window_source, install_link_window_tests, install_link_runtime_tests
+        return linux_gate, macos_source_build_contract, installer_update_truth, desktop_update_runtime, release_packet, output, startup_window_source, startup_window_tests, install_link_window_source, install_link_window_tests, install_link_runtime_tests
 
     def test_materialize_and_verify_roundtrip(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
-            linux_gate, installer_update_truth, desktop_update_runtime, release_packet, output, startup_window_source, startup_window_tests, install_link_window_source, install_link_window_tests, install_link_runtime_tests = self._write_inputs(root)
+            linux_gate, macos_source_build_contract, installer_update_truth, desktop_update_runtime, release_packet, output, startup_window_source, startup_window_tests, install_link_window_source, install_link_window_tests, install_link_runtime_tests = self._write_inputs(root)
 
             original_linux = MATERIALIZE.LINUX_GATE_PATH
+            original_macos_source_build_contract = MATERIALIZE.MACOS_SOURCE_BUILD_CONTRACT_PATH
             original_installer_update = MATERIALIZE.INSTALLER_UPDATE_TRUTH_PATH
             original_desktop_update_runtime = MATERIALIZE.DESKTOP_UPDATE_RUNTIME_PATH
             original_packet = MATERIALIZE.RELEASE_PACKET_PATH
@@ -221,6 +256,7 @@ public sealed class DesktopInstallLinkingRuntimeTests
             original_verify = VERIFY.RECEIPT_PATH
             try:
                 MATERIALIZE.LINUX_GATE_PATH = linux_gate
+                MATERIALIZE.MACOS_SOURCE_BUILD_CONTRACT_PATH = macos_source_build_contract
                 MATERIALIZE.INSTALLER_UPDATE_TRUTH_PATH = installer_update_truth
                 MATERIALIZE.DESKTOP_UPDATE_RUNTIME_PATH = desktop_update_runtime
                 MATERIALIZE.RELEASE_PACKET_PATH = release_packet
@@ -235,6 +271,7 @@ public sealed class DesktopInstallLinkingRuntimeTests
                 self.assertEqual(VERIFY.main(), 0)
             finally:
                 MATERIALIZE.LINUX_GATE_PATH = original_linux
+                MATERIALIZE.MACOS_SOURCE_BUILD_CONTRACT_PATH = original_macos_source_build_contract
                 MATERIALIZE.INSTALLER_UPDATE_TRUTH_PATH = original_installer_update
                 MATERIALIZE.DESKTOP_UPDATE_RUNTIME_PATH = original_desktop_update_runtime
                 MATERIALIZE.RELEASE_PACKET_PATH = original_packet
@@ -249,14 +286,14 @@ public sealed class DesktopInstallLinkingRuntimeTests
     def test_verify_rejects_mismatched_coherence(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
-            _, _, _, _, output, _, _, _, _, _ = self._write_inputs(root)
+            _, _, _, _, _, output, _, _, _, _, _ = self._write_inputs(root)
             output.write_text(
                 json.dumps(
                     {
                         "contract_name": "ea.chummer6_release_verification_convergence.v1",
                         "status": "passed",
                         "generated_at_utc": "2026-06-22T20:30:00Z",
-                        "generated_from": ["a", "b", "c", "d"],
+                        "generated_from": ["a", "b", "c", "d", "e"],
                         "checks": {
                             "linux_source_build_gate": {
                             "status": "passed",
@@ -264,18 +301,38 @@ public sealed class DesktopInstallLinkingRuntimeTests
                             "rid": "linux-x64",
                             "startup_smoke_status": "pass",
                             "startup_smoke_ready_checkpoint": "fresh_container_gate",
+                            "installed_startup_smoke_status": "pass",
+                            "installed_startup_smoke_ready_checkpoint": "fresh_container_installed_gate",
                             "updater_special_mode_status": "pass",
                             "updater_special_mode_mode": "desktop_update_launch_installer",
                             "updater_special_mode_failure_reason": "installer_launch_failed",
                             "updater_special_mode_success_status": "pass",
                             "updater_special_mode_success_mode": "desktop_update_launch_installer_success",
                         },
+                            "macos_source_build_contract": {
+                                "status": "passed",
+                                "scope": "script_contract_only",
+                                "runtime_coverage": "not_run_on_non_macos_host",
+                                "real_macos_runtime_proof_required": True,
+                                "syntax_check_count": 3,
+                                "unit_test_exit_code": 0,
+                                "maintenance_policy_marks_real_build_as_macos_only": True,
+                                "maintenance_policy_requires_two_step_install": True,
+                                "build_launcher_resolves_symlinks": True,
+                                "install_launcher_resolves_symlinks": True,
+                                "doc_marks_second_script_install": True,
+                            },
                             "installer_update_truth": {
                                 "status": "passed",
                                 "update_modes": ["full", "notify", "off"],
-                                "source_build_default_mode": "notify",
+                                "source_build_linux_default_mode": "notify",
+                                "source_build_linux_analytics_default": "off",
+                                "linux_source_build_is_explicitly_two_step": True,
+                                "source_build_macos_default_mode": "notify",
+                                "source_build_macos_analytics_default": "off",
                                 "packaged_default_mode": "full",
                                 "public_download_authority": "https://chummer.run/downloads",
+                                "macos_source_build_is_explicitly_two_step": True,
                             },
                             "desktop_update_runtime": {
                                 "status": "passed",
@@ -315,10 +372,21 @@ public sealed class DesktopInstallLinkingRuntimeTests
                             "linux_gate_archive_sha_matches_packet": True,
                             "linux_gate_executable_sha_matches_packet": True,
                             "linux_gate_startup_smoke_passed": True,
+                            "linux_gate_installed_startup_smoke_passed": True,
                             "linux_gate_updater_special_mode_passed": True,
                             "linux_gate_updater_special_mode_success_passed": True,
+                            "macos_source_build_contract_passed": True,
+                            "macos_source_build_contract_stays_bounded": True,
+                            "macos_source_build_contract_keeps_two_step_install": True,
+                            "macos_source_build_contract_launchers_resolve_symlinks": True,
                             "installer_update_truth_matches_release_authority": True,
-                            "installer_update_truth_keeps_source_build_notify_default": True,
+                            "installer_update_truth_keeps_linux_source_build_notify_default": True,
+                            "installer_update_truth_keeps_linux_source_build_analytics_off_default": True,
+                            "installer_update_truth_keeps_linux_source_build_two_step_install": True,
+                            "installer_update_truth_keeps_macos_source_build_notify_default": True,
+                            "installer_update_truth_keeps_macos_source_build_analytics_off_default": True,
+                            "installer_update_truth_keeps_macos_source_build_two_step_install": True,
+                            "macos_source_build_contract_matches_installer_update_truth_two_step_posture": True,
                             "desktop_update_runtime_passed": True,
                             "desktop_update_runtime_runs_reduced_lane": True,
                             "desktop_update_runtime_targets_update_tests": True,

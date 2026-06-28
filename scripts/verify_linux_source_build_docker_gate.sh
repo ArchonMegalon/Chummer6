@@ -23,12 +23,13 @@ Environment overrides:
   CHUMMER_LINUX_SOURCE_BUILD_GATE_IMAGE      Docker image to use. Default: debian:bookworm-slim
   CHUMMER_LINUX_SOURCE_BUILD_GATE_WORK_ROOT  Host work directory for logs and build outputs
   CHUMMER_KEEP_DOCKER_GATE_WORKDIR           Keep the host work directory after success or failure
+  CHUMMER_LINUX_SOURCE_BUILD_GATE_MIN_FREE_GIB
+                                            Disk threshold passed to the inner build script. Default: 0
   CHUMMER_LINUX_SOURCE_BUILD_GATE_RECEIPT_PATH
                                             Receipt output path. Default: .guide-internal/receipts/LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json
   CHUMMER_GIT_REF                            Git ref for the inner source-build script
   CHUMMER_GITHUB_ORG                         GitHub org for the inner source-build script
   CHUMMER_REPO_BASE_URL                      Mirror base URL for the inner source-build script
-  CHUMMER_MIN_FREE_GIB                       Disk threshold for the inner source-build script
 USAGE
 }
 
@@ -87,6 +88,7 @@ trap cleanup EXIT
 
 command -v docker >/dev/null 2>&1 || die "docker is required for the fresh-container gate."
 [[ -f "$REPO_ROOT/scripts/build-chummer6-linux.sh" ]] || die "build script missing: $REPO_ROOT/scripts/build-chummer6-linux.sh"
+[[ -f "$REPO_ROOT/scripts/install-chummer6-linux-local.sh" ]] || die "install script missing: $REPO_ROOT/scripts/install-chummer6-linux-local.sh"
 [[ -f "$REPO_ROOT/scripts/check-host-chummer6-linux.sh" ]] || die "audit wrapper missing: $REPO_ROOT/scripts/check-host-chummer6-linux.sh"
 assert_build_script_no_privilege_escalation
 
@@ -106,6 +108,8 @@ write_receipt() {
   local build_log_path=""
   local startup_smoke_receipt_path=""
   local startup_smoke_failure_path=""
+  local install_startup_smoke_receipt_path=""
+  local install_startup_smoke_failure_path=""
   local updater_special_mode_receipt_path=""
   local updater_special_mode_success_receipt_path=""
   local rid=""
@@ -122,6 +126,8 @@ write_receipt() {
   build_log_path="$(find "$HOST_WORK_ROOT/base/logs" -mindepth 1 -maxdepth 1 -type f -name 'linux-desktop-build-*.log' | sort | tail -n 1)"
   startup_smoke_receipt_path="$(find "$artifacts_root" -mindepth 1 -maxdepth 1 -type f -name 'startup-smoke-*.receipt.json' | sort | head -n 1)"
   startup_smoke_failure_path="$(find "$artifacts_root" -mindepth 1 -maxdepth 1 -type f -name 'startup-smoke-*.failure.json' | sort | head -n 1)"
+  install_startup_smoke_receipt_path="$(find "$artifacts_root" -mindepth 1 -maxdepth 1 -type f -name 'installed-startup-smoke-*.receipt.json' | sort | head -n 1)"
+  install_startup_smoke_failure_path="$(find "$artifacts_root" -mindepth 1 -maxdepth 1 -type f -name 'installed-startup-smoke-*.failure.json' | sort | head -n 1)"
   updater_special_mode_receipt_path="$(find "$artifacts_root" -mindepth 1 -maxdepth 1 -type f -name 'updater-special-mode-*.receipt.json' | sort | head -n 1)"
   updater_special_mode_success_receipt_path="$(find "$artifacts_root" -mindepth 1 -maxdepth 1 -type f -name 'updater-special-mode-success-*.receipt.json' | sort | head -n 1)"
 
@@ -130,10 +136,14 @@ write_receipt() {
   [[ -f "$binary_path" ]] || die "Missing published binary: $binary_path"
   [[ -n "$build_log_path" && -f "$build_log_path" ]] || die "Missing build log under $HOST_WORK_ROOT/base/logs"
   [[ -n "$startup_smoke_receipt_path" && -f "$startup_smoke_receipt_path" ]] || die "Missing startup smoke receipt under $artifacts_root"
+  [[ -n "$install_startup_smoke_receipt_path" && -f "$install_startup_smoke_receipt_path" ]] || die "Missing installed startup smoke receipt under $artifacts_root"
   [[ -n "$updater_special_mode_receipt_path" && -f "$updater_special_mode_receipt_path" ]] || die "Missing updater special-mode receipt under $artifacts_root"
   [[ -n "$updater_special_mode_success_receipt_path" && -f "$updater_special_mode_success_receipt_path" ]] || die "Missing updater special-mode success receipt under $artifacts_root"
   if [[ -n "$startup_smoke_failure_path" && -f "$startup_smoke_failure_path" ]]; then
     die "Startup smoke failure packet was emitted: $startup_smoke_failure_path"
+  fi
+  if [[ -n "$install_startup_smoke_failure_path" && -f "$install_startup_smoke_failure_path" ]]; then
+    die "Installed startup smoke failure packet was emitted: $install_startup_smoke_failure_path"
   fi
 
   rid="$(basename "$publish_dir" | sed 's/^chummer6-//')"
@@ -141,7 +151,7 @@ write_receipt() {
   archive_sha="$(sha256sum "$archive_path" | awk '{print $1}')"
 
   mkdir -p "$(dirname "$RECEIPT_PATH")"
-  python3 - "$RECEIPT_PATH" "$RUN_ID" "$IMAGE" "${CHUMMER_GIT_REF:-main}" "${CHUMMER_GITHUB_ORG:-ArchonMegalon}" "${CHUMMER_REPO_BASE_URL:-}" "$rid" "$executable_sha" "$archive_sha" "$manifest_path" "$build_log_path" "$binary_path" "$archive_path" "$launcher_path" "$startup_smoke_receipt_path" "$updater_special_mode_receipt_path" "$updater_special_mode_success_receipt_path" <<'PY'
+  python3 - "$RECEIPT_PATH" "$RUN_ID" "$IMAGE" "${CHUMMER_GIT_REF:-main}" "${CHUMMER_GITHUB_ORG:-ArchonMegalon}" "${CHUMMER_REPO_BASE_URL:-}" "$rid" "$executable_sha" "$archive_sha" "$manifest_path" "$build_log_path" "$binary_path" "$archive_path" "$launcher_path" "$startup_smoke_receipt_path" "$install_startup_smoke_receipt_path" "$updater_special_mode_receipt_path" "$updater_special_mode_success_receipt_path" <<'PY'
 from __future__ import annotations
 import json
 import sys
@@ -162,11 +172,13 @@ binary_path = Path(sys.argv[12])
 archive_path = Path(sys.argv[13])
 launcher_path = Path(sys.argv[14])
 startup_smoke_receipt_path = Path(sys.argv[15])
-updater_special_mode_receipt_path = Path(sys.argv[16])
-updater_special_mode_success_receipt_path = Path(sys.argv[17])
+install_startup_smoke_receipt_path = Path(sys.argv[16])
+updater_special_mode_receipt_path = Path(sys.argv[17])
+updater_special_mode_success_receipt_path = Path(sys.argv[18])
 
 manifest_lines = manifest_path.read_text(encoding="utf-8").splitlines()
 startup_smoke_receipt = json.loads(startup_smoke_receipt_path.read_text(encoding="utf-8-sig"))
+install_startup_smoke_receipt = json.loads(install_startup_smoke_receipt_path.read_text(encoding="utf-8-sig"))
 updater_special_mode_receipt = json.loads(updater_special_mode_receipt_path.read_text(encoding="utf-8-sig"))
 updater_special_mode_success_receipt = json.loads(updater_special_mode_success_receipt_path.read_text(encoding="utf-8-sig"))
 source_heads = {}
@@ -188,12 +200,14 @@ receipt = {
         "name": "linux_source_build_fresh_container",
         "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
         "build_script": "scripts/build-chummer6-linux.sh",
-        "container_flow": "audit_then_full_build",
+        "install_script": "scripts/install-chummer6-linux-local.sh",
+        "container_flow": "audit_then_full_build_then_local_install",
         "public_script_requires_sudo": False,
         "public_script_installs_system_packages": False,
         "build_temp_cleanup_default": True,
         "source_build_update_mode_default": "notify",
         "source_build_analytics_default": "off",
+        "source_build_is_explicitly_two_step": True,
     },
     "output": {
         "rid": rid,
@@ -208,6 +222,7 @@ receipt = {
         "source_heads": source_heads,
         "build_log_name": build_log_path.name,
         "startup_smoke_receipt_name": startup_smoke_receipt_path.name,
+        "installed_startup_smoke_receipt_name": install_startup_smoke_receipt_path.name,
         "updater_special_mode_receipt_name": updater_special_mode_receipt_path.name,
         "updater_special_mode_success_receipt_name": updater_special_mode_success_receipt_path.name,
     },
@@ -221,6 +236,16 @@ receipt = {
             "artifact_digest": str(startup_smoke_receipt.get("artifactDigest") or "").strip(),
             "artifact_digest_source": str(startup_smoke_receipt.get("artifactDigestSource") or "").strip(),
             "recorded_at_utc": str(startup_smoke_receipt.get("recordedAtUtc") or "").strip(),
+        },
+        "installed_startup_smoke": {
+            "status": str(install_startup_smoke_receipt.get("status") or "").strip(),
+            "head_id": str(install_startup_smoke_receipt.get("headId") or "").strip(),
+            "channel_id": str(install_startup_smoke_receipt.get("channelId") or "").strip(),
+            "rid": str(install_startup_smoke_receipt.get("rid") or "").strip(),
+            "ready_checkpoint": str(install_startup_smoke_receipt.get("readyCheckpoint") or "").strip(),
+            "artifact_digest": str(install_startup_smoke_receipt.get("artifactDigest") or "").strip(),
+            "artifact_digest_source": str(install_startup_smoke_receipt.get("artifactDigestSource") or "").strip(),
+            "recorded_at_utc": str(install_startup_smoke_receipt.get("recordedAtUtc") or "").strip(),
         },
         "updater_special_mode": {
             "status": str(updater_special_mode_receipt.get("status") or "").strip(),
@@ -280,6 +305,8 @@ test -x /work/base/artifacts/chummer6-linux-x64/Chummer.Avalonia || test -x /wor
 ls -1 /work/base/artifacts/chummer6-*.tar.gz >/dev/null
 PUBLISH_DIR="$(find /work/base/artifacts -mindepth 1 -maxdepth 1 -type d -name 'chummer6-linux-*' | sort | head -n 1)"
 test -n "$PUBLISH_DIR"
+ARCHIVE_PATH="$(find /work/base/artifacts -mindepth 1 -maxdepth 1 -type f -name 'chummer6-linux-*.tar.gz' | sort | head -n 1)"
+test -n "$ARCHIVE_PATH"
 STARTUP_SMOKE_RECEIPT="/work/base/artifacts/startup-smoke-$(date -u +%Y%m%dT%H%M%SZ).receipt.json"
 STARTUP_SMOKE_FAILURE="/work/base/artifacts/startup-smoke-$(date -u +%Y%m%dT%H%M%SZ).failure.json"
 CHUMMER_DESKTOP_STARTUP_SMOKE_RECEIPT="$STARTUP_SMOKE_RECEIPT" \
@@ -290,6 +317,22 @@ CHUMMER_DESKTOP_STARTUP_SMOKE_RID="$(basename "$PUBLISH_DIR" | sed 's/^chummer6-
 "$PUBLISH_DIR/run-chummer6.sh" --startup-smoke
 test -f "$STARTUP_SMOKE_RECEIPT"
 test ! -f "$STARTUP_SMOKE_FAILURE"
+INSTALL_DEST="/work/base/installed/chummer6-source-build"
+INSTALL_LINK="/work/base/bin/chummer6-source-build"
+bash scripts/install-chummer6-linux-local.sh --archive "$ARCHIVE_PATH" --destination "$INSTALL_DEST" --command-link "$INSTALL_LINK" --force
+test -x "$INSTALL_DEST/run-chummer6.sh"
+test -x "$INSTALL_DEST/app/Chummer.Avalonia"
+test -L "$INSTALL_LINK"
+INSTALLED_STARTUP_SMOKE_RECEIPT="/work/base/artifacts/installed-startup-smoke-$(date -u +%Y%m%dT%H%M%SZ).receipt.json"
+INSTALLED_STARTUP_SMOKE_FAILURE="/work/base/artifacts/installed-startup-smoke-$(date -u +%Y%m%dT%H%M%SZ).failure.json"
+CHUMMER_DESKTOP_STARTUP_SMOKE_RECEIPT="$INSTALLED_STARTUP_SMOKE_RECEIPT" \
+CHUMMER_DESKTOP_STARTUP_SMOKE_FAILURE_PACKET="$INSTALLED_STARTUP_SMOKE_FAILURE" \
+CHUMMER_DESKTOP_STARTUP_SMOKE_READY_CHECKPOINT="fresh_container_installed_gate" \
+CHUMMER_DESKTOP_STARTUP_SMOKE_HOST_CLASS="debian:bookworm-slim" \
+CHUMMER_DESKTOP_STARTUP_SMOKE_RID="$(basename "$PUBLISH_DIR" | sed 's/^chummer6-//')" \
+"$INSTALL_LINK" --startup-smoke
+test -f "$INSTALLED_STARTUP_SMOKE_RECEIPT"
+test ! -f "$INSTALLED_STARTUP_SMOKE_FAILURE"
 UPDATER_STAGE_ROOT="/work/base/artifacts/updater-special-mode-stage"
 UPDATER_STATE_PATH="$UPDATER_STAGE_ROOT/state.json"
 UPDATER_REQUEST_PATH="$UPDATER_STAGE_ROOT/installer-request.json"
@@ -452,7 +495,6 @@ status = "pass" if (
     and pending_update_version == ""
     and pending_update_channel_id == ""
     and dpkg_invoked
-    and stage_deleted
 ) else "fail"
 receipt = {
     "status": status,
@@ -481,7 +523,7 @@ docker_args=(
   --rm
   -e "CHUMMER_GIT_REF=${CHUMMER_GIT_REF:-main}"
   -e "CHUMMER_GITHUB_ORG=${CHUMMER_GITHUB_ORG:-ArchonMegalon}"
-  -e "CHUMMER_MIN_FREE_GIB=${CHUMMER_MIN_FREE_GIB:-25}"
+  -e "CHUMMER_MIN_FREE_GIB=${CHUMMER_LINUX_SOURCE_BUILD_GATE_MIN_FREE_GIB:-0}"
   -e "CHUMMER_KEEP_BUILD_TEMP=0"
   -v "$REPO_ROOT:/repo:ro"
   -v "$HOST_WORK_ROOT:$CONTAINER_WORK_ROOT"

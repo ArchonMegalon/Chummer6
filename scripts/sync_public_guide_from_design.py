@@ -27,6 +27,7 @@ SYNC_FILES = (
     "STATUS.md",
     "DOWNLOAD.md",
     "SOURCE_BUILD_LINUX.md",
+    "SOURCE_BUILD_MACOS.md",
     "HELP.md",
     "FAQ.md",
     "HOW_CAN_I_HELP.md",
@@ -45,6 +46,10 @@ SOURCE_OWNED_SYNC_METADATA = {
     "SOURCE_BUILD_LINUX.md": {
         "policy": "products/chummer/maintenance/LINUX_SOURCE_BUILD_PATH.md",
         "reason": "Linux source-build behavior and user-facing instructions are owned in Chummer6.",
+    },
+    "SOURCE_BUILD_MACOS.md": {
+        "policy": "products/chummer/maintenance/MAC_SOURCE_BUILD_PATH.md",
+        "reason": "macOS local source-build behavior and user-facing instructions are owned in Chummer6.",
     },
 }
 SOURCE_OWNED_SYNC_FILES = frozenset(SOURCE_OWNED_SYNC_METADATA)

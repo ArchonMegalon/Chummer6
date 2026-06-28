@@ -1,6 +1,7 @@
 {
-  "architecture_scope_line": "Desktop downloads are available for Linux x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.",
+  "architecture_scope_line": "Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.",
   "available_platforms": [
+    "Windows",
     "Linux"
   ],
   "build_label": "",
@@ -12,11 +13,21 @@
   "generated_from": "products/chummer/PUBLIC_GUIDE_EXPORT_MANIFEST.yaml",
   "known_issue_summary": "No current download blocker is listed for these installers.",
   "linux_source_build_gate": {
-    "archive_sha256": "79a52e50ae1936cb49f3ff7506cd8fd9f23331033b4ee9b21c59ef3ef3a4d3fa",
+    "archive_sha256": "8ae794fd10ece94342fbdae104b8942b3847a8806de82266043e34a04087cad3",
     "docker_image": "debian:bookworm-slim",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-    "generated_at_utc": "20260624T133511Z",
+    "generated_at_utc": "20260627T220253Z",
     "rid": "linux-x64",
+    "status": "passed"
+  },
+  "macos_source_build_contract": {
+    "doc_marks_second_script_install": true,
+    "generated_at_utc": "2026-06-27T22:01:26Z",
+    "maintenance_policy_marks_real_build_as_macos_only": true,
+    "maintenance_policy_requires_two_step_install": true,
+    "real_macos_runtime_proof_required": true,
+    "runtime_coverage": "not_run_on_non_macos_host",
+    "scope": "script_contract_only",
     "status": "passed"
   },
   "missing_installer_lane_line": "Normal installers are available on the desktop platforms that are currently offered.",
@@ -24,12 +35,12 @@
   "phase_label": "Current release build",
   "primary_head": "Chummer.Avalonia",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "June 26, 2026 at 8:32 UTC",
-  "published_line": "Published: June 26, 2026 at 8:32 UTC.",
+  "published_at": "June 27, 2026 at 7:51 UTC",
+  "published_line": "Published: June 27, 2026 at 7:51 UTC.",
   "quality_gap_line": "The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.",
   "release_status": "Published",
   "release_status_slug": "published",
   "release_verification_summary": "This release covers installs and recovery, campaign session recovery, and support follow-up.",
-  "shelf_truth_line": "Linux downloads are posted.",
+  "shelf_truth_line": "Windows and Linux downloads are posted.",
   "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time."
 }

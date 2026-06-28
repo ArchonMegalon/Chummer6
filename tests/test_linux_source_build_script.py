@@ -10,6 +10,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = REPO_ROOT / "scripts" / "build-chummer6-linux.sh"
+INSTALL_SCRIPT = REPO_ROOT / "scripts" / "install-chummer6-linux-local.sh"
 AUDIT_SCRIPT = REPO_ROOT / "scripts" / "check-host-chummer6-linux.sh"
 PREREQ_SCRIPT = REPO_ROOT / "scripts" / "list-chummer6-linux-prereqs.sh"
 DOCKER_GATE_SCRIPT = REPO_ROOT / "scripts" / "verify_linux_source_build_docker_gate.sh"
@@ -34,7 +35,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         )
 
     def test_script_has_valid_bash_syntax(self) -> None:
-        for path in (SCRIPT, AUDIT_SCRIPT, PREREQ_SCRIPT, DOCKER_GATE_SCRIPT):
+        for path in (SCRIPT, INSTALL_SCRIPT, AUDIT_SCRIPT, PREREQ_SCRIPT, DOCKER_GATE_SCRIPT):
             completed = subprocess.run(
                 ["bash", "-n", str(path)],
                 cwd=REPO_ROOT,
@@ -92,6 +93,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("fresh slim Docker container", completed.stdout)
         self.assertIn("debian:bookworm-slim", completed.stdout)
         self.assertIn("CHUMMER_KEEP_DOCKER_GATE_WORKDIR", completed.stdout)
+        self.assertIn("CHUMMER_LINUX_SOURCE_BUILD_GATE_MIN_FREE_GIB", completed.stdout)
 
     def test_help_documents_non_destructive_audit_mode(self) -> None:
         completed = self.run_script("--help")
@@ -100,6 +102,84 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("--skip-system-deps", completed.stdout)
         self.assertIn("CHUMMER_BUILD_BASE", completed.stdout)
         self.assertIn("no longer changes behavior", completed.stdout)
+        self.assertIn("never installs", completed.stdout)
+        self.assertIn("./install-chummer6-linux-local.sh", completed.stdout)
+
+    def test_install_script_help_describes_user_local_install(self) -> None:
+        completed = subprocess.run(
+            ["bash", str(INSTALL_SCRIPT), "--help"],
+            cwd=REPO_ROOT,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=30,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stdout)
+        self.assertIn("already built local Chummer6 Linux binary", completed.stdout)
+        self.assertIn("$HOME/.local/opt/chummer6-source-build", completed.stdout)
+        self.assertIn("$HOME/.local/bin/chummer6-source-build", completed.stdout)
+        self.assertIn("--artifact PATH", completed.stdout)
+        self.assertIn("--archive PATH", completed.stdout)
+
+    def test_install_script_can_stage_a_user_local_install_from_artifact_directory(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            artifact = root / "artifact"
+            destination = root / "install"
+            command_link = root / "bin" / "chummer6-source-build"
+            artifact.mkdir(parents=True)
+            (artifact / "Chummer.Avalonia").write_text(
+                "#!/usr/bin/env bash\nset -euo pipefail\nprintf 'fake avalonia %s %s\\n' \"$0\" \"${1:-}\"\n",
+                encoding="utf-8",
+            )
+            (artifact / "BUILD-MANIFEST.txt").write_text("fake manifest\n", encoding="utf-8")
+            (artifact / "run-chummer6.sh").write_text("#!/usr/bin/env bash\nexit 0\n", encoding="utf-8")
+            (artifact / "Chummer.Avalonia").chmod(0o755)
+            (artifact / "run-chummer6.sh").chmod(0o755)
+
+            completed = subprocess.run(
+                [
+                    "bash",
+                    str(INSTALL_SCRIPT),
+                    "--artifact",
+                    str(artifact),
+                    "--destination",
+                    str(destination),
+                    "--command-link",
+                    str(command_link),
+                    "--force",
+                ],
+                cwd=REPO_ROOT,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                timeout=30,
+                check=False,
+            )
+            self.assertEqual(completed.returncode, 0, completed.stdout)
+            self.assertIn("Installed local source build:", completed.stdout)
+            self.assertTrue((destination / "app" / "Chummer.Avalonia").exists())
+            self.assertTrue((destination / "run-chummer6.sh").exists())
+            self.assertTrue(command_link.exists())
+            self.assertTrue(command_link.is_symlink())
+            launcher_text = (destination / "run-chummer6.sh").read_text(encoding="utf-8")
+            self.assertIn('while [[ -L "$SOURCE" ]]', launcher_text)
+            self.assertIn('CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"', launcher_text)
+            self.assertIn('CHUMMER_DESKTOP_ANALYTICS_DEFAULT="${CHUMMER_DESKTOP_ANALYTICS_DEFAULT:-off}"', launcher_text)
+            launched = subprocess.run(
+                [str(command_link), "--startup-smoke"],
+                cwd=REPO_ROOT,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                timeout=30,
+                check=False,
+            )
+            self.assertEqual(launched.returncode, 0, launched.stdout)
+            self.assertIn("fake avalonia", launched.stdout)
+            self.assertIn(str(destination / "app" / "Chummer.Avalonia"), launched.stdout)
+            self.assertIn("--startup-smoke", launched.stdout)
 
     def test_audit_only_runs_without_network_or_package_install(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -145,11 +225,16 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("Build from source on Linux", doc_text)
         self.assertIn("Most users should use the installers", doc_text)
         self.assertIn("build-chummer6-linux.sh --base", doc_text)
+        self.assertIn("install-chummer6-linux-local.sh", doc_text)
         self.assertIn("--skip-system-deps", doc_text)
         self.assertIn("verify_linux_source_build_docker_gate.sh", doc_text)
         self.assertIn("debian:bookworm-slim", doc_text)
         self.assertIn("does not ask for `sudo`", doc_text)
         self.assertIn("does not install system packages either way", doc_text)
+        self.assertIn("The build step never installs the user-local copy for you.", doc_text)
+        self.assertIn("The binary is installed by a second script on purpose.", doc_text)
+        self.assertIn("$HOME/.local/opt/chummer6-source-build", doc_text)
+        self.assertIn("$HOME/.local/bin/chummer6-source-build", doc_text)
         self.assertIn("CHUMMER_DESKTOP_UPDATE_MODE=notify", doc_text)
         self.assertIn("The updater supports three modes:", doc_text)
         self.assertIn("`full` for automatic download and replacement", doc_text)
@@ -165,6 +250,8 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("DOTNET_CLI_TELEMETRY_OPTOUT=1", script_text)
         self.assertIn("AVALONIA_TELEMETRY_OPTOUT=1", script_text)
         self.assertIn('CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"', script_text)
+        self.assertIn("This script only builds the binary and archive artifacts.", script_text)
+        self.assertIn("./install-chummer6-linux-local.sh", script_text)
         self.assertIn("CHUMMER_KEEP_BUILD_TEMP", script_text)
         self.assertIn("cleanup_build_temp || true", script_text)
         self.assertIn("ChummerUseLocalCompatibilityTree=true", script_text)
@@ -176,7 +263,9 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("bash scripts/check-host-chummer6-linux.sh --base /work/base", docker_gate_text)
         self.assertIn("bash scripts/build-chummer6-linux.sh --base /work/base", docker_gate_text)
         self.assertIn("CHUMMER_KEEP_DOCKER_GATE_WORKDIR", docker_gate_text)
+        self.assertIn("CHUMMER_LINUX_SOURCE_BUILD_GATE_MIN_FREE_GIB", docker_gate_text)
         self.assertIn("CHUMMER_LINUX_SOURCE_BUILD_GATE_RECEIPT_PATH", docker_gate_text)
+        self.assertIn('CHUMMER_MIN_FREE_GIB=${CHUMMER_LINUX_SOURCE_BUILD_GATE_MIN_FREE_GIB:-0}', docker_gate_text)
         self.assertIn("--startup-smoke", docker_gate_text)
         self.assertIn("CHUMMER_DESKTOP_STARTUP_SMOKE_RECEIPT", docker_gate_text)
         self.assertIn("CHUMMER_DESKTOP_STARTUP_SMOKE_FAILURE_PACKET", docker_gate_text)
@@ -200,6 +289,12 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("write_receipt()", docker_gate_text)
         self.assertIn("LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json", docker_gate_text)
         self.assertIn('"contract_name": "ea.chummer6_linux_source_build_docker_gate.v1"', docker_gate_text)
+        install_text = INSTALL_SCRIPT.read_text(encoding="utf-8")
+        self.assertIn('DEFAULT_DESTINATION="${CHUMMER_LINUX_INSTALL_DESTINATION:-$HOME/.local/opt/chummer6-source-build}"', install_text)
+        self.assertIn('DEFAULT_COMMAND_LINK="${CHUMMER_LINUX_INSTALL_COMMAND_LINK:-$HOME/.local/bin/chummer6-source-build}"', install_text)
+        self.assertIn('export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"', install_text)
+        self.assertIn('export CHUMMER_DESKTOP_ANALYTICS_DEFAULT="${CHUMMER_DESKTOP_ANALYTICS_DEFAULT:-off}"', install_text)
+        self.assertNotIn("sudo ", install_text)
         self.assertIn("This script never installs packages. It only prints the package names", PREREQ_SCRIPT.read_text(encoding="utf-8"))
         self.assertNotIn("run_root", script_text)
         self.assertNotIn("confirm(", script_text)
@@ -264,6 +359,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             self.assertTrue((base / "artifacts" / "chummer6-linux-x64" / "Chummer.Avalonia").exists())
             launcher = base / "artifacts" / "chummer6-linux-x64" / "run-chummer6.sh"
             self.assertTrue(launcher.exists())
+            self.assertIn('while [[ -L "$SOURCE" ]]', launcher.read_text(encoding="utf-8"))
             self.assertIn('CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"', launcher.read_text(encoding="utf-8"))
             manifest = (base / "artifacts" / "chummer6-linux-x64" / "BUILD-MANIFEST.txt").read_text(encoding="utf-8")
             self.assertIn("chummer6-ui", manifest)

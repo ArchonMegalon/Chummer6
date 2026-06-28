@@ -1,0 +1,74 @@
+{
+  "contract_name": "ea.chummer6_macos_source_build_contract.v1",
+  "generated_at_utc": "2026-06-27T22:08:16Z",
+  "generated_from": [
+    "Chummer6/scripts/build-chummer6-macos-local.sh",
+    "Chummer6/scripts/check-host-chummer6-macos-local.sh",
+    "Chummer6/scripts/install-chummer6-macos-local.sh",
+    "Chummer6/SOURCE_BUILD_MACOS.md",
+    "Chummer6/DOWNLOAD.md",
+    "Chummer6/tests/test_macos_source_build_script.py",
+    "chummer-design/products/chummer/maintenance/MAC_SOURCE_BUILD_PATH.md"
+  ],
+  "policy": {
+    "build_launcher_resolves_symlinks": true,
+    "doc_marks_local_personal_build": true,
+    "doc_marks_not_public_release": true,
+    "doc_marks_second_script_install": true,
+    "install_launcher_resolves_symlinks": true,
+    "maintenance_policy_marks_real_build_as_macos_only": true,
+    "maintenance_policy_requires_analytics_off_default": true,
+    "maintenance_policy_requires_notify_default": true,
+    "maintenance_policy_requires_two_step_install": true
+  },
+  "real_macos_runtime_proof_required": true,
+  "runtime_coverage": "not_run_on_non_macos_host",
+  "scope": "script_contract_only",
+  "status": "passed",
+  "syntax_checks": [
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/docker/chummercomplete/Chummer6/scripts/build-chummer6-macos-local.sh"
+      ],
+      "exit_code": 0,
+      "path": "Chummer6/scripts/build-chummer6-macos-local.sh",
+      "summary_lines": []
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/docker/chummercomplete/Chummer6/scripts/check-host-chummer6-macos-local.sh"
+      ],
+      "exit_code": 0,
+      "path": "Chummer6/scripts/check-host-chummer6-macos-local.sh",
+      "summary_lines": []
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/docker/chummercomplete/Chummer6/scripts/install-chummer6-macos-local.sh"
+      ],
+      "exit_code": 0,
+      "path": "Chummer6/scripts/install-chummer6-macos-local.sh",
+      "summary_lines": []
+    }
+  ],
+  "unit_test": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "tests/test_macos_source_build_script.py",
+      "-q"
+    ],
+    "exit_code": 0,
+    "summary_lines": [
+      "Ran 7 tests in 0.025s",
+      "OK"
+    ]
+  }
+}

@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-SCRIPT_VERSION="1.3.0"
+SCRIPT_VERSION="1.0.0"
 GITHUB_ORG="${CHUMMER_GITHUB_ORG:-ArchonMegalon}"
 REPO_BASE_URL="${CHUMMER_REPO_BASE_URL:-https://github.com/$GITHUB_ORG}"
 REPO_BASE_URL="${REPO_BASE_URL%/}"
 GIT_REF="${CHUMMER_GIT_REF:-main}"
-MIN_FREE_GIB="${CHUMMER_MIN_FREE_GIB:-25}"
-DEFAULT_BASE="${CHUMMER_BUILD_BASE:-$HOME/chummer6-source-build}"
+MIN_FREE_GIB="${CHUMMER_MIN_FREE_GIB:-20}"
+DEFAULT_BASE="${CHUMMER_BUILD_BASE:-$HOME/chummer6-source-build-macos}"
 BASE_PATH=""
 ASSUME_YES=0
 AUDIT_ONLY=0
-TOTAL_STEPS=11
+TOTAL_STEPS=10
 CURRENT_STEP=0
 START_SECONDS=$SECONDS
 LOG_FILE=""
@@ -19,16 +19,16 @@ KEEP_BUILD_TEMP="${CHUMMER_KEEP_BUILD_TEMP:-0}"
 
 usage() {
   cat <<'USAGE'
-Build the Chummer6 Avalonia desktop client from source for this Linux computer.
+Build the Chummer6 Avalonia desktop client from source for this macOS computer.
 
 Usage:
-  ./build-chummer6-linux.sh [options]
+  ./build-chummer6-macos-local.sh [options]
 
 Options:
   --base PATH          Workspace base path. Prompts when omitted.
   --ref REF            Git branch or tag for all repositories. Default: main.
   --yes, -y            Accepted for compatibility; no longer changes behavior.
-  --skip-system-deps   Accepted for compatibility; the script never installs Linux system packages.
+  --skip-system-deps   Accepted for compatibility; the script never installs macOS packages.
   --audit-only         Check this host and script setup without cloning or building.
   --help, -h           Show this help.
 
@@ -36,8 +36,12 @@ Environment overrides:
   CHUMMER_BUILD_BASE, CHUMMER_GIT_REF, CHUMMER_MIN_FREE_GIB,
   CHUMMER_GITHUB_ORG, CHUMMER_REPO_BASE_URL, CHUMMER_KEEP_BUILD_TEMP
 
+This is a local source-build helper for personal macOS binaries. It is not a
+public release, does not sign or notarize anything, and does not widen the
+official macOS support posture on chummer.run.
+
 This script only builds the binary and archive artifacts. It never installs
-the user-local copy. Install the result later with ./install-chummer6-linux-local.sh.
+the app bundle. Install the result later with ./install-chummer6-macos-local.sh.
 USAGE
 }
 
@@ -98,7 +102,7 @@ BASE_PATH="$(cd "$BASE_PATH" && pwd -P)"
 
 mkdir -p "$BASE_PATH/logs"
 RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)"
-LOG_FILE="$BASE_PATH/logs/linux-desktop-build-$RUN_ID.log"
+LOG_FILE="$BASE_PATH/logs/macos-desktop-build-$RUN_ID.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 if [[ -t 1 ]]; then
@@ -130,15 +134,6 @@ die() {
   exit 1
 }
 
-on_error() {
-  local code=$?
-  cleanup_build_temp || true
-  printf '\n%sBuild failed%s at line %s with exit code %s.\n' "$RED" "$RESET" "$1" "$code" >&2
-  printf 'Full log: %s\n' "$LOG_FILE" >&2
-  exit "$code"
-}
-trap 'on_error "$LINENO"' ERR
-
 cleanup_build_temp() {
   if [[ "${KEEP_BUILD_TEMP:-0}" == "1" || "${KEEP_BUILD_TEMP:-0}" == "true" || "${KEEP_BUILD_TEMP:-0}" == "yes" ]]; then
     return 0
@@ -157,105 +152,85 @@ cleanup_build_temp() {
   fi
 }
 
+on_error() {
+  local code=$?
+  cleanup_build_temp || true
+  printf '\n%sBuild failed%s at line %s with exit code %s.\n' "$RED" "$RESET" "$1" "$code" >&2
+  printf 'Full log: %s\n' "$LOG_FILE" >&2
+  exit "$code"
+}
+trap 'on_error "$LINENO"' ERR
+
 read_host_information() {
-  DISTRO_ID="unknown"
-  DISTRO_ID_LIKE=""
-  DISTRO_VERSION="unknown"
-  DISTRO_PRETTY="Unknown Linux"
-  if [[ -r /etc/os-release ]]; then
-    # shellcheck disable=SC1091
-    source /etc/os-release
-    DISTRO_ID="${ID:-unknown}"
-    DISTRO_ID_LIKE="${ID_LIKE:-}"
-    DISTRO_VERSION="${VERSION_ID:-unknown}"
-    DISTRO_PRETTY="${PRETTY_NAME:-$DISTRO_ID $DISTRO_VERSION}"
+  MACOS_VERSION="unknown"
+  MACOS_BUILD="unknown"
+  MACOS_NAME="macOS"
+  if command -v sw_vers >/dev/null 2>&1; then
+    MACOS_NAME="$(sw_vers -productName 2>/dev/null || echo macOS)"
+    MACOS_VERSION="$(sw_vers -productVersion 2>/dev/null || echo unknown)"
+    MACOS_BUILD="$(sw_vers -buildVersion 2>/dev/null || echo unknown)"
   fi
 
   CPU_ARCH="$(uname -m)"
   case "$CPU_ARCH" in
-    x86_64|amd64) RID="linux-x64" ;;
-    aarch64|arm64) RID="linux-arm64" ;;
-    *) die "Unsupported CPU architecture '$CPU_ARCH'. Supported: x86_64 and aarch64." ;;
+    x86_64|amd64) RID="osx-x64" ;;
+    arm64|aarch64) RID="osx-arm64" ;;
+    *) die "Unsupported CPU architecture '$CPU_ARCH'. Supported: x86_64 and arm64." ;;
   esac
 
   CPU_MODEL="unknown"
-  if command -v lscpu >/dev/null 2>&1; then
-    CPU_MODEL="$(lscpu | awk -F: '/Model name/ {sub(/^[ \t]+/, "", $2); print $2; exit}')"
-  elif [[ -r /proc/cpuinfo ]]; then
-    CPU_MODEL="$(awk -F: '/model name|Hardware/ {sub(/^[ \t]+/, "", $2); print $2; exit}' /proc/cpuinfo)"
-  fi
-  CPU_MODEL="${CPU_MODEL:-unknown}"
-  CPU_CORES="$(getconf _NPROCESSORS_ONLN 2>/dev/null || nproc 2>/dev/null || echo 1)"
-  MEMORY_KIB="$(awk '/MemTotal:/ {print $2}' /proc/meminfo 2>/dev/null || echo 0)"
-  MEMORY_GIB=$((MEMORY_KIB / 1024 / 1024))
-
-  if command -v getconf >/dev/null 2>&1 && getconf GNU_LIBC_VERSION >/dev/null 2>&1; then
-    LIBC_INFO="$(getconf GNU_LIBC_VERSION)"
+  if command -v sysctl >/dev/null 2>&1; then
+    CPU_MODEL="$(sysctl -n machdep.cpu.brand_string 2>/dev/null || true)"
+    if [[ -z "$CPU_MODEL" ]]; then
+      CPU_MODEL="$(sysctl -n hw.model 2>/dev/null || echo unknown)"
+    fi
+    CPU_CORES="$(sysctl -n hw.ncpu 2>/dev/null || echo 1)"
+    MEMORY_BYTES="$(sysctl -n hw.memsize 2>/dev/null || echo 0)"
   else
-    LIBC_INFO="$(ldd --version 2>&1 | head -1 || true)"
+    CPU_CORES=1
+    MEMORY_BYTES=0
   fi
-  if grep -qi musl <<<"$LIBC_INFO" || [[ -f /etc/alpine-release ]]; then
-    die "This host uses musl/Alpine. The current Chummer6 desktop build targets glibc Linux."
-  fi
+  MEMORY_GIB=$((MEMORY_BYTES / 1024 / 1024 / 1024))
 }
 
 choose_package_manager() {
-  local all_ids=" $DISTRO_ID $DISTRO_ID_LIKE "
-  if [[ "$all_ids" == *" debian "* || "$all_ids" == *" ubuntu "* || "$all_ids" == *" linuxmint "* ]] && command -v apt-get >/dev/null 2>&1; then
-    printf 'apt'
-  elif [[ "$all_ids" == *" fedora "* || "$all_ids" == *" rhel "* || "$all_ids" == *" centos "* || "$all_ids" == *" rocky "* || "$all_ids" == *" almalinux "* ]] && command -v dnf >/dev/null 2>&1; then
-    printf 'dnf'
-  elif [[ "$all_ids" == *" arch "* || "$all_ids" == *" manjaro "* ]] && command -v pacman >/dev/null 2>&1; then
-    printf 'pacman'
-  elif [[ "$all_ids" == *" suse "* || "$all_ids" == *" opensuse "* ]] && command -v zypper >/dev/null 2>&1; then
-    printf 'zypper'
-  elif command -v apt-get >/dev/null 2>&1; then printf 'apt'
-  elif command -v dnf >/dev/null 2>&1; then printf 'dnf'
-  elif command -v pacman >/dev/null 2>&1; then printf 'pacman'
-  elif command -v zypper >/dev/null 2>&1; then printf 'zypper'
-  else printf ''
+  if command -v brew >/dev/null 2>&1; then
+    printf 'brew'
+  elif command -v port >/dev/null 2>&1; then
+    printf 'macports'
+  else
+    printf ''
   fi
 }
 
 check_required_commands() {
   local missing=()
-  for command_name in git git-lfs curl tar gzip flock sha256sum file; do
+  for command_name in git git-lfs curl tar gzip file; do
     if ! command -v "$command_name" >/dev/null 2>&1; then
       missing+=("$command_name")
     fi
   done
+  if ! command -v shasum >/dev/null 2>&1 && ! command -v sha256sum >/dev/null 2>&1; then
+    missing+=("shasum")
+  fi
   if ((${#missing[@]} == 0)); then
     return 0
   fi
-  local manager
+
+  local manager hint
   manager="$(choose_package_manager)"
-  local hint=""
   case "$manager" in
-    apt) hint="Install them first, for example: apt-get install git git-lfs curl tar gzip unzip xz-utils util-linux file" ;;
-    dnf) hint="Install them first, for example: dnf install git git-lfs curl tar gzip unzip xz util-linux file" ;;
-    pacman) hint="Install them first, for example: pacman -S --needed git git-lfs curl tar gzip unzip xz util-linux file" ;;
-    zypper) hint="Install them first, for example: zypper install git git-lfs curl tar gzip unzip xz util-linux file" ;;
-    *) hint="Install the missing tools with your package manager, then rerun the script." ;;
+    brew) hint="Install them first, for example: brew install git git-lfs" ;;
+    macports) hint="Install them first, for example: port install git git-lfs" ;;
+    *) hint="Install the missing tools manually, then rerun the script." ;;
   esac
   die "Missing required build tools: ${missing[*]}. $hint"
 }
 
 check_git_lfs_ready() {
   if ! git lfs version >/dev/null 2>&1; then
-    die "Git LFS is required but not ready. Install git-lfs with your package manager, run 'git lfs install', then rerun the script."
+    die "Git LFS is required but not ready. Install git-lfs, run 'git lfs install', then rerun the script."
   fi
-}
-
-dotnet_runtime_hint() {
-  local manager
-  manager="$(choose_package_manager)"
-  case "$manager" in
-    apt) printf '%s' "Install ICU first, for example: apt-get install libicu72 or the current libicu package for your distro." ;;
-    dnf) printf '%s' "Install ICU first, for example: dnf install libicu." ;;
-    pacman) printf '%s' "Install ICU first, for example: pacman -S --needed icu." ;;
-    zypper) printf '%s' "Install ICU first, for example: zypper install libicu." ;;
-    *) printf '%s' "Install the ICU runtime package for your distro, then rerun the script." ;;
-  esac
 }
 
 check_local_dotnet_runtime() {
@@ -264,22 +239,43 @@ check_local_dotnet_runtime() {
     printf '%s\n' "$info_output"
     return 0
   fi
-  if grep -qi "Couldn't find a valid ICU package installed" <<<"$info_output"; then
-    die "The local .NET SDK started, but this host is missing the ICU runtime needed by dotnet. $(dotnet_runtime_hint)"
-  fi
   printf '%s\n' "$info_output" >&2
-  die "The local .NET SDK could not start on this host. Check the log above, install the required runtime libraries, and rerun the script."
+  die "The local .NET SDK could not start on this host. Check the log above, install the required runtime pieces, and rerun the script."
 }
 
-step "Inspecting this Linux host"
-[[ "$(uname -s)" == "Linux" ]] || die "This script builds only the Linux desktop client."
+sha256_file() {
+  if command -v sha256sum >/dev/null 2>&1; then
+    sha256sum "$1" | awk '{print $1}'
+    return
+  fi
+
+  if command -v shasum >/dev/null 2>&1; then
+    shasum -a 256 "$1" | awk '{print $1}'
+    return
+  fi
+
+  python3 - "$1" <<'PY'
+import hashlib
+import pathlib
+import sys
+
+path = pathlib.Path(sys.argv[1])
+hasher = hashlib.sha256()
+with path.open("rb") as handle:
+    for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+        hasher.update(chunk)
+print(hasher.hexdigest())
+PY
+}
+
+step "Inspecting this macOS host"
+[[ "$(uname -s)" == "Darwin" ]] || die "This script builds only on macOS."
 read_host_information
-log "Distribution: $DISTRO_PRETTY"
+log "System: $MACOS_NAME $MACOS_VERSION ($MACOS_BUILD)"
 log "CPU: $CPU_MODEL"
 log "Architecture: $CPU_ARCH → $RID"
 log "Logical CPUs: $CPU_CORES"
 log "Memory: ${MEMORY_GIB} GiB"
-log "C library: $LIBC_INFO"
 if (( MEMORY_GIB > 0 && MEMORY_GIB < 8 )); then
   warn "Less than 8 GiB RAM is available. The build may be slow or fail under memory pressure."
 fi
@@ -309,7 +305,7 @@ log "Workspace: $BASE_PATH"
 log "Git ref: $GIT_REF"
 log "Free space: $((AVAILABLE_KIB / 1024 / 1024)) GiB"
 
-step "Checking Linux build prerequisites"
+step "Checking macOS build prerequisites"
 PACKAGE_MANAGER="$(choose_package_manager)"
 if [[ -n "$PACKAGE_MANAGER" ]]; then
   log "Detected package manager: $PACKAGE_MANAGER"
@@ -318,7 +314,7 @@ else
 fi
 
 if [[ "$AUDIT_ONLY" == "1" ]]; then
-  for command_name in git git-lfs curl tar gzip flock sha256sum file; do
+  for command_name in git git-lfs curl tar gzip file shasum; do
     if command -v "$command_name" >/dev/null 2>&1; then
       log "Found command: $command_name"
     else
@@ -327,7 +323,7 @@ if [[ "$AUDIT_ONLY" == "1" ]]; then
   done
   ELAPSED=$((SECONDS - START_SECONDS))
   printf '\n%sAudit complete.%s\n' "$GREEN$BOLD" "$RESET"
-  printf 'Host:      %s · %s · %s\n' "$DISTRO_PRETTY" "$CPU_ARCH" "$CPU_MODEL"
+  printf 'Host:      %s %s · %s · %s\n' "$MACOS_NAME" "$MACOS_VERSION" "$CPU_ARCH" "$CPU_MODEL"
   printf 'Workspace: %s\n' "$BASE_PATH"
   printf 'Log:       %s\n' "$LOG_FILE"
   printf 'Elapsed:   %dm %ds\n' "$((ELAPSED / 60))" "$((ELAPSED % 60))"
@@ -451,10 +447,6 @@ if (( ${#SDK_VERSIONS[@]} == 0 )); then
 fi
 
 SDK_VERSION="$(printf '%s\n' "${SDK_VERSIONS[@]}" | sort -V | tail -n 1)"
-if [[ -n "${CHUMMER_SDK_VERSIONS_DEBUG:-}" ]]; then
-  log "SDK versions seen: ${SDK_VERSIONS[*]}"
-  log "Selected SDK version: $SDK_VERSION"
-fi
 DOTNET_DIR="$BASE_PATH/.tools/dotnet"
 DOTNET_INSTALL="$BASE_PATH/.tools/dotnet-install.sh"
 mkdir -p "$BASE_PATH/.tools"
@@ -493,10 +485,10 @@ MANIFEST_DIR="$BASE_PATH/artifacts"
 mkdir -p "$MANIFEST_DIR"
 SOURCE_MANIFEST="$MANIFEST_DIR/source-revisions-$RUN_ID.txt"
 {
-  printf 'Chummer6 Linux desktop source build\n'
+  printf 'Chummer6 macOS desktop source build\n'
   printf 'Generated UTC: %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
   printf 'Script version: %s\n' "$SCRIPT_VERSION"
-  printf 'Distribution: %s\n' "$DISTRO_PRETTY"
+  printf 'System: %s %s (%s)\n' "$MACOS_NAME" "$MACOS_VERSION" "$MACOS_BUILD"
   printf 'CPU: %s\n' "$CPU_MODEL"
   printf 'Architecture: %s\n' "$CPU_ARCH"
   printf 'RID: %s\n' "$RID"
@@ -542,20 +534,16 @@ bash scripts/ai/with-package-plane.sh publish "$PROJECT" \
   -p:RestorePackagesPath="$NUGET_PACKAGES" \
   -o "$PUBLISH_DIR"
 
-step "Verifying the published client and native library links"
+step "Verifying the published client"
 BINARY="$PUBLISH_DIR/Chummer.Avalonia"
 [[ -f "$BINARY" ]] || die "Publish completed but the executable was not created: $BINARY"
 chmod +x "$BINARY"
 file "$BINARY"
-if command -v ldd >/dev/null 2>&1; then
-  LDD_OUTPUT="$(ldd "$BINARY" 2>&1 || true)"
-  printf '%s\n' "$LDD_OUTPUT"
-  if grep -q 'not found' <<<"$LDD_OUTPUT"; then
-    die "The client was built, but one or more native runtime libraries are missing. See the ldd output above."
-  fi
+if command -v otool >/dev/null 2>&1; then
+  otool -L "$BINARY" || true
 fi
 
-BINARY_SHA="$(sha256sum "$BINARY" | awk '{print $1}')"
+BINARY_SHA="$(sha256_file "$BINARY")"
 BUILD_MANIFEST="$PUBLISH_DIR/BUILD-MANIFEST.txt"
 {
   cat "$SOURCE_MANIFEST"
@@ -583,15 +571,16 @@ chmod +x "$PUBLISH_DIR/run-chummer6.sh"
 step "Creating a portable source-build archive"
 TARBALL="$BASE_PATH/artifacts/chummer6-$RID-$RUN_ID.tar.gz"
 tar -C "$PUBLISH_DIR" -czf "$TARBALL" .
-TARBALL_SHA="$(sha256sum "$TARBALL" | awk '{print $1}')"
+TARBALL_SHA="$(sha256_file "$TARBALL")"
 printf '%s  %s\n' "$TARBALL_SHA" "$(basename "$TARBALL")" > "$TARBALL.sha256"
 cleanup_build_temp
 
 ELAPSED=$((SECONDS - START_SECONDS))
 printf '\n%sBuild complete.%s\n' "$GREEN$BOLD" "$RESET"
-printf 'Host:        %s · %s · %s\n' "$DISTRO_PRETTY" "$CPU_ARCH" "$CPU_MODEL"
+printf 'Host:        %s %s · %s · %s\n' "$MACOS_NAME" "$MACOS_VERSION" "$CPU_ARCH" "$CPU_MODEL"
 printf 'Executable: %s\n' "$BINARY"
 printf 'Launcher:   %s\n' "$PUBLISH_DIR/run-chummer6.sh"
+printf 'Installer:  %s\n' "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)/install-chummer6-macos-local.sh"
 printf 'Executable SHA256: %s\n' "$BINARY_SHA"
 printf 'Archive:    %s\n' "$TARBALL"
 printf 'Archive SHA256:    %s\n' "$TARBALL_SHA"
@@ -599,4 +588,4 @@ printf 'Manifest:   %s\n' "$BUILD_MANIFEST"
 printf 'Log:        %s\n' "$LOG_FILE"
 printf 'Elapsed:    %dm %ds\n' "$((ELAPSED / 60))" "$((ELAPSED % 60))"
 printf '\nNo install was performed. Install it afterwards with:\n'
-printf '  %s --archive %q --force\n' "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)/install-chummer6-linux-local.sh" "$TARBALL"
+printf '  %s --archive %q --force\n' "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)/install-chummer6-macos-local.sh" "$TARBALL"

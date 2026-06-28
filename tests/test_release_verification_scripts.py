@@ -104,6 +104,9 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         receipt_test_line = 'python3 "$repo_root/scripts/test_verify_linux_source_build_docker_gate_receipt.py" >/dev/null'
         receipt_verify_line = 'python3 "$repo_root/scripts/verify_linux_source_build_docker_gate_receipt.py" >/dev/null'
         guide_line = 'bash "$repo_root/scripts/verify_public_guide.sh"'
+        macos_contract_test_line = 'python3 "$repo_root/scripts/test_macos_source_build_contract_receipt.py" >/dev/null'
+        macos_contract_materialize_line = 'python3 "$repo_root/scripts/materialize_macos_source_build_contract_receipt.py" >/dev/null'
+        macos_contract_verify_line = 'python3 "$repo_root/scripts/verify_macos_source_build_contract_receipt.py" >/dev/null'
         installer_update_test_line = 'python3 "$repo_root/scripts/test_installer_update_truth_receipt.py" >/dev/null'
         installer_update_materialize_line = 'python3 "$repo_root/scripts/materialize_installer_update_truth_receipt.py" >/dev/null'
         installer_update_verify_line = 'python3 "$repo_root/scripts/verify_installer_update_truth_receipt.py" >/dev/null'
@@ -119,6 +122,9 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         self.assertIn(receipt_test_line, script_text)
         self.assertIn(receipt_verify_line, script_text)
         self.assertIn(guide_line, script_text)
+        self.assertIn(macos_contract_test_line, script_text)
+        self.assertIn(macos_contract_materialize_line, script_text)
+        self.assertIn(macos_contract_verify_line, script_text)
         self.assertIn(installer_update_test_line, script_text)
         self.assertIn(installer_update_materialize_line, script_text)
         self.assertIn(installer_update_verify_line, script_text)
@@ -132,7 +138,10 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         self.assertLess(script_text.index(docker_line), script_text.index(receipt_test_line))
         self.assertLess(script_text.index(receipt_test_line), script_text.index(receipt_verify_line))
         self.assertLess(script_text.index(receipt_verify_line), script_text.index(guide_line))
-        self.assertLess(script_text.index(guide_line), script_text.index(installer_update_test_line))
+        self.assertLess(script_text.index(guide_line), script_text.index(macos_contract_test_line))
+        self.assertLess(script_text.index(macos_contract_test_line), script_text.index(macos_contract_materialize_line))
+        self.assertLess(script_text.index(macos_contract_materialize_line), script_text.index(macos_contract_verify_line))
+        self.assertLess(script_text.index(macos_contract_verify_line), script_text.index(installer_update_test_line))
         self.assertLess(script_text.index(installer_update_test_line), script_text.index(installer_update_materialize_line))
         self.assertLess(script_text.index(installer_update_materialize_line), script_text.index(installer_update_verify_line))
         self.assertLess(script_text.index(installer_update_verify_line), script_text.index(desktop_update_test_line))
@@ -172,9 +181,25 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
                 requires_receipts=["LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json"],
             )
             _write_python_stub(
+                fake_root / "scripts" / "test_macos_source_build_contract_receipt.py",
+                step_name="test_macos_source_build_contract",
+                requires_receipts=["CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"],
+            )
+            _write_python_stub(
+                fake_root / "scripts" / "materialize_macos_source_build_contract_receipt.py",
+                step_name="materialize_macos_source_build_contract",
+                creates_receipt="MACOS_SOURCE_BUILD_CONTRACT.generated.json",
+                requires_receipts=["CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"],
+            )
+            _write_python_stub(
+                fake_root / "scripts" / "verify_macos_source_build_contract_receipt.py",
+                step_name="verify_macos_source_build_contract",
+                requires_receipts=["MACOS_SOURCE_BUILD_CONTRACT.generated.json"],
+            )
+            _write_python_stub(
                 fake_root / "scripts" / "test_installer_update_truth_receipt.py",
                 step_name="test_installer_update_truth",
-                requires_receipts=["CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"],
+                requires_receipts=["CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json", "MACOS_SOURCE_BUILD_CONTRACT.generated.json"],
             )
             _write_python_stub(
                 fake_root / "scripts" / "materialize_installer_update_truth_receipt.py",
@@ -207,6 +232,7 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
                 fake_root / "scripts" / "test_release_verification_receipt.py",
                 step_name="test_release_verification_convergence",
                 requires_receipts=[
+                    "MACOS_SOURCE_BUILD_CONTRACT.generated.json",
                     "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json",
                     "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
                     "INSTALLER_UPDATE_TRUTH.generated.json",
@@ -218,6 +244,7 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
                 step_name="materialize_release_verification_convergence",
                 creates_receipt="RELEASE_VERIFICATION_CONVERGENCE.generated.json",
                 requires_receipts=[
+                    "MACOS_SOURCE_BUILD_CONTRACT.generated.json",
                     "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json",
                     "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
                     "INSTALLER_UPDATE_TRUTH.generated.json",
@@ -255,6 +282,9 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
                     "test_linux_gate_receipt",
                     "verify_linux_gate_receipt",
                     "verify_public_guide",
+                    "test_macos_source_build_contract",
+                    "materialize_macos_source_build_contract",
+                    "verify_macos_source_build_contract",
                     "test_installer_update_truth",
                     "materialize_installer_update_truth",
                     "verify_installer_update_truth",

@@ -9,6 +9,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
 LINUX_GATE_PATH = RECEIPTS_ROOT / "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json"
+MACOS_SOURCE_BUILD_CONTRACT_PATH = RECEIPTS_ROOT / "MACOS_SOURCE_BUILD_CONTRACT.generated.json"
 INSTALLER_UPDATE_TRUTH_PATH = RECEIPTS_ROOT / "INSTALLER_UPDATE_TRUTH.generated.json"
 DESKTOP_UPDATE_RUNTIME_PATH = RECEIPTS_ROOT / "DESKTOP_UPDATE_RUNTIME.generated.json"
 RELEASE_PACKET_PATH = RECEIPTS_ROOT / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
@@ -33,6 +34,7 @@ def _display_path(path: Path) -> str:
 
 def main() -> int:
     linux_gate = _load_json(LINUX_GATE_PATH)
+    macos_source_build_contract = _load_json(MACOS_SOURCE_BUILD_CONTRACT_PATH)
     installer_update_truth = _load_json(INSTALLER_UPDATE_TRUTH_PATH)
     desktop_update_runtime = _load_json(DESKTOP_UPDATE_RUNTIME_PATH)
     release_packet = _load_json(RELEASE_PACKET_PATH)
@@ -49,6 +51,7 @@ def main() -> int:
         "generated_at_utc": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "generated_from": [
             _display_path(LINUX_GATE_PATH),
+            _display_path(MACOS_SOURCE_BUILD_CONTRACT_PATH),
             _display_path(INSTALLER_UPDATE_TRUTH_PATH),
             _display_path(DESKTOP_UPDATE_RUNTIME_PATH),
             _display_path(RELEASE_PACKET_PATH),
@@ -62,18 +65,38 @@ def main() -> int:
                 "executable_sha256": str(((linux_gate.get("output") or {}) if isinstance(linux_gate.get("output"), dict) else {}).get("executable_sha256") or "").strip(),
                 "startup_smoke_status": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("startup_smoke", {}).get("status") or "").strip(),
                 "startup_smoke_ready_checkpoint": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("startup_smoke", {}).get("ready_checkpoint") or "").strip(),
+                "installed_startup_smoke_status": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("installed_startup_smoke", {}).get("status") or "").strip(),
+                "installed_startup_smoke_ready_checkpoint": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("installed_startup_smoke", {}).get("ready_checkpoint") or "").strip(),
                 "updater_special_mode_status": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode", {}).get("status") or "").strip(),
                 "updater_special_mode_mode": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode", {}).get("mode") or "").strip(),
                 "updater_special_mode_failure_reason": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode", {}).get("failure_reason") or "").strip(),
                 "updater_special_mode_success_status": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode_success", {}).get("status") or "").strip(),
                 "updater_special_mode_success_mode": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode_success", {}).get("mode") or "").strip(),
             },
+            "macos_source_build_contract": {
+                "status": str(macos_source_build_contract.get("status") or "").strip(),
+                "scope": str(macos_source_build_contract.get("scope") or "").strip(),
+                "runtime_coverage": str(macos_source_build_contract.get("runtime_coverage") or "").strip(),
+                "real_macos_runtime_proof_required": macos_source_build_contract.get("real_macos_runtime_proof_required") is True,
+                "syntax_check_count": len(macos_source_build_contract.get("syntax_checks") or []),
+                "unit_test_exit_code": ((macos_source_build_contract.get("unit_test") or {}) if isinstance(macos_source_build_contract.get("unit_test"), dict) else {}).get("exit_code"),
+                "maintenance_policy_marks_real_build_as_macos_only": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("maintenance_policy_marks_real_build_as_macos_only") is True,
+                "maintenance_policy_requires_two_step_install": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("maintenance_policy_requires_two_step_install") is True,
+                "build_launcher_resolves_symlinks": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("build_launcher_resolves_symlinks") is True,
+                "install_launcher_resolves_symlinks": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("install_launcher_resolves_symlinks") is True,
+                "doc_marks_second_script_install": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("doc_marks_second_script_install") is True,
+            },
             "installer_update_truth": {
                 "status": str(installer_update_truth.get("status") or "").strip(),
                 "update_modes": list(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("update_modes") or []),
-                "source_build_default_mode": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_default_mode") or "").strip(),
+                "source_build_linux_default_mode": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_linux_default_mode") or "").strip(),
+                "source_build_linux_analytics_default": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_linux_analytics_default") or "").strip(),
+                "linux_source_build_is_explicitly_two_step": ((installer_update_truth.get("coherence") or {}) if isinstance(installer_update_truth.get("coherence"), dict) else {}).get("linux_source_build_is_explicitly_two_step") is True,
+                "source_build_macos_default_mode": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_macos_default_mode") or "").strip(),
+                "source_build_macos_analytics_default": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_macos_analytics_default") or "").strip(),
                 "packaged_default_mode": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("packaged_default_mode") or "").strip(),
                 "public_download_authority": str(((installer_update_truth.get("release_truth") or {}) if isinstance(installer_update_truth.get("release_truth"), dict) else {}).get("public_download_authority") or "").strip(),
+                "macos_source_build_is_explicitly_two_step": ((installer_update_truth.get("coherence") or {}) if isinstance(installer_update_truth.get("coherence"), dict) else {}).get("macos_source_build_is_explicitly_two_step") is True,
             },
             "desktop_update_runtime": {
                 "status": str(desktop_update_runtime.get("status") or "").strip(),
@@ -99,7 +122,13 @@ def main() -> int:
                 "has_view_state_mapping": "DesktopStartupUpdateViewState BuildViewState" in startup_window_source,
                 "has_visibility_delay_policy": "GetCompletionDisplayDelayMs" in startup_window_source,
                 "has_interruption_warning": "Keep this window open. Starting another copy can interrupt the update." in startup_window_source,
-                "has_manual_macos_recovery_copy": "A macOS update is ready. Open Downloads to install it manually; this copy will stay usable." in startup_window_source,
+                "has_manual_macos_recovery_copy": any(
+                    marker in startup_window_source
+                    for marker in (
+                        "A macOS update is ready. Open Update Status to install it manually; this copy will stay usable.",
+                        "A macOS update is ready. Open Downloads to install it manually; this copy will stay usable.",
+                    )
+                ),
                 "has_progress_mapping_tests": "BuildViewState_maps_progress_stage_to_visible_copy_and_determinate_progress" in startup_window_tests,
                 "has_delay_policy_tests": "GetCompletionDisplayDelayMs_keeps_relaunch_and_failures_visible_long_enough_to_perceive" in startup_window_tests,
             },
@@ -122,10 +151,21 @@ def main() -> int:
             "linux_gate_archive_sha_matches_packet": str(((linux_gate.get("output") or {}) if isinstance(linux_gate.get("output"), dict) else {}).get("archive_sha256") or "").strip() == str(projected_gate.get("archive_sha256") or "").strip(),
             "linux_gate_executable_sha_matches_packet": str(((linux_gate.get("output") or {}) if isinstance(linux_gate.get("output"), dict) else {}).get("executable_sha256") or "").strip() == str(projected_gate.get("executable_sha256") or "").strip(),
             "linux_gate_startup_smoke_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("startup_smoke", {}).get("status") or "").strip() == "pass",
+            "linux_gate_installed_startup_smoke_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("installed_startup_smoke", {}).get("status") or "").strip() == "pass",
             "linux_gate_updater_special_mode_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode", {}).get("status") or "").strip() == "pass",
             "linux_gate_updater_special_mode_success_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode_success", {}).get("status") or "").strip() == "pass",
+            "macos_source_build_contract_passed": str(macos_source_build_contract.get("status") or "").strip() == "passed",
+            "macos_source_build_contract_stays_bounded": str(macos_source_build_contract.get("scope") or "").strip() == "script_contract_only" and str(macos_source_build_contract.get("runtime_coverage") or "").strip() == "not_run_on_non_macos_host" and macos_source_build_contract.get("real_macos_runtime_proof_required") is True,
+            "macos_source_build_contract_keeps_two_step_install": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("maintenance_policy_requires_two_step_install") is True and ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("doc_marks_second_script_install") is True,
+            "macos_source_build_contract_launchers_resolve_symlinks": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("build_launcher_resolves_symlinks") is True and ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("install_launcher_resolves_symlinks") is True,
             "installer_update_truth_matches_release_authority": str(((installer_update_truth.get("release_truth") or {}) if isinstance(installer_update_truth.get("release_truth"), dict) else {}).get("public_download_authority") or "").strip() == str(release_packet.get("public_download_authority") or "").strip(),
-            "installer_update_truth_keeps_source_build_notify_default": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_default_mode") or "").strip() == "notify",
+            "installer_update_truth_keeps_linux_source_build_notify_default": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_linux_default_mode") or "").strip() == "notify",
+            "installer_update_truth_keeps_linux_source_build_analytics_off_default": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_linux_analytics_default") or "").strip() == "off",
+            "installer_update_truth_keeps_linux_source_build_two_step_install": ((installer_update_truth.get("coherence") or {}) if isinstance(installer_update_truth.get("coherence"), dict) else {}).get("linux_source_build_is_explicitly_two_step") is True,
+            "installer_update_truth_keeps_macos_source_build_notify_default": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_macos_default_mode") or "").strip() == "notify",
+            "installer_update_truth_keeps_macos_source_build_analytics_off_default": str(((installer_update_truth.get("policy") or {}) if isinstance(installer_update_truth.get("policy"), dict) else {}).get("source_build_macos_analytics_default") or "").strip() == "off",
+            "installer_update_truth_keeps_macos_source_build_two_step_install": ((installer_update_truth.get("coherence") or {}) if isinstance(installer_update_truth.get("coherence"), dict) else {}).get("macos_source_build_is_explicitly_two_step") is True,
+            "macos_source_build_contract_matches_installer_update_truth_two_step_posture": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("maintenance_policy_requires_two_step_install") is True and ((installer_update_truth.get("coherence") or {}) if isinstance(installer_update_truth.get("coherence"), dict) else {}).get("macos_source_build_is_explicitly_two_step") is True,
             "desktop_update_runtime_passed": str(desktop_update_runtime.get("status") or "").strip() == "passed",
             "desktop_update_runtime_runs_reduced_lane": desktop_update_runtime.get("run_desktop_update_tests_only") is True,
             "desktop_update_runtime_targets_update_tests": str(desktop_update_runtime.get("filter") or "").strip() == "FullyQualifiedName~DesktopUpdateRuntimeTests",

@@ -2,24 +2,21 @@
 set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-BUILD_SCRIPT="$SCRIPT_DIR/build-chummer6-linux.sh"
+BUILD_SCRIPT="$SCRIPT_DIR/build-chummer6-macos-local.sh"
 
 usage() {
   cat <<'USAGE'
-Check whether this Linux host is ready for a Chummer6 source build.
+Check whether this macOS host is ready for a local Chummer6 source build.
 
 Usage:
-  ./check-host-chummer6-linux.sh [options]
+  ./check-host-chummer6-macos-local.sh [options]
 
 Options:
-  --base PATH    Workspace base path used for the audit. Default: $HOME/chummer6-source-build
+  --base PATH    Workspace base path used for the audit. Default: $HOME/chummer6-source-build-macos
   --help, -h     Show this help.
 
 This wrapper never installs packages and never builds Chummer. It syntax-checks the
 checked-in build script, then runs that script in --audit-only mode.
-
-If you only need the package names first, run:
-  ./list-chummer6-linux-prereqs.sh
 USAGE
 }
 

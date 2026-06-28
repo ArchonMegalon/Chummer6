@@ -14,21 +14,23 @@ Start with the download page first, then check status if something looks off.
 
 ## Account
 
-Claim your copy only when you want recovery or linked installs.
+Claim your copy only if you want recovery or linked installs.
 
 - Guest use is fine.
 - Claim only when you want recovery.
 
 ## Private support
 
-Use Contact when logs, screenshots, crash details, or account details are involved.
+Use Contact for crashes, install trouble, or account details.
 
 - One issue per message.
-- Discord is better for normal questions.
+- Use Discord for normal questions.
 
 ## FAQ
 
-Read the short answers before opening a support case.
+Read the short answers first.
 
 - No account needed.
 - Support stays private.
+
+Use Contact when logs, screenshots, crash details, or account details are involved.

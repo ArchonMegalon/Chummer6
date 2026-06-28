@@ -45,6 +45,16 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 "archive_sha256": "c045d341fd0a64b862e1546db188c5fd4ebb728fac0521133908e7724ecf44d7",
                 "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
             },
+            "macos_source_build_contract": {
+                "status": "passed",
+                "generated_at_utc": "2026-06-27T20:59:24Z",
+                "scope": "script_contract_only",
+                "runtime_coverage": "not_run_on_non_macos_host",
+                "real_macos_runtime_proof_required": True,
+                "maintenance_policy_marks_real_build_as_macos_only": True,
+                "maintenance_policy_requires_two_step_install": True,
+                "doc_marks_second_script_install": True,
+            },
             "available_platforms": available_platforms,
             "missing_platforms": missing_platforms,
             "missing_installer_lane_line": missing_installer_lane_line,
@@ -273,6 +283,46 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             packet_path = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
             packet = json.loads(packet_path.read_text(encoding="utf-8"))
             packet.pop("linux_source_build_gate", None)
+            packet_path.write_text(json.dumps(packet, indent=2) + "\n", encoding="utf-8")
+            original_root = MODULE.REPO_ROOT
+            original_packet = MODULE.PACKET_PATH
+            original_readme = MODULE.README_PATH
+            original_status = MODULE.STATUS_PATH
+            original_download = MODULE.DOWNLOAD_PATH
+            original_migration = MODULE.MIGRATION_PATH
+            try:
+                MODULE.REPO_ROOT = root
+                MODULE.PACKET_PATH = packet_path
+                MODULE.README_PATH = root / "README.md"
+                MODULE.STATUS_PATH = root / "STATUS.md"
+                MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
+                MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
+                with self.assertRaises(ValueError):
+                    MODULE.main()
+            finally:
+                MODULE.REPO_ROOT = original_root
+                MODULE.PACKET_PATH = original_packet
+                MODULE.README_PATH = original_readme
+                MODULE.STATUS_PATH = original_status
+                MODULE.DOWNLOAD_PATH = original_download
+                MODULE.MIGRATION_PATH = original_migration
+
+    def test_main_fails_when_macos_source_build_contract_is_missing(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self._write_fixture(
+                root,
+                shelf_truth_line="Windows and Linux downloads are posted.",
+                available_platforms=["Windows", "Linux"],
+                missing_platforms=[],
+                missing_installer_lane_line="Normal installers are available on every promised desktop platform.",
+                architecture_scope_line="Desktop downloads are available for Linux x64 and Windows x64 only.",
+                download_warning_line="No current download blocker is listed for these installers.",
+                migration_preview_line="Today you can try the current builds on Windows and Linux.",
+            )
+            packet_path = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            packet.pop("macos_source_build_contract", None)
             packet_path.write_text(json.dumps(packet, indent=2) + "\n", encoding="utf-8")
             original_root = MODULE.REPO_ROOT
             original_packet = MODULE.PACKET_PATH
