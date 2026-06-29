@@ -8,7 +8,7 @@
     "release_packet_matches_installer_first_platforms": true
   },
   "contract_name": "ea.chummer6_installer_update_truth.v1",
-  "generated_at_utc": "2026-06-27T22:08:16Z",
+  "generated_at_utc": "2026-06-29T17:22:42Z",
   "generated_from": [
     "chummer-design/products/chummer/PUBLIC_AUTO_UPDATE_POLICY.md",
     "chummer-design/products/chummer/DESKTOP_AUTO_UPDATE_SYSTEM.md",

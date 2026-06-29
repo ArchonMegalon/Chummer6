@@ -25,6 +25,8 @@ MAX_UNCOVERED_TAIL_SECONDS = 0.75
 MIN_MAX_VOLUME_DB = -50.0
 MIN_MEAN_VOLUME_DB = -80.0
 MIN_AAC_BITRATE = 16000
+VOLUME_SAMPLE_SECONDS = 12.0
+VOLUME_SAMPLE_POINTS = (0.0, 0.5, 0.85)
 
 
 def _iter_markdown_files(root: Path) -> list[Path]:
@@ -105,13 +107,33 @@ def _bit_rate(stream: dict[str, object]) -> int:
         return 0
 
 
-def _ffmpeg_volume(target: str, timeout: int) -> tuple[bool, str]:
+def _volume_sample_offsets(duration: float, sample_seconds: float) -> list[float]:
+    if duration <= 0 or duration <= sample_seconds * 1.5:
+        return [0.0]
+
+    offsets: list[float] = []
+    latest_start = max(0.0, duration - sample_seconds)
+    for point in VOLUME_SAMPLE_POINTS:
+        offset = min(latest_start, max(0.0, duration * point - sample_seconds / 2))
+        if not offsets or abs(offset - offsets[-1]) >= 1.0:
+            offsets.append(offset)
+    return offsets
+
+
+def _run_ffmpeg_volume_sample(target: str, timeout: int, offset: float, sample_seconds: float) -> tuple[bool, str, dict[str, float]]:
     command = [
         "ffmpeg",
         "-hide_banner",
         "-nostats",
+        "-ss",
+        f"{offset:.3f}",
+        "-t",
+        f"{sample_seconds:.3f}",
         "-i",
         target,
+        "-map",
+        "0:a:0",
+        "-vn",
         "-af",
         "volumedetect",
         "-f",
@@ -121,24 +143,46 @@ def _ffmpeg_volume(target: str, timeout: int) -> tuple[bool, str]:
     try:
         result = subprocess.run(command, check=False, capture_output=True, text=True, timeout=timeout)
     except FileNotFoundError:
-        return False, "ffmpeg is not installed"
+        return False, "ffmpeg is not installed", {}
     except subprocess.TimeoutExpired:
-        return False, f"ffmpeg volumedetect timed out after {timeout}s"
+        return False, f"ffmpeg volumedetect timed out after {timeout}s at offset {offset:.1f}s", {}
     if result.returncode != 0:
         detail = (result.stderr or result.stdout).strip().splitlines()
-        return False, detail[-1] if detail else f"ffmpeg exited {result.returncode}"
+        return False, detail[-1] if detail else f"ffmpeg exited {result.returncode}", {}
 
     stats: dict[str, float] = {}
     for match in VOLUME_RE.finditer(result.stderr):
         raw_value = match.group("value")
         stats[f"{match.group('kind')}_volume_db"] = float("-inf") if raw_value == "-inf" else float(raw_value)
     if "mean_volume_db" not in stats or "max_volume_db" not in stats:
-        return False, "ffmpeg volumedetect did not report mean/max volume"
-    mean_volume = stats["mean_volume_db"]
-    max_volume = stats["max_volume_db"]
+        return False, "ffmpeg volumedetect did not report mean/max volume", {}
+    return True, "ok", stats
+
+
+def _ffmpeg_volume(target: str, timeout: int, duration: float) -> tuple[bool, str]:
+    sample_seconds = min(VOLUME_SAMPLE_SECONDS, duration) if duration > 0 else VOLUME_SAMPLE_SECONDS
+    sample_seconds = max(1.0, sample_seconds)
+    offsets = _volume_sample_offsets(duration, sample_seconds)
+
+    observed: list[dict[str, float]] = []
+    for offset in offsets:
+        ok, detail, stats = _run_ffmpeg_volume_sample(target, timeout, offset, sample_seconds)
+        if not ok:
+            return False, detail
+        observed.append(stats)
+
+    if not observed:
+        return False, "ffmpeg volumedetect did not sample audio"
+
+    best = max(observed, key=lambda item: item["max_volume_db"])
+    mean_volume = best["mean_volume_db"]
+    max_volume = best["max_volume_db"]
     if max_volume <= MIN_MAX_VOLUME_DB or mean_volume <= MIN_MEAN_VOLUME_DB:
-        return False, f"silent_or_placeholder_audio mean={mean_volume:.1f}dB max={max_volume:.1f}dB"
-    return True, f"mean={mean_volume:.1f}dB max={max_volume:.1f}dB"
+        return False, (
+            "silent_or_placeholder_audio "
+            f"samples={len(observed)} mean={mean_volume:.1f}dB max={max_volume:.1f}dB"
+        )
+    return True, f"samples={len(observed)} mean={mean_volume:.1f}dB max={max_volume:.1f}dB"
 
 
 def _ffprobe_audio(target: str, timeout: int) -> tuple[bool, str]:
@@ -205,7 +249,7 @@ def _ffprobe_audio(target: str, timeout: int) -> tuple[bool, str]:
     if audio_codec == "aac" and 0 < bit_rate < MIN_AAC_BITRATE:
         return False, f"placeholder_aac_bitrate bit_rate={bit_rate}"
 
-    volume_ok, volume_detail = _ffmpeg_volume(target, timeout)
+    volume_ok, volume_detail = _ffmpeg_volume(target, timeout, video_duration)
     if not volume_ok:
         return False, volume_detail
     codecs = ",".join(str(stream.get("codec_name") or "unknown") for stream in audio_streams)

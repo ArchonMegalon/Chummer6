@@ -10,9 +10,9 @@ Your Chummer account keeps your basic profile, linked sign-in methods, device ac
 
 When Chummer publishes a download, everyone gets the same file. Chummer does not build a private installer just for your account. If account linking is available, the account step is a short-lived code that reconnects a local copy back to your account.
 
-## Temporary sign-in tokens and raw secrets stay out of your account record
+## Short-lived sign-in access stays out of your account record
 
-Short-lived third-party tokens stay on the machine or service using them. Your account keeps consent, help history, and access records, not raw secret keys.
+Short-lived third-party access stays on the machine or service using it. Your account keeps consent, help history, and access records, not passwords or access keys.
 
 ## Recognition should not force publicity
 

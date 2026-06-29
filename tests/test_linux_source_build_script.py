@@ -407,7 +407,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         git_lfs.chmod(0o755)
 
     @staticmethod
-    def _write_fake_dotnet(base: Path, sdk_version: str = "10.0.100") -> None:
+    def _write_fake_dotnet(base: Path, sdk_version: str = "10.0.103") -> None:
         dotnet_dir = base / ".tools" / "dotnet"
         dotnet_dir.mkdir(parents=True)
         dotnet = dotnet_dir / "dotnet"

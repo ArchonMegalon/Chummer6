@@ -12,6 +12,7 @@ Start here when you want the right file first.
 - You do not need GitHub for the normal download path.
 - [Raw GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases).
 - Advanced users can also [build the Linux desktop client from source](SOURCE_BUILD_LINUX.md).
+- For a personal local Mac build, use [SOURCE_BUILD_MACOS.md](SOURCE_BUILD_MACOS.md).
 
 ## Current public download
 
