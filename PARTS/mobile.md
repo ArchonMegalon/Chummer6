@@ -4,27 +4,30 @@ The table-side companion you feel during play.
 
 ![Mobile guide art](../assets/parts/mobile.png)
 
-## When this matters
+## When you care
 
 You care about actual play, reconnecting across devices, or surviving a bad signal without losing the session.
 
-## Why it exists
+## Why you care
 
-This is the jump from prep software to software that can stay useful while a real session is happening.
+This is the jump from prep software to a live-turn companion that stays useful while a real session is happening.
 
-## What you should feel
+## What it looks like
 
-Stronger local-first and offline-ready behavior, session continuity instead of fragile single-device assumptions, and a table-facing companion that is separate from the heavy workbench view.
+- stronger local-first and offline-ready behavior
+- current state, modifiers, and next actions are faster to read during a turn
+- a table-facing companion that stays separate from the heavy build workbench view
 
-## What not to expect here
+## Limits today
 
-This is still the next major boundary to finish cleanly and the session stack is still deepening around cache, replay, and recovery polish.
+- this is still the next major boundary to finish cleanly
+- the session stack is still deepening around cache, replay, recovery, and short-turn ergonomics
 
+## Current state
 
-## Current shape
+Mobile is where the live-session promise becomes real. The current work is about turn-time clarity, event logs, cache, replay, sync, and honest stale-state status rather than trying to squeeze the full builder onto a phone.
 
-Mobile is where the live-session promise becomes real, and the current work is about event logs, cache, replay, and sync rather than cosmetic flash.
+## Go deeper
 
-## Next
-
-Then read [Where To Go Deeper](../WHERE_TO_GO_DEEPER.md).
+- [What is visible today](../NOW/public-surfaces.md)
+- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)

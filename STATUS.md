@@ -1,27 +1,24 @@
 # Status
 
-Use this page to see whether the current public build is ready for you.
+This is the blunt answer on what you can use today.
 
-## The answer
+## Current picture
 
-Today: Current release build.
-Windows and Linux downloads are posted.
-Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.
-This release covers installs and recovery, campaign session recovery, and support follow-up.
-No current download blocker is listed for these installers.
-Help, contact, privacy, and terms pages are live.
-
-## Release details
-
+- Today: Usable preview.
 - Published: June 27, 2026 at 7:51 UTC.
 - Release status: Published.
+- Windows and Linux downloads are posted.
+- Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.
+- Still missing from the public download page: macOS.
+- Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
+- Current warning: No current download blocker is listed for these installers.
+- Help, contact, privacy, and terms pages are live.
 
-## Get Chummer first
+## Download and install first
 
-Start with the download page first, then check status if something looks off.
+Start with the download page. It should tell you which file to use, what is missing, and the next safe step if setup fails.
 
-- Use `Stable` for the calmer release lane.
-- Use `Nightly` for the newest published Windows or Linux build.
-- Use the Windows or Linux installer.
-- Create an account if you want your help history, recovery, and downloads tied to one place.
+- Start with the recommended installer for your platform.
+- Use the other package only if the installer gives you trouble.
+- Create an account if you want your support history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.

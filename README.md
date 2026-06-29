@@ -2,44 +2,74 @@
 
 Build a Shadowrun runner, see why the numbers changed, and keep game night moving when the campaign gets messy.
 
-If you are here to decide whether this is worth your time, the honest pitch is simple: Chummer6 is trying to make dense Shadowrun character work readable again without sanding away the parts veteran players care about.
+The honest pitch is simple: Chummer6 is trying to make dense Shadowrun character work readable again without sanding away the parts veteran players care about.
 
-## Start here if you just want the answer
+## Product promise
 
-Use [Download](DOWNLOAD.md) for files, [Status](STATUS.md) for the blunt current state, and [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md) if you already know the old app and want to know whether switching is sane.
+Chummer6 helps Shadowrun players and GMs build runners, explain rulings, and keep campaigns moving without mystery math.
 
-Windows and Linux downloads are posted.
-Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
-For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there. The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.
+Its first must-win job is being the most trustworthy way to build, inspect, and advance a Shadowrun character.
 
-## Why it exists
+The goal is simple: build correctly, explain clearly, run reliably, recover calmly, and carry the campaign forward.
 
-Shadowrun characters carry a lot of math, choices, edge cases, and table agreements. Chummer6 is for the moment when someone asks, "why did that number change?" and the table deserves a better answer than shoulder-shrugging and memory.
+## What is real now
 
-When a dice pool changes, the table should see why. When a device drops, the whole night should not fall apart. When a session starts soon, the next useful action should be obvious.
+- Short answer: yes, as an early preview.
+- Windows and Linux downloads are posted.
+- Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
+- For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there.
+- Use Avalonia first when the download page offers it.
+- Character math is being treated carefully. The rough edges are mostly installer polish, update polish, and support polish.
+- Today: Usable preview.
+- Still missing from the public download page: macOS.
+- The current shelf should be read as a real preview, not a finished no-step-back release.
+- Help, contact, privacy, and terms pages are live.
+- More campaign-ledger depth and steadier desktop polish are still coming.
 
-## What should feel different
+## Start here
 
-The numbers should explain themselves faster. New or rusty users should have a first-session path. Help should be easy to find before frustration takes over. The rough edges are still installer polish, update polish, support polish, and deeper table continuity.
+Start here if you just want the answer.
 
+- [Download builds](DOWNLOAD.md)
+- [Download](DOWNLOAD.md)
+- [Status](STATUS.md)
+- [Current status](NOW/current-status.md)
+- [What Chummer6 Is](WHAT_CHUMMER6_IS.md)
+- [Moving from Chummer5a](FROM_CHUMMER5A_TO_CHUMMER6.md)
+- [From Chummer5a to Chummer6](FROM_CHUMMER5A_TO_CHUMMER6.md)
+- [How can I help](HOW_CAN_I_HELP.md)
+- [Help](HELP.md)
+- [FAQ](FAQ.md)
+- [Contact](CONTACT.md)
+- [Campaign tools](HORIZONS/README.md)
 
-## Help and feedback
+## How can I help?
 
-If something breaks, start with [Help](HELP.md) or [Contact](CONTACT.md). Use the participation page only when you want hands-on testing or focused public follow-up.
+Use the public participation path when you want to report a problem, flag confusing guide copy, or suggest a future improvement.
 
-If you want to help test a fix, use the [participation page](https://chummer.run/participate). Most people do not need that path; a clear bug report, a confusing sentence, or a screenshot of the broken thing is already useful.
+- [Open the public participation page](https://chummer.run/participate)
+- [File a public issue](https://github.com/ArchonMegalon/Chummer6/issues)
+- Guided contribution is optional and still goes through review before anything lands.
 
 ## First contact
 
-<a href="https://chummer.run/media/promo/every-wonder-horizon-promo.mp4" target="_blank" rel="noopener noreferrer" title="Play the Chummer6 overview video">
-  <img src="assets/hero/chummer6-hero.png" alt="Chummer6 overview video preview" title="Play the Chummer6 overview video" />
-</a>
+![Chummer6 flagship hero art](assets/hero/chummer6-hero.png)
 
 
-[Watch the Chummer6 overview video](https://chummer.run/media/promo/every-wonder-horizon-promo.mp4).
+## Why people care
 
-## Campaign tools and client features
+- It shows why a number changed instead of hiding the math.
+- It is being built to keep sessions and campaigns recoverable when devices or connectivity drift.
+- The status, downloads, and help story is meant to stay in plain sight instead of being scattered.
 
-[Runner Passport](RUNNER_PASSPORT.md) gives a GM a clean character summary. [Living World](LIVING_WORLD.md) keeps aftermath and consequences in one place. [Campaign tools](HORIZONS/README.md) covers ALICE, Origin Dossier, Table Pulse, Jackpoint, Runsite, Runbook Press, and Karma Forge.
+## Product parts
 
-Use [Features](FEATURES/README.md) for base-client capabilities such as NEXUS-PAN, Run Control, Edition Studio, Community Hub, Ghostwire, Local Co-Processor, and Quicksilver.
+- [Parts index](PARTS/README.md): an inside view of how the app is put together.
+- [Campaign tools](HORIZONS/README.md): future table and campaign tools that are not ready today.
+
+## Need help
+
+Pick the next step.
+
+- Start with [Help](HELP.md) if install, updates, sign-in, or bugs are getting in the way.
+- Use [Contact](CONTACT.md) when you want to report a problem or send feedback.

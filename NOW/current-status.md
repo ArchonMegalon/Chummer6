@@ -1,9 +1,20 @@
-# Current Status
+# Current status
 
-Windows and Linux downloads are posted.
+This is the short current-state page for release crawlers and readers who want the answer without touring the full guide.
 
-Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.
+## Today
 
-Start with [Download](../DOWNLOAD.md), then [Help](../HELP.md) if installation, updates, or sign-in go sideways.
+- Product state: Usable preview.
+- Release status: Published.
+- Windows and Linux downloads are posted.
+- Last refreshed: June 27, 2026 at 7:51 UTC.
+- Still missing from the public download page: macOS.
+- Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
+- Current warning: No current download blocker is listed for these installers.
 
-For the fuller explanation, read [Status](../STATUS.md).
+## Start here
+
+- [Download builds](../DOWNLOAD.md)
+- [Status](../STATUS.md)
+- [Help](../HELP.md)
+- [What Chummer6 Is](../WHAT_CHUMMER6_IS.md)

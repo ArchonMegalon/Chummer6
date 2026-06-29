@@ -1,30 +1,33 @@
 # Hub Registry
 
-The release shelf, install history, and compatibility notes.
+The release shelf, install record, and compatibility record.
 
 ![Hub Registry guide art](../assets/parts/hub-registry.png)
 
-## When this matters
+## When you care
 
-You care about what exists, what can be installed, what is published, or whether a release file is the right one.
+You care about what exists, what can be installed, what is published, or whether a release file can be trusted and reused.
 
-## Why it exists
+## Why you care
 
 Without this, release files turn into a warehouse full of unlabeled boxes and compatibility folklore.
 
-## What you should feel
+## What it looks like
 
-Cleaner release metadata and publication status, a more believable path from preview outputs to shareable or installable files, and compatibility and moderation notes that stay attached to the release.
+- cleaner release metadata and publication status
+- a more believable path from preview outputs to shareable or installable files
+- compatibility and moderation signals that can stay on the record
 
-## What not to expect here
+## Limits today
 
-This is not the media studio and this is not the rules engine.
+- this is not the media studio
+- this is not the rules engine
 
+## Current state
 
-## Current shape
+Hub Registry is the growing record for published releases and compatibility, and it becomes more visible as the public release story gets richer.
 
-Hub Registry is the growing home for published releases and compatibility, and it becomes more visible as the public release story gets richer.
+## Go deeper
 
-## Next
-
-Then read [Where To Go Deeper](../WHERE_TO_GO_DEEPER.md).
+- [What is visible today](../NOW/public-surfaces.md)
+- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)

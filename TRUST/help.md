@@ -2,29 +2,28 @@
 
 Pick the next step.
 
-## Get Chummer first
+## Download and install first
 
-Start with the download page first, then check status if something looks off.
+Start with the download page. It should tell you which file to use, what is missing, and the next safe step if setup fails.
 
-- Use `Stable` for the calmer release lane.
-- Use `Nightly` for the newest published Windows or Linux build.
-- Use the Windows or Linux installer.
-- Create an account if you want your help history, recovery, and downloads tied to one place.
+- Start with the recommended installer for your platform.
+- Use the other package only if the installer gives you trouble.
+- Create an account if you want your support history, recovery, and downloads tied to one place.
 - If your platform is missing, the status and download pages will say so.
 
 ## Account
 
-Claim your copy only if you want recovery or linked installs.
+Claim your copy only when you want recovery or linked installs.
 
 - Guest use is fine.
 - Claim only when you want recovery.
 
-## Private support
+## Contact
 
-Use Contact for crashes, install trouble, or account details.
+Use Discord for normal questions, confusing behavior, and quick feedback.
 
-- One issue per message.
-- Use Discord for normal questions.
+- The Chummer community is already there.
+- Keep account details out of public chat.
 
 ## FAQ
 

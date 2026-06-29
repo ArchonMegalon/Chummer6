@@ -4,27 +4,30 @@ The dedicated media studio.
 
 ![Media Factory guide art](../assets/parts/media-factory.png)
 
-## When this matters
+## When you care
 
-You care about finished images, teaser media, dossiers, narration, or other polished outputs that still need clear sources.
+You care about finished images, teaser media, dossiers, narrated packets, or other polished outputs that still need clear evidence of where the material came from.
 
-## Why it exists
+## Why you care
 
-This is how the product can look finished without letting style quietly rewrite what happened.
+This is how the product can look finished without letting style quietly rewrite the facts.
 
-## What you should feel
+## What it looks like
 
-Cleaner asset generation and preview flows, a stronger line between presentation and product meaning, and a path toward richer teaser and release media without forcing every product area to become its own studio.
+- cleaner asset generation and preview flows
+- a stronger line between content rendering and product meaning
+- a path toward richer teaser and release media without forcing every product area to become its own studio
 
-## What not to expect here
+## Limits today
 
-This is not the decision-maker for what a session means and it should stay focused on media production even when the outputs get more ambitious.
+- this is not the decision-maker for what a session means
+- it should stay focused on media production even when the outputs get more ambitious
 
+## Current state
 
-## Current shape
+Media Factory is where polished media gets produced and curated, and the current work is about making richer outputs possible without blurring where the material came from or who owns it.
 
-Media Factory is where polished media gets produced and curated, and the current work is about making richer outputs possible without blurring who approved the material.
+## Go deeper
 
-## Next
-
-Then read [Where To Go Deeper](../WHERE_TO_GO_DEEPER.md).
+- [What is visible today](../NOW/public-surfaces.md)
+- [Where to go deeper](../WHERE_TO_GO_DEEPER.md)
