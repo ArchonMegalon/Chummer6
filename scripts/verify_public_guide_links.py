@@ -5,6 +5,7 @@ import argparse
 import re
 import string
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -23,6 +24,7 @@ LINK_RE = re.compile(
 VISIBLE_AUTOLINK_RE = re.compile(r"`https?://[^`]+`|<https?://[^>]+>")
 URL_LINK_TEXT_RE = re.compile(r"\[((?:https?://|www\.|chummer\.run/)[^\]]+)\]\((https?://[^)]+)\)")
 CAPTION_FILE_RE = re.compile(r"\.vtt(?:\)|\s|$)", re.IGNORECASE)
+HTTP_CHECK_ATTEMPTS = 3
 
 
 def _iter_markdown_files(root: Path) -> list[Path]:
@@ -63,18 +65,31 @@ def _split_target(target: str) -> tuple[str, str]:
 
 def _check_http(url: str, timeout: int) -> str | None:
     request = urllib.request.Request(url, method="GET", headers={"User-Agent": "chummer6-public-guide-link-check/1.0"})
-    try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            status = getattr(response, "status", 200)
-            if 200 <= status < 400:
+    last_failure = ""
+    for attempt in range(1, HTTP_CHECK_ATTEMPTS + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                status = getattr(response, "status", 200)
+                if 200 <= status < 400:
+                    return None
+                last_failure = f"http status {status}"
+                if status < 500:
+                    return last_failure
+        except urllib.error.HTTPError as exc:
+            if 200 <= exc.code < 400:
                 return None
-            return f"http status {status}"
-    except urllib.error.HTTPError as exc:
-        if 200 <= exc.code < 400:
-            return None
-        return f"http status {exc.code}"
-    except Exception as exc:  # pragma: no cover - exercised in CI by real network failures.
-        return f"{exc.__class__.__name__}: {exc}"
+            last_failure = f"http status {exc.code}"
+            if exc.code < 500:
+                return last_failure
+        except (TimeoutError, urllib.error.URLError) as exc:
+            last_failure = f"{exc.__class__.__name__}: {exc}"
+        except Exception as exc:  # pragma: no cover - exercised in CI by real network failures.
+            return f"{exc.__class__.__name__}: {exc}"
+
+        if attempt < HTTP_CHECK_ATTEMPTS:
+            time.sleep(0.25 * attempt)
+
+    return last_failure
 
 
 def _check_public_link_presentation(markdown_path: Path, root: Path, text: str) -> list[str]:

@@ -3,6 +3,8 @@ from __future__ import annotations
 import importlib.util
 import tempfile
 import unittest
+import urllib.error
+from unittest import mock
 from pathlib import Path
 
 
@@ -15,7 +17,47 @@ link_verifier = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(link_verifier)
 
 
+class Response:
+    def __init__(self, status: int) -> None:
+        self.status = status
+
+    def __enter__(self) -> "Response":
+        return self
+
+    def __exit__(self, *_args: object) -> None:
+        return None
+
+
 class VerifyPublicGuideLinksTests(unittest.TestCase):
+    def test_http_check_retries_transient_5xx(self) -> None:
+        url = "https://chummer.run/participate"
+        responses: list[object] = [
+            urllib.error.HTTPError(url, 502, "Bad Gateway", hdrs=None, fp=None),
+            Response(200),
+        ]
+
+        def fake_urlopen(_request: object, timeout: int) -> object:
+            self.assertEqual(1, timeout)
+            next_response = responses.pop(0)
+            if isinstance(next_response, Exception):
+                raise next_response
+            return next_response
+
+        with mock.patch.object(link_verifier.urllib.request, "urlopen", side_effect=fake_urlopen), mock.patch.object(link_verifier.time, "sleep"):
+            self.assertIsNone(link_verifier._check_http(url, timeout=1))
+
+        self.assertEqual([], responses)
+
+    def test_http_check_does_not_retry_permanent_4xx(self) -> None:
+        url = "https://chummer.run/missing"
+        error = urllib.error.HTTPError(url, 404, "Not Found", hdrs=None, fp=None)
+
+        with mock.patch.object(link_verifier.urllib.request, "urlopen", side_effect=error) as urlopen, mock.patch.object(link_verifier.time, "sleep") as sleep:
+            self.assertEqual("http status 404", link_verifier._check_http(url, timeout=1))
+
+        self.assertEqual(1, urlopen.call_count)
+        sleep.assert_not_called()
+
     def test_missing_local_target_is_reported_relative_to_checked_root(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             root = Path(tmpdir) / "public-guide"
