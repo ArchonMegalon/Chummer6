@@ -18,14 +18,15 @@ done
 bash "$repo_root/scripts/verify_linux_source_build_docker_gate.sh"
 python3 "$repo_root/scripts/test_verify_linux_source_build_docker_gate_receipt.py" >/dev/null
 python3 "$repo_root/scripts/verify_linux_source_build_docker_gate_receipt.py" >/dev/null
+python3 "$repo_root/scripts/test_macos_source_build_contract_receipt.py" >/dev/null
+python3 "$repo_root/scripts/materialize_macos_source_build_contract_receipt.py" >/dev/null
+python3 "$repo_root/scripts/verify_macos_source_build_contract_receipt.py" >/dev/null
+python3 "$repo_root/scripts/materialize_public_release_truth_packet.py" >/dev/null
 if [[ -n "$design_root" ]]; then
   python3 "$design_root/scripts/ai/materialize_public_guide_bundle.py" --repo-root "$design_root" >/dev/null
   python3 "$repo_root/scripts/sync_public_guide_from_design.py" >/dev/null
 fi
 bash "$repo_root/scripts/verify_public_guide.sh"
-python3 "$repo_root/scripts/test_macos_source_build_contract_receipt.py" >/dev/null
-python3 "$repo_root/scripts/materialize_macos_source_build_contract_receipt.py" >/dev/null
-python3 "$repo_root/scripts/verify_macos_source_build_contract_receipt.py" >/dev/null
 python3 "$repo_root/scripts/test_installer_update_truth_receipt.py" >/dev/null
 python3 "$repo_root/scripts/materialize_installer_update_truth_receipt.py" >/dev/null
 python3 "$repo_root/scripts/verify_installer_update_truth_receipt.py" >/dev/null

@@ -17,7 +17,7 @@ Start here when you want the right file first.
 ## Current public download
 
 - Today: Usable preview.
-- Published: June 27, 2026 at 7:51 UTC.
+- Published: June 30, 2026 at 8:32 UTC.
 - Release status: Published.
 - Windows and Linux downloads are posted.
 - Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.

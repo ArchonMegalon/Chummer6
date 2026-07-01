@@ -7,6 +7,7 @@ out_path="${CHUMMER_PUBLIC_GUIDE_OUT:-$design_root/products/chummer/public-guide
 generator_script="${CHUMMER_PUBLIC_GUIDE_GENERATOR:-$design_root/scripts/ai/materialize_public_guide_bundle.py}"
 sync_script="${CHUMMER_PUBLIC_GUIDE_SYNC:-$repo_root/scripts/sync_public_guide_from_design.py}"
 verify_script="${CHUMMER_PUBLIC_GUIDE_VERIFY:-$repo_root/scripts/verify_public_guide.sh}"
+release_truth_script="${CHUMMER_PUBLIC_RELEASE_TRUTH_PACKET_MATERIALIZER:-$repo_root/scripts/materialize_public_release_truth_packet.py}"
 check_mode=0
 
 usage() {
@@ -69,6 +70,7 @@ fi
 [[ -f "$generator_script" ]] || { echo "Generator script not found: $generator_script" >&2; exit 2; }
 [[ -f "$sync_script" ]] || { echo "Sync script not found: $sync_script" >&2; exit 2; }
 [[ -f "$verify_script" ]] || { echo "Verify script not found: $verify_script" >&2; exit 2; }
+[[ -f "$release_truth_script" ]] || { echo "Release truth materializer not found: $release_truth_script" >&2; exit 2; }
 
 generator_args=(
   "$generator_script"
@@ -89,8 +91,12 @@ verify_args=(
 if [[ "$check_mode" == "1" ]]; then
   generator_args+=(--check)
   sync_args+=(--check)
+  release_truth_args=(--check)
+else
+  release_truth_args=()
 fi
 
+python3 "$release_truth_script" "${release_truth_args[@]}" >/dev/null
 CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT="$repo_root" python3 "${generator_args[@]}"
 python3 "${sync_args[@]}"
 bash "${verify_args[@]}"

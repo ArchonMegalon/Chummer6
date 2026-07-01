@@ -7,7 +7,7 @@ This is the short current-state page for release crawlers and readers who want t
 - Product state: Usable preview.
 - Release status: Published.
 - Windows and Linux downloads are posted.
-- Last refreshed: June 27, 2026 at 7:51 UTC.
+- Last refreshed: June 30, 2026 at 8:32 UTC.
 - Still missing from the public download page: macOS.
 - Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
 - Current warning: No current download blocker is listed for these installers.
