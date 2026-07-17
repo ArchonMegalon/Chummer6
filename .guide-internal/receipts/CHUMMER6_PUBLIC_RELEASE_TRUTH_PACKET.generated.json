@@ -1,28 +1,29 @@
 {
-  "architecture_scope_line": "Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.",
+  "architecture_scope_line": "Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.",
   "available_platforms": [
-    "Windows",
-    "Linux"
+    "macOS"
   ],
   "build_label": "",
+  "channel_id": "preview",
   "desktop_pick_line": "For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there.",
+  "desktop_tuple_coverage_complete": true,
   "fallback_heads": [
     "Chummer.Blazor.Desktop"
   ],
   "fix_availability_summary": "Fix notices appear after the corrected download is live on the download page.",
-  "generated_from": "chummer-hub-registry/.codex-studio/published/RELEASE_CHANNEL.generated.json",
-  "known_issue_summary": "No current download blocker is listed for these installers.",
+  "generated_from": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
+  "known_issue_summary": "Preview caveats still apply, but the current release has recent install, account return, release updates, community wrap-up, bounded offline prefetch, and current support follow-up coverage.",
   "linux_source_build_gate": {
-    "archive_sha256": "f909d4ff21033534d9106001da67d52d17d3545e3d8337df6cff685ab7bf346d",
+    "archive_sha256": "f4eeb2ef10576e732d29f30870ed3d20323a511c19f0287ed9ee986e55cfbe4c",
     "docker_image": "debian:bookworm-slim",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-    "generated_at_utc": "20260701T031940Z",
+    "generated_at_utc": "20260712T171921Z",
     "rid": "linux-x64",
     "status": "passed"
   },
   "macos_source_build_contract": {
     "doc_marks_second_script_install": true,
-    "generated_at_utc": "2026-06-29T17:22:42Z",
+    "generated_at_utc": "2026-07-12T17:23:29Z",
     "maintenance_policy_marks_real_build_as_macos_only": true,
     "maintenance_policy_requires_two_step_install": true,
     "real_macos_runtime_proof_required": true,
@@ -35,12 +36,18 @@
   "phase_label": "Current release build",
   "primary_head": "Chummer.Avalonia",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "June 30, 2026 at 8:32 UTC",
-  "published_line": "Published: June 30, 2026 at 8:32 UTC.",
+  "published_at": "July 15, 2026 at 14:06 UTC",
+  "published_line": "Published: July 15, 2026 at 14:06 UTC.",
   "quality_gap_line": "The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.",
+  "release_posture": "preview_or_review_required",
   "release_status": "Published",
   "release_status_slug": "published",
   "release_verification_summary": "This release covers installs and recovery, campaign session recovery, and support follow-up.",
-  "shelf_truth_line": "Windows and Linux downloads are posted.",
-  "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time."
+  "required_platforms": [
+    "macOS"
+  ],
+  "rollout_state": "public_release_review_required",
+  "shelf_truth_line": "macOS downloads are posted.",
+  "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.",
+  "supportability_state": "review_required"
 }

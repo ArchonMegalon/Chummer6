@@ -3,7 +3,8 @@ set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source_root="$repo_root"
-forward_args=("$@")
+skip_http=0
+forward_args=()
 
 while (($#)); do
   case "$1" in
@@ -13,13 +14,20 @@ while (($#)); do
         exit 2
       fi
       source_root="$2"
+      forward_args+=("$1" "$2")
       shift 2
       ;;
     --source=*)
       source_root="${1#--source=}"
+      forward_args+=("$1")
+      shift
+      ;;
+    --skip-http)
+      skip_http=1
       shift
       ;;
     *)
+      forward_args+=("$1")
       shift
       ;;
   esac
@@ -30,10 +38,16 @@ python3 -m unittest discover -s "$repo_root/tests" -p 'test_sync_public_guide_fr
 python3 -m unittest discover -s "$repo_root/tests" -p 'test_linux_source_build_script.py' >/dev/null
 python3 "$repo_root/scripts/test_verify_linux_source_build_surface.py" >/dev/null
 python3 "$repo_root/scripts/test_verify_public_guide_links.py" >/dev/null
-python3 "$repo_root/scripts/verify_public_guide_links.py" --root "$source_root" --source-root "$repo_root"
+link_args=(--root "$source_root" --source-root "$repo_root")
+if [[ "$skip_http" == "1" ]]; then
+  link_args+=(--skip-http)
+fi
+python3 "$repo_root/scripts/verify_public_guide_links.py" "${link_args[@]}"
 python3 "$repo_root/scripts/verify_public_guide_video_audio.py" --root "$source_root"
 python3 "$repo_root/scripts/test_verify_chummer6_docs_release_truth.py" >/dev/null
+python3 "$repo_root/scripts/test_verify_public_downloads_match_registry.py" >/dev/null
 python3 "$repo_root/scripts/verify_public_guide_first_impression.py" >/dev/null
+python3 "$repo_root/scripts/verify_public_downloads_match_registry.py" >/dev/null
 python3 "$repo_root/scripts/verify_chummer6_docs_release_truth.py" >/dev/null
 python3 "$repo_root/scripts/verify_origin_dossier_public_guide_surface.py" >/dev/null
 python3 "$repo_root/scripts/verify_runbook_press_public_guide_surface.py" >/dev/null

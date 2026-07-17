@@ -7,7 +7,8 @@ REPO_BASE_URL="${CHUMMER_REPO_BASE_URL:-https://github.com/$GITHUB_ORG}"
 REPO_BASE_URL="${REPO_BASE_URL%/}"
 GIT_REF="${CHUMMER_GIT_REF:-main}"
 MIN_FREE_GIB="${CHUMMER_MIN_FREE_GIB:-25}"
-DEFAULT_BASE="${CHUMMER_BUILD_BASE:-$HOME/chummer6-source-build}"
+DEFAULT_HOME="${HOME:-/tmp}"
+DEFAULT_BASE="${CHUMMER_BUILD_BASE:-$DEFAULT_HOME/chummer6-source-build}"
 BASE_PATH=""
 ASSUME_YES=0
 AUDIT_ONLY=0
@@ -364,6 +365,10 @@ normalize_git_url() {
   printf '%s' "$value"
 }
 
+git_automation() {
+  git -c gc.auto=0 -c maintenance.auto=0 "$@"
+}
+
 sync_repo() {
   local directory_name="$1"
   local repository_name="$2"
@@ -372,28 +377,28 @@ sync_repo() {
 
   if [[ ! -e "$target" ]]; then
     log "Cloning $repository_name into $directory_name"
-    git clone --depth 1 --filter=blob:none --branch "$GIT_REF" "$expected_url" "$target"
+    git_automation clone --depth 1 --filter=blob:none --branch "$GIT_REF" "$expected_url" "$target"
   else
     [[ -d "$target/.git" ]] || die "$target exists but is not a Git repository."
     local current_url
-    current_url="$(git -C "$target" remote get-url origin)"
+    current_url="$(git_automation -C "$target" remote get-url origin)"
     if [[ "$(normalize_git_url "$current_url")" != "$(normalize_git_url "$expected_url")" ]]; then
       die "$target has unexpected origin '$current_url'; expected '$expected_url'."
     fi
-    if [[ -n "$(git -C "$target" status --porcelain)" ]]; then
+    if [[ -n "$(git_automation -C "$target" status --porcelain)" ]]; then
       die "$target has local changes. Commit, stash, or remove them before rerunning."
     fi
     log "Updating $repository_name"
-    git -C "$target" fetch --depth 1 origin "$GIT_REF"
-    git -C "$target" checkout -q --detach FETCH_HEAD
+    git_automation -C "$target" fetch --depth 1 origin "$GIT_REF"
+    git_automation -C "$target" checkout -q --detach FETCH_HEAD
   fi
 
   if [[ -f "$target/.gitattributes" ]] && grep -q 'filter=lfs' "$target/.gitattributes"; then
-    git -C "$target" lfs install --local >/dev/null
-    git -C "$target" lfs pull
+    git_automation -C "$target" lfs install --local >/dev/null
+    git_automation -C "$target" lfs pull
   fi
   if [[ -f "$target/.gitmodules" ]]; then
-    git -C "$target" submodule update --init --recursive --depth 1
+    git_automation -C "$target" submodule update --init --recursive --depth 1
   fi
 }
 

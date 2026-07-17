@@ -38,16 +38,18 @@ class RenderWithStartHereTests(unittest.TestCase):
     def test_sync_files_include_black_ledger_newsroom_page(self) -> None:
         self.assertIn("BLACK_LEDGER_NEWSROOM.md", guide_sync.SYNC_FILES)
 
-    def test_black_ledger_stays_out_of_primary_public_navigation(self) -> None:
+    def test_black_ledger_stays_bounded_to_campaign_bets_navigation(self) -> None:
         readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         horizons = (REPO_ROOT / "HORIZONS" / "README.md").read_text(encoding="utf-8")
         newsroom = (REPO_ROOT / "BLACK_LEDGER_NEWSROOM.md").read_text(encoding="utf-8")
+        black_ledger_link = "### [Black Ledger](black-ledger.md)"
 
         self.assertNotIn("Open the Black Ledger command map", readme)
         self.assertNotIn("[Black Ledger Newsroom](BLACK_LEDGER_NEWSROOM.md)", readme)
-        self.assertNotIn("[BLACK LEDGER](black-ledger.md)", horizons)
         self.assertNotIn("[Black Ledger](HORIZONS/black-ledger.md)", newsroom)
-        self.assertFalse((REPO_ROOT / "HORIZONS" / "black-ledger.md").exists())
+        self.assertIn(black_ledger_link, horizons)
+        self.assertGreater(horizons.index(black_ledger_link), horizons.index("## Bigger campaign bets"))
+        self.assertTrue((REPO_ROOT / "HORIZONS" / "black-ledger.md").is_file())
 
     def test_signal_deck_is_removable_when_design_omits_it(self) -> None:
         self.assertIn("SIGNAL_DECK.md", guide_sync.REMOVABLE_SYNC_FILES)

@@ -75,6 +75,9 @@ class DesktopUpdateRuntimeReceiptTests(unittest.TestCase):
                     ],
                 ):
                     self.assertEqual(MATERIALIZE.main(), 0)
+                receipt = json.loads(output.read_text(encoding="utf-8"))
+                self.assertIn("-p:RunDesktopUpdateRuntimeTestsOnly=true", receipt["command"])
+                self.assertFalse(receipt["timed_out"])
                 VERIFY.RECEIPT_PATH = output
                 self.assertEqual(VERIFY.main(), 0)
             finally:
@@ -82,6 +85,48 @@ class DesktopUpdateRuntimeReceiptTests(unittest.TestCase):
                 MATERIALIZE.OUTPUT_PATH = original_output
                 MATERIALIZE._resolve_desktop_repo_root = original_resolve
                 VERIFY.RECEIPT_PATH = original_verify
+
+    def test_materialize_timeout_replaces_receipt_with_failed_result(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            fake_repo_root = root / "Chummer6"
+            fake_repo_root.mkdir()
+            desktop_repo = root / "chummer-presentation"
+            project = desktop_repo / "Chummer.Tests"
+            project.mkdir(parents=True)
+            (project / "Chummer.Tests.csproj").write_text("<Project />\n", encoding="utf-8")
+            (project / "DesktopUpdateRuntimeTests.cs").write_text(
+                "public sealed class DesktopUpdateRuntimeTests {}\n",
+                encoding="utf-8",
+            )
+            output = root / "DESKTOP_UPDATE_RUNTIME.generated.json"
+            output.write_text('{"status":"passed"}\n', encoding="utf-8")
+
+            original_repo_root = MATERIALIZE.REPO_ROOT
+            original_output = MATERIALIZE.OUTPUT_PATH
+            original_resolve = MATERIALIZE._resolve_desktop_repo_root
+            try:
+                MATERIALIZE.REPO_ROOT = fake_repo_root
+                MATERIALIZE.OUTPUT_PATH = output
+                MATERIALIZE._resolve_desktop_repo_root = lambda: desktop_repo
+                timeout = MATERIALIZE.subprocess.TimeoutExpired(
+                    ["dotnet", "test"],
+                    900,
+                    output=b"Test run started\n",
+                )
+                with patch.object(MATERIALIZE.subprocess, "run", side_effect=timeout):
+                    self.assertEqual(MATERIALIZE.main(), 1)
+            finally:
+                MATERIALIZE.REPO_ROOT = original_repo_root
+                MATERIALIZE.OUTPUT_PATH = original_output
+                MATERIALIZE._resolve_desktop_repo_root = original_resolve
+
+            receipt = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(receipt["status"], "failed")
+            self.assertTrue(receipt["timed_out"])
+            self.assertEqual(receipt["result"]["exit_code"], MATERIALIZE.TIMEOUT_EXIT_CODE)
+            self.assertTrue(receipt["result"]["timed_out"])
+            self.assertIn("-p:RunDesktopUpdateRuntimeTestsOnly=true", receipt["command"])
 
     def test_verify_rejects_failed_receipt(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -99,17 +144,19 @@ class DesktopUpdateRuntimeReceiptTests(unittest.TestCase):
                             "test",
                             "--project",
                             "Chummer.Tests/Chummer.Tests.csproj",
-                            "-p:RunDesktopUpdateTestsOnly=true",
+                            "-p:RunDesktopUpdateRuntimeTestsOnly=true",
                             "--filter",
                             "FullyQualifiedName~DesktopUpdateRuntimeTests",
                             "-v",
                             "minimal",
                         ],
                         "timeout_seconds": 900,
+                        "timed_out": False,
                         "run_desktop_update_tests_only": True,
                         "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
                         "result": {
                             "exit_code": 1,
+                            "timed_out": False,
                             "summary_lines": ["Failed!  - Failed:     1, Passed:    42, Skipped:     0, Total:    43, Duration: 2 s"],
                             "mentions_passed_banner": False,
                             "mentions_desktop_update_runtime_tests": True,

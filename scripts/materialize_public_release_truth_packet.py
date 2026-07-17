@@ -19,6 +19,7 @@ HUB_REGISTRY_PATHS_ENV = "CHUMMER_HUB_REGISTRY_PATHS"
 PORTAL_RELEASE_CHANNEL_PATHS_ENV = "CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS"
 RELEASE_CHANNEL_RELATIVE_PATH = Path(".codex-studio/published/RELEASE_CHANNEL.generated.json")
 RELEASE_CHANNEL_COMPAT_RELATIVE_PATH = Path(".codex-studio/published/releases.json")
+CANONICAL_RELEASE_CHANNEL_SOURCE = "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json"
 
 
 PLATFORM_LABELS = {
@@ -28,6 +29,12 @@ PLATFORM_LABELS = {
     "osx": "macOS",
 }
 PLATFORM_ORDER = ("windows", "linux", "macos")
+ARCHITECTURE_SCOPE_EXPECTATIONS = (
+    ("linux", "linux-x64", "Linux x64"),
+    ("windows", "win-x64", "Windows x64"),
+    ("linux", "linux-arm64", "Linux ARM64"),
+    ("windows", "win-arm64", "Windows ARM64"),
+)
 
 
 def _load_json(path: Path) -> dict[str, object]:
@@ -35,13 +42,8 @@ def _load_json(path: Path) -> dict[str, object]:
 
 
 def _public_source_label(path: Path) -> str:
-    resolved = path.resolve()
-    for base in (REPO_ROOT.parent.resolve(), REPO_ROOT.resolve()):
-        try:
-            return resolved.relative_to(base).as_posix()
-        except ValueError:
-            continue
-    return path.name
+    del path
+    return CANONICAL_RELEASE_CHANNEL_SOURCE
 
 
 def _split_path_list(env_name: str) -> list[Path]:
@@ -137,6 +139,43 @@ def _release_artifacts(release_payload: dict[str, object]) -> list[dict[str, obj
     return [item for item in raw if isinstance(item, dict)]
 
 
+def _release_tuple_coverage(release_payload: dict[str, object]) -> dict[str, object]:
+    payload = release_payload.get("desktopTupleCoverage")
+    return payload if isinstance(payload, dict) else {}
+
+
+def _promoted_installer_tuples(release_payload: dict[str, object]) -> list[dict[str, object]]:
+    raw = _release_tuple_coverage(release_payload).get("promotedInstallerTuples")
+    if not isinstance(raw, list):
+        return []
+    return [item for item in raw if isinstance(item, dict)]
+
+
+def _public_release_artifacts(release_payload: dict[str, object]) -> list[dict[str, object]]:
+    artifacts = _release_artifacts(release_payload)
+    promoted_ids = {
+        str(item.get("artifactId") or item.get("id") or "").strip()
+        for item in _promoted_installer_tuples(release_payload)
+        if str(item.get("artifactId") or item.get("id") or "").strip()
+    }
+    if promoted_ids:
+        selected = [
+            item
+            for item in artifacts
+            if str(item.get("artifactId") or item.get("id") or "").strip() in promoted_ids
+        ]
+        if selected:
+            return selected
+
+    return [
+        item
+        for item in artifacts
+        if str(item.get("kind") or "").strip() == "installer"
+        and str(item.get("compatibilityState") or "").strip() == "compatible"
+        and str(item.get("installAccessClass") or "").strip() == "open_public"
+    ]
+
+
 def _available_platforms(artifacts: list[dict[str, object]]) -> list[str]:
     present = {_platform_key(item.get("platform") or item.get("platformLabel")) for item in artifacts}
     labels: list[str] = []
@@ -144,6 +183,102 @@ def _available_platforms(artifacts: list[dict[str, object]]) -> list[str]:
         if key in present:
             labels.append(PLATFORM_LABELS[key])
     return labels
+
+
+def _missing_public_platforms(available_platforms: list[str]) -> list[str]:
+    present = {_platform_key(item) for item in available_platforms}
+    labels: list[str] = []
+    for key in PLATFORM_ORDER:
+        if key not in present:
+            labels.append(PLATFORM_LABELS[key])
+    return labels
+
+
+def _required_public_platforms(release_payload: dict[str, object]) -> list[str]:
+    raw = _release_tuple_coverage(release_payload).get("requiredDesktopPlatforms")
+    if not isinstance(raw, list):
+        return [PLATFORM_LABELS[key] for key in PLATFORM_ORDER]
+    required = {_platform_key(item) for item in raw}
+    return [PLATFORM_LABELS[key] for key in PLATFORM_ORDER if key in required]
+
+
+def _missing_required_public_platforms(
+    release_payload: dict[str, object],
+    available_platforms: list[str],
+) -> list[str]:
+    coverage = _release_tuple_coverage(release_payload)
+    explicit = coverage.get("missingRequiredPlatforms")
+    if isinstance(explicit, list):
+        missing = {_platform_key(item) for item in explicit}
+        return [PLATFORM_LABELS[key] for key in PLATFORM_ORDER if key in missing]
+
+    available = {_platform_key(item) for item in available_platforms}
+    return [label for label in _required_public_platforms(release_payload) if _platform_key(label) not in available]
+
+
+def _gold_supported_release(release_payload: dict[str, object], available_platforms: list[str]) -> bool:
+    coverage = _release_tuple_coverage(release_payload)
+    if (
+        _release_status_slug(release_payload.get("status")) != "published"
+        or str(release_payload.get("channelId") or "").strip() != "public_stable"
+        or str(release_payload.get("rolloutState") or "").strip() != "public_stable"
+        or str(release_payload.get("supportabilityState") or "").strip() != "gold_supported"
+        or coverage.get("complete") is not True
+    ):
+        return False
+
+    for field_name in (
+        "missingRequiredPlatforms",
+        "missingRequiredHeads",
+        "missingRequiredPlatformHeadPairs",
+        "missingRequiredPlatformHeadRidTuples",
+        "externalProofRequests",
+    ):
+        value = coverage.get(field_name)
+        if not isinstance(value, list) or value:
+            return False
+
+    required_platforms = {_platform_key(item) for item in _required_public_platforms(release_payload)}
+    available = {_platform_key(item) for item in available_platforms}
+    return bool(required_platforms) and required_platforms.issubset(available)
+
+
+def _public_head_label(value: object) -> str:
+    cleaned = str(value or "").strip().lower()
+    return {
+        "avalonia": "Chummer.Avalonia",
+        "chummer.avalonia": "Chummer.Avalonia",
+        "blazor-desktop": "Chummer.Blazor.Desktop",
+        "chummer.blazor.desktop": "Chummer.Blazor.Desktop",
+    }.get(cleaned, str(value or "").strip())
+
+
+def _primary_head(release_payload: dict[str, object]) -> str:
+    raw = _release_tuple_coverage(release_payload).get("requiredDesktopHeads")
+    if isinstance(raw, list):
+        for item in raw:
+            label = _public_head_label(item)
+            if label:
+                return label
+    for item in _promoted_installer_tuples(release_payload):
+        label = _public_head_label(item.get("head"))
+        if label:
+            return label
+    return ""
+
+
+def _fallback_heads(release_payload: dict[str, object]) -> list[str]:
+    raw = _release_tuple_coverage(release_payload).get("desktopRouteTruth")
+    if not isinstance(raw, list):
+        return []
+    heads: list[str] = []
+    for item in raw:
+        if not isinstance(item, dict) or str(item.get("routeRole") or "").strip() != "fallback":
+            continue
+        label = _public_head_label(item.get("head"))
+        if label and label not in heads:
+            heads.append(label)
+    return heads
 
 
 def _english_join(items: list[str]) -> str:
@@ -166,12 +301,60 @@ def _shelf_truth_line(status: object, available_platforms: list[str]) -> str:
     return "No public downloads are posted right now."
 
 
+def _missing_installer_lane_line(missing_platforms: list[str]) -> str:
+    if not missing_platforms:
+        return "Normal installers are available on the desktop platforms that are currently offered."
+    verb = "does" if len(missing_platforms) == 1 else "do"
+    return f"{_english_join(missing_platforms)} {verb} not have a normal installer yet."
+
+
+def _macos_architecture_label(rid: str, arch: str) -> str:
+    rid_clean = str(rid or "").strip().lower()
+    arch_clean = str(arch or "").strip().lower()
+    if "arm64" in rid_clean or arch_clean == "arm64":
+        return "macOS ARM64"
+    return "macOS x64"
+
+
+def _architecture_scope_line(release_payload: dict[str, object]) -> str:
+    promoted = _promoted_installer_tuples(release_payload)
+    promoted_keys = {
+        (_platform_key(item.get("platform")), str(item.get("rid") or "").strip())
+        for item in promoted
+    }
+
+    available_labels: list[str] = []
+    missing_labels: list[str] = []
+    for platform_key_value, rid, label in ARCHITECTURE_SCOPE_EXPECTATIONS:
+        if (platform_key_value, rid) in promoted_keys:
+            available_labels.append(label)
+        else:
+            missing_labels.append(label)
+
+    macos_labels = [
+        _macos_architecture_label(str(item.get("rid") or ""), str(item.get("arch") or ""))
+        for item in promoted
+        if _platform_key(item.get("platform")) == "macos"
+    ]
+    for label in macos_labels:
+        if label not in available_labels:
+            available_labels.append(label)
+
+    if not macos_labels:
+        missing_labels.append("macOS")
+
+    if available_labels:
+        line = f"Desktop downloads are available for {_english_join(available_labels)} only."
+    else:
+        line = "No public desktop downloads are posted today."
+    if missing_labels:
+        line = f"{line} No public download is posted for {_english_join(missing_labels)} yet."
+    return line
+
+
 def _public_known_issue_summary(release_payload: dict[str, object]) -> str:
     cleaned = str(release_payload.get("knownIssueSummary") or "").strip()
-    if not cleaned:
-        return ""
-    lowered = cleaned.lower()
-    if "current release checks are clear" in lowered:
+    if "current release checks are clear" in cleaned.lower():
         return "No current download blocker is listed for these installers."
     return cleaned
 
@@ -224,38 +407,64 @@ def build_packet(
     macos_source_build_contract: dict[str, object],
     release_source: str,
 ) -> dict[str, object]:
-    artifacts = _release_artifacts(release_payload)
+    artifacts = _public_release_artifacts(release_payload)
     available_platforms = _available_platforms(artifacts)
+    required_platforms = _required_public_platforms(release_payload)
+    missing_platforms = _missing_required_public_platforms(release_payload, available_platforms)
     status_slug = _release_status_slug(release_payload.get("status") or "unpublished")
     release_status = _release_status_label(status_slug)
     published_at = _format_public_datetime(release_payload.get("publishedAt") or release_payload.get("generatedAt") or "")
     shelf_truth_line = _shelf_truth_line(status_slug, available_platforms)
     published_line = f"Published: {published_at}." if published_at and status_slug == "published" else ""
+    gold_supported = _gold_supported_release(release_payload, available_platforms)
+    primary_head = _primary_head(release_payload) or "Chummer.Avalonia"
+    fallback_heads = _fallback_heads(release_payload)
+    platform_scope = _english_join(required_platforms) or "the currently supported desktop platforms"
 
     return {
-        "architecture_scope_line": "Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.",
+        "architecture_scope_line": _architecture_scope_line(release_payload),
         "available_platforms": available_platforms,
         "build_label": "",
-        "desktop_pick_line": "For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there.",
-        "fallback_heads": ["Chummer.Blazor.Desktop"],
+        "channel_id": str(release_payload.get("channelId") or "").strip(),
+        "desktop_pick_line": (
+            "Use the Avalonia installer listed for your platform; unpromoted fallback heads remain support-only."
+            if gold_supported and fallback_heads
+            else "Use the Avalonia installer listed for your platform."
+            if gold_supported
+            else "For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there."
+        ),
+        "desktop_tuple_coverage_complete": _release_tuple_coverage(release_payload).get("complete") is True,
+        "fallback_heads": fallback_heads,
         "fix_availability_summary": _fix_availability_summary(release_payload),
         "generated_from": release_source,
         "known_issue_summary": _public_known_issue_summary(release_payload),
         "linux_source_build_gate": _linux_gate_projection(linux_gate),
         "macos_source_build_contract": _macos_contract_projection(macos_source_build_contract),
-        "missing_installer_lane_line": "Normal installers are available on the desktop platforms that are currently offered.",
-        "missing_platforms": [],
-        "phase_label": "Current release build",
-        "primary_head": "Chummer.Avalonia",
+        "missing_installer_lane_line": _missing_installer_lane_line(missing_platforms),
+        "missing_platforms": missing_platforms,
+        "phase_label": "Gold-supported release" if gold_supported else "Current release build",
+        "primary_head": primary_head,
         "public_download_authority": "https://chummer.run/downloads",
         "published_at": published_at,
         "published_line": published_line,
-        "quality_gap_line": "The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.",
+        "quality_gap_line": (
+            f"The current promoted {platform_scope} release is gold-supported for its stated platform and desktop-head scope."
+            if gold_supported
+            else "The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity."
+        ),
+        "release_posture": "gold_supported" if gold_supported else "preview_or_review_required",
         "release_status": release_status,
         "release_status_slug": status_slug,
         "release_verification_summary": _release_verification_summary(release_payload),
+        "required_platforms": required_platforms,
+        "rollout_state": str(release_payload.get("rolloutState") or "").strip(),
         "shelf_truth_line": shelf_truth_line,
-        "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.",
+        "short_release_summary": (
+            f"Use the files linked on [Download](DOWNLOAD.md). The current {platform_scope} shelf is the supported release; platforms not listed there remain outside this release scope."
+            if gold_supported
+            else "Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time."
+        ),
+        "supportability_state": str(release_payload.get("supportabilityState") or "").strip(),
     }
 
 
