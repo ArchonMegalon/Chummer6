@@ -43,17 +43,22 @@ def main() -> int:
     _require(isinstance(command, list) and len(command) >= 8, "command must be recorded")
     _require(command[0] == "dotnet" and command[1] == "test", "command must run dotnet test")
     _require("--project" in command, "command must specify the test project")
-    _require("-p:RunDesktopUpdateTestsOnly=true" in command, "command must run the reduced updater test lane")
+    _require(
+        "-p:RunDesktopUpdateRuntimeTestsOnly=true" in command,
+        "command must run the isolated desktop update runtime test lane",
+    )
     _require("--filter" in command, "command must include a test filter")
     _require("FullyQualifiedName~DesktopUpdateRuntimeTests" in command, "command must target DesktopUpdateRuntimeTests")
 
     timeout_seconds = receipt.get("timeout_seconds")
     _require(isinstance(timeout_seconds, int) and timeout_seconds >= 60, "timeout_seconds must be a sane integer timeout")
+    _require(receipt.get("timed_out") is False, "desktop update runtime test must not time out")
     _require(receipt.get("run_desktop_update_tests_only") is True, "run_desktop_update_tests_only must be true")
     _require(str(receipt.get("filter") or "").strip() == "FullyQualifiedName~DesktopUpdateRuntimeTests", "filter mismatch")
 
     result = receipt.get("result")
     _require(isinstance(result, dict), "result block missing")
+    _require(result.get("timed_out") is False, "desktop update runtime result must not be timed out")
     _require(result.get("exit_code") == 0, "desktop update runtime test exit_code must be zero")
     _require(result.get("mentions_passed_banner") is True, "desktop update runtime test must emit a Passed banner")
     _require(result.get("mentions_desktop_update_runtime_tests") is True, "desktop update runtime test must mention DesktopUpdateRuntimeTests")

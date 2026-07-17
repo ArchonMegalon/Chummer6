@@ -103,10 +103,11 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         docker_line = 'bash "$repo_root/scripts/verify_linux_source_build_docker_gate.sh"'
         receipt_test_line = 'python3 "$repo_root/scripts/test_verify_linux_source_build_docker_gate_receipt.py" >/dev/null'
         receipt_verify_line = 'python3 "$repo_root/scripts/verify_linux_source_build_docker_gate_receipt.py" >/dev/null'
-        guide_line = 'bash "$repo_root/scripts/verify_public_guide.sh"'
+        guide_line = 'bash "$repo_root/scripts/verify_public_guide.sh" --skip-http'
         macos_contract_test_line = 'python3 "$repo_root/scripts/test_macos_source_build_contract_receipt.py" >/dev/null'
         macos_contract_materialize_line = 'python3 "$repo_root/scripts/materialize_macos_source_build_contract_receipt.py" >/dev/null'
         macos_contract_verify_line = 'python3 "$repo_root/scripts/verify_macos_source_build_contract_receipt.py" >/dev/null'
+        release_truth_test_line = 'python3 "$repo_root/scripts/test_materialize_public_release_truth_packet.py" >/dev/null'
         release_truth_materialize_line = 'python3 "$repo_root/scripts/materialize_public_release_truth_packet.py" >/dev/null'
         installer_update_test_line = 'python3 "$repo_root/scripts/test_installer_update_truth_receipt.py" >/dev/null'
         installer_update_materialize_line = 'python3 "$repo_root/scripts/materialize_installer_update_truth_receipt.py" >/dev/null'
@@ -126,6 +127,7 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         self.assertIn(macos_contract_test_line, script_text)
         self.assertIn(macos_contract_materialize_line, script_text)
         self.assertIn(macos_contract_verify_line, script_text)
+        self.assertIn(release_truth_test_line, script_text)
         self.assertIn(release_truth_materialize_line, script_text)
         self.assertIn(installer_update_test_line, script_text)
         self.assertIn(installer_update_materialize_line, script_text)
@@ -142,7 +144,8 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         self.assertLess(script_text.index(receipt_verify_line), script_text.index(macos_contract_test_line))
         self.assertLess(script_text.index(macos_contract_test_line), script_text.index(macos_contract_materialize_line))
         self.assertLess(script_text.index(macos_contract_materialize_line), script_text.index(macos_contract_verify_line))
-        self.assertLess(script_text.index(macos_contract_verify_line), script_text.index(release_truth_materialize_line))
+        self.assertLess(script_text.index(macos_contract_verify_line), script_text.index(release_truth_test_line))
+        self.assertLess(script_text.index(release_truth_test_line), script_text.index(release_truth_materialize_line))
         self.assertLess(script_text.index(release_truth_materialize_line), script_text.index(guide_line))
         self.assertLess(script_text.index(guide_line), script_text.index(installer_update_test_line))
         self.assertLess(script_text.index(installer_update_test_line), script_text.index(installer_update_materialize_line))
@@ -154,6 +157,11 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         self.assertLess(script_text.index(convergence_test_line), script_text.index(convergence_materialize_line))
         self.assertLess(script_text.index(convergence_materialize_line), script_text.index(convergence_verify_line))
         self.assertIn("LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json", (REPO_ROOT / "scripts" / "verify_linux_source_build_docker_gate.sh").read_text(encoding="utf-8"))
+
+    def test_release_wrapper_uses_skip_http_for_public_guide_verification(self) -> None:
+        script_text = RELEASE_VERIFY_SCRIPT.read_text(encoding="utf-8")
+
+        self.assertIn('bash "$repo_root/scripts/verify_public_guide.sh" --skip-http', script_text)
 
     def test_release_wrapper_executes_gate_steps_in_contract_order(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -201,6 +209,14 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
                 fake_root / "scripts" / "verify_macos_source_build_contract_receipt.py",
                 step_name="verify_macos_source_build_contract",
                 requires_receipts=["MACOS_SOURCE_BUILD_CONTRACT.generated.json"],
+            )
+            _write_python_stub(
+                fake_root / "scripts" / "test_materialize_public_release_truth_packet.py",
+                step_name="test_materialize_public_release_truth_packet",
+                requires_receipts=[
+                    "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json",
+                    "MACOS_SOURCE_BUILD_CONTRACT.generated.json",
+                ],
             )
             _write_python_stub(
                 fake_root / "scripts" / "materialize_public_release_truth_packet.py",
@@ -299,6 +315,7 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
                     "test_macos_source_build_contract",
                     "materialize_macos_source_build_contract",
                     "verify_macos_source_build_contract",
+                    "test_materialize_public_release_truth_packet",
                     "materialize_public_release_truth_packet",
                     "verify_public_guide",
                     "test_installer_update_truth",

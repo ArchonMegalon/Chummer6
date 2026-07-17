@@ -22,9 +22,15 @@ def test_build_packet_uses_release_channel_published_at_and_receipts() -> None:
                 "status": "passed",
                 "journeysPassed": ["install_claim_restore_continue"],
             },
+            "desktopTupleCoverage": {
+                "promotedInstallerTuples": [
+                    {"artifactId": "avalonia-linux-x64-installer", "platform": "linux", "rid": "linux-x64", "arch": "x64"},
+                    {"artifactId": "avalonia-win-x64-installer", "platform": "windows", "rid": "win-x64", "arch": "x64"},
+                ]
+            },
             "artifacts": [
-                {"platform": "linux", "arch": "x64", "kind": "installer"},
-                {"platform": "windows", "arch": "x64", "kind": "installer"},
+                {"artifactId": "avalonia-linux-x64-installer", "platform": "linux", "arch": "x64", "rid": "linux-x64", "kind": "installer", "compatibilityState": "compatible", "installAccessClass": "open_public"},
+                {"artifactId": "avalonia-win-x64-installer", "platform": "windows", "arch": "x64", "rid": "win-x64", "kind": "installer", "compatibilityState": "compatible", "installAccessClass": "open_public"},
             ],
         },
         linux_gate={
@@ -54,7 +60,10 @@ def test_build_packet_uses_release_channel_published_at_and_receipts() -> None:
 
     assert packet["published_line"] == "Published: June 30, 2026 at 8:32 UTC."
     assert packet["available_platforms"] == ["Windows", "Linux"]
+    assert packet["missing_platforms"] == ["macOS"]
     assert packet["shelf_truth_line"] == "Windows and Linux downloads are posted."
+    assert packet["architecture_scope_line"] == "Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet."
+    assert packet["missing_installer_lane_line"] == "macOS does not have a normal installer yet."
     assert packet["known_issue_summary"] == "No current download blocker is listed for these installers."
     assert packet["release_verification_summary"] == "This release covers installs and recovery, campaign session recovery, and support follow-up."
     assert packet["linux_source_build_gate"]["archive_sha256"] == "a" * 64
@@ -64,5 +73,5 @@ def test_build_packet_uses_release_channel_published_at_and_receipts() -> None:
 def test_public_source_label_keeps_workspace_paths_public_safe() -> None:
     source = MODULE.REPO_ROOT.parent / "chummer-hub-registry" / ".codex-studio" / "published" / "RELEASE_CHANNEL.generated.json"
 
-    assert MODULE._public_source_label(source) == "chummer-hub-registry/.codex-studio/published/RELEASE_CHANNEL.generated.json"
-    assert not MODULE._public_source_label(Path("/tmp/RELEASE_CHANNEL.generated.json")).startswith("/")
+    assert MODULE._public_source_label(source) == MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE
+    assert MODULE._public_source_label(Path("/tmp/RELEASE_CHANNEL.generated.json")) == MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE

@@ -21,26 +21,27 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 | Build or tweak a runner | A similar dense desktop flow, but with a stronger push to explain why totals changed. |
 | Chase a weird modifier | A clearer record trail instead of reconstructing the math from memory. |
 | Come back after a bad install, lost device, or broken update | Recovery, download, and help are treated as product work instead of an afterthought. |
-| Check whether the preview is ready for you | The status page, download shelf, and help page are meant to answer that directly. |
+| Check whether the current release fits your platform | The status page, download shelf, and help page are meant to answer that directly. |
 
 ## What is still rough
 
-- Windows and Linux downloads are posted.
-- Character math is not the main thing to worry about now. The rougher edges are installer polish, update polish, and support polish.
-- If you rely on macOS as your main platform, wait before switching full time.
+- macOS downloads are posted.
+- The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.
+- Public downloads are already visible on every promised desktop platform.
+- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
 - Treat the current shelf as a serious preview, not a fully settled every-platform replacement yet.
 
 ## Should you switch today?
 
-- Today you can try the current builds on Windows and Linux.
+- Today you can try the current builds on macOS.
 
-### If you mostly live on Windows and like testing real previews
+### If your platform is on the current download shelf
 
 - It is worth a serious look.
 
-### If Linux or macOS is your daily route
+### If your platform is outside the current download shelf
 
-- Wait until your platform is on the public shelf before making it your main path.
+- Keep your current setup until that platform has its own promoted installer and runtime evidence.
 
 ### If you need a settled replacement this week
 

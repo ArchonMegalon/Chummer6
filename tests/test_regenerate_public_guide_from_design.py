@@ -51,6 +51,11 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
         verify_script = (REPO_ROOT / "scripts" / "verify_public_guide.sh").read_text(encoding="utf-8")
         self.assertIn("test_verify_linux_source_build_surface.py", verify_script)
 
+    def test_verify_script_supports_skip_http_mode(self) -> None:
+        verify_script = (REPO_ROOT / "scripts" / "verify_public_guide.sh").read_text(encoding="utf-8")
+        self.assertIn("--skip-http)", verify_script)
+        self.assertIn('link_args+=(--skip-http)', verify_script)
+
     def test_wrapper_runs_generator_sync_and_verify_in_order(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
@@ -141,6 +146,15 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
                 import sys
                 with open(os.environ["CALL_LOG"], "a", encoding="utf-8") as handle:
                     handle.write("sync " + " ".join(sys.argv[1:]) + "\\n")
+                """
+            ),
+            encoding="utf-8",
+        )
+        (chummer6_root / "scripts" / "materialize_public_release_truth_packet.py").write_text(
+            textwrap.dedent(
+                """\
+                #!/usr/bin/env python3
+                raise SystemExit(0)
                 """
             ),
             encoding="utf-8",

@@ -17,7 +17,7 @@ Builders get grounded what-if tests instead of vague assistant advice.
 
 ### [Origin Dossier](origin-dossier.md)
 
-The player gets an accepted origin story, portraits, narration, and later ALICE context without letting backstory prose rewrite the sheet.
+The player gets a full private origin story ebook with fitted cover art, then three portrait choices, an optional chosen-voice audiobook request, one later cinematic scene choice, and later ALICE context without letting backstory prose rewrite the sheet.
 
 ### [Jackpoint](jackpoint.md)
 
@@ -43,3 +43,7 @@ Mission spaces become explorable and legible before the action starts.
 ### [Runbook Press](runbook-press.md)
 
 Long-form publishing becomes something you can actually reuse instead of a ten-tool scramble.
+
+### [Black Ledger](black-ledger.md)
+
+The city starts to remember pressure, factions, heat, and consequences between sessions.

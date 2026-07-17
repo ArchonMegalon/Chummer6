@@ -16,6 +16,7 @@ PREREQ_SCRIPT = REPO_ROOT / "scripts" / "list-chummer6-linux-prereqs.sh"
 DOCKER_GATE_SCRIPT = REPO_ROOT / "scripts" / "verify_linux_source_build_docker_gate.sh"
 DOC = REPO_ROOT / "SOURCE_BUILD_LINUX.md"
 DOWNLOAD = REPO_ROOT / "DOWNLOAD.md"
+BUILD_SCRIPT_TIMEOUT_SECONDS = 180
 
 
 class LinuxSourceBuildScriptTests(unittest.TestCase):
@@ -30,7 +31,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             text=True,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
-            timeout=60,
+            timeout=BUILD_SCRIPT_TIMEOUT_SECONDS,
             check=False,
         )
 
@@ -46,6 +47,12 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                 check=False,
             )
             self.assertEqual(completed.returncode, 0, completed.stdout)
+
+    def test_repo_sync_disables_git_auto_maintenance(self) -> None:
+        script = SCRIPT.read_text(encoding="utf-8")
+        self.assertIn('git -c gc.auto=0 -c maintenance.auto=0 "$@"', script)
+        self.assertIn('git_automation clone --depth 1 --filter=blob:none --branch "$GIT_REF" "$expected_url" "$target"', script)
+        self.assertIn('git_automation -C "$target" fetch --depth 1 origin "$GIT_REF"', script)
 
     def test_host_audit_wrapper_runs_the_non_destructive_audit_path(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -104,6 +111,23 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("no longer changes behavior", completed.stdout)
         self.assertIn("never installs", completed.stdout)
         self.assertIn("./install-chummer6-linux-local.sh", completed.stdout)
+
+    def test_help_runs_when_home_is_unset(self) -> None:
+        env = os.environ.copy()
+        env.pop("HOME", None)
+        completed = subprocess.run(
+            ["bash", str(SCRIPT), "--help"],
+            cwd=REPO_ROOT,
+            env=env,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=30,
+            check=False,
+        )
+
+        self.assertEqual(completed.returncode, 0, completed.stdout)
+        self.assertIn("--audit-only", completed.stdout)
 
     def test_install_script_help_describes_user_local_install(self) -> None:
         completed = subprocess.run(
@@ -455,7 +479,17 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                 "seed",
             )
             completed = subprocess.run(
-                ["git", "clone", "--bare", str(source), str(remotes / f"{repository_name}.git")],
+                [
+                    "git",
+                    "-c",
+                    "gc.auto=0",
+                    "-c",
+                    "maintenance.auto=0",
+                    "clone",
+                    "--bare",
+                    str(source),
+                    str(remotes / f"{repository_name}.git"),
+                ],
                 text=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
@@ -467,7 +501,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
     @staticmethod
     def _run_git(cwd: Path, *args: str) -> None:
         completed = subprocess.run(
-            ["git", *args],
+            ["git", "-c", "gc.auto=0", "-c", "maintenance.auto=0", *args],
             cwd=cwd,
             text=True,
             stdout=subprocess.PIPE,

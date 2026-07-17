@@ -14,6 +14,7 @@ RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
 OUTPUT_PATH = RECEIPTS_ROOT / "DESKTOP_UPDATE_RUNTIME.generated.json"
 DEFAULT_FILTER = "FullyQualifiedName~DesktopUpdateRuntimeTests"
 DEFAULT_TIMEOUT_SECONDS = 900
+TIMEOUT_EXIT_CODE = 124
 
 
 def _resolve_desktop_repo_root() -> Path:
@@ -34,16 +35,41 @@ def _display_path(path: Path, base: Path) -> str:
         return str(path)
 
 
-def _run_command(command: list[str], cwd: Path, timeout_seconds: int) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(
-        command,
-        cwd=cwd,
-        text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        timeout=timeout_seconds,
-        check=False,
-    )
+def _coerce_output(value: str | bytes | None) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, bytes):
+        return value.decode("utf-8", errors="replace")
+    return value
+
+
+def _run_command(
+    command: list[str],
+    cwd: Path,
+    timeout_seconds: int,
+) -> tuple[subprocess.CompletedProcess[str], bool]:
+    try:
+        return (
+            subprocess.run(
+                command,
+                cwd=cwd,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                timeout=timeout_seconds,
+                check=False,
+            ),
+            False,
+        )
+    except subprocess.TimeoutExpired as exc:
+        return (
+            subprocess.CompletedProcess(
+                command,
+                TIMEOUT_EXIT_CODE,
+                stdout=_coerce_output(exc.output),
+            ),
+            True,
+        )
 
 
 def _summarize_output(output: str) -> list[str]:
@@ -86,12 +112,13 @@ def main() -> int:
             "--nologo",
             "-m:1",
         ]
-        prereq_result = _run_command(prereq_command, desktop_repo_root, timeout_seconds)
+        prereq_result, prereq_timed_out = _run_command(prereq_command, desktop_repo_root, timeout_seconds)
         prebuild_commands.append(
             {
                 "project": str(prereq_project_path),
                 "command": prereq_command,
                 "exit_code": prereq_result.returncode,
+                "timed_out": prereq_timed_out,
                 "summary_lines": _summarize_output(prereq_result.stdout or ""),
             }
         )
@@ -109,10 +136,12 @@ def main() -> int:
                 "prebuild_commands": prebuild_commands,
                 "command": [],
                 "timeout_seconds": timeout_seconds,
+                "timed_out": prereq_timed_out,
                 "run_desktop_update_tests_only": True,
                 "filter": filter_value,
                 "result": {
                     "exit_code": prereq_result.returncode,
+                    "timed_out": prereq_timed_out,
                     "summary_lines": _summarize_output(prereq_result.stdout or ""),
                     "mentions_passed_banner": False,
                     "mentions_desktop_update_runtime_tests": False,
@@ -128,15 +157,15 @@ def main() -> int:
         "test",
         "--project",
         str(test_project_path),
-        "-p:RunDesktopUpdateTestsOnly=true",
+        "-p:RunDesktopUpdateRuntimeTestsOnly=true",
         "--filter",
         filter_value,
         "-v",
         "minimal",
     ]
-    completed = _run_command(command, desktop_repo_root, timeout_seconds)
+    completed, test_timed_out = _run_command(command, desktop_repo_root, timeout_seconds)
     output_text = completed.stdout or ""
-    passed = completed.returncode == 0
+    passed = completed.returncode == 0 and not test_timed_out
     output = {
         "contract_name": "ea.chummer6_desktop_update_runtime.v1",
         "status": "passed" if passed else "failed",
@@ -150,10 +179,12 @@ def main() -> int:
         "prebuild_commands": prebuild_commands,
         "command": command,
         "timeout_seconds": timeout_seconds,
+        "timed_out": test_timed_out,
         "run_desktop_update_tests_only": True,
         "filter": filter_value,
         "result": {
             "exit_code": completed.returncode,
+            "timed_out": test_timed_out,
             "summary_lines": _summarize_output(output_text),
             "mentions_passed_banner": "Passed!" in output_text,
             "mentions_desktop_update_runtime_tests": "DesktopUpdateRuntimeTests" in output_text or filter_value == DEFAULT_FILTER,

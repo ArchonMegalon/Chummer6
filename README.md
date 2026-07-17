@@ -15,13 +15,13 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 ## What is real now
 
 - Short answer: yes, as an early preview.
-- Windows and Linux downloads are posted.
+- macOS downloads are posted.
 - Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
 - For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there.
 - Use Avalonia first when the download page offers it.
-- Character math is being treated carefully. The rough edges are mostly installer polish, update polish, and support polish.
-- Today: Usable preview.
-- Still missing from the public download page: macOS.
+- The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.
+- Today: Current release build.
+- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
 - The current shelf should be read as a real preview, not a finished no-step-back release.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
@@ -65,7 +65,7 @@ Use the public participation path when you want to report a problem, flag confus
 ## Product parts
 
 - [Parts index](PARTS/README.md): an inside view of how the app is put together.
-- [Campaign tools](HORIZONS/README.md): future table and campaign tools that are not ready today.
+- [Campaign tools](HORIZONS/README.md): table and campaign lanes with their current availability stated individually.
 
 ## Need help
 

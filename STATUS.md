@@ -4,14 +4,13 @@ This is the blunt answer on what you can use today.
 
 ## Current picture
 
-- Today: Usable preview.
-- Published: June 30, 2026 at 8:32 UTC.
+- Today: Current release build.
+- Published: July 15, 2026 at 14:06 UTC.
 - Release status: Published.
-- Windows and Linux downloads are posted.
-- Desktop downloads are available for Linux x64 and Windows x64 only. No download is posted for Windows ARM64, Linux ARM64, and macOS x64 yet.
-- Still missing from the public download page: macOS.
+- macOS downloads are posted.
+- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
 - Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: No current download blocker is listed for these installers.
+- Current warning: Preview caveats still apply, but the current release has recent install, account return, release updates, community wrap-up, bounded offline prefetch, and current support follow-up coverage.
 - Help, contact, privacy, and terms pages are live.
 
 ## Download and install first

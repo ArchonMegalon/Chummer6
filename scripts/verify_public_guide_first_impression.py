@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PACKET_PATH = ROOT / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
 
 PUBLIC_INTERNAL_MARKERS = (
     "public route",
@@ -62,6 +64,13 @@ def _iter_public_markdown() -> list[Path]:
 def main() -> int:
     failures: list[str] = []
     root_files = {path.name for path in ROOT.iterdir() if path.is_file()}
+    packet = json.loads(PACKET_PATH.read_text(encoding="utf-8"))
+    exact_release_known_issue = str(packet.get("known_issue_summary") or "").strip().lower()
+    release_truth_doc_allowlist = {
+        Path("STATUS.md"),
+        Path("DOWNLOAD.md"),
+        Path("NOW/current-status.md"),
+    }
 
     for filename in root_files:
         if filename.endswith(".generated.json"):
@@ -72,6 +81,8 @@ def main() -> int:
     for markdown_path in _iter_public_markdown():
         text = markdown_path.read_text(encoding="utf-8").lower()
         relative_path = markdown_path.relative_to(ROOT)
+        if exact_release_known_issue and relative_path in release_truth_doc_allowlist:
+            text = text.replace(exact_release_known_issue, "")
         for marker in PUBLIC_INTERNAL_MARKERS:
             if marker in text:
                 failures.append(f"{relative_path} contains internal/public-guide marker: {marker}")

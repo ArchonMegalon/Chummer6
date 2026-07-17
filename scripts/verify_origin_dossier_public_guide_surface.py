@@ -12,17 +12,17 @@ ORIGIN_IMAGE = ROOT / "assets" / "horizons" / "origin-dossier.png"
 
 REQUIRED = (
     "# Origin Dossier",
-    "The player gets an accepted origin story, portraits, narration, and later ALICE context without letting backstory prose rewrite the sheet.",
+    "The player gets a full private origin story ebook with fitted cover art, then three portrait choices, an optional chosen-voice audiobook request, one later cinematic scene choice, and later ALICE context without letting backstory prose rewrite the sheet.",
     "## When this helps",
     "Open Origin Dossier when a legal sheet still feels unfinished as a person.",
-    "contacts, debts, enemies, scars, secrets, portraits, narration",
-    "the accepted origin can become a private audiobook for that runner",
+    "full private origin ebook with fitted cover art, exactly three story-fit portrait choices, consented runner link-code history, an optional voice-choice audiobook request, and one selected cinematic chapter scene",
+    "the option to request a private audiobook for that runner",
     "EA-issued player link",
     "must never rewrite the sheet",
     "global Audiobookshelf login",
     "decide who the character is",
     "## Can I use it?",
-    "There is an early version you can try.",
+    "The signed-in lane is real today",
 )
 
 FORBIDDEN = (

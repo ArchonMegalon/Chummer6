@@ -95,11 +95,29 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 [
                     "# Download",
                     "Windows and Linux downloads start on `chummer.run`. macOS stays on a guided support path.",
+                    packet["published_line"],
+                    f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
                     "Downloads are served from chummer.run.",
                     packet["release_verification_summary"],
                     packet["known_issue_summary"],
                     download_warning_line,
+                ]
+            ),
+            encoding="utf-8",
+        )
+        now_dir = root / "NOW"
+        now_dir.mkdir(parents=True, exist_ok=True)
+        (now_dir / "current-status.md").write_text(
+            "\n".join(
+                [
+                    "# Current status",
+                    packet["published_line"],
+                    f"- Release status: {packet['release_status']}.",
+                    packet["shelf_truth_line"],
+                    packet["architecture_scope_line"],
+                    packet["release_verification_summary"],
+                    packet["known_issue_summary"],
                 ]
             ),
             encoding="utf-8",
@@ -333,6 +351,91 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             try:
                 MODULE.REPO_ROOT = root
                 MODULE.PACKET_PATH = packet_path
+                MODULE.README_PATH = root / "README.md"
+                MODULE.STATUS_PATH = root / "STATUS.md"
+                MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
+                MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
+                with self.assertRaises(ValueError):
+                    MODULE.main()
+            finally:
+                MODULE.REPO_ROOT = original_root
+                MODULE.PACKET_PATH = original_packet
+                MODULE.README_PATH = original_readme
+                MODULE.STATUS_PATH = original_status
+                MODULE.DOWNLOAD_PATH = original_download
+                MODULE.MIGRATION_PATH = original_migration
+
+    def test_main_fails_when_download_reintroduces_github_release_link(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self._write_fixture(
+                root,
+                shelf_truth_line="Windows and Linux downloads are posted.",
+                available_platforms=["Windows", "Linux"],
+                missing_platforms=[],
+                missing_installer_lane_line="Normal installers are available on every promised desktop platform.",
+                architecture_scope_line="Desktop downloads are available for Linux x64 and Windows x64 only.",
+                download_warning_line="Preview caveats still apply.",
+                migration_preview_line="Today you can try the current builds on Windows and Linux.",
+            )
+            (root / "DOWNLOAD.md").write_text(
+                (root / "DOWNLOAD.md").read_text(encoding="utf-8")
+                + "\n- [Raw GitHub releases](https://github.com/ArchonMegalon/Chummer6/releases)\n",
+                encoding="utf-8",
+            )
+            original_root = MODULE.REPO_ROOT
+            original_packet = MODULE.PACKET_PATH
+            original_readme = MODULE.README_PATH
+            original_status = MODULE.STATUS_PATH
+            original_download = MODULE.DOWNLOAD_PATH
+            original_migration = MODULE.MIGRATION_PATH
+            try:
+                MODULE.REPO_ROOT = root
+                MODULE.PACKET_PATH = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+                MODULE.README_PATH = root / "README.md"
+                MODULE.STATUS_PATH = root / "STATUS.md"
+                MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
+                MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
+                with self.assertRaises(ValueError):
+                    MODULE.main()
+            finally:
+                MODULE.REPO_ROOT = original_root
+                MODULE.PACKET_PATH = original_packet
+                MODULE.README_PATH = original_readme
+                MODULE.STATUS_PATH = original_status
+                MODULE.DOWNLOAD_PATH = original_download
+                MODULE.MIGRATION_PATH = original_migration
+
+    def test_main_fails_when_download_published_line_drifts(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self._write_fixture(
+                root,
+                shelf_truth_line="Windows and Linux downloads are posted.",
+                available_platforms=["Windows", "Linux"],
+                missing_platforms=[],
+                missing_installer_lane_line="Normal installers are available on every promised desktop platform.",
+                architecture_scope_line="Desktop downloads are available for Linux x64 and Windows x64 only.",
+                download_warning_line="Preview caveats still apply.",
+                migration_preview_line="Today you can try the current builds on Windows and Linux.",
+            )
+            download_path = root / "DOWNLOAD.md"
+            download_path.write_text(
+                download_path.read_text(encoding="utf-8").replace(
+                    "Published: June 21, 2026 at 5:53 UTC.",
+                    "Published: June 20, 2026 at 9:00 UTC.",
+                ),
+                encoding="utf-8",
+            )
+            original_root = MODULE.REPO_ROOT
+            original_packet = MODULE.PACKET_PATH
+            original_readme = MODULE.README_PATH
+            original_status = MODULE.STATUS_PATH
+            original_download = MODULE.DOWNLOAD_PATH
+            original_migration = MODULE.MIGRATION_PATH
+            try:
+                MODULE.REPO_ROOT = root
+                MODULE.PACKET_PATH = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
                 MODULE.README_PATH = root / "README.md"
                 MODULE.STATUS_PATH = root / "STATUS.md"
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"

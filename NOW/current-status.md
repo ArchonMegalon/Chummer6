@@ -4,13 +4,13 @@ This is the short current-state page for release crawlers and readers who want t
 
 ## Today
 
-- Product state: Usable preview.
+- Product state: Current release build.
 - Release status: Published.
-- Windows and Linux downloads are posted.
-- Last refreshed: June 30, 2026 at 8:32 UTC.
-- Still missing from the public download page: macOS.
+- macOS downloads are posted.
+- Published: July 15, 2026 at 14:06 UTC.
+- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
 - Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: No current download blocker is listed for these installers.
+- Current warning: Preview caveats still apply, but the current release has recent install, account return, release updates, community wrap-up, bounded offline prefetch, and current support follow-up coverage.
 
 ## Start here
 

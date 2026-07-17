@@ -5,3 +5,7 @@
 # Python verification scripts generate bytecode locally.
 __pycache__/
 *.py[cod]
+
+# Local analysis and verification state.
+/.vexp/
+/.tmp/

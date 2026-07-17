@@ -2,15 +2,20 @@
 from __future__ import annotations
 
 import json
+import os
+import re
+import subprocess
 from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+SCRIPT_ROOT = Path(__file__).resolve().parent
 PACKET_PATH = REPO_ROOT / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
 README_PATH = REPO_ROOT / "README.md"
 STATUS_PATH = REPO_ROOT / "STATUS.md"
 DOWNLOAD_PATH = REPO_ROOT / "DOWNLOAD.md"
 MIGRATION_PATH = REPO_ROOT / "FROM_CHUMMER5A_TO_CHUMMER6.md"
+FORBIDDEN_GITHUB_RELEASES_LINK = re.compile(r"github\.com/.*/releases", re.IGNORECASE)
 
 
 def _load_text(path: Path) -> str:
@@ -22,12 +27,41 @@ def _require_contains(name: str, haystack: str, needle: str) -> None:
         raise ValueError(f"{name} is missing required release-status line: {needle!r}")
 
 
+def _candidate_registry_manifest_paths() -> list[Path]:
+    paths: list[Path] = []
+    override = os.environ.get("CHUMMER_REGISTRY_RELEASE_CHANNEL", "").strip()
+    if override:
+        paths.append(Path(override))
+    for candidate in (
+        REPO_ROOT.parent / "chummer-hub-registry" / ".codex-studio" / "published" / "RELEASE_CHANNEL.generated.json",
+        REPO_ROOT.parent / "chummer6-hub-registry" / ".codex-studio" / "published" / "RELEASE_CHANNEL.generated.json",
+    ):
+        paths.append(candidate)
+    return paths
+
+
+def _maybe_verify_registry_alignment() -> None:
+    registry_manifest = next((path for path in _candidate_registry_manifest_paths() if path.is_file()), None)
+    if registry_manifest is None:
+        return
+
+    env = os.environ.copy()
+    env.setdefault("CHUMMER_REGISTRY_RELEASE_CHANNEL", str(registry_manifest))
+    subprocess.run(
+        ["python3", str(SCRIPT_ROOT / "verify_public_downloads_match_registry.py")],
+        check=True,
+        env=env,
+        stdout=subprocess.DEVNULL,
+    )
+
+
 def main() -> int:
     packet = json.loads(PACKET_PATH.read_text(encoding="utf-8"))
     readme = _load_text(README_PATH)
     status = _load_text(STATUS_PATH)
     download = _load_text(DOWNLOAD_PATH)
     migration = _load_text(MIGRATION_PATH)
+    current_status = _load_text(REPO_ROOT / "NOW" / "current-status.md")
 
     _require_contains("README.md", readme, str(packet.get("shelf_truth_line") or ""))
     _require_contains("README.md", readme, str(packet.get("short_release_summary") or ""))
@@ -82,6 +116,15 @@ def main() -> int:
         _require_contains("STATUS.md", status, missing_installer_lane_line)
     if architecture_scope_line:
         _require_contains("STATUS.md", status, architecture_scope_line)
+        _require_contains("NOW/current-status.md", current_status, architecture_scope_line)
+
+    _require_contains("NOW/current-status.md", current_status, str(packet.get("shelf_truth_line") or ""))
+    if published_line:
+        _require_contains("NOW/current-status.md", current_status, published_line)
+    if release_status:
+        _require_contains("NOW/current-status.md", current_status, f"- Release status: {release_status}.")
+    _require_contains("NOW/current-status.md", current_status, str(packet.get("release_verification_summary") or ""))
+    _require_contains("NOW/current-status.md", current_status, str(packet.get("known_issue_summary") or ""))
 
     if "Proof scope:" in download or "Claim boundary:" in download or "blanket flagship" in download:
         raise ValueError("DOWNLOAD.md reintroduced proof-scope copy")
@@ -89,6 +132,12 @@ def main() -> int:
         raise ValueError("DOWNLOAD.md lost the human download opening")
     if "chummer.run" not in download:
         raise ValueError("DOWNLOAD.md lost the chummer.run download authority")
+    if FORBIDDEN_GITHUB_RELEASES_LINK.search(download):
+        raise ValueError("DOWNLOAD.md reintroduced GitHub release acquisition wording")
+    if published_line:
+        _require_contains("DOWNLOAD.md", download, published_line)
+    if release_status:
+        _require_contains("DOWNLOAD.md", download, f"- Release status: {release_status}.")
     _require_contains("DOWNLOAD.md", download, str(packet.get("shelf_truth_line") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("release_verification_summary") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("known_issue_summary") or ""))
@@ -131,9 +180,11 @@ def main() -> int:
             )
             warning_line = (
                 f"{', '.join(missing_platforms[:-1])}, and {missing_platforms[-1]} do not have normal installers yet."
-            )
+        )
         _require_contains("FROM_CHUMMER5A_TO_CHUMMER6.md", migration, wait_line)
         _require_contains("STATUS.md", status, warning_line)
+
+    _maybe_verify_registry_alignment()
 
     print("chummer6_docs_release_truth:ok")
     return 0
