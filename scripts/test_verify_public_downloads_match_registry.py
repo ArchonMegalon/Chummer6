@@ -46,7 +46,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                             "sizeBytes": 37024862,
                             "platformLabel": "Avalonia Desktop Linux X64 Installer",
                             "compatibilityState": "compatible",
-                            "installAccessClass": "open_public",
+                            "installAccessClass": "account_recommended",
                         },
                         {
                             "artifactId": "avalonia-win-x64-installer",
@@ -95,6 +95,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
         )
 
         packet = {
+            "authority": MODULE.resolve_release_authority(registry_path).authority,
             "generated_from": MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE,
             "available_platforms": ["Windows", "Linux"],
             "required_platforms": ["Windows", "Linux"],
@@ -180,7 +181,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                 MODULE.STATUS_PATH = root / "STATUS.md"
                 MODULE.PACKET_PATH = root / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
                 with mock.patch.dict(os.environ, {MODULE.REGISTRY_ENV: str(registry_path)}, clear=False):
-                    self.assertEqual(MODULE.main(), 0)
+                    self.assertEqual(MODULE.main([]), 0)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.DOWNLOAD_PATH = original_download
@@ -212,7 +213,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                 MODULE.PACKET_PATH = root / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
                 with mock.patch.dict(os.environ, {MODULE.REGISTRY_ENV: str(registry_path)}, clear=False):
                     with self.assertRaises(ValueError):
-                        MODULE.main()
+                        MODULE.main([])
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.DOWNLOAD_PATH = original_download
@@ -279,6 +280,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
             packet = json.loads(packet_path.read_text(encoding="utf-8"))
             packet.update(
                 {
+                    "authority": MODULE.resolve_release_authority(registry_path).authority,
                     "available_platforms": ["macOS"],
                     "required_platforms": ["macOS"],
                     "missing_platforms": [],
@@ -345,7 +347,45 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                 MODULE.STATUS_PATH = root / "STATUS.md"
                 MODULE.PACKET_PATH = packet_path
                 with mock.patch.dict(os.environ, {MODULE.REGISTRY_ENV: str(registry_path)}, clear=False):
-                    self.assertEqual(MODULE.main(), 0)
+                    self.assertEqual(MODULE.main([]), 0)
+            finally:
+                MODULE.REPO_ROOT = original_root
+                MODULE.DOWNLOAD_PATH = original_download
+                MODULE.STATUS_PATH = original_status
+                MODULE.PACKET_PATH = original_packet
+
+    def test_registry_resolution_never_uses_mutable_sibling_fallback(self) -> None:
+        with mock.patch.dict(os.environ, {}, clear=True):
+            with self.assertRaisesRegex(FileNotFoundError, "explicit authority manifest"):
+                MODULE._resolve_registry_manifest()
+
+    def test_release_mode_requires_explicit_immutable_authority_flags(self) -> None:
+        with self.assertRaises(SystemExit) as raised:
+            MODULE.main(["--release"])
+        self.assertEqual(raised.exception.code, 2)
+
+    def test_main_rejects_packet_manifest_digest_drift(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir) / "Chummer6"
+            root.mkdir(parents=True, exist_ok=True)
+            registry_path = self._write_fixture(root)
+            packet_path = root / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+            packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            packet["authority"]["manifestSha256"] = "0" * 64
+            packet_path.write_text(json.dumps(packet, indent=2) + "\n", encoding="utf-8")
+
+            original_root = MODULE.REPO_ROOT
+            original_download = MODULE.DOWNLOAD_PATH
+            original_status = MODULE.STATUS_PATH
+            original_packet = MODULE.PACKET_PATH
+            try:
+                MODULE.REPO_ROOT = root
+                MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
+                MODULE.STATUS_PATH = root / "STATUS.md"
+                MODULE.PACKET_PATH = packet_path
+                with mock.patch.dict(os.environ, {MODULE.REGISTRY_ENV: str(registry_path)}, clear=False):
+                    with self.assertRaisesRegex(ValueError, "authority.manifestSha256"):
+                        MODULE.main([])
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.DOWNLOAD_PATH = original_download

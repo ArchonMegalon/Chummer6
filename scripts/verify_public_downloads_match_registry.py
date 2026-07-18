@@ -1,10 +1,28 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import re
 from pathlib import Path
+
+try:
+    from public_release_authority import (
+        ALLOWED_RELEASE_DECISION_STATUSES,
+        CANONICAL_RELEASE_CHANNEL_SOURCE,
+        public_release_artifacts as _authority_public_release_artifacts,
+        require_authority_match,
+        resolve_release_authority,
+    )
+except ModuleNotFoundError:  # Imported as scripts.verify_public_downloads_match_registry in tests.
+    from scripts.public_release_authority import (
+        ALLOWED_RELEASE_DECISION_STATUSES,
+        CANONICAL_RELEASE_CHANNEL_SOURCE,
+        public_release_artifacts as _authority_public_release_artifacts,
+        require_authority_match,
+        resolve_release_authority,
+    )
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -12,7 +30,7 @@ DOWNLOAD_PATH = REPO_ROOT / "DOWNLOAD.md"
 STATUS_PATH = REPO_ROOT / "STATUS.md"
 PACKET_PATH = REPO_ROOT / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
 REGISTRY_ENV = "CHUMMER_REGISTRY_RELEASE_CHANNEL"
-CANONICAL_RELEASE_CHANNEL_SOURCE = "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json"
+RELEASE_DECISION_ENV = "CHUMMER_RELEASE_DECISION_RECEIPT"
 
 PLATFORM_LABELS = {
     "windows": "Windows",
@@ -61,12 +79,13 @@ def _english_join(items: list[str]) -> str:
     return f"{', '.join(items[:-1])}, and {items[-1]}"
 
 
-def _public_source_label(path: Path) -> str:
-    del path
-    return CANONICAL_RELEASE_CHANNEL_SOURCE
+def _resolve_registry_manifest(explicit_path: Path | None = None) -> Path:
+    if explicit_path is not None:
+        candidate = explicit_path.expanduser()
+        if candidate.is_file():
+            return candidate
+        raise FileNotFoundError(f"Explicit authority manifest does not exist: {candidate}")
 
-
-def _resolve_registry_manifest() -> Path:
     override = os.environ.get(REGISTRY_ENV, "").strip()
     if override:
         candidate = Path(override).expanduser()
@@ -74,14 +93,10 @@ def _resolve_registry_manifest() -> Path:
             return candidate
         raise FileNotFoundError(f"{REGISTRY_ENV} does not point to a file: {candidate}")
 
-    candidates = (
-        REPO_ROOT.parent / "chummer-hub-registry" / ".codex-studio" / "published" / "RELEASE_CHANNEL.generated.json",
-        REPO_ROOT.parent / "chummer6-hub-registry" / ".codex-studio" / "published" / "RELEASE_CHANNEL.generated.json",
+    raise FileNotFoundError(
+        "Registry alignment requires an explicit authority manifest. "
+        f"Pass --authority-manifest or set {REGISTRY_ENV}."
     )
-    for candidate in candidates:
-        if candidate.is_file():
-            return candidate
-    raise FileNotFoundError("Could not resolve the canonical registry release channel manifest.")
 
 
 def _release_artifacts(release_payload: dict[str, object]) -> list[dict[str, object]]:
@@ -109,21 +124,7 @@ def _release_tuple_coverage(release_payload: dict[str, object]) -> dict[str, obj
 
 
 def _public_registry_artifacts(release_payload: dict[str, object]) -> list[dict[str, object]]:
-    artifacts = _release_artifacts(release_payload)
-    promoted_ids = {
-        str(item.get("artifactId") or item.get("id") or "").strip()
-        for item in _promoted_installer_tuples(release_payload)
-        if str(item.get("artifactId") or item.get("id") or "").strip()
-    }
-    if promoted_ids:
-        selected = [
-            item
-            for item in artifacts
-            if str(item.get("artifactId") or item.get("id") or "").strip() in promoted_ids
-        ]
-        if selected:
-            return selected
-    return artifacts
+    return _authority_public_release_artifacts(release_payload)
 
 
 def _available_platforms(artifacts: list[dict[str, object]]) -> list[str]:
@@ -364,6 +365,7 @@ def _verify_download_artifacts(download_text: str, release_payload: dict[str, ob
         access_class = str(registry_artifact.get("installAccessClass") or "").strip()
         expected_access = {
             "open_public": "Public download",
+            "account_recommended": "Public download",
             "account_required": "Sign-in required",
         }.get(access_class)
         if expected_access is None:
@@ -379,18 +381,26 @@ def _verify_download_artifacts(download_text: str, release_payload: dict[str, ob
             raise ValueError(f"Registry artifact {file_name} is not in desktopTupleCoverage.promotedInstallerTuples")
 
 
-def _verify_packet(packet: dict[str, object], release_payload: dict[str, object], registry_path: Path) -> None:
+def _verify_packet(
+    packet: dict[str, object],
+    release_payload: dict[str, object],
+    expected_authority: dict[str, object],
+) -> None:
     artifacts = _public_registry_artifacts(release_payload)
     available_platforms = _available_platforms(artifacts)
     required_platforms = _required_platforms(release_payload)
     missing_platforms = _missing_platforms(release_payload, available_platforms)
-    expected_source = _public_source_label(registry_path)
-    expected_shelf_truth = _shelf_truth_line(release_payload.get("status"), available_platforms)
+    expected_source = str(expected_authority.get("servedMirror") or "").strip()
+    expected_shelf_truth = _shelf_truth_line(
+        release_payload.get("releaseStatus") or release_payload.get("status"),
+        available_platforms,
+    )
     expected_architecture_line = _architecture_scope_line(release_payload)
     expected_missing_line = _missing_installer_lane_line(missing_platforms)
 
+    require_authority_match(packet, expected_authority)
     if str(packet.get("generated_from") or "").strip() != expected_source:
-        raise ValueError("release truth packet generated_from does not point at the canonical registry manifest")
+        raise ValueError("release truth packet generated_from does not point at the served release mirror")
     if list(packet.get("available_platforms") or []) != available_platforms:
         raise ValueError("release truth packet available_platforms drifted from the canonical registry manifest")
     if list(packet.get("required_platforms") or []) != required_platforms:
@@ -405,20 +415,68 @@ def _verify_packet(packet: dict[str, object], release_payload: dict[str, object]
         raise ValueError("release truth packet missing_installer_lane_line drifted from the canonical registry manifest")
 
 
-def main() -> int:
-    registry_path = _resolve_registry_manifest()
-    release_payload = _load_json(registry_path)
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Verify public downloads against an explicit Registry authority manifest.")
+    parser.add_argument("--release", action="store_true", help="Require immutable Git authority and exact decision posture.")
+    parser.add_argument("--authority-manifest", type=Path, help="Explicit Registry RELEASE_CHANNEL manifest.")
+    parser.add_argument("--registry-commit", default="", help="Exact lowercase 40-hex Registry authority commit.")
+    parser.add_argument("--release-decision", type=Path, help="Explicit Registry release-decision receipt.")
+    parser.add_argument(
+        "--expected-release-decision-status",
+        choices=sorted(ALLOWED_RELEASE_DECISION_STATUSES),
+        default="",
+        help="Exact decision posture required from both manifest and receipt.",
+    )
+    parser.add_argument(
+        "--served-mirror",
+        default=CANONICAL_RELEASE_CHANNEL_SOURCE,
+        help="Public served mirror URL, recorded separately from immutable authority.",
+    )
+    args = parser.parse_args(argv)
+
+    if args.release:
+        missing_flags = [
+            flag
+            for flag, value in (
+                ("--authority-manifest", args.authority_manifest),
+                ("--registry-commit", args.registry_commit),
+                ("--release-decision", args.release_decision),
+                ("--expected-release-decision-status", args.expected_release_decision_status),
+            )
+            if not value
+        ]
+        if missing_flags:
+            parser.error(f"--release requires explicit immutable authority flags: {', '.join(missing_flags)}")
+
+    registry_path = _resolve_registry_manifest(args.authority_manifest)
+    release_decision_path = args.release_decision
+    if release_decision_path is None and not args.release:
+        decision_override = os.environ.get(RELEASE_DECISION_ENV, "").strip()
+        if decision_override:
+            release_decision_path = Path(decision_override).expanduser()
+    resolved = resolve_release_authority(
+        registry_path,
+        served_mirror=args.served_mirror,
+        registry_commit=args.registry_commit,
+        release_decision_path=release_decision_path,
+        expected_release_decision_status=args.expected_release_decision_status,
+        release_mode=args.release,
+    )
+    release_payload = resolved.release_payload
     packet = _load_json(PACKET_PATH)
     download_text = _load_text(DOWNLOAD_PATH)
     status_text = _load_text(STATUS_PATH)
 
-    _verify_packet(packet, release_payload, registry_path)
+    _verify_packet(packet, release_payload, resolved.authority)
     _verify_download_artifacts(download_text, release_payload)
 
     artifacts = _public_registry_artifacts(release_payload)
     available_platforms = _available_platforms(artifacts)
     missing_platforms = _missing_platforms(release_payload, available_platforms)
-    expected_shelf_truth = _shelf_truth_line(release_payload.get("status"), available_platforms)
+    expected_shelf_truth = _shelf_truth_line(
+        release_payload.get("releaseStatus") or release_payload.get("status"),
+        available_platforms,
+    )
     expected_architecture_line = _architecture_scope_line(release_payload)
     expected_missing_line = _missing_installer_lane_line(missing_platforms)
 

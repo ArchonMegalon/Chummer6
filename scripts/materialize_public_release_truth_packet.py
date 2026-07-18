@@ -8,6 +8,21 @@ import os
 from datetime import timezone, datetime
 from pathlib import Path
 
+try:
+    from public_release_authority import (
+        ALLOWED_RELEASE_DECISION_STATUSES,
+        CANONICAL_RELEASE_CHANNEL_SOURCE,
+        public_release_artifacts as _authority_public_release_artifacts,
+        resolve_release_authority,
+    )
+except ModuleNotFoundError:  # Imported as scripts.materialize_public_release_truth_packet in tests.
+    from scripts.public_release_authority import (
+        ALLOWED_RELEASE_DECISION_STATUSES,
+        CANONICAL_RELEASE_CHANNEL_SOURCE,
+        public_release_artifacts as _authority_public_release_artifacts,
+        resolve_release_authority,
+    )
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
@@ -17,9 +32,10 @@ MACOS_SOURCE_BUILD_CONTRACT_PATH = RECEIPTS_ROOT / "MACOS_SOURCE_BUILD_CONTRACT.
 HUB_REGISTRY_ROOT_ENV = "CHUMMER_HUB_REGISTRY_ROOT"
 HUB_REGISTRY_PATHS_ENV = "CHUMMER_HUB_REGISTRY_PATHS"
 PORTAL_RELEASE_CHANNEL_PATHS_ENV = "CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS"
+REGISTRY_RELEASE_CHANNEL_ENV = "CHUMMER_REGISTRY_RELEASE_CHANNEL"
+RELEASE_DECISION_ENV = "CHUMMER_RELEASE_DECISION_RECEIPT"
 RELEASE_CHANNEL_RELATIVE_PATH = Path(".codex-studio/published/RELEASE_CHANNEL.generated.json")
 RELEASE_CHANNEL_COMPAT_RELATIVE_PATH = Path(".codex-studio/published/releases.json")
-CANONICAL_RELEASE_CHANNEL_SOURCE = "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json"
 
 
 PLATFORM_LABELS = {
@@ -39,11 +55,6 @@ ARCHITECTURE_SCOPE_EXPECTATIONS = (
 
 def _load_json(path: Path) -> dict[str, object]:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def _public_source_label(path: Path) -> str:
-    del path
-    return CANONICAL_RELEASE_CHANNEL_SOURCE
 
 
 def _split_path_list(env_name: str) -> list[Path]:
@@ -71,27 +82,37 @@ def _candidate_hub_registry_roots() -> list[Path]:
     if env_root:
         roots.append(Path(env_root).expanduser())
     roots.extend(_split_path_list(HUB_REGISTRY_PATHS_ENV))
-    roots.extend(
-        [
-            REPO_ROOT.parent / "chummer-hub-registry",
-            REPO_ROOT.parent / "chummer6-hub-registry",
-        ]
-    )
     return _dedupe_paths(roots)
 
 
-def _load_release_channel() -> tuple[dict[str, object], str]:
+def _resolve_release_channel_path(explicit_path: Path | None = None) -> Path:
+    if explicit_path is not None:
+        candidate = explicit_path.expanduser()
+        if candidate.is_file():
+            return candidate
+        raise FileNotFoundError(f"Explicit authority manifest does not exist: {candidate}")
+
+    registry_override = os.environ.get(REGISTRY_RELEASE_CHANNEL_ENV, "").strip()
+    if registry_override:
+        candidate = Path(registry_override).expanduser()
+        if candidate.is_file():
+            return candidate
+        raise FileNotFoundError(f"{REGISTRY_RELEASE_CHANNEL_ENV} does not point to a file: {candidate}")
+
     for candidate in _split_path_list(PORTAL_RELEASE_CHANNEL_PATHS_ENV):
         if candidate.is_file():
-            return _load_json(candidate), _public_source_label(candidate)
+            return candidate
     for root in _candidate_hub_registry_roots():
         canonical = root / RELEASE_CHANNEL_RELATIVE_PATH
         if canonical.is_file():
-            return _load_json(canonical), _public_source_label(canonical)
+            return canonical
         compat = root / RELEASE_CHANNEL_COMPAT_RELATIVE_PATH
         if compat.is_file():
-            return _load_json(compat), _public_source_label(compat)
-    raise FileNotFoundError("No release channel projection found. Set CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS or CHUMMER_HUB_REGISTRY_ROOT.")
+            return compat
+    raise FileNotFoundError(
+        "No explicit release authority manifest found. Pass --authority-manifest or set "
+        f"{REGISTRY_RELEASE_CHANNEL_ENV}, {PORTAL_RELEASE_CHANNEL_PATHS_ENV}, or {HUB_REGISTRY_ROOT_ENV}."
+    )
 
 
 def _format_public_datetime(value: object) -> str:
@@ -152,28 +173,7 @@ def _promoted_installer_tuples(release_payload: dict[str, object]) -> list[dict[
 
 
 def _public_release_artifacts(release_payload: dict[str, object]) -> list[dict[str, object]]:
-    artifacts = _release_artifacts(release_payload)
-    promoted_ids = {
-        str(item.get("artifactId") or item.get("id") or "").strip()
-        for item in _promoted_installer_tuples(release_payload)
-        if str(item.get("artifactId") or item.get("id") or "").strip()
-    }
-    if promoted_ids:
-        selected = [
-            item
-            for item in artifacts
-            if str(item.get("artifactId") or item.get("id") or "").strip() in promoted_ids
-        ]
-        if selected:
-            return selected
-
-    return [
-        item
-        for item in artifacts
-        if str(item.get("kind") or "").strip() == "installer"
-        and str(item.get("compatibilityState") or "").strip() == "compatible"
-        and str(item.get("installAccessClass") or "").strip() == "open_public"
-    ]
+    return _authority_public_release_artifacts(release_payload)
 
 
 def _available_platforms(artifacts: list[dict[str, object]]) -> list[str]:
@@ -219,7 +219,7 @@ def _missing_required_public_platforms(
 def _gold_supported_release(release_payload: dict[str, object], available_platforms: list[str]) -> bool:
     coverage = _release_tuple_coverage(release_payload)
     if (
-        _release_status_slug(release_payload.get("status")) != "published"
+        _release_status_slug(release_payload.get("releaseStatus") or release_payload.get("status")) != "published"
         or str(release_payload.get("channelId") or "").strip() != "public_stable"
         or str(release_payload.get("rolloutState") or "").strip() != "public_stable"
         or str(release_payload.get("supportabilityState") or "").strip() != "gold_supported"
@@ -406,12 +406,15 @@ def build_packet(
     linux_gate: dict[str, object],
     macos_source_build_contract: dict[str, object],
     release_source: str,
+    authority: dict[str, object] | None = None,
 ) -> dict[str, object]:
     artifacts = _public_release_artifacts(release_payload)
     available_platforms = _available_platforms(artifacts)
     required_platforms = _required_public_platforms(release_payload)
     missing_platforms = _missing_required_public_platforms(release_payload, available_platforms)
-    status_slug = _release_status_slug(release_payload.get("status") or "unpublished")
+    status_slug = _release_status_slug(
+        release_payload.get("releaseStatus") or release_payload.get("status") or "unpublished"
+    )
     release_status = _release_status_label(status_slug)
     published_at = _format_public_datetime(release_payload.get("publishedAt") or release_payload.get("generatedAt") or "")
     shelf_truth_line = _shelf_truth_line(status_slug, available_platforms)
@@ -423,9 +426,10 @@ def build_packet(
 
     return {
         "architecture_scope_line": _architecture_scope_line(release_payload),
+        "authority": dict(authority or {}),
         "available_platforms": available_platforms,
         "build_label": "",
-        "channel_id": str(release_payload.get("channelId") or "").strip(),
+        "channel_id": str(release_payload.get("channelId") or release_payload.get("channel") or "").strip(),
         "desktop_pick_line": (
             "Use the Avalonia installer listed for your platform; unpromoted fallback heads remain support-only."
             if gold_supported and fallback_heads
@@ -468,15 +472,80 @@ def build_packet(
     }
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Materialize the Chummer6 public release truth packet from the release channel and local receipts.")
     parser.add_argument("--check", action="store_true", help="Validate the packet without rewriting it.")
-    args = parser.parse_args()
+    parser.add_argument(
+        "--release",
+        action="store_true",
+        help="Require an explicit immutable Registry manifest and exact release-decision posture.",
+    )
+    parser.add_argument(
+        "--authority-manifest",
+        type=Path,
+        help="Explicit Registry RELEASE_CHANNEL manifest. Required in --release mode.",
+    )
+    parser.add_argument(
+        "--registry-commit",
+        default="",
+        help="Exact lowercase 40-hex Registry commit containing the authority manifest and decision receipt.",
+    )
+    parser.add_argument(
+        "--release-decision",
+        type=Path,
+        help="Explicit Registry release-decision receipt. Required in --release mode.",
+    )
+    parser.add_argument(
+        "--expected-release-decision-status",
+        choices=sorted(ALLOWED_RELEASE_DECISION_STATUSES),
+        default="",
+        help="Exact decision posture required from both manifest and receipt.",
+    )
+    parser.add_argument(
+        "--served-mirror",
+        default=CANONICAL_RELEASE_CHANNEL_SOURCE,
+        help="Public served mirror URL, recorded separately from immutable authority.",
+    )
+    args = parser.parse_args(argv)
 
-    release_payload, release_source = _load_release_channel()
+    if args.release:
+        missing_flags = [
+            flag
+            for flag, value in (
+                ("--authority-manifest", args.authority_manifest),
+                ("--registry-commit", args.registry_commit),
+                ("--release-decision", args.release_decision),
+                ("--expected-release-decision-status", args.expected_release_decision_status),
+            )
+            if not value
+        ]
+        if missing_flags:
+            parser.error(f"--release requires explicit immutable authority flags: {', '.join(missing_flags)}")
+
+    manifest_path = _resolve_release_channel_path(args.authority_manifest)
+    release_decision_path = args.release_decision
+    if release_decision_path is None and not args.release:
+        decision_override = os.environ.get(RELEASE_DECISION_ENV, "").strip()
+        if decision_override:
+            release_decision_path = Path(decision_override).expanduser()
+    resolved = resolve_release_authority(
+        manifest_path,
+        served_mirror=args.served_mirror,
+        registry_commit=args.registry_commit,
+        release_decision_path=release_decision_path,
+        expected_release_decision_status=args.expected_release_decision_status,
+        release_mode=args.release,
+    )
+    release_payload = resolved.release_payload
     linux_gate = _load_json(LINUX_GATE_PATH)
     macos_source_build_contract = _load_json(MACOS_SOURCE_BUILD_CONTRACT_PATH)
-    packet = build_packet(release_payload, linux_gate, macos_source_build_contract, release_source)
+    packet = build_packet(
+        release_payload,
+        linux_gate,
+        macos_source_build_contract,
+        args.served_mirror,
+        authority=resolved.authority,
+    )
     rendered = json.dumps(packet, indent=2, sort_keys=True) + "\n"
     if args.check:
         current = OUTPUT_PATH.read_text(encoding="utf-8") if OUTPUT_PATH.is_file() else ""

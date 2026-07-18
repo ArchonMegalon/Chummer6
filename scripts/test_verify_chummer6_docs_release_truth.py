@@ -3,9 +3,11 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 SCRIPT_PATH = Path(__file__).resolve().parent / "verify_chummer6_docs_release_truth.py"
@@ -94,7 +96,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Download",
-                    "Windows and Linux downloads start on `chummer.run`. macOS stays on a guided support path.",
+                    MODULE._download_opening(available_platforms),
                     packet["published_line"],
                     f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
@@ -157,7 +159,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.STATUS_PATH = root / "STATUS.md"
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
-                self.assertEqual(MODULE.main(), 0)
+                self.assertEqual(MODULE.main([], verify_registry_alignment=False), 0)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -198,7 +200,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE.main([], verify_registry_alignment=False)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -241,7 +243,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE.main([], verify_registry_alignment=False)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -276,7 +278,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.STATUS_PATH = root / "STATUS.md"
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
-                self.assertEqual(MODULE.main(), 0)
+                self.assertEqual(MODULE.main([], verify_registry_alignment=False), 0)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -316,7 +318,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE.main([], verify_registry_alignment=False)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -356,7 +358,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE.main([], verify_registry_alignment=False)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -397,7 +399,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE.main([], verify_registry_alignment=False)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -441,7 +443,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE.main([], verify_registry_alignment=False)
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -449,6 +451,27 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.STATUS_PATH = original_status
                 MODULE.DOWNLOAD_PATH = original_download
                 MODULE.MIGRATION_PATH = original_migration
+
+    def test_download_opening_is_derived_from_available_platforms(self) -> None:
+        self.assertEqual(MODULE._download_opening(["macOS"]), "macOS downloads start on `chummer.run`.")
+        self.assertEqual(
+            MODULE._download_opening(["Linux", "Windows", "macOS"]),
+            "Linux, Windows, and macOS downloads start on `chummer.run`.",
+        )
+        self.assertEqual(
+            MODULE._download_opening([]),
+            "Public downloads start on `chummer.run` when a release is posted.",
+        )
+
+    def test_registry_alignment_never_skips_without_explicit_manifest(self) -> None:
+        with mock.patch.dict(os.environ, {}, clear=True):
+            with self.assertRaisesRegex(FileNotFoundError, "Registry alignment is mandatory"):
+                MODULE._resolve_registry_manifest()
+
+    def test_release_mode_requires_every_explicit_authority_flag(self) -> None:
+        with self.assertRaises(SystemExit) as raised:
+            MODULE.main(["--release"], verify_registry_alignment=False)
+        self.assertEqual(raised.exception.code, 2)
 
 
 if __name__ == "__main__":
