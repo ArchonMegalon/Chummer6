@@ -2,14 +2,13 @@
 
 Pick the next step.
 
-## Download and install first
+## Download and install status
 
-Start with the download page. It should tell you which file to use, what is missing, and the next safe step if setup fails.
+Release review is required. This guide does not claim that an installer or package is currently available.
 
-- Start with the recommended installer for your platform.
-- Use the other package only if the installer gives you trouble.
-- Create an account if you want your support history, recovery, and downloads tied to one place.
-- If your platform is missing, the status and download pages will say so.
+- Check Download for the current review status; do not rely on an older platform or package claim.
+- Keep an existing working install while the immutable Registry authority and public pages converge.
+- Contact support if you need help with a package you already have.
 
 ## Account
 

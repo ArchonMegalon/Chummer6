@@ -11,6 +11,16 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 RELEASE_VERIFY_SCRIPT = REPO_ROOT / "scripts" / "release" / "verify_guide_convergence.sh"
 
 
+def _authority_env(root: Path) -> dict[str, str]:
+    current = root / "CURRENT.json"
+    current.write_text("{}\n", encoding="utf-8")
+    return {
+        "CHUMMER_RELEASE_AUTHORITY_CURRENT": str(current),
+        "CHUMMER_REGISTRY_COMMIT": "a" * 40,
+        "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "preview_ready",
+    }
+
+
 def _write_shell_stub(
     path: Path,
     *,
@@ -103,12 +113,12 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
         docker_line = 'bash "$repo_root/scripts/verify_linux_source_build_docker_gate.sh"'
         receipt_test_line = 'python3 "$repo_root/scripts/test_verify_linux_source_build_docker_gate_receipt.py" >/dev/null'
         receipt_verify_line = 'python3 "$repo_root/scripts/verify_linux_source_build_docker_gate_receipt.py" >/dev/null'
-        guide_line = 'bash "$repo_root/scripts/verify_public_guide.sh" --skip-http'
+        guide_line = 'bash "$repo_root/scripts/verify_public_guide.sh" --skip-http "${release_authority_args[@]}"'
         macos_contract_test_line = 'python3 "$repo_root/scripts/test_macos_source_build_contract_receipt.py" >/dev/null'
         macos_contract_materialize_line = 'python3 "$repo_root/scripts/materialize_macos_source_build_contract_receipt.py" >/dev/null'
         macos_contract_verify_line = 'python3 "$repo_root/scripts/verify_macos_source_build_contract_receipt.py" >/dev/null'
         release_truth_test_line = 'python3 "$repo_root/scripts/test_materialize_public_release_truth_packet.py" >/dev/null'
-        release_truth_materialize_line = 'python3 "$repo_root/scripts/materialize_public_release_truth_packet.py" >/dev/null'
+        release_truth_materialize_line = 'python3 "$repo_root/scripts/materialize_public_release_truth_packet.py" "${release_authority_args[@]}" >/dev/null'
         installer_update_test_line = 'python3 "$repo_root/scripts/test_installer_update_truth_receipt.py" >/dev/null'
         installer_update_materialize_line = 'python3 "$repo_root/scripts/materialize_installer_update_truth_receipt.py" >/dev/null'
         installer_update_verify_line = 'python3 "$repo_root/scripts/verify_installer_update_truth_receipt.py" >/dev/null'
@@ -293,6 +303,7 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
                 cwd=REPO_ROOT,
                 env={
                     **os.environ,
+                    **_authority_env(fake_root),
                     "CHUMMER6_REPO_ROOT": str(fake_root),
                     "CHUMMER_TEST_RELEASE_WRAPPER_ROOT": str(fake_root),
                     "CHUMMER_TEST_RELEASE_WRAPPER_LOG": str(log_path),
@@ -361,6 +372,7 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
                 cwd=REPO_ROOT,
                 env={
                     **os.environ,
+                    **_authority_env(fake_root),
                     "CHUMMER6_REPO_ROOT": str(fake_root),
                     "CHUMMER_TEST_RELEASE_WRAPPER_ROOT": str(fake_root),
                     "CHUMMER_TEST_RELEASE_WRAPPER_LOG": str(log_path),

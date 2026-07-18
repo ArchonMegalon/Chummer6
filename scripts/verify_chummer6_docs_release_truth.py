@@ -1,11 +1,22 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import json
-import os
 import re
 import subprocess
 from pathlib import Path
+
+try:
+    from public_release_authority import (
+        ALLOWED_RELEASE_DECISION_STATUSES,
+        CANONICAL_RELEASE_CHANNEL_SOURCE,
+    )
+except ModuleNotFoundError:  # Imported as scripts.verify_chummer6_docs_release_truth in tests.
+    from scripts.public_release_authority import (
+        ALLOWED_RELEASE_DECISION_STATUSES,
+        CANONICAL_RELEASE_CHANNEL_SOURCE,
+    )
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -27,36 +38,69 @@ def _require_contains(name: str, haystack: str, needle: str) -> None:
         raise ValueError(f"{name} is missing required release-status line: {needle!r}")
 
 
-def _candidate_registry_manifest_paths() -> list[Path]:
-    paths: list[Path] = []
-    override = os.environ.get("CHUMMER_REGISTRY_RELEASE_CHANNEL", "").strip()
-    if override:
-        paths.append(Path(override))
-    for candidate in (
-        REPO_ROOT.parent / "chummer-hub-registry" / ".codex-studio" / "published" / "RELEASE_CHANNEL.generated.json",
-        REPO_ROOT.parent / "chummer6-hub-registry" / ".codex-studio" / "published" / "RELEASE_CHANNEL.generated.json",
-    ):
-        paths.append(candidate)
-    return paths
-
-
-def _maybe_verify_registry_alignment() -> None:
-    registry_manifest = next((path for path in _candidate_registry_manifest_paths() if path.is_file()), None)
-    if registry_manifest is None:
-        return
-
-    env = os.environ.copy()
-    env.setdefault("CHUMMER_REGISTRY_RELEASE_CHANNEL", str(registry_manifest))
+def _verify_registry_alignment(
+    authority_current: Path,
+    *,
+    release_mode: bool,
+    registry_commit: str,
+    expected_release_decision_status: str,
+    served_mirror: str,
+) -> None:
+    command = [
+        "python3",
+        str(SCRIPT_ROOT / "verify_public_downloads_match_registry.py"),
+        "--authority-current",
+        str(authority_current),
+        "--registry-commit",
+        registry_commit,
+        "--expected-release-decision-status",
+        expected_release_decision_status,
+        "--served-mirror",
+        served_mirror,
+    ]
+    if release_mode:
+        command.append("--release")
     subprocess.run(
-        ["python3", str(SCRIPT_ROOT / "verify_public_downloads_match_registry.py")],
+        command,
         check=True,
-        env=env,
         stdout=subprocess.DEVNULL,
     )
 
 
-def main() -> int:
+def _english_join(items: list[str]) -> str:
+    if not items:
+        return ""
+    if len(items) == 1:
+        return items[0]
+    if len(items) == 2:
+        return f"{items[0]} and {items[1]}"
+    return f"{', '.join(items[:-1])}, and {items[-1]}"
+
+
+def _download_opening(available_platforms: list[str]) -> str:
+    if available_platforms:
+        return f"{_english_join(available_platforms)} downloads start on `chummer.run`."
+    return "Public downloads start on `chummer.run` when a release is posted."
+
+
+def _verify_document_content() -> None:
     packet = json.loads(PACKET_PATH.read_text(encoding="utf-8"))
+    authority = packet.get("authority")
+    if not isinstance(authority, dict):
+        raise ValueError("release truth packet is missing immutable Registry authority")
+    gold_copy = "\n".join(
+        str(packet.get(field) or "")
+        for field in ("phase_label", "quality_gap_line", "short_release_summary", "release_posture")
+    ).casefold()
+    authority_decision_status = str(authority.get("releaseDecisionStatus") or "").strip()
+    if str(packet.get("release_decision_status") or "").strip() != authority_decision_status:
+        raise ValueError("release truth packet decision posture drifted from immutable Registry authority")
+    if packet.get("release_posture") != authority_decision_status:
+        raise ValueError("release truth packet release_posture must preserve the exact decision status")
+    if (
+        packet.get("release_posture") == "stable_ready" or "gold-supported" in gold_copy
+    ) and authority_decision_status != "stable_ready":
+        raise ValueError("gold-supported public copy requires releaseDecisionStatus=stable_ready")
     readme = _load_text(README_PATH)
     status = _load_text(STATUS_PATH)
     download = _load_text(DOWNLOAD_PATH)
@@ -128,7 +172,9 @@ def main() -> int:
 
     if "Proof scope:" in download or "Claim boundary:" in download or "blanket flagship" in download:
         raise ValueError("DOWNLOAD.md reintroduced proof-scope copy")
-    if "Windows and Linux downloads start on `chummer.run`." not in download:
+    visible_platforms = list(packet.get("available_platforms") or packet.get("desktop_platforms_visible") or [])
+    expected_download_opening = _download_opening([str(item) for item in visible_platforms])
+    if expected_download_opening not in download:
         raise ValueError("DOWNLOAD.md lost the human download opening")
     if "chummer.run" not in download:
         raise ValueError("DOWNLOAD.md lost the chummer.run download authority")
@@ -141,6 +187,16 @@ def main() -> int:
     _require_contains("DOWNLOAD.md", download, str(packet.get("shelf_truth_line") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("release_verification_summary") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("known_issue_summary") or ""))
+    review_banner = str(packet.get("review_required_banner") or "").strip()
+    if authority_decision_status == "review_required":
+        if not review_banner:
+            raise ValueError("review_required release truth packet must carry an explicit review banner")
+        for name, content in (
+            ("DOWNLOAD.md", download),
+            ("STATUS.md", status),
+            ("NOW/current-status.md", current_status),
+        ):
+            _require_contains(name, content, review_banner)
     for stale_phrase in (
         "Release status is missing or stale",
         "gold-ready",
@@ -152,8 +208,6 @@ def main() -> int:
         combined = "\n".join([status, download, readme, migration])
         if stale_phrase.lower() in combined.lower():
             raise ValueError(f"public docs contain stale release wording: {stale_phrase}")
-
-    visible_platforms = list(packet.get("available_platforms") or packet.get("desktop_platforms_visible") or [])
 
     if visible_platforms:
         if len(visible_platforms) == 1:
@@ -184,7 +238,49 @@ def main() -> int:
         _require_contains("FROM_CHUMMER5A_TO_CHUMMER6.md", migration, wait_line)
         _require_contains("STATUS.md", status, warning_line)
 
-    _maybe_verify_registry_alignment()
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Verify Chummer6 public docs against their immutable Registry release authority."
+    )
+    parser.add_argument(
+        "--release",
+        action="store_true",
+        help="Mark this strict authority verification as a release workflow invocation.",
+    )
+    parser.add_argument(
+        "--authority-current",
+        type=Path,
+        required=True,
+        help="Explicit Registry CURRENT.json pointer; the immutable generation is derived from it.",
+    )
+    parser.add_argument(
+        "--registry-commit",
+        required=True,
+        help="Exact lowercase 40-hex Registry commit bound by SNAPSHOT.json.",
+    )
+    parser.add_argument(
+        "--expected-release-decision-status",
+        choices=sorted(ALLOWED_RELEASE_DECISION_STATUSES),
+        required=True,
+        help="Exact decision posture required from both snapshot and receipt.",
+    )
+    parser.add_argument(
+        "--served-mirror",
+        default=CANONICAL_RELEASE_CHANNEL_SOURCE,
+        help="Public served mirror URL, kept separate from immutable authority.",
+    )
+    args = parser.parse_args(argv)
+
+    _verify_document_content()
+    _verify_registry_alignment(
+        args.authority_current,
+        release_mode=args.release,
+        registry_commit=args.registry_commit,
+        expected_release_decision_status=args.expected_release_decision_status,
+        served_mirror=args.served_mirror,
+    )
 
     print("chummer6_docs_release_truth:ok")
     return 0

@@ -2,23 +2,24 @@
 
 If you just need the right file, go to [Download](DOWNLOAD.md). If something broke, start here instead of guessing.
 
+Release review required. Public availability claims remain paused until one immutable snapshot converges.
+
 ## Quick triage
 
-- **Installer will not start:** Start with the recommended download for your platform, then contact support if setup still fails.
+- **Installer will not start:** No current installer is claimed by this guide while release review is open; contact support about a package you already have.
 - **I cannot sign in:** Use the account recovery flow before trying random reinstall steps.
 - **I lost access:** Use recovery email or the account page so identity and device problems stay separate.
 - **An update failed:** Go back to the current download page, then contact support with the version and platform if the retry still fails.
 - **I need to report a bug:** Use [Contact](CONTACT.md) first. Use GitHub only when you want a public bug thread.
 - **I need private help:** Use Contact or in-account support instead of posting private details publicly.
 
-## Download and install first
+## Download and install status
 
-Start with the download page. It should tell you which file to use, what is missing, and the next safe step if setup fails.
+Release review is required. This guide does not claim that an installer or package is currently available.
 
-- Start with the recommended installer for your platform.
-- Use the other package only if the installer gives you trouble.
-- Create an account if you want your support history, recovery, and downloads tied to one place.
-- If your platform is missing, the status and download pages will say so.
+- Check Download for the current review status; do not rely on an older platform or package claim.
+- Keep an existing working install while the immutable Registry authority and public pages converge.
+- Contact support if you need help with a package you already have.
 
 ## Account
 

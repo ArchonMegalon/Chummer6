@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import importlib.util
+import io
 import json
 import tempfile
 import unittest
+from contextlib import redirect_stderr
 from pathlib import Path
 
 
@@ -30,6 +32,9 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
         migration_wait_line: str | None = None,
     ) -> None:
         packet = {
+            "authority": {"releaseDecisionStatus": "preview_ready"},
+            "release_decision_status": "preview_ready",
+            "release_posture": "preview_ready",
             "shelf_truth_line": shelf_truth_line,
             "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is not listed there yet, wait before switching full time.",
             "desktop_pick_line": "If you see both desktop apps, start with Avalonia.",
@@ -94,7 +99,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Download",
-                    "Windows and Linux downloads start on `chummer.run`. macOS stays on a guided support path.",
+                    MODULE._download_opening(available_platforms),
                     packet["published_line"],
                     f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
@@ -157,7 +162,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.STATUS_PATH = root / "STATUS.md"
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
-                self.assertEqual(MODULE.main(), 0)
+                MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -198,7 +203,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -241,7 +246,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -276,7 +281,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.STATUS_PATH = root / "STATUS.md"
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
-                self.assertEqual(MODULE.main(), 0)
+                MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -316,7 +321,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -356,7 +361,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -397,7 +402,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -441,7 +446,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 with self.assertRaises(ValueError):
-                    MODULE.main()
+                    MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet
@@ -449,6 +454,48 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.STATUS_PATH = original_status
                 MODULE.DOWNLOAD_PATH = original_download
                 MODULE.MIGRATION_PATH = original_migration
+
+    def test_download_opening_is_derived_from_available_platforms(self) -> None:
+        self.assertEqual(MODULE._download_opening(["macOS"]), "macOS downloads start on `chummer.run`.")
+        self.assertEqual(
+            MODULE._download_opening(["Linux", "Windows", "macOS"]),
+            "Linux, Windows, and macOS downloads start on `chummer.run`.",
+        )
+        self.assertEqual(
+            MODULE._download_opening([]),
+            "Public downloads start on `chummer.run` when a release is posted.",
+        )
+
+    def test_registry_alignment_has_no_production_bypass_keyword(self) -> None:
+        with self.assertRaises(TypeError):
+            MODULE.main([], verify_registry_alignment=False)
+
+    def test_every_invocation_requires_explicit_authority_flags(self) -> None:
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as raised:
+            MODULE.main([])
+        self.assertEqual(raised.exception.code, 2)
+
+    def test_gold_copy_requires_stable_ready_authority(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            packet_path = Path(temp_dir) / "packet.json"
+            packet_path.write_text(
+                json.dumps(
+                    {
+                        "authority": {"releaseDecisionStatus": "preview_ready"},
+                        "phase_label": "Gold-supported release",
+                        "release_decision_status": "preview_ready",
+                        "release_posture": "preview_ready",
+                    }
+                ),
+                encoding="utf-8",
+            )
+            original_packet = MODULE.PACKET_PATH
+            try:
+                MODULE.PACKET_PATH = packet_path
+                with self.assertRaisesRegex(ValueError, "stable_ready"):
+                    MODULE._verify_document_content()
+            finally:
+                MODULE.PACKET_PATH = original_packet
 
 
 if __name__ == "__main__":
