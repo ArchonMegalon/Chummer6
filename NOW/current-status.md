@@ -2,15 +2,17 @@
 
 This is the short current-state page for release crawlers and readers who want the answer without touring the full guide.
 
+Release review required. Public availability claims remain paused until one immutable snapshot converges.
+
 ## Today
 
-- Product state: Current release build.
-- Release status: Published.
-- macOS downloads are posted.
-- Published: July 15, 2026 at 14:06 UTC.
-- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
-- Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: Preview caveats still apply, but the current release has recent install, account return, release updates, community wrap-up, bounded offline prefetch, and current support follow-up coverage.
+- Product state: Release review required.
+- Release status: Review required.
+- No public platform availability is claimed by this unbound repository projection.
+- No desktop platform is currently claimed by this unbound repository projection.
+- Windows, Linux, and macOS remain unclaimed until immutable authority is supplied.
+- Recent checks: No Registry-bound current release verification is available in this checkout.
+- Current warning: The repository has no bound current release authority; live availability must not be inferred from stale guide text.
 
 ## Start here
 

@@ -30,6 +30,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DOWNLOAD_PATH = REPO_ROOT / "DOWNLOAD.md"
 STATUS_PATH = REPO_ROOT / "STATUS.md"
 PACKET_PATH = REPO_ROOT / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+PUBLIC_DOWNLOAD_ORIGIN = "https://chummer.run"
 
 PLATFORM_LABELS = {
     "windows": "Windows",
@@ -333,10 +334,12 @@ def _verify_download_artifacts(
         docs_label = str(artifact.get("label") or "").strip()
         if expected_label != docs_label:
             raise ValueError(f"DOWNLOAD.md label for {file_name} does not match registry platformLabel")
-        if str(authority_artifact.get("publicInstallRoute") or "").strip() != str(
-            artifact.get("downloadUrl") or ""
-        ).strip():
-            raise ValueError(f"DOWNLOAD.md URL for {file_name} does not match Registry publicInstallRoute")
+        public_install_route = str(authority_artifact.get("publicInstallRoute") or "").strip()
+        expected_public_url = f"{PUBLIC_DOWNLOAD_ORIGIN}{public_install_route}"
+        if expected_public_url != str(artifact.get("downloadUrl") or "").strip():
+            raise ValueError(
+                f"DOWNLOAD.md URL for {file_name} does not match the absolute Registry publicInstallRoute"
+            )
         if int(authority_artifact.get("sizeBytes") or 0) != int(artifact.get("sizeBytes") or 0):
             raise ValueError(f"DOWNLOAD.md size for {file_name} does not match registry sizeBytes")
         documented_sha256 = sha_lines.get(docs_label) or sha_lines.get(registry_label)
@@ -413,21 +416,15 @@ def main(argv: list[str] | None = None) -> int:
         help="Mark this strict authority verification as a release workflow invocation.",
     )
     parser.add_argument(
-        "--authority-snapshot",
+        "--authority-current",
         type=Path,
         required=True,
-        help="Explicit content-addressed Registry SNAPSHOT.json.",
+        help="Explicit Registry CURRENT.json pointer; the immutable generation is derived from it.",
     )
     parser.add_argument(
         "--registry-commit",
         required=True,
         help="Exact lowercase 40-hex Registry commit bound by SNAPSHOT.json.",
-    )
-    parser.add_argument(
-        "--release-decision",
-        type=Path,
-        required=True,
-        help="Explicit sibling Registry RELEASE_DECISION.json.",
     )
     parser.add_argument(
         "--expected-release-decision-status",
@@ -443,10 +440,9 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     resolved = resolve_release_authority(
-        args.authority_snapshot,
+        args.authority_current,
         served_mirror=args.served_mirror,
         registry_commit=args.registry_commit,
-        release_decision_path=args.release_decision,
         expected_release_decision_status=args.expected_release_decision_status,
     )
     release_payload = resolved.release_payload

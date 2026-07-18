@@ -3,6 +3,8 @@ from __future__ import annotations
 import copy
 import hashlib
 import importlib.util
+import json
+import shutil
 import sys
 import tempfile
 from pathlib import Path
@@ -25,9 +27,8 @@ SPEC.loader.exec_module(MODULE)
 
 def _resolve(fixture, *, expected_status: str | None = None):
     return MODULE.resolve_release_authority(
-        fixture.snapshot_path,
+        fixture.current_path,
         registry_commit=fixture.registry_commit,
-        release_decision_path=fixture.decision_path,
         expected_release_decision_status=expected_status or str(fixture.snapshot["releaseDecisionStatus"]),
     )
 
@@ -74,7 +75,7 @@ def test_stable_snapshot_materializes_one_normalized_gold_projection() -> None:
     assert packet["authority_source"]["snapshotSha256"] == expected_snapshot_sha256
     assert packet["available_platforms"] == ["Linux", "Windows"]
     assert packet["primary_head"] == "Chummer.Avalonia"
-    assert packet["release_posture"] == "gold_supported"
+    assert packet["release_posture"] == "stable_ready"
     assert packet["phase_label"] == "Gold-supported release"
     assert packet["generated_from"] == MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE
     assert packet["served_mirror"] == MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE
@@ -95,8 +96,8 @@ def test_gold_copy_fails_closed_without_stable_ready_decision() -> None:
             resolved.served_mirror,
         )
 
-    assert packet["release_posture"] == "preview_or_review_required"
-    assert packet["phase_label"] == "Current release build"
+    assert packet["release_posture"] == "preview_ready"
+    assert packet["phase_label"] == "Preview-ready release"
     assert "gold-supported" not in packet["quality_gap_line"].casefold()
 
 
@@ -112,6 +113,28 @@ def test_canonical_output_requires_all_immutable_authority_flags(tmp_path: Path)
     assert not (tmp_path / "must-not-exist.json").exists()
 
 
+def test_checked_in_unbound_placeholder_is_explicitly_review_required(tmp_path: Path) -> None:
+    original_output = MODULE.OUTPUT_PATH
+    MODULE.OUTPUT_PATH = tmp_path / "placeholder.json"
+    try:
+        assert MODULE.main(["--unbound-review-placeholder"]) == 0
+        packet = json.loads(MODULE.OUTPUT_PATH.read_text(encoding="utf-8"))
+    finally:
+        MODULE.OUTPUT_PATH = original_output
+
+    assert packet["authority_binding_status"] == "unbound_review_placeholder"
+    assert packet["release_posture"] == "review_required"
+    assert packet["available_platforms"] == []
+    assert packet["authority"]["artifacts"] == []
+    assert packet["review_required_banner"].startswith("Release review required.")
+
+
+def test_unbound_placeholder_is_forbidden_in_release_mode() -> None:
+    with pytest.raises(SystemExit) as raised:
+        MODULE.main(["--release", "--unbound-review-placeholder"])
+    assert raised.value.code == 2
+
+
 def test_preview_snapshot_resolves_exact_siblings_and_repository_identity(tmp_path: Path) -> None:
     fixture = write_authority_fixture(tmp_path)
     resolved = _resolve(fixture)
@@ -121,17 +144,39 @@ def test_preview_snapshot_resolves_exact_siblings_and_repository_identity(tmp_pa
     assert resolved.authority_source["snapshotPath"].startswith("snapshots/run-20260718-120000/")
     assert resolved.authority_source["manifestPath"].endswith("/RELEASE_CHANNEL.json")
     assert resolved.authority_source["releaseDecisionPath"].endswith("/RELEASE_DECISION.json")
+    assert resolved.authority_source["currentPath"] == "CURRENT.json"
+    assert resolved.authority_source["currentStatus"] == "preview_ready"
+    assert resolved.authority_source["manifestVersion"] == "run-20260718-120000"
+    assert resolved.authority_source["manifestSchemaVersion"] == 2
 
 
-def test_wrong_registry_repository_is_rejected(tmp_path: Path) -> None:
-    fixture = write_authority_fixture(tmp_path, remote="https://github.com/example/not-the-registry.git")
-    with pytest.raises(ValueError, match="authority repository"):
-        _resolve(fixture)
+def test_runtime_authority_root_does_not_require_a_git_checkout(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(tmp_path / "source")
+    runtime_root = tmp_path / "runtime-authority"
+    shutil.copytree(fixture.repo_root, runtime_root, ignore=shutil.ignore_patterns(".git"))
+
+    resolved = MODULE.resolve_release_authority(
+        runtime_root / "CURRENT.json",
+        registry_commit=fixture.registry_commit,
+        expected_release_decision_status="preview_ready",
+    )
+
+    assert resolved.authority == fixture.snapshot
+    assert resolved.authority_source["currentPath"] == "CURRENT.json"
 
 
 def test_content_addressed_snapshot_path_mismatch_is_rejected(tmp_path: Path) -> None:
     fixture = write_authority_fixture(tmp_path, path_digest="0" * 64)
-    with pytest.raises(ValueError, match="content-addressed|snapshots/<releaseVersion>"):
+    with pytest.raises((ValueError, FileNotFoundError)):
+        _resolve(fixture)
+
+
+def test_current_pointer_property_set_is_exact(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        current_mutator=lambda current: current.__setitem__("generatedAt", "forbidden"),
+    )
+    with pytest.raises(ValueError, match="CURRENT.json property set"):
         _resolve(fixture)
 
 
@@ -186,7 +231,7 @@ def test_unknown_snapshot_decision_status_is_rejected(tmp_path: Path) -> None:
         tmp_path,
         snapshot_mutator=lambda snapshot: snapshot.__setitem__("releaseDecisionStatus", "candidate"),
     )
-    with pytest.raises(ValueError, match="releaseDecisionStatus"):
+    with pytest.raises(ValueError, match="CURRENT.json status"):
         _resolve(fixture, expected_status="preview_ready")
 
 
@@ -290,6 +335,21 @@ def test_unknown_access_class_is_rejected(tmp_path: Path) -> None:
         ("kind", "archive", "installer"),
         ("sizeBytes", 0, "positive integer"),
         ("downloadUrl", "/downloads/generated/file", "absolute HTTPS"),
+        (
+            "downloadUrl",
+            "https://user:secret@chummer.run/downloads/g/generation-1/files/file.exe",
+            "absolute HTTPS",
+        ),
+        (
+            "downloadUrl",
+            "https://chummer.run/downloads/g/generation-1/files/file.exe?mutable=1",
+            "absolute HTTPS",
+        ),
+        (
+            "downloadUrl",
+            "https://chummer.run/generated/file.exe",
+            "immutable /downloads/g",
+        ),
     ],
 )
 def test_artifact_projection_value_rules_are_exact(
@@ -387,17 +447,13 @@ def test_snapshot_registry_repository_field_is_exact(tmp_path: Path) -> None:
         _resolve(fixture)
 
 
-def test_release_decision_must_be_the_bound_sibling(tmp_path: Path) -> None:
-    fixture = write_authority_fixture(tmp_path)
-    other_decision = tmp_path / "other-decision.json"
-    other_decision.write_bytes(fixture.decision_path.read_bytes())
-    with pytest.raises(ValueError, match="explicit release decision path"):
-        MODULE.resolve_release_authority(
-            fixture.snapshot_path,
-            registry_commit=fixture.registry_commit,
-            release_decision_path=other_decision,
-            expected_release_decision_status="preview_ready",
-        )
+def test_current_pointer_decision_digest_must_match_snapshot(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        current_mutator=lambda current: current.__setitem__("decisionSha256", "f" * 64),
+    )
+    with pytest.raises(ValueError, match="CURRENT.json releaseVersion, decisionSha256, and status"):
+        _resolve(fixture)
 
 
 def test_review_required_snapshot_requires_next_action(tmp_path: Path) -> None:
@@ -449,6 +505,29 @@ def test_empty_review_required_shelf_is_valid_and_projects_no_platforms(tmp_path
     resolved = _resolve(fixture)
     assert resolved.authority["downloadAccessPosture"] == "unavailable"
     assert MODULE.authority_platform_ids(resolved.authority) == []
+    packet = MODULE.build_packet(
+        resolved.release_payload,
+        _linux_gate(),
+        _macos_contract(),
+        resolved.authority,
+        resolved.authority_source,
+        resolved.served_mirror,
+    )
+    assert packet["release_posture"] == "review_required"
+    assert packet["phase_label"] == "Release review required"
+    assert packet["review_required_banner"].startswith("Release review required.")
+    assert packet["primary_head_by_platform"] == {}
+
+
+def test_served_mirror_must_be_a_portable_absolute_https_url(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(tmp_path)
+    with pytest.raises(ValueError, match="safe absolute HTTPS"):
+        MODULE.resolve_release_authority(
+            fixture.current_path,
+            registry_commit=fixture.registry_commit,
+            expected_release_decision_status="preview_ready",
+            served_mirror="/docker/machine-local/manifest.json",
+        )
 
 
 def test_empty_preview_ready_shelf_is_rejected(tmp_path: Path) -> None:

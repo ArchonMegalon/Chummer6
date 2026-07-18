@@ -12,14 +12,11 @@ RELEASE_VERIFY_SCRIPT = REPO_ROOT / "scripts" / "release" / "verify_guide_conver
 
 
 def _authority_env(root: Path) -> dict[str, str]:
-    snapshot = root / "SNAPSHOT.json"
-    decision = root / "RELEASE_DECISION.json"
-    snapshot.write_text("{}\n", encoding="utf-8")
-    decision.write_text("{}\n", encoding="utf-8")
+    current = root / "CURRENT.json"
+    current.write_text("{}\n", encoding="utf-8")
     return {
-        "CHUMMER_RELEASE_AUTHORITY_SNAPSHOT": str(snapshot),
+        "CHUMMER_RELEASE_AUTHORITY_CURRENT": str(current),
         "CHUMMER_REGISTRY_COMMIT": "a" * 40,
-        "CHUMMER_RELEASE_DECISION_RECEIPT": str(decision),
         "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "preview_ready",
     }
 

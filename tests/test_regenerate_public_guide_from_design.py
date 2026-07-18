@@ -45,9 +45,9 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stdout)
         self.assertIn("Regenerate the Chummer6 public guide from the design repo", completed.stdout)
         self.assertIn("--check", completed.stdout)
-        self.assertIn("--authority-snapshot", completed.stdout)
+        self.assertIn("--authority-current", completed.stdout)
         self.assertIn("CHUMMER_DESIGN_REPO_ROOT", completed.stdout)
-        self.assertIn("CHUMMER_RELEASE_AUTHORITY_SNAPSHOT", completed.stdout)
+        self.assertIn("CHUMMER_RELEASE_AUTHORITY_CURRENT", completed.stdout)
 
     def test_verify_script_chain_mentions_linux_surface_guard(self) -> None:
         verify_script = (REPO_ROOT / "scripts" / "verify_public_guide.sh").read_text(encoding="utf-8")
@@ -83,11 +83,11 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             calls = log_path.read_text(encoding="utf-8").splitlines()
             self.assertEqual(
                 [
-                    f"materialize --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} --registry-commit {'a' * 40} --release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
+                    f"materialize --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
                     f"generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT={chummer6_root}",
                     f"generator --repo-root {design_root} --out {out_dir}",
                     f"sync --source {out_dir}",
-                    f"verify --source {out_dir} --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} --registry-commit {'a' * 40} --release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
+                    f"verify --source {out_dir} --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
                 ],
                 calls,
             )
@@ -118,11 +118,11 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             calls = log_path.read_text(encoding="utf-8").splitlines()
             self.assertEqual(
                 [
-                    f"materialize --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} --registry-commit {'a' * 40} --release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json --check",
+                    f"materialize --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json --check",
                     f"generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT={chummer6_root}",
                     f"generator --repo-root {design_root} --out {out_dir} --check",
                     f"sync --source {out_dir} --check",
-                    f"verify --source {out_dir} --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} --registry-commit {'a' * 40} --release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
+                    f"verify --source {out_dir} --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
                 ],
                 calls,
             )
@@ -140,9 +140,8 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
                     "CHUMMER6_REPO_ROOT": str(chummer6_root),
                     "CHUMMER_DESIGN_REPO_ROOT": str(design_root),
                     "CALL_LOG": str(log_path),
-                    "CHUMMER_RELEASE_AUTHORITY_SNAPSHOT": "",
+                    "CHUMMER_RELEASE_AUTHORITY_CURRENT": "",
                     "CHUMMER_REGISTRY_COMMIT": "",
-                    "CHUMMER_RELEASE_DECISION_RECEIPT": "",
                     "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "",
                 }
             )
@@ -153,14 +152,11 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
 
     @staticmethod
     def _authority_env(root: Path) -> dict[str, str]:
-        snapshot = root / "SNAPSHOT.json"
-        decision = root / "RELEASE_DECISION.json"
-        snapshot.write_text("{}\n", encoding="utf-8")
-        decision.write_text("{}\n", encoding="utf-8")
+        current = root / "CURRENT.json"
+        current.write_text("{}\n", encoding="utf-8")
         return {
-            "CHUMMER_RELEASE_AUTHORITY_SNAPSHOT": str(snapshot),
+            "CHUMMER_RELEASE_AUTHORITY_CURRENT": str(current),
             "CHUMMER_REGISTRY_COMMIT": "a" * 40,
-            "CHUMMER_RELEASE_DECISION_RECEIPT": str(decision),
             "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "preview_ready",
         }
 

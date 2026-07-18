@@ -4,7 +4,6 @@ from __future__ import annotations
 import hashlib
 import json
 import re
-import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from urllib.parse import unquote, urlparse
@@ -20,10 +19,12 @@ STABLE_DECISION_CONTRACT_VERSION = 2
 MANIFEST_FILE_NAME = "RELEASE_CHANNEL.json"
 DECISION_FILE_NAME = "RELEASE_DECISION.json"
 SNAPSHOT_FILE_NAME = "SNAPSHOT.json"
+CURRENT_FILE_NAME = "CURRENT.json"
 _COMMIT_RE = re.compile(r"[0-9a-f]{40}")
 _SHA256_RE = re.compile(r"[0-9a-f]{64}")
 _ACCESS_CLASSES = frozenset({"open_public", "account_recommended", "account_required"})
 _INVALID_ID_TOKENS = frozenset({"unknown", "missing", "invalid"})
+_CURRENT_PROPERTIES = frozenset({"releaseVersion", "snapshotSha256", "decisionSha256", "status"})
 _SNAPSHOT_PROPERTIES = frozenset(
     {
         "authorityContract",
@@ -77,6 +78,7 @@ class ResolvedReleaseAuthority:
     authority: dict[str, object]
     authority_source: dict[str, object]
     served_mirror: str
+    current_pointer: dict[str, object]
 
 
 def _reject_constant(value: str) -> object:
@@ -172,14 +174,37 @@ def _head_map(value: object, field: str, *, allow_empty: bool = False) -> dict[s
 def _require_https_url(value: object, field: str) -> str:
     cleaned = _clean(value)
     parsed = urlparse(cleaned)
+    decoded_path = unquote(parsed.path)
     if (
         parsed.scheme != "https"
         or not parsed.netloc
+        or not parsed.hostname
         or parsed.username is not None
         or parsed.password is not None
+        or bool(parsed.query)
         or bool(parsed.fragment)
+        or not parsed.path.startswith("/")
+        or ".." in decoded_path.split("/")
+        or "\\" in decoded_path
+        or any(ord(character) < 32 for character in cleaned)
     ):
         raise ValueError(f"{field} must be a safe absolute HTTPS URL")
+    return cleaned
+
+
+def _require_immutable_download_url(value: object, field: str) -> str:
+    cleaned = _require_https_url(value, field)
+    path = urlparse(cleaned).path
+    match = re.fullmatch(r"/downloads/g/([A-Za-z0-9._-]+)/files/([^/]+)", path)
+    if (
+        match is None
+        or match.group(1) in {".", ".."}
+        or unquote(path) != path
+        or not match.group(2).strip()
+    ):
+        raise ValueError(
+            f"{field} must use immutable /downloads/g/<generation>/files/<file> HTTPS routing"
+        )
     return cleaned
 
 
@@ -201,47 +226,6 @@ def _require_public_install_route(value: object, field: str) -> str:
     ):
         raise ValueError(f"{field} must be a safe root-relative path without query, fragment, or traversal")
     return cleaned
-
-
-def _git_output(repo_root: Path, *args: str) -> bytes:
-    completed = subprocess.run(
-        ["git", "-C", str(repo_root), *args],
-        check=False,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
-    if completed.returncode != 0:
-        detail = completed.stderr.decode("utf-8", errors="replace").strip()
-        raise ValueError(f"git {' '.join(args)} failed: {detail}")
-    return completed.stdout
-
-
-def _normalize_github_remote(value: str) -> str:
-    cleaned = value.strip()
-    if cleaned.startswith("git@github.com:"):
-        path = cleaned[len("git@github.com:") :]
-    else:
-        parsed = urlparse(cleaned)
-        if parsed.hostname != "github.com":
-            return ""
-        path = parsed.path.lstrip("/")
-    return path.removesuffix(".git").strip("/")
-
-
-def _resolve_registry_repository(snapshot_path: Path, registry_commit: str) -> tuple[Path, str]:
-    root_text = _git_output(snapshot_path.parent, "rev-parse", "--show-toplevel").decode("utf-8").strip()
-    repo_root = Path(root_text).resolve(strict=True)
-    try:
-        relative_path = snapshot_path.relative_to(repo_root).as_posix()
-    except ValueError as exc:
-        raise ValueError("authority snapshot must be inside the Registry repository") from exc
-    remote = _git_output(repo_root, "remote", "get-url", "origin").decode("utf-8").strip()
-    if _normalize_github_remote(remote).casefold() != EXPECTED_REGISTRY_REPOSITORY.casefold():
-        raise ValueError(f"authority repository must be {EXPECTED_REGISTRY_REPOSITORY}")
-    resolved_commit = _git_output(repo_root, "rev-parse", "--verify", f"{registry_commit}^{{commit}}").decode("utf-8").strip()
-    if resolved_commit != registry_commit:
-        raise ValueError("Registry commit did not resolve to the exact requested commit")
-    return repo_root, relative_path
 
 
 def _snapshot_artifacts(snapshot: dict[str, object]) -> list[dict[str, object]]:
@@ -302,7 +286,7 @@ def _snapshot_artifacts(snapshot: dict[str, object]) -> list[dict[str, object]]:
             raise ValueError("SNAPSHOT.json public shelf artifacts must be revokeState=not_revoked")
         if _token(item.get("installAccessClass")) not in _ACCESS_CLASSES:
             raise ValueError("SNAPSHOT.json artifact installAccessClass is unsupported")
-        download_url = _require_https_url(
+        download_url = _require_immutable_download_url(
             item.get("downloadUrl"),
             f"SNAPSHOT.json artifacts[{index}].downloadUrl",
         )
@@ -481,9 +465,14 @@ def _decision_scope(
     decision_status: str,
     snapshot: dict[str, object],
 ) -> tuple[dict[str, str], dict[str, set[str]]]:
-    if decision_status in {"review_required", "preview_ready"}:
-        if _clean(decision.get("contractName")) != PREVIEW_DECISION_CONTRACT:
-            raise ValueError(f"{decision_status} requires decision contract {PREVIEW_DECISION_CONTRACT}")
+    preview_contract = _clean(decision.get("contractName")) == PREVIEW_DECISION_CONTRACT
+    stable_contract = (
+        _clean(decision.get("contract_name")) == STABLE_DECISION_CONTRACT
+        and decision.get("contract_version") == STABLE_DECISION_CONTRACT_VERSION
+    )
+    if preview_contract:
+        if decision_status not in {"review_required", "preview_ready"}:
+            raise ValueError(f"{PREVIEW_DECISION_CONTRACT} cannot assert {decision_status}")
         bindings = {
             "releaseVersion": _clean(decision.get("releaseVersion")),
             "channel": _token(decision.get("channel")),
@@ -531,11 +520,9 @@ def _decision_scope(
             if primary_heads.get(normalized_platform) in heads:
                 raise ValueError("release decision primary head cannot also be an explicit fallback")
             fallback_heads[normalized_platform] = set(heads)
-    else:
-        if _clean(decision.get("contract_name")) != STABLE_DECISION_CONTRACT or decision.get("contract_version") != 2:
-            raise ValueError(
-                f"stable_ready requires decision contract {STABLE_DECISION_CONTRACT} v{STABLE_DECISION_CONTRACT_VERSION}"
-            )
+    elif stable_contract:
+        if decision_status not in {"review_required", "stable_ready"}:
+            raise ValueError(f"{STABLE_DECISION_CONTRACT} cannot assert {decision_status}")
         live = decision.get("live_release")
         authority = decision.get("release_authority")
         if not isinstance(live, dict) or not isinstance(authority, dict):
@@ -573,12 +560,16 @@ def _decision_scope(
             "artifactCount": snapshot.get("artifactCount"),
             "downloadAccessPosture": _token(snapshot.get("downloadAccessPosture")),
             "knownIssueSummary": _clean(snapshot.get("knownIssueSummary")),
-            "releaseDecisionStatus": "stable_ready",
+            "releaseDecisionStatus": decision_status,
         }
         if stable_bindings != expected_stable_bindings:
             raise ValueError("stable decision live_release does not exactly bind the Registry snapshot projection")
-        if _token(authority.get("release_decision_status")) != "stable_ready":
-            raise ValueError("stable decision release_authority does not bind stable_ready posture")
+        if _token(authority.get("release_decision_status")) != decision_status:
+            raise ValueError("stable decision release_authority does not bind its exact decision posture")
+        if _clean(decision.get("releaseVersion")) != _clean(snapshot.get("releaseVersion")):
+            raise ValueError("stable decision top-level releaseVersion does not match SNAPSHOT.json")
+    else:
+        raise ValueError("release decision contract is unsupported")
 
     expected_bindings = {
         "releaseVersion": _clean(snapshot.get("releaseVersion")),
@@ -680,28 +671,59 @@ def _validate_snapshot(
 
 
 def resolve_release_authority(
-    snapshot_path: Path,
+    current_path: Path,
     *,
     served_mirror: str = CANONICAL_RELEASE_CHANNEL_SOURCE,
     registry_commit: str,
-    release_decision_path: Path,
     expected_release_decision_status: str,
 ) -> ResolvedReleaseAuthority:
     if expected_release_decision_status not in ALLOWED_RELEASE_DECISION_STATUSES:
         allowed = ", ".join(sorted(ALLOWED_RELEASE_DECISION_STATUSES))
         raise ValueError(f"expected release decision status must be one of: {allowed}")
     registry_commit = _require_commit(registry_commit, "explicit Registry commit")
-    if not served_mirror.strip():
-        raise ValueError("served mirror must be nonempty")
+    served_mirror = _require_https_url(served_mirror, "served mirror")
 
-    snapshot_path = snapshot_path.expanduser().resolve(strict=True)
+    current_path = current_path.expanduser().resolve(strict=True)
+    if current_path.name != CURRENT_FILE_NAME:
+        raise ValueError(f"release authority pointer must be named {CURRENT_FILE_NAME}")
+    authority_root = current_path.parent
+    current_bytes = current_path.read_bytes()
+    current = _load_json_bytes(current_bytes, current_path)
+    _require_exact_properties(current, _CURRENT_PROPERTIES, CURRENT_FILE_NAME)
+    release_version = _require_string(current, "releaseVersion", CURRENT_FILE_NAME)
+    if (
+        release_version in {".", ".."}
+        or len(release_version) > 128
+        or re.fullmatch(r"[A-Za-z0-9._-]+", release_version) is None
+    ):
+        raise ValueError("CURRENT.json releaseVersion must be one portable path segment")
+    current_snapshot_sha256 = _require_sha256(current.get("snapshotSha256"), "CURRENT.json snapshotSha256")
+    current_decision_sha256 = _require_sha256(current.get("decisionSha256"), "CURRENT.json decisionSha256")
+    current_status = _token(current.get("status"))
+    if (
+        current_status != _clean(current.get("status"))
+        or current_status not in ALLOWED_RELEASE_DECISION_STATUSES
+        or current_status != expected_release_decision_status
+    ):
+        raise ValueError("CURRENT.json status does not match the exact expected release decision posture")
+
+    expected_snapshot_path = (
+        authority_root / "snapshots" / release_version / current_snapshot_sha256 / SNAPSHOT_FILE_NAME
+    )
+    snapshot_path = expected_snapshot_path.resolve(strict=True)
+    try:
+        snapshot_relative_path = snapshot_path.relative_to(authority_root).as_posix()
+    except ValueError as exc:
+        raise ValueError("CURRENT.json derived snapshot escapes the release authority root") from exc
+    expected_relative_path = (
+        f"snapshots/{release_version}/{current_snapshot_sha256}/{SNAPSHOT_FILE_NAME}"
+    )
+    if snapshot_relative_path != expected_relative_path:
+        raise ValueError("CURRENT.json must derive the exact content-addressed snapshot path")
     snapshot_bytes = snapshot_path.read_bytes()
     snapshot_sha256 = _sha256(snapshot_bytes)
-    if snapshot_path.name != SNAPSHOT_FILE_NAME:
-        raise ValueError(f"authority snapshot must be named {SNAPSHOT_FILE_NAME}")
-    expected_tail = ("snapshots", _clean(_load_json_bytes(snapshot_bytes, snapshot_path).get("releaseVersion")), snapshot_sha256, SNAPSHOT_FILE_NAME)
-    if tuple(snapshot_path.parts[-4:]) != expected_tail:
-        raise ValueError("authority snapshot path must be snapshots/<releaseVersion>/<snapshotSha256>/SNAPSHOT.json")
+    if snapshot_sha256 != current_snapshot_sha256:
+        raise ValueError("CURRENT.json snapshotSha256 does not match exact SNAPSHOT.json bytes")
     snapshot = _load_json_bytes(snapshot_bytes, snapshot_path)
     snapshot_artifacts, _, snapshot_heads = _validate_snapshot(
         snapshot,
@@ -709,27 +731,44 @@ def resolve_release_authority(
         registry_commit,
         expected_release_decision_status,
     )
+    if (
+        _clean(snapshot.get("releaseVersion")) != release_version
+        or _token(snapshot.get("releaseDecisionSha256")) != current_decision_sha256
+        or _token(snapshot.get("releaseDecisionStatus")) != current_status
+    ):
+        raise ValueError(
+            "CURRENT.json releaseVersion, decisionSha256, and status must match SNAPSHOT.json"
+        )
 
-    repo_root, snapshot_relative_path = _resolve_registry_repository(snapshot_path, registry_commit)
     manifest_path = (snapshot_path.parent / _clean(snapshot.get("manifestPath"))).resolve(strict=True)
     decision_path_from_snapshot = (snapshot_path.parent / _clean(snapshot.get("releaseDecisionPath"))).resolve(strict=True)
-    release_decision_path = release_decision_path.expanduser().resolve(strict=True)
     if manifest_path.parent != snapshot_path.parent or decision_path_from_snapshot.parent != snapshot_path.parent:
         raise ValueError("authority manifest and decision must be immutable siblings of SNAPSHOT.json")
-    if release_decision_path != decision_path_from_snapshot:
-        raise ValueError("explicit release decision path does not match SNAPSHOT.json releaseDecisionPath")
 
     manifest_bytes = manifest_path.read_bytes()
-    decision_bytes = release_decision_path.read_bytes()
+    decision_bytes = decision_path_from_snapshot.read_bytes()
     if _sha256(manifest_bytes) != _token(snapshot.get("manifestSha256")):
         raise ValueError("SNAPSHOT.json manifestSha256 does not match exact sibling manifest bytes")
-    if _sha256(decision_bytes) != _token(snapshot.get("releaseDecisionSha256")):
+    if _sha256(decision_bytes) != current_decision_sha256:
         raise ValueError("SNAPSHOT.json releaseDecisionSha256 does not match exact sibling decision bytes")
     manifest = _load_json_bytes(manifest_bytes, manifest_path)
-    decision = _load_json_bytes(decision_bytes, release_decision_path)
-    decision_status = _token(decision.get("status"))
-    if decision_status != _clean(decision.get("status")) or decision_status != expected_release_decision_status:
-        raise ValueError("release decision receipt status does not match exact expected posture")
+    decision = _load_json_bytes(decision_bytes, decision_path_from_snapshot)
+    decision_status = _token(decision.get("releaseDecisionStatus"))
+    if (
+        decision_status != _clean(decision.get("releaseDecisionStatus"))
+        or decision_status != expected_release_decision_status
+    ):
+        raise ValueError("release decision releaseDecisionStatus does not match exact expected posture")
+    if _clean(decision.get("contractName")) == PREVIEW_DECISION_CONTRACT:
+        if _token(decision.get("status")) != decision_status:
+            raise ValueError("preview decision status must equal releaseDecisionStatus")
+    elif (
+        _clean(decision.get("contract_name")) == STABLE_DECISION_CONTRACT
+        and decision.get("contract_version") == STABLE_DECISION_CONTRACT_VERSION
+    ):
+        expected_graph_status = "pass" if decision_status == "stable_ready" else "review_required"
+        if _token(decision.get("status")) != expected_graph_status:
+            raise ValueError("stable decision status must be pass iff releaseDecisionStatus is stable_ready")
     primary_heads, fallback_heads = _decision_scope(decision, decision_status, snapshot)
 
     for field, snapshot_value, manifest_value in (
@@ -758,13 +797,17 @@ def resolve_release_authority(
     authority_source = {
         "registryRepository": EXPECTED_REGISTRY_REPOSITORY,
         "registryCommit": registry_commit,
+        "currentPath": CURRENT_FILE_NAME,
+        "currentSha256": _sha256(current_bytes),
+        "currentStatus": current_status,
         "snapshotPath": snapshot_relative_path,
         "snapshotSha256": snapshot_sha256,
-        "manifestPath": manifest_path.relative_to(repo_root).as_posix(),
+        "manifestPath": manifest_path.relative_to(authority_root).as_posix(),
         "manifestSha256": _sha256(manifest_bytes),
-        "manifestVersion": manifest.get("schemaVersion"),
+        "manifestVersion": release_version,
+        "manifestSchemaVersion": manifest.get("schemaVersion"),
         "manifestGeneratedAt": _clean(manifest.get("generatedAt") or manifest.get("generated_at")),
-        "releaseDecisionPath": release_decision_path.relative_to(repo_root).as_posix(),
+        "releaseDecisionPath": decision_path_from_snapshot.relative_to(authority_root).as_posix(),
         "releaseDecisionSha256": _sha256(decision_bytes),
     }
     return ResolvedReleaseAuthority(
@@ -773,6 +816,7 @@ def resolve_release_authority(
         authority=dict(snapshot),
         authority_source=authority_source,
         served_mirror=served_mirror,
+        current_pointer=dict(current),
     )
 
 

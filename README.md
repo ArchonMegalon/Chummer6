@@ -4,6 +4,8 @@ Build a Shadowrun runner, see why the numbers changed, and keep game night movin
 
 The honest pitch is simple: Chummer6 is trying to make dense Shadowrun character work readable again without sanding away the parts veteran players care about.
 
+Release review required. Public availability claims remain paused until one immutable snapshot converges.
+
 ## Product promise
 
 Chummer6 helps Shadowrun players and GMs build runners, explain rulings, and keep campaigns moving without mystery math.
@@ -14,15 +16,14 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 
 ## What is real now
 
-- Short answer: yes, as an early preview.
-- macOS downloads are posted.
-- Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
-- For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there.
-- Use Avalonia first when the download page offers it.
-- The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.
-- Today: Current release build.
-- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
-- The current shelf should be read as a real preview, not a finished no-step-back release.
+- Short answer: release review is required before relying on public availability claims.
+- No public platform availability is claimed by this unbound repository projection.
+- Release review is required. Do not rely on platform availability claims until the current immutable snapshot converges.
+- No desktop head is approved by this unbound repository projection.
+- Release review is required. Stable and gold claims remain paused until the immutable authority and public pages converge.
+- Today: Release review required.
+- No desktop platform is currently claimed by this unbound repository projection.
+- No release shelf is claimed until the immutable Registry authority and public pages converge.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 

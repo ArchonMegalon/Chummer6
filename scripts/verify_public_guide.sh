@@ -5,9 +5,8 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source_root="$repo_root"
 skip_http=0
 release_mode=0
-authority_snapshot="${CHUMMER_RELEASE_AUTHORITY_SNAPSHOT:-}"
+authority_current="${CHUMMER_RELEASE_AUTHORITY_CURRENT:-}"
 registry_commit="${CHUMMER_REGISTRY_COMMIT:-}"
-release_decision="${CHUMMER_RELEASE_DECISION_RECEIPT:-}"
 expected_decision_status="${CHUMMER_EXPECTED_RELEASE_DECISION_STATUS:-}"
 served_mirror="${CHUMMER_RELEASE_SERVED_MIRROR:-https://chummer.run/downloads/RELEASE_CHANNEL.generated.json}"
 sync_args=()
@@ -36,19 +35,14 @@ while (($#)); do
       release_mode=1
       shift
       ;;
-    --authority-snapshot)
-      (($# >= 2)) || { echo "verify_public_guide.sh: --authority-snapshot requires a path" >&2; exit 2; }
-      authority_snapshot="$2"
+    --authority-current)
+      (($# >= 2)) || { echo "verify_public_guide.sh: --authority-current requires a path" >&2; exit 2; }
+      authority_current="$2"
       shift 2
       ;;
     --registry-commit)
       (($# >= 2)) || { echo "verify_public_guide.sh: --registry-commit requires a SHA" >&2; exit 2; }
       registry_commit="$2"
-      shift 2
-      ;;
-    --release-decision)
-      (($# >= 2)) || { echo "verify_public_guide.sh: --release-decision requires a path" >&2; exit 2; }
-      release_decision="$2"
       shift 2
       ;;
     --expected-release-decision-status)
@@ -69,16 +63,14 @@ while (($#)); do
 done
 
 missing_authority=()
-[[ -n "$authority_snapshot" ]] || missing_authority+=(--authority-snapshot)
+[[ -n "$authority_current" ]] || missing_authority+=(--authority-current)
 [[ -n "$registry_commit" ]] || missing_authority+=(--registry-commit)
-[[ -n "$release_decision" ]] || missing_authority+=(--release-decision)
 [[ -n "$expected_decision_status" ]] || missing_authority+=(--expected-release-decision-status)
 if ((${#missing_authority[@]})); then
   echo "verify_public_guide.sh: immutable release authority is mandatory; missing: ${missing_authority[*]}" >&2
   exit 2
 fi
-[[ -f "$authority_snapshot" ]] || { echo "verify_public_guide.sh: authority snapshot not found: $authority_snapshot" >&2; exit 2; }
-[[ -f "$release_decision" ]] || { echo "verify_public_guide.sh: release decision not found: $release_decision" >&2; exit 2; }
+[[ -f "$authority_current" ]] || { echo "verify_public_guide.sh: authority CURRENT pointer not found: $authority_current" >&2; exit 2; }
 [[ "$registry_commit" =~ ^[0-9a-f]{40}$ ]] || { echo "verify_public_guide.sh: Registry commit must be exact lowercase 40-hex" >&2; exit 2; }
 case "$expected_decision_status" in
   review_required|preview_ready|stable_ready) ;;
@@ -87,9 +79,8 @@ esac
 [[ -n "$served_mirror" ]] || { echo "verify_public_guide.sh: served mirror must be nonempty" >&2; exit 2; }
 
 authority_args=(
-  --authority-snapshot "$authority_snapshot"
+  --authority-current "$authority_current"
   --registry-commit "$registry_commit"
-  --release-decision "$release_decision"
   --expected-release-decision-status "$expected_decision_status"
   --served-mirror "$served_mirror"
 )

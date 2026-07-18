@@ -13,14 +13,11 @@ CONVERGENCE_SCRIPT = REPO_ROOT / "scripts" / "release" / "verify_guide_convergen
 
 
 def _authority_env(root: Path) -> dict[str, str]:
-    snapshot = root / "SNAPSHOT.json"
-    decision = root / "RELEASE_DECISION.json"
-    snapshot.write_text("{}\n", encoding="utf-8")
-    decision.write_text("{}\n", encoding="utf-8")
+    current = root / "CURRENT.json"
+    current.write_text("{}\n", encoding="utf-8")
     return {
-        "CHUMMER_RELEASE_AUTHORITY_SNAPSHOT": str(snapshot),
+        "CHUMMER_RELEASE_AUTHORITY_CURRENT": str(current),
         "CHUMMER_REGISTRY_COMMIT": "a" * 40,
-        "CHUMMER_RELEASE_DECISION_RECEIPT": str(decision),
         "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "preview_ready",
     }
 
@@ -69,11 +66,10 @@ def test_verify_public_guide_forwards_authority_only_to_truth_verifiers() -> Non
         assert completed.returncode == 0, completed.stdout
         calls = log_path.read_text(encoding="utf-8").splitlines()
         sync_call = next(line for line in calls if "sync_public_guide_from_design.py" in line)
-        assert "--authority-snapshot" not in sync_call
+        assert "--authority-current" not in sync_call
         expected_tail = (
-            f"--authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} "
+            f"--authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} "
             f"--registry-commit {'a' * 40} "
-            f"--release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} "
             "--expected-release-decision-status preview_ready "
             "--served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json --release"
         )
@@ -96,9 +92,8 @@ def test_verify_public_guide_missing_authority_fails_before_checks() -> None:
             **os.environ,
             "CALL_LOG": str(log_path),
             "PATH": f"{fake_bin}:{os.environ['PATH']}",
-            "CHUMMER_RELEASE_AUTHORITY_SNAPSHOT": "",
+            "CHUMMER_RELEASE_AUTHORITY_CURRENT": "",
             "CHUMMER_REGISTRY_COMMIT": "",
-            "CHUMMER_RELEASE_DECISION_RECEIPT": "",
             "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "",
         }
         completed = subprocess.run(
@@ -166,9 +161,8 @@ def test_convergence_entrypoint_forwards_one_exact_release_authority_tuple() -> 
         assert completed.returncode == 0, completed.stdout
         calls = log_path.read_text(encoding="utf-8").splitlines()
         expected_args = (
-            f"--release --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} "
+            f"--release --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} "
             f"--registry-commit {'a' * 40} "
-            f"--release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} "
             "--expected-release-decision-status preview_ready "
             "--served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json"
         )
@@ -191,9 +185,8 @@ def test_convergence_missing_authority_fails_before_receipt_mutation() -> None:
             "CALL_LOG": str(log_path),
             "CHUMMER6_REPO_ROOT": str(fake_repo),
             "CHUMMER_DESIGN_REPO_ROOT": "",
-            "CHUMMER_RELEASE_AUTHORITY_SNAPSHOT": "",
+            "CHUMMER_RELEASE_AUTHORITY_CURRENT": "",
             "CHUMMER_REGISTRY_COMMIT": "",
-            "CHUMMER_RELEASE_DECISION_RECEIPT": "",
             "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "",
             "PATH": f"{fake_bin}:{os.environ['PATH']}",
         }

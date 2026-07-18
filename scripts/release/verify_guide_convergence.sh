@@ -3,31 +3,25 @@ set -euo pipefail
 
 repo_root="${CHUMMER6_REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
 design_root=""
-authority_snapshot="${CHUMMER_RELEASE_AUTHORITY_SNAPSHOT:-}"
+authority_current="${CHUMMER_RELEASE_AUTHORITY_CURRENT:-}"
 registry_commit="${CHUMMER_REGISTRY_COMMIT:-}"
-release_decision="${CHUMMER_RELEASE_DECISION_RECEIPT:-}"
 expected_decision_status="${CHUMMER_EXPECTED_RELEASE_DECISION_STATUS:-}"
 served_mirror="${CHUMMER_RELEASE_SERVED_MIRROR:-https://chummer.run/downloads/RELEASE_CHANNEL.generated.json}"
 
 usage() {
-  echo "Usage: $0 --authority-snapshot PATH --registry-commit SHA --release-decision PATH --expected-release-decision-status STATUS [--served-mirror URL]" >&2
+  echo "Usage: $0 --authority-current PATH --registry-commit SHA --expected-release-decision-status STATUS [--served-mirror URL]" >&2
 }
 
 while (($#)); do
   case "$1" in
-    --authority-snapshot)
-      (($# >= 2)) || { echo "--authority-snapshot requires a path" >&2; exit 2; }
-      authority_snapshot="$2"
+    --authority-current)
+      (($# >= 2)) || { echo "--authority-current requires a path" >&2; exit 2; }
+      authority_current="$2"
       shift 2
       ;;
     --registry-commit)
       (($# >= 2)) || { echo "--registry-commit requires a SHA" >&2; exit 2; }
       registry_commit="$2"
-      shift 2
-      ;;
-    --release-decision)
-      (($# >= 2)) || { echo "--release-decision requires a path" >&2; exit 2; }
-      release_decision="$2"
       shift 2
       ;;
     --expected-release-decision-status)
@@ -53,16 +47,14 @@ while (($#)); do
 done
 
 missing_authority=()
-[[ -n "$authority_snapshot" ]] || missing_authority+=(--authority-snapshot)
+[[ -n "$authority_current" ]] || missing_authority+=(--authority-current)
 [[ -n "$registry_commit" ]] || missing_authority+=(--registry-commit)
-[[ -n "$release_decision" ]] || missing_authority+=(--release-decision)
 [[ -n "$expected_decision_status" ]] || missing_authority+=(--expected-release-decision-status)
 if ((${#missing_authority[@]})); then
   echo "Immutable release authority is mandatory; missing: ${missing_authority[*]}" >&2
   exit 2
 fi
-[[ -f "$authority_snapshot" ]] || { echo "Authority snapshot not found: $authority_snapshot" >&2; exit 2; }
-[[ -f "$release_decision" ]] || { echo "Release decision not found: $release_decision" >&2; exit 2; }
+[[ -f "$authority_current" ]] || { echo "Authority CURRENT pointer not found: $authority_current" >&2; exit 2; }
 [[ "$registry_commit" =~ ^[0-9a-f]{40}$ ]] || { echo "Registry commit must be exact lowercase 40-hex" >&2; exit 2; }
 case "$expected_decision_status" in
   review_required|preview_ready|stable_ready) ;;
@@ -72,9 +64,8 @@ esac
 
 release_authority_args=(
   --release
-  --authority-snapshot "$authority_snapshot"
+  --authority-current "$authority_current"
   --registry-commit "$registry_commit"
-  --release-decision "$release_decision"
   --expected-release-decision-status "$expected_decision_status"
   --served-mirror "$served_mirror"
 )

@@ -44,7 +44,7 @@ def authority() -> dict[str, object]:
                 "arch": "x64",
                 "artifactId": "linux-installer",
                 "compatibilityState": "compatible",
-                "downloadUrl": "https://downloads.chummer.run/generated/linux.deb",
+                "downloadUrl": "https://chummer.run/downloads/g/generation-1/files/linux.deb",
                 "head": "avalonia",
                 "installAccessClass": "open_public",
                 "kind": "installer",
@@ -61,7 +61,7 @@ def authority() -> dict[str, object]:
                 "arch": "x64",
                 "artifactId": "windows-installer",
                 "compatibilityState": "compatible",
-                "downloadUrl": "https://downloads.chummer.run/generated/windows.exe",
+                "downloadUrl": "https://chummer.run/downloads/g/generation-1/files/windows.exe",
                 "head": "avalonia",
                 "installAccessClass": "open_public",
                 "kind": "installer",
@@ -111,7 +111,7 @@ class PublicReleaseTruthPacketTests(unittest.TestCase):
     def test_gold_supported_posture_uses_snapshot_platform_scope(self) -> None:
         packet = self.build(release_payload(), authority())
 
-        self.assertEqual(packet["release_posture"], "gold_supported")
+        self.assertEqual(packet["release_posture"], "stable_ready")
         self.assertEqual(packet["required_platforms"], ["Linux", "Windows"])
         self.assertEqual(packet["available_platforms"], ["Linux", "Windows"])
         self.assertEqual(packet["missing_platforms"], ["macOS"])
@@ -124,8 +124,8 @@ class PublicReleaseTruthPacketTests(unittest.TestCase):
 
         packet = self.build(release_payload(), snapshot)
 
-        self.assertEqual(packet["release_posture"], "preview_or_review_required")
-        self.assertEqual(packet["phase_label"], "Current release build")
+        self.assertEqual(packet["release_posture"], "preview_ready")
+        self.assertEqual(packet["phase_label"], "Preview-ready release")
         self.assertIn("remaining work", packet["quality_gap_line"].lower())
 
     def test_manifest_missing_platform_flags_cannot_override_snapshot_scope(self) -> None:
@@ -139,7 +139,7 @@ class PublicReleaseTruthPacketTests(unittest.TestCase):
 
         self.assertEqual(packet["missing_platforms"], ["macOS"])
         self.assertNotIn("Windows", packet["missing_platforms"])
-        self.assertEqual(packet["release_posture"], "preview_or_review_required")
+        self.assertEqual(packet["release_posture"], "stable_ready")
 
 
 if __name__ == "__main__":

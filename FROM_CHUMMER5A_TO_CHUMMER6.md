@@ -25,19 +25,19 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What is still rough
 
-- macOS downloads are posted.
-- The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.
-- Public downloads are already visible on every promised desktop platform.
-- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
-- Treat the current shelf as a serious preview, not a fully settled every-platform replacement yet.
+- No public platform availability is claimed by this unbound repository projection.
+- Release review is required. Stable and gold claims remain paused until the immutable authority and public pages converge.
+- If you rely on Windows, Linux, and macOS as your main platform, wait before switching full time.
+- No desktop platform is currently claimed by this unbound repository projection.
+- No release shelf is claimed until immutable authority and public-route convergence are complete.
 
 ## Should you switch today?
 
-- Today you can try the current builds on macOS.
+- There are no public downloads posted right now, so this is not a practical switch yet.
 
 ### If your platform is on the current download shelf
 
-- It is worth a serious look.
+- No platform is currently approved by this unbound repository projection.
 
 ### If your platform is outside the current download shelf
 

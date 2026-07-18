@@ -15,6 +15,7 @@ Mutator = Callable[[JsonObject], None]
 @dataclass(frozen=True)
 class AuthorityFixture:
     repo_root: Path
+    current_path: Path
     snapshot_path: Path
     manifest_path: Path
     decision_path: Path
@@ -22,6 +23,7 @@ class AuthorityFixture:
     snapshot: JsonObject
     manifest: JsonObject
     decision: JsonObject
+    current: JsonObject
 
 
 def _json_bytes(payload: JsonObject) -> bytes:
@@ -45,7 +47,7 @@ def default_artifacts() -> list[JsonObject]:
             "artifactId": "avalonia-linux-x64-installer",
             "arch": "x64",
             "compatibilityState": "compatible",
-            "downloadUrl": "https://downloads.chummer.run/generated/chummer-avalonia-linux-x64-installer.deb",
+            "downloadUrl": "https://chummer.run/downloads/g/generation-1/files/chummer-avalonia-linux-x64-installer.deb",
             "fileName": "chummer-avalonia-linux-x64-installer.deb",
             "head": "avalonia",
             "installAccessClass": "open_public",
@@ -61,7 +63,7 @@ def default_artifacts() -> list[JsonObject]:
             "artifactId": "avalonia-win-x64-installer",
             "arch": "x64",
             "compatibilityState": "compatible",
-            "downloadUrl": "https://downloads.chummer.run/generated/chummer-avalonia-win-x64-installer.exe",
+            "downloadUrl": "https://chummer.run/downloads/g/generation-1/files/chummer-avalonia-win-x64-installer.exe",
             "fileName": "chummer-avalonia-win-x64-installer.exe",
             "head": "avalonia",
             "installAccessClass": "open_public",
@@ -87,6 +89,7 @@ def write_authority_fixture(
     manifest_mutator: Mutator | None = None,
     decision_mutator: Mutator | None = None,
     snapshot_mutator: Mutator | None = None,
+    current_mutator: Mutator | None = None,
     path_release_version: str | None = None,
     path_digest: str | None = None,
 ) -> AuthorityFixture:
@@ -224,7 +227,9 @@ def write_authority_fixture(
                 "snapshot_path": "",
                 "snapshot_sha256": "",
             },
-            "status": decision_status,
+            "releaseDecisionStatus": decision_status,
+            "releaseVersion": release_version,
+            "status": "pass",
         }
     else:
         decision = {
@@ -240,9 +245,13 @@ def write_authority_fixture(
             "platforms": platforms,
             "primaryHeadByPlatform": primary_heads,
             "registryCommit": registry_commit,
+            "releaseDecisionStatus": decision_status,
             "releaseVersion": release_version,
             "status": decision_status,
             "supportOwner": support_owner,
+            "authoritySnapshotSha256": "" if decision_status == "review_required" else "a" * 64,
+            "candidateDecisionStatus": "" if decision_status == "review_required" else "review_required",
+            "candidateDecisionSha256": "" if decision_status == "review_required" else "b" * 64,
         }
     if decision_mutator is not None:
         decision_mutator(decision)
@@ -309,8 +318,19 @@ def write_authority_fixture(
     snapshot_path.write_bytes(snapshot_bytes)
     manifest_path.write_bytes(manifest_bytes)
     decision_path.write_bytes(decision_bytes)
+    current: JsonObject = {
+        "releaseVersion": str(snapshot["releaseVersion"]),
+        "snapshotSha256": snapshot_sha256,
+        "decisionSha256": decision_sha256,
+        "status": str(snapshot["releaseDecisionStatus"]),
+    }
+    if current_mutator is not None:
+        current_mutator(current)
+    current_path = repo / "CURRENT.json"
+    current_path.write_bytes(_json_bytes(current))
     return AuthorityFixture(
         repo_root=repo,
+        current_path=current_path,
         snapshot_path=snapshot_path,
         manifest_path=manifest_path,
         decision_path=decision_path,
@@ -318,4 +338,5 @@ def write_authority_fixture(
         snapshot=snapshot,
         manifest=manifest,
         decision=decision,
+        current=current,
     )

@@ -29,9 +29,8 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
     def _write_fixture(self, root: Path):
         authority = write_authority_fixture(root / "authority")
         resolved = MODULE.resolve_release_authority(
-            authority.snapshot_path,
+            authority.current_path,
             registry_commit=authority.registry_commit,
-            release_decision_path=authority.decision_path,
             expected_release_decision_status="preview_ready",
         )
         docs_root = root / "Chummer6"
@@ -68,7 +67,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
 ### Windows
 
 - Avalonia Desktop Windows X64 Installer.
-- Download: [Open download](/downloads/files/chummer-avalonia-win-x64-installer.exe)
+- Download: [Open download](https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe)
 - File: `chummer-avalonia-win-x64-installer.exe`
 - Size: 2.6 MiB (2734106 bytes)
 - Access: Public download.
@@ -76,7 +75,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
 ### Linux
 
 - Avalonia Desktop Linux X64 Installer.
-- Download: [Open download](/downloads/files/chummer-avalonia-linux-x64-installer.deb)
+- Download: [Open download](https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb)
 - File: `chummer-avalonia-linux-x64-installer.deb`
 - Size: 35.3 MiB (37024862 bytes)
 - Access: Public download.
@@ -123,12 +122,10 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
     @staticmethod
     def _args(authority) -> list[str]:
         return [
-            "--authority-snapshot",
-            str(authority.snapshot_path),
+            "--authority-current",
+            str(authority.current_path),
             "--registry-commit",
             authority.registry_commit,
-            "--release-decision",
-            str(authority.decision_path),
             "--expected-release-decision-status",
             "preview_ready",
         ]
@@ -159,8 +156,8 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
             download = docs_root / "DOWNLOAD.md"
             download.write_text(
                 download.read_text(encoding="utf-8").replace(
-                    "/downloads/files/chummer-avalonia-linux-x64-installer.deb",
-                    "https://downloads.chummer.run/generated/chummer-avalonia-linux-x64-installer.deb",
+                    "https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb",
+                    "https://chummer.run/downloads/g/generation-1/files/chummer-avalonia-linux-x64-installer.deb",
                 ),
                 encoding="utf-8",
             )
@@ -175,7 +172,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                 download.read_text(encoding="utf-8").replace(
                     "### macOS",
                     "- Unapproved Recovery Archive.\n"
-                    "- Download: [Open download](/downloads/files/recovery.zip)\n"
+                    "- Download: [Open download](https://chummer.run/downloads/files/recovery.zip)\n"
                     "- File: `recovery.zip`\n"
                     "- Size: 10 bytes\n"
                     "- Access: Public download.\n\n"

@@ -39,23 +39,20 @@ def _require_contains(name: str, haystack: str, needle: str) -> None:
 
 
 def _verify_registry_alignment(
-    authority_snapshot: Path,
+    authority_current: Path,
     *,
     release_mode: bool,
     registry_commit: str,
-    release_decision: Path,
     expected_release_decision_status: str,
     served_mirror: str,
 ) -> None:
     command = [
         "python3",
         str(SCRIPT_ROOT / "verify_public_downloads_match_registry.py"),
-        "--authority-snapshot",
-        str(authority_snapshot),
+        "--authority-current",
+        str(authority_current),
         "--registry-commit",
         registry_commit,
-        "--release-decision",
-        str(release_decision),
         "--expected-release-decision-status",
         expected_release_decision_status,
         "--served-mirror",
@@ -95,9 +92,14 @@ def _verify_document_content() -> None:
         str(packet.get(field) or "")
         for field in ("phase_label", "quality_gap_line", "short_release_summary", "release_posture")
     ).casefold()
+    authority_decision_status = str(authority.get("releaseDecisionStatus") or "").strip()
+    if str(packet.get("release_decision_status") or "").strip() != authority_decision_status:
+        raise ValueError("release truth packet decision posture drifted from immutable Registry authority")
+    if packet.get("release_posture") != authority_decision_status:
+        raise ValueError("release truth packet release_posture must preserve the exact decision status")
     if (
-        packet.get("release_posture") == "gold_supported" or "gold-supported" in gold_copy
-    ) and str(authority.get("releaseDecisionStatus") or "").strip() != "stable_ready":
+        packet.get("release_posture") == "stable_ready" or "gold-supported" in gold_copy
+    ) and authority_decision_status != "stable_ready":
         raise ValueError("gold-supported public copy requires releaseDecisionStatus=stable_ready")
     readme = _load_text(README_PATH)
     status = _load_text(STATUS_PATH)
@@ -185,6 +187,16 @@ def _verify_document_content() -> None:
     _require_contains("DOWNLOAD.md", download, str(packet.get("shelf_truth_line") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("release_verification_summary") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("known_issue_summary") or ""))
+    review_banner = str(packet.get("review_required_banner") or "").strip()
+    if authority_decision_status == "review_required":
+        if not review_banner:
+            raise ValueError("review_required release truth packet must carry an explicit review banner")
+        for name, content in (
+            ("DOWNLOAD.md", download),
+            ("STATUS.md", status),
+            ("NOW/current-status.md", current_status),
+        ):
+            _require_contains(name, content, review_banner)
     for stale_phrase in (
         "Release status is missing or stale",
         "gold-ready",
@@ -238,21 +250,15 @@ def main(argv: list[str] | None = None) -> int:
         help="Mark this strict authority verification as a release workflow invocation.",
     )
     parser.add_argument(
-        "--authority-snapshot",
+        "--authority-current",
         type=Path,
         required=True,
-        help="Explicit content-addressed Registry SNAPSHOT.json.",
+        help="Explicit Registry CURRENT.json pointer; the immutable generation is derived from it.",
     )
     parser.add_argument(
         "--registry-commit",
         required=True,
         help="Exact lowercase 40-hex Registry commit bound by SNAPSHOT.json.",
-    )
-    parser.add_argument(
-        "--release-decision",
-        type=Path,
-        required=True,
-        help="Explicit sibling Registry RELEASE_DECISION.json.",
     )
     parser.add_argument(
         "--expected-release-decision-status",
@@ -269,10 +275,9 @@ def main(argv: list[str] | None = None) -> int:
 
     _verify_document_content()
     _verify_registry_alignment(
-        args.authority_snapshot,
+        args.authority_current,
         release_mode=args.release,
         registry_commit=args.registry_commit,
-        release_decision=args.release_decision,
         expected_release_decision_status=args.expected_release_decision_status,
         served_mirror=args.served_mirror,
     )

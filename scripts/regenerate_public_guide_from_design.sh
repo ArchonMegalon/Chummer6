@@ -8,9 +8,8 @@ generator_script="${CHUMMER_PUBLIC_GUIDE_GENERATOR:-$design_root/scripts/ai/mate
 sync_script="${CHUMMER_PUBLIC_GUIDE_SYNC:-$repo_root/scripts/sync_public_guide_from_design.py}"
 verify_script="${CHUMMER_PUBLIC_GUIDE_VERIFY:-$repo_root/scripts/verify_public_guide.sh}"
 release_truth_script="${CHUMMER_PUBLIC_RELEASE_TRUTH_PACKET_MATERIALIZER:-$repo_root/scripts/materialize_public_release_truth_packet.py}"
-authority_snapshot="${CHUMMER_RELEASE_AUTHORITY_SNAPSHOT:-}"
+authority_current="${CHUMMER_RELEASE_AUTHORITY_CURRENT:-}"
 registry_commit="${CHUMMER_REGISTRY_COMMIT:-}"
-release_decision="${CHUMMER_RELEASE_DECISION_RECEIPT:-}"
 expected_decision_status="${CHUMMER_EXPECTED_RELEASE_DECISION_STATUS:-}"
 served_mirror="${CHUMMER_RELEASE_SERVED_MIRROR:-https://chummer.run/downloads/RELEASE_CHANNEL.generated.json}"
 check_mode=0
@@ -28,12 +27,10 @@ Options:
   --release           Mark the strict authority checks as a release invocation.
   --out PATH          Override the generated public-guide output directory.
   --design-repo PATH  Override the chummer-design repository root.
-  --authority-snapshot PATH
-                      Content-addressed Registry SNAPSHOT.json.
+  --authority-current PATH
+                      Registry CURRENT.json; the immutable generation is derived from it.
   --registry-commit SHA
                       Exact Registry commit bound by the snapshot.
-  --release-decision PATH
-                      Sibling Registry RELEASE_DECISION.json.
   --expected-release-decision-status STATUS
                       Exact review_required, preview_ready, or stable_ready posture.
   --served-mirror URL Public served mirror recorded separately from authority.
@@ -46,9 +43,8 @@ Environment overrides:
   CHUMMER_PUBLIC_GUIDE_GENERATOR
   CHUMMER_PUBLIC_GUIDE_SYNC
   CHUMMER_PUBLIC_GUIDE_VERIFY
-  CHUMMER_RELEASE_AUTHORITY_SNAPSHOT
+  CHUMMER_RELEASE_AUTHORITY_CURRENT
   CHUMMER_REGISTRY_COMMIT
-  CHUMMER_RELEASE_DECISION_RECEIPT
   CHUMMER_EXPECTED_RELEASE_DECISION_STATUS
   CHUMMER_RELEASE_SERVED_MIRROR
 USAGE
@@ -74,19 +70,14 @@ while (($#)); do
       design_root="$2"
       shift 2
       ;;
-    --authority-snapshot)
-      [[ $# -ge 2 ]] || { echo "--authority-snapshot requires a path" >&2; exit 2; }
-      authority_snapshot="$2"
+    --authority-current)
+      [[ $# -ge 2 ]] || { echo "--authority-current requires a path" >&2; exit 2; }
+      authority_current="$2"
       shift 2
       ;;
     --registry-commit)
       [[ $# -ge 2 ]] || { echo "--registry-commit requires a SHA" >&2; exit 2; }
       registry_commit="$2"
-      shift 2
-      ;;
-    --release-decision)
-      [[ $# -ge 2 ]] || { echo "--release-decision requires a path" >&2; exit 2; }
-      release_decision="$2"
       shift 2
       ;;
     --expected-release-decision-status)
@@ -112,16 +103,14 @@ while (($#)); do
 done
 
 missing_authority=()
-[[ -n "$authority_snapshot" ]] || missing_authority+=(--authority-snapshot)
+[[ -n "$authority_current" ]] || missing_authority+=(--authority-current)
 [[ -n "$registry_commit" ]] || missing_authority+=(--registry-commit)
-[[ -n "$release_decision" ]] || missing_authority+=(--release-decision)
 [[ -n "$expected_decision_status" ]] || missing_authority+=(--expected-release-decision-status)
 if ((${#missing_authority[@]})); then
   echo "Immutable release authority is mandatory; missing: ${missing_authority[*]}" >&2
   exit 2
 fi
-[[ -f "$authority_snapshot" ]] || { echo "Authority snapshot not found: $authority_snapshot" >&2; exit 2; }
-[[ -f "$release_decision" ]] || { echo "Release decision not found: $release_decision" >&2; exit 2; }
+[[ -f "$authority_current" ]] || { echo "Authority CURRENT pointer not found: $authority_current" >&2; exit 2; }
 [[ "$registry_commit" =~ ^[0-9a-f]{40}$ ]] || { echo "Registry commit must be exact lowercase 40-hex" >&2; exit 2; }
 case "$expected_decision_status" in
   review_required|preview_ready|stable_ready) ;;
@@ -157,9 +146,8 @@ verify_args=(
 )
 
 release_truth_args=(
-  --authority-snapshot "$authority_snapshot"
+  --authority-current "$authority_current"
   --registry-commit "$registry_commit"
-  --release-decision "$release_decision"
   --expected-release-decision-status "$expected_decision_status"
   --served-mirror "$served_mirror"
 )
