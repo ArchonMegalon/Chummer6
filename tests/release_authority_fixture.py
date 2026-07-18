@@ -135,6 +135,10 @@ def write_authority_fixture(
     known_issue_summary = "No current blocker."
     support_owner = "Chummer release engineering"
 
+    for item in selected_artifacts:
+        item.setdefault("rolloutState", rollout_state)
+        item.setdefault("revokeReason", "")
+
     promoted = [
         {
             "artifactId": item["artifactId"],
@@ -147,24 +151,49 @@ def write_authority_fixture(
     ]
     routes = [
         {
+            "arch": item["arch"],
             "artifactId": item["artifactId"],
             "head": item["head"],
+            "installPosture": "installer_first",
             "platform": item["platform"],
             "promotionState": "promoted",
-            "publicationScope": "signed-in-and-public",
-            "publicInstallRoute": f"/downloads/files/{item['fileName']}",
+            "publicInstallRoute": f"/downloads/install/{item['artifactId']}",
             "revokeState": "not_revoked",
+            "rid": item["rid"],
             "routeRole": (
                 "primary"
                 if primary_heads.get(str(item["platform"])) == item["head"]
                 else "fallback"
             ),
+            "tupleId": f"{item['platform']}-{item['head']}-{item['rid']}",
+            "updateEligibility": "eligible",
+        }
+        for item in selected_artifacts
+    ]
+    bindings = [
+        {
+            "arch": item["arch"],
+            "artifactId": item["artifactId"],
+            "bindingId": f"binding-{item['artifactId']}",
+            "channelId": channel,
+            "head": item["head"],
+            "kind": item["kind"],
+            "platform": item["platform"],
+            "publicationScope": "signed-in-and-public",
+            "publicationState": "published",
+            "publicInstallRoute": f"/downloads/install/{item['artifactId']}",
+            "publicShelfRef": f"/downloads/install/{item['artifactId']}",
+            "releaseVersion": release_version,
+            "rid": item["rid"],
+            "tupleId": f"{item['platform']}-{item['head']}-{item['rid']}",
         }
         for item in selected_artifacts
     ]
     manifest: JsonObject = {
         "artifacts": selected_artifacts,
+        "artifactPublicationBindings": bindings,
         "channel": channel,
+        "channelId": channel,
         "desktopTupleCoverage": {
             "complete": bool(selected_artifacts),
             "desktopRouteTruth": routes,
@@ -177,6 +206,7 @@ def write_authority_fixture(
             "requiredDesktopHeads": sorted(set(primary_heads.values())),
             "requiredDesktopPlatforms": platforms,
         },
+        "generationId": "generation-1",
         "generatedAt": "2026-07-18T12:00:00Z",
         "knownIssueSummary": known_issue_summary,
         "publicTrustMetrics": {
@@ -184,14 +214,17 @@ def write_authority_fixture(
                 "activeRevocationCount": 0,
                 "activeRevocations": [],
                 "channelRevoked": False,
+                "status": "clear",
             }
         },
         "releaseStatus": release_status,
         "releaseVersion": release_version,
         "rolloutState": rollout_state,
         "schemaVersion": 2,
+        "status": release_status,
         "supportOwner": support_owner,
         "supportabilityState": supportability_state,
+        "version": release_version,
     }
     if manifest_mutator is not None:
         manifest_mutator(manifest)
@@ -270,7 +303,7 @@ def write_authority_fixture(
             "platform": item["platform"],
             "promotionState": "promoted",
             "publicationScope": "signed-in-and-public",
-            "publicInstallRoute": f"/downloads/files/{item['fileName']}",
+            "publicInstallRoute": f"/downloads/install/{item['artifactId']}",
             "revokeState": "not_revoked",
             "rid": item["rid"],
             "sha256": item["sha256"],

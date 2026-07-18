@@ -250,9 +250,9 @@ def test_snapshot_cannot_publish_ineligible_manifest_artifacts(tmp_path: Path, m
         if mode == "unpromoted":
             coverage = manifest["desktopTupleCoverage"]
             assert isinstance(coverage, dict)
-            promoted = coverage["promotedInstallerTuples"]
-            assert isinstance(promoted, list)
-            promoted.pop()
+            routes = coverage["desktopRouteTruth"]
+            assert isinstance(routes, list) and isinstance(routes[0], dict)
+            routes[0]["promotionState"] = "candidate"
         elif mode == "incompatible":
             artifacts = manifest["artifacts"]
             assert isinstance(artifacts, list) and isinstance(artifacts[0], dict)
@@ -266,7 +266,119 @@ def test_snapshot_cannot_publish_ineligible_manifest_artifacts(tmp_path: Path, m
             facts["activeRevocations"] = [{"artifactId": "avalonia-linux-x64-installer"}]
 
     fixture = write_authority_fixture(tmp_path, manifest_mutator=mutate)
-    with pytest.raises(ValueError, match="public shelf"):
+    with pytest.raises(ValueError, match="canonical Registry manifest projection|public shelf|compatible and non-revoked"):
+        _resolve(fixture)
+
+
+def test_legacy_route_publication_scope_cannot_replace_registry_binding(tmp_path: Path) -> None:
+    def mutate(manifest: dict[str, object]) -> None:
+        coverage = manifest["desktopTupleCoverage"]
+        assert isinstance(coverage, dict)
+        routes = coverage["desktopRouteTruth"]
+        bindings = manifest["artifactPublicationBindings"]
+        assert isinstance(routes, list) and isinstance(routes[0], dict)
+        assert isinstance(bindings, list) and isinstance(bindings[0], dict)
+        routes[0]["publicationScope"] = "signed-in-and-public"
+        bindings[0]["publicationScope"] = "private"
+
+    fixture = write_authority_fixture(tmp_path, manifest_mutator=mutate)
+    with pytest.raises(ValueError, match="canonical Registry manifest projection"):
+        _resolve(fixture)
+
+
+def test_ambiguous_publication_bindings_are_rejected(tmp_path: Path) -> None:
+    def mutate(manifest: dict[str, object]) -> None:
+        bindings = manifest["artifactPublicationBindings"]
+        assert isinstance(bindings, list) and isinstance(bindings[0], dict)
+        duplicate = dict(bindings[0])
+        duplicate["bindingId"] = "second-binding"
+        bindings.append(duplicate)
+
+    fixture = write_authority_fixture(tmp_path, manifest_mutator=mutate)
+    with pytest.raises(ValueError, match="ambiguous promoted route or public binding"):
+        _resolve(fixture)
+
+
+@pytest.mark.parametrize("field", ["head", "platform", "rid", "arch", "kind", "tupleId", "publicInstallRoute"])
+def test_publication_binding_must_exactly_match_artifact_and_route(tmp_path: Path, field: str) -> None:
+    def mutate(manifest: dict[str, object]) -> None:
+        bindings = manifest["artifactPublicationBindings"]
+        assert isinstance(bindings, list) and isinstance(bindings[0], dict)
+        bindings[0][field] = "/downloads/install/different" if field == "publicInstallRoute" else "different"
+
+    fixture = write_authority_fixture(tmp_path, manifest_mutator=mutate)
+    with pytest.raises(ValueError, match="tuple does not match|kind does not match|publication binding"):
+        _resolve(fixture)
+
+
+def test_generation_id_and_file_name_bind_immutable_download_url(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        manifest_mutator=lambda manifest: manifest.__setitem__("generationId", "different-generation"),
+    )
+    with pytest.raises(ValueError, match="bind generationId and fileName"):
+        _resolve(fixture)
+
+
+def test_manifest_compatibility_alias_cannot_disagree_with_canonical_version(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        manifest_mutator=lambda manifest: manifest.__setitem__("releaseVersion", "run-different"),
+    )
+    with pytest.raises(ValueError, match="compatibility field releaseVersion disagrees"):
+        _resolve(fixture)
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("authoritySnapshotSha256", ""),
+        ("candidateDecisionStatus", ""),
+        ("candidateDecisionSha256", ""),
+    ],
+)
+def test_preview_ready_requires_complete_candidate_closure(
+    tmp_path: Path,
+    field: str,
+    value: str,
+) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        decision_mutator=lambda decision: decision.__setitem__(field, value),
+    )
+    with pytest.raises(ValueError, match="authoritySnapshotSha256|candidateDecisionStatus|candidateDecisionSha256"):
+        _resolve(fixture)
+
+
+def test_stable_contract_cannot_carry_review_required_posture(tmp_path: Path) -> None:
+    def mutate(decision: dict[str, object]) -> None:
+        manifest_sha = decision["manifestSha256"]
+        registry_commit = decision["registryCommit"]
+        release_version = decision["releaseVersion"]
+        decision.clear()
+        decision.update(
+            {
+                "contract_name": "chummer.final_gold_graph",
+                "contract_version": 2,
+                "releaseVersion": release_version,
+                "releaseDecisionStatus": "review_required",
+                "status": "review_required",
+                "live_release": {},
+                "release_authority": {
+                    "contract": "chummer.release-authority-snapshot/v2",
+                    "manifest_sha256": manifest_sha,
+                    "registry_commit": registry_commit,
+                    "release_decision_status": "review_required",
+                },
+            }
+        )
+
+    fixture = write_authority_fixture(
+        tmp_path,
+        decision_status="review_required",
+        decision_mutator=mutate,
+    )
+    with pytest.raises(ValueError, match="stable_ready only"):
         _resolve(fixture)
 
 
@@ -278,11 +390,12 @@ def test_fallback_requires_explicit_decision_scope(tmp_path: Path) -> None:
             "artifactId": "blazor-linux-x64-installer",
             "fileName": "chummer-blazor-linux-x64-installer.deb",
             "head": "blazor-desktop",
+            "downloadUrl": "https://chummer.run/downloads/g/generation-1/files/chummer-blazor-linux-x64-installer.deb",
             "sha256": "c" * 64,
         }
     )
     fixture = write_authority_fixture(tmp_path, artifacts=artifacts + [fallback])
-    with pytest.raises(ValueError, match="explicit fallback"):
+    with pytest.raises(ValueError, match="fallback-head scope"):
         _resolve(fixture)
 
 
@@ -294,6 +407,7 @@ def test_explicit_promoted_fallback_is_accepted(tmp_path: Path) -> None:
             "artifactId": "blazor-linux-x64-installer",
             "fileName": "chummer-blazor-linux-x64-installer.deb",
             "head": "blazor-desktop",
+            "downloadUrl": "https://chummer.run/downloads/g/generation-1/files/chummer-blazor-linux-x64-installer.deb",
             "sha256": "c" * 64,
         }
     )
@@ -378,6 +492,7 @@ def test_artifact_projection_value_rules_are_exact(
         "/downloads/file?token=secret",
         "/downloads/file#fragment",
         "/downloads\\..\\secret",
+        "/downloads/files/legacy-installer.exe",
     ],
 )
 def test_public_install_route_must_be_safe_root_relative_path(tmp_path: Path, route: str) -> None:
@@ -408,10 +523,10 @@ def test_manifest_public_route_must_match_snapshot_projection_exactly(tmp_path: 
         assert isinstance(coverage, dict)
         routes = coverage["desktopRouteTruth"]
         assert isinstance(routes, list) and isinstance(routes[0], dict)
-        routes[0]["publicInstallRoute"] = "/downloads/files/different.deb"
+        routes[0]["publicInstallRoute"] = "/downloads/install/different"
 
     fixture = write_authority_fixture(tmp_path, manifest_mutator=mutate)
-    with pytest.raises(ValueError, match="15-field Registry projection"):
+    with pytest.raises(ValueError, match="publication binding"):
         _resolve(fixture)
 
 

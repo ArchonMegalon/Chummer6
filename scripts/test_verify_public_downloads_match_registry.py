@@ -67,7 +67,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
 ### Windows
 
 - Avalonia Desktop Windows X64 Installer.
-- Download: [Open download](https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe)
+- Download: [Open download](https://chummer.run/downloads/install/avalonia-win-x64-installer)
 - File: `chummer-avalonia-win-x64-installer.exe`
 - Size: 2.6 MiB (2734106 bytes)
 - Access: Public download.
@@ -75,7 +75,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
 ### Linux
 
 - Avalonia Desktop Linux X64 Installer.
-- Download: [Open download](https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb)
+- Download: [Open download](https://chummer.run/downloads/install/avalonia-linux-x64-installer)
 - File: `chummer-avalonia-linux-x64-installer.deb`
 - Size: 35.3 MiB (37024862 bytes)
 - Access: Public download.
@@ -156,7 +156,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
             download = docs_root / "DOWNLOAD.md"
             download.write_text(
                 download.read_text(encoding="utf-8").replace(
-                    "https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb",
+                    "https://chummer.run/downloads/install/avalonia-linux-x64-installer",
                     "https://chummer.run/downloads/g/generation-1/files/chummer-avalonia-linux-x64-installer.deb",
                 ),
                 encoding="utf-8",
@@ -172,7 +172,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                 download.read_text(encoding="utf-8").replace(
                     "### macOS",
                     "- Unapproved Recovery Archive.\n"
-                    "- Download: [Open download](https://chummer.run/downloads/files/recovery.zip)\n"
+                    "- Download: [Open download](https://chummer.run/downloads/install/recovery)\n"
                     "- File: `recovery.zip`\n"
                     "- Size: 10 bytes\n"
                     "- Access: Public download.\n\n"

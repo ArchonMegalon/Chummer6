@@ -33,6 +33,8 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
     ) -> None:
         packet = {
             "authority": {"releaseDecisionStatus": "preview_ready"},
+            "release_decision_status": "preview_ready",
+            "release_posture": "preview_ready",
             "shelf_truth_line": shelf_truth_line,
             "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is not listed there yet, wait before switching full time.",
             "desktop_pick_line": "If you see both desktop apps, start with Avalonia.",
@@ -481,7 +483,8 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                     {
                         "authority": {"releaseDecisionStatus": "preview_ready"},
                         "phase_label": "Gold-supported release",
-                        "release_posture": "gold_supported",
+                        "release_decision_status": "preview_ready",
+                        "release_posture": "preview_ready",
                     }
                 ),
                 encoding="utf-8",
