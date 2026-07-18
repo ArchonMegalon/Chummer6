@@ -9,8 +9,6 @@ KEEP_WORK_ROOT="${CHUMMER_KEEP_DOCKER_GATE_WORKDIR:-0}"
 RECEIPT_PATH="${CHUMMER_LINUX_SOURCE_BUILD_GATE_RECEIPT_PATH:-$REPO_ROOT/.guide-internal/receipts/LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json}"
 RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)"
 CONTAINER_WORK_ROOT="/work"
-CONTAINER_BASE="$CONTAINER_WORK_ROOT/base"
-CONTAINER_LOG="$CONTAINER_WORK_ROOT/gate-$RUN_ID.log"
 
 usage() {
   cat <<'USAGE'
@@ -27,7 +25,8 @@ Environment overrides:
                                             Disk threshold passed to the inner build script. Default: 0
   CHUMMER_LINUX_SOURCE_BUILD_GATE_RECEIPT_PATH
                                             Receipt output path. Default: .guide-internal/receipts/LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json
-  CHUMMER_GIT_REF                            Git ref for the inner source-build script
+  CHUMMER_GIT_REF                            Optional moving ref for the inner source-build script.
+                                            Makes the gate output ineligible for release evidence.
   CHUMMER_GITHUB_ORG                         GitHub org for the inner source-build script
   CHUMMER_REPO_BASE_URL                      Mirror base URL for the inner source-build script
 USAGE
@@ -151,7 +150,7 @@ write_receipt() {
   archive_sha="$(sha256sum "$archive_path" | awk '{print $1}')"
 
   mkdir -p "$(dirname "$RECEIPT_PATH")"
-  python3 - "$RECEIPT_PATH" "$RUN_ID" "$IMAGE" "${CHUMMER_GIT_REF:-main}" "${CHUMMER_GITHUB_ORG:-ArchonMegalon}" "${CHUMMER_REPO_BASE_URL:-}" "$rid" "$executable_sha" "$archive_sha" "$manifest_path" "$build_log_path" "$binary_path" "$archive_path" "$launcher_path" "$startup_smoke_receipt_path" "$install_startup_smoke_receipt_path" "$updater_special_mode_receipt_path" "$updater_special_mode_success_receipt_path" <<'PY'
+  python3 - "$RECEIPT_PATH" "$RUN_ID" "$IMAGE" "${CHUMMER_GIT_REF:-locked:RELEASE.lock.json}" "${CHUMMER_GITHUB_ORG:-ArchonMegalon}" "${CHUMMER_REPO_BASE_URL:-}" "$rid" "$executable_sha" "$archive_sha" "$manifest_path" "$build_log_path" "$binary_path" "$archive_path" "$launcher_path" "$startup_smoke_receipt_path" "$install_startup_smoke_receipt_path" "$updater_special_mode_receipt_path" "$updater_special_mode_success_receipt_path" <<'PY'
 from __future__ import annotations
 import json
 import sys
@@ -160,7 +159,7 @@ from pathlib import Path
 receipt_path = Path(sys.argv[1])
 run_id = sys.argv[2]
 image = sys.argv[3]
-git_ref = sys.argv[4]
+source_selector = sys.argv[4]
 github_org = sys.argv[5]
 repo_base_url = sys.argv[6]
 rid = sys.argv[7]
@@ -182,7 +181,11 @@ install_startup_smoke_receipt = json.loads(install_startup_smoke_receipt_path.re
 updater_special_mode_receipt = json.loads(updater_special_mode_receipt_path.read_text(encoding="utf-8-sig"))
 updater_special_mode_success_receipt = json.loads(updater_special_mode_success_receipt_path.read_text(encoding="utf-8-sig"))
 source_heads = {}
+manifest_fields = {}
 for line in manifest_lines:
+    if ": " in line:
+        key, value = line.split(": ", 1)
+        manifest_fields[key] = value
     if line.startswith("chummer6-"):
         parts = line.split()
         if len(parts) >= 2:
@@ -193,7 +196,16 @@ receipt = {
     "status": "passed",
     "generated_at_utc": run_id,
     "docker_image": image,
-    "git_ref": git_ref,
+    "source_mode": "locked" if source_selector.startswith("locked:") else "moving_ref",
+    "source_lock": "RELEASE.lock.json" if source_selector.startswith("locked:") else None,
+    "source_lock_sha256": manifest_fields.get("Source lock SHA256", ""),
+    "git_ref": None if source_selector.startswith("locked:") else source_selector,
+    "release_manifest_status": manifest_fields.get("Release manifest status", ""),
+    "release_manifest_sha256": manifest_fields.get("Release manifest SHA256", ""),
+    "release_evidence_eligible": (
+        source_selector.startswith("locked:")
+        and manifest_fields.get("Release evidence eligible", "").lower() == "true"
+    ),
     "github_org": github_org,
     "repo_base_url": repo_base_url or f"https://github.com/{github_org}",
     "gate": {
@@ -299,8 +311,14 @@ if [[ "${CHUMMER_GATE_LOCAL_REPO_MIRROR:-0}" == "1" ]]; then
   git config --global --add safe.directory '*'
 fi
 cd /repo
+MOVING_GIT_REF="${CHUMMER_GIT_REF:-}"
+unset CHUMMER_GIT_REF
 bash scripts/check-host-chummer6-linux.sh --base /work/base
-bash scripts/build-chummer6-linux.sh --base /work/base
+if [[ -n "$MOVING_GIT_REF" ]]; then
+  bash scripts/build-chummer6-linux.sh --allow-moving-ref --ref "$MOVING_GIT_REF" --base /work/base
+else
+  bash scripts/build-chummer6-linux.sh --base /work/base
+fi
 test -x /work/base/artifacts/chummer6-linux-x64/Chummer.Avalonia || test -x /work/base/artifacts/chummer6-linux-arm64/Chummer.Avalonia
 ls -1 /work/base/artifacts/chummer6-*.tar.gz >/dev/null
 PUBLISH_DIR="$(find /work/base/artifacts -mindepth 1 -maxdepth 1 -type d -name 'chummer6-linux-*' | sort | head -n 1)"
@@ -521,7 +539,6 @@ EOF
 docker_args=(
   run
   --rm
-  -e "CHUMMER_GIT_REF=${CHUMMER_GIT_REF:-main}"
   -e "CHUMMER_GITHUB_ORG=${CHUMMER_GITHUB_ORG:-ArchonMegalon}"
   -e "CHUMMER_MIN_FREE_GIB=${CHUMMER_LINUX_SOURCE_BUILD_GATE_MIN_FREE_GIB:-0}"
   -e "CHUMMER_KEEP_BUILD_TEMP=0"
@@ -529,6 +546,10 @@ docker_args=(
   -v "$HOST_WORK_ROOT:$CONTAINER_WORK_ROOT"
   -w /repo
 )
+
+if [[ -n "${CHUMMER_GIT_REF:-}" ]]; then
+  docker_args+=(-e "CHUMMER_GIT_REF=$CHUMMER_GIT_REF")
+fi
 
 if [[ -n "${CHUMMER_REPO_BASE_URL:-}" ]]; then
   repo_base_url_for_container="$CHUMMER_REPO_BASE_URL"

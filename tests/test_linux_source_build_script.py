@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import base64
+import hashlib
+import json
 import os
 import subprocess
 import tempfile
@@ -14,9 +17,11 @@ INSTALL_SCRIPT = REPO_ROOT / "scripts" / "install-chummer6-linux-local.sh"
 AUDIT_SCRIPT = REPO_ROOT / "scripts" / "check-host-chummer6-linux.sh"
 PREREQ_SCRIPT = REPO_ROOT / "scripts" / "list-chummer6-linux-prereqs.sh"
 DOCKER_GATE_SCRIPT = REPO_ROOT / "scripts" / "verify_linux_source_build_docker_gate.sh"
+SOURCE_LOCK = REPO_ROOT / "RELEASE.lock.json"
 DOC = REPO_ROOT / "SOURCE_BUILD_LINUX.md"
 DOWNLOAD = REPO_ROOT / "DOWNLOAD.md"
 BUILD_SCRIPT_TIMEOUT_SECONDS = 180
+FAKE_NUGET_INDEX = b'{"version":"3.0.0","resources":[]}\n'
 
 
 class LinuxSourceBuildScriptTests(unittest.TestCase):
@@ -51,8 +56,9 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
     def test_repo_sync_disables_git_auto_maintenance(self) -> None:
         script = SCRIPT.read_text(encoding="utf-8")
         self.assertIn('git -c gc.auto=0 -c maintenance.auto=0 "$@"', script)
+        self.assertIn('git_automation -C "$target" fetch --depth 1 origin "$locked_commit"', script)
         self.assertIn('git_automation clone --depth 1 --filter=blob:none --branch "$GIT_REF" "$expected_url" "$target"', script)
-        self.assertIn('git_automation -C "$target" fetch --depth 1 origin "$GIT_REF"', script)
+        self.assertIn('[[ "$actual_commit" == "$locked_commit" ]]', script)
 
     def test_host_audit_wrapper_runs_the_non_destructive_audit_path(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -106,6 +112,9 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         completed = self.run_script("--help")
         self.assertEqual(completed.returncode, 0, completed.stdout)
         self.assertIn("--audit-only", completed.stdout)
+        self.assertIn("--lock", completed.stdout)
+        self.assertIn("--allow-moving-ref", completed.stdout)
+        self.assertIn("selected from RELEASE.lock.json", completed.stdout)
         self.assertIn("--skip-system-deps", completed.stdout)
         self.assertIn("CHUMMER_BUILD_BASE", completed.stdout)
         self.assertIn("no longer changes behavior", completed.stdout)
@@ -219,6 +228,25 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertNotIn("Cloning or updating", completed.stdout)
         self.assertNotIn("Installing the repository-pinned .NET SDK", completed.stdout)
 
+    def test_moving_ref_requires_explicit_non_release_acknowledgement(self) -> None:
+        rejected = self.run_script("--ref", "main", "--audit-only")
+        self.assertEqual(rejected.returncode, 2, rejected.stdout)
+        self.assertIn("require --allow-moving-ref", rejected.stdout)
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            allowed = self.run_script(
+                "--allow-moving-ref",
+                "--ref",
+                "main",
+                "--audit-only",
+                "--base",
+                temp_dir,
+                env={"CHUMMER_MIN_FREE_GIB": "0"},
+            )
+        self.assertEqual(allowed.returncode, 0, allowed.stdout)
+        self.assertIn("NON-REPRODUCIBLE BUILD", allowed.stdout)
+        self.assertIn("NOT release evidence", allowed.stdout)
+
     def test_invalid_disk_threshold_fails_before_work(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             completed = self.run_script(
@@ -282,6 +310,29 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn("CHUMMER_REPO_BASE_URL", script_text)
         self.assertIn("Missing required build tools:", script_text)
         self.assertIn("missing the ICU runtime needed by dotnet", script_text)
+        self.assertIn('python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-file', script_text)
+        self.assertIn("clear_ambient_restore_overrides", script_text)
+        self.assertIn("CHUMMER_PUBLISHED_FEED_SOURCES", script_text)
+        self.assertIn("CHUMMER_LOCAL_CONTRACTS_PROJECT", script_text)
+        self.assertIn("NUGET_CONFIG_FILE", script_text)
+        self.assertIn("Refusing to reuse a pre-existing locked NuGet workspace", script_text)
+        self.assertIn("write-nuget-config", script_text)
+        self.assertIn("verify-nuget-cache", script_text)
+        self.assertIn("--locked-mode", script_text)
+        self.assertIn("--lock-file-path", script_text)
+        self.assertIn("--no-restore", script_text)
+        self.assertLess(script_text.index("clear_ambient_restore_overrides\n"), script_text.index("bash scripts/ai/restore.sh"))
+        self.assertLess(
+            script_text.index('--label "dotnet-install.sh"'),
+            script_text.index('bash -n "$DOTNET_INSTALL"'),
+        )
+        self.assertLess(
+            script_text.index('bash -n "$DOTNET_INSTALL"'),
+            script_text.index('bash "$DOTNET_INSTALL" --version'),
+        )
+        self.assertIn("RELEASE.lock.json", doc_text)
+        self.assertIn("unbound_review_placeholder", doc_text)
+        self.assertIn("ineligible for release evidence", doc_text)
         docker_gate_text = DOCKER_GATE_SCRIPT.read_text(encoding="utf-8")
         self.assertIn("debian:bookworm-slim", docker_gate_text)
         self.assertIn("bash scripts/check-host-chummer6-linux.sh --base /work/base", docker_gate_text)
@@ -307,6 +358,9 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn('if [[ "$CHUMMER_REPO_BASE_URL" == file://* ]]; then', docker_gate_text)
         self.assertIn('docker_args+=(-v "$repo_base_path:/mirror:ro")', docker_gate_text)
         self.assertIn('docker_args+=(-e "CHUMMER_GATE_LOCAL_REPO_MIRROR=1")', docker_gate_text)
+        self.assertNotIn('-e "CHUMMER_GIT_REF=${CHUMMER_GIT_REF:-main}"', docker_gate_text)
+        self.assertIn('bash scripts/build-chummer6-linux.sh --allow-moving-ref --ref "$MOVING_GIT_REF"', docker_gate_text)
+        self.assertIn('"source_mode": "locked" if source_selector.startswith("locked:") else "moving_ref"', docker_gate_text)
         self.assertIn('repo_base_url_for_container="file:///mirror"', docker_gate_text)
         self.assertIn('if [[ "${CHUMMER_GATE_LOCAL_REPO_MIRROR:-0}" == "1" ]]; then', docker_gate_text)
         self.assertIn("git config --global --add safe.directory '*'", docker_gate_text)
@@ -360,16 +414,26 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             fake_bin.mkdir()
 
             self._write_fake_git_lfs(fake_bin)
+            self._write_fake_curl(fake_bin)
             self._write_fake_dotnet(base)
-            self._create_fake_remote_repositories(work, remotes)
+            commits = self._create_fake_remote_repositories(work, remotes)
+            source_lock = self._write_fake_source_lock(root, commits)
 
             completed = self.run_script(
                 "--base",
                 str(base),
+                "--lock",
+                str(source_lock),
                 "--skip-system-deps",
                 env={
                     "CHUMMER_MIN_FREE_GIB": "0",
                     "CHUMMER_REPO_BASE_URL": remotes.as_uri(),
+                    "CHUMMER_PUBLISHED_FEED_SOURCES": "https://attacker.invalid/v3/index.json",
+                    "CHUMMER_CONTRACTS_PACKAGE_VERSION": "999.0.0-attacker",
+                    "CHUMMER_LOCAL_CONTRACTS_PROJECT": "/attacker/Contracts.csproj",
+                    "NUGET_CONFIG_FILE": "/attacker/NuGet.Config",
+                    "NUGET_PACKAGES": "/attacker/packages",
+                    "RestoreSources": "https://attacker.invalid/v3/index.json",
                     "PATH": f"{fake_bin}{os.pathsep}{os.environ['PATH']}",
                 },
             )
@@ -394,7 +458,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             self.assertFalse((base / ".tools" / "dotnet-install.sh").exists())
             self.assertFalse((base / "chummer-core-engine" / ".tmp").exists())
 
-    def test_full_flow_uses_highest_sdk_version_across_cloned_repositories(self) -> None:
+    def test_full_flow_uses_sdk_version_from_lock(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
             remotes = root / "remotes"
@@ -405,12 +469,16 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             fake_bin.mkdir()
 
             self._write_fake_git_lfs(fake_bin)
+            self._write_fake_curl(fake_bin)
             self._write_fake_dotnet(base, sdk_version="10.0.103")
-            self._create_fake_remote_repositories(work, remotes)
+            commits = self._create_fake_remote_repositories(work, remotes)
+            source_lock = self._write_fake_source_lock(root, commits)
 
             completed = self.run_script(
                 "--base",
                 str(base),
+                "--lock",
+                str(source_lock),
                 "--skip-system-deps",
                 env={
                     "CHUMMER_MIN_FREE_GIB": "0",
@@ -431,6 +499,31 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         git_lfs.chmod(0o755)
 
     @staticmethod
+    def _write_fake_curl(fake_bin: Path) -> None:
+        curl = fake_bin / "curl"
+        curl.write_text(
+            textwrap.dedent(
+                """\
+                #!/usr/bin/env bash
+                set -euo pipefail
+                output=""
+                previous=""
+                for argument in "$@"; do
+                  if [[ "$previous" == "-o" ]]; then
+                    output="$argument"
+                    break
+                  fi
+                  previous="$argument"
+                done
+                [[ -n "$output" ]] || { echo "fake curl requires -o" >&2; exit 2; }
+                printf '%s\n' '{"version":"3.0.0","resources":[]}' > "$output"
+                """
+            ),
+            encoding="utf-8",
+        )
+        curl.chmod(0o755)
+
+    @staticmethod
     def _write_fake_dotnet(base: Path, sdk_version: str = "10.0.103") -> None:
         dotnet_dir = base / ".tools" / "dotnet"
         dotnet_dir.mkdir(parents=True)
@@ -447,6 +540,65 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                     echo ".NET SDK: __SDK_VERSION__"
                     ;;
                   *)
+                    if [[ "${1:-}" == "restore" ]]; then
+                      python3 - "$NUGET_PACKAGES" "$@" <<'PY'
+                import base64
+                import hashlib
+                import json
+                import sys
+                from pathlib import Path
+
+                packages_root = Path(sys.argv[1])
+                rid = "linux-arm64" if "linux-arm64" in sys.argv[2:] else "linux-x64"
+                package_lock = json.loads((packages_root.parent / "packages.lock.json").read_text(encoding="utf-8"))
+                packages = {}
+                for nodes in package_lock["dependencies"].values():
+                    for package_id, node in nodes.items():
+                        if "contentHash" in node:
+                            packages[(package_id.casefold(), node["resolved"].casefold())] = node["contentHash"]
+                implicit_hashes = {
+                    "linux-x64": {
+                        "microsoft.aspnetcore.app.runtime.linux-x64": "DOh775Xu3FpRAfuxa21EMhjbk+7NXtpqQJyFY2PHhcCwSw2cNLV99Cai8yATgGm2UJL5Ibaxx5ru/wTFzUmzgA==",
+                        "microsoft.netcore.app.runtime.linux-x64": "AeOL5qSbHDpHQHEsIATfCS3fw3ZErRsUYFwXplQTYfMM18h8N6Nd9m8aHJRIKD3qWEwGzjWyl/SLmsA79ENUmw==",
+                    },
+                    "linux-arm64": {
+                        "microsoft.aspnetcore.app.runtime.linux-arm64": "es9U+w7GTRqMg6SvIB52W/50HlDh/XSl7HZ/xJaoBASiCoIGizWwqYwnEf0vXAooLltYF3z7+OeDFt/2VOvIpg==",
+                        "microsoft.netcore.app.runtime.linux-arm64": "lQRt059uoMphd2skAVhLdOIoTuOmJTMzHCdLf+K+HsAKCIllU1Tzh52H6UhEL/iu+FHL6Z4QXvdC8uNyi7h6XA==",
+                    },
+                }
+                for package_id, content_hash in implicit_hashes[rid].items():
+                    packages[(package_id, "10.0.3")] = content_hash
+                for (package_id, version), content_hash in packages.items():
+                    package_root = packages_root / package_id / version
+                    package_root.mkdir(parents=True, exist_ok=True)
+                    archive = f"synthetic:{package_id}:{version}".encode("utf-8")
+                    archive_sha = base64.b64encode(hashlib.sha512(archive).digest()).decode("ascii")
+                    (package_root / f"{package_id}.{version}.nupkg").write_bytes(archive)
+                    (package_root / f"{package_id}.{version}.nupkg.sha512").write_text(archive_sha, encoding="ascii")
+                    (package_root / ".nupkg.metadata").write_text(
+                        json.dumps({
+                            "version": 2,
+                            "contentHash": content_hash,
+                            "source": "https://api.nuget.org/v3/index.json",
+                        }, indent=2) + "\\n",
+                        encoding="utf-8",
+                    )
+                PY
+                    elif [[ "${1:-}" == "publish" ]]; then
+                      out=""
+                      previous=""
+                      for argument in "$@"; do
+                        if [[ "$previous" == "-o" ]]; then
+                          out="$argument"
+                          break
+                        fi
+                        previous="$argument"
+                      done
+                      [[ -n "$out" ]] || { echo "fake dotnet publish requires -o" >&2; exit 2; }
+                      mkdir -p "$out"
+                      printf '#!/usr/bin/env bash\\necho "fake Chummer.Avalonia"\\n' > "$out/Chummer.Avalonia"
+                      chmod +x "$out/Chummer.Avalonia"
+                    fi
                     echo "fake dotnet $*"
                     ;;
                 esac
@@ -456,7 +608,8 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         )
         dotnet.chmod(0o755)
 
-    def _create_fake_remote_repositories(self, work: Path, remotes: Path) -> None:
+    def _create_fake_remote_repositories(self, work: Path, remotes: Path) -> dict[str, str]:
+        commits: dict[str, str] = {}
         for repository_name, files in self._fake_repository_files().items():
             source = work / repository_name
             source.mkdir(parents=True)
@@ -478,6 +631,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                 "-m",
                 "seed",
             )
+            commits[repository_name] = self._git_output(source, "rev-parse", "HEAD")
             completed = subprocess.run(
                 [
                     "git",
@@ -497,6 +651,26 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                 check=False,
             )
             self.assertEqual(completed.returncode, 0, completed.stdout)
+        return commits
+
+    @staticmethod
+    def _write_fake_source_lock(root: Path, commits: dict[str, str]) -> Path:
+        payload = json.loads(SOURCE_LOCK.read_text(encoding="utf-8"))
+        for repository in payload["repositories"]:
+            repository["commit"] = commits[repository["name"]]
+            repository["globalJsonSdkVersion"] = (
+                "10.0.100" if repository["name"] == "chummer6-ui" else "10.0.103"
+            )
+        payload["nuget"]["serviceIndexes"][0]["sha256"] = hashlib.sha256(FAKE_NUGET_INDEX).hexdigest()
+        for package_lock in payload["nuget"]["packageLocks"]:
+            for implicit in package_lock["implicitPackages"]:
+                package_id = implicit["id"].casefold()
+                version = implicit["version"].casefold()
+                archive = f"synthetic:{package_id}:{version}".encode("utf-8")
+                implicit["archiveSha512"] = base64.b64encode(hashlib.sha512(archive).digest()).decode("ascii")
+        path = root / "RELEASE.lock.json"
+        path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        return path
 
     @staticmethod
     def _run_git(cwd: Path, *args: str) -> None:
@@ -511,6 +685,21 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         )
         if completed.returncode != 0:
             raise AssertionError(completed.stdout)
+
+    @staticmethod
+    def _git_output(cwd: Path, *args: str) -> str:
+        completed = subprocess.run(
+            ["git", "-c", "gc.auto=0", "-c", "maintenance.auto=0", *args],
+            cwd=cwd,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=30,
+            check=False,
+        )
+        if completed.returncode != 0:
+            raise AssertionError(completed.stdout)
+        return completed.stdout.strip()
 
     @staticmethod
     def _fake_repository_files() -> dict[str, dict[str, str]]:
@@ -543,7 +732,19 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             "chummer6-ui": {
                 "global.json": '{ "sdk": { "version": "10.0.100" } }\n',
                 "Chummer.Avalonia/Chummer.Avalonia.csproj": project,
-                "scripts/ai/restore.sh": "#!/usr/bin/env bash\nset -euo pipefail\necho restore \"$@\"\n",
+                "scripts/ai/restore.sh": textwrap.dedent(
+                    """\
+                    #!/usr/bin/env bash
+                    set -euo pipefail
+                    [[ -z "${CHUMMER_PUBLISHED_FEED_SOURCES+x}" ]] || { echo "ambient published feed survived" >&2; exit 91; }
+                    [[ -z "${CHUMMER_CONTRACTS_PACKAGE_VERSION+x}" ]] || { echo "ambient package version survived" >&2; exit 92; }
+                    [[ -z "${CHUMMER_LOCAL_CONTRACTS_PROJECT+x}" ]] || { echo "ambient local project survived" >&2; exit 93; }
+                    [[ -z "${NUGET_CONFIG_FILE+x}" ]] || { echo "ambient NuGet config survived" >&2; exit 94; }
+                    [[ "${RestoreSources:-}" == "https://api.nuget.org/v3/index.json" ]] || { echo "restore source was not locked" >&2; exit 95; }
+                    [[ "${NUGET_PACKAGES:-}" == *"/.tmp/nuget-locked-"*"/packages" ]] || { echo "package cache was not isolated" >&2; exit 96; }
+                    echo restore "$@"
+                    """
+                ),
                 "scripts/ai/with-package-plane.sh": textwrap.dedent(
                     """\
                     #!/usr/bin/env bash

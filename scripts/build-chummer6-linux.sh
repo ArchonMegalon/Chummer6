@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-SCRIPT_VERSION="1.3.0"
+SCRIPT_VERSION="2.1.0"
+SCRIPT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+REPOSITORY_ROOT="$(cd "$SCRIPT_ROOT/.." && pwd -P)"
 GITHUB_ORG="${CHUMMER_GITHUB_ORG:-ArchonMegalon}"
 REPO_BASE_URL="${CHUMMER_REPO_BASE_URL:-https://github.com/$GITHUB_ORG}"
 REPO_BASE_URL="${REPO_BASE_URL%/}"
-GIT_REF="${CHUMMER_GIT_REF:-main}"
+GIT_REF="${CHUMMER_GIT_REF:-}"
+RELEASE_LOCK_PATH="${CHUMMER_RELEASE_LOCK:-$REPOSITORY_ROOT/RELEASE.lock.json}"
+ALLOW_MOVING_REF=0
+SOURCE_MODE="locked"
 MIN_FREE_GIB="${CHUMMER_MIN_FREE_GIB:-25}"
 DEFAULT_HOME="${HOME:-/tmp}"
 DEFAULT_BASE="${CHUMMER_BUILD_BASE:-$DEFAULT_HOME/chummer6-source-build}"
@@ -27,15 +32,23 @@ Usage:
 
 Options:
   --base PATH          Workspace base path. Prompts when omitted.
-  --ref REF            Git branch or tag for all repositories. Default: main.
+  --lock PATH          Immutable source lock. Default: repository RELEASE.lock.json.
+  --ref REF            Moving Git branch or tag. Requires --allow-moving-ref.
+  --allow-moving-ref   Permit a non-reproducible moving-ref build. Never release evidence.
   --yes, -y            Accepted for compatibility; no longer changes behavior.
   --skip-system-deps   Accepted for compatibility; the script never installs Linux system packages.
   --audit-only         Check this host and script setup without cloning or building.
   --help, -h           Show this help.
 
 Environment overrides:
-  CHUMMER_BUILD_BASE, CHUMMER_GIT_REF, CHUMMER_MIN_FREE_GIB,
-  CHUMMER_GITHUB_ORG, CHUMMER_REPO_BASE_URL, CHUMMER_KEEP_BUILD_TEMP
+  CHUMMER_BUILD_BASE, CHUMMER_RELEASE_LOCK, CHUMMER_GIT_REF,
+  CHUMMER_MIN_FREE_GIB, CHUMMER_GITHUB_ORG, CHUMMER_REPO_BASE_URL,
+  CHUMMER_KEEP_BUILD_TEMP
+
+By default every owner repository, the .NET SDK installer, NuGet service
+index, and per-RID resolved package graph are selected from RELEASE.lock.json.
+A branch such as main is accepted only with --allow-moving-ref and is always
+marked as non-release evidence.
 
 This script only builds the binary and archive artifacts. It never installs
 the user-local copy. Install the result later with ./install-chummer6-linux-local.sh.
@@ -53,6 +66,15 @@ while (($#)); do
       [[ $# -ge 2 ]] || { echo "--ref requires a value" >&2; exit 2; }
       GIT_REF="$2"
       shift 2
+      ;;
+    --lock)
+      [[ $# -ge 2 ]] || { echo "--lock requires a path" >&2; exit 2; }
+      RELEASE_LOCK_PATH="$2"
+      shift 2
+      ;;
+    --allow-moving-ref)
+      ALLOW_MOVING_REF=1
+      shift
       ;;
     --yes|-y)
       ASSUME_YES=1
@@ -77,6 +99,74 @@ while (($#)); do
       ;;
   esac
 done
+
+if [[ -n "$GIT_REF" && "$ALLOW_MOVING_REF" != "1" ]]; then
+  echo "--ref and CHUMMER_GIT_REF require --allow-moving-ref; the default build uses immutable RELEASE.lock.json commits." >&2
+  exit 2
+fi
+if [[ "$ALLOW_MOVING_REF" == "1" ]]; then
+  SOURCE_MODE="moving_ref"
+  GIT_REF="${GIT_REF:-main}"
+fi
+
+command -v python3 >/dev/null 2>&1 || { echo "python3 is required to validate RELEASE.lock.json." >&2; exit 1; }
+LOCK_OUTPUT=""
+if ! LOCK_OUTPUT="$(python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" inspect --lock "$RELEASE_LOCK_PATH" --repo-root "$REPOSITORY_ROOT" 2>&1)"; then
+  printf '%s\n' "$LOCK_OUTPUT" >&2
+  exit 1
+fi
+
+REPO_DIRS=()
+REPO_NAMES=()
+LOCKED_COMMITS=()
+NUGET_SERVICE_INDEX_URLS=()
+NUGET_SERVICE_INDEX_SHA256S=()
+NUGET_SERVICE_INDEX_KEYS=()
+NUGET_PACKAGE_LOCK_RIDS=()
+NUGET_PACKAGE_LOCK_PATHS=()
+NUGET_PACKAGE_LOCK_SHA256S=()
+SOURCE_LOCK_SHA256=""
+SDK_VERSION=""
+DOTNET_INSTALL_URL=""
+DOTNET_INSTALL_SHA256=""
+RELEASE_MANIFEST_SHA256=""
+RELEASE_MANIFEST_STATUS=""
+RELEASE_EVIDENCE_ELIGIBLE=""
+while IFS=$'\t' read -r record first second third; do
+  case "$record" in
+    LOCK_SHA256) SOURCE_LOCK_SHA256="$first" ;;
+    SDK_VERSION) SDK_VERSION="$first" ;;
+    DOTNET_INSTALL_URL) DOTNET_INSTALL_URL="$first" ;;
+    DOTNET_INSTALL_SHA256) DOTNET_INSTALL_SHA256="$first" ;;
+    RELEASE_MANIFEST_SHA256) RELEASE_MANIFEST_SHA256="$first" ;;
+    RELEASE_MANIFEST_STATUS) RELEASE_MANIFEST_STATUS="$first" ;;
+    RELEASE_EVIDENCE_ELIGIBLE) RELEASE_EVIDENCE_ELIGIBLE="$first" ;;
+    REPOSITORY)
+      REPO_DIRS+=("$first")
+      REPO_NAMES+=("$second")
+      LOCKED_COMMITS+=("$third")
+      ;;
+    NUGET_SERVICE_INDEX)
+      NUGET_SERVICE_INDEX_KEYS+=("$first")
+      NUGET_SERVICE_INDEX_URLS+=("$second")
+      NUGET_SERVICE_INDEX_SHA256S+=("$third")
+      ;;
+    NUGET_PACKAGE_LOCK)
+      NUGET_PACKAGE_LOCK_RIDS+=("$first")
+      NUGET_PACKAGE_LOCK_PATHS+=("$second")
+      NUGET_PACKAGE_LOCK_SHA256S+=("$third")
+      ;;
+    "") ;;
+    *) echo "Unknown source-lock resolver record: $record" >&2; exit 1 ;;
+  esac
+done <<< "$LOCK_OUTPUT"
+
+[[ ${#REPO_DIRS[@]} -eq 5 ]] || { echo "Source lock did not resolve the exact five-repository build plane." >&2; exit 1; }
+[[ ${#NUGET_SERVICE_INDEX_URLS[@]} -eq 1 ]] || { echo "Source lock did not resolve the exact approved NuGet service index." >&2; exit 1; }
+[[ ${#NUGET_PACKAGE_LOCK_RIDS[@]} -eq 2 ]] || { echo "Source lock did not resolve both Linux NuGet package locks." >&2; exit 1; }
+if [[ "$SOURCE_MODE" == "moving_ref" ]]; then
+  RELEASE_EVIDENCE_ELIGIBLE="false"
+fi
 
 [[ "$MIN_FREE_GIB" =~ ^[0-9]+$ ]] || { echo "CHUMMER_MIN_FREE_GIB must be a whole number of GiB." >&2; exit 2; }
 
@@ -156,6 +246,54 @@ cleanup_build_temp() {
   if [[ -n "${DOTNET_INSTALL:-}" && -f "$DOTNET_INSTALL" ]]; then
     rm -f "$DOTNET_INSTALL"
   fi
+  if [[ -n "${NUGET_INDEX_PROBE:-}" && -f "$NUGET_INDEX_PROBE" ]]; then
+    rm -f "$NUGET_INDEX_PROBE"
+  fi
+}
+
+clear_ambient_restore_overrides() {
+  unset \
+    CHUMMER_PUBLISHED_FEED_SOURCES \
+    CHUMMER_CONTRACTS_PACKAGE_VERSION \
+    CHUMMER_CAMPAIGN_CONTRACTS_PACKAGE_VERSION \
+    CHUMMER_RUN_CONTRACTS_PACKAGE_VERSION \
+    CHUMMER_HUB_REGISTRY_CONTRACTS_PACKAGE_VERSION \
+    CHUMMER_UI_KIT_PACKAGE_VERSION \
+    CHUMMER_LOCAL_CONTRACTS_PROJECT \
+    CHUMMER_LOCAL_CAMPAIGN_CONTRACTS_PROJECT \
+    CHUMMER_LOCAL_PLAY_CONTRACTS_PROJECT \
+    CHUMMER_LOCAL_RUN_CONTRACTS_PROJECT \
+    CHUMMER_LOCAL_HUB_REGISTRY_CONTRACTS_PROJECT \
+    CHUMMER_LOCAL_UI_KIT_PROJECT \
+    CHUMMER_LOCAL_MEDIA_CONTRACTS_PROJECT \
+    CHUMMER_BOOTSTRAP_ENGINE_CONTRACTS_SCRIPT \
+    CHUMMER_ENGINE_CONTRACTS_FEED \
+    CHUMMER_BOOTSTRAP_ENGINE_CONTRACTS_FEED \
+    CHUMMER_PACKAGE_PLANE_LOCK_ROOT \
+    CHUMMER_PACKAGE_PLANE_LOCK_FILE \
+    CHUMMER_PACKAGE_PLANE_LOCK_WAIT_SECONDS \
+    CHUMMER_PACKAGE_PLANE_LOCK_HELD \
+    CHUMMER_PACKAGE_PLANE_SERIALIZE \
+    CHUMMER_PACKAGE_PLANE_PREBUILD_CONFIGURATION \
+    CHUMMER_UI_REPO_ROOT_ALIAS \
+    NUGET_PACKAGES \
+    NUGET_HTTP_CACHE_PATH \
+    NUGET_PLUGINS_CACHE_PATH \
+    NUGET_SCRATCH \
+    NUGET_CONFIG_FILE \
+    RestoreConfigFile \
+    RestoreSources \
+    RestoreAdditionalProjectSources \
+    RestoreFallbackFolders \
+    RestorePackagesPath \
+    RestoreLockedMode \
+    RestorePackagesWithLockFile \
+    RestoreForceEvaluate \
+    ChummerContractsPackageVersion \
+    ChummerCampaignContractsPackageVersion \
+    ChummerRunContractsPackageVersion \
+    ChummerHubRegistryContractsPackageVersion \
+    ChummerUiKitPackageVersion
 }
 
 read_host_information() {
@@ -220,7 +358,7 @@ choose_package_manager() {
 
 check_required_commands() {
   local missing=()
-  for command_name in git git-lfs curl tar gzip flock sha256sum file; do
+  for command_name in git git-lfs curl tar gzip flock sha256sum file python3; do
     if ! command -v "$command_name" >/dev/null 2>&1; then
       missing+=("$command_name")
     fi
@@ -275,6 +413,17 @@ check_local_dotnet_runtime() {
 step "Inspecting this Linux host"
 [[ "$(uname -s)" == "Linux" ]] || die "This script builds only the Linux desktop client."
 read_host_information
+NUGET_PACKAGE_LOCK_RELATIVE=""
+NUGET_PACKAGE_LOCK_SHA256=""
+for index in "${!NUGET_PACKAGE_LOCK_RIDS[@]}"; do
+  if [[ "${NUGET_PACKAGE_LOCK_RIDS[$index]}" == "$RID" ]]; then
+    NUGET_PACKAGE_LOCK_RELATIVE="${NUGET_PACKAGE_LOCK_PATHS[$index]}"
+    NUGET_PACKAGE_LOCK_SHA256="${NUGET_PACKAGE_LOCK_SHA256S[$index]}"
+    break
+  fi
+done
+[[ -n "$NUGET_PACKAGE_LOCK_RELATIVE" && -n "$NUGET_PACKAGE_LOCK_SHA256" ]] || die "No locked NuGet graph exists for $RID."
+NUGET_PACKAGE_LOCK_SOURCE="$REPOSITORY_ROOT/$NUGET_PACKAGE_LOCK_RELATIVE"
 log "Distribution: $DISTRO_PRETTY"
 log "CPU: $CPU_MODEL"
 log "Architecture: $CPU_ARCH → $RID"
@@ -307,7 +456,13 @@ if (( AVAILABLE_KIB < REQUIRED_KIB )); then
   die "At least ${MIN_FREE_GIB} GiB free is required; only ${AVAILABLE_GIB} GiB is available at $BASE_PATH."
 fi
 log "Workspace: $BASE_PATH"
-log "Git ref: $GIT_REF"
+if [[ "$SOURCE_MODE" == "locked" ]]; then
+  log "Source mode: immutable lock $RELEASE_LOCK_PATH"
+  log "Source lock SHA256: $SOURCE_LOCK_SHA256"
+else
+  warn "NON-REPRODUCIBLE BUILD: moving ref '$GIT_REF' was explicitly allowed. This output is NOT release evidence."
+  log "Source mode: explicitly allowed moving ref $GIT_REF"
+fi
 log "Free space: $((AVAILABLE_KIB / 1024 / 1024)) GiB"
 
 step "Checking Linux build prerequisites"
@@ -319,7 +474,7 @@ else
 fi
 
 if [[ "$AUDIT_ONLY" == "1" ]]; then
-  for command_name in git git-lfs curl tar gzip flock sha256sum file; do
+  for command_name in git git-lfs curl tar gzip flock sha256sum file python3; do
     if command -v "$command_name" >/dev/null 2>&1; then
       log "Found command: $command_name"
     else
@@ -343,20 +498,6 @@ check_git_lfs_ready
 git lfs install --skip-repo >/dev/null
 
 step "Cloning or updating the Chummer6 build repositories"
-REPO_DIRS=(
-  "chummer-core-engine"
-  "chummer.run-services"
-  "chummer-hub-registry"
-  "chummer-ui-kit"
-  "chummer6-ui"
-)
-REPO_NAMES=(
-  "chummer6-core"
-  "chummer6-hub"
-  "chummer6-hub-registry"
-  "chummer6-ui-kit"
-  "chummer6-ui"
-)
 
 normalize_git_url() {
   local value="$1"
@@ -372,12 +513,21 @@ git_automation() {
 sync_repo() {
   local directory_name="$1"
   local repository_name="$2"
+  local locked_commit="$3"
   local target="$BASE_PATH/$directory_name"
   local expected_url="$REPO_BASE_URL/$repository_name.git"
 
   if [[ ! -e "$target" ]]; then
     log "Cloning $repository_name into $directory_name"
-    git_automation clone --depth 1 --filter=blob:none --branch "$GIT_REF" "$expected_url" "$target"
+    if [[ "$SOURCE_MODE" == "locked" ]]; then
+      mkdir -p "$target"
+      git_automation -C "$target" init -q
+      git_automation -C "$target" remote add origin "$expected_url"
+      git_automation -C "$target" fetch --depth 1 origin "$locked_commit"
+      git_automation -C "$target" checkout -q --detach FETCH_HEAD
+    else
+      git_automation clone --depth 1 --filter=blob:none --branch "$GIT_REF" "$expected_url" "$target"
+    fi
   else
     [[ -d "$target/.git" ]] || die "$target exists but is not a Git repository."
     local current_url
@@ -389,8 +539,18 @@ sync_repo() {
       die "$target has local changes. Commit, stash, or remove them before rerunning."
     fi
     log "Updating $repository_name"
-    git_automation -C "$target" fetch --depth 1 origin "$GIT_REF"
+    if [[ "$SOURCE_MODE" == "locked" ]]; then
+      git_automation -C "$target" fetch --depth 1 origin "$locked_commit"
+    else
+      git_automation -C "$target" fetch --depth 1 origin "$GIT_REF"
+    fi
     git_automation -C "$target" checkout -q --detach FETCH_HEAD
+  fi
+
+  if [[ "$SOURCE_MODE" == "locked" ]]; then
+    local actual_commit
+    actual_commit="$(git_automation -C "$target" rev-parse HEAD)"
+    [[ "$actual_commit" == "$locked_commit" ]] || die "$repository_name resolved to $actual_commit; lock requires $locked_commit."
   fi
 
   if [[ -f "$target/.gitattributes" ]] && grep -q 'filter=lfs' "$target/.gitattributes"; then
@@ -403,8 +563,18 @@ sync_repo() {
 }
 
 for index in "${!REPO_DIRS[@]}"; do
-  sync_repo "${REPO_DIRS[$index]}" "${REPO_NAMES[$index]}"
+  sync_repo "${REPO_DIRS[$index]}" "${REPO_NAMES[$index]}" "${LOCKED_COMMITS[$index]}"
 done
+CHECKOUT_VERIFY_ARGS=(
+  verify-checkouts
+  --lock "$RELEASE_LOCK_PATH"
+  --repo-root "$REPOSITORY_ROOT"
+  --base "$BASE_PATH"
+)
+if [[ "$SOURCE_MODE" == "moving_ref" ]]; then
+  CHECKOUT_VERIFY_ARGS+=(--moving)
+fi
+python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" "${CHECKOUT_VERIFY_ARGS[@]}"
 
 step "Checking the cloned compatibility tree"
 REQUIRED_FILES=(
@@ -431,35 +601,6 @@ done
 log "All required owner projects are present."
 
 step "Installing the repository-pinned .NET SDK locally"
-read_sdk_version() {
-  local json_path="$1"
-  sed -n 's/.*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$json_path" | head -1
-}
-
-SDK_VERSIONS=()
-for json_file in \
-  "$BASE_PATH/chummer6-ui/global.json" \
-  "$BASE_PATH/chummer-core-engine/global.json" \
-  "$BASE_PATH/chummer.run-services/global.json" \
-  "$BASE_PATH/chummer-hub-registry/global.json" \
-  "$BASE_PATH/chummer-ui-kit/global.json"; do
-  if [[ -f "$json_file" ]]; then
-    version="$(read_sdk_version "$json_file")"
-    if [[ -n "$version" ]]; then
-      SDK_VERSIONS+=("$version")
-    fi
-  fi
-done
-
-if (( ${#SDK_VERSIONS[@]} == 0 )); then
-  die "Could not read any .NET SDK version from repository global.json files"
-fi
-
-SDK_VERSION="$(printf '%s\n' "${SDK_VERSIONS[@]}" | sort -V | tail -n 1)"
-if [[ -n "${CHUMMER_SDK_VERSIONS_DEBUG:-}" ]]; then
-  log "SDK versions seen: ${SDK_VERSIONS[*]}"
-  log "Selected SDK version: $SDK_VERSION"
-fi
 DOTNET_DIR="$BASE_PATH/.tools/dotnet"
 DOTNET_INSTALL="$BASE_PATH/.tools/dotnet-install.sh"
 mkdir -p "$BASE_PATH/.tools"
@@ -467,7 +608,11 @@ mkdir -p "$BASE_PATH/.tools"
 if [[ ! -x "$DOTNET_DIR/dotnet" ]] || ! "$DOTNET_DIR/dotnet" --list-sdks 2>/dev/null | awk '{print $1}' | grep -Fxq "$SDK_VERSION"; then
   log "Installing .NET SDK $SDK_VERSION locally into $DOTNET_DIR"
   curl --fail --location --retry 5 --retry-delay 2 --proto '=https' --tlsv1.2 \
-    https://dot.net/v1/dotnet-install.sh -o "$DOTNET_INSTALL"
+    "$DOTNET_INSTALL_URL" -o "$DOTNET_INSTALL"
+  python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-file \
+    --path "$DOTNET_INSTALL" \
+    --sha256 "$DOTNET_INSTALL_SHA256" \
+    --label "dotnet-install.sh"
   bash -n "$DOTNET_INSTALL"
   bash "$DOTNET_INSTALL" --version "$SDK_VERSION" --install-dir "$DOTNET_DIR" --no-path
 else
@@ -480,18 +625,74 @@ export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 export DOTNET_NOLOGO=1
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export AVALONIA_TELEMETRY_OPTOUT=1
+clear_ambient_restore_overrides
 export WRITABLE_STATE_ROOT="$BASE_PATH/.state"
 export DOTNET_CLI_HOME="$BASE_PATH/.state/dotnet-cli"
-export NUGET_PACKAGES="$BASE_PATH/.cache/nuget/packages"
 export XDG_CACHE_HOME="$BASE_PATH/.cache/xdg"
 export XDG_DATA_HOME="$BASE_PATH/.local/share"
 export TMPDIR="$BASE_PATH/.tmp/runtime"
-export CHUMMER_PACKAGE_PLANE_LOCK_ROOT="$BASE_PATH/.tmp/package-plane"
-export CHUMMER_BOOTSTRAP_ENGINE_CONTRACTS_FEED=1
+NUGET_LOCK_ROOT="$BASE_PATH/.tmp/nuget-locked-$SOURCE_LOCK_SHA256-$RID"
+if [[ -L "$BASE_PATH/.tmp" ]]; then
+  die "Refusing a symlinked build temporary root: $BASE_PATH/.tmp"
+fi
+mkdir -p "$BASE_PATH/.tmp"
+if [[ -e "$NUGET_LOCK_ROOT" || -L "$NUGET_LOCK_ROOT" ]]; then
+  die "Refusing to reuse a pre-existing locked NuGet workspace: $NUGET_LOCK_ROOT"
+fi
+umask 077
+if ! mkdir "$NUGET_LOCK_ROOT"; then
+  die "Could not atomically create the locked NuGet workspace: $NUGET_LOCK_ROOT"
+fi
+export NUGET_PACKAGES="$NUGET_LOCK_ROOT/packages"
+export NUGET_HTTP_CACHE_PATH="$NUGET_LOCK_ROOT/http-cache"
+export NUGET_PLUGINS_CACHE_PATH="$NUGET_LOCK_ROOT/plugins-cache"
+export NUGET_SCRATCH="$NUGET_LOCK_ROOT/scratch"
+NUGET_CONFIG="$NUGET_LOCK_ROOT/NuGet.Config"
+NUGET_PACKAGE_LOCK_COPY="$NUGET_LOCK_ROOT/packages.lock.json"
+export RestoreConfigFile="$NUGET_CONFIG"
+export RestoreSources="${NUGET_SERVICE_INDEX_URLS[0]}"
+export RestoreAdditionalProjectSources=""
+export RestoreFallbackFolders=""
+export RestorePackagesPath="$NUGET_PACKAGES"
+export CHUMMER_PACKAGE_PLANE_LOCK_ROOT="$NUGET_LOCK_ROOT/package-plane"
+export CHUMMER_PACKAGE_PLANE_LOCK_FILE="$CHUMMER_PACKAGE_PLANE_LOCK_ROOT/with-package-plane.lock"
+export CHUMMER_PACKAGE_PLANE_SERIALIZE=1
+export CHUMMER_BOOTSTRAP_ENGINE_CONTRACTS_FEED=0
 export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"
 export CHUMMER_DESKTOP_ANALYTICS_DEFAULT="${CHUMMER_DESKTOP_ANALYTICS_DEFAULT:-off}"
-mkdir -p "$DOTNET_CLI_HOME" "$NUGET_PACKAGES" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$TMPDIR" "$CHUMMER_PACKAGE_PLANE_LOCK_ROOT"
+mkdir -p \
+  "$DOTNET_CLI_HOME" \
+  "$NUGET_PACKAGES" \
+  "$NUGET_HTTP_CACHE_PATH" \
+  "$NUGET_PLUGINS_CACHE_PATH" \
+  "$NUGET_SCRATCH" \
+  "$XDG_CACHE_HOME" \
+  "$XDG_DATA_HOME" \
+  "$TMPDIR" \
+  "$CHUMMER_PACKAGE_PLANE_LOCK_ROOT"
+python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" write-nuget-config \
+  --lock "$RELEASE_LOCK_PATH" \
+  --repo-root "$REPOSITORY_ROOT" \
+  --rid "$RID" \
+  --packages-root "$NUGET_PACKAGES" \
+  --output "$NUGET_CONFIG"
+cp -- "$NUGET_PACKAGE_LOCK_SOURCE" "$NUGET_PACKAGE_LOCK_COPY"
+python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-file \
+  --path "$NUGET_PACKAGE_LOCK_COPY" \
+  --sha256 "$NUGET_PACKAGE_LOCK_SHA256" \
+  --label "Avalonia $RID packages.lock.json"
 check_local_dotnet_runtime
+
+for index in "${!NUGET_SERVICE_INDEX_URLS[@]}"; do
+  NUGET_INDEX_PROBE="$BASE_PATH/.tools/nuget-service-index-$index.json"
+  curl --fail --location --retry 5 --retry-delay 2 --proto '=https' --tlsv1.2 \
+    "${NUGET_SERVICE_INDEX_URLS[$index]}" -o "$NUGET_INDEX_PROBE"
+  python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-file \
+    --path "$NUGET_INDEX_PROBE" \
+    --sha256 "${NUGET_SERVICE_INDEX_SHA256S[$index]}" \
+    --label "NuGet service index ${NUGET_SERVICE_INDEX_URLS[$index]}"
+  rm -f "$NUGET_INDEX_PROBE"
+done
 
 step "Recording source revisions"
 MANIFEST_DIR="$BASE_PATH/artifacts"
@@ -506,7 +707,21 @@ SOURCE_MANIFEST="$MANIFEST_DIR/source-revisions-$RUN_ID.txt"
   printf 'Architecture: %s\n' "$CPU_ARCH"
   printf 'RID: %s\n' "$RID"
   printf '.NET SDK: %s\n' "$SDK_VERSION"
-  printf 'Git ref: %s\n\n' "$GIT_REF"
+  printf 'Source mode: %s\n' "$SOURCE_MODE"
+  printf 'Source lock SHA256: %s\n' "$SOURCE_LOCK_SHA256"
+  printf 'NuGet package resolution: locked-mode contentHash graph\n'
+  printf 'NuGet package lock: %s\n' "$NUGET_PACKAGE_LOCK_RELATIVE"
+  printf 'NuGet package lock SHA256: %s\n' "$NUGET_PACKAGE_LOCK_SHA256"
+  printf 'NuGet config SHA256: %s\n' "$(sha256sum "$NUGET_CONFIG" | awk '{print $1}')"
+  printf 'NuGet source: %s=%s\n' "${NUGET_SERVICE_INDEX_KEYS[0]}" "${NUGET_SERVICE_INDEX_URLS[0]}"
+  printf 'Release manifest status: %s\n' "$RELEASE_MANIFEST_STATUS"
+  printf 'Release manifest SHA256: %s\n' "$RELEASE_MANIFEST_SHA256"
+  printf 'Release evidence eligible: %s\n' "$RELEASE_EVIDENCE_ELIGIBLE"
+  if [[ "$SOURCE_MODE" == "moving_ref" ]]; then
+    printf 'Moving Git ref: %s\n' "$GIT_REF"
+    printf 'Release evidence warning: NOT RELEASE EVIDENCE; source revisions came from an explicitly allowed moving ref.\n'
+  fi
+  printf '\n'
   for index in "${!REPO_DIRS[@]}"; do
     printf '%-24s %s\n' "${REPO_NAMES[$index]}" "$(git -C "$BASE_PATH/${REPO_DIRS[$index]}" rev-parse HEAD)"
   done
@@ -518,9 +733,34 @@ PROJECT="$UI_ROOT/Chummer.Avalonia/Chummer.Avalonia.csproj"
 cd "$UI_ROOT"
 bash scripts/ai/restore.sh "$PROJECT" \
   -r "$RID" \
+  --configfile "$NUGET_CONFIG" \
   -p:TargetFramework=net10.0 \
   -p:ChummerUseLocalCompatibilityTree=true \
+  -p:RestoreConfigFile="$NUGET_CONFIG" \
+  -p:RestoreSources="${NUGET_SERVICE_INDEX_URLS[0]}" \
+  -p:RestoreAdditionalProjectSources= \
+  -p:RestoreFallbackFolders= \
   -p:RestorePackagesPath="$NUGET_PACKAGES"
+
+dotnet restore "$PROJECT" \
+  -r "$RID" \
+  --no-dependencies \
+  --locked-mode \
+  --lock-file-path "$NUGET_PACKAGE_LOCK_COPY" \
+  --configfile "$NUGET_CONFIG" \
+  -p:TargetFramework=net10.0 \
+  -p:ChummerUseLocalCompatibilityTree=true \
+  -p:RestoreConfigFile="$NUGET_CONFIG" \
+  -p:RestoreSources="${NUGET_SERVICE_INDEX_URLS[0]}" \
+  -p:RestoreAdditionalProjectSources= \
+  -p:RestoreFallbackFolders= \
+  -p:RestorePackagesPath="$NUGET_PACKAGES"
+
+python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-nuget-cache \
+  --lock "$RELEASE_LOCK_PATH" \
+  --repo-root "$REPOSITORY_ROOT" \
+  --rid "$RID" \
+  --packages-root "$NUGET_PACKAGES"
 
 step "Publishing the self-contained desktop client for this host"
 PUBLISH_DIR="$BASE_PATH/artifacts/chummer6-$RID"
@@ -529,9 +769,10 @@ mkdir -p "$PUBLISH_DIR"
 UI_SHA="$(git -C "$UI_ROOT" rev-parse --short=12 HEAD)"
 SOURCE_VERSION="source-$UI_SHA-$RUN_ID"
 
-bash scripts/ai/with-package-plane.sh publish "$PROJECT" \
+dotnet publish "$PROJECT" \
   -c Release \
   -r "$RID" \
+  --no-restore \
   --self-contained true \
   --verbosity minimal \
   -p:TargetFramework=net10.0 \
@@ -541,11 +782,22 @@ bash scripts/ai/with-package-plane.sh publish "$PROJECT" \
   -p:PublishReadyToRun=false \
   -p:DebugType=None \
   -p:DebugSymbols=false \
+  -p:ProduceReferenceAssembly=true \
   -p:UseAppHost=true \
   -p:ChummerDesktopReleaseChannel=source-build \
   -p:ChummerDesktopReleaseVersion="$SOURCE_VERSION" \
+  -p:RestoreConfigFile="$NUGET_CONFIG" \
+  -p:RestoreSources="${NUGET_SERVICE_INDEX_URLS[0]}" \
+  -p:RestoreAdditionalProjectSources= \
+  -p:RestoreFallbackFolders= \
   -p:RestorePackagesPath="$NUGET_PACKAGES" \
   -o "$PUBLISH_DIR"
+
+python3 "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-nuget-cache \
+  --lock "$RELEASE_LOCK_PATH" \
+  --repo-root "$REPOSITORY_ROOT" \
+  --rid "$RID" \
+  --packages-root "$NUGET_PACKAGES"
 
 step "Verifying the published client and native library links"
 BINARY="$PUBLISH_DIR/Chummer.Avalonia"
@@ -603,5 +855,8 @@ printf 'Archive SHA256:    %s\n' "$TARBALL_SHA"
 printf 'Manifest:   %s\n' "$BUILD_MANIFEST"
 printf 'Log:        %s\n' "$LOG_FILE"
 printf 'Elapsed:    %dm %ds\n' "$((ELAPSED / 60))" "$((ELAPSED % 60))"
+if [[ "$SOURCE_MODE" == "moving_ref" || "$RELEASE_EVIDENCE_ELIGIBLE" != "true" ]]; then
+  printf '%s\n' 'Release evidence: INELIGIBLE (moving source or unbound release authority).'
+fi
 printf '\nNo install was performed. Install it afterwards with:\n'
 printf '  %s --archive %q --force\n' "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)/install-chummer6-linux-local.sh" "$TARBALL"

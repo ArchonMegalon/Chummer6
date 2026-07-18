@@ -14,7 +14,24 @@ and install the result afterwards with:
 bash scripts/build-chummer6-linux.sh --base "$HOME/chummer6-source-build"
 ```
 
-The script does its own host checks, clones the required repositories, bootstraps a local .NET SDK, publishes the Avalonia desktop client, and writes a build manifest. It does not install Linux packages and it does not ask for `sudo`.
+The script does its own host checks, resolves every owner repository from [`RELEASE.lock.json`](RELEASE.lock.json), bootstraps the locked local .NET SDK, verifies the locked NuGet service index, restores the checked per-RID Avalonia dependency graph in NuGet locked mode, publishes the desktop client, and writes a build manifest. It does not install Linux packages and it does not ask for `sudo`.
+
+The lock binds the exact five owner commits, .NET SDK version, `dotnet-install.sh` SHA256, NuGet service-index SHA256, the complete resolved Avalonia package graph and NuGet `contentHash` values for `linux-x64` and `linux-arm64`, SDK-injected runtime-pack hashes, build-script SHA256, and the checked release-truth projection SHA256. The current UI Kit source pin is `d51ecd99cf72098d4adc8db0192bff7bf9fd8e61`.
+
+Restore runs with a generated `NuGet.Config` that clears inherited sources, names only the lock-approved NuGet service index, and maps every allowed package ID explicitly. The build clears ambient feed, package-version, local-project, and restore-path overrides first. It then creates a new isolated package cache, refuses to reuse a pre-existing cache at that locked path, runs the root project against the checked `packages.lock.json` with `--locked-mode`, and verifies the resulting cache before and after publish. Package graph drift, `contentHash` drift, unexpected packages, source drift, archive drift, and symlinked cache entries fail closed.
+
+The current release projection is deliberately `unbound_review_placeholder`, so these builds remain ineligible for release evidence until Registry supplies a bound immutable authority snapshot. The script records that posture in `BUILD-MANIFEST.txt`; dependency reproducibility never turns an unbound packet into a release claim.
+
+`--ref` no longer opts into a moving branch by itself. Development builds from `main` require an explicit acknowledgement and print a non-release-evidence warning:
+
+```bash
+bash scripts/build-chummer6-linux.sh \
+  --allow-moving-ref \
+  --ref main \
+  --base "$HOME/chummer6-source-build-moving"
+```
+
+Use `--lock PATH` or `CHUMMER_RELEASE_LOCK` only with a reviewed lock that passes `scripts/verify_linux_source_lock.py`. Digest and dependency-graph mismatches fail before downloaded scripts or package restores run. Moving-ref builds still use the checked package allowlist and therefore fail if their package graph has drifted; update and review the lock instead of bypassing it.
 
 The build step never installs the user-local copy for you. It only produces the artifact directory and archive.
 
@@ -31,6 +48,7 @@ Source-built copies check for newer published builds in notify-only mode by defa
 - Linux with glibc
 - x86_64 or arm64
 - Git and Git LFS
+- Python 3
 - `curl`, `tar`, `gzip`, `sha256sum`, `file`, `flock`
 - ICU runtime libraries
 - about 25 GiB of free disk space
@@ -95,8 +113,8 @@ The install script turns that artifact into a user-local installed copy with a s
 
 ## Notes
 
-The script stops on local changes, low disk space, musl/Alpine hosts, non-executable directories, or missing native libraries after publish.
+The script stops on lock drift, checkout drift, download digest drift, local changes, low disk space, musl/Alpine hosts, non-executable directories, or missing native libraries after publish.
 
 The binary and its native library links are verified. A real desktop session is still needed for a final launch check.
 
-This is a local source build, not an official release.
+This is a local source build, not an official release. A moving-ref build is always ineligible for release evidence; a locked build becomes eligible only after its lock carries a bound Registry authority snapshot.

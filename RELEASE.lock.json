@@ -1,0 +1,115 @@
+{
+  "contract": "chummer6.release-source-lock/v1",
+  "schemaVersion": 1,
+  "repositories": [
+    {
+      "directory": "chummer-core-engine",
+      "name": "chummer6-core",
+      "url": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "commit": "7560c65ee968a3c9eb650255f236524bf7d65144",
+      "globalJsonSdkVersion": "10.0.103"
+    },
+    {
+      "directory": "chummer.run-services",
+      "name": "chummer6-hub",
+      "url": "https://github.com/ArchonMegalon/chummer6-hub.git",
+      "commit": "83834daa201c296f47ac79359374c9cb98fc8d5c",
+      "globalJsonSdkVersion": "10.0.103"
+    },
+    {
+      "directory": "chummer-hub-registry",
+      "name": "chummer6-hub-registry",
+      "url": "https://github.com/ArchonMegalon/chummer6-hub-registry.git",
+      "commit": "0bc4f99de1df9c262d9495c70419d7b6e76ff6fb",
+      "globalJsonSdkVersion": null
+    },
+    {
+      "directory": "chummer-ui-kit",
+      "name": "chummer6-ui-kit",
+      "url": "https://github.com/ArchonMegalon/chummer6-ui-kit.git",
+      "commit": "d51ecd99cf72098d4adc8db0192bff7bf9fd8e61",
+      "globalJsonSdkVersion": null
+    },
+    {
+      "directory": "chummer6-ui",
+      "name": "chummer6-ui",
+      "url": "https://github.com/ArchonMegalon/chummer6-ui.git",
+      "commit": "4cf2824585e36df5ec4d530096d81d9ef25c8e39",
+      "globalJsonSdkVersion": "10.0.100"
+    }
+  ],
+  "dotnet": {
+    "sdkVersion": "10.0.103",
+    "installScript": {
+      "url": "https://dot.net/v1/dotnet-install.sh",
+      "sha256": "082f7685e156738a1b2e2ed8381a621870d4ce8e8c59278034556f05c186eb2e"
+    }
+  },
+  "nuget": {
+    "packageResolution": "nuget-lock-v1-content-hash",
+    "serviceIndexes": [
+      {
+        "key": "nuget.org",
+        "url": "https://api.nuget.org/v3/index.json",
+        "sha256": "cea4d74624be767e0569c891597c0e6f5329f19f6c9b7fcf8b8c9e9f4933a4bb"
+      }
+    ],
+    "packageLocks": [
+      {
+        "runtimeIdentifier": "linux-x64",
+        "project": "Chummer.Avalonia/Chummer.Avalonia.csproj",
+        "targetFramework": "net10.0",
+        "path": "release-locks/avalonia-linux-x64.packages.lock.json",
+        "sha256": "c2c0d6c7b4703dce28c62462b835b6b61427d5fbc77a88f0414d3c491f72f192",
+        "implicitPackages": [
+          {
+            "id": "microsoft.aspnetcore.app.runtime.linux-x64",
+            "version": "10.0.3",
+            "contentHash": "DOh775Xu3FpRAfuxa21EMhjbk+7NXtpqQJyFY2PHhcCwSw2cNLV99Cai8yATgGm2UJL5Ibaxx5ru/wTFzUmzgA==",
+            "archiveSha512": "XUAlxT+iOv9phzT4sKxw3oxlDyWGShw/M/cGDWiFp7S7xPkGvUF8khKEsSYEkARYsrP4xzOD+BpCp9odm2wLOw=="
+          },
+          {
+            "id": "microsoft.netcore.app.runtime.linux-x64",
+            "version": "10.0.3",
+            "contentHash": "AeOL5qSbHDpHQHEsIATfCS3fw3ZErRsUYFwXplQTYfMM18h8N6Nd9m8aHJRIKD3qWEwGzjWyl/SLmsA79ENUmw==",
+            "archiveSha512": "/5uYeQPV8stf1hxNVBKFPvqilHDDGT0wjNNa+gAbr2hRP+4LuNyHVnesPrwWJeSjlxT5Tn7U5RLplh6wOuKSrQ=="
+          }
+        ]
+      },
+      {
+        "runtimeIdentifier": "linux-arm64",
+        "project": "Chummer.Avalonia/Chummer.Avalonia.csproj",
+        "targetFramework": "net10.0",
+        "path": "release-locks/avalonia-linux-arm64.packages.lock.json",
+        "sha256": "028b13db12406c3219e5185ccba91e38dbe70bee1f653c76de07564a34a447df",
+        "implicitPackages": [
+          {
+            "id": "microsoft.aspnetcore.app.runtime.linux-arm64",
+            "version": "10.0.3",
+            "contentHash": "es9U+w7GTRqMg6SvIB52W/50HlDh/XSl7HZ/xJaoBASiCoIGizWwqYwnEf0vXAooLltYF3z7+OeDFt/2VOvIpg==",
+            "archiveSha512": "ALvoj2Ur92guiHgOuraJ8NOkxIABoz8PPHSCpIMMsxY8Jqo4XCa2qO5ANdtKgswBcS+wmyNWU11QV0KmXIXkzw=="
+          },
+          {
+            "id": "microsoft.netcore.app.runtime.linux-arm64",
+            "version": "10.0.3",
+            "contentHash": "lQRt059uoMphd2skAVhLdOIoTuOmJTMzHCdLf+K+HsAKCIllU1Tzh52H6UhEL/iu+FHL6Z4QXvdC8uNyi7h6XA==",
+            "archiveSha512": "3jqYlicN+DFw7YpAHa21ogbdCzgeKbhJNOegZhFwfMhB+chVo9+EDYBPkMjb0dTvpaNizBM0fvwnYOm+LK2J1w=="
+          }
+        ]
+      }
+    ]
+  },
+  "releaseManifest": {
+    "authorityContract": "chummer6.public-release-truth/unbound-review-placeholder/v1",
+    "sourceRepository": "ArchonMegalon/Chummer6",
+    "sourceCommit": "4600b4e1edf978799318985f943be2c81f9a3f27",
+    "path": ".guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
+    "sha256": "0790e884c2b7658e6a332a6b1aff1b60c6acd9a4b2de0b85a876d7c9c102aac9",
+    "status": "unbound_review_placeholder",
+    "releaseEvidenceEligible": false
+  },
+  "buildScript": {
+    "path": "scripts/build-chummer6-linux.sh",
+    "sha256": "91a90abbbc55b28ba09948735cdfc541ab1f139b1a3250856ac848b25927384c"
+  }
+}
