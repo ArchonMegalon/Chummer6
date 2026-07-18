@@ -90,7 +90,8 @@ python3 "$repo_root/scripts/verify_macos_source_build_contract_receipt.py" >/dev
 python3 "$repo_root/scripts/test_materialize_public_release_truth_packet.py" >/dev/null
 python3 "$repo_root/scripts/materialize_public_release_truth_packet.py" "${release_authority_args[@]}" >/dev/null
 if [[ -n "$design_root" ]]; then
-  python3 "$design_root/scripts/ai/materialize_public_guide_bundle.py" --repo-root "$design_root" >/dev/null
+  CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT="$repo_root" \
+    python3 "$design_root/scripts/ai/materialize_public_guide_bundle.py" --repo-root "$design_root" >/dev/null
   python3 "$repo_root/scripts/sync_public_guide_from_design.py" >/dev/null
 fi
 bash "$repo_root/scripts/verify_public_guide.sh" --skip-http "${release_authority_args[@]}"

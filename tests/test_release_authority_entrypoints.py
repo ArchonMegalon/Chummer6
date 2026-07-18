@@ -30,6 +30,9 @@ def _fake_python(root: Path, log_path: Path) -> Path:
         textwrap.dedent(
             """\
             #!/usr/bin/env bash
+            if [[ "$*" == *materialize_public_guide_bundle.py* ]]; then
+              printf 'generator_source %s\n' "${CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT:-}" >> "$CALL_LOG"
+            fi
             printf 'python %s\n' "$*" >> "$CALL_LOG"
             """
         ),
@@ -172,6 +175,42 @@ def test_convergence_entrypoint_forwards_one_exact_release_authority_tuple() -> 
         verify = next(line for line in calls if line.startswith("verify_public_guide.sh "))
         assert materialize.endswith(expected_args)
         assert verify == f"verify_public_guide.sh --skip-http {expected_args}"
+
+
+def test_convergence_design_generator_reads_exact_current_worktree_packet() -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        root = Path(temp_dir)
+        log_path = root / "calls.log"
+        fake_bin = _fake_python(root, log_path)
+        fake_repo = _write_fake_convergence_repo(root / "suffixed-layout")
+        design_root = root / "unrelated-layout" / "design-worktree"
+        generator = design_root / "scripts" / "ai" / "materialize_public_guide_bundle.py"
+        generator.parent.mkdir(parents=True)
+        generator.write_text("# invoked through fake python\n", encoding="utf-8")
+        authority_env = _authority_env(root)
+        env = {
+            **os.environ,
+            **authority_env,
+            "CALL_LOG": str(log_path),
+            "CHUMMER6_REPO_ROOT": str(fake_repo),
+            "CHUMMER_DESIGN_REPO_ROOT": str(design_root),
+            "PATH": f"{fake_bin}:{os.environ['PATH']}",
+        }
+
+        completed = subprocess.run(
+            ["bash", str(CONVERGENCE_SCRIPT)],
+            cwd=REPO_ROOT,
+            env=env,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            check=False,
+            timeout=30,
+        )
+
+        assert completed.returncode == 0, completed.stdout
+        calls = log_path.read_text(encoding="utf-8").splitlines()
+        assert f"generator_source {fake_repo}" in calls
 
 
 def test_convergence_missing_authority_fails_before_receipt_mutation() -> None:
