@@ -45,7 +45,9 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stdout)
         self.assertIn("Regenerate the Chummer6 public guide from the design repo", completed.stdout)
         self.assertIn("--check", completed.stdout)
+        self.assertIn("--authority-snapshot", completed.stdout)
         self.assertIn("CHUMMER_DESIGN_REPO_ROOT", completed.stdout)
+        self.assertIn("CHUMMER_RELEASE_AUTHORITY_SNAPSHOT", completed.stdout)
 
     def test_verify_script_chain_mentions_linux_surface_guard(self) -> None:
         verify_script = (REPO_ROOT / "scripts" / "verify_public_guide.sh").read_text(encoding="utf-8")
@@ -65,6 +67,7 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             log_path = root / "calls.log"
 
             self._write_fake_scripts(chummer6_root, design_root)
+            authority_env = self._authority_env(root)
 
             completed = self.run_script(
                 env={
@@ -72,6 +75,7 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
                     "CHUMMER_DESIGN_REPO_ROOT": str(design_root),
                     "CHUMMER_PUBLIC_GUIDE_OUT": str(out_dir),
                     "CALL_LOG": str(log_path),
+                    **authority_env,
                 }
             )
 
@@ -79,10 +83,11 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             calls = log_path.read_text(encoding="utf-8").splitlines()
             self.assertEqual(
                 [
+                    f"materialize --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} --registry-commit {'a' * 40} --release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
                     f"generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT={chummer6_root}",
                     f"generator --repo-root {design_root} --out {out_dir}",
                     f"sync --source {out_dir}",
-                    f"verify --source {out_dir}",
+                    f"verify --source {out_dir} --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} --registry-commit {'a' * 40} --release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
                 ],
                 calls,
             )
@@ -96,6 +101,7 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             log_path = root / "calls.log"
 
             self._write_fake_scripts(chummer6_root, design_root)
+            authority_env = self._authority_env(root)
 
             completed = self.run_script(
                 "--check",
@@ -104,6 +110,7 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
                     "CHUMMER_DESIGN_REPO_ROOT": str(design_root),
                     "CHUMMER_PUBLIC_GUIDE_OUT": str(out_dir),
                     "CALL_LOG": str(log_path),
+                    **authority_env,
                 },
             )
 
@@ -111,13 +118,51 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             calls = log_path.read_text(encoding="utf-8").splitlines()
             self.assertEqual(
                 [
+                    f"materialize --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} --registry-commit {'a' * 40} --release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json --check",
                     f"generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT={chummer6_root}",
                     f"generator --repo-root {design_root} --out {out_dir} --check",
                     f"sync --source {out_dir} --check",
-                    f"verify --source {out_dir}",
+                    f"verify --source {out_dir} --authority-snapshot {authority_env['CHUMMER_RELEASE_AUTHORITY_SNAPSHOT']} --registry-commit {'a' * 40} --release-decision {authority_env['CHUMMER_RELEASE_DECISION_RECEIPT']} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
                 ],
                 calls,
             )
+
+    def test_missing_authority_fails_before_any_materialization_or_generation(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            chummer6_root = root / "chummer6"
+            design_root = root / "chummer-design"
+            log_path = root / "calls.log"
+            self._write_fake_scripts(chummer6_root, design_root)
+
+            completed = self.run_script(
+                env={
+                    "CHUMMER6_REPO_ROOT": str(chummer6_root),
+                    "CHUMMER_DESIGN_REPO_ROOT": str(design_root),
+                    "CALL_LOG": str(log_path),
+                    "CHUMMER_RELEASE_AUTHORITY_SNAPSHOT": "",
+                    "CHUMMER_REGISTRY_COMMIT": "",
+                    "CHUMMER_RELEASE_DECISION_RECEIPT": "",
+                    "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "",
+                }
+            )
+
+            self.assertEqual(completed.returncode, 2, completed.stdout)
+            self.assertIn("Immutable release authority is mandatory", completed.stdout)
+            self.assertFalse(log_path.exists())
+
+    @staticmethod
+    def _authority_env(root: Path) -> dict[str, str]:
+        snapshot = root / "SNAPSHOT.json"
+        decision = root / "RELEASE_DECISION.json"
+        snapshot.write_text("{}\n", encoding="utf-8")
+        decision.write_text("{}\n", encoding="utf-8")
+        return {
+            "CHUMMER_RELEASE_AUTHORITY_SNAPSHOT": str(snapshot),
+            "CHUMMER_REGISTRY_COMMIT": "a" * 40,
+            "CHUMMER_RELEASE_DECISION_RECEIPT": str(decision),
+            "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "preview_ready",
+        }
 
     @staticmethod
     def _write_fake_scripts(chummer6_root: Path, design_root: Path) -> None:
@@ -154,7 +199,10 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             textwrap.dedent(
                 """\
                 #!/usr/bin/env python3
-                raise SystemExit(0)
+                import os
+                import sys
+                with open(os.environ["CALL_LOG"], "a", encoding="utf-8") as handle:
+                    handle.write("materialize " + " ".join(sys.argv[1:]) + "\\n")
                 """
             ),
             encoding="utf-8",

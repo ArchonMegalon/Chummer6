@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import subprocess
 from pathlib import Path
@@ -28,8 +27,6 @@ STATUS_PATH = REPO_ROOT / "STATUS.md"
 DOWNLOAD_PATH = REPO_ROOT / "DOWNLOAD.md"
 MIGRATION_PATH = REPO_ROOT / "FROM_CHUMMER5A_TO_CHUMMER6.md"
 FORBIDDEN_GITHUB_RELEASES_LINK = re.compile(r"github\.com/.*/releases", re.IGNORECASE)
-REGISTRY_ENV = "CHUMMER_REGISTRY_RELEASE_CHANNEL"
-RELEASE_DECISION_ENV = "CHUMMER_RELEASE_DECISION_RECEIPT"
 
 
 def _load_text(path: Path) -> str:
@@ -41,52 +38,34 @@ def _require_contains(name: str, haystack: str, needle: str) -> None:
         raise ValueError(f"{name} is missing required release-status line: {needle!r}")
 
 
-def _resolve_registry_manifest(explicit_path: Path | None = None) -> Path:
-    if explicit_path is not None:
-        candidate = explicit_path.expanduser()
-        if candidate.is_file():
-            return candidate
-        raise FileNotFoundError(f"Explicit authority manifest does not exist: {candidate}")
-    override = os.environ.get(REGISTRY_ENV, "").strip()
-    if override:
-        candidate = Path(override).expanduser()
-        if candidate.is_file():
-            return candidate
-        raise FileNotFoundError(f"{REGISTRY_ENV} does not point to a file: {candidate}")
-    raise FileNotFoundError(
-        "Registry alignment is mandatory. Pass --authority-manifest or set "
-        f"{REGISTRY_ENV}; mutable sibling repositories are not authority."
-    )
-
-
 def _verify_registry_alignment(
-    registry_manifest: Path,
+    authority_snapshot: Path,
     *,
-    release_mode: bool = False,
-    registry_commit: str = "",
-    release_decision: Path | None = None,
-    expected_release_decision_status: str = "",
-    served_mirror: str = CANONICAL_RELEASE_CHANNEL_SOURCE,
+    release_mode: bool,
+    registry_commit: str,
+    release_decision: Path,
+    expected_release_decision_status: str,
+    served_mirror: str,
 ) -> None:
-    env = os.environ.copy()
-    env[REGISTRY_ENV] = str(registry_manifest)
     command = [
         "python3",
         str(SCRIPT_ROOT / "verify_public_downloads_match_registry.py"),
-        "--authority-manifest",
-        str(registry_manifest),
+        "--authority-snapshot",
+        str(authority_snapshot),
+        "--registry-commit",
+        registry_commit,
+        "--release-decision",
+        str(release_decision),
+        "--expected-release-decision-status",
+        expected_release_decision_status,
+        "--served-mirror",
+        served_mirror,
     ]
     if release_mode:
-        command.extend(["--release", "--registry-commit", registry_commit])
-    if release_decision is not None:
-        command.extend(["--release-decision", str(release_decision)])
-    if expected_release_decision_status:
-        command.extend(["--expected-release-decision-status", expected_release_decision_status])
-    command.extend(["--served-mirror", served_mirror])
+        command.append("--release")
     subprocess.run(
         command,
         check=True,
-        env=env,
         stdout=subprocess.DEVNULL,
     )
 
@@ -107,39 +86,19 @@ def _download_opening(available_platforms: list[str]) -> str:
     return "Public downloads start on `chummer.run` when a release is posted."
 
 
-def main(argv: list[str] | None = None, *, verify_registry_alignment: bool = True) -> int:
-    parser = argparse.ArgumentParser(description="Verify Chummer6 public docs against their release-truth packet and Registry authority.")
-    parser.add_argument("--release", action="store_true", help="Require immutable Registry authority and exact decision posture.")
-    parser.add_argument("--authority-manifest", type=Path, help="Explicit Registry RELEASE_CHANNEL manifest.")
-    parser.add_argument("--registry-commit", default="", help="Exact lowercase 40-hex Registry authority commit.")
-    parser.add_argument("--release-decision", type=Path, help="Explicit Registry release-decision receipt.")
-    parser.add_argument(
-        "--expected-release-decision-status",
-        choices=sorted(ALLOWED_RELEASE_DECISION_STATUSES),
-        default="",
-        help="Exact decision posture required from both manifest and receipt.",
-    )
-    parser.add_argument(
-        "--served-mirror",
-        default=CANONICAL_RELEASE_CHANNEL_SOURCE,
-        help="Public served mirror URL, kept separate from immutable authority.",
-    )
-    args = parser.parse_args(argv)
-    if args.release:
-        missing_flags = [
-            flag
-            for flag, value in (
-                ("--authority-manifest", args.authority_manifest),
-                ("--registry-commit", args.registry_commit),
-                ("--release-decision", args.release_decision),
-                ("--expected-release-decision-status", args.expected_release_decision_status),
-            )
-            if not value
-        ]
-        if missing_flags:
-            parser.error(f"--release requires explicit immutable authority flags: {', '.join(missing_flags)}")
-
+def _verify_document_content() -> None:
     packet = json.loads(PACKET_PATH.read_text(encoding="utf-8"))
+    authority = packet.get("authority")
+    if not isinstance(authority, dict):
+        raise ValueError("release truth packet is missing immutable Registry authority")
+    gold_copy = "\n".join(
+        str(packet.get(field) or "")
+        for field in ("phase_label", "quality_gap_line", "short_release_summary", "release_posture")
+    ).casefold()
+    if (
+        packet.get("release_posture") == "gold_supported" or "gold-supported" in gold_copy
+    ) and str(authority.get("releaseDecisionStatus") or "").strip() != "stable_ready":
+        raise ValueError("gold-supported public copy requires releaseDecisionStatus=stable_ready")
     readme = _load_text(README_PATH)
     status = _load_text(STATUS_PATH)
     download = _load_text(DOWNLOAD_PATH)
@@ -267,21 +226,56 @@ def main(argv: list[str] | None = None, *, verify_registry_alignment: bool = Tru
         _require_contains("FROM_CHUMMER5A_TO_CHUMMER6.md", migration, wait_line)
         _require_contains("STATUS.md", status, warning_line)
 
-    if verify_registry_alignment:
-        registry_manifest = _resolve_registry_manifest(args.authority_manifest)
-        release_decision = args.release_decision
-        if release_decision is None and not args.release:
-            decision_override = os.environ.get(RELEASE_DECISION_ENV, "").strip()
-            if decision_override:
-                release_decision = Path(decision_override).expanduser()
-        _verify_registry_alignment(
-            registry_manifest,
-            release_mode=args.release,
-            registry_commit=args.registry_commit,
-            release_decision=release_decision,
-            expected_release_decision_status=args.expected_release_decision_status,
-            served_mirror=args.served_mirror,
-        )
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Verify Chummer6 public docs against their immutable Registry release authority."
+    )
+    parser.add_argument(
+        "--release",
+        action="store_true",
+        help="Mark this strict authority verification as a release workflow invocation.",
+    )
+    parser.add_argument(
+        "--authority-snapshot",
+        type=Path,
+        required=True,
+        help="Explicit content-addressed Registry SNAPSHOT.json.",
+    )
+    parser.add_argument(
+        "--registry-commit",
+        required=True,
+        help="Exact lowercase 40-hex Registry commit bound by SNAPSHOT.json.",
+    )
+    parser.add_argument(
+        "--release-decision",
+        type=Path,
+        required=True,
+        help="Explicit sibling Registry RELEASE_DECISION.json.",
+    )
+    parser.add_argument(
+        "--expected-release-decision-status",
+        choices=sorted(ALLOWED_RELEASE_DECISION_STATUSES),
+        required=True,
+        help="Exact decision posture required from both snapshot and receipt.",
+    )
+    parser.add_argument(
+        "--served-mirror",
+        default=CANONICAL_RELEASE_CHANNEL_SOURCE,
+        help="Public served mirror URL, kept separate from immutable authority.",
+    )
+    args = parser.parse_args(argv)
+
+    _verify_document_content()
+    _verify_registry_alignment(
+        args.authority_snapshot,
+        release_mode=args.release,
+        registry_commit=args.registry_commit,
+        release_decision=args.release_decision,
+        expected_release_decision_status=args.expected_release_decision_status,
+        served_mirror=args.served_mirror,
+    )
 
     print("chummer6_docs_release_truth:ok")
     return 0

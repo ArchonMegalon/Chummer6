@@ -4,7 +4,6 @@ from __future__ import annotations
 import argparse
 import difflib
 import json
-import os
 from datetime import timezone, datetime
 from pathlib import Path
 
@@ -12,14 +11,16 @@ try:
     from public_release_authority import (
         ALLOWED_RELEASE_DECISION_STATUSES,
         CANONICAL_RELEASE_CHANNEL_SOURCE,
-        public_release_artifacts as _authority_public_release_artifacts,
+        authority_artifacts,
+        authority_platform_ids,
         resolve_release_authority,
     )
 except ModuleNotFoundError:  # Imported as scripts.materialize_public_release_truth_packet in tests.
     from scripts.public_release_authority import (
         ALLOWED_RELEASE_DECISION_STATUSES,
         CANONICAL_RELEASE_CHANNEL_SOURCE,
-        public_release_artifacts as _authority_public_release_artifacts,
+        authority_artifacts,
+        authority_platform_ids,
         resolve_release_authority,
     )
 
@@ -29,13 +30,6 @@ RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
 OUTPUT_PATH = RECEIPTS_ROOT / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
 LINUX_GATE_PATH = RECEIPTS_ROOT / "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json"
 MACOS_SOURCE_BUILD_CONTRACT_PATH = RECEIPTS_ROOT / "MACOS_SOURCE_BUILD_CONTRACT.generated.json"
-HUB_REGISTRY_ROOT_ENV = "CHUMMER_HUB_REGISTRY_ROOT"
-HUB_REGISTRY_PATHS_ENV = "CHUMMER_HUB_REGISTRY_PATHS"
-PORTAL_RELEASE_CHANNEL_PATHS_ENV = "CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS"
-REGISTRY_RELEASE_CHANNEL_ENV = "CHUMMER_REGISTRY_RELEASE_CHANNEL"
-RELEASE_DECISION_ENV = "CHUMMER_RELEASE_DECISION_RECEIPT"
-RELEASE_CHANNEL_RELATIVE_PATH = Path(".codex-studio/published/RELEASE_CHANNEL.generated.json")
-RELEASE_CHANNEL_COMPAT_RELATIVE_PATH = Path(".codex-studio/published/releases.json")
 
 
 PLATFORM_LABELS = {
@@ -55,64 +49,6 @@ ARCHITECTURE_SCOPE_EXPECTATIONS = (
 
 def _load_json(path: Path) -> dict[str, object]:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def _split_path_list(env_name: str) -> list[Path]:
-    raw = os.environ.get(env_name, "").strip()
-    if not raw:
-        return []
-    return [Path(item).expanduser() for item in raw.split(os.pathsep) if item.strip()]
-
-
-def _dedupe_paths(paths: list[Path]) -> list[Path]:
-    seen: set[str] = set()
-    result: list[Path] = []
-    for path in paths:
-        key = str(path)
-        if key in seen:
-            continue
-        seen.add(key)
-        result.append(path)
-    return result
-
-
-def _candidate_hub_registry_roots() -> list[Path]:
-    roots: list[Path] = []
-    env_root = os.environ.get(HUB_REGISTRY_ROOT_ENV, "").strip()
-    if env_root:
-        roots.append(Path(env_root).expanduser())
-    roots.extend(_split_path_list(HUB_REGISTRY_PATHS_ENV))
-    return _dedupe_paths(roots)
-
-
-def _resolve_release_channel_path(explicit_path: Path | None = None) -> Path:
-    if explicit_path is not None:
-        candidate = explicit_path.expanduser()
-        if candidate.is_file():
-            return candidate
-        raise FileNotFoundError(f"Explicit authority manifest does not exist: {candidate}")
-
-    registry_override = os.environ.get(REGISTRY_RELEASE_CHANNEL_ENV, "").strip()
-    if registry_override:
-        candidate = Path(registry_override).expanduser()
-        if candidate.is_file():
-            return candidate
-        raise FileNotFoundError(f"{REGISTRY_RELEASE_CHANNEL_ENV} does not point to a file: {candidate}")
-
-    for candidate in _split_path_list(PORTAL_RELEASE_CHANNEL_PATHS_ENV):
-        if candidate.is_file():
-            return candidate
-    for root in _candidate_hub_registry_roots():
-        canonical = root / RELEASE_CHANNEL_RELATIVE_PATH
-        if canonical.is_file():
-            return canonical
-        compat = root / RELEASE_CHANNEL_COMPAT_RELATIVE_PATH
-        if compat.is_file():
-            return compat
-    raise FileNotFoundError(
-        "No explicit release authority manifest found. Pass --authority-manifest or set "
-        f"{REGISTRY_RELEASE_CHANNEL_ENV}, {PORTAL_RELEASE_CHANNEL_PATHS_ENV}, or {HUB_REGISTRY_ROOT_ENV}."
-    )
 
 
 def _format_public_datetime(value: object) -> str:
@@ -172,10 +108,6 @@ def _promoted_installer_tuples(release_payload: dict[str, object]) -> list[dict[
     return [item for item in raw if isinstance(item, dict)]
 
 
-def _public_release_artifacts(release_payload: dict[str, object]) -> list[dict[str, object]]:
-    return _authority_public_release_artifacts(release_payload)
-
-
 def _available_platforms(artifacts: list[dict[str, object]]) -> list[str]:
     present = {_platform_key(item.get("platform") or item.get("platformLabel")) for item in artifacts}
     labels: list[str] = []
@@ -216,13 +148,19 @@ def _missing_required_public_platforms(
     return [label for label in _required_public_platforms(release_payload) if _platform_key(label) not in available]
 
 
-def _gold_supported_release(release_payload: dict[str, object], available_platforms: list[str]) -> bool:
+def _gold_supported_release(
+    release_payload: dict[str, object],
+    available_platforms: list[str],
+    authority: dict[str, object],
+) -> bool:
     coverage = _release_tuple_coverage(release_payload)
     if (
         _release_status_slug(release_payload.get("releaseStatus") or release_payload.get("status")) != "published"
-        or str(release_payload.get("channelId") or "").strip() != "public_stable"
+        or str(release_payload.get("channelId") or release_payload.get("channel") or "").strip()
+        != "public_stable"
         or str(release_payload.get("rolloutState") or "").strip() != "public_stable"
         or str(release_payload.get("supportabilityState") or "").strip() != "gold_supported"
+        or str(authority.get("releaseDecisionStatus") or "").strip() != "stable_ready"
         or coverage.get("complete") is not True
     ):
         return False
@@ -238,9 +176,7 @@ def _gold_supported_release(release_payload: dict[str, object], available_platfo
         if not isinstance(value, list) or value:
             return False
 
-    required_platforms = {_platform_key(item) for item in _required_public_platforms(release_payload)}
-    available = {_platform_key(item) for item in available_platforms}
-    return bool(required_platforms) and required_platforms.issubset(available)
+    return bool(available_platforms)
 
 
 def _public_head_label(value: object) -> str:
@@ -251,34 +187,6 @@ def _public_head_label(value: object) -> str:
         "blazor-desktop": "Chummer.Blazor.Desktop",
         "chummer.blazor.desktop": "Chummer.Blazor.Desktop",
     }.get(cleaned, str(value or "").strip())
-
-
-def _primary_head(release_payload: dict[str, object]) -> str:
-    raw = _release_tuple_coverage(release_payload).get("requiredDesktopHeads")
-    if isinstance(raw, list):
-        for item in raw:
-            label = _public_head_label(item)
-            if label:
-                return label
-    for item in _promoted_installer_tuples(release_payload):
-        label = _public_head_label(item.get("head"))
-        if label:
-            return label
-    return ""
-
-
-def _fallback_heads(release_payload: dict[str, object]) -> list[str]:
-    raw = _release_tuple_coverage(release_payload).get("desktopRouteTruth")
-    if not isinstance(raw, list):
-        return []
-    heads: list[str] = []
-    for item in raw:
-        if not isinstance(item, dict) or str(item.get("routeRole") or "").strip() != "fallback":
-            continue
-        label = _public_head_label(item.get("head"))
-        if label and label not in heads:
-            heads.append(label)
-    return heads
 
 
 def _english_join(items: list[str]) -> str:
@@ -316,24 +224,24 @@ def _macos_architecture_label(rid: str, arch: str) -> str:
     return "macOS x64"
 
 
-def _architecture_scope_line(release_payload: dict[str, object]) -> str:
-    promoted = _promoted_installer_tuples(release_payload)
-    promoted_keys = {
-        (_platform_key(item.get("platform")), str(item.get("rid") or "").strip())
-        for item in promoted
+def _architecture_scope_line(artifacts: list[dict[str, object]]) -> str:
+    artifact_keys = {
+        (_platform_key(item.get("platform")), str(item.get("arch") or "").strip().lower())
+        for item in artifacts
     }
 
     available_labels: list[str] = []
     missing_labels: list[str] = []
     for platform_key_value, rid, label in ARCHITECTURE_SCOPE_EXPECTATIONS:
-        if (platform_key_value, rid) in promoted_keys:
+        expected_arch = "arm64" if "arm64" in rid else "x64"
+        if (platform_key_value, expected_arch) in artifact_keys:
             available_labels.append(label)
         else:
             missing_labels.append(label)
 
     macos_labels = [
-        _macos_architecture_label(str(item.get("rid") or ""), str(item.get("arch") or ""))
-        for item in promoted
+        _macos_architecture_label("", str(item.get("arch") or ""))
+        for item in artifacts
         if _platform_key(item.get("platform")) == "macos"
     ]
     for label in macos_labels:
@@ -405,13 +313,15 @@ def build_packet(
     release_payload: dict[str, object],
     linux_gate: dict[str, object],
     macos_source_build_contract: dict[str, object],
-    release_source: str,
-    authority: dict[str, object] | None = None,
+    authority: dict[str, object],
+    authority_source: dict[str, object],
+    served_mirror: str,
 ) -> dict[str, object]:
-    artifacts = _public_release_artifacts(release_payload)
-    available_platforms = _available_platforms(artifacts)
-    required_platforms = _required_public_platforms(release_payload)
-    missing_platforms = _missing_required_public_platforms(release_payload, available_platforms)
+    artifacts = authority_artifacts(authority)
+    platform_ids = authority_platform_ids(authority)
+    available_platforms = [PLATFORM_LABELS.get(platform, platform) for platform in platform_ids]
+    required_platforms = list(available_platforms)
+    missing_platforms = _missing_public_platforms(available_platforms)
     status_slug = _release_status_slug(
         release_payload.get("releaseStatus") or release_payload.get("status") or "unpublished"
     )
@@ -419,28 +329,42 @@ def build_packet(
     published_at = _format_public_datetime(release_payload.get("publishedAt") or release_payload.get("generatedAt") or "")
     shelf_truth_line = _shelf_truth_line(status_slug, available_platforms)
     published_line = f"Published: {published_at}." if published_at and status_slug == "published" else ""
-    gold_supported = _gold_supported_release(release_payload, available_platforms)
-    primary_head = _primary_head(release_payload) or "Chummer.Avalonia"
-    fallback_heads = _fallback_heads(release_payload)
+    gold_supported = _gold_supported_release(release_payload, available_platforms, authority)
+    raw_primary_heads = authority.get("primaryHeadByPlatform")
+    raw_primary_heads = raw_primary_heads if isinstance(raw_primary_heads, dict) else {}
+    unique_primary_heads = sorted({_public_head_label(item) for item in raw_primary_heads.values() if item})
+    primary_head = unique_primary_heads[0] if len(unique_primary_heads) == 1 else _english_join(unique_primary_heads)
+    fallback_heads = sorted(
+        {
+            _public_head_label(item.get("head"))
+            for item in artifacts
+            if str(item.get("head") or "").strip()
+            and str(item.get("head") or "").strip()
+            != str(raw_primary_heads.get(str(item.get("platform") or "")) or "").strip()
+        }
+    )
     platform_scope = _english_join(required_platforms) or "the currently supported desktop platforms"
 
     return {
-        "architecture_scope_line": _architecture_scope_line(release_payload),
-        "authority": dict(authority or {}),
+        "architecture_scope_line": _architecture_scope_line(artifacts),
+        "authority": dict(authority),
+        "authority_source": dict(authority_source),
         "available_platforms": available_platforms,
         "build_label": "",
         "channel_id": str(release_payload.get("channelId") or release_payload.get("channel") or "").strip(),
         "desktop_pick_line": (
-            "Use the Avalonia installer listed for your platform; unpromoted fallback heads remain support-only."
+            f"Use the {primary_head} installer listed for your platform; unpromoted fallback heads remain support-only."
             if gold_supported and fallback_heads
-            else "Use the Avalonia installer listed for your platform."
+            else f"Use the {primary_head} installer listed for your platform."
             if gold_supported
-            else "For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there."
+            else f"For today, start with {primary_head}. Use another desktop head only when the release shelf lists it explicitly."
+            if primary_head
+            else "No desktop head is approved for the current public shelf."
         ),
         "desktop_tuple_coverage_complete": _release_tuple_coverage(release_payload).get("complete") is True,
         "fallback_heads": fallback_heads,
         "fix_availability_summary": _fix_availability_summary(release_payload),
-        "generated_from": release_source,
+        "generated_from": served_mirror,
         "known_issue_summary": _public_known_issue_summary(release_payload),
         "linux_source_build_gate": _linux_gate_projection(linux_gate),
         "macos_source_build_contract": _macos_contract_projection(macos_source_build_contract),
@@ -463,6 +387,7 @@ def build_packet(
         "required_platforms": required_platforms,
         "rollout_state": str(release_payload.get("rolloutState") or "").strip(),
         "shelf_truth_line": shelf_truth_line,
+        "served_mirror": served_mirror,
         "short_release_summary": (
             f"Use the files linked on [Download](DOWNLOAD.md). The current {platform_scope} shelf is the supported release; platforms not listed there remain outside this release scope."
             if gold_supported
@@ -478,22 +403,22 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--release",
         action="store_true",
-        help="Require an explicit immutable Registry manifest and exact release-decision posture.",
+        help="Mark this strict authority materialization as a release workflow invocation.",
     )
     parser.add_argument(
-        "--authority-manifest",
+        "--authority-snapshot",
         type=Path,
-        help="Explicit Registry RELEASE_CHANNEL manifest. Required in --release mode.",
+        help="Explicit content-addressed Registry SNAPSHOT.json.",
     )
     parser.add_argument(
         "--registry-commit",
         default="",
-        help="Exact lowercase 40-hex Registry commit containing the authority manifest and decision receipt.",
+        help="Exact lowercase 40-hex Registry commit bound by SNAPSHOT.json.",
     )
     parser.add_argument(
         "--release-decision",
         type=Path,
-        help="Explicit Registry release-decision receipt. Required in --release mode.",
+        help="Explicit sibling Registry RELEASE_DECISION.json.",
     )
     parser.add_argument(
         "--expected-release-decision-status",
@@ -508,33 +433,28 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    if args.release:
-        missing_flags = [
-            flag
-            for flag, value in (
-                ("--authority-manifest", args.authority_manifest),
-                ("--registry-commit", args.registry_commit),
-                ("--release-decision", args.release_decision),
-                ("--expected-release-decision-status", args.expected_release_decision_status),
-            )
-            if not value
-        ]
-        if missing_flags:
-            parser.error(f"--release requires explicit immutable authority flags: {', '.join(missing_flags)}")
+    missing_flags = [
+        flag
+        for flag, value in (
+            ("--authority-snapshot", args.authority_snapshot),
+            ("--registry-commit", args.registry_commit),
+            ("--release-decision", args.release_decision),
+            ("--expected-release-decision-status", args.expected_release_decision_status),
+        )
+        if not value
+    ]
+    if missing_flags:
+        parser.error(
+            "canonical release truth output requires explicit immutable authority flags: "
+            f"{', '.join(missing_flags)}"
+        )
 
-    manifest_path = _resolve_release_channel_path(args.authority_manifest)
-    release_decision_path = args.release_decision
-    if release_decision_path is None and not args.release:
-        decision_override = os.environ.get(RELEASE_DECISION_ENV, "").strip()
-        if decision_override:
-            release_decision_path = Path(decision_override).expanduser()
     resolved = resolve_release_authority(
-        manifest_path,
+        args.authority_snapshot,
         served_mirror=args.served_mirror,
         registry_commit=args.registry_commit,
-        release_decision_path=release_decision_path,
+        release_decision_path=args.release_decision,
         expected_release_decision_status=args.expected_release_decision_status,
-        release_mode=args.release,
     )
     release_payload = resolved.release_payload
     linux_gate = _load_json(LINUX_GATE_PATH)
@@ -543,8 +463,9 @@ def main(argv: list[str] | None = None) -> int:
         release_payload,
         linux_gate,
         macos_source_build_contract,
-        args.served_mirror,
-        authority=resolved.authority,
+        resolved.authority,
+        resolved.authority_source,
+        resolved.served_mirror,
     )
     rendered = json.dumps(packet, indent=2, sort_keys=True) + "\n"
     if args.check:

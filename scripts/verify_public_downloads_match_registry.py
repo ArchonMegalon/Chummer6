@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 from pathlib import Path
 
@@ -11,7 +10,8 @@ try:
     from public_release_authority import (
         ALLOWED_RELEASE_DECISION_STATUSES,
         CANONICAL_RELEASE_CHANNEL_SOURCE,
-        public_release_artifacts as _authority_public_release_artifacts,
+        authority_artifacts,
+        authority_platform_ids,
         require_authority_match,
         resolve_release_authority,
     )
@@ -19,7 +19,8 @@ except ModuleNotFoundError:  # Imported as scripts.verify_public_downloads_match
     from scripts.public_release_authority import (
         ALLOWED_RELEASE_DECISION_STATUSES,
         CANONICAL_RELEASE_CHANNEL_SOURCE,
-        public_release_artifacts as _authority_public_release_artifacts,
+        authority_artifacts,
+        authority_platform_ids,
         require_authority_match,
         resolve_release_authority,
     )
@@ -29,8 +30,6 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DOWNLOAD_PATH = REPO_ROOT / "DOWNLOAD.md"
 STATUS_PATH = REPO_ROOT / "STATUS.md"
 PACKET_PATH = REPO_ROOT / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
-REGISTRY_ENV = "CHUMMER_REGISTRY_RELEASE_CHANNEL"
-RELEASE_DECISION_ENV = "CHUMMER_RELEASE_DECISION_RECEIPT"
 
 PLATFORM_LABELS = {
     "windows": "Windows",
@@ -79,26 +78,6 @@ def _english_join(items: list[str]) -> str:
     return f"{', '.join(items[:-1])}, and {items[-1]}"
 
 
-def _resolve_registry_manifest(explicit_path: Path | None = None) -> Path:
-    if explicit_path is not None:
-        candidate = explicit_path.expanduser()
-        if candidate.is_file():
-            return candidate
-        raise FileNotFoundError(f"Explicit authority manifest does not exist: {candidate}")
-
-    override = os.environ.get(REGISTRY_ENV, "").strip()
-    if override:
-        candidate = Path(override).expanduser()
-        if candidate.is_file():
-            return candidate
-        raise FileNotFoundError(f"{REGISTRY_ENV} does not point to a file: {candidate}")
-
-    raise FileNotFoundError(
-        "Registry alignment requires an explicit authority manifest. "
-        f"Pass --authority-manifest or set {REGISTRY_ENV}."
-    )
-
-
 def _release_artifacts(release_payload: dict[str, object]) -> list[dict[str, object]]:
     raw = release_payload.get("artifacts")
     if not isinstance(raw, list):
@@ -123,10 +102,6 @@ def _release_tuple_coverage(release_payload: dict[str, object]) -> dict[str, obj
     return coverage if isinstance(coverage, dict) else {}
 
 
-def _public_registry_artifacts(release_payload: dict[str, object]) -> list[dict[str, object]]:
-    return _authority_public_release_artifacts(release_payload)
-
-
 def _available_platforms(artifacts: list[dict[str, object]]) -> list[str]:
     present = {_platform_key(item.get("platform") or item.get("platformLabel")) for item in artifacts}
     labels: list[str] = []
@@ -144,14 +119,9 @@ def _required_platforms(release_payload: dict[str, object]) -> list[str]:
     return [PLATFORM_LABELS[key] for key in PLATFORM_ORDER if key in required]
 
 
-def _missing_platforms(release_payload: dict[str, object], available_platforms: list[str]) -> list[str]:
-    coverage = _release_tuple_coverage(release_payload)
-    explicit = coverage.get("missingRequiredPlatforms")
-    if isinstance(explicit, list):
-        missing = {_platform_key(item) for item in explicit}
-        return [PLATFORM_LABELS[key] for key in PLATFORM_ORDER if key in missing]
+def _missing_platforms(available_platforms: list[str]) -> list[str]:
     present = {_platform_key(item) for item in available_platforms}
-    return [label for label in _required_platforms(release_payload) if _platform_key(label) not in present]
+    return [PLATFORM_LABELS[key] for key in PLATFORM_ORDER if key not in present]
 
 
 def _shelf_truth_line(status: object, available_platforms: list[str]) -> str:
@@ -180,24 +150,24 @@ def _macos_architecture_label(rid: str, arch: str) -> str:
     return "macOS x64"
 
 
-def _architecture_scope_line(release_payload: dict[str, object]) -> str:
-    promoted = _promoted_installer_tuples(release_payload)
-    promoted_keys = {
-        (_platform_key(item.get("platform")), str(item.get("rid") or "").strip())
-        for item in promoted
+def _architecture_scope_line(artifacts: list[dict[str, object]]) -> str:
+    artifact_keys = {
+        (_platform_key(item.get("platform")), str(item.get("arch") or "").strip().lower())
+        for item in artifacts
     }
 
     available_labels: list[str] = []
     missing_labels: list[str] = []
     for platform_key_value, rid, label in ARCHITECTURE_SCOPE_EXPECTATIONS:
-        if (platform_key_value, rid) in promoted_keys:
+        expected_arch = "arm64" if "arm64" in rid else "x64"
+        if (platform_key_value, expected_arch) in artifact_keys:
             available_labels.append(label)
         else:
             missing_labels.append(label)
 
     macos_labels = [
-        _macos_architecture_label(str(item.get("rid") or ""), str(item.get("arch") or ""))
-        for item in promoted
+        _macos_architecture_label("", str(item.get("arch") or ""))
+        for item in artifacts
         if _platform_key(item.get("platform")) == "macos"
     ]
     for label in macos_labels:
@@ -331,38 +301,52 @@ def _promoted_artifact_ids(release_payload: dict[str, object]) -> set[str]:
     }
 
 
-def _verify_download_artifacts(download_text: str, release_payload: dict[str, object]) -> None:
+def _verify_download_artifacts(
+    download_text: str,
+    release_payload: dict[str, object],
+    expected_authority_artifacts: list[dict[str, object]],
+) -> None:
     docs_artifacts = _parse_download_artifacts(download_text)
     registry_by_filename = _registry_artifacts_by_filename(release_payload)
-    promoted_artifact_ids = _promoted_artifact_ids(release_payload)
     sha_lines = _parse_sha256_lines(download_text)
+    documented_artifact_ids: set[str] = set()
+    authority_by_id = {
+        str(item.get("artifactId") or "").strip(): item
+        for item in expected_authority_artifacts
+        if str(item.get("artifactId") or "").strip()
+    }
+    if len(docs_artifacts) != len(authority_by_id):
+        raise ValueError("DOWNLOAD.md artifact row count does not exactly match immutable Registry public shelf")
 
     for artifact in docs_artifacts:
         file_name = str(artifact.get("fileName") or "").strip()
         if file_name not in registry_by_filename:
             raise ValueError(f"DOWNLOAD.md artifact {file_name!r} does not exist in the canonical registry manifest")
         registry_artifact = registry_by_filename[file_name]
+        artifact_id = str(registry_artifact.get("artifactId") or registry_artifact.get("id") or "").strip()
+        authority_artifact = authority_by_id.get(artifact_id)
+        if authority_artifact is None:
+            raise ValueError(f"DOWNLOAD.md artifact {file_name!r} is outside the immutable Registry public shelf")
+        documented_artifact_ids.add(artifact_id)
         registry_label = str(registry_artifact.get("platformLabel") or "").strip()
-        expected_label = (
-            f"{registry_label} archive package"
-            if str(registry_artifact.get("kind") or "").strip() == "archive"
-            else registry_label
-        )
+        expected_label = registry_label
         docs_label = str(artifact.get("label") or "").strip()
         if expected_label != docs_label:
             raise ValueError(f"DOWNLOAD.md label for {file_name} does not match registry platformLabel")
-        if str(registry_artifact.get("downloadUrl") or "").strip() != str(artifact.get("downloadUrl") or "").strip():
-            raise ValueError(f"DOWNLOAD.md URL for {file_name} does not match registry downloadUrl")
-        if int(registry_artifact.get("sizeBytes") or 0) != int(artifact.get("sizeBytes") or 0):
+        if str(authority_artifact.get("publicInstallRoute") or "").strip() != str(
+            artifact.get("downloadUrl") or ""
+        ).strip():
+            raise ValueError(f"DOWNLOAD.md URL for {file_name} does not match Registry publicInstallRoute")
+        if int(authority_artifact.get("sizeBytes") or 0) != int(artifact.get("sizeBytes") or 0):
             raise ValueError(f"DOWNLOAD.md size for {file_name} does not match registry sizeBytes")
         documented_sha256 = sha_lines.get(docs_label) or sha_lines.get(registry_label)
         if not documented_sha256:
             raise ValueError(f"DOWNLOAD.md is missing a SHA256 row for {docs_label!r}")
-        if str(registry_artifact.get("sha256") or "").strip().lower() != documented_sha256.lower():
+        if str(authority_artifact.get("sha256") or "").strip().lower() != documented_sha256.lower():
             raise ValueError(f"DOWNLOAD.md SHA256 for {file_name} does not match registry sha256")
-        if str(registry_artifact.get("compatibilityState") or "").strip() != "compatible":
+        if str(authority_artifact.get("compatibilityState") or "").strip() != "compatible":
             raise ValueError(f"Registry artifact {file_name} is not compatibilityState=compatible")
-        access_class = str(registry_artifact.get("installAccessClass") or "").strip()
+        access_class = str(authority_artifact.get("installAccessClass") or "").strip()
         expected_access = {
             "open_public": "Public download",
             "account_recommended": "Public download",
@@ -372,33 +356,37 @@ def _verify_download_artifacts(download_text: str, release_payload: dict[str, ob
             raise ValueError(f"Registry artifact {file_name} has unsupported installAccessClass={access_class!r}")
         if str(artifact.get("access") or "").strip() != expected_access:
             raise ValueError(f"DOWNLOAD.md access for {file_name} does not match registry installAccessClass")
-        artifact_id = str(registry_artifact.get("artifactId") or registry_artifact.get("id") or "").strip()
-        if (
-            str(registry_artifact.get("kind") or "").strip() == "installer"
-            and promoted_artifact_ids
-            and artifact_id not in promoted_artifact_ids
-        ):
-            raise ValueError(f"Registry artifact {file_name} is not in desktopTupleCoverage.promotedInstallerTuples")
+    expected_artifact_ids = set(authority_by_id)
+    if documented_artifact_ids != expected_artifact_ids:
+        raise ValueError("DOWNLOAD.md artifact set does not exactly match immutable Registry public shelf authority")
 
 
 def _verify_packet(
     packet: dict[str, object],
     release_payload: dict[str, object],
     expected_authority: dict[str, object],
+    expected_authority_source: dict[str, object],
+    expected_served_mirror: str,
 ) -> None:
-    artifacts = _public_registry_artifacts(release_payload)
-    available_platforms = _available_platforms(artifacts)
-    required_platforms = _required_platforms(release_payload)
-    missing_platforms = _missing_platforms(release_payload, available_platforms)
-    expected_source = str(expected_authority.get("servedMirror") or "").strip()
+    artifacts = authority_artifacts(expected_authority)
+    platform_ids = authority_platform_ids(expected_authority)
+    available_platforms = [PLATFORM_LABELS.get(platform, platform) for platform in platform_ids]
+    required_platforms = list(available_platforms)
+    missing_platforms = _missing_platforms(available_platforms)
+    expected_source = expected_served_mirror
     expected_shelf_truth = _shelf_truth_line(
         release_payload.get("releaseStatus") or release_payload.get("status"),
         available_platforms,
     )
-    expected_architecture_line = _architecture_scope_line(release_payload)
+    expected_architecture_line = _architecture_scope_line(artifacts)
     expected_missing_line = _missing_installer_lane_line(missing_platforms)
 
-    require_authority_match(packet, expected_authority)
+    require_authority_match(
+        packet,
+        expected_authority,
+        expected_authority_source,
+        expected_served_mirror,
+    )
     if str(packet.get("generated_from") or "").strip() != expected_source:
         raise ValueError("release truth packet generated_from does not point at the served release mirror")
     if list(packet.get("available_platforms") or []) != available_platforms:
@@ -416,15 +404,35 @@ def _verify_packet(
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Verify public downloads against an explicit Registry authority manifest.")
-    parser.add_argument("--release", action="store_true", help="Require immutable Git authority and exact decision posture.")
-    parser.add_argument("--authority-manifest", type=Path, help="Explicit Registry RELEASE_CHANNEL manifest.")
-    parser.add_argument("--registry-commit", default="", help="Exact lowercase 40-hex Registry authority commit.")
-    parser.add_argument("--release-decision", type=Path, help="Explicit Registry release-decision receipt.")
+    parser = argparse.ArgumentParser(
+        description="Verify public downloads against an immutable Registry release-authority snapshot."
+    )
+    parser.add_argument(
+        "--release",
+        action="store_true",
+        help="Mark this strict authority verification as a release workflow invocation.",
+    )
+    parser.add_argument(
+        "--authority-snapshot",
+        type=Path,
+        required=True,
+        help="Explicit content-addressed Registry SNAPSHOT.json.",
+    )
+    parser.add_argument(
+        "--registry-commit",
+        required=True,
+        help="Exact lowercase 40-hex Registry commit bound by SNAPSHOT.json.",
+    )
+    parser.add_argument(
+        "--release-decision",
+        type=Path,
+        required=True,
+        help="Explicit sibling Registry RELEASE_DECISION.json.",
+    )
     parser.add_argument(
         "--expected-release-decision-status",
         choices=sorted(ALLOWED_RELEASE_DECISION_STATUSES),
-        default="",
+        required=True,
         help="Exact decision posture required from both manifest and receipt.",
     )
     parser.add_argument(
@@ -434,50 +442,38 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    if args.release:
-        missing_flags = [
-            flag
-            for flag, value in (
-                ("--authority-manifest", args.authority_manifest),
-                ("--registry-commit", args.registry_commit),
-                ("--release-decision", args.release_decision),
-                ("--expected-release-decision-status", args.expected_release_decision_status),
-            )
-            if not value
-        ]
-        if missing_flags:
-            parser.error(f"--release requires explicit immutable authority flags: {', '.join(missing_flags)}")
-
-    registry_path = _resolve_registry_manifest(args.authority_manifest)
-    release_decision_path = args.release_decision
-    if release_decision_path is None and not args.release:
-        decision_override = os.environ.get(RELEASE_DECISION_ENV, "").strip()
-        if decision_override:
-            release_decision_path = Path(decision_override).expanduser()
     resolved = resolve_release_authority(
-        registry_path,
+        args.authority_snapshot,
         served_mirror=args.served_mirror,
         registry_commit=args.registry_commit,
-        release_decision_path=release_decision_path,
+        release_decision_path=args.release_decision,
         expected_release_decision_status=args.expected_release_decision_status,
-        release_mode=args.release,
     )
     release_payload = resolved.release_payload
     packet = _load_json(PACKET_PATH)
     download_text = _load_text(DOWNLOAD_PATH)
     status_text = _load_text(STATUS_PATH)
 
-    _verify_packet(packet, release_payload, resolved.authority)
-    _verify_download_artifacts(download_text, release_payload)
+    _verify_packet(
+        packet,
+        release_payload,
+        resolved.authority,
+        resolved.authority_source,
+        resolved.served_mirror,
+    )
+    artifacts = authority_artifacts(resolved.authority)
+    _verify_download_artifacts(download_text, release_payload, artifacts)
 
-    artifacts = _public_registry_artifacts(release_payload)
-    available_platforms = _available_platforms(artifacts)
-    missing_platforms = _missing_platforms(release_payload, available_platforms)
+    available_platforms = [
+        PLATFORM_LABELS.get(platform, platform)
+        for platform in authority_platform_ids(resolved.authority)
+    ]
+    missing_platforms = _missing_platforms(available_platforms)
     expected_shelf_truth = _shelf_truth_line(
         release_payload.get("releaseStatus") or release_payload.get("status"),
         available_platforms,
     )
-    expected_architecture_line = _architecture_scope_line(release_payload)
+    expected_architecture_line = _architecture_scope_line(artifacts)
     expected_missing_line = _missing_installer_lane_line(missing_platforms)
 
     _require_contains("DOWNLOAD.md", download_text, expected_shelf_truth)
