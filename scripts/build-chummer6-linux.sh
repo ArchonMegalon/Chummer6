@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-SCRIPT_VERSION="3.0.0"
+SCRIPT_VERSION="3.1.0"
 SCRIPT_SOURCE_DIR="${BASH_SOURCE[0]%/*}"
 [[ "$SCRIPT_SOURCE_DIR" != "${BASH_SOURCE[0]}" ]] || SCRIPT_SOURCE_DIR="."
 SCRIPT_ROOT="$(cd -- "$SCRIPT_SOURCE_DIR" && pwd -P)"
@@ -48,7 +48,7 @@ must be converted into a new reviewed lock before a full build can run.
 
 Python is selected deterministically from CHUMMER_PYTHON (when set), then
 python3.13, python3.12, python3.11, and python3. The selected runtime must report
-Python >=3.11. A discovered compatible path is logged; no host path is hard-coded.
+Python >=3.11,<4. A discovered compatible path is logged; no host path is hard-coded.
 EOF
 }
 
@@ -106,13 +106,13 @@ select_python() {
     [[ -n "$resolved" && -x "$resolved" ]] || continue
     version="$($resolved -c 'import sys; print(".".join(map(str, sys.version_info[:3])))' 2>/dev/null || true)"
     [[ "$version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]] || continue
-    if ((10#${BASH_REMATCH[1]} > 3 || (10#${BASH_REMATCH[1]} == 3 && 10#${BASH_REMATCH[2]} >= 11))); then
+    if ((10#${BASH_REMATCH[1]} == 3 && 10#${BASH_REMATCH[2]} >= 11)); then
       PYTHON_RUNTIME="$resolved"
       PYTHON_VERSION="$version"
       return 0
     fi
   done
-  echo "Python >=3.11 is required; no declared candidate passed explicit version validation." >&2
+  echo "Python >=3.11,<4 is required; no declared candidate passed explicit version validation." >&2
   return 1
 }
 
@@ -140,6 +140,37 @@ download_https() {
   curl --disable --fail --location --retry 5 --retry-delay 2 \
     --proto '=https' --tlsv1.2 --output "$output" "$url"
 }
+emit_sanitized_phase_failure() {
+  local phase="$1" status="$2" diagnostic="$3"
+  local diagnostic_bytes bounded_diagnostic
+  local diagnostic_limit_bytes=131072
+  if ! diagnostic_bytes="$(wc -c <"$diagnostic")"; then
+    printf 'PHASE_FAILURE phase=%s exit=%s diagnostic_status=unreadable\n' \
+      "$phase" "$status" >&2
+    return 1
+  fi
+  printf 'PHASE_FAILURE phase=%s exit=%s diagnostic_bytes=%s diagnostic_limit_bytes=%s\n' \
+    "$phase" "$status" "$diagnostic_bytes" "$diagnostic_limit_bytes" >&2
+  if ((diagnostic_bytes == 0)); then
+    printf 'ERROR: phase %s emitted no diagnostic output.\n' "$phase" >&2
+    return 0
+  fi
+  bounded_diagnostic="$diagnostic"
+  if ((diagnostic_bytes > diagnostic_limit_bytes)); then
+    bounded_diagnostic="$RUN_ROOT/${phase}.diagnostic.bounded"
+    if ! tail -c "$diagnostic_limit_bytes" "$diagnostic" >"$bounded_diagnostic"; then
+      printf 'ERROR: could not bound diagnostic output for phase %s.\n' "$phase" >&2
+      return 1
+    fi
+    printf 'PHASE_DIAGNOSTIC phase=%s truncated=true retained=tail\n' "$phase" >&2
+  fi
+  if ! "$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" sanitize-diagnostics \
+    --input "$bounded_diagnostic" --redact-path "$RUN_ROOT" \
+    --redact-path "$BASE_PATH" --redact-path "$REPOSITORY_ROOT" >&2; then
+    printf 'ERROR: could not sanitize diagnostic output for phase %s.\n' "$phase" >&2
+    return 1
+  fi
+}
 
 cleanup() {
   local code=$?
@@ -166,6 +197,8 @@ trap 'on_error "$LINENO"' ERR
 trap 'on_signal HUP' HUP
 trap 'on_signal INT' INT
 trap 'on_signal TERM' TERM
+
+log "Python runtime: $PYTHON_VERSION (requirement >=3.11,<4)"
 
 LOCK_OUTPUT_FILE="$(mktemp "$BASE_PATH/.source-lock-inspect.XXXXXX")"
 chmod 600 "$LOCK_OUTPUT_FILE"
@@ -196,7 +229,7 @@ RELEASE_MANIFEST_SHA256=""; RELEASE_MANIFEST_STATUS=""; RELEASE_EVIDENCE_ELIGIBL
 UI_LOCK_PATH=""; UI_LOCK_SHA256=""; UI_VERIFIER_PATH=""; UI_VERIFIER_SHA256=""
 UI_COMMIT=""; UI_RECEIPT_PATH=""; UI_RECEIPT_SHA256=""
 COMPOSER_PATH=""; COMPOSER_SHA256=""; FEED_INVENTORY_PATH=""; NORMALIZATION_PROOF_PATH=""
-RUNTIME_AUTHORITY_PATH=""
+RUNTIME_AUTHORITY_PATH=""; SOURCE_LOCK_VERIFIER_PATH=""; SOURCE_LOCK_VERIFIER_SHA256=""
 while IFS=$'\t' read -r record first second third fourth fifth sixth; do
   case "$record" in
     LOCK_SHA256) SOURCE_LOCK_SHA256="$first" ;;
@@ -215,6 +248,8 @@ while IFS=$'\t' read -r record first second third fourth fifth sixth; do
     PACKAGE_COMPOSER) COMPOSER_PATH="$first"; COMPOSER_SHA256="$second" ;;
     PACKAGE_AUTHORITIES)
       FEED_INVENTORY_PATH="$first"; NORMALIZATION_PROOF_PATH="$second"; RUNTIME_AUTHORITY_PATH="$third" ;;
+    SOURCE_LOCK_VERIFIER)
+      SOURCE_LOCK_VERIFIER_PATH="$first"; SOURCE_LOCK_VERIFIER_SHA256="$second" ;;
     NUGET_PROJECT_LOCK)
       NUGET_PROJECT_LOCK_RIDS+=("$first"); NUGET_PROJECT_LOCK_PROJECTS+=("$second")
       NUGET_PROJECT_LOCK_PATHS+=("$third"); NUGET_PROJECT_LOCK_SHA256S+=("$fourth") ;;
@@ -230,6 +265,12 @@ done <<<"$LOCK_OUTPUT"
 [[ ${#SDK_ARCHIVE_RIDS[@]} -eq 2 ]] || die "Source lock did not resolve both SDK archives."
 [[ ${#NUGET_RIDS[@]} -eq 2 ]] || die "Source lock did not resolve both RID package planes."
 [[ ${#NUGET_PROJECT_LOCK_RIDS[@]} -eq 6 ]] || die "Source lock did not resolve the exact six project lock files."
+[[ "$SOURCE_LOCK_VERIFIER_PATH" == "scripts/verify_linux_source_lock.py" ]] || \
+  die "Source lock did not resolve the canonical verifier path."
+[[ "$SOURCE_LOCK_VERIFIER_SHA256" =~ ^[0-9a-f]{64}$ ]] || \
+  die "Source lock did not resolve the canonical verifier digest."
+[[ "$(sha256sum "$REPOSITORY_ROOT/$SOURCE_LOCK_VERIFIER_PATH" | awk '{print $1}')" == "$SOURCE_LOCK_VERIFIER_SHA256" ]] || \
+  die "Resolved source-lock verifier bytes differ from their exact authority."
 [[ "$RELEASE_EVIDENCE_ELIGIBLE" == "false" ]] || die "Review-only source lock unexpectedly claimed release evidence eligibility."
 for commit in "${REPO_COMMITS[@]}"; do
   [[ "$commit" =~ ^[0-9a-f]{40}$ ]] || die "Repository authority contains a mutable or malformed revision."
@@ -288,6 +329,29 @@ if [[ "${CHUMMER_SOURCE_BUILD_TEST_MODE:-0}" == "1" ]]; then
   case "${CHUMMER_SOURCE_BUILD_CLEANUP_TEST_ACTION:-}" in
     normal) exit 0 ;;
     error) false ;;
+    materializer-error|materializer-empty-error)
+      MATERIALIZER_DIAGNOSTIC="$RUN_ROOT/materializer.diagnostic"
+      MATERIALIZER_STATUS=0
+      if [[ "${CHUMMER_SOURCE_BUILD_CLEANUP_TEST_ACTION}" == "materializer-error" ]]; then
+        if "$PYTHON_RUNTIME" -c \
+          'import sys; print("x" * 140000, file=sys.stderr); print(f"synthetic materializer failure at {sys.argv[1]} from {sys.argv[2]} Authorization:" + " Bearer phase-secret-sentinel", file=sys.stderr); raise SystemExit(23)' \
+          "$RUN_ROOT" "$REPOSITORY_ROOT" >"$MATERIALIZER_DIAGNOSTIC" 2>&1; then
+          MATERIALIZER_STATUS=0
+        else
+          MATERIALIZER_STATUS=$?
+        fi
+      elif "$PYTHON_RUNTIME" -c 'raise SystemExit(24)' \
+        >"$MATERIALIZER_DIAGNOSTIC" 2>&1; then
+        MATERIALIZER_STATUS=0
+      else
+        MATERIALIZER_STATUS=$?
+      fi
+      if ! emit_sanitized_phase_failure \
+        "same-run-package-plane-materialization" "$MATERIALIZER_STATUS" "$MATERIALIZER_DIAGNOSTIC"; then
+        die "could not emit sanitized package-plane failure diagnostics"
+      fi
+      die "same-run package-plane materialization failed (exit $MATERIALIZER_STATUS)"
+      ;;
     curl-config)
       download_https "$RUN_ROOT/curl-test-output" "https://example.invalid/sdk.tar.gz"
       exit 0 ;;
@@ -367,26 +431,33 @@ unset CHUMMER_PUBLISHED_FEED_SOURCES CHUMMER_LOCAL_CONTRACTS_PROJECT \
   RestoreFallbackFolders NUGET_CONFIG_FILE
 
 MATERIALIZER_DIAGNOSTIC="$RUN_ROOT/materializer.diagnostic"
-set +e
-"$PYTHON_RUNTIME" "$REPOSITORY_ROOT/$COMPOSER_PATH" \
-  --ui-root "$CHECKOUT_ROOT/chummer6-ui" --owners-root "$CHECKOUT_ROOT" \
-  --sdk-root "$SDK_ROOT" --sdk-authority "$REPOSITORY_ROOT/$SDK_AUTHORITY_PATH" \
-  --runtime-authority "$REPOSITORY_ROOT/$RUNTIME_AUTHORITY_PATH" \
-  --upstream-verification-receipt "$REPOSITORY_ROOT/$UI_RECEIPT_PATH" \
-  --output-root "$PACKAGE_PLANE_ROOT" --host-rid "$HOST_RID" --ui-commit "$UI_COMMIT" \
-  --ui-lock-path "$UI_LOCK_PATH" --ui-lock-sha256 "$UI_LOCK_SHA256" \
-  --ui-verifier-path "$UI_VERIFIER_PATH" --ui-verifier-sha256 "$UI_VERIFIER_SHA256" \
-  --expected-feed-inventory "$REPOSITORY_ROOT/$FEED_INVENTORY_PATH" \
-  --expected-normalization-proof "$REPOSITORY_ROOT/$NORMALIZATION_PROOF_PATH" \
-  --expected-x64-inventory "$REPOSITORY_ROOT/release-locks/linux-x64-restore-feed.inventory.json" \
-  --expected-arm64-inventory "$REPOSITORY_ROOT/release-locks/linux-arm64-restore-feed.inventory.json" \
-  >"$MATERIALIZER_DIAGNOSTIC" 2>&1
-MATERIALIZER_STATUS=$?
-set -e
+if "$PYTHON_RUNTIME" "$REPOSITORY_ROOT/$COMPOSER_PATH" \
+    --ui-root "$CHECKOUT_ROOT/chummer6-ui" --owners-root "$CHECKOUT_ROOT" \
+    --sdk-root "$SDK_ROOT" --sdk-authority "$REPOSITORY_ROOT/$SDK_AUTHORITY_PATH" \
+    --runtime-authority "$REPOSITORY_ROOT/$RUNTIME_AUTHORITY_PATH" \
+    --upstream-verification-receipt "$REPOSITORY_ROOT/$UI_RECEIPT_PATH" \
+    --output-root "$PACKAGE_PLANE_ROOT" --host-rid "$HOST_RID" --ui-commit "$UI_COMMIT" \
+    --ui-lock-path "$UI_LOCK_PATH" --ui-lock-sha256 "$UI_LOCK_SHA256" \
+    --ui-verifier-path "$UI_VERIFIER_PATH" --ui-verifier-sha256 "$UI_VERIFIER_SHA256" \
+    --expected-feed-inventory "$REPOSITORY_ROOT/$FEED_INVENTORY_PATH" \
+    --expected-normalization-proof "$REPOSITORY_ROOT/$NORMALIZATION_PROOF_PATH" \
+    --expected-x64-inventory "$REPOSITORY_ROOT/release-locks/linux-x64-restore-feed.inventory.json" \
+    --expected-arm64-inventory "$REPOSITORY_ROOT/release-locks/linux-arm64-restore-feed.inventory.json" \
+    >"$MATERIALIZER_DIAGNOSTIC" 2>&1; then
+  MATERIALIZER_STATUS=0
+else
+  MATERIALIZER_STATUS=$?
+fi
+if ((MATERIALIZER_STATUS != 0)); then
+  if ! emit_sanitized_phase_failure \
+    "same-run-package-plane-materialization" "$MATERIALIZER_STATUS" "$MATERIALIZER_DIAGNOSTIC"; then
+    die "could not emit sanitized package-plane failure diagnostics"
+  fi
+  die "same-run package-plane materialization failed (exit $MATERIALIZER_STATUS)"
+fi
 "$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" sanitize-diagnostics \
   --input "$MATERIALIZER_DIAGNOSTIC" --redact-path "$RUN_ROOT" \
   --redact-path "$BASE_PATH" --redact-path "$REPOSITORY_ROOT"
-((MATERIALIZER_STATUS == 0)) || die "same-run package-plane materialization failed (exit $MATERIALIZER_STATUS)"
 
 RID_INDEX=-1
 for index in "${!NUGET_RIDS[@]}"; do
@@ -444,11 +515,14 @@ done
   "$DOTNET" publish "$PROJECT_RELATIVE" --configuration Release --framework net10.0 \
     --runtime "$TARGET_RID" --no-restore --output "$PUBLISH_ROOT" \
     -p:ChummerUseLocalCompatibilityTree=false -p:ContinuousIntegrationBuild=true \
-    -p:Deterministic=true -p:PathMap="$RUN_ROOT=/_/src"
+    -p:Deterministic=true -p:PathMap="$RUN_ROOT=/_/src" \
+    -p:DebugType=None -p:DebugSymbols=false
 )
 "$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-nuget-cache \
   --lock "$RELEASE_LOCK_PATH" --repo-root "$REPOSITORY_ROOT" --rid "$TARGET_RID" \
   --feed "$FEED" --packages-root "$RESTORE_CACHE"
+[[ ! -e "$PUBLISH_ROOT/Chummer.Avalonia.pdb" ]] || \
+  die "Source artifact unexpectedly contains a path-bearing application PDB."
 
 SOURCE_DATE_EPOCH=0
 for index in "${!REPO_DIRS[@]}"; do
@@ -468,15 +542,106 @@ cp -a "$PUBLISH_ROOT/." "$STAGE/"
   printf 'scriptVersion=%s\n' "$SCRIPT_VERSION"
   printf 'sourceLockSha256=%s\n' "$SOURCE_LOCK_SHA256"
   printf 'sdkVersion=%s\n' "$SDK_VERSION"
-  printf 'pythonVersion=%s\n' "$PYTHON_VERSION"
+  printf 'pythonRequirement=>=3.11,<4\n'
+  printf 'pythonRole=authenticated-orchestrator\n'
   printf 'targetRid=%s\n' "$TARGET_RID"
   printf 'releaseManifestStatus=%s\n' "$RELEASE_MANIFEST_STATUS"
   printf 'releaseManifestSha256=%s\n' "$RELEASE_MANIFEST_SHA256"
   printf 'releaseEvidenceEligible=false\n'
+  printf 'debugSymbols=none\n'
+  printf 'artifactPathPortability=passed\n'
+  printf 'artifactModeNormalization=passed\n'
   for index in "${!REPO_DIRS[@]}"; do
     printf 'repository.%s=%s\n' "${REPO_DIRS[$index]}" "${REPO_COMMITS[$index]}"
   done
 } >"$STAGE/BUILD-MANIFEST.txt"
+
+"$PYTHON_RUNTIME" - "$STAGE" "$RUN_ROOT" "$BASE_PATH" "$REPOSITORY_ROOT" "$UI_ROOT" <<'PY'
+from __future__ import annotations
+
+import os
+import stat
+import sys
+from pathlib import Path
+
+stage = Path(sys.argv[1])
+actual_roots = [Path(value).resolve() for value in sys.argv[2:]]
+home = os.environ.get("HOME")
+if home and Path(home).is_absolute():
+    actual_roots.append(Path(home).resolve())
+
+forbidden = {
+    b"/tmp/",
+    b"/var/tmp/",
+    b"/docker/",
+    b"/workspace/",
+    b".source-run.",
+}
+for root in actual_roots:
+    encoded = os.fsencode(root)
+    if len(encoded) > 1:
+        forbidden.add(encoded)
+    if root.name.startswith(".source-run."):
+        forbidden.add(os.fsencode(root.name))
+
+violations: list[str] = []
+stage.chmod(0o755)
+for path in sorted(stage.rglob("*")):
+    metadata = path.lstat()
+    if stat.S_ISLNK(metadata.st_mode):
+        violations.append(f"{path.relative_to(stage)}: symbolic links are not portable")
+        continue
+    if stat.S_ISDIR(metadata.st_mode):
+        path.chmod(0o755)
+        continue
+    if not stat.S_ISREG(metadata.st_mode):
+        violations.append(f"{path.relative_to(stage)}: special files are not portable")
+        continue
+    path.chmod(0o644)
+    payload = path.read_bytes()
+    matched = sorted(token for token in forbidden if token in payload)
+    if matched:
+        rendered = ", ".join(os.fsdecode(token) for token in matched)
+        violations.append(f"{path.relative_to(stage)}: {rendered}")
+
+main_executable = stage / "Chummer.Avalonia"
+try:
+    main_metadata = main_executable.lstat()
+except OSError:
+    violations.append("Chummer.Avalonia: main executable is missing")
+else:
+    if not stat.S_ISREG(main_metadata.st_mode) or stat.S_ISLNK(main_metadata.st_mode):
+        violations.append("Chummer.Avalonia: main executable is not a regular file")
+    else:
+        main_executable.chmod(0o755)
+
+if violations:
+    print("Published source artifact contains machine-local path bytes:", file=sys.stderr)
+    for violation in violations:
+        print(f"  {violation}", file=sys.stderr)
+    raise SystemExit(1)
+
+for path in [stage, *sorted(stage.rglob("*"))]:
+    metadata = path.lstat()
+    if stat.S_ISDIR(metadata.st_mode):
+        expected_mode = 0o755
+    elif stat.S_ISREG(metadata.st_mode):
+        expected_mode = 0o755 if path == main_executable else 0o644
+    else:
+        continue
+    actual_mode = stat.S_IMODE(metadata.st_mode)
+    if actual_mode != expected_mode:
+        raise SystemExit(
+            f"artifact mode normalization failed: {path.relative_to(stage)} "
+            f"has {actual_mode:04o}, expected {expected_mode:04o}"
+        )
+
+print(
+    "Artifact path portability and modes verified: "
+    f"{sum(1 for path in stage.rglob('*') if path.is_file())} files"
+)
+PY
+
 ARCHIVE_NAME="chummer6-$TARGET_RID-source-lock.tar.gz"
 ARCHIVE_TEMP="$RUN_ROOT/$ARCHIVE_NAME"
 (cd "$STAGE" && tar --sort=name --mtime="@$SOURCE_DATE_EPOCH" --owner=0 --group=0 --numeric-owner -cf - .) | gzip -n >"$ARCHIVE_TEMP"

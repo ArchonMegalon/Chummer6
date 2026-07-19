@@ -19,6 +19,8 @@ def _authority_env(root: Path) -> dict[str, str]:
         "CHUMMER_RELEASE_AUTHORITY_CURRENT": str(current),
         "CHUMMER_REGISTRY_COMMIT": "a" * 40,
         "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "preview_ready",
+        "CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256": "b" * 64,
+        "CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION": "3.12.3",
     }
 
 
@@ -126,6 +128,11 @@ def _write_fake_convergence_repo(root: Path) -> Path:
                 f"""\
                 #!/usr/bin/env bash
                 printf '{relative} %s\n' "$*" >> "$CALL_LOG"
+                if [[ '{relative}' == 'verify_linux_source_build_docker_gate.sh' ]]; then
+                  printf 'docker_proof %s %s\n' \
+                    "${{CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256:-}}" \
+                    "${{CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION:-}}" >> "$CALL_LOG"
+                fi
                 """
             ),
             encoding="utf-8",
@@ -175,6 +182,7 @@ def test_convergence_entrypoint_forwards_one_exact_release_authority_tuple() -> 
         verify = next(line for line in calls if line.startswith("verify_public_guide.sh "))
         assert materialize.endswith(expected_args)
         assert verify == f"verify_public_guide.sh --skip-http {expected_args}"
+        assert f"docker_proof {'b' * 64} 3.12.3" in calls
 
 
 def test_convergence_design_generator_reads_exact_current_worktree_packet() -> None:
@@ -227,6 +235,8 @@ def test_convergence_missing_authority_fails_before_receipt_mutation() -> None:
             "CHUMMER_RELEASE_AUTHORITY_CURRENT": "",
             "CHUMMER_REGISTRY_COMMIT": "",
             "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "",
+            "CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256": "",
+            "CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION": "",
             "PATH": f"{fake_bin}:{os.environ['PATH']}",
         }
 
@@ -243,4 +253,38 @@ def test_convergence_missing_authority_fails_before_receipt_mutation() -> None:
 
         assert completed.returncode == 2
         assert "Immutable release authority is mandatory" in completed.stdout
+        assert not log_path.exists()
+
+
+def test_convergence_missing_cross_runtime_proof_fails_before_receipt_mutation() -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        root = Path(temp_dir)
+        log_path = root / "calls.log"
+        fake_bin = _fake_python(root, log_path)
+        fake_repo = _write_fake_convergence_repo(root)
+        env = {
+            **os.environ,
+            **_authority_env(root),
+            "CALL_LOG": str(log_path),
+            "CHUMMER6_REPO_ROOT": str(fake_repo),
+            "CHUMMER_DESIGN_REPO_ROOT": "",
+            "CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256": "",
+            "CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION": "",
+            "PATH": f"{fake_bin}:{os.environ['PATH']}",
+        }
+
+        completed = subprocess.run(
+            ["bash", str(CONVERGENCE_SCRIPT)],
+            cwd=REPO_ROOT,
+            env=env,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            check=False,
+            timeout=30,
+        )
+
+        assert completed.returncode == 2
+        assert "--expected-linux-archive-sha256" in completed.stdout
+        assert "--expected-linux-archive-python-version" in completed.stdout
         assert not log_path.exists()

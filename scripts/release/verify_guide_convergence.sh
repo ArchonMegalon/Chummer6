@@ -7,9 +7,11 @@ authority_current="${CHUMMER_RELEASE_AUTHORITY_CURRENT:-}"
 registry_commit="${CHUMMER_REGISTRY_COMMIT:-}"
 expected_decision_status="${CHUMMER_EXPECTED_RELEASE_DECISION_STATUS:-}"
 served_mirror="${CHUMMER_RELEASE_SERVED_MIRROR:-https://chummer.run/downloads/RELEASE_CHANNEL.generated.json}"
+expected_linux_archive_sha256="${CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256:-}"
+expected_linux_archive_python="${CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION:-}"
 
 usage() {
-  echo "Usage: $0 --authority-current PATH --registry-commit SHA --expected-release-decision-status STATUS [--served-mirror URL]" >&2
+  echo "Usage: $0 --authority-current PATH --registry-commit SHA --expected-release-decision-status STATUS --expected-linux-archive-sha256 SHA256 --expected-linux-archive-python-version VERSION [--served-mirror URL]" >&2
 }
 
 while (($#)); do
@@ -34,6 +36,16 @@ while (($#)); do
       served_mirror="$2"
       shift 2
       ;;
+    --expected-linux-archive-sha256)
+      (($# >= 2)) || { echo "--expected-linux-archive-sha256 requires a digest" >&2; exit 2; }
+      expected_linux_archive_sha256="$2"
+      shift 2
+      ;;
+    --expected-linux-archive-python-version)
+      (($# >= 2)) || { echo "--expected-linux-archive-python-version requires a version" >&2; exit 2; }
+      expected_linux_archive_python="$2"
+      shift 2
+      ;;
     --help|-h)
       usage
       exit 0
@@ -50,6 +62,8 @@ missing_authority=()
 [[ -n "$authority_current" ]] || missing_authority+=(--authority-current)
 [[ -n "$registry_commit" ]] || missing_authority+=(--registry-commit)
 [[ -n "$expected_decision_status" ]] || missing_authority+=(--expected-release-decision-status)
+[[ -n "$expected_linux_archive_sha256" ]] || missing_authority+=(--expected-linux-archive-sha256)
+[[ -n "$expected_linux_archive_python" ]] || missing_authority+=(--expected-linux-archive-python-version)
 if ((${#missing_authority[@]})); then
   echo "Immutable release authority is mandatory; missing: ${missing_authority[*]}" >&2
   exit 2
@@ -61,6 +75,9 @@ case "$expected_decision_status" in
   *) echo "Unsupported release decision status: $expected_decision_status" >&2; exit 2 ;;
 esac
 [[ -n "$served_mirror" ]] || { echo "Served mirror must be nonempty" >&2; exit 2; }
+[[ "$expected_linux_archive_sha256" =~ ^[0-9a-f]{64}$ ]] || { echo "Expected Linux archive digest must be exact lowercase 64-hex" >&2; exit 2; }
+[[ "$expected_linux_archive_python" =~ ^3\.([0-9]+)\.[0-9]+$ ]] || { echo "Expected Linux archive Python must satisfy >=3.11,<4" >&2; exit 2; }
+((10#${BASH_REMATCH[1]} >= 11)) || { echo "Expected Linux archive Python must satisfy >=3.11,<4" >&2; exit 2; }
 
 release_authority_args=(
   --release
@@ -81,7 +98,9 @@ do
   fi
 done
 
-bash "$repo_root/scripts/verify_linux_source_build_docker_gate.sh"
+CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256="$expected_linux_archive_sha256" \
+CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION="$expected_linux_archive_python" \
+  bash "$repo_root/scripts/verify_linux_source_build_docker_gate.sh"
 python3 "$repo_root/scripts/test_verify_linux_source_build_docker_gate_receipt.py" >/dev/null
 python3 "$repo_root/scripts/verify_linux_source_build_docker_gate_receipt.py" >/dev/null
 python3 "$repo_root/scripts/test_macos_source_build_contract_receipt.py" >/dev/null

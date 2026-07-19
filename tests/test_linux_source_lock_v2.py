@@ -1018,6 +1018,7 @@ class ReleasePostureAndConfigTests(unittest.TestCase):
             "packagePlane": {},
             "nuget": {},
             "releaseManifest": {},
+            "sourceLockVerifier": {},
             "buildScript": {},
         }
 
@@ -1048,6 +1049,30 @@ class ReleasePostureAndConfigTests(unittest.TestCase):
             write_json(path, self._lock_shell())
             with self.assertRaisesRegex(VERIFIER.LockError, "exactly five repositories"):
                 VERIFIER.validate_lock(path, root)
+
+    def test_source_lock_verifier_descriptor_mutations_fail_closed(self) -> None:
+        original = checked_json("RELEASE.lock.json")
+        mutations = {
+            "path": lambda payload: payload["sourceLockVerifier"].__setitem__(
+                "path", "scripts/other_verifier.py"
+            ),
+            "digest": lambda payload: payload["sourceLockVerifier"].__setitem__(
+                "sha256", "0" * 64
+            ),
+            "extra field": lambda payload: payload["sourceLockVerifier"].__setitem__(
+                "mutable", True
+            ),
+        }
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            for name, mutate in mutations.items():
+                with self.subTest(name=name):
+                    payload = deepcopy(original)
+                    mutate(payload)
+                    path = root / f"{name.replace(' ', '-')}.lock.json"
+                    write_json(path, payload)
+                    with self.assertRaises(VERIFIER.LockError):
+                        VERIFIER.validate_lock(path, REPO_ROOT)
 
     def test_generated_nuget_config_has_only_the_absolute_local_feed(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

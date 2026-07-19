@@ -22,7 +22,8 @@ The build script never installs Linux packages, never asks for `sudo`, and never
   Desktop Runtime, and Presentation, including exact NuGet `contentHash` values;
 - six RID-specific runtime and host packages;
 - separate restore and post-publish cache observations;
-- the package composer, source-build script, and release-truth placeholder.
+- the source-lock verifier, package composer, source-build script, and
+  release-truth placeholder.
 
 Hub is fixed at commit `35aa5a828f076d7c7c4a57dbab17d8715f9c3b68`. The locked flow fetches that SHA even if the remote `main` branch advances.
 
@@ -32,7 +33,7 @@ The current release truth remains `unbound_review_placeholder`, `review_required
 
 The SDK path does not execute `dotnet-install.sh`. Its URL and digest remain only as a forbidden historical reference. The builder downloads the exact SDK `.tar.gz` and verifies its SHA256, SHA512, size, archive structure, toolchain bytes, executable bit, and reported `10.0.103` version.
 
-The package composer independently rebuilds owner packages and compares the result with checked inventories. Restore uses a generated `NuGet.Config` with one source: that same-run local feed. The UI consumer is moved away from owner repositories before restore and publish, and the build sets:
+The package composer independently rebuilds owner packages and compares the result with checked inventories. Exact Git source acquisition, the authenticated SDK download, and hash-bound external package acquisition use the network. After those inputs are acquired and verified, Hub package production, owner-package restore/pack, and final UI restore/publish use generated `NuGet.Config` files and command-line restore properties bound only to the same-run local feed. Any HTTP(S) Hub NuGet source fails closed. The UI consumer is moved away from owner repositories before restore and publish, and the build sets:
 
 ```text
 ChummerUseLocalCompatibilityTree=false
@@ -48,7 +49,7 @@ Temporary checkouts, feeds, caches, NuGet configuration, and diagnostics are rem
 
 ## Python runtime selection
 
-Python 3.11 or newer is required. Selection is deterministic:
+Python 3.11 through Python 3.x (`>=3.11,<4`) is required. Selection is deterministic:
 
 1. `CHUMMER_PYTHON`, when explicitly set;
 2. `python3.13`;
@@ -57,6 +58,13 @@ Python 3.11 or newer is required. Selection is deterministic:
 5. `python3`.
 
 Every candidate must explicitly report a compatible version. The discovered executable path is logged; no Linux or macOS host path is hard-coded.
+
+The canonical archive records `pythonRequirement=>=3.11,<4` and
+`pythonRole=authenticated-orchestrator`, not the observed host patch version.
+The selected version remains in the external build log and Docker-gate receipt.
+Cross-runtime archive reproducibility is claimed only when an independent host
+archive and the clean-container archive have the same SHA256; otherwise the
+receipt remains explicitly environment-bounded and ineligible for release evidence.
 
 ## Platform models
 
@@ -98,7 +106,7 @@ The full build intentionally stops for moving refs because mutable source cannot
 
 - glibc Linux on x86_64;
 - Git;
-- Python 3.11 or newer;
+- Python 3.11 through Python 3.x (`>=3.11,<4`);
 - `curl`, `tar`, `gzip`, and `sha256sum`;
 - ICU runtime libraries;
 - about 25 GiB free space.
@@ -111,11 +119,64 @@ bash scripts/check-host-chummer6-linux.sh
 bash scripts/build-chummer6-linux.sh --audit-only --base /tmp/chummer6-audit
 ```
 
-For an additional clean-container check:
+For an authoritative clean-container check, first preserve the SHA256 and Python
+version from an independent host build, then require the two clean container
+builds to reproduce those exact archive bytes:
 
 ```bash
-bash scripts/verify_linux_source_build_docker_gate.sh
+CHUMMER_HOST_ARCHIVE="$HOME/chummer6-source-build/artifacts/chummer6-linux-x64/chummer6-linux-x64-source-lock.tar.gz"
+CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256="$(sha256sum "$CHUMMER_HOST_ARCHIVE" | awk '{print $1}')" \
+CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION="$(python3 -c 'import platform; print(platform.python_version())')" \
+  bash scripts/verify_linux_source_build_docker_gate.sh
 ```
+
+The default tracked receipt path rejects a bare same-container-only run. For a
+non-authoritative diagnostic, choose a separate path explicitly; it cannot pass
+the tracked v2 receipt verifier:
+
+```bash
+CHUMMER_LINUX_SOURCE_BUILD_GATE_RECEIPT_PATH="$PWD/artifacts/linux-docker-gate-diagnostic.json" \
+  bash scripts/verify_linux_source_build_docker_gate.sh
+```
+
+The clean-container gate authenticates the exact `linux-x64` SDK archive from
+`RELEASE.lock.json` once, installs it under the gate-owned work directory, and
+passes that same archive to both clean builds through `CHUMMER_SDK_ARCHIVE`.
+Startup and updater checks are bound to that installed SDK through
+`DOTNET_ROOT`, `DOTNET_ROOT_X64`, `DOTNET_HOST_PATH`, a gate-first `PATH`, and
+`DOTNET_MULTILEVEL_LOOKUP=0`; ambient or system .NET fallback is not allowed.
+The v2 receipt records the SDK version, archive authority, digests, size, and
+this no-fallback posture without recording a machine-local SDK path.
+
+The updater portion is deliberately an **updater dispatch/pending-state-clearing
+simulation**, not an operating-system package installation. It runs
+nonprivileged `pkexec` and `dpkg` shims, proves their exact argument counts,
+command/flag labels, and a SHA256 binding to the exact staged installer
+argument, then verifies pending/error-state clearing. The pinned UI deliberately
+retains the installer and request after this handoff, so the gate also proves
+that exact two-file retained inventory and records
+`stage_retention_observed=true` and `staged_payload_cleanup_proven=false`.
+Cleanup belongs to a later new-release startup or two-day stale-temp pruning;
+that deferred phase is outside this simulation, and the synthetic gate stage is
+outside the normal UI temp root, so the receipt explicitly records that cleanup
+execution was not proven. The receipt
+explicitly records `privilege_escalation_performed=false` and
+`native_package_manager_execution_proven=false`; it does not claim elevation or
+native package-manager execution. Runtime errors are reduced to a canonical,
+path-free value before any inner or outer receipt is accepted.
+
+It also records exact SHA256 descriptors for the Docker gate, host-audit
+wrapper, source-build script, package composer, local installer, unprivileged
+identity validator, and source-lock verifier. The strict receipt check
+recomputes those current bytes and independently matches the three lock-bound
+tools to `RELEASE.lock.json`, so a receipt cannot remain current after any
+proof-producing helper changes.
+
+Before archiving, the builder normalizes the stage root and directories to
+mode `0755`, regular files to `0644`, and the exact `Chummer.Avalonia`
+entrypoint to `0755`. Symlinks, special files, and any other mode are rejected.
+The Docker gate checks those member types and modes in both archives before it
+accepts cross-runtime byte equality.
 
 ## Output and installation
 

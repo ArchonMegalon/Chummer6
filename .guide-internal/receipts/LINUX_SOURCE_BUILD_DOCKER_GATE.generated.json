@@ -1,45 +1,48 @@
 {
   "artifacts": {
-    "build_log_name": "linux-desktop-build-20260701T032013Z.log",
+    "archive_checksum_name": "chummer6-linux-x64-source-lock.tar.gz.sha256",
+    "build_log_name": "linux-source-build-20260719T093452Z-4506.log",
     "build_manifest_excerpt": [
-      "Chummer6 Linux desktop source build",
-      "Generated UTC: 2026-07-01T03:23:19Z",
-      "Script version: 1.3.0",
-      "Distribution: Debian GNU/Linux 12 (bookworm)",
-      "CPU: AMD EPYC-Milan Processor",
-      "Architecture: x86_64",
-      "RID: linux-x64",
-      ".NET SDK: 10.0.103",
-      "Git ref: main",
-      "",
-      "chummer6-core            63c79605a0586317698ad4b37cd933001c37a2a6",
-      "chummer6-hub             8b31f9d0df2d12ebf8e8ca9f89509068cccc410d",
-      "chummer6-hub-registry    a9fef93c96dc2d6daae3dac04d2e3489694494ca",
-      "chummer6-ui-kit          e0248f4e852856eaacc668f18fd82f92c1575b8f",
-      "chummer6-ui              29401de26fd3bf8a79bffdcc83f22996e52f20b8",
-      "",
-      "Executable: Chummer.Avalonia",
-      "Executable SHA256: 0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-      "Output directory: /work/base/artifacts/chummer6-linux-x64"
+      "contract=chummer6.linux-source-build/v2",
+      "scriptVersion=3.1.0",
+      "sourceLockSha256=9f32be73c0bfc58843d836d3f3627a315e1da517797994459b38be03e126ec30",
+      "sdkVersion=10.0.103",
+      "pythonRequirement=>=3.11,<4",
+      "pythonRole=authenticated-orchestrator",
+      "targetRid=linux-x64",
+      "releaseManifestStatus=unbound_review_placeholder",
+      "releaseManifestSha256=0790e884c2b7658e6a332a6b1aff1b60c6acd9a4b2de0b85a876d7c9c102aac9",
+      "releaseEvidenceEligible=false",
+      "debugSymbols=none",
+      "artifactPathPortability=passed",
+      "artifactModeNormalization=passed",
+      "repository.chummer-core-engine=0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "repository.chummer.run-services=35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "repository.chummer-hub-registry=4a312798a10cb7ae97c77731450e24fe6a74d963",
+      "repository.chummer-ui-kit=d51ecd99cf72098d4adc8db0192bff7bf9fd8e61",
+      "repository.chummer6-ui=73dbef29bef4b5c9ae7a081361a4e317a3489229"
     ],
-    "installed_startup_smoke_receipt_name": "installed-startup-smoke-20260701T034218Z.receipt.json",
+    "installed_startup_smoke_receipt_name": "installed-startup-smoke-20260719T093943Z.receipt.json",
+    "repeat_archive_checksum_name": "chummer6-linux-x64-source-lock.tar.gz.sha256",
+    "repeat_build_log_name": "linux-source-build-20260719T093717Z-6290.log",
     "source_heads": {
-      "chummer6-core": "63c79605a0586317698ad4b37cd933001c37a2a6",
-      "chummer6-hub": "8b31f9d0df2d12ebf8e8ca9f89509068cccc410d",
-      "chummer6-hub-registry": "a9fef93c96dc2d6daae3dac04d2e3489694494ca",
-      "chummer6-ui": "29401de26fd3bf8a79bffdcc83f22996e52f20b8",
-      "chummer6-ui-kit": "e0248f4e852856eaacc668f18fd82f92c1575b8f"
+      "chummer-core-engine": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "chummer-hub-registry": "4a312798a10cb7ae97c77731450e24fe6a74d963",
+      "chummer-ui-kit": "d51ecd99cf72098d4adc8db0192bff7bf9fd8e61",
+      "chummer.run-services": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "chummer6-ui": "73dbef29bef4b5c9ae7a081361a4e317a3489229"
     },
-    "startup_smoke_receipt_name": "startup-smoke-20260701T034059Z.receipt.json",
-    "updater_special_mode_receipt_name": "updater-special-mode-20260701T034219Z.receipt.json",
-    "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260701T034222Z.receipt.json"
+    "startup_smoke_receipt_name": "startup-smoke-20260719T093942Z.receipt.json",
+    "updater_dispatch_simulation_receipt_name": "updater-dispatch-simulation-20260719T093943Z.receipt.json",
+    "updater_special_mode_receipt_name": "updater-special-mode-20260719T093943Z.receipt.json"
   },
-  "contract_name": "ea.chummer6_linux_source_build_docker_gate.v1",
+  "contract_name": "ea.chummer6_linux_source_build_docker_gate.v2",
   "docker_image": "debian:bookworm-slim",
+  "execution_mode": "fresh_container",
   "gate": {
     "build_script": "scripts/build-chummer6-linux.sh",
     "build_temp_cleanup_default": true,
-    "container_flow": "audit_then_full_build_then_local_install",
+    "container_flow": "audit_then_two_clean_builds_then_direct_startup_then_local_install_then_updater_dispatch_pending_state_clearing_simulation",
     "host_audit_wrapper": "scripts/check-host-chummer6-linux.sh",
     "install_script": "scripts/install-chummer6-linux-local.sh",
     "name": "linux_source_build_fresh_container",
@@ -49,37 +52,149 @@
     "source_build_is_explicitly_two_step": true,
     "source_build_update_mode_default": "notify"
   },
-  "generated_at_utc": "20260701T031940Z",
-  "git_ref": "main",
+  "generated_at_utc": "20260719T093432Z",
+  "git_ref": null,
   "github_org": "ArchonMegalon",
   "output": {
-    "archive_name": "chummer6-linux-x64-20260701T032013Z.tar.gz",
-    "archive_sha256": "f909d4ff21033534d9106001da67d52d17d3545e3d8337df6cff685ab7bf346d",
+    "archive_checksum_name": "chummer6-linux-x64-source-lock.tar.gz.sha256",
+    "archive_name": "chummer6-linux-x64-source-lock.tar.gz",
+    "archive_sha256": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
+    "artifact_mode_normalization": "passed",
+    "artifact_path_portability": "passed",
     "binary_name": "Chummer.Avalonia",
+    "debug_symbols": "none",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
     "launcher_name": "run-chummer6.sh",
     "rid": "linux-x64"
   },
+  "proof_producers": {
+    "build_script": {
+      "path": "scripts/build-chummer6-linux.sh",
+      "sha256": "9e7525a289b5a960c9e42c5a09f5c2a6509dd896725fa66b51052ce5c63b1538"
+    },
+    "docker_gate_script": {
+      "path": "scripts/verify_linux_source_build_docker_gate.sh",
+      "sha256": "f6548424a5bba6f73422f88cf3b4d6fcf17999b17fa765c21dc1b73e32cb5bf1"
+    },
+    "host_audit_wrapper": {
+      "path": "scripts/check-host-chummer6-linux.sh",
+      "sha256": "b4e25d497d413050d04d95ca04810f8778cbdedd48e8fb46ba8dd4ff57cdcc54"
+    },
+    "identity_validator": {
+      "path": "scripts/validate_linux_source_build_gate_identity.sh",
+      "sha256": "e8ccc718ed1657e702e8556012a2d1697dbf76495ac67372a4a008847b8d61a7"
+    },
+    "install_script": {
+      "path": "scripts/install-chummer6-linux-local.sh",
+      "sha256": "4eabb0957c37408e648e1f54917555cf35722348de86f219e20c139a22b88298"
+    },
+    "package_composer": {
+      "path": "scripts/materialize_linux_package_plane.py",
+      "sha256": "b01c4e2f6e2c2a270967070bc51264afb38b9a2b95083cd70ac3b3589c867c0f"
+    },
+    "source_lock_verifier": {
+      "path": "scripts/verify_linux_source_lock.py",
+      "sha256": "a0a3df9fbc721259a838361e5d9bbbacb4289bef93e9ea2c4152a546da7dd3a6"
+    }
+  },
+  "release_evidence_eligible": false,
+  "release_manifest_sha256": "0790e884c2b7658e6a332a6b1aff1b60c6acd9a4b2de0b85a876d7c9c102aac9",
+  "release_manifest_status": "unbound_review_placeholder",
   "repo_base_url": "https://github.com/ArchonMegalon",
+  "reproducibility": {
+    "archive_member_modes": "passed",
+    "archive_payload_path_scan": "passed",
+    "archive_sha256_first": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
+    "archive_sha256_repeat": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
+    "archives_byte_identical": true,
+    "clean_build_count": 2,
+    "cross_compatible_runtime_archive_identical": true,
+    "independent_host_archive_sha256": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
+    "independent_host_python_version": "3.12.3",
+    "observed_python_versions": [
+      "3.11.2",
+      "3.11.2"
+    ],
+    "python_requirement": ">=3.11,<4",
+    "python_role": "authenticated-orchestrator",
+    "release_evidence_eligible": false,
+    "scope": "cross-compatible-runtime-observed",
+    "status": "passed"
+  },
   "runtime": {
     "installed_startup_smoke": {
       "artifact_digest": "sha256:0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
       "artifact_digest_source": "process_path",
-      "channel_id": "source-build",
+      "channel_id": "local",
       "head_id": "avalonia",
       "ready_checkpoint": "fresh_container_installed_gate",
-      "recorded_at_utc": "2026-07-01T03:42:19.1770002+00:00",
+      "recorded_at_utc": "2026-07-19T09:39:43.5204786+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
     "startup_smoke": {
       "artifact_digest": "sha256:0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
       "artifact_digest_source": "process_path",
-      "channel_id": "source-build",
+      "channel_id": "local",
       "head_id": "avalonia",
       "ready_checkpoint": "fresh_container_gate",
-      "recorded_at_utc": "2026-07-01T03:41:00.2549334+00:00",
+      "recorded_at_utc": "2026-07-19T09:39:43.0683333+00:00",
       "rid": "linux-x64",
+      "status": "pass"
+    },
+    "updater_dispatch_simulation": {
+      "channel_id": "stable",
+      "deferred_cleanup_execution_proven": false,
+      "deferred_cleanup_phase": "outside_dispatch_simulation",
+      "deferred_cleanup_policy": "new_release_startup_or_two_day_stale_temp_pruning",
+      "dpkg_invocation": {
+        "argv_count": 2,
+        "install_flag": "-i",
+        "installer_argument_binding": "sha256_of_utf8_gate_stage_installer_path",
+        "installer_argument_sha256": "3eaca9b1d17fba8dd62f2f23b1fd09eebc9f05618b8cc5aa3e7d8ce7301a41e0"
+      },
+      "dpkg_shim_invoked": true,
+      "execution_model": "simulated_nonprivileged_pkexec_dpkg",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "failure_reason": "",
+      "gate_stage_location": "synthetic_gate_stage_outside_normal_ui_temp_root",
+      "head_id": "avalonia",
+      "invocation_contract_proven": true,
+      "last_error": "",
+      "mode": "desktop_update_dispatch_pending_state_clearing_simulation",
+      "native_package_manager_execution_proven": false,
+      "pending_update_channel_id": "",
+      "pending_update_version": "",
+      "pkexec_invocation": {
+        "argv_count": 3,
+        "command_label": "dpkg",
+        "install_flag": "-i",
+        "installer_argument_binding": "sha256_of_utf8_gate_stage_installer_path",
+        "installer_argument_sha256": "3eaca9b1d17fba8dd62f2f23b1fd09eebc9f05618b8cc5aa3e7d8ce7301a41e0"
+      },
+      "pkexec_shim_invoked": true,
+      "privilege_escalation_performed": false,
+      "recorded_at_utc": "2026-07-19T09:39:43.866910+00:00",
+      "retained_stage_inventory": [
+        {
+          "file_name": "chummer-avalonia-linux-x64-installer.deb",
+          "role": "installer_payload",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "size_bytes": 0
+        },
+        {
+          "file_name": "installer-request.json",
+          "role": "installer_request",
+          "sha256": "6942e5b19cf735539bfc1e880a63f3617fa734c12c3283fba4b1f130807cd191",
+          "size_bytes": 410
+        }
+      ],
+      "retained_stage_inventory_exact": true,
+      "retained_stage_inventory_sha256": "41ebf25e2e5bec5b37314d2c36d73e8beffbbd56d146052a9a644c38d4b4c9bc",
+      "rid": "linux-x64",
+      "stage_retention_observed": true,
+      "staged_payload_cleanup_proven": false,
       "status": "pass"
     },
     "updater_special_mode": {
@@ -89,29 +204,37 @@
       "failure_reason": "installer_launch_failed",
       "head_id": "avalonia",
       "last_error": "Installer payload was not found.",
+      "last_error_sanitized": true,
       "mode": "desktop_update_launch_installer",
       "pending_update_channel_id": "stable",
       "pending_update_version": "run-20260618-051119",
-      "recorded_at_utc": "2026-07-01T03:42:22.187933+00:00",
+      "recorded_at_utc": "2026-07-19T09:39:43.684886+00:00",
       "rid": "linux-x64",
-      "status": "pass"
-    },
-    "updater_special_mode_success": {
-      "channel_id": "stable",
-      "dpkg_invoked": true,
-      "exit_code": 0,
-      "expected_exit_code": 0,
-      "failure_reason": "",
-      "head_id": "avalonia",
-      "last_error": "",
-      "mode": "desktop_update_launch_installer_success",
-      "pending_update_channel_id": "",
-      "pending_update_version": "",
-      "recorded_at_utc": "2026-07-01T03:42:22.462608+00:00",
-      "rid": "linux-x64",
-      "stage_deleted": false,
       "status": "pass"
     }
   },
+  "runtime_authority": {
+    "archive_name": "dotnet-sdk-10.0.103-linux-x64.tar.gz",
+    "archive_reused_by_clean_builds": true,
+    "archive_sha256": "84dc1f3150ec2800fa38efdbe4d65a855026d68f745c3fe06f522e87e993af0f",
+    "archive_sha512": "bab94f13c57b2ac821d4924fe66084be9b44c41761ff7ff64522c8f7aba345659d31258401dcec31cc3cf6ccae1d012623075aca1c9b9165bcfe5ba9abda1c0c",
+    "archive_size_bytes": 240189641,
+    "archive_url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.103/dotnet-sdk-10.0.103-linux-x64.tar.gz",
+    "authority_path": "release-locks/dotnet-sdk-10.0.103.authority.json",
+    "authority_sha256": "38aa6ac48528c458a8cfa2a2d0b145d4aaec7347184e4a5ecc924f73fe682189",
+    "dotnet_host_path_bound": true,
+    "dotnet_root_mode": "gate-owned-authenticated-sdk",
+    "dotnet_root_x64_bound": true,
+    "multilevel_lookup": false,
+    "path_precedence": "gate-owned-sdk-first",
+    "rid": "linux-x64",
+    "sdk_version": "10.0.103",
+    "source_lock": "RELEASE.lock.json",
+    "status": "passed",
+    "system_runtime_fallback_allowed": false
+  },
+  "source_lock": "RELEASE.lock.json",
+  "source_lock_sha256": "9f32be73c0bfc58843d836d3f3627a315e1da517797994459b38be03e126ec30",
+  "source_mode": "locked",
   "status": "passed"
 }

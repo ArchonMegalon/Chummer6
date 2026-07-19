@@ -7,7 +7,10 @@ import sys
 import tempfile
 import unittest
 import zipfile
+from dataclasses import dataclass
 from pathlib import Path
+from types import SimpleNamespace
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -217,6 +220,255 @@ class DeterministicPackageTests(unittest.TestCase):
             b"<Relationships", b"<!-- hidden -->\n<Relationships"
         )
         self.assert_rejected(relationship_bytes=rows)
+
+    def test_hub_producer_restore_is_sealed_to_one_local_authenticated_feed(self) -> None:
+        local_feed = self.root / "canonical-feed"
+        local_feed.mkdir()
+        dotnet = self.root / "sdk" / "dotnet"
+        observed_commands: list[tuple[str, ...]] = []
+
+        def original_properties(*_args: object, **_kwargs: object) -> tuple[str, ...]:
+            return ("-p:RepositoryUrl=https://github.com/ArchonMegalon/source.git",)
+
+        def original_run(
+            command: object, *, cwd: Path | None = None, env: object = None
+        ) -> str:
+            del cwd, env
+            observed_commands.append(tuple(str(value) for value in command))
+            return "ok"
+
+        producer = SimpleNamespace(
+            _run=original_run,
+            package_build_properties=original_properties,
+        )
+        local_source = MODULE.configure_hub_producer_for_local_restore(
+            producer,
+            dotnet=dotnet,
+            local_feed=local_feed,
+        )
+        properties = producer.package_build_properties()
+        expected_properties = {
+            f"-p:RestoreSources={local_feed.resolve()}",
+            "-p:RestoreAdditionalProjectSources=",
+            "-p:RestoreFallbackFolders=",
+            "-p:RestoreIgnoreFailedSources=false",
+            "-p:RestoreNoCache=true",
+            "-p:NuGetAudit=false",
+            "-p:ChummerDesktopRuntimeIdentifiers=",
+            "-p:RuntimeIdentifiers=",
+            "-p:RuntimeIdentifier=",
+        }
+        self.assertEqual(str(local_feed.resolve()), local_source)
+        self.assertTrue(expected_properties.issubset(properties))
+
+        config = self.root / "NuGet.Config"
+        config.write_text(
+            "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+            "<configuration><packageSources><clear />"
+            f"<add key=\"nuget.org\" value=\"{local_source}\" protocolVersion=\"3\" />"
+            "</packageSources></configuration>\n",
+            encoding="utf-8",
+        )
+        restore = (
+            str(dotnet),
+            "restore",
+            "owner.csproj",
+            "--configfile",
+            str(config),
+            *properties,
+        )
+        self.assertEqual("ok", producer._run(restore))
+        config_text = config.read_text(encoding="utf-8")
+        self.assertIn('key="authenticated-local-feed"', config_text)
+        self.assertIn(f'value="{local_source}"', config_text)
+        self.assertNotIn("http://", config_text.lower())
+        self.assertNotIn("https://", config_text.lower())
+        self.assertNotIn("nuget.org", config_text.lower())
+        self.assertEqual(restore, observed_commands[-1])
+        self.assertEqual("ok", producer._run(restore))
+        self.assertEqual(config_text, config.read_text(encoding="utf-8"))
+
+        remote = self.root / "Remote.NuGet.Config"
+        remote.write_text(
+            "<configuration><packageSources><clear />"
+            "<add key=\"remote\" value=\"https://api.nuget.org/v3/index.json\" "
+            "protocolVersion=\"3\" /></packageSources></configuration>\n",
+            encoding="utf-8",
+        )
+        rejected = tuple(
+            str(remote) if value == str(config) else value for value in restore
+        )
+        with self.assertRaisesRegex(
+            MODULE.MaterializationError,
+            "one cleared local package source",
+        ):
+            producer._run(rejected)
+
+        namespaced = self.root / "Namespaced.NuGet.Config"
+        namespaced.write_text(
+            "<configuration xmlns=\"urn:unexpected\"><packageSources><clear />"
+            f"<add key=\"local\" value=\"{local_source}\" protocolVersion=\"3\" />"
+            "</packageSources></configuration>\n",
+            encoding="utf-8",
+        )
+        rejected_namespace = tuple(
+            str(namespaced) if value == str(config) else value for value in restore
+        )
+        with self.assertRaisesRegex(
+            MODULE.MaterializationError,
+            "configuration is ambiguous",
+        ):
+            producer._run(rejected_namespace)
+
+        remote_property = tuple(
+            "-p:RestoreSources=https://api.nuget.org/v3/index.json"
+            if value == f"-p:RestoreSources={local_source}"
+            else value
+            for value in restore
+        )
+        with self.assertRaisesRegex(
+            MODULE.MaterializationError,
+            "exact local restore boundary",
+        ):
+            producer._run(remote_property)
+        for alternate in (
+            ("--source", "https://api.nuget.org/v3/index.json"),
+            ("-s", "https://api.nuget.org/v3/index.json"),
+            ("-p:RestoreConfigFile=/tmp/remote.config",),
+            ("-p:RuntimeIdentifiers=linux-x64",),
+            ("-p:runtimeidentifier=linux-x64",),
+            ("--runtime", "linux-x64"),
+            ("-r", "linux-x64"),
+        ):
+            with self.subTest(alternate=alternate), self.assertRaisesRegex(
+                MODULE.MaterializationError,
+                "alternate|exact local restore boundary",
+            ):
+                producer._run((*restore, *alternate))
+
+        for conflicting_property in (
+            "-p:RestoreSources=https://api.nuget.org/v3/index.json",
+            "-p:ChummerDesktopRuntimeIdentifiers=linux-x64;win-x64",
+            "/p:RuntimeIdentifiers=linux-x64",
+            "--property:runtimeidentifier=linux-x64",
+        ):
+            with self.subTest(conflicting_property=conflicting_property):
+                conflicting = SimpleNamespace(
+                    _run=original_run,
+                    package_build_properties=(
+                        lambda *_args, _value=conflicting_property, **_kwargs: (_value,)
+                    ),
+                )
+                MODULE.configure_hub_producer_for_local_restore(
+                    conflicting,
+                    dotnet=dotnet,
+                    local_feed=local_feed,
+                )
+                with self.assertRaisesRegex(
+                    MODULE.MaterializationError,
+                    "controlled restore property",
+                ):
+                    conflicting.package_build_properties()
+
+        with self.assertRaisesRegex(MODULE.MaterializationError, "unexpectedly permits restore"):
+            producer._run((str(dotnet), "pack", "owner.csproj", *properties))
+        self.assertEqual(
+            "ok",
+            producer._run(
+                (str(dotnet), "pack", "owner.csproj", "--no-restore", *properties)
+            ),
+        )
+
+    def test_x64_hub_producer_requires_exact_pinned_inventory(self) -> None:
+        hub_root = self.root / "hub"
+        producer_path = hub_root / "scripts" / "producer.py"
+        lock_path = hub_root / "eng" / "lock.json"
+        producer_path.parent.mkdir(parents=True)
+        lock_path.parent.mkdir(parents=True)
+        producer_path.write_text("# exact pinned producer\n", encoding="utf-8")
+        lock_path.write_text("{}\n", encoding="utf-8")
+
+        sdk_root = self.root / "sdk"
+        tool_paths = {
+            "dotnet_host": sdk_root / "dotnet",
+            "csc": sdk_root / "sdk/10.0.103/Roslyn/bincore/csc.dll",
+            "msbuild": sdk_root / "sdk/10.0.103/Microsoft.Build.dll",
+            "nuget_packaging": sdk_root / "sdk/10.0.103/NuGet.Packaging.dll",
+        }
+        for name, path in tool_paths.items():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(f"exact-{name}".encode())
+        toolchain = {
+            name: hashlib.sha256(path.read_bytes()).hexdigest()
+            for name, path in tool_paths.items()
+        }
+
+        @dataclass(frozen=True)
+        class FakeLock:
+            approved_remote_source: str
+            toolchain_sha256: dict[str, str]
+
+        effective: dict[str, object] = {}
+
+        def build_feed(
+            lock: FakeLock, *, lock_sha256: str, feed: Path, dotnet: str
+        ) -> str:
+            effective.update(
+                {
+                    "lock": lock,
+                    "lock_sha256": lock_sha256,
+                    "dotnet": dotnet,
+                }
+            )
+            feed.mkdir()
+            return "b" * 64
+
+        producer = SimpleNamespace(
+            _run=lambda command, *, cwd=None, env=None: "",
+            build_feed=build_feed,
+            load_lock=lambda _path: FakeLock(
+                approved_remote_source="https://api.nuget.org/v3/index.json",
+                toolchain_sha256=toolchain,
+            ),
+            package_build_properties=lambda *_args, **_kwargs: (),
+            validate_build_recipe=lambda _root, _lock: None,
+        )
+        authority = {
+            "inventoryContract": "inventory/v1",
+            "inventorySha256": "a" * 64,
+            "lockContract": "lock/v1",
+            "lockPath": "eng/lock.json",
+            "lockSha256": hashlib.sha256(lock_path.read_bytes()).hexdigest(),
+            "ownerDirectory": "hub-owner",
+            "packages": [],
+            "producerPath": "scripts/producer.py",
+            "producerSha256": hashlib.sha256(producer_path.read_bytes()).hexdigest(),
+        }
+        lock = {
+            "canonicalOwnerFeed": authority,
+            "owners": [{"commit": "1" * 40, "directory": "hub-owner"}],
+        }
+        canonical_feed = self.root / "canonical-feed"
+        canonical_feed.mkdir()
+        with mock.patch.object(MODULE, "load_module", return_value=producer):
+            with self.assertRaisesRegex(
+                MODULE.MaterializationError,
+                "inventory differs from authority",
+            ):
+                MODULE.compose_hub_packages(
+                    SimpleNamespace(),
+                    lock,
+                    {"hub-owner": hub_root},
+                    sdk_root,
+                    self.root / "hub-staging",
+                    canonical_feed,
+                    {},
+                    "linux-x64",
+                )
+        effective_lock = effective["lock"]
+        self.assertEqual(str(canonical_feed.resolve()), effective_lock.approved_remote_source)
+        self.assertEqual(authority["lockSha256"], effective["lock_sha256"])
+        self.assertEqual(str(sdk_root / "dotnet"), effective["dotnet"])
 
 
 if __name__ == "__main__":

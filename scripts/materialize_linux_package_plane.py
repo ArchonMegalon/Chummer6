@@ -685,6 +685,141 @@ def pack_owner_package(
     return normalize_package(output, package["packageId"], package["version"])
 
 
+def configure_hub_producer_for_local_restore(
+    hub_module: ModuleType,
+    *,
+    dotnet: Path,
+    local_feed: Path,
+) -> str:
+    if local_feed.is_symlink() or not local_feed.is_dir():
+        raise MaterializationError("Hub restore feed must be a regular local directory")
+    local_source = str(local_feed.resolve())
+    required_functions = ("_run", "package_build_properties")
+    if any(not callable(getattr(hub_module, name, None)) for name in required_functions):
+        raise MaterializationError("pinned Hub producer lacks its reviewed restore boundary")
+    original_run = hub_module._run
+    original_properties = hub_module.package_build_properties
+    property_values = (
+        f"-p:RestoreSources={local_source}",
+        "-p:RestoreAdditionalProjectSources=",
+        "-p:RestoreFallbackFolders=",
+        "-p:RestoreIgnoreFailedSources=false",
+        "-p:RestoreNoCache=true",
+        "-p:NuGetAudit=false",
+        "-p:ChummerDesktopRuntimeIdentifiers=",
+        "-p:RuntimeIdentifiers=",
+        "-p:RuntimeIdentifier=",
+    )
+    controlled_properties = {
+        value.partition("=")[0].removeprefix("-p:").casefold(): value
+        for value in property_values
+    }
+
+    def controlled_property_name(value: str) -> str | None:
+        lowered = value.casefold()
+        for prefix in ("-p:", "/p:", "--property:"):
+            if lowered.startswith(prefix) and "=" in lowered:
+                name = lowered.removeprefix(prefix).partition("=")[0]
+                if name in controlled_properties:
+                    return name
+        return None
+
+    def local_properties(*args: Any, **kwargs: Any) -> tuple[str, ...]:
+        observed = tuple(original_properties(*args, **kwargs))
+        if any(controlled_property_name(str(value)) for value in observed):
+            raise MaterializationError(
+                "pinned Hub producer unexpectedly owns a controlled restore property"
+            )
+        return (*observed, *property_values)
+
+    def seal_local_config(config: Path) -> None:
+        try:
+            root = ET.fromstring(config.read_bytes())
+        except (OSError, ET.ParseError) as exc:
+            raise MaterializationError("Hub producer NuGet configuration is invalid") from exc
+        if root.tag != "configuration" or len(root) != 1:
+            raise MaterializationError("Hub producer NuGet configuration is ambiguous")
+        package_sources = root[0]
+        children = list(package_sources)
+        if (
+            package_sources.tag != "packageSources"
+            or len(children) != 2
+            or children[0].tag != "clear"
+            or children[0].attrib
+            or children[1].tag != "add"
+        ):
+            raise MaterializationError(
+                "Hub producer did not generate one cleared local package source"
+            )
+        original_source = {
+            "key": "nuget.org",
+            "protocolVersion": "3",
+            "value": local_source,
+        }
+        sealed_source = {
+            "key": "authenticated-local-feed",
+            "value": local_source,
+        }
+        if children[1].attrib == original_source:
+            children[1].attrib.clear()
+            children[1].attrib.update(sealed_source)
+        elif children[1].attrib != sealed_source:
+            raise MaterializationError(
+                "Hub producer did not generate one cleared local package source"
+            )
+        ET.indent(root, space="  ")
+        encoded = ET.tostring(root, encoding="utf-8", xml_declaration=True) + b"\n"
+        lowered = encoded.lower()
+        if b"http://" in lowered or b"https://" in lowered or b"nuget.org" in lowered:
+            raise MaterializationError("Hub producer retained a remote NuGet source")
+        config.write_bytes(encoded)
+
+    def local_run(
+        command: Any,
+        *,
+        cwd: Path | None = None,
+        env: Any = None,
+    ) -> str:
+        args = tuple(str(value) for value in command)
+        if len(args) >= 2 and args[0] == str(dotnet) and args[1] in {"restore", "pack"}:
+            if "--source" in args or "-s" in args or any(
+                value.startswith("-p:RestoreConfigFile=") for value in args
+            ):
+                raise MaterializationError(
+                    "Hub producer command contains an alternate restore-source input"
+                )
+            if "--runtime" in args or "-r" in args:
+                raise MaterializationError(
+                    "Hub producer command contains an alternate runtime selector"
+                )
+            for property_name, required in controlled_properties.items():
+                matches = [
+                    value
+                    for value in args
+                    if controlled_property_name(value) == property_name
+                ]
+                if matches != [required]:
+                    raise MaterializationError(
+                        "Hub producer command lacks its exact local restore boundary"
+                    )
+            if args[1] == "restore":
+                if args.count("--configfile") != 1:
+                    raise MaterializationError(
+                        "Hub producer restore must name one NuGet configuration"
+                    )
+                config_index = args.index("--configfile") + 1
+                if config_index >= len(args):
+                    raise MaterializationError("Hub producer restore config path is missing")
+                seal_local_config(Path(args[config_index]))
+            elif "--no-restore" not in args:
+                raise MaterializationError("Hub producer pack unexpectedly permits restore")
+        return original_run(args, cwd=cwd, env=env)
+
+    hub_module.package_build_properties = local_properties
+    hub_module._run = local_run
+    return local_source
+
+
 def compose_hub_packages(
     ui_module: ModuleType,
     lock: dict[str, Any],
@@ -697,16 +832,6 @@ def compose_hub_packages(
 ) -> dict[str, Any]:
     authority = lock["canonicalOwnerFeed"]
     hub_root = owners[authority["ownerDirectory"]]
-    if host_rid == "linux-x64":
-        receipt = ui_module.import_hub_canonical_feed(
-            lock, hub_root, sdk_root, hub_staging, feed, environment
-        )
-        return {
-            **receipt,
-            "hubV3NativeProducerExecuted": True,
-            "producerMode": "hub-v3-pinned-x64-toolchain",
-        }
-
     producer_path = source_file(
         hub_root, authority["producerPath"], "Hub canonical feed producer"
     )
@@ -717,24 +842,44 @@ def compose_hub_packages(
         raise MaterializationError("Hub package-plane lock differs from UI authority")
     hub_module = load_module(producer_path, "chummer_hub_package_plane_authority")
     hub_lock = hub_module.load_lock(lock_path)
+    hub_module.validate_build_recipe(hub_root, hub_lock)
     observed_toolchain = {
         "dotnet_host": sha256_file(sdk_root / "dotnet"),
         "csc": sha256_file(sdk_root / "sdk/10.0.103/Roslyn/bincore/csc.dll"),
         "msbuild": sha256_file(sdk_root / "sdk/10.0.103/Microsoft.Build.dll"),
         "nuget_packaging": sha256_file(sdk_root / "sdk/10.0.103/NuGet.Packaging.dll"),
     }
-    cross_arch_lock = dataclasses.replace(
-        hub_lock, toolchain_sha256=observed_toolchain
+    if host_rid == "linux-x64" and dict(hub_lock.toolchain_sha256) != observed_toolchain:
+        raise MaterializationError("Hub lock toolchain differs from authenticated x64 SDK")
+    local_source = configure_hub_producer_for_local_restore(
+        hub_module,
+        dotnet=sdk_root / "dotnet",
+        local_feed=feed,
     )
-    cross_arch_marker = hashlib.sha256(
-        (authority["lockSha256"] + "\nlinux-arm64-byte-reproduction\n").encode("ascii")
-    ).hexdigest()
-    hub_module.build_feed(
-        cross_arch_lock,
-        lock_sha256=cross_arch_marker,
+    effective_lock = dataclasses.replace(
+        hub_lock,
+        approved_remote_source=local_source,
+        toolchain_sha256=(
+            observed_toolchain
+            if host_rid == "linux-arm64"
+            else hub_lock.toolchain_sha256
+        ),
+    )
+    build_lock_sha256 = authority["lockSha256"]
+    if host_rid == "linux-arm64":
+        build_lock_sha256 = hashlib.sha256(
+            (authority["lockSha256"] + "\nlinux-arm64-byte-reproduction\n").encode(
+                "ascii"
+            )
+        ).hexdigest()
+    inventory_sha256 = hub_module.build_feed(
+        effective_lock,
+        lock_sha256=build_lock_sha256,
         feed=hub_staging,
         dotnet=str(sdk_root / "dotnet"),
     )
+    if host_rid == "linux-x64" and inventory_sha256 != authority["inventorySha256"]:
+        raise MaterializationError("local Hub producer inventory differs from authority")
     for package in authority["packages"]:
         source = hub_staging / package["fileName"]
         if (
@@ -744,11 +889,13 @@ def compose_hub_packages(
             or sha256_file(source) != package["sha256"]
         ):
             raise MaterializationError(
-                f"arm64 reproduction differs from canonical bytes: {package['fileName']}"
+                f"local Hub production differs from canonical bytes: {package['fileName']}"
             )
         shutil.copyfile(source, feed / package["fileName"])
     return {
-        "hubV3NativeProducerExecuted": False,
+        "hubNuGetNetworkSourceUsed": False,
+        "hubPackageSourceMode": "authenticated-local-canonical-feed",
+        "hubV3NativeProducerExecuted": host_rid == "linux-x64",
         "inventoryContract": authority["inventoryContract"],
         "inventorySha256": authority["inventorySha256"],
         "lockContract": authority["lockContract"],
@@ -761,8 +908,12 @@ def compose_hub_packages(
         "packageCount": len(authority["packages"]),
         "packages": authority["packages"],
         "producerMode": (
-            "arm64-sdk-canonical-byte-reproduction-"
-            "hub-v3-native-x64-producer-not-executed"
+            "hub-v3-pinned-x64-toolchain-local-feed"
+            if host_rid == "linux-x64"
+            else (
+                "arm64-sdk-canonical-byte-reproduction-"
+                "hub-v3-native-x64-producer-not-executed-local-feed"
+            )
         ),
         "producerPath": authority["producerPath"],
         "producerSha256": authority["producerSha256"],

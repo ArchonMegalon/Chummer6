@@ -1267,6 +1267,7 @@ def validate_lock(path: Path, repo_root: Path) -> dict[str, Any]:
             "packagePlane",
             "nuget",
             "releaseManifest",
+            "sourceLockVerifier",
             "buildScript",
         },
         "release source lock",
@@ -1304,6 +1305,14 @@ def validate_lock(path: Path, repo_root: Path) -> dict[str, Any]:
         names.add(name)
     if set(repositories) != set(REQUIRED_REPOSITORIES):
         raise LockError("repository owner set differs")
+
+    source_lock_verifier = payload.get("sourceLockVerifier")
+    if not isinstance(source_lock_verifier, dict):
+        raise LockError("sourceLockVerifier must be an object")
+    exact_keys(source_lock_verifier, {"path", "sha256"}, "sourceLockVerifier")
+    if source_lock_verifier.get("path") != "scripts/verify_linux_source_lock.py":
+        raise LockError("sourceLockVerifier path differs")
+    checked_authority(repo_root, source_lock_verifier, "sourceLockVerifier")
 
     dotnet = payload.get("dotnet")
     if not isinstance(dotnet, dict):
@@ -2338,6 +2347,11 @@ def emit_tsv(context: dict[str, Any], lock_path: Path) -> None:
         f"{package_plane['feedInventory']['path']}\t"
         f"{package_plane['normalizationProof']['path']}\t"
         f"{package_plane['runtimePackageAuthority']['path']}"
+    )
+    print(
+        "SOURCE_LOCK_VERIFIER\t"
+        f"{payload['sourceLockVerifier']['path']}\t"
+        f"{payload['sourceLockVerifier']['sha256']}"
     )
     for entry in payload["nuget"]["packageLocks"]:
         for descriptor in entry["projectLocks"]:

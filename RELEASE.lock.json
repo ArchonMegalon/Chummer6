@@ -99,7 +99,7 @@
     },
     "composer": {
       "path": "scripts/materialize_linux_package_plane.py",
-      "sha256": "81dd15d0f959be0ee07905045614c50fc4ab766590645534d6222d8054339607",
+      "sha256": "b01c4e2f6e2c2a270967070bc51264afb38b9a2b95083cd70ac3b3589c867c0f",
       "normalizationContract": "chummer6.deterministic-nupkg/v1"
     },
     "feedInventory": {
@@ -192,8 +192,12 @@
     "status": "unbound_review_placeholder",
     "releaseEvidenceEligible": false
   },
+  "sourceLockVerifier": {
+    "path": "scripts/verify_linux_source_lock.py",
+    "sha256": "a0a3df9fbc721259a838361e5d9bbbacb4289bef93e9ea2c4152a546da7dd3a6"
+  },
   "buildScript": {
     "path": "scripts/build-chummer6-linux.sh",
-    "sha256": "6ea6a2f67b753067bda2c2df37f877aafedfb4f58d27cc5f84e7ffc690861202"
+    "sha256": "9e7525a289b5a960c9e42c5a09f5c2a6509dd896725fa66b51052ce5c63b1538"
   }
 }

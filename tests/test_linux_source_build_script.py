@@ -41,7 +41,7 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             "without executing dotnet-install.sh",
             "no network package sources or siblings",
             "releaseEvidenceEligible=false",
-            "Python >=3.11",
+            "Python >=3.11,<4",
         ):
             self.assertIn(phrase, completed.stdout)
 
@@ -111,8 +111,40 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
             )
             self.assertFalse((root / "never-created").exists())
         self.assertNotEqual(0, completed.returncode, completed.stdout)
-        self.assertIn("Python >=3.11 is required", completed.stdout)
+        self.assertIn("Python >=3.11,<4 is required", completed.stdout)
         self.assertNotIn("Cloning five exact", completed.stdout)
+
+    def test_python4_is_rejected_before_falling_back_to_python3(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            fake_bin = root / "bin"
+            fake_bin.mkdir()
+            future = fake_bin / "future-python4"
+            compatible = fake_bin / "compatible-python3"
+            future.write_text(
+                "#!/usr/bin/env bash\n"
+                "if [[ ${1:-} == -c ]]; then echo 4.0.0; exit 0; fi\n"
+                "exit 91\n",
+                encoding="utf-8",
+            )
+            compatible.write_text(
+                f"#!/usr/bin/env bash\nexec {sys.executable!s} \"$@\"\n",
+                encoding="utf-8",
+            )
+            future.chmod(0o755)
+            compatible.chmod(0o755)
+            completed = self.run_script(
+                "--audit-only",
+                "--base",
+                str(root / "build"),
+                env={
+                    "PATH": f"{fake_bin}:{os.environ['PATH']}",
+                    "CHUMMER_PYTHON_CANDIDATES": f"{future.name} {compatible.name}",
+                },
+            )
+        self.assertEqual(0, completed.returncode, completed.stdout)
+        self.assertIn(str(compatible), completed.stdout)
+        self.assertNotIn(str(future), completed.stdout)
 
     def test_moving_ref_requires_acknowledgement_and_remains_review_only(self) -> None:
         rejected = self.run_script("--audit-only", "--ref", "main")
@@ -143,6 +175,46 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
                     },
                 )
                 self.assertEqual(expected, completed.returncode, completed.stdout)
+                self.assertEqual([], list(Path(temp_dir).glob(".source-run.*")))
+                self.assertEqual([], list(Path(temp_dir).glob("**/NuGet.Config")))
+
+    def test_materializer_failures_emit_bounded_sanitized_phase_metadata(self) -> None:
+        cases = (
+            ("materializer-error", 23, False),
+            ("materializer-empty-error", 24, True),
+        )
+        for action, phase_exit, empty in cases:
+            with self.subTest(action=action), tempfile.TemporaryDirectory() as temp_dir:
+                completed = self.run_script(
+                    "--base",
+                    temp_dir,
+                    env={
+                        "CHUMMER_SOURCE_BUILD_TEST_MODE": "1",
+                        "CHUMMER_SOURCE_BUILD_CLEANUP_TEST_ACTION": action,
+                    },
+                )
+                self.assertEqual(1, completed.returncode, completed.stdout)
+                self.assertIn(
+                    f"PHASE_FAILURE phase=same-run-package-plane-materialization exit={phase_exit}",
+                    completed.stdout,
+                )
+                self.assertIn("diagnostic_limit_bytes=131072", completed.stdout)
+                self.assertNotIn(".source-run.", completed.stdout)
+                self.assertNotIn(str(REPO_ROOT), completed.stdout)
+                self.assertNotIn("phase-secret-sentinel", completed.stdout)
+                if empty:
+                    self.assertIn("diagnostic_bytes=0", completed.stdout)
+                    self.assertIn("emitted no diagnostic output", completed.stdout)
+                else:
+                    self.assertIn(
+                        "PHASE_DIAGNOSTIC phase=same-run-package-plane-materialization "
+                        "truncated=true retained=tail",
+                        completed.stdout,
+                    )
+                    self.assertIn("synthetic materializer failure", completed.stdout)
+                    self.assertIn("[redacted-path]", completed.stdout)
+                    self.assertIn("[redacted-secret]", completed.stdout)
+                    self.assertNotIn("diagnostic_bytes=0", completed.stdout)
                 self.assertEqual([], list(Path(temp_dir).glob(".source-run.*")))
                 self.assertEqual([], list(Path(temp_dir).glob("**/NuGet.Config")))
 
@@ -285,6 +357,28 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertNotIn('--lock-file-path', text)
         self.assertNotIn('NuGetLockFilePath', text)
         self.assertNotIn('export RestoreConfigFile=', text)
+
+    def test_publish_disables_path_bearing_app_pdb_and_scans_staged_bytes(self) -> None:
+        text = SCRIPT.read_text(encoding="utf-8")
+        self.assertIn('-p:ContinuousIntegrationBuild=true', text)
+        self.assertIn('-p:Deterministic=true', text)
+        self.assertIn('-p:PathMap="$RUN_ROOT=/_/src"', text)
+        self.assertIn('-p:DebugType=None', text)
+        self.assertIn('-p:DebugSymbols=false', text)
+        self.assertIn('[[ ! -e "$PUBLISH_ROOT/Chummer.Avalonia.pdb" ]]', text)
+        self.assertIn('artifactPathPortability=passed', text)
+        self.assertIn('artifactModeNormalization=passed', text)
+        self.assertIn('Published source artifact contains machine-local path bytes', text)
+        self.assertIn('b".source-run."', text)
+        self.assertIn("pythonRequirement=>=3.11,<4", text)
+        self.assertIn("pythonRole=authenticated-orchestrator", text)
+        self.assertNotIn("pythonVersion=%s", text)
+        self.assertIn('log "Python runtime: $PYTHON_VERSION', text)
+        self.assertIn('stage.chmod(0o755)', text)
+        self.assertIn('path.chmod(0o644)', text)
+        self.assertIn('main_executable.chmod(0o755)', text)
+        self.assertIn('not stat.S_ISREG(main_metadata.st_mode)', text)
+        self.assertIn('artifact mode normalization failed', text)
 
     def test_malicious_curlrc_cannot_inject_auth_or_verbose_diagnostics(self) -> None:
         sentinel = "ambient-curl-bearer-sentinel-73f9"

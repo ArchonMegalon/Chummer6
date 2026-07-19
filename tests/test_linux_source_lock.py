@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import subprocess
 import unittest
@@ -63,6 +64,20 @@ class CheckedLinuxSourceLockTests(unittest.TestCase):
             "unbound_review_placeholder", payload["releaseManifest"]["status"]
         )
         self.assertIs(payload["releaseManifest"]["releaseEvidenceEligible"], False)
+
+    def test_source_lock_verifier_is_an_exact_checked_build_authority(self) -> None:
+        payload = json.loads(LOCK.read_text(encoding="utf-8"))
+        descriptor = payload["sourceLockVerifier"]
+        self.assertEqual(
+            {"path", "sha256"},
+            set(descriptor),
+        )
+        self.assertEqual(
+            "scripts/verify_linux_source_lock.py",
+            descriptor["path"],
+        )
+        actual = hashlib.sha256((REPO_ROOT / descriptor["path"]).read_bytes()).hexdigest()
+        self.assertEqual(actual, descriptor["sha256"])
 
 
 if __name__ == "__main__":
