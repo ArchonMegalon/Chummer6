@@ -1,120 +1,142 @@
 # Build from source on Linux
 
-Most users should use the installers on [Download](DOWNLOAD.md). If you want a local source build, use the checked-in script:
-
-[`scripts/build-chummer6-linux.sh`](scripts/build-chummer6-linux.sh)
-
-and install the result afterwards with:
-
-[`scripts/install-chummer6-linux-local.sh`](scripts/install-chummer6-linux-local.sh)
-
-## Build
+Most users should use the installers on [Download](DOWNLOAD.md). For a local source build, use the checked-in builder and then the separate installer:
 
 ```bash
 bash scripts/build-chummer6-linux.sh --base "$HOME/chummer6-source-build"
+bash scripts/install-chummer6-linux-local.sh --base "$HOME/chummer6-source-build" --force
 ```
 
-The script does its own host checks, resolves every owner repository from [`RELEASE.lock.json`](RELEASE.lock.json), bootstraps the locked local .NET SDK, verifies the locked NuGet service index, restores the checked per-RID Avalonia dependency graph in NuGet locked mode, publishes the desktop client, and writes a build manifest. It does not install Linux packages and it does not ask for `sudo`.
+The build script never installs Linux packages, never asks for `sudo`, and never installs the resulting application into your home directory.
 
-The lock binds the exact five owner commits, .NET SDK version, `dotnet-install.sh` SHA256, NuGet service-index SHA256, the complete resolved Avalonia package graph and NuGet `contentHash` values for `linux-x64` and `linux-arm64`, SDK-injected runtime-pack hashes, build-script SHA256, and the checked release-truth projection SHA256. The current UI Kit source pin is `d51ecd99cf72098d4adc8db0192bff7bf9fd8e61`.
+## What the lock covers
 
-Restore runs with a generated `NuGet.Config` that clears inherited sources, names only the lock-approved NuGet service index, and maps every allowed package ID explicitly. The build clears ambient feed, package-version, local-project, and restore-path overrides first. It then creates a new isolated package cache, refuses to reuse a pre-existing cache at that locked path, runs the root project against the checked `packages.lock.json` with `--locked-mode`, and verifies the resulting cache before and after publish. Package graph drift, `contentHash` drift, unexpected packages, source drift, archive drift, and symlinked cache entries fail closed.
+[`RELEASE.lock.json`](RELEASE.lock.json) is a review-only v2 authority. It binds:
 
-The current release projection is deliberately `unbound_review_placeholder`, so these builds remain ineligible for release evidence until Registry supplies a bound immutable authority snapshot. The script records that posture in `BUILD-MANIFEST.txt`; dependency reproducibility never turns an unbound packet into a release claim.
+- exact 40-character commits for Core, Hub, Registry, UI Kit, and UI;
+- SHA256, SHA512, size, and four toolchain-file hashes for both .NET SDK archives;
+- the final UI v5 package-plane receipt;
+- Hub's exact v3 package-plane lock, producer, inventory, and three canonical packages;
+- a 96-package normalized canonical feed and two 99-package RID restore feeds;
+- three RID-specific project-local `packages.lock.json` graphs for Avalonia,
+  Desktop Runtime, and Presentation, including exact NuGet `contentHash` values;
+- six RID-specific runtime and host packages;
+- separate restore and post-publish cache observations;
+- the package composer, source-build script, and release-truth placeholder.
 
-`--ref` no longer opts into a moving branch by itself. Development builds from `main` require an explicit acknowledgement and print a non-release-evidence warning:
+Hub is fixed at commit `35aa5a828f076d7c7c4a57dbab17d8715f9c3b68`. The locked flow fetches that SHA even if the remote `main` branch advances.
+
+The current release truth remains `unbound_review_placeholder`, `review_required`, and `releaseEvidenceEligible=false`. A reproducible dependency graph does not turn this source build into public release evidence.
+
+## SDK and package isolation
+
+The SDK path does not execute `dotnet-install.sh`. Its URL and digest remain only as a forbidden historical reference. The builder downloads the exact SDK `.tar.gz` and verifies its SHA256, SHA512, size, archive structure, toolchain bytes, executable bit, and reported `10.0.103` version.
+
+The package composer independently rebuilds owner packages and compares the result with checked inventories. Restore uses a generated `NuGet.Config` with one source: that same-run local feed. The UI consumer is moved away from owner repositories before restore and publish, and the build sets:
+
+```text
+ChummerUseLocalCompatibilityTree=false
+```
+
+There is no network NuGet source, sibling project plane, stub package, or ambient local feed in this lane. The exact cache is verified after restore and again after publish.
+
+Each project in the Avalonia restore closure receives its own checked
+`packages.lock.json` in its project directory. Restore runs from the isolated UI
+root with `--locked-mode`; no global `NuGetLockFilePath` override is permitted.
+
+Temporary checkouts, feeds, caches, NuGet configuration, and diagnostics are removed on normal exit, error, `HUP`, `INT`, and `TERM`. Generator failures remain useful in the build log, but bearer/config values and machine-local paths are sanitized first.
+
+## Python runtime selection
+
+Python 3.11 or newer is required. Selection is deterministic:
+
+1. `CHUMMER_PYTHON`, when explicitly set;
+2. `python3.13`;
+3. `python3.12`;
+4. `python3.11`;
+5. `python3`.
+
+Every candidate must explicitly report a compatible version. The discovered executable path is logged; no Linux or macOS host path is hard-coded.
+
+## Platform models
+
+The observed native lane is `linux-x64`, with 41 exact packages in distinct restore and post-publish caches. The `linux-arm64` authority is an x64-host cross-target lane with 42 exact packages. It is not native ARM execution evidence.
+
+Build x64 on an x64 host:
 
 ```bash
 bash scripts/build-chummer6-linux.sh \
-  --allow-moving-ref \
-  --ref main \
-  --base "$HOME/chummer6-source-build-moving"
+  --target-rid linux-x64 \
+  --base "$HOME/chummer6-source-build"
 ```
 
-Use `--lock PATH` or `CHUMMER_RELEASE_LOCK` only with a reviewed lock that passes `scripts/verify_linux_source_lock.py`. Digest and dependency-graph mismatches fail before downloaded scripts or package restores run. Moving-ref builds still use the checked package allowlist and therefore fail if their package graph has drifted; update and review the lock instead of bypassing it.
+Build the bounded ARM64 cross-target on an x64 host:
 
-The build step never installs the user-local copy for you. It only produces the artifact directory and archive.
+```bash
+bash scripts/build-chummer6-linux.sh \
+  --target-rid linux-arm64 \
+  --base "$HOME/chummer6-source-build-arm64"
+```
 
-If a required tool is missing, it stops early and tells you what to install. `--skip-system-deps` is still accepted for compatibility, but the script does not install system packages either way.
+The script stops on a native ARM host instead of representing an unobserved model as evidence.
 
-If you use mirrors, set `CHUMMER_REPO_BASE_URL`. The script expects `chummer6-core.git`, `chummer6-hub.git`, `chummer6-hub-registry.git`, `chummer6-ui-kit.git`, and `chummer6-ui.git`.
+## Moving refs
 
-Set `CHUMMER_KEEP_BUILD_TEMP=1` if you want to keep temporary build files.
+`--ref` requires an explicit non-reproducible acknowledgement:
 
-Source-built copies check for newer published builds in notify-only mode by default. The generated launcher sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you have not already chosen another mode. Analytics also default to `off` through `CHUMMER_DESKTOP_ANALYTICS_DEFAULT=off` unless you already chose another value. The updater supports three modes: `full` for automatic download and replacement, `notify` for update notices without automatic replacement, and `off` to skip startup update checks.
+```bash
+bash scripts/build-chummer6-linux.sh \
+  --audit-only \
+  --allow-moving-ref \
+  --ref main \
+  --base "$HOME/chummer6-source-audit"
+```
+
+The full build intentionally stops for moving refs because mutable source cannot consume the checked immutable package plane. Generate and review a new lock instead of bypassing it.
 
 ## Requirements
 
-- Linux with glibc
-- x86_64 or arm64
-- Git and Git LFS
-- Python 3
-- `curl`, `tar`, `gzip`, `sha256sum`, `file`, `flock`
-- ICU runtime libraries
-- about 25 GiB of free disk space
+- glibc Linux on x86_64;
+- Git;
+- Python 3.11 or newer;
+- `curl`, `tar`, `gzip`, and `sha256sum`;
+- ICU runtime libraries;
+- about 25 GiB free space.
 
-Before you build, you can inspect the checked-in helpers directly:
+The helpers below remain read-only and do not install packages:
 
 ```bash
 bash scripts/list-chummer6-linux-prereqs.sh
 bash scripts/check-host-chummer6-linux.sh
+bash scripts/build-chummer6-linux.sh --audit-only --base /tmp/chummer6-audit
 ```
 
-`scripts/list-chummer6-linux-prereqs.sh` prints package hints for Debian/Ubuntu, Fedora/RHEL-style, Arch/Manjaro-style, and openSUSE-style systems. `scripts/check-host-chummer6-linux.sh` runs the same local-first host audit without cloning or publishing anything.
-
-For extra-paranoid builds, you can also run the checked-in Docker verification script:
+For an additional clean-container check:
 
 ```bash
 bash scripts/verify_linux_source_build_docker_gate.sh
 ```
 
-It runs the build in a clean `debian:bookworm-slim` container. Set `CHUMMER_KEEP_DOCKER_GATE_WORKDIR=1` to keep the work directory and logs.
+## Output and installation
 
-## Install the built binary
+A successful x64 build writes:
 
-The binary is installed by a second script on purpose.
-
-```bash
-bash scripts/install-chummer6-linux-local.sh --base "$HOME/chummer6-source-build" --force
+```text
+$HOME/chummer6-source-build/
+  artifacts/chummer6-linux-x64/
+    Chummer.Avalonia
+    BUILD-MANIFEST.txt
+    chummer6-linux-x64-source-lock.tar.gz
+    chummer6-linux-x64-source-lock.tar.gz.sha256
+  logs/
 ```
 
-You can also install straight from the produced archive:
+You may install directly from the archive:
 
 ```bash
 bash scripts/install-chummer6-linux-local.sh \
-  --archive "$HOME/chummer6-source-build/artifacts/chummer6-linux-x64-<timestamp>.tar.gz" \
+  --archive "$HOME/chummer6-source-build/artifacts/chummer6-linux-x64/chummer6-linux-x64-source-lock.tar.gz" \
   --force
 ```
 
-The installer script creates a user-local install directory at:
-
-```text
-$HOME/.local/opt/chummer6-source-build
-```
-
-and a command link at:
-
-```text
-$HOME/.local/bin/chummer6-source-build
-```
-
-## Output
-
-After a successful build, the target directory contains:
-
-- `artifacts/chummer6-linux-x64/Chummer.Avalonia` or `artifacts/chummer6-linux-arm64/Chummer.Avalonia`
-- `run-chummer6.sh`
-- `BUILD-MANIFEST.txt`
-- a `.tar.gz` archive
-- a `.sha256` file
-- logs under `logs/`
-
-The install script turns that artifact into a user-local installed copy with a stable command link.
-
-## Notes
-
-The script stops on lock drift, checkout drift, download digest drift, local changes, low disk space, musl/Alpine hosts, non-executable directories, or missing native libraries after publish.
-
-The binary and its native library links are verified. A real desktop session is still needed for a final launch check.
-
-This is a local source build, not an official release. A moving-ref build is always ineligible for release evidence; a locked build becomes eligible only after its lock carries a bound Registry authority snapshot.
+The installer creates a personal copy under `$HOME/.local/opt/chummer6-source-build` and a command link under `$HOME/.local/bin/chummer6-source-build`. A real desktop session is still needed for final startup and visual evidence.

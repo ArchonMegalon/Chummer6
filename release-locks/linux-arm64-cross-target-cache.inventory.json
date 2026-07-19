@@ -1,0 +1,323 @@
+{
+  "baseFeedInventorySha256": "9a162dfa07673de3e50c08ee00343899839f2ed8be3cb16892868b440daa454a",
+  "contract": "chummer6.rid-nuget-cache-inventory/v1",
+  "executionModel": "cross_target",
+  "hostRid": "linux-x64",
+  "nativeTargetExecuted": false,
+  "observations": [
+    {
+      "packageCount": 42,
+      "packageInventorySha256": "fcfc8533026b6f7fd6c4d8ebcb12d93c523141ab6a71ad3466b89a5a7b132be4",
+      "phase": "restore"
+    },
+    {
+      "packageCount": 42,
+      "packageInventorySha256": "fcfc8533026b6f7fd6c4d8ebcb12d93c523141ab6a71ad3466b89a5a7b132be4",
+      "phase": "post_publish"
+    }
+  ],
+  "packageCount": 42,
+  "packageLockSha256": "04fe90231466976afa04d4ce74b7ec68707ff6ec91a24ddaad6d741f4a569dbd",
+  "packages": [
+    {
+      "archiveSha512": "CiFradU1jzN0pzenMkQuO82GugG1b25RJCMWXOeV+CzxRJbOKpG9sIROaNpJrsjAPETovQl2SJuOyZFsngwwlA==",
+      "contentHash": "QlVvaYTSTqzoUflmAEMuPzi3vYdybEIXmFQgLZxdTbzTeyhlwKZ1WqtLwHVe1Fbt8oGSCqYYKsU8SViZsdXR2Q==",
+      "packageId": "Avalonia",
+      "sourceSha256": "16c073de6c129fe259bd2002105646cd805d5fee2b14748541f97d4584fb0403",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "XPS6c5xP4L+eNq0rTUgTOCOeqYIW5hiPjC969e+9y4kmzn1q8t+VEHH42SlNTSXOHlKDXyv0rAjD3Oul5QOuYA==",
+      "contentHash": "ZL0VLc4s9rvNNFt19Pxm5UNAkmKNylugAwJPX9ulXZ6JWs/l6XZihPWWTyezaoNOVyEPU8YbURtW7XMAtqXH5A==",
+      "packageId": "Avalonia.Angle.Windows.Natives",
+      "sourceSha256": "2c4fe510d007a6d9b3eaddd3fc0a09c2786975afb1b3b3eaae2346cdd71f83c3",
+      "version": "2.1.25547.20250602"
+    },
+    {
+      "archiveSha512": "0zfgsOzBhK/KDDoith9aH0tksEN3To2wnwb9F7gAcyZR5kGNe4qntI/JHV7jiilW0TCRBtMD0lfDqH4NXGCvgA==",
+      "contentHash": "k/WwXbqwaCtmE0a90YXB9plT50ok6OgLBIr+DUYK16akJN82iK69kgkL1vGDd8XBvf77JM3O27znBuy7AEoFgg==",
+      "packageId": "Avalonia.BuildServices",
+      "sourceSha256": "258700fc38131d1274dbf15c511aad2675d8861773922f0318408b919e3338d8",
+      "version": "11.3.1"
+    },
+    {
+      "archiveSha512": "6xGfaKjG17M56kjkf0pvzDUAtdoym0EBcqjpXW4WMpQ5bjIrBrmjjSRhuFC/QVSjQPaO3ohVr4FsZ8MRid15Qg==",
+      "contentHash": "yWYj8M4tpg6YJrGwPIrXPuVUocJsCmT81M+QtVZkEp4PZOUkm21tviaI4BGrY8eQYHuRRy7k/vcVxwHqnmQwuA==",
+      "packageId": "Avalonia.Desktop",
+      "sourceSha256": "651b4a4ed4b7fc1fc4cac4163689374b1de52ff102bec6dcde23f148c4c13ee1",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "jIOtDvm1DVXx0ulesU4xP+nKdY2dC6r+aLvGMqbEqbYqpG+ZRbizBYpfGpS8K+5FEDzNM9M/+Gywge7+U1wrGA==",
+      "contentHash": "F4o1OKt2UvXkCHJldx8r6bSkpF/jal0rajhZen4XFCsC4KvIDU0stfWQebQeOLGpmEhDYFWsNtR3a47hpBZSsg==",
+      "packageId": "Avalonia.Fonts.Inter",
+      "sourceSha256": "f4e0c5e64d5a00821807ecafd13351b5fba56905bd006954008f09f32673a77c",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "OVsUOZutM7+FQmCzJmJTCJfRe6IPDsQHkP+byz0HgdrTYJkDoc+9L1hzQ4ebN8b1OUo9IekzO1UAFddiSjdoqQ==",
+      "contentHash": "4K36zaeYiZT/6S5if5fXGDAdJL4u4zuO0k33VrLpdflkVCjgPrd1WhK3qxJrgF9YNRwpkvbxnTtZzSP2X6AfKg==",
+      "packageId": "Avalonia.FreeDesktop",
+      "sourceSha256": "917aedd247541f54c113ce993a908a483f2c319bf70cfe9aae2b37ff4a0e04f4",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "PPmypmyAYl3Ib6BQCi1yRQrrXvC0sTB2jYTrBfq8rh2XQjRJue5iEqMmM6GU7bLP7HW6pq7ZWARRP2lhcFYbSw==",
+      "contentHash": "KONYDXAlqGpMwaVrRQTp4MnbUbiG34nEYMUl3iYkgl9qP54rR/iJgDh8Xo0UfEC9Tjc/N3kV4gmhcSrOT7NCbA==",
+      "packageId": "Avalonia.Native",
+      "sourceSha256": "cb5aee4300eb1aff39f450d6180a31bbcbee6fa9aa584f8b40f6fd91bd73acf3",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "Z9AanvX2MD8IA8ha6risX52xAXM195JXIovIZUWjan82DWz9x2IAlifwbgRYNRV3fwLSsyaKO+Sd7F9f64m8Zg==",
+      "contentHash": "xI/QoELcb/U4qSm1KDXRRaA1qy+QgyHlgTS6EN7crV/6Ldzdv990rk6ClFa2RajHhvEm2i6S8kVx2paWZIOHHw==",
+      "packageId": "Avalonia.Remote.Protocol",
+      "sourceSha256": "03716e6d11fc2e2f35a5884450641ab4cd1eb658b99529037f6fa23f10fde60b",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "cmjBeTxWwbuMwdceMHlxyvUG35tU1otCwmt8/EvuLa2YRs6fCrt47KBPGsWuVK3AHvglk7TFIDZKcxLm0Vxvjw==",
+      "contentHash": "nDTop5duFQBdsR3YzLs/w0rhOdOB6szZQLD2vMCe8FDkKQM4j35sXMKVUcTtvSts3x8yo5DEarXfWU1viY2gng==",
+      "packageId": "Avalonia.Skia",
+      "sourceSha256": "b80f6a039f924804fa23e178811b3c521af998f9140f895ee48ad021e20ec4a8",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "iRAn5B1UpM+/NQREpwqS5gHZIilSxjZWUq3bPc0jgSMoD8DN+4yTSTkxnS6nVaS0aZcRQCMEZwtbOIt5pazcmA==",
+      "contentHash": "StAyxi9FXU/k9V4LhbvaVYfMddi3ivD88iugu0n8uRPeWZJSlkkpND5ffqW1Wojti/IwFsSmYb6Lj7nYgQCCkQ==",
+      "packageId": "Avalonia.Themes.Fluent",
+      "sourceSha256": "49be16eebab33cf5e8aca705132e040ea872e059a9254daf485af733a01bf4dd",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "lAf9lo2pIJguqbiItxRE1FHnA616dvKiH7CMTLfh6j9fy/lcYPBVQsp1lKSDDiPNsYsgFqNGWiqZiO8v3l1pxQ==",
+      "contentHash": "e6EdWKnGvr7WSg4Q3zjej0DQo5FjzwuB+5kqotYVrf+RG/EvP/49P9S257Cjz9A5Br0TCNLny3VBbqPlt4i4Ag==",
+      "packageId": "Avalonia.Win32",
+      "sourceSha256": "6a4b5f13a5f641ad490556a216dd85a994018934ec90f2ad1ecb0cdd9afd70fd",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "vDEEE0xEIGXaHa1hZDii6YcSN/CErOtEoJEDkZbt9+O4tkvzjSgS5uiFax5kCkxZqC+Q4yUpM8FM8uUZsJw9Rg==",
+      "contentHash": "1/C3oM/qIRDGnBViXDpCvwsQPq74+QrwXGCzGb3meF0u+7nTZ/obh+fxMGgcq/0QHcq0t7taxsUr1lhVyBtEYw==",
+      "packageId": "Avalonia.X11",
+      "sourceSha256": "a19e6c403158c31eafcab00b65cba9e17975c943de6fa586d5e8c901e71bc775",
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "eedVIAaqqCQ7ooCCZi8nyN22JTcHmIucf/PU62CRuwCb8p02v+rXaydEZtKGVfHg9/yp4igngtltOEYb+cnMbw==",
+      "contentHash": "eedVIAaqqCQ7ooCCZi8nyN22JTcHmIucf/PU62CRuwCb8p02v+rXaydEZtKGVfHg9/yp4igngtltOEYb+cnMbw==",
+      "packageId": "Chummer.Application",
+      "sourceSha256": "6ce46217e673015e06f2e19612c6ea0780d8ca2265886bf272bed6f333b57db7",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "TiK7NwekdXjf1J+HKVFtLT074y6OKI14T/cevmGOxAUWY7IsqAI7mXuxe7p/L28O5zvgA/K+q4ABmNt7pD72pw==",
+      "contentHash": "TiK7NwekdXjf1J+HKVFtLT074y6OKI14T/cevmGOxAUWY7IsqAI7mXuxe7p/L28O5zvgA/K+q4ABmNt7pD72pw==",
+      "packageId": "Chummer.Campaign.Contracts",
+      "sourceSha256": "69c4370c4e112833a1d766e2ec98058337096bb8c0a49ac18d50986fe9abbdb8",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "LNSTC2sZdfDKUf8sxNwK8NF7cTnjf0BseFbv3mRbWDF7ZAIYRqrccN/vjMLASXtIRASYiZxL+FzfTeltvPmx/Q==",
+      "contentHash": "LNSTC2sZdfDKUf8sxNwK8NF7cTnjf0BseFbv3mRbWDF7ZAIYRqrccN/vjMLASXtIRASYiZxL+FzfTeltvPmx/Q==",
+      "packageId": "Chummer.Engine.Contracts",
+      "sourceSha256": "ee7a0578d7eaa421e0bdc445394e8d4304d48accb561c48853559e429375ad2d",
+      "version": "5.225.0"
+    },
+    {
+      "archiveSha512": "A/iH3pSgE7cPCzudlz7aM0hNBapVsB2jaEUUWaU5WSej21lwGaJ2bsGJl7UWASqxKRLnwek1gp6NF0gPaesrrg==",
+      "contentHash": "A/iH3pSgE7cPCzudlz7aM0hNBapVsB2jaEUUWaU5WSej21lwGaJ2bsGJl7UWASqxKRLnwek1gp6NF0gPaesrrg==",
+      "packageId": "Chummer.Hub.Registry.Contracts",
+      "sourceSha256": "ece4182749d1db0cc224f7be169e7ae493b813e18f7e112bcecae77c08f1b5bc",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "CnYuo+byMC4NQF+ptKPvS3Wl10RR21PoxJxfIPPheoTFG6hqBZ3zo/sHpB43EsuW33/Ia2esv+53KLoEqHKkdw==",
+      "contentHash": "CnYuo+byMC4NQF+ptKPvS3Wl10RR21PoxJxfIPPheoTFG6hqBZ3zo/sHpB43EsuW33/Ia2esv+53KLoEqHKkdw==",
+      "packageId": "Chummer.Infrastructure",
+      "sourceSha256": "e74340bd25c06fb84df579c3fad9f2a2eb38d685c0f05dc97badc0ee4746f234",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "mlcpuJ8u40RaXNleGsSa4kJZtU3PvIxoEp4ULHvuAcXTsu8ACZPW2spqmRvmbBcyfBGjEJgpbIOUrPWXm0ZpiQ==",
+      "contentHash": "mlcpuJ8u40RaXNleGsSa4kJZtU3PvIxoEp4ULHvuAcXTsu8ACZPW2spqmRvmbBcyfBGjEJgpbIOUrPWXm0ZpiQ==",
+      "packageId": "Chummer.Play.Contracts",
+      "sourceSha256": "8ff4b9eb23c0c518a20f3eb045a9dd136ef0f8fa1d9b3863bd7747a64b97eb7f",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "QNaP8jfJtFJ1N5+ML1F29Z75Cmea1hiX4w6Gf31vT8hp0j/7DdOG4da1+JxrBAWRA8J09evPiryusb+YTZC0bw==",
+      "contentHash": "QNaP8jfJtFJ1N5+ML1F29Z75Cmea1hiX4w6Gf31vT8hp0j/7DdOG4da1+JxrBAWRA8J09evPiryusb+YTZC0bw==",
+      "packageId": "Chummer.Rulesets.Hosting",
+      "sourceSha256": "f1c9f791b2ada1719ee64a2e97311148cc8e8d883e34e4dad4c42b9e713ce807",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "Hebew1RHZq7rycdTZE7+tIRG1Bnz3lm2VBxZLccTEU5lmhaf3canYKLNwv8A+GMRtCHwLF7aHujHa1Dy33KXzA==",
+      "contentHash": "Hebew1RHZq7rycdTZE7+tIRG1Bnz3lm2VBxZLccTEU5lmhaf3canYKLNwv8A+GMRtCHwLF7aHujHa1Dy33KXzA==",
+      "packageId": "Chummer.Rulesets.Sr4",
+      "sourceSha256": "60ab1b18d0b376e536b9eac428f12f2fd164ae683813a1b0ad7bee11443a2310",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "f0QyTdJdT6IhT+jiEn6R1zkOM4NRGSz7WaSLt8fun6S7cj10fxjdTcJ049CQQc4chef6QMfUlaEWRfpLNBcvTA==",
+      "contentHash": "f0QyTdJdT6IhT+jiEn6R1zkOM4NRGSz7WaSLt8fun6S7cj10fxjdTcJ049CQQc4chef6QMfUlaEWRfpLNBcvTA==",
+      "packageId": "Chummer.Rulesets.Sr5",
+      "sourceSha256": "88ce05ad3cb74beba1d6761f04c8030b4a1cd75b48b20dcea65cb6b836cf6694",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "ahjEDQWnJhFjiRFuyncjpXJjAr2uqpZBxo7F0xICc25kfIfVtlk4IEjkLj7IzTWB37WV/WE6eJtA7udJ9lGzzg==",
+      "contentHash": "ahjEDQWnJhFjiRFuyncjpXJjAr2uqpZBxo7F0xICc25kfIfVtlk4IEjkLj7IzTWB37WV/WE6eJtA7udJ9lGzzg==",
+      "packageId": "Chummer.Rulesets.Sr6",
+      "sourceSha256": "04206723e0bb259e68569760dd56cf55fbb54caeafee361cfd5b687fc61d2b0b",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "iyPzdm8r8pNsFwijOR4zDtxOIz0KW5M2vA68Fo+c0DgbE2WPy4HN8C5rqqUxpf5lxceORovLe35CLvSR4qQX7A==",
+      "contentHash": "iyPzdm8r8pNsFwijOR4zDtxOIz0KW5M2vA68Fo+c0DgbE2WPy4HN8C5rqqUxpf5lxceORovLe35CLvSR4qQX7A==",
+      "packageId": "Chummer.Run.Contracts",
+      "sourceSha256": "08f702a6fe627f1534da4219fb3686458fff9141031005356a2314ff83e9cbd7",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "LAZ0dTTA+FjDS0LUigRsK9QlvHEPq80tKXgn56n0/NFKk5EqR0+LuTKlBDp61iYis4sgC72xrWZR6o+1REZUkw==",
+      "contentHash": "LAZ0dTTA+FjDS0LUigRsK9QlvHEPq80tKXgn56n0/NFKk5EqR0+LuTKlBDp61iYis4sgC72xrWZR6o+1REZUkw==",
+      "packageId": "Chummer.Ui.Kit",
+      "sourceSha256": "076d462d3017d28a62e126106e65fded797d366db1f56c25fcd9c768faa1f9e0",
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "7R2URHlW+llcSGf+PutKe2fJfgDg2lpydiNiISy/JeYr5ZNuWWF8lKHL1Oa70KyQKFTQ02hmvZIO1qha5mOsjA==",
+      "contentHash": "tLZN66oe/uiRPTZfrCU4i8ScVGwqHNh5MHrXj0yVf4l7Mz0FhTGnQ71RGySROTmdognAs0JtluHkL41pIabWuQ==",
+      "packageId": "HarfBuzzSharp",
+      "sourceSha256": "eb5e32bfa6caf729e17549ef5b8c08920a417b6b2a4e1dbc53d7036737613dcd",
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "Tb/+tdB8N3tfbX1UpljG4nL6eGhpxOam/b+Lv4X4nQGmBt3+JAWS823dN4B0cPBUa7x96abrBQjaFekdFKlWFw==",
+      "contentHash": "3EZ1mpIiKWRLL5hUYA82ZHteeDIVaEA/Z0rA/wU6tjx6crcAkJnBPwDXZugBSfo8+J3EznvRJf49uMsqYfKrHg==",
+      "packageId": "HarfBuzzSharp.NativeAssets.Linux",
+      "sourceSha256": "b016decfa7dcf5ac5572c05b2076e9421fcc33934794c2604aee85cae6735725",
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "BjFVhiqZnQfAHk3zst8tI6oyDCXuYlCbC95lfsh5fgxv6V/ksp6fay6aASDcdt9DHFR/e6+fqhmTbFqet42i5g==",
+      "contentHash": "jbtCsgftcaFLCA13tVKo5iWdElJScrulLTKJre36O4YQTIlwDtPPqhRZNk+Y0vv4D1gxbscasGRucUDfS44ofQ==",
+      "packageId": "HarfBuzzSharp.NativeAssets.macOS",
+      "sourceSha256": "84adb429b5f63a97b020ee6a1b9816c39221e86a0b7080e014ea822488d747f4",
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "dG1Svxgg2JchGYK0ZtJ0R33C5pipeCfLbcUwOyNVrZ7HkpkC1IS+IFKCvsLrqtKCSVLXCWrjsDxKm+Xug4TZ2w==",
+      "contentHash": "loJweK2u/mH/3C2zBa0ggJlITIszOkK64HLAZB7FUT670dTg965whLFYHDQo69NmC4+d9UN0icLC9VHidXaVCA==",
+      "packageId": "HarfBuzzSharp.NativeAssets.WebAssembly",
+      "sourceSha256": "98b2a82ea238ed91d7a9330bc0fd540a6edf683a6d51f42e90dbddabac3fc71c",
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "W/ZQTDT5BARF1viNl1iWsonLYitN4Ql2HnIcuD6NMwFobu3Wpnqd1eR0L+um1e0dEGkyNy9DFZkmcSrW8eAq8w==",
+      "contentHash": "UsJtQsfAJoFDZrXc4hCUfRPMqccfKZ0iumJ/upcUjz/cmsTgVFGNEL5yaJWmkqsuFYdMWbj/En5/kS4PFl9hBA==",
+      "packageId": "HarfBuzzSharp.NativeAssets.Win32",
+      "sourceSha256": "526e22c0b773f57b5a0d202cb6135975ebfa74c8b2ece0681ceae8accacc632a",
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "wAcxF2406nuTatWKOGOYQ8eQsCe3FO1dPqgouF6pSxSlAt7VLKf2C7EMCsDnRL1uYv3M4BCOuq+XMcQI7s4DHg==",
+      "contentHash": "MEnrZ3UIiH40hjzMDsxrTyi8dtqB5ziv3iBeeU4bXsL/7NLSal9F1lZKpK+tfBRnUoDSdtcW3KufE4yhATOMCA==",
+      "packageId": "MicroCom.Runtime",
+      "sourceSha256": "55dc293f97ec725bcda89ba9a5a3afc04c2fda87e7008e594b3d95f9411d2c5d",
+      "version": "0.11.0"
+    },
+    {
+      "archiveSha512": "ALvoj2Ur92guiHgOuraJ8NOkxIABoz8PPHSCpIMMsxY8Jqo4XCa2qO5ANdtKgswBcS+wmyNWU11QV0KmXIXkzw==",
+      "contentHash": "es9U+w7GTRqMg6SvIB52W/50HlDh/XSl7HZ/xJaoBASiCoIGizWwqYwnEf0vXAooLltYF3z7+OeDFt/2VOvIpg==",
+      "packageId": "Microsoft.AspNetCore.App.Runtime.linux-arm64",
+      "sourceSha256": "06d529a6823fbe06247bca35ee508f167085a055a40e90d3608c7053317c1640",
+      "version": "10.0.3"
+    },
+    {
+      "archiveSha512": "jKVOffyzW7yqmikvAQf69oCKjPlMiHmnqv4xroQRdNKQCYlUIc4rvJv6/YbQyqvUArvrzITxlhd0dA3MFVIpuw==",
+      "contentHash": "f0RBabswJq+gRu5a+hWIobrLWiUYPKMhCD9WO3sYBAdSy3FFH14LMvLVFZc2kPSCimBLxSuitUhsd6tb0TAY6A==",
+      "packageId": "Microsoft.Extensions.DependencyInjection",
+      "sourceSha256": "2d89bd855968fd1f5cd9a00a1ec0d8279bd8f54d3edc9bdc9667b7a2edc1b6f4",
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "R1JUmDhx81zXARj7/3QwSexiO9lNE2PBPXyK47sblSGIOl4Jd60iLY8wtmJ/NzhpXtPBiSOTMn2KFYuf7QaRIw==",
+      "contentHash": "L3AdmZ1WOK4XXT5YFPEwyt0ep6l8lGIPs7F5OOBZc77Zqeo01Of7XXICy47628sdVl0v/owxYJTe86DTgFwKCA==",
+      "packageId": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "sourceSha256": "f62a1d5cfdfd62a831a269ce3cec5dfe6cdb1b425f3925f3168354de8993d8fb",
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "f/t0VPBRgMOrxvcuGKQqm+XXE33RX7rdMgNU+s2INJ7X9yL0DU0PYHDG9EZ4GzegCpEzE+t/LZ0JWWmbWF3edQ==",
+      "contentHash": "0lr5bVpxBX4z8O1jR0sn9KzsKikOyOWcPN6sSB6iCZI4LTQpU7SwE9zYbgPK0AifiezmSyg5C/kJSNiJ6sr/QA==",
+      "packageId": "Microsoft.NETCore.App.Host.linux-arm64",
+      "sourceSha256": "fb59c8792a06f20d7306b81caccf89af1babe79b5126c0685e41196be2b0e6b0",
+      "version": "10.0.3"
+    },
+    {
+      "archiveSha512": "3jqYlicN+DFw7YpAHa21ogbdCzgeKbhJNOegZhFwfMhB+chVo9+EDYBPkMjb0dTvpaNizBM0fvwnYOm+LK2J1w==",
+      "contentHash": "lQRt059uoMphd2skAVhLdOIoTuOmJTMzHCdLf+K+HsAKCIllU1Tzh52H6UhEL/iu+FHL6Z4QXvdC8uNyi7h6XA==",
+      "packageId": "Microsoft.NETCore.App.Runtime.linux-arm64",
+      "sourceSha256": "051bfc73f47f7d28bf9fb4cee616df71063ffc3da8861ec4f0645b0e73476d78",
+      "version": "10.0.3"
+    },
+    {
+      "archiveSha512": "Oi/6XgX0XNuA5nNe6UfpHgj/FF/FDHiC511Etq4MLNczQg0VtqQnShhrOnnUY6EnPif/f9eaUdCTclHrtu92HQ==",
+      "contentHash": "3MD5VHjXXieSHCleRLuaTXmL2pD0mB7CcOB1x2kA1I4bhptf4e3R27iM93264ZYuAq6mkUyX5XbcxnZvMJYc1Q==",
+      "packageId": "SkiaSharp",
+      "sourceSha256": "8d9ff89d55d826daf3f5205feac61cfecd05c52ed178860ce24324ae1652fb6e",
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "XGo+k6GOcOatzVSL0vdvoxERQ0bOTYEuUg8lDTM0LVrY0F6ihUM70Vyxm7xI2bvy730fFyXdcXBazO+ro/Rokg==",
+      "contentHash": "cWSaJKVPWAaT/WIn9c8T5uT/l4ETwHxNJTkEOtNKjphNo8AW6TF9O32aRkxqw3l8GUdUo66Bu7EiqtFh/XG0Zg==",
+      "packageId": "SkiaSharp.NativeAssets.Linux",
+      "sourceSha256": "990fe805aa9147bd567d2eba9890af71cdee296ec23441e83cdd898a50dbc3f0",
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "dM+4ZXRvKRGTUpC/uSRpszHlBBXVq+2odZjr20BJxSr4Sl2u2kHrywu67Gp967Qtg83GyfYc6lXUPHIKeMPrzg==",
+      "contentHash": "Nv5spmKc4505Ep7oUoJ5vp3KweFpeNqxpyGDWyeEPTX2uR6S6syXIm3gj75dM0YJz7NPvcix48mR5laqs8dPuA==",
+      "packageId": "SkiaSharp.NativeAssets.macOS",
+      "sourceSha256": "aaf1ae0268d71a318a33338f06f3fd55645538809219beda3557a353494b7bf8",
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "wYFdhpBMJeG8PkOyLMSy2w7JMcE91NlQWitssModJDKfclvOZQrxsNwSvHDYNSzBnyrEUqq0YuevR4fUYB4OCg==",
+      "contentHash": "kt06RccBHSnAs2wDYdBSfsjIDbY3EpsOVqnlDgKdgvyuRA8ZFDaHRdWNx1VHjGgYzmnFCGiTJBnXFl5BqGwGnA==",
+      "packageId": "SkiaSharp.NativeAssets.WebAssembly",
+      "sourceSha256": "be014be0f772dced51281a7e4fd3775b89e41fdcaead9d2cba8f2ede03e69a16",
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "0YvYGUBBx/+3kwLU8b5YTowCToixLLRmmnOMrlUdo9PjkkCHuwqkLTSpADz7NQN9c2N4lOZ9AiI9EAobQhXu7A==",
+      "contentHash": "wb2kYgU7iy84nQLYZwMeJXixvK++GoIuECjU4ECaUKNuflyRlJKyiRhN1MAHswvlvzuvkrjRWlK0Za6+kYQK7w==",
+      "packageId": "SkiaSharp.NativeAssets.Win32",
+      "sourceSha256": "90fe573391a0c0719f3497dee13db23b934866d885ef50dda74a5dd6f1b957fe",
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "teHxNzoQmQKZz4y0rF/bdfZbHe7JuLujMDJ0Ec+mhdy9/55AbOnGXqOaQ8nlJVVdSeMw8xOL3LDzAce1qFBeBw==",
+      "contentHash": "qy6C3gQRTrfhFfuiIYU1jNwWfFdJpBVo1BARW7jgMm1zTEm3LRzLLyOLJGaAuKE+nZCGkEP71y4rj9NWjqLGdQ==",
+      "packageId": "System.Security.Cryptography.ProtectedData",
+      "sourceSha256": "8684759555d51145df22d373276dff491c9b2c1a9a7f8658cc9063956807a523",
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "8O8Z3ZgiWliBRi+JEYPDlNiqiSWzpkCEpr3KFa+b+LvZjAF/0ibI+ZqpIvSIerutb5IKyQrGGXJEe5Lhtf/oNA==",
+      "contentHash": "hDwB8WsQoyALQKqIbwzS68UKdlnafDm4T/DkO/JrA/YIneP/rKv96SxYPVXeh3FP4i/SXfShrYftKLtciJAIlw==",
+      "packageId": "Tmds.DBus.Protocol",
+      "sourceSha256": "1d51081d27927b6f5eae01f1b0dbd662ede8ec08bc5592a8d3dc859fe9a24e72",
+      "version": "0.21.3"
+    }
+  ],
+  "restoreFeedInventorySha256": "3493282d6ea638d3f1a91e3e47a0e648f5c11c1495f66eeb40434c95a1dc883e",
+  "runtimeIdentifier": "linux-arm64",
+  "runtimePackageAuthoritySha256": "6c41d00c73e616f5d8f7fa942bc189e041501f78b7bceb49fcea66fe31b5879b",
+  "sdkExecuted": true,
+  "sdkRid": "linux-x64",
+  "targetRid": "linux-arm64"
+}

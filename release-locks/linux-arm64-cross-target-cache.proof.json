@@ -1,0 +1,31 @@
+{
+  "cacheInventoryAuthority": "release-locks/linux-arm64-cross-target-cache.inventory.json",
+  "cacheInventorySha256": "412a3fa16dc1db9f0c11b130443a828f1a2fa45c869fbaabf1c400f74a42635a",
+  "contract": "chummer6.rid-cache-observation-proof/v1",
+  "executionModel": "cross_target",
+  "hostRid": "linux-x64",
+  "nativeTargetExecuted": false,
+  "observations": [
+    {
+      "packageCount": 42,
+      "packageInventorySha256": "fcfc8533026b6f7fd6c4d8ebcb12d93c523141ab6a71ad3466b89a5a7b132be4",
+      "phase": "restore"
+    },
+    {
+      "packageCount": 42,
+      "packageInventorySha256": "fcfc8533026b6f7fd6c4d8ebcb12d93c523141ab6a71ad3466b89a5a7b132be4",
+      "phase": "post_publish"
+    }
+  ],
+  "packageCount": 42,
+  "packageInventorySha256": "fcfc8533026b6f7fd6c4d8ebcb12d93c523141ab6a71ad3466b89a5a7b132be4",
+  "phaseRootsDistinct": true,
+  "releaseEvidenceEligible": false,
+  "runtimeIdentifier": "linux-arm64",
+  "sdkAuthoritySha256": "38aa6ac48528c458a8cfa2a2d0b145d4aaec7347184e4a5ecc924f73fe682189",
+  "sdkExecuted": true,
+  "sdkRid": "linux-x64",
+  "sdkVersion": "10.0.103",
+  "status": "passed",
+  "targetRid": "linux-arm64"
+}

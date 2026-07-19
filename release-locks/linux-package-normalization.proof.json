@@ -1,0 +1,508 @@
+{
+  "canonicalFeedInventorySha256": "9a162dfa07673de3e50c08ee00343899839f2ed8be3cb16892868b440daa454a",
+  "contract": "chummer6.package-normalization-proof/v1",
+  "normalizationContract": "chummer6.deterministic-nupkg/v1",
+  "packageCount": 10,
+  "packages": [
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Application.dll",
+      "assemblySha256": "ddbf5512b2664e99e1eddc2796ea4958dc5f5d0d7407ba7ce64bf3175b905e70",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/52e6da3654365b2a3d208eed9ffa54bd.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/0e79086a64a142168cbe3c2b892b8aec.psmdcp",
+          "preserved": true,
+          "sha256": "52e6da3654365b2a3d208eed9ffa54bdc071c84362a98068e911f15c6b71cb2b",
+          "sizeBytes": 634
+        },
+        "relationships": {
+          "normalizedSha256": "f557a333e98bdac67a96275ff1ed1bc358381cfb5a03a5d692e2d575e4bf9e83",
+          "normalizedSizeBytes": 509,
+          "originalSha256": "6eaadb432edc9f901f3177533472c27dbba24c1f88738895f59b98711095dda9",
+          "originalSizeBytes": 509,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Application.0.1.0-preview.nupkg",
+      "normalizedSha256": "6ce46217e673015e06f2e19612c6ea0780d8ca2265886bf272bed6f333b57db7",
+      "normalizedSizeBytes": 683775,
+      "originalSha256": "e91155b09becad3b7de9f5ff5dbe35e41437e4d0db6428294b29e9a2c3a36e6f",
+      "originalSizeBytes": 239209,
+      "packageId": "Chummer.Application",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Application.nuspec",
+          "sha256": "d230f17b14384013caf38de24416da8540325e2c045c6e8f11fa51fff69786e6",
+          "sizeBytes": 979
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "3dae54f1e2761fb41379f8d05e7fdb903b62ecd0ec1c65fc68fd02c91c3671cf",
+          "sizeBytes": 459
+        },
+        {
+          "path": "lib/net10.0/Chummer.Application.dll",
+          "sha256": "ddbf5512b2664e99e1eddc2796ea4958dc5f5d0d7407ba7ce64bf3175b905e70",
+          "sizeBytes": 680448
+        }
+      ],
+      "project": "Chummer.Application/Chummer.Application.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Campaign.Contracts.dll",
+      "assemblySha256": "5a837cc79372c8f284ad92cce48e15398723da668d389b5954af507585f7f6ce",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/bdfb398baa070ae5d6cc32e6bea57bf3.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/a690ba7de8034dcc9c379fe142d5cdb9.psmdcp",
+          "preserved": true,
+          "sha256": "bdfb398baa070ae5d6cc32e6bea57bf3543fba11422eb49cc136fcb617f73b2d",
+          "sizeBytes": 709
+        },
+        "relationships": {
+          "normalizedSha256": "60c5b22eb0fcf7d14278851628e6352f9f815011640a6913e4efbe35cab07add",
+          "normalizedSizeBytes": 516,
+          "originalSha256": "8f28b3b22f3fd01769874e84012ec281a9deeca84c25e38ee2a96de2049dda7c",
+          "originalSizeBytes": 516,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "fileName": "Chummer.Campaign.Contracts.0.1.0-preview.nupkg",
+      "normalizedSha256": "69c4370c4e112833a1d766e2ec98058337096bb8c0a49ac18d50986fe9abbdb8",
+      "normalizedSizeBytes": 385409,
+      "originalSha256": "ee661eb759d1f937d177d0f680a16d58e199cd47379f7c967d324073652a056c",
+      "originalSizeBytes": 122907,
+      "packageId": "Chummer.Campaign.Contracts",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Campaign.Contracts.nuspec",
+          "sha256": "ff7a3411c759c395c7ac4eb0e6042575341595f08e4eb13c57e47f07b63d7076",
+          "sizeBytes": 874
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "2ecaed15e0f77335d19138e3a98b82779714a4483c45d356a75053f9d33de0e4",
+          "sizeBytes": 480
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "557514f0d6d89219b310da28d54c75da7c5cdd139b874974c5a2cc3151f8043b",
+          "sizeBytes": 526
+        },
+        {
+          "path": "lib/net10.0/Chummer.Campaign.Contracts.dll",
+          "sha256": "5a837cc79372c8f284ad92cce48e15398723da668d389b5954af507585f7f6ce",
+          "sizeBytes": 381440
+        }
+      ],
+      "project": "Chummer.Campaign.Contracts/Chummer.Campaign.Contracts.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-hub.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Infrastructure.dll",
+      "assemblySha256": "21ee9bf9c26ca8e996871ea53138222680bfc00e9465f2eaa6b760bc4ed3325b",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/936130d83519d36456af6410b730b650.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/48f6be5e8ca240398e0184dd512ce282.psmdcp",
+          "preserved": true,
+          "sha256": "936130d83519d36456af6410b730b65058090eae6e47bbcb356fb10892303e5b",
+          "sizeBytes": 640
+        },
+        "relationships": {
+          "normalizedSha256": "b871d22da81e328b6d4640291526c0e7298b1c57ac03d33ad46f332fed3874ab",
+          "normalizedSizeBytes": 512,
+          "originalSha256": "45c35886e18df231e48231d273e4e0658b17ef0eb9e625dc6e09ef319ed8bbe1",
+          "originalSizeBytes": 512,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Infrastructure.0.1.0-preview.nupkg",
+      "normalizedSha256": "e74340bd25c06fb84df579c3fad9f2a2eb38d685c0f05dc97badc0ee4746f234",
+      "normalizedSizeBytes": 260889,
+      "originalSha256": "f7e27720d9bd77efbbfbc62a5b6fa94bc682b77ee85e274227e4502df0f67676",
+      "originalSizeBytes": 102835,
+      "packageId": "Chummer.Infrastructure",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Infrastructure.nuspec",
+          "sha256": "8c7b5832259aa0f76eea66f934e0bce55c580090638261a1d582cf5359d2d31b",
+          "sizeBytes": 1496
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "3dae54f1e2761fb41379f8d05e7fdb903b62ecd0ec1c65fc68fd02c91c3671cf",
+          "sizeBytes": 459
+        },
+        {
+          "path": "lib/net10.0/Chummer.Infrastructure.dll",
+          "sha256": "21ee9bf9c26ca8e996871ea53138222680bfc00e9465f2eaa6b760bc4ed3325b",
+          "sizeBytes": 257024
+        }
+      ],
+      "project": "Chummer.Infrastructure/Chummer.Infrastructure.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Play.Contracts.dll",
+      "assemblySha256": "312ba6dbd284a46932fff2e63f6c2300b21c196ca0932548d01e7e5a0938f04c",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/e03cd1b91a0c44a37a602c55f26c911c.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/bcc110a688214eb596b10f08130c57bc.psmdcp",
+          "preserved": true,
+          "sha256": "e03cd1b91a0c44a37a602c55f26c911cb68c04b827b7bc57a40473264dd24244",
+          "sizeBytes": 640
+        },
+        "relationships": {
+          "normalizedSha256": "d3d39fd0cd9055d2a93dcb2b299c4bebd98eaf5912945ffd7280c9f88de4c239",
+          "normalizedSizeBytes": 512,
+          "originalSha256": "f2263774ff8467fe008ac747bccad5285beeac3188e437136acf1bcdf619d8df",
+          "originalSizeBytes": 512,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "fileName": "Chummer.Play.Contracts.0.1.0-preview.nupkg",
+      "normalizedSha256": "8ff4b9eb23c0c518a20f3eb045a9dd136ef0f8fa1d9b3863bd7747a64b97eb7f",
+      "normalizedSizeBytes": 322631,
+      "originalSha256": "423327b0b5d3c78010c8c985863f6d89ab3a5b2c4b0e553ab2e3ff8a236d39b7",
+      "originalSizeBytes": 106554,
+      "packageId": "Chummer.Play.Contracts",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Play.Contracts.nuspec",
+          "sha256": "1afc8a75d173cd12efe9b712e78139adf40302bfb761205175aebc7484332364",
+          "sizeBytes": 649
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "2ecaed15e0f77335d19138e3a98b82779714a4483c45d356a75053f9d33de0e4",
+          "sizeBytes": 480
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "557514f0d6d89219b310da28d54c75da7c5cdd139b874974c5a2cc3151f8043b",
+          "sizeBytes": 526
+        },
+        {
+          "path": "lib/net10.0/Chummer.Play.Contracts.dll",
+          "sha256": "312ba6dbd284a46932fff2e63f6c2300b21c196ca0932548d01e7e5a0938f04c",
+          "sizeBytes": 318976
+        }
+      ],
+      "project": "Chummer.Play.Contracts/Chummer.Play.Contracts.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-hub.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Rulesets.Hosting.dll",
+      "assemblySha256": "eb9051ce2231ee359f2d7aff8fa66887d0b18d8699c8743966963235482af456",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/1bcb54916253e0968c293e780bbc4982.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/dfed9e9078d94d379913a185cefbb395.psmdcp",
+          "preserved": true,
+          "sha256": "1bcb54916253e0968c293e780bbc4982e13c4f52b31d1269eeccef48e83d0fdb",
+          "sizeBytes": 644
+        },
+        "relationships": {
+          "normalizedSha256": "c44a8ab9762efd01c39b774d3abc871e4ddf6bb72e2c747ae518d82b009ea0a0",
+          "normalizedSizeBytes": 514,
+          "originalSha256": "eed8ed4671fa84f3ca85a14a44ce25c84103ea71afd75efc245d29f37a3f228a",
+          "originalSizeBytes": 514,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Rulesets.Hosting.0.1.0-preview.nupkg",
+      "normalizedSha256": "f1c9f791b2ada1719ee64a2e97311148cc8e8d883e34e4dad4c42b9e713ce807",
+      "normalizedSizeBytes": 38801,
+      "originalSha256": "ec1bf47c8473b8be24bc6bb98e83a10108e523d98b878f3ce2acab285f4be356",
+      "originalSizeBytes": 14254,
+      "packageId": "Chummer.Rulesets.Hosting",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Rulesets.Hosting.nuspec",
+          "sha256": "b3cfdad3b80bb8e7efe56dd125f38bc52093a07636704134557e202b7241380d",
+          "sizeBytes": 1090
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "3dae54f1e2761fb41379f8d05e7fdb903b62ecd0ec1c65fc68fd02c91c3671cf",
+          "sizeBytes": 459
+        },
+        {
+          "path": "lib/net10.0/Chummer.Rulesets.Hosting.dll",
+          "sha256": "eb9051ce2231ee359f2d7aff8fa66887d0b18d8699c8743966963235482af456",
+          "sizeBytes": 35328
+        }
+      ],
+      "project": "Chummer.Rulesets.Hosting/Chummer.Rulesets.Hosting.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Rulesets.Sr4.dll",
+      "assemblySha256": "f161577034b636889ae4ce801884d0ae4a2f790f2dfe8a400286c351945a2091",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/3cbd45cddb118dd78df89f94d98e6bb8.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/8c3784e1bd6c4d25a053e1c978093298.psmdcp",
+          "preserved": true,
+          "sha256": "3cbd45cddb118dd78df89f94d98e6bb8c45bdaff1f18f92d11e4a44dedec328e",
+          "sizeBytes": 636
+        },
+        "relationships": {
+          "normalizedSha256": "984620ff14311338d46a397d702bac79953245f59eeb73b5ffed12247feedd07",
+          "normalizedSizeBytes": 510,
+          "originalSha256": "3c87c112ce65633b98280502f6d7b5cfacab3f5c4f589793c1671d6276978f2a",
+          "originalSizeBytes": 510,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Rulesets.Sr4.0.1.0-preview.nupkg",
+      "normalizedSha256": "60ab1b18d0b376e536b9eac428f12f2fd164ae683813a1b0ad7bee11443a2310",
+      "normalizedSizeBytes": 86482,
+      "originalSha256": "92796ab5a75581cf97b3a505305e1c883c063207776430c72c98bce1d70dc26c",
+      "originalSizeBytes": 34443,
+      "packageId": "Chummer.Rulesets.Sr4",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Rulesets.Sr4.nuspec",
+          "sha256": "354a2a4db5fa9b4fe512def6d824fb9461d359e506f7f7862706a2e3b5df5d2e",
+          "sizeBytes": 1183
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "3dae54f1e2761fb41379f8d05e7fdb903b62ecd0ec1c65fc68fd02c91c3671cf",
+          "sizeBytes": 459
+        },
+        {
+          "path": "lib/net10.0/Chummer.Rulesets.Sr4.dll",
+          "sha256": "f161577034b636889ae4ce801884d0ae4a2f790f2dfe8a400286c351945a2091",
+          "sizeBytes": 82944
+        }
+      ],
+      "project": "Chummer.Rulesets.Sr4/Chummer.Rulesets.Sr4.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Rulesets.Sr5.dll",
+      "assemblySha256": "98befc384251eecaf4251d9948fa604d8e64edecfad1606c1e69aa0840e22775",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/9617953ed358155a63e3dd7e15afc992.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/dd358a9fcd6048eab6e4d94c1d1d8068.psmdcp",
+          "preserved": true,
+          "sha256": "9617953ed358155a63e3dd7e15afc992996651951534ac5db2ca82bb0d3ed92b",
+          "sizeBytes": 636
+        },
+        "relationships": {
+          "normalizedSha256": "dd4f12376ec8ca4fc197bb871586d5ced5012c8da8544b59508955f9fdf9546f",
+          "normalizedSizeBytes": 510,
+          "originalSha256": "dfd0bfa0970bef2fa3138697c99f46ef904617ec41f6697091afce1fec4cd595",
+          "originalSizeBytes": 510,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Rulesets.Sr5.0.1.0-preview.nupkg",
+      "normalizedSha256": "88ce05ad3cb74beba1d6761f04c8030b4a1cd75b48b20dcea65cb6b836cf6694",
+      "normalizedSizeBytes": 82797,
+      "originalSha256": "66b9e99a000fccc96ba807433413c82650662b484f3b72c72e20837124d95cec",
+      "originalSizeBytes": 31768,
+      "packageId": "Chummer.Rulesets.Sr5",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Rulesets.Sr5.nuspec",
+          "sha256": "5ac437afe1d117a8faf19b7e55f4ec5f9c3b86337af9d91b426ceb25156dcf32",
+          "sizeBytes": 1082
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "3dae54f1e2761fb41379f8d05e7fdb903b62ecd0ec1c65fc68fd02c91c3671cf",
+          "sizeBytes": 459
+        },
+        {
+          "path": "lib/net10.0/Chummer.Rulesets.Sr5.dll",
+          "sha256": "98befc384251eecaf4251d9948fa604d8e64edecfad1606c1e69aa0840e22775",
+          "sizeBytes": 79360
+        }
+      ],
+      "project": "Chummer.Rulesets.Sr5/Chummer.Rulesets.Sr5.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Rulesets.Sr6.dll",
+      "assemblySha256": "e81fb49765354f99d4bf8a10a9a4ec808892c744d058aa5e36dc5bedc012c2de",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/bcabeb340b6a05c7a15dea348e255428.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/2c7485de20234bcc9aa20065bf0cf070.psmdcp",
+          "preserved": true,
+          "sha256": "bcabeb340b6a05c7a15dea348e2554283b4b9d8b1389991abcd0705e73efa9f1",
+          "sizeBytes": 636
+        },
+        "relationships": {
+          "normalizedSha256": "b3213d0eb22285bcfb7c2c51211c7d65727a4fec6cfc5cdf824f37e5bb1dbf9a",
+          "normalizedSizeBytes": 510,
+          "originalSha256": "2419cb5a1e85d077bd94278d8c1fc67fdda0692c4f878b89d918566e6fce312c",
+          "originalSizeBytes": 510,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Rulesets.Sr6.0.1.0-preview.nupkg",
+      "normalizedSha256": "04206723e0bb259e68569760dd56cf55fbb54caeafee361cfd5b687fc61d2b0b",
+      "normalizedSizeBytes": 111469,
+      "originalSha256": "47c75d0c8d5029394fd223d7bc715889cc2a0c1ab92306ccf68def9692792763",
+      "originalSizeBytes": 41783,
+      "packageId": "Chummer.Rulesets.Sr6",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Rulesets.Sr6.nuspec",
+          "sha256": "9bc22e5070041d90dcdd2d4945e108c32119b9315403bb189b32f0ffd80b5b59",
+          "sizeBytes": 1082
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "3dae54f1e2761fb41379f8d05e7fdb903b62ecd0ec1c65fc68fd02c91c3671cf",
+          "sizeBytes": 459
+        },
+        {
+          "path": "lib/net10.0/Chummer.Rulesets.Sr6.dll",
+          "sha256": "e81fb49765354f99d4bf8a10a9a4ec808892c744d058aa5e36dc5bedc012c2de",
+          "sizeBytes": 108032
+        }
+      ],
+      "project": "Chummer.Rulesets.Sr6/Chummer.Rulesets.Sr6.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Run.Contracts.dll",
+      "assemblySha256": "34d68504fd1590ffa74834ddfdd599a67709b650521208a7af16d1d4ebfa6de9",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/041c4761a1441c47dd992dc35d59dbdb.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/5dd6cf0a3a2943d3b38a4231026d7d4c.psmdcp",
+          "preserved": true,
+          "sha256": "041c4761a1441c47dd992dc35d59dbdb513083633ee0b247f21141e04116da2d",
+          "sizeBytes": 638
+        },
+        "relationships": {
+          "normalizedSha256": "fe25a8f9a3159adc7b21ba2d30bce191b8caf0c5a73d61502119d1f5e750120d",
+          "normalizedSizeBytes": 511,
+          "originalSha256": "31ecd53031303a1d002b6101f3bb790af32e5afa197372288f4aa93de95e7688",
+          "originalSizeBytes": 511,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "fileName": "Chummer.Run.Contracts.0.1.0-preview.nupkg",
+      "normalizedSha256": "08f702a6fe627f1534da4219fb3686458fff9141031005356a2314ff83e9cbd7",
+      "normalizedSizeBytes": 1450366,
+      "originalSha256": "3ad14b8294c2383621edd0b8da79e0595fbfc2280af22ac3c01a6ac641397b78",
+      "originalSizeBytes": 421841,
+      "packageId": "Chummer.Run.Contracts",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Run.Contracts.nuspec",
+          "sha256": "37ec3f933fe25fe93757c96c76105a3e571cca3e052786e5cc5a71e7c1c032ce",
+          "sizeBytes": 967
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "2ecaed15e0f77335d19138e3a98b82779714a4483c45d356a75053f9d33de0e4",
+          "sizeBytes": 480
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "557514f0d6d89219b310da28d54c75da7c5cdd139b874974c5a2cc3151f8043b",
+          "sizeBytes": 526
+        },
+        {
+          "path": "lib/net10.0/Chummer.Run.Contracts.dll",
+          "sha256": "34d68504fd1590ffa74834ddfdd599a67709b650521208a7af16d1d4ebfa6de9",
+          "sizeBytes": 1446400
+        }
+      ],
+      "project": "Chummer.Run.Contracts/Chummer.Run.Contracts.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-hub.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    },
+    {
+      "assemblyPath": "lib/net10.0/Chummer.Ui.Kit.dll",
+      "assemblySha256": "dc323de0f729cf060670f7fd825380acb8284c755f140583d2f4b6936d57a7b8",
+      "changedMetadata": {
+        "coreProperties": {
+          "canonicalPath": "package/services/metadata/core-properties/5dab725626cb0ed21eb95a6759621414.psmdcp",
+          "originalPath": "package/services/metadata/core-properties/1588ebfb824644e09241fb3ce80303f4.psmdcp",
+          "preserved": true,
+          "sha256": "5dab725626cb0ed21eb95a675962141449ae67587bc0ce3e2a53c4598d7755b9",
+          "sizeBytes": 624
+        },
+        "relationships": {
+          "normalizedSha256": "e83002afc5b15726318646d7aeaa1779d16f3ddd6468c6b232cfdf60f112f3e8",
+          "normalizedSizeBytes": 504,
+          "originalSha256": "53ff53c2294db94ebd6e229d0c3753e75b7811617ec1541dbd142628f308037d",
+          "originalSizeBytes": 504,
+          "path": "_rels/.rels"
+        }
+      },
+      "commit": "d51ecd99cf72098d4adc8db0192bff7bf9fd8e61",
+      "fileName": "Chummer.Ui.Kit.0.1.0-preview.nupkg",
+      "normalizedSha256": "076d462d3017d28a62e126106e65fded797d366db1f56c25fcd9c768faa1f9e0",
+      "normalizedSizeBytes": 122141,
+      "originalSha256": "65792d8da3821cb85756fef346db4aaf8016f36d2eefc1237debf1cce5f87109",
+      "originalSizeBytes": 39690,
+      "packageId": "Chummer.Ui.Kit",
+      "preservedEntries": [
+        {
+          "path": "Chummer.Ui.Kit.nuspec",
+          "sha256": "31ea5914765926cb4156d880680a7352948537a1ee2cdd01efb162c1b6e5410c",
+          "sizeBytes": 683
+        },
+        {
+          "path": "README.md",
+          "sha256": "31c4e74ce34ba94559aa4d6c104e312a8b546fa1b1385a2ba641993ceb2eac44",
+          "sizeBytes": 6862
+        },
+        {
+          "path": "[Content_Types].xml",
+          "sha256": "1a6670ec6cb20a6520f5d6b9be859fcd7416bef2ba0e8e40bfbf0aaab5409e4f",
+          "sizeBytes": 520
+        },
+        {
+          "path": "lib/net10.0/Chummer.Ui.Kit.dll",
+          "sha256": "dc323de0f729cf060670f7fd825380acb8284c755f140583d2f4b6936d57a7b8",
+          "sizeBytes": 112128
+        }
+      ],
+      "project": "src/Chummer.Ui.Kit/Chummer.Ui.Kit.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-ui-kit.git",
+      "signatureStatus": "absent",
+      "version": "0.1.0-preview"
+    }
+  ]
+}
