@@ -1,0 +1,203 @@
+{
+  "contract": "chummer6.release-source-lock/v2",
+  "schemaVersion": 2,
+  "releaseStatus": "review_required",
+  "releaseEvidenceEligible": false,
+  "repositories": [
+    {
+      "directory": "chummer-core-engine",
+      "name": "chummer6-core",
+      "url": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "globalJsonSdkVersion": "10.0.103"
+    },
+    {
+      "directory": "chummer.run-services",
+      "name": "chummer6-hub",
+      "url": "https://github.com/ArchonMegalon/chummer6-hub.git",
+      "commit": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "globalJsonSdkVersion": "10.0.103"
+    },
+    {
+      "directory": "chummer-hub-registry",
+      "name": "chummer6-hub-registry",
+      "url": "https://github.com/ArchonMegalon/chummer6-hub-registry.git",
+      "commit": "4a312798a10cb7ae97c77731450e24fe6a74d963",
+      "globalJsonSdkVersion": null
+    },
+    {
+      "directory": "chummer-ui-kit",
+      "name": "chummer6-ui-kit",
+      "url": "https://github.com/ArchonMegalon/chummer6-ui-kit.git",
+      "commit": "d51ecd99cf72098d4adc8db0192bff7bf9fd8e61",
+      "globalJsonSdkVersion": null
+    },
+    {
+      "directory": "chummer6-ui",
+      "name": "chummer6-ui",
+      "url": "https://github.com/ArchonMegalon/chummer6-ui.git",
+      "commit": "73dbef29bef4b5c9ae7a081361a4e317a3489229",
+      "globalJsonSdkVersion": "10.0.103"
+    }
+  ],
+  "dotnet": {
+    "sdkVersion": "10.0.103",
+    "authority": {
+      "path": "release-locks/dotnet-sdk-10.0.103.authority.json",
+      "sha256": "38aa6ac48528c458a8cfa2a2d0b145d4aaec7347184e4a5ecc924f73fe682189"
+    }
+  },
+  "packagePlane": {
+    "uiLock": {
+      "path": "config/package-plane.lock.json",
+      "sha256": "7b9c605e67333580a059563441872133299f8adbadb8beb570640061f50391a1",
+      "contractName": "chummer6-ui.fresh-package-plane-lock",
+      "contractVersion": 5
+    },
+    "uiVerifier": {
+      "path": "scripts/ai/verify_fresh_checkout_package_plane.py",
+      "sha256": "ea4792f1d8fba7209d7a122d3566e715ea2c87d2525eba787f19da24b8699439"
+    },
+    "finalUiVerificationReceipt": {
+      "path": "release-locks/ui-v5-final-verification.receipt.json",
+      "sha256": "ba0237b461c6bf20bbab5a54b5a369e6fd1f7b2c158954a82578e6a96768dff5",
+      "consumerCommit": "73dbef29bef4b5c9ae7a081361a4e317a3489229",
+      "contractName": "chummer6-ui.fresh-package-plane-verification",
+      "contractVersion": 5,
+      "packageFeedInventorySha256": "786a3ad101335c9c8dcffbf62a51466fcb38a99b5f7e3b580622cc4f2820c1e4",
+      "packageCount": 96,
+      "status": "passed"
+    },
+    "hubCanonicalFeed": {
+      "ownerDirectory": "chummer.run-services",
+      "ownerCommit": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "lockPath": "eng/package-plane.lock.json",
+      "lockSha256": "51619c5cfabac19297eca9fe035fc4558784c01c0f61831dc4fadac8de31a4d8",
+      "lockContract": "chummer-hub.package-plane-lock/v3",
+      "producerPath": "scripts/ai/bootstrap-hub-package-feed.py",
+      "producerSha256": "07ecc37d471fec7694a8892f0e9344ec88e35499d59c5588d0aa7742585c8105",
+      "inventoryContract": "chummer-hub.external-package-inventory/v2",
+      "inventorySha256": "e7396b51eb1ddcf59399869c4712c5b3caaff2d41bf2b7b45615c9a61a4bb70d",
+      "packageCount": 3,
+      "packages": [
+        {
+          "fileName": "Chummer.Engine.Contracts.5.225.0.nupkg",
+          "sha256": "ee7a0578d7eaa421e0bdc445394e8d4304d48accb561c48853559e429375ad2d",
+          "sizeBytes": 1389176
+        },
+        {
+          "fileName": "Chummer.Hub.Registry.Contracts.0.1.0-preview.nupkg",
+          "sha256": "ece4182749d1db0cc224f7be169e7ae493b813e18f7e112bcecae77c08f1b5bc",
+          "sizeBytes": 523758
+        },
+        {
+          "fileName": "Chummer.Run.Registry.0.1.0-preview.nupkg",
+          "sha256": "bccbc49cd44a21cac8cc7ed001724b410225701ba085470503efef68fdfe0233",
+          "sizeBytes": 331894
+        }
+      ]
+    },
+    "composer": {
+      "path": "scripts/materialize_linux_package_plane.py",
+      "sha256": "b01c4e2f6e2c2a270967070bc51264afb38b9a2b95083cd70ac3b3589c867c0f",
+      "normalizationContract": "chummer6.deterministic-nupkg/v1"
+    },
+    "feedInventory": {
+      "path": "release-locks/linux-package-feed.inventory.json",
+      "sha256": "ad72499218904f057a078e9926d39503018d4da641349d9c08f9e87dcbfe429e",
+      "packageInventorySha256": "9a162dfa07673de3e50c08ee00343899839f2ed8be3cb16892868b440daa454a",
+      "packageCount": 96
+    },
+    "normalizationProof": {
+      "path": "release-locks/linux-package-normalization.proof.json",
+      "sha256": "7b381b7cc9fd001f7dc7472cc2c228b2714ecfbd4b7949257e023c207928faff",
+      "contractName": "chummer6.package-normalization-proof/v1",
+      "packageCount": 10
+    },
+    "runtimePackageAuthority": {
+      "path": "release-locks/linux-runtime-packages.authority.json",
+      "sha256": "6c41d00c73e616f5d8f7fa942bc189e041501f78b7bceb49fcea66fe31b5879b",
+      "packageCount": 6
+    }
+  },
+  "nuget": {
+    "packageResolution": "ui-v5-normalized-same-run-feed+per-project-nuget-lock-v1-content-hash",
+    "packageLocks": [
+      {
+        "runtimeIdentifier": "linux-x64",
+        "targetFramework": "net10.0",
+        "projectLocks": [
+          {
+            "project": "Chummer.Avalonia/Chummer.Avalonia.csproj",
+            "path": "release-locks/avalonia-linux-x64.packages.lock.json",
+            "sha256": "105faff5c933ecf0f74db93b545cc03ffef92e3b4eb2d796b161b8d582262231"
+          },
+          {
+            "project": "Chummer.Desktop.Runtime/Chummer.Desktop.Runtime.csproj",
+            "path": "release-locks/desktop-runtime-linux-x64.packages.lock.json",
+            "sha256": "f8a0165fbd86b03413285789410c7677a8564f30c3a10f2769f9c6b9e4b679a7"
+          },
+          {
+            "project": "Chummer.Presentation/Chummer.Presentation.csproj",
+            "path": "release-locks/presentation-linux-x64.packages.lock.json",
+            "sha256": "ba628f095c49c1e2bd2a6d0b60b4128ec4ce2ff232ff79bab1b67afb70a754b9"
+          }
+        ],
+        "cacheInventoryPath": "release-locks/linux-x64-native-cache.inventory.json",
+        "cacheInventorySha256": "649c4e1e120b8f7768fe3872751dbc8a0243ceb24363c966260aa0507643fa4f",
+        "cacheProofPath": "release-locks/linux-x64-native-cache.proof.json",
+        "cacheProofSha256": "a8c506fc8b5a9e342518263f8953e221e219b961243a3d74e066e7990f47e77f",
+        "baseFeedInventorySha256": "9a162dfa07673de3e50c08ee00343899839f2ed8be3cb16892868b440daa454a",
+        "restoreFeedInventorySha256": "380059887103bc7e0b2fca09b67d62820ec2756bf8a883e6abe0b7174d8af1ac",
+        "restoreFeedInventoryPath": "release-locks/linux-x64-restore-feed.inventory.json",
+        "restoreFeedInventoryFileSha256": "64e4a4582aaa61cc69a9b80944f9e95c2da9fdefb8f60332e4d07e962b3b4ac9"
+      },
+      {
+        "runtimeIdentifier": "linux-arm64",
+        "targetFramework": "net10.0",
+        "projectLocks": [
+          {
+            "project": "Chummer.Avalonia/Chummer.Avalonia.csproj",
+            "path": "release-locks/avalonia-linux-arm64.packages.lock.json",
+            "sha256": "04fe90231466976afa04d4ce74b7ec68707ff6ec91a24ddaad6d741f4a569dbd"
+          },
+          {
+            "project": "Chummer.Desktop.Runtime/Chummer.Desktop.Runtime.csproj",
+            "path": "release-locks/desktop-runtime-linux-arm64.packages.lock.json",
+            "sha256": "bde42ff86c0a8a3969db65738086672691cf23745c69b1e74fc689590659aff2"
+          },
+          {
+            "project": "Chummer.Presentation/Chummer.Presentation.csproj",
+            "path": "release-locks/presentation-linux-arm64.packages.lock.json",
+            "sha256": "e3e7743bd9f6cc8225c6e57362e68b606281fc027d6a011dc12f50727a64cf1b"
+          }
+        ],
+        "cacheInventoryPath": "release-locks/linux-arm64-cross-target-cache.inventory.json",
+        "cacheInventorySha256": "412a3fa16dc1db9f0c11b130443a828f1a2fa45c869fbaabf1c400f74a42635a",
+        "cacheProofPath": "release-locks/linux-arm64-cross-target-cache.proof.json",
+        "cacheProofSha256": "4bb0ace043012d92629b1234e71964e0546fffefbb2c100ae74ae81e31d3f7a6",
+        "baseFeedInventorySha256": "9a162dfa07673de3e50c08ee00343899839f2ed8be3cb16892868b440daa454a",
+        "restoreFeedInventorySha256": "3493282d6ea638d3f1a91e3e47a0e648f5c11c1495f66eeb40434c95a1dc883e",
+        "restoreFeedInventoryPath": "release-locks/linux-arm64-restore-feed.inventory.json",
+        "restoreFeedInventoryFileSha256": "e7f16779224e79557a73d19979d3fd588f3c3e9dc9d91658d3e4e9b0e9410f61"
+      }
+    ]
+  },
+  "releaseManifest": {
+    "authorityContract": "chummer6.public-release-truth/unbound-review-placeholder/v1",
+    "sourceRepository": "ArchonMegalon/Chummer6",
+    "sourceCommit": "4600b4e1edf978799318985f943be2c81f9a3f27",
+    "path": ".guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
+    "sha256": "0790e884c2b7658e6a332a6b1aff1b60c6acd9a4b2de0b85a876d7c9c102aac9",
+    "status": "unbound_review_placeholder",
+    "releaseEvidenceEligible": false
+  },
+  "sourceLockVerifier": {
+    "path": "scripts/verify_linux_source_lock.py",
+    "sha256": "a0a3df9fbc721259a838361e5d9bbbacb4289bef93e9ea2c4152a546da7dd3a6"
+  },
+  "buildScript": {
+    "path": "scripts/build-chummer6-linux.sh",
+    "sha256": "9e7525a289b5a960c9e42c5a09f5c2a6509dd896725fa66b51052ce5c63b1538"
+  }
+}

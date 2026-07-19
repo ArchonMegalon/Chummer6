@@ -1,0 +1,75 @@
+name: Pull Request CI
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  source-lock-and-release-truth:
+    name: Source lock and release truth
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12.10"
+
+      - name: Install exact Python test dependencies
+        run: |
+          python3 -m pip install \
+            --disable-pip-version-check \
+            --no-cache-dir \
+            --require-hashes \
+            --requirement requirements-ci.lock
+          python3 -c 'import pytest; assert pytest.__version__ == "8.4.1"'
+
+      - name: Bind checks to the exact pull-request head
+        env:
+          EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD_SHA"
+
+      - name: Run source-lock and Linux build-script regressions
+        run: |
+          bash -n scripts/build-chummer6-linux.sh
+          bash -n scripts/validate_linux_source_build_gate_identity.sh
+          bash -n scripts/verify_linux_source_build_docker_gate.sh
+          python3 scripts/verify_linux_source_lock.py inspect \
+            --lock RELEASE.lock.json \
+            --repo-root .
+          python3 -m unittest \
+            tests.test_linux_source_lock \
+            tests.test_linux_source_lock_v2 \
+            tests.test_linux_package_plane_materializer \
+            tests.test_linux_source_build_script
+          python3 scripts/test_verify_linux_source_build_surface.py
+          python3 scripts/test_verify_linux_source_build_docker_gate_receipt.py
+          python3 scripts/verify_linux_source_build_docker_gate_receipt.py
+
+      - name: Reject whitespace damage relative to the exact base
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git diff --check "$BASE_SHA"...HEAD
+
+      - name: Verify JSON, Markdown, and generated release truth
+        run: |
+          python3 scripts/test_verify_chummer6_docs_release_truth.py
+          python3 scripts/test_materialize_public_release_truth_packet.py
+          python3 scripts/test_verify_public_downloads_match_registry.py
+          python3 scripts/test_verify_public_guide_links.py
+          python3 -m pytest -q tests/test_materialize_public_release_truth_packet.py
+          python3 -m unittest \
+            tests.test_release_authority_entrypoints \
+            tests.test_release_verification_scripts

@@ -1,0 +1,31 @@
+{
+  "cacheInventoryAuthority": "release-locks/linux-x64-native-cache.inventory.json",
+  "cacheInventorySha256": "649c4e1e120b8f7768fe3872751dbc8a0243ceb24363c966260aa0507643fa4f",
+  "contract": "chummer6.rid-cache-observation-proof/v1",
+  "executionModel": "native",
+  "hostRid": "linux-x64",
+  "nativeTargetExecuted": false,
+  "observations": [
+    {
+      "packageCount": 41,
+      "packageInventorySha256": "21bde2b467aba5347ada9a95efb0b29480bbcc034cb5b1816e8a76af8f0b6c12",
+      "phase": "restore"
+    },
+    {
+      "packageCount": 41,
+      "packageInventorySha256": "21bde2b467aba5347ada9a95efb0b29480bbcc034cb5b1816e8a76af8f0b6c12",
+      "phase": "post_publish"
+    }
+  ],
+  "packageCount": 41,
+  "packageInventorySha256": "21bde2b467aba5347ada9a95efb0b29480bbcc034cb5b1816e8a76af8f0b6c12",
+  "phaseRootsDistinct": true,
+  "releaseEvidenceEligible": false,
+  "runtimeIdentifier": "linux-x64",
+  "sdkAuthoritySha256": "38aa6ac48528c458a8cfa2a2d0b145d4aaec7347184e4a5ecc924f73fe682189",
+  "sdkExecuted": true,
+  "sdkRid": "linux-x64",
+  "sdkVersion": "10.0.103",
+  "status": "passed",
+  "targetRid": "linux-x64"
+}

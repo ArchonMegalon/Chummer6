@@ -18,6 +18,8 @@ def _authority_env(root: Path) -> dict[str, str]:
         "CHUMMER_RELEASE_AUTHORITY_CURRENT": str(current),
         "CHUMMER_REGISTRY_COMMIT": "a" * 40,
         "CHUMMER_EXPECTED_RELEASE_DECISION_STATUS": "preview_ready",
+        "CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256": "b" * 64,
+        "CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION": "3.12.3",
     }
 
 
@@ -131,6 +133,8 @@ class ReleaseVerificationScriptTests(unittest.TestCase):
 
         self.assertIn('repo_root="${CHUMMER6_REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"', script_text)
         self.assertIn(docker_line, script_text)
+        self.assertIn('CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256="$expected_linux_archive_sha256"', script_text)
+        self.assertIn('CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION="$expected_linux_archive_python"', script_text)
         self.assertIn(receipt_test_line, script_text)
         self.assertIn(receipt_verify_line, script_text)
         self.assertIn(guide_line, script_text)

@@ -1,0 +1,81 @@
+{
+  "contract": "chummer6.dotnet-sdk-archive-authority/v1",
+  "sdkVersion": "10.0.103",
+  "legacyInstallerReference": {
+    "executionAllowed": false,
+    "sha256": "082f7685e156738a1b2e2ed8381a621870d4ce8e8c59278034556f05c186eb2e",
+    "url": "https://dot.net/v1/dotnet-install.sh"
+  },
+  "archives": [
+    {
+      "fileName": "dotnet-sdk-10.0.103-linux-x64.tar.gz",
+      "rid": "linux-x64",
+      "source": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.103/dotnet-sdk-10.0.103-linux-x64.tar.gz",
+      "version": "10.0.103",
+      "sizeBytes": 240189641,
+      "sha256": "84dc1f3150ec2800fa38efdbe4d65a855026d68f745c3fe06f522e87e993af0f",
+      "sha512": "bab94f13c57b2ac821d4924fe66084be9b44c41761ff7ff64522c8f7aba345659d31258401dcec31cc3cf6ccae1d012623075aca1c9b9165bcfe5ba9abda1c0c",
+      "toolchainFiles": [
+        {
+          "name": "dotnet_host",
+          "path": "dotnet",
+          "sha256": "bff05e5f15646f8b7bb72d1ba8ea1d60db348f17f848962f49840b58276f6c6d",
+          "sizeBytes": 71808
+        },
+        {
+          "name": "csc",
+          "path": "sdk/10.0.103/Roslyn/bincore/csc.dll",
+          "sha256": "9a4237515874153817a8bf4a9c889cafed5148e2d77b04f5dd925c903d3161dc",
+          "sizeBytes": 134408
+        },
+        {
+          "name": "msbuild",
+          "path": "sdk/10.0.103/Microsoft.Build.dll",
+          "sha256": "cc96c3846ae171984d29ba572ef6f22d273c675cd745c59dc7225fd5cd69610b",
+          "sizeBytes": 6570256
+        },
+        {
+          "name": "nuget_packaging",
+          "path": "sdk/10.0.103/NuGet.Packaging.dll",
+          "sha256": "980fd0205cf99d02e52664ea82c678dcd32232b59d96e277b774d4743e7496b1",
+          "sizeBytes": 1698064
+        }
+      ]
+    },
+    {
+      "fileName": "dotnet-sdk-10.0.103-linux-arm64.tar.gz",
+      "rid": "linux-arm64",
+      "source": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.103/dotnet-sdk-10.0.103-linux-arm64.tar.gz",
+      "version": "10.0.103",
+      "sizeBytes": 232654429,
+      "sha256": "76f2dad6ac3765690745b627e79dd1ff13aebf96c2a3e652a9c04cab39a3c6df",
+      "sha512": "ab45b6baeae956e4465151787d8b8113b66679ed55da1e72c57e99aa5ab8f42471e80dc8a5fd22c31df74e60446a3b252d2900658cefc9506fcb0da7e2831e21",
+      "toolchainFiles": [
+        {
+          "name": "dotnet_host",
+          "path": "dotnet",
+          "sha256": "769fa999e3277fe639691439a71d91b4f5ad358e03a24e7acbaac2ad8d9175ec",
+          "sizeBytes": 71672
+        },
+        {
+          "name": "csc",
+          "path": "sdk/10.0.103/Roslyn/bincore/csc.dll",
+          "sha256": "a2e0a0d4c45416b3371a4955b095e3b2ee65be62d2d45fefde3b6f9b9157596a",
+          "sizeBytes": 145680
+        },
+        {
+          "name": "msbuild",
+          "path": "sdk/10.0.103/Microsoft.Build.dll",
+          "sha256": "89dd9b98b88819ce4a186f4daaeb8b786b6fb25d33849e49879832dfb44e2b22",
+          "sizeBytes": 7428368
+        },
+        {
+          "name": "nuget_packaging",
+          "path": "sdk/10.0.103/NuGet.Packaging.dll",
+          "sha256": "0066228477cb4cf4eb5760a3035104b32285f60b8ddf06711955c7c009d77ca3",
+          "sizeBytes": 1953072
+        }
+      ]
+    }
+  ]
+}

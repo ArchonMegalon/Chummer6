@@ -1,607 +1,655 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-SCRIPT_VERSION="1.3.0"
-GITHUB_ORG="${CHUMMER_GITHUB_ORG:-ArchonMegalon}"
-REPO_BASE_URL="${CHUMMER_REPO_BASE_URL:-https://github.com/$GITHUB_ORG}"
+SCRIPT_VERSION="3.1.0"
+SCRIPT_SOURCE_DIR="${BASH_SOURCE[0]%/*}"
+[[ "$SCRIPT_SOURCE_DIR" != "${BASH_SOURCE[0]}" ]] || SCRIPT_SOURCE_DIR="."
+SCRIPT_ROOT="$(cd -- "$SCRIPT_SOURCE_DIR" && pwd -P)"
+REPOSITORY_ROOT="$(cd -- "$SCRIPT_ROOT/.." && pwd -P)"
+RELEASE_LOCK_PATH="${CHUMMER_RELEASE_LOCK:-$REPOSITORY_ROOT/RELEASE.lock.json}"
+REPO_BASE_URL="${CHUMMER_REPO_BASE_URL:-https://github.com/ArchonMegalon}"
 REPO_BASE_URL="${REPO_BASE_URL%/}"
-GIT_REF="${CHUMMER_GIT_REF:-main}"
-MIN_FREE_GIB="${CHUMMER_MIN_FREE_GIB:-25}"
-DEFAULT_HOME="${HOME:-/tmp}"
-DEFAULT_BASE="${CHUMMER_BUILD_BASE:-$DEFAULT_HOME/chummer6-source-build}"
+DEFAULT_BASE="${CHUMMER_BUILD_BASE:-${HOME:-/tmp}/chummer6-source-build}"
 BASE_PATH=""
-ASSUME_YES=0
+TARGET_RID=""
 AUDIT_ONLY=0
-TOTAL_STEPS=11
-CURRENT_STEP=0
-START_SECONDS=$SECONDS
+ALLOW_MOVING_REF=0
+MOVING_REF=""
+MIN_FREE_GIB="${CHUMMER_MIN_FREE_GIB:-25}"
+RUN_ROOT=""
 LOG_FILE=""
-KEEP_BUILD_TEMP="${CHUMMER_KEEP_BUILD_TEMP:-0}"
+LOCK_OUTPUT_FILE=""
+PYTHON_RUNTIME=""
+PYTHON_VERSION=""
 
 usage() {
-  cat <<'USAGE'
-Build the Chummer6 Avalonia desktop client from source for this Linux computer.
+  cat <<'EOF'
+Build the Chummer6 Avalonia client from one immutable Linux source lock.
 
 Usage:
-  ./build-chummer6-linux.sh [options]
+  scripts/build-chummer6-linux.sh [options]
 
 Options:
-  --base PATH          Workspace base path. Prompts when omitted.
-  --ref REF            Git branch or tag for all repositories. Default: main.
-  --yes, -y            Accepted for compatibility; no longer changes behavior.
-  --skip-system-deps   Accepted for compatibility; the script never installs Linux system packages.
-  --audit-only         Check this host and script setup without cloning or building.
+  --base PATH          Workspace for logs and final artifacts.
+  --lock PATH          Immutable RELEASE.lock.json authority.
+  --target-rid RID     linux-x64 (native) or linux-arm64 (x64 cross-target).
+  --audit-only         Validate the host and complete checked authority graph only.
+  --ref REF            A moving ref; requires --allow-moving-ref.
+  --allow-moving-ref   Acknowledge a non-reproducible, evidence-ineligible request.
+  --yes, -y            Compatibility no-op; this script never installs system packages.
+  --skip-system-deps   Compatibility no-op; this script never installs system packages.
   --help, -h           Show this help.
 
-Environment overrides:
-  CHUMMER_BUILD_BASE, CHUMMER_GIT_REF, CHUMMER_MIN_FREE_GIB,
-  CHUMMER_GITHUB_ORG, CHUMMER_REPO_BASE_URL, CHUMMER_KEEP_BUILD_TEMP
+The locked flow clones every repository at its exact 40-character commit, downloads
+an exact authenticated SDK archive without executing dotnet-install.sh, composes one
+same-run local package feed, restores with no network package sources or siblings,
+and keeps releaseEvidenceEligible=false. A moving-ref request is never evidence and
+must be converted into a new reviewed lock before a full build can run.
 
-This script only builds the binary and archive artifacts. It never installs
-the user-local copy. Install the result later with ./install-chummer6-linux-local.sh.
-USAGE
+Python is selected deterministically from CHUMMER_PYTHON (when set), then
+python3.13, python3.12, python3.11, and python3. The selected runtime must report
+Python >=3.11,<4. A discovered compatible path is logged; no host path is hard-coded.
+EOF
 }
 
 while (($#)); do
   case "$1" in
     --base)
       [[ $# -ge 2 ]] || { echo "--base requires a path" >&2; exit 2; }
-      BASE_PATH="$2"
-      shift 2
-      ;;
+      BASE_PATH="$2"; shift 2 ;;
+    --lock)
+      [[ $# -ge 2 ]] || { echo "--lock requires a path" >&2; exit 2; }
+      RELEASE_LOCK_PATH="$2"; shift 2 ;;
+    --target-rid)
+      [[ $# -ge 2 ]] || { echo "--target-rid requires a value" >&2; exit 2; }
+      TARGET_RID="$2"; shift 2 ;;
     --ref)
       [[ $# -ge 2 ]] || { echo "--ref requires a value" >&2; exit 2; }
-      GIT_REF="$2"
-      shift 2
-      ;;
-    --yes|-y)
-      ASSUME_YES=1
-      shift
-      ;;
-    --skip-system-deps)
-      shift
-      ;;
-    --audit-only)
-      AUDIT_ONLY=1
-      TOTAL_STEPS=3
-      shift
-      ;;
-    --help|-h)
-      usage
-      exit 0
-      ;;
-    *)
-      echo "Unknown option: $1" >&2
-      usage >&2
-      exit 2
-      ;;
+      MOVING_REF="$2"; shift 2 ;;
+    --allow-moving-ref) ALLOW_MOVING_REF=1; shift ;;
+    --audit-only) AUDIT_ONLY=1; shift ;;
+    --yes|-y|--skip-system-deps) shift ;;
+    --help|-h) usage; exit 0 ;;
+    *) echo "Unknown option: $1" >&2; usage >&2; exit 2 ;;
   esac
 done
 
-[[ "$MIN_FREE_GIB" =~ ^[0-9]+$ ]] || { echo "CHUMMER_MIN_FREE_GIB must be a whole number of GiB." >&2; exit 2; }
+if [[ -n "$MOVING_REF" && "$ALLOW_MOVING_REF" != "1" ]]; then
+  echo "--ref requires --allow-moving-ref; locked builds never resolve a branch." >&2
+  exit 2
+fi
+if [[ "$ALLOW_MOVING_REF" == "1" ]]; then
+  MOVING_REF="${MOVING_REF:-main}"
+fi
+case "${TARGET_RID:-linux-x64}" in
+  linux-x64|linux-arm64) ;;
+  *) echo "--target-rid must be linux-x64 or linux-arm64" >&2; exit 2 ;;
+esac
+[[ "$MIN_FREE_GIB" =~ ^[0-9]+$ ]] || {
+  echo "CHUMMER_MIN_FREE_GIB must be a whole number of GiB." >&2
+  exit 2
+}
+
+select_python() {
+  local candidates=()
+  local candidate resolved version
+  if [[ -n "${CHUMMER_PYTHON:-}" ]]; then
+    candidates=("$CHUMMER_PYTHON")
+  elif [[ -n "${CHUMMER_PYTHON_CANDIDATES:-}" ]]; then
+    # Test/automation override; words are still checked in the declared order.
+    read -r -a candidates <<<"$CHUMMER_PYTHON_CANDIDATES"
+  else
+    candidates=(python3.13 python3.12 python3.11 python3)
+  fi
+  for candidate in "${candidates[@]}"; do
+    resolved="$(command -v -- "$candidate" 2>/dev/null || true)"
+    [[ -n "$resolved" && -x "$resolved" ]] || continue
+    version="$($resolved -c 'import sys; print(".".join(map(str, sys.version_info[:3])))' 2>/dev/null || true)"
+    [[ "$version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]] || continue
+    if ((10#${BASH_REMATCH[1]} == 3 && 10#${BASH_REMATCH[2]} >= 11)); then
+      PYTHON_RUNTIME="$resolved"
+      PYTHON_VERSION="$version"
+      return 0
+    fi
+  done
+  echo "Python >=3.11,<4 is required; no declared candidate passed explicit version validation." >&2
+  return 1
+}
+
+select_python
+printf 'Selected Python %s at discovered path %s\n' "$PYTHON_VERSION" "$PYTHON_RUNTIME"
 
 if [[ -z "$BASE_PATH" ]]; then
-  if [[ -t 0 ]]; then
-    read -r -p "Base path for Chummer6 source and build files [$DEFAULT_BASE]: " BASE_PATH
-    BASE_PATH="${BASE_PATH:-$DEFAULT_BASE}"
-  else
-    BASE_PATH="$DEFAULT_BASE"
-  fi
+  BASE_PATH="$DEFAULT_BASE"
 fi
-
 if [[ "$BASE_PATH" == "~" ]]; then
-  BASE_PATH="$HOME"
+  BASE_PATH="${HOME:-/tmp}"
 elif [[ "$BASE_PATH" == ~/* ]]; then
-  BASE_PATH="$HOME/${BASE_PATH#~/}"
+  BASE_PATH="${HOME:-/tmp}/${BASE_PATH#~/}"
 fi
-mkdir -p "$BASE_PATH"
-BASE_PATH="$(cd "$BASE_PATH" && pwd -P)"
-
-mkdir -p "$BASE_PATH/logs"
-RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)"
-LOG_FILE="$BASE_PATH/logs/linux-desktop-build-$RUN_ID.log"
+mkdir -p -- "$BASE_PATH"
+BASE_PATH="$(cd -- "$BASE_PATH" && pwd -P)"
+mkdir -p -- "$BASE_PATH/logs" "$BASE_PATH/artifacts"
+LOG_FILE="$BASE_PATH/logs/linux-source-build-$(date -u +%Y%m%dT%H%M%SZ)-$$.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
-if [[ -t 1 ]]; then
-  BOLD=$'\033[1m'
-  GREEN=$'\033[32m'
-  YELLOW=$'\033[33m'
-  RED=$'\033[31m'
-  RESET=$'\033[0m'
-else
-  BOLD=""; GREEN=""; YELLOW=""; RED=""; RESET=""
-fi
-
-log() {
-  printf '[%s] %s\n' "$(date -u +%H:%M:%S)" "$*"
+log() { printf '[%s] %s\n' "$(date -u +%H:%M:%S)" "$*"; }
+die() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
+download_https() {
+  local output="$1" url="$2"
+  curl --disable --fail --location --retry 5 --retry-delay 2 \
+    --proto '=https' --tlsv1.2 --output "$output" "$url"
+}
+emit_sanitized_phase_failure() {
+  local phase="$1" status="$2" diagnostic="$3"
+  local diagnostic_bytes bounded_diagnostic
+  local diagnostic_limit_bytes=131072
+  if ! diagnostic_bytes="$(wc -c <"$diagnostic")"; then
+    printf 'PHASE_FAILURE phase=%s exit=%s diagnostic_status=unreadable\n' \
+      "$phase" "$status" >&2
+    return 1
+  fi
+  printf 'PHASE_FAILURE phase=%s exit=%s diagnostic_bytes=%s diagnostic_limit_bytes=%s\n' \
+    "$phase" "$status" "$diagnostic_bytes" "$diagnostic_limit_bytes" >&2
+  if ((diagnostic_bytes == 0)); then
+    printf 'ERROR: phase %s emitted no diagnostic output.\n' "$phase" >&2
+    return 0
+  fi
+  bounded_diagnostic="$diagnostic"
+  if ((diagnostic_bytes > diagnostic_limit_bytes)); then
+    bounded_diagnostic="$RUN_ROOT/${phase}.diagnostic.bounded"
+    if ! tail -c "$diagnostic_limit_bytes" "$diagnostic" >"$bounded_diagnostic"; then
+      printf 'ERROR: could not bound diagnostic output for phase %s.\n' "$phase" >&2
+      return 1
+    fi
+    printf 'PHASE_DIAGNOSTIC phase=%s truncated=true retained=tail\n' "$phase" >&2
+  fi
+  if ! "$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" sanitize-diagnostics \
+    --input "$bounded_diagnostic" --redact-path "$RUN_ROOT" \
+    --redact-path "$BASE_PATH" --redact-path "$REPOSITORY_ROOT" >&2; then
+    printf 'ERROR: could not sanitize diagnostic output for phase %s.\n' "$phase" >&2
+    return 1
+  fi
 }
 
-step() {
-  CURRENT_STEP=$((CURRENT_STEP + 1))
-  local percent=$((CURRENT_STEP * 100 / TOTAL_STEPS))
-  printf '\n%s[%d/%d · %d%%] %s%s\n' "$BOLD" "$CURRENT_STEP" "$TOTAL_STEPS" "$percent" "$*" "$RESET"
+cleanup() {
+  local code=$?
+  trap - EXIT
+  if [[ -n "${LOCK_OUTPUT_FILE:-}" && "$LOCK_OUTPUT_FILE" == "$BASE_PATH"/.source-lock-inspect.* && -f "$LOCK_OUTPUT_FILE" ]]; then
+    rm -f -- "$LOCK_OUTPUT_FILE"
+  fi
+  if [[ -n "${RUN_ROOT:-}" && "$RUN_ROOT" == "$BASE_PATH"/.source-run.* && -d "$RUN_ROOT" ]]; then
+    rm -rf -- "$RUN_ROOT"
+  fi
+  return "$code"
 }
-
-warn() {
-  printf '%sWARNING:%s %s\n' "$YELLOW" "$RESET" "$*" >&2
-}
-
-die() {
-  printf '%sERROR:%s %s\n' "$RED" "$RESET" "$*" >&2
-  exit 1
-}
-
 on_error() {
   local code=$?
-  cleanup_build_temp || true
-  printf '\n%sBuild failed%s at line %s with exit code %s.\n' "$RED" "$RESET" "$1" "$code" >&2
-  printf 'Full log: %s\n' "$LOG_FILE" >&2
+  printf 'Build failed at line %s (exit %s). Sanitized diagnostics remain in %s.\n' "$1" "$code" "$LOG_FILE" >&2
   exit "$code"
 }
+on_signal() {
+  printf 'Build interrupted by %s; removing ephemeral configuration and workspaces.\n' "$1" >&2
+  case "$1" in HUP) exit 129 ;; INT) exit 130 ;; TERM) exit 143 ;; *) exit 1 ;; esac
+}
+trap cleanup EXIT
 trap 'on_error "$LINENO"' ERR
+trap 'on_signal HUP' HUP
+trap 'on_signal INT' INT
+trap 'on_signal TERM' TERM
 
-cleanup_build_temp() {
-  if [[ "${KEEP_BUILD_TEMP:-0}" == "1" || "${KEEP_BUILD_TEMP:-0}" == "true" || "${KEEP_BUILD_TEMP:-0}" == "yes" ]]; then
-    return 0
-  fi
+log "Python runtime: $PYTHON_VERSION (requirement >=3.11,<4)"
 
-  if [[ -n "${BASE_PATH:-}" && -d "$BASE_PATH/.tmp" ]]; then
-    rm -rf "$BASE_PATH/.tmp"
-  fi
+LOCK_OUTPUT_FILE="$(mktemp "$BASE_PATH/.source-lock-inspect.XXXXXX")"
+chmod 600 "$LOCK_OUTPUT_FILE"
+if [[ "${CHUMMER_SOURCE_BUILD_TEST_MODE:-0}" == "1" && "${CHUMMER_SOURCE_BUILD_CLEANUP_TEST_ACTION:-}" == "prelock-wait" ]]; then
+  printf 'PRELOCK_CLEANUP_TEST_READY %s\n' "$LOCK_OUTPUT_FILE"
+  while :; do sleep 1; done
+fi
+if ! "$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" inspect \
+  --lock "$RELEASE_LOCK_PATH" --repo-root "$REPOSITORY_ROOT" >"$LOCK_OUTPUT_FILE" 2>&1; then
+  "$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" sanitize-diagnostics \
+    --input "$LOCK_OUTPUT_FILE" --redact-path "$BASE_PATH" --redact-path "$REPOSITORY_ROOT" >&2 || true
+  rm -f -- "$LOCK_OUTPUT_FILE"
+  exit 1
+fi
+LOCK_OUTPUT="$(<"$LOCK_OUTPUT_FILE")"
+rm -f -- "$LOCK_OUTPUT_FILE"
+LOCK_OUTPUT_FILE=""
 
-  if [[ -n "${BASE_PATH:-}" && -d "$BASE_PATH" ]]; then
-    find "$BASE_PATH" -mindepth 2 -maxdepth 2 -type d -name .tmp -prune -exec rm -rf {} +
-  fi
-
-  if [[ -n "${DOTNET_INSTALL:-}" && -f "$DOTNET_INSTALL" ]]; then
-    rm -f "$DOTNET_INSTALL"
-  fi
-}
-
-read_host_information() {
-  DISTRO_ID="unknown"
-  DISTRO_ID_LIKE=""
-  DISTRO_VERSION="unknown"
-  DISTRO_PRETTY="Unknown Linux"
-  if [[ -r /etc/os-release ]]; then
-    # shellcheck disable=SC1091
-    source /etc/os-release
-    DISTRO_ID="${ID:-unknown}"
-    DISTRO_ID_LIKE="${ID_LIKE:-}"
-    DISTRO_VERSION="${VERSION_ID:-unknown}"
-    DISTRO_PRETTY="${PRETTY_NAME:-$DISTRO_ID $DISTRO_VERSION}"
-  fi
-
-  CPU_ARCH="$(uname -m)"
-  case "$CPU_ARCH" in
-    x86_64|amd64) RID="linux-x64" ;;
-    aarch64|arm64) RID="linux-arm64" ;;
-    *) die "Unsupported CPU architecture '$CPU_ARCH'. Supported: x86_64 and aarch64." ;;
+REPO_DIRS=(); REPO_NAMES=(); REPO_COMMITS=()
+SDK_ARCHIVE_RIDS=(); SDK_ARCHIVE_URLS=(); SDK_ARCHIVE_NAMES=()
+SDK_ARCHIVE_SHA256S=(); SDK_ARCHIVE_SHA512S=(); SDK_ARCHIVE_SIZES=()
+NUGET_RIDS=()
+NUGET_CACHE_PATHS=(); NUGET_CACHE_SHA256S=(); NUGET_RID_FEED_PATHS=()
+NUGET_PROJECT_LOCK_RIDS=(); NUGET_PROJECT_LOCK_PROJECTS=()
+NUGET_PROJECT_LOCK_PATHS=(); NUGET_PROJECT_LOCK_SHA256S=()
+SOURCE_LOCK_SHA256=""; SDK_VERSION=""; SDK_AUTHORITY_PATH=""; SDK_AUTHORITY_SHA256=""
+RELEASE_MANIFEST_SHA256=""; RELEASE_MANIFEST_STATUS=""; RELEASE_EVIDENCE_ELIGIBLE=""
+UI_LOCK_PATH=""; UI_LOCK_SHA256=""; UI_VERIFIER_PATH=""; UI_VERIFIER_SHA256=""
+UI_COMMIT=""; UI_RECEIPT_PATH=""; UI_RECEIPT_SHA256=""
+COMPOSER_PATH=""; COMPOSER_SHA256=""; FEED_INVENTORY_PATH=""; NORMALIZATION_PROOF_PATH=""
+RUNTIME_AUTHORITY_PATH=""; SOURCE_LOCK_VERIFIER_PATH=""; SOURCE_LOCK_VERIFIER_SHA256=""
+while IFS=$'\t' read -r record first second third fourth fifth sixth; do
+  case "$record" in
+    LOCK_SHA256) SOURCE_LOCK_SHA256="$first" ;;
+    SDK_VERSION) SDK_VERSION="$first" ;;
+    SDK_AUTHORITY) SDK_AUTHORITY_PATH="$first"; SDK_AUTHORITY_SHA256="$second" ;;
+    SDK_ARCHIVE)
+      SDK_ARCHIVE_RIDS+=("$first"); SDK_ARCHIVE_URLS+=("$second"); SDK_ARCHIVE_NAMES+=("$third")
+      SDK_ARCHIVE_SHA256S+=("$fourth"); SDK_ARCHIVE_SHA512S+=("$fifth"); SDK_ARCHIVE_SIZES+=("$sixth") ;;
+    RELEASE_MANIFEST_SHA256) RELEASE_MANIFEST_SHA256="$first" ;;
+    RELEASE_MANIFEST_STATUS) RELEASE_MANIFEST_STATUS="$first" ;;
+    RELEASE_EVIDENCE_ELIGIBLE) RELEASE_EVIDENCE_ELIGIBLE="$first" ;;
+    REPOSITORY) REPO_DIRS+=("$first"); REPO_NAMES+=("$second"); REPO_COMMITS+=("$third") ;;
+    UI_PACKAGE_PLANE)
+      UI_LOCK_PATH="$first"; UI_LOCK_SHA256="$second"; UI_VERIFIER_PATH="$third"; UI_VERIFIER_SHA256="$fourth" ;;
+    UI_CONSUMER) UI_COMMIT="$first"; UI_RECEIPT_PATH="$second"; UI_RECEIPT_SHA256="$third" ;;
+    PACKAGE_COMPOSER) COMPOSER_PATH="$first"; COMPOSER_SHA256="$second" ;;
+    PACKAGE_AUTHORITIES)
+      FEED_INVENTORY_PATH="$first"; NORMALIZATION_PROOF_PATH="$second"; RUNTIME_AUTHORITY_PATH="$third" ;;
+    SOURCE_LOCK_VERIFIER)
+      SOURCE_LOCK_VERIFIER_PATH="$first"; SOURCE_LOCK_VERIFIER_SHA256="$second" ;;
+    NUGET_PROJECT_LOCK)
+      NUGET_PROJECT_LOCK_RIDS+=("$first"); NUGET_PROJECT_LOCK_PROJECTS+=("$second")
+      NUGET_PROJECT_LOCK_PATHS+=("$third"); NUGET_PROJECT_LOCK_SHA256S+=("$fourth") ;;
+    NUGET_PACKAGE_PLANE)
+      NUGET_RIDS+=("$first"); NUGET_CACHE_PATHS+=("$second"); NUGET_CACHE_SHA256S+=("$third")
+      NUGET_RID_FEED_PATHS+=("$fourth") ;;
+    "") ;;
+    *) die "Unknown source-lock resolver record: $record" ;;
   esac
+done <<<"$LOCK_OUTPUT"
 
-  CPU_MODEL="unknown"
-  if command -v lscpu >/dev/null 2>&1; then
-    CPU_MODEL="$(lscpu | awk -F: '/Model name/ {sub(/^[ \t]+/, "", $2); print $2; exit}')"
-  elif [[ -r /proc/cpuinfo ]]; then
-    CPU_MODEL="$(awk -F: '/model name|Hardware/ {sub(/^[ \t]+/, "", $2); print $2; exit}' /proc/cpuinfo)"
-  fi
-  CPU_MODEL="${CPU_MODEL:-unknown}"
-  CPU_CORES="$(getconf _NPROCESSORS_ONLN 2>/dev/null || nproc 2>/dev/null || echo 1)"
-  MEMORY_KIB="$(awk '/MemTotal:/ {print $2}' /proc/meminfo 2>/dev/null || echo 0)"
-  MEMORY_GIB=$((MEMORY_KIB / 1024 / 1024))
+[[ ${#REPO_DIRS[@]} -eq 5 ]] || die "Source lock did not resolve exactly five repositories."
+[[ ${#SDK_ARCHIVE_RIDS[@]} -eq 2 ]] || die "Source lock did not resolve both SDK archives."
+[[ ${#NUGET_RIDS[@]} -eq 2 ]] || die "Source lock did not resolve both RID package planes."
+[[ ${#NUGET_PROJECT_LOCK_RIDS[@]} -eq 6 ]] || die "Source lock did not resolve the exact six project lock files."
+[[ "$SOURCE_LOCK_VERIFIER_PATH" == "scripts/verify_linux_source_lock.py" ]] || \
+  die "Source lock did not resolve the canonical verifier path."
+[[ "$SOURCE_LOCK_VERIFIER_SHA256" =~ ^[0-9a-f]{64}$ ]] || \
+  die "Source lock did not resolve the canonical verifier digest."
+[[ "$(sha256sum "$REPOSITORY_ROOT/$SOURCE_LOCK_VERIFIER_PATH" | awk '{print $1}')" == "$SOURCE_LOCK_VERIFIER_SHA256" ]] || \
+  die "Resolved source-lock verifier bytes differ from their exact authority."
+[[ "$RELEASE_EVIDENCE_ELIGIBLE" == "false" ]] || die "Review-only source lock unexpectedly claimed release evidence eligibility."
+for commit in "${REPO_COMMITS[@]}"; do
+  [[ "$commit" =~ ^[0-9a-f]{40}$ ]] || die "Repository authority contains a mutable or malformed revision."
+done
 
-  if command -v getconf >/dev/null 2>&1 && getconf GNU_LIBC_VERSION >/dev/null 2>&1; then
-    LIBC_INFO="$(getconf GNU_LIBC_VERSION)"
-  else
-    LIBC_INFO="$(ldd --version 2>&1 | head -1 || true)"
-  fi
-  if grep -qi musl <<<"$LIBC_INFO" || [[ -f /etc/alpine-release ]]; then
-    die "This host uses musl/Alpine. The current Chummer6 desktop build targets glibc Linux."
-  fi
-}
-
-choose_package_manager() {
-  local all_ids=" $DISTRO_ID $DISTRO_ID_LIKE "
-  if [[ "$all_ids" == *" debian "* || "$all_ids" == *" ubuntu "* || "$all_ids" == *" linuxmint "* ]] && command -v apt-get >/dev/null 2>&1; then
-    printf 'apt'
-  elif [[ "$all_ids" == *" fedora "* || "$all_ids" == *" rhel "* || "$all_ids" == *" centos "* || "$all_ids" == *" rocky "* || "$all_ids" == *" almalinux "* ]] && command -v dnf >/dev/null 2>&1; then
-    printf 'dnf'
-  elif [[ "$all_ids" == *" arch "* || "$all_ids" == *" manjaro "* ]] && command -v pacman >/dev/null 2>&1; then
-    printf 'pacman'
-  elif [[ "$all_ids" == *" suse "* || "$all_ids" == *" opensuse "* ]] && command -v zypper >/dev/null 2>&1; then
-    printf 'zypper'
-  elif command -v apt-get >/dev/null 2>&1; then printf 'apt'
-  elif command -v dnf >/dev/null 2>&1; then printf 'dnf'
-  elif command -v pacman >/dev/null 2>&1; then printf 'pacman'
-  elif command -v zypper >/dev/null 2>&1; then printf 'zypper'
-  else printf ''
-  fi
-}
-
-check_required_commands() {
-  local missing=()
-  for command_name in git git-lfs curl tar gzip flock sha256sum file; do
-    if ! command -v "$command_name" >/dev/null 2>&1; then
-      missing+=("$command_name")
-    fi
-  done
-  if ((${#missing[@]} == 0)); then
-    return 0
-  fi
-  local manager
-  manager="$(choose_package_manager)"
-  local hint=""
-  case "$manager" in
-    apt) hint="Install them first, for example: apt-get install git git-lfs curl tar gzip unzip xz-utils util-linux file" ;;
-    dnf) hint="Install them first, for example: dnf install git git-lfs curl tar gzip unzip xz util-linux file" ;;
-    pacman) hint="Install them first, for example: pacman -S --needed git git-lfs curl tar gzip unzip xz util-linux file" ;;
-    zypper) hint="Install them first, for example: zypper install git git-lfs curl tar gzip unzip xz util-linux file" ;;
-    *) hint="Install the missing tools with your package manager, then rerun the script." ;;
-  esac
-  die "Missing required build tools: ${missing[*]}. $hint"
-}
-
-check_git_lfs_ready() {
-  if ! git lfs version >/dev/null 2>&1; then
-    die "Git LFS is required but not ready. Install git-lfs with your package manager, run 'git lfs install', then rerun the script."
-  fi
-}
-
-dotnet_runtime_hint() {
-  local manager
-  manager="$(choose_package_manager)"
-  case "$manager" in
-    apt) printf '%s' "Install ICU first, for example: apt-get install libicu72 or the current libicu package for your distro." ;;
-    dnf) printf '%s' "Install ICU first, for example: dnf install libicu." ;;
-    pacman) printf '%s' "Install ICU first, for example: pacman -S --needed icu." ;;
-    zypper) printf '%s' "Install ICU first, for example: zypper install libicu." ;;
-    *) printf '%s' "Install the ICU runtime package for your distro, then rerun the script." ;;
-  esac
-}
-
-check_local_dotnet_runtime() {
-  local info_output=""
-  if info_output="$(dotnet --info 2>&1)"; then
-    printf '%s\n' "$info_output"
-    return 0
-  fi
-  if grep -qi "Couldn't find a valid ICU package installed" <<<"$info_output"; then
-    die "The local .NET SDK started, but this host is missing the ICU runtime needed by dotnet. $(dotnet_runtime_hint)"
-  fi
-  printf '%s\n' "$info_output" >&2
-  die "The local .NET SDK could not start on this host. Check the log above, install the required runtime libraries, and rerun the script."
-}
-
-step "Inspecting this Linux host"
-[[ "$(uname -s)" == "Linux" ]] || die "This script builds only the Linux desktop client."
-read_host_information
-log "Distribution: $DISTRO_PRETTY"
-log "CPU: $CPU_MODEL"
-log "Architecture: $CPU_ARCH → $RID"
-log "Logical CPUs: $CPU_CORES"
-log "Memory: ${MEMORY_GIB} GiB"
-log "C library: $LIBC_INFO"
-if (( MEMORY_GIB > 0 && MEMORY_GIB < 8 )); then
-  warn "Less than 8 GiB RAM is available. The build may be slow or fail under memory pressure."
+HOST_MACHINE="$(uname -m)"
+case "$HOST_MACHINE" in
+  x86_64|amd64) HOST_RID="linux-x64" ;;
+  aarch64|arm64) HOST_RID="linux-arm64" ;;
+  *) die "Unsupported host architecture: $HOST_MACHINE" ;;
+esac
+TARGET_RID="${TARGET_RID:-$HOST_RID}"
+if [[ "$HOST_RID" != "linux-x64" && "$AUDIT_ONLY" != "1" ]]; then
+  die "Native linux-arm64 cache execution is not yet observed. Use audit-only; do not claim native ARM evidence."
+fi
+if [[ "$TARGET_RID" == "linux-x64" && "$HOST_RID" != "linux-x64" ]]; then
+  die "linux-x64 cross-target execution is not an authorized model."
 fi
 
-step "Checking workspace permissions and free disk space"
-mkdir -p "$BASE_PATH"
-WRITE_TEST="$BASE_PATH/.chummer-write-test-$$"
-printf 'ok\n' > "$WRITE_TEST"
-rm -f "$WRITE_TEST"
-EXEC_TEST="$BASE_PATH/.chummer-exec-test-$$.sh"
-printf '#!/usr/bin/env bash\nexit 0\n' > "$EXEC_TEST"
-chmod +x "$EXEC_TEST"
-if ! "$EXEC_TEST"; then
-  rm -f "$EXEC_TEST"
-  die "The selected base path is mounted noexec or cannot execute files: $BASE_PATH"
+log "Source lock SHA256: $SOURCE_LOCK_SHA256"
+log "Release posture: $RELEASE_MANIFEST_STATUS; release evidence eligible: false"
+log "Host/target: $HOST_RID -> $TARGET_RID"
+if [[ "$ALLOW_MOVING_REF" == "1" ]]; then
+  log "NON-REPRODUCIBLE REQUEST: moving ref '$MOVING_REF'; NOT RELEASE EVIDENCE."
+  if [[ "$AUDIT_ONLY" != "1" ]]; then
+    die "A moving ref cannot consume the checked immutable package plane. Generate and review a new lock first."
+  fi
 fi
-rm -f "$EXEC_TEST"
 
 AVAILABLE_KIB="$(df -Pk "$BASE_PATH" | awk 'NR==2 {print $4}')"
-REQUIRED_KIB=$((MIN_FREE_GIB * 1024 * 1024))
-[[ "$AVAILABLE_KIB" =~ ^[0-9]+$ ]] || die "Could not determine free disk space for $BASE_PATH"
-if (( AVAILABLE_KIB < REQUIRED_KIB )); then
-  AVAILABLE_GIB=$((AVAILABLE_KIB / 1024 / 1024))
-  die "At least ${MIN_FREE_GIB} GiB free is required; only ${AVAILABLE_GIB} GiB is available at $BASE_PATH."
+[[ "$AVAILABLE_KIB" =~ ^[0-9]+$ ]] || die "Could not determine free disk space."
+if ((AVAILABLE_KIB < MIN_FREE_GIB * 1024 * 1024)); then
+  die "At least $MIN_FREE_GIB GiB free is required."
 fi
-log "Workspace: $BASE_PATH"
-log "Git ref: $GIT_REF"
-log "Free space: $((AVAILABLE_KIB / 1024 / 1024)) GiB"
-
-step "Checking Linux build prerequisites"
-PACKAGE_MANAGER="$(choose_package_manager)"
-if [[ -n "$PACKAGE_MANAGER" ]]; then
-  log "Detected package manager: $PACKAGE_MANAGER"
-else
-  warn "No supported package manager detected. Install prerequisites manually before the full build."
-fi
-
+for command_name in git curl tar gzip sha256sum; do
+  command -v "$command_name" >/dev/null 2>&1 || die "Missing required build tool: $command_name"
+done
 if [[ "$AUDIT_ONLY" == "1" ]]; then
-  for command_name in git git-lfs curl tar gzip flock sha256sum file; do
-    if command -v "$command_name" >/dev/null 2>&1; then
-      log "Found command: $command_name"
-    else
-      warn "Missing command for full build: $command_name"
-    fi
-  done
-  ELAPSED=$((SECONDS - START_SECONDS))
-  printf '\n%sAudit complete.%s\n' "$GREEN$BOLD" "$RESET"
-  printf 'Host:      %s · %s · %s\n' "$DISTRO_PRETTY" "$CPU_ARCH" "$CPU_MODEL"
-  printf 'Workspace: %s\n' "$BASE_PATH"
-  printf 'Log:       %s\n' "$LOG_FILE"
-  printf 'Elapsed:   %dm %ds\n' "$((ELAPSED / 60))" "$((ELAPSED % 60))"
+  printf 'Audit complete: immutable source lock, Python %s, %s -> %s, five exact commits.\n' \
+    "$PYTHON_VERSION" "$HOST_RID" "$TARGET_RID"
   exit 0
 fi
 
-if [[ "$ASSUME_YES" == "1" ]]; then
-  warn "--yes is accepted for compatibility, but the script no longer installs system packages."
-fi
-check_required_commands
-check_git_lfs_ready
-git lfs install --skip-repo >/dev/null
+RUN_ROOT="$(mktemp -d "$BASE_PATH/.source-run.XXXXXXXX")"
+chmod 700 "$RUN_ROOT"
+while IFS= read -r ambient_git_config; do
+  case "$ambient_git_config" in
+    GIT_CONFIG_COUNT|GIT_CONFIG_KEY_*|GIT_CONFIG_VALUE_*) unset "$ambient_git_config" ;;
+  esac
+done < <(compgen -A variable GIT_CONFIG_ || true)
+export GIT_CONFIG_NOSYSTEM=1 GIT_CONFIG_GLOBAL=/dev/null GIT_TERMINAL_PROMPT=0
 
-step "Cloning or updating the Chummer6 build repositories"
-REPO_DIRS=(
-  "chummer-core-engine"
-  "chummer.run-services"
-  "chummer-hub-registry"
-  "chummer-ui-kit"
-  "chummer6-ui"
-)
-REPO_NAMES=(
-  "chummer6-core"
-  "chummer6-hub"
-  "chummer6-hub-registry"
-  "chummer6-ui-kit"
-  "chummer6-ui"
-)
+# Behavioral trap harness for repository tests. It never creates credentials.
+if [[ "${CHUMMER_SOURCE_BUILD_TEST_MODE:-0}" == "1" ]]; then
+  printf '<configuration><packageSources><clear /></packageSources></configuration>\n' >"$RUN_ROOT/NuGet.Config"
+  case "${CHUMMER_SOURCE_BUILD_CLEANUP_TEST_ACTION:-}" in
+    normal) exit 0 ;;
+    error) false ;;
+    materializer-error|materializer-empty-error)
+      MATERIALIZER_DIAGNOSTIC="$RUN_ROOT/materializer.diagnostic"
+      MATERIALIZER_STATUS=0
+      if [[ "${CHUMMER_SOURCE_BUILD_CLEANUP_TEST_ACTION}" == "materializer-error" ]]; then
+        if "$PYTHON_RUNTIME" -c \
+          'import sys; print("x" * 140000, file=sys.stderr); print(f"synthetic materializer failure at {sys.argv[1]} from {sys.argv[2]} Authorization:" + " Bearer phase-secret-sentinel", file=sys.stderr); raise SystemExit(23)' \
+          "$RUN_ROOT" "$REPOSITORY_ROOT" >"$MATERIALIZER_DIAGNOSTIC" 2>&1; then
+          MATERIALIZER_STATUS=0
+        else
+          MATERIALIZER_STATUS=$?
+        fi
+      elif "$PYTHON_RUNTIME" -c 'raise SystemExit(24)' \
+        >"$MATERIALIZER_DIAGNOSTIC" 2>&1; then
+        MATERIALIZER_STATUS=0
+      else
+        MATERIALIZER_STATUS=$?
+      fi
+      if ! emit_sanitized_phase_failure \
+        "same-run-package-plane-materialization" "$MATERIALIZER_STATUS" "$MATERIALIZER_DIAGNOSTIC"; then
+        die "could not emit sanitized package-plane failure diagnostics"
+      fi
+      die "same-run package-plane materialization failed (exit $MATERIALIZER_STATUS)"
+      ;;
+    curl-config)
+      download_https "$RUN_ROOT/curl-test-output" "https://example.invalid/sdk.tar.gz"
+      exit 0 ;;
+    wait)
+      printf 'CLEANUP_TEST_READY %s\n' "$RUN_ROOT"
+      while :; do sleep 1; done ;;
+  esac
+fi
+
+CHECKOUT_ROOT="$RUN_ROOT/checkouts"
+PACKAGE_PLANE_ROOT="$RUN_ROOT/package-plane"
+SDK_ROOT="$RUN_ROOT/sdk"
+SDK_ARCHIVE="$RUN_ROOT/sdk.tar.gz"
+RESTORE_CACHE="$RUN_ROOT/nuget-packages"
+PUBLISH_ROOT="$RUN_ROOT/publish"
+mkdir -p "$CHECKOUT_ROOT" "$RESTORE_CACHE" "$PUBLISH_ROOT"
 
 normalize_git_url() {
   local value="$1"
-  value="${value%.git}"
-  value="${value%/}"
+  value="${value%.git}"; value="${value%/}"
   printf '%s' "$value"
 }
-
-git_automation() {
-  git -c gc.auto=0 -c maintenance.auto=0 "$@"
+clone_exact() {
+  local directory="$1" repository="$2" commit="$3"
+  local target="$CHECKOUT_ROOT/$directory" expected="$REPO_BASE_URL/$repository.git"
+  mkdir -p "$target"
+  git -c gc.auto=0 -c maintenance.auto=0 -C "$target" init -q
+  git -C "$target" remote add origin "$expected"
+  git -c protocol.file.allow=always -C "$target" fetch --depth 1 origin "$commit"
+  git -C "$target" checkout -q --detach FETCH_HEAD
+  [[ "$(git -C "$target" rev-parse HEAD)" == "$commit" ]] || die "$repository did not resolve exact commit $commit"
+  [[ "$(normalize_git_url "$(git -C "$target" remote get-url origin)")" == "$(normalize_git_url "$expected")" ]] || die "$repository origin changed"
+  [[ -z "$(git -C "$target" status --porcelain=v1 --untracked-files=all)" ]] || die "$repository checkout is dirty"
 }
 
-sync_repo() {
-  local directory_name="$1"
-  local repository_name="$2"
-  local target="$BASE_PATH/$directory_name"
-  local expected_url="$REPO_BASE_URL/$repository_name.git"
+if [[ "${CHUMMER_SOURCE_BUILD_TEST_MODE:-0}" == "1" && "${CHUMMER_SOURCE_BUILD_CLEANUP_TEST_ACTION:-}" == "clone-exact" ]]; then
+  [[ -n "${CHUMMER_SOURCE_BUILD_TEST_REPOSITORY:-}" && -n "${CHUMMER_SOURCE_BUILD_TEST_COMMIT:-}" ]] || die "clone-exact test requires repository and commit"
+  clone_exact test-locked-clone "$CHUMMER_SOURCE_BUILD_TEST_REPOSITORY" "$CHUMMER_SOURCE_BUILD_TEST_COMMIT"
+  printf 'CLONE_EXACT_HEAD %s\n' "$(git -C "$CHECKOUT_ROOT/test-locked-clone" rev-parse HEAD)"
+  exit 0
+fi
 
-  if [[ ! -e "$target" ]]; then
-    log "Cloning $repository_name into $directory_name"
-    git_automation clone --depth 1 --filter=blob:none --branch "$GIT_REF" "$expected_url" "$target"
-  else
-    [[ -d "$target/.git" ]] || die "$target exists but is not a Git repository."
-    local current_url
-    current_url="$(git_automation -C "$target" remote get-url origin)"
-    if [[ "$(normalize_git_url "$current_url")" != "$(normalize_git_url "$expected_url")" ]]; then
-      die "$target has unexpected origin '$current_url'; expected '$expected_url'."
-    fi
-    if [[ -n "$(git_automation -C "$target" status --porcelain)" ]]; then
-      die "$target has local changes. Commit, stash, or remove them before rerunning."
-    fi
-    log "Updating $repository_name"
-    git_automation -C "$target" fetch --depth 1 origin "$GIT_REF"
-    git_automation -C "$target" checkout -q --detach FETCH_HEAD
-  fi
-
-  if [[ -f "$target/.gitattributes" ]] && grep -q 'filter=lfs' "$target/.gitattributes"; then
-    git_automation -C "$target" lfs install --local >/dev/null
-    git_automation -C "$target" lfs pull
-  fi
-  if [[ -f "$target/.gitmodules" ]]; then
-    git_automation -C "$target" submodule update --init --recursive --depth 1
-  fi
-}
-
+log "Cloning five exact repository commits (never branch heads)."
 for index in "${!REPO_DIRS[@]}"; do
-  sync_repo "${REPO_DIRS[$index]}" "${REPO_NAMES[$index]}"
+  clone_exact "${REPO_DIRS[$index]}" "${REPO_NAMES[$index]}" "${REPO_COMMITS[$index]}"
 done
+"$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-checkouts \
+  --lock "$RELEASE_LOCK_PATH" --repo-root "$REPOSITORY_ROOT" --base "$CHECKOUT_ROOT"
 
-step "Checking the cloned compatibility tree"
-REQUIRED_FILES=(
-  "$BASE_PATH/chummer6-ui/Chummer.Avalonia/Chummer.Avalonia.csproj"
-  "$BASE_PATH/chummer6-ui/scripts/ai/with-package-plane.sh"
-  "$BASE_PATH/chummer6-ui/scripts/ai/restore.sh"
-  "$BASE_PATH/chummer6-ui/global.json"
-  "$BASE_PATH/chummer-core-engine/Chummer.Contracts/Chummer.Contracts.csproj"
-  "$BASE_PATH/chummer-core-engine/Chummer.Application/Chummer.Application.csproj"
-  "$BASE_PATH/chummer-core-engine/Chummer.Infrastructure/Chummer.Infrastructure.csproj"
-  "$BASE_PATH/chummer-core-engine/Chummer.Rulesets.Hosting/Chummer.Rulesets.Hosting.csproj"
-  "$BASE_PATH/chummer-core-engine/Chummer.Rulesets.Sr4/Chummer.Rulesets.Sr4.csproj"
-  "$BASE_PATH/chummer-core-engine/Chummer.Rulesets.Sr5/Chummer.Rulesets.Sr5.csproj"
-  "$BASE_PATH/chummer-core-engine/Chummer.Rulesets.Sr6/Chummer.Rulesets.Sr6.csproj"
-  "$BASE_PATH/chummer.run-services/Chummer.Campaign.Contracts/Chummer.Campaign.Contracts.csproj"
-  "$BASE_PATH/chummer.run-services/Chummer.Play.Contracts/Chummer.Play.Contracts.csproj"
-  "$BASE_PATH/chummer.run-services/Chummer.Run.Contracts/Chummer.Run.Contracts.csproj"
-  "$BASE_PATH/chummer-hub-registry/Chummer.Hub.Registry.Contracts/Chummer.Hub.Registry.Contracts.csproj"
-  "$BASE_PATH/chummer-ui-kit/src/Chummer.Ui.Kit/Chummer.Ui.Kit.csproj"
-)
-for required_file in "${REQUIRED_FILES[@]}"; do
-  [[ -f "$required_file" ]] || die "Required project file is missing: $required_file"
+SDK_INDEX=-1
+for index in "${!SDK_ARCHIVE_RIDS[@]}"; do
+  [[ "${SDK_ARCHIVE_RIDS[$index]}" == "$HOST_RID" ]] && SDK_INDEX="$index"
 done
-log "All required owner projects are present."
-
-step "Installing the repository-pinned .NET SDK locally"
-read_sdk_version() {
-  local json_path="$1"
-  sed -n 's/.*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$json_path" | head -1
-}
-
-SDK_VERSIONS=()
-for json_file in \
-  "$BASE_PATH/chummer6-ui/global.json" \
-  "$BASE_PATH/chummer-core-engine/global.json" \
-  "$BASE_PATH/chummer.run-services/global.json" \
-  "$BASE_PATH/chummer-hub-registry/global.json" \
-  "$BASE_PATH/chummer-ui-kit/global.json"; do
-  if [[ -f "$json_file" ]]; then
-    version="$(read_sdk_version "$json_file")"
-    if [[ -n "$version" ]]; then
-      SDK_VERSIONS+=("$version")
-    fi
-  fi
-done
-
-if (( ${#SDK_VERSIONS[@]} == 0 )); then
-  die "Could not read any .NET SDK version from repository global.json files"
-fi
-
-SDK_VERSION="$(printf '%s\n' "${SDK_VERSIONS[@]}" | sort -V | tail -n 1)"
-if [[ -n "${CHUMMER_SDK_VERSIONS_DEBUG:-}" ]]; then
-  log "SDK versions seen: ${SDK_VERSIONS[*]}"
-  log "Selected SDK version: $SDK_VERSION"
-fi
-DOTNET_DIR="$BASE_PATH/.tools/dotnet"
-DOTNET_INSTALL="$BASE_PATH/.tools/dotnet-install.sh"
-mkdir -p "$BASE_PATH/.tools"
-
-if [[ ! -x "$DOTNET_DIR/dotnet" ]] || ! "$DOTNET_DIR/dotnet" --list-sdks 2>/dev/null | awk '{print $1}' | grep -Fxq "$SDK_VERSION"; then
-  log "Installing .NET SDK $SDK_VERSION locally into $DOTNET_DIR"
-  curl --fail --location --retry 5 --retry-delay 2 --proto '=https' --tlsv1.2 \
-    https://dot.net/v1/dotnet-install.sh -o "$DOTNET_INSTALL"
-  bash -n "$DOTNET_INSTALL"
-  bash "$DOTNET_INSTALL" --version "$SDK_VERSION" --install-dir "$DOTNET_DIR" --no-path
+((SDK_INDEX >= 0)) || die "No SDK archive authority exists for $HOST_RID"
+if [[ -n "${CHUMMER_SDK_ARCHIVE:-}" ]]; then
+  cp -- "$CHUMMER_SDK_ARCHIVE" "$SDK_ARCHIVE"
 else
-  log ".NET SDK $SDK_VERSION is already installed in the workspace."
+  download_https "$SDK_ARCHIVE" "${SDK_ARCHIVE_URLS[$SDK_INDEX]}"
 fi
+"$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" install-sdk \
+  --lock "$RELEASE_LOCK_PATH" --repo-root "$REPOSITORY_ROOT" --rid "$HOST_RID" \
+  --archive "$SDK_ARCHIVE" --output "$SDK_ROOT"
+DOTNET="$SDK_ROOT/dotnet"
 
-export DOTNET_ROOT="$DOTNET_DIR"
-export PATH="$DOTNET_DIR:$PATH"
-export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
-export DOTNET_NOLOGO=1
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export AVALONIA_TELEMETRY_OPTOUT=1
-export WRITABLE_STATE_ROOT="$BASE_PATH/.state"
-export DOTNET_CLI_HOME="$BASE_PATH/.state/dotnet-cli"
-export NUGET_PACKAGES="$BASE_PATH/.cache/nuget/packages"
-export XDG_CACHE_HOME="$BASE_PATH/.cache/xdg"
-export XDG_DATA_HOME="$BASE_PATH/.local/share"
-export TMPDIR="$BASE_PATH/.tmp/runtime"
-export CHUMMER_PACKAGE_PLANE_LOCK_ROOT="$BASE_PATH/.tmp/package-plane"
-export CHUMMER_BOOTSTRAP_ENGINE_CONTRACTS_FEED=1
-export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"
-export CHUMMER_DESKTOP_ANALYTICS_DEFAULT="${CHUMMER_DESKTOP_ANALYTICS_DEFAULT:-off}"
-mkdir -p "$DOTNET_CLI_HOME" "$NUGET_PACKAGES" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$TMPDIR" "$CHUMMER_PACKAGE_PLANE_LOCK_ROOT"
-check_local_dotnet_runtime
+export DOTNET_ROOT="$SDK_ROOT"
+export PATH="$SDK_ROOT:$PATH"
+export DOTNET_MULTILEVEL_LOOKUP=0 DOTNET_NOLOGO=1 DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1 AVALONIA_TELEMETRY_OPTOUT=1
+export DOTNET_CLI_HOME="$RUN_ROOT/dotnet-home" XDG_CACHE_HOME="$RUN_ROOT/xdg-cache"
+export XDG_CONFIG_HOME="$RUN_ROOT/xdg-config" XDG_DATA_HOME="$RUN_ROOT/xdg-data"
+export NUGET_HTTP_CACHE_PATH="$RUN_ROOT/nuget-http" NUGET_PLUGINS_CACHE_PATH="$RUN_ROOT/nuget-plugins"
+export NUGET_SCRATCH="$RUN_ROOT/nuget-scratch" NUGET_PACKAGES="$RESTORE_CACHE"
+unset CHUMMER_PUBLISHED_FEED_SOURCES CHUMMER_LOCAL_CONTRACTS_PROJECT \
+  CHUMMER_LOCAL_CAMPAIGN_CONTRACTS_PROJECT CHUMMER_LOCAL_PLAY_CONTRACTS_PROJECT \
+  CHUMMER_LOCAL_RUN_CONTRACTS_PROJECT CHUMMER_LOCAL_HUB_REGISTRY_CONTRACTS_PROJECT \
+  CHUMMER_LOCAL_UI_KIT_PROJECT RestoreSources RestoreAdditionalProjectSources \
+  RestoreFallbackFolders NUGET_CONFIG_FILE
 
-step "Recording source revisions"
-MANIFEST_DIR="$BASE_PATH/artifacts"
-mkdir -p "$MANIFEST_DIR"
-SOURCE_MANIFEST="$MANIFEST_DIR/source-revisions-$RUN_ID.txt"
-{
-  printf 'Chummer6 Linux desktop source build\n'
-  printf 'Generated UTC: %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-  printf 'Script version: %s\n' "$SCRIPT_VERSION"
-  printf 'Distribution: %s\n' "$DISTRO_PRETTY"
-  printf 'CPU: %s\n' "$CPU_MODEL"
-  printf 'Architecture: %s\n' "$CPU_ARCH"
-  printf 'RID: %s\n' "$RID"
-  printf '.NET SDK: %s\n' "$SDK_VERSION"
-  printf 'Git ref: %s\n\n' "$GIT_REF"
-  for index in "${!REPO_DIRS[@]}"; do
-    printf '%-24s %s\n' "${REPO_NAMES[$index]}" "$(git -C "$BASE_PATH/${REPO_DIRS[$index]}" rev-parse HEAD)"
-  done
-} | tee "$SOURCE_MANIFEST"
-
-step "Restoring NuGet packages and local compatibility contracts"
-UI_ROOT="$BASE_PATH/chummer6-ui"
-PROJECT="$UI_ROOT/Chummer.Avalonia/Chummer.Avalonia.csproj"
-cd "$UI_ROOT"
-bash scripts/ai/restore.sh "$PROJECT" \
-  -r "$RID" \
-  -p:TargetFramework=net10.0 \
-  -p:ChummerUseLocalCompatibilityTree=true \
-  -p:RestorePackagesPath="$NUGET_PACKAGES"
-
-step "Publishing the self-contained desktop client for this host"
-PUBLISH_DIR="$BASE_PATH/artifacts/chummer6-$RID"
-rm -rf "$PUBLISH_DIR"
-mkdir -p "$PUBLISH_DIR"
-UI_SHA="$(git -C "$UI_ROOT" rev-parse --short=12 HEAD)"
-SOURCE_VERSION="source-$UI_SHA-$RUN_ID"
-
-bash scripts/ai/with-package-plane.sh publish "$PROJECT" \
-  -c Release \
-  -r "$RID" \
-  --self-contained true \
-  --verbosity minimal \
-  -p:TargetFramework=net10.0 \
-  -p:ChummerUseLocalCompatibilityTree=true \
-  -p:PublishSingleFile=false \
-  -p:PublishTrimmed=false \
-  -p:PublishReadyToRun=false \
-  -p:DebugType=None \
-  -p:DebugSymbols=false \
-  -p:UseAppHost=true \
-  -p:ChummerDesktopReleaseChannel=source-build \
-  -p:ChummerDesktopReleaseVersion="$SOURCE_VERSION" \
-  -p:RestorePackagesPath="$NUGET_PACKAGES" \
-  -o "$PUBLISH_DIR"
-
-step "Verifying the published client and native library links"
-BINARY="$PUBLISH_DIR/Chummer.Avalonia"
-[[ -f "$BINARY" ]] || die "Publish completed but the executable was not created: $BINARY"
-chmod +x "$BINARY"
-file "$BINARY"
-if command -v ldd >/dev/null 2>&1; then
-  LDD_OUTPUT="$(ldd "$BINARY" 2>&1 || true)"
-  printf '%s\n' "$LDD_OUTPUT"
-  if grep -q 'not found' <<<"$LDD_OUTPUT"; then
-    die "The client was built, but one or more native runtime libraries are missing. See the ldd output above."
+MATERIALIZER_DIAGNOSTIC="$RUN_ROOT/materializer.diagnostic"
+if "$PYTHON_RUNTIME" "$REPOSITORY_ROOT/$COMPOSER_PATH" \
+    --ui-root "$CHECKOUT_ROOT/chummer6-ui" --owners-root "$CHECKOUT_ROOT" \
+    --sdk-root "$SDK_ROOT" --sdk-authority "$REPOSITORY_ROOT/$SDK_AUTHORITY_PATH" \
+    --runtime-authority "$REPOSITORY_ROOT/$RUNTIME_AUTHORITY_PATH" \
+    --upstream-verification-receipt "$REPOSITORY_ROOT/$UI_RECEIPT_PATH" \
+    --output-root "$PACKAGE_PLANE_ROOT" --host-rid "$HOST_RID" --ui-commit "$UI_COMMIT" \
+    --ui-lock-path "$UI_LOCK_PATH" --ui-lock-sha256 "$UI_LOCK_SHA256" \
+    --ui-verifier-path "$UI_VERIFIER_PATH" --ui-verifier-sha256 "$UI_VERIFIER_SHA256" \
+    --expected-feed-inventory "$REPOSITORY_ROOT/$FEED_INVENTORY_PATH" \
+    --expected-normalization-proof "$REPOSITORY_ROOT/$NORMALIZATION_PROOF_PATH" \
+    --expected-x64-inventory "$REPOSITORY_ROOT/release-locks/linux-x64-restore-feed.inventory.json" \
+    --expected-arm64-inventory "$REPOSITORY_ROOT/release-locks/linux-arm64-restore-feed.inventory.json" \
+    >"$MATERIALIZER_DIAGNOSTIC" 2>&1; then
+  MATERIALIZER_STATUS=0
+else
+  MATERIALIZER_STATUS=$?
+fi
+if ((MATERIALIZER_STATUS != 0)); then
+  if ! emit_sanitized_phase_failure \
+    "same-run-package-plane-materialization" "$MATERIALIZER_STATUS" "$MATERIALIZER_DIAGNOSTIC"; then
+    die "could not emit sanitized package-plane failure diagnostics"
   fi
+  die "same-run package-plane materialization failed (exit $MATERIALIZER_STATUS)"
 fi
+"$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" sanitize-diagnostics \
+  --input "$MATERIALIZER_DIAGNOSTIC" --redact-path "$RUN_ROOT" \
+  --redact-path "$BASE_PATH" --redact-path "$REPOSITORY_ROOT"
 
-BINARY_SHA="$(sha256sum "$BINARY" | awk '{print $1}')"
-BUILD_MANIFEST="$PUBLISH_DIR/BUILD-MANIFEST.txt"
-{
-  cat "$SOURCE_MANIFEST"
-  printf '\nExecutable: Chummer.Avalonia\n'
-  printf 'Executable SHA256: %s\n' "$BINARY_SHA"
-  printf 'Output directory: %s\n' "$PUBLISH_DIR"
-} > "$BUILD_MANIFEST"
-
-cat > "$PUBLISH_DIR/run-chummer6.sh" <<'LAUNCHER'
-#!/usr/bin/env bash
-set -euo pipefail
-SOURCE="${BASH_SOURCE[0]}"
-while [[ -L "$SOURCE" ]]; do
-  HERE="$(cd -P "$(dirname "$SOURCE")" && pwd)"
-  SOURCE="$(readlink "$SOURCE")"
-  [[ "$SOURCE" != /* ]] && SOURCE="$HERE/$SOURCE"
+RID_INDEX=-1
+for index in "${!NUGET_RIDS[@]}"; do
+  [[ "${NUGET_RIDS[$index]}" == "$TARGET_RID" ]] && RID_INDEX="$index"
 done
-HERE="$(cd -P "$(dirname "$SOURCE")" && pwd)"
-export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"
-export CHUMMER_DESKTOP_ANALYTICS_DEFAULT="${CHUMMER_DESKTOP_ANALYTICS_DEFAULT:-off}"
-exec "$HERE/Chummer.Avalonia" "$@"
-LAUNCHER
-chmod +x "$PUBLISH_DIR/run-chummer6.sh"
+((RID_INDEX >= 0)) || die "No exact NuGet package plane exists for $TARGET_RID"
+FEED="$PACKAGE_PLANE_ROOT/rid-feeds/$TARGET_RID"
 
-step "Creating a portable source-build archive"
-TARBALL="$BASE_PATH/artifacts/chummer6-$RID-$RUN_ID.tar.gz"
-tar -C "$PUBLISH_DIR" -czf "$TARBALL" .
-TARBALL_SHA="$(sha256sum "$TARBALL" | awk '{print $1}')"
-printf '%s  %s\n' "$TARBALL_SHA" "$(basename "$TARBALL")" > "$TARBALL.sha256"
-cleanup_build_temp
+ISOLATED_ROOT="$RUN_ROOT/consumer"
+mkdir -p "$ISOLATED_ROOT"
+mv -- "$CHECKOUT_ROOT/chummer6-ui" "$ISOLATED_ROOT/chummer6-ui"
+UI_ROOT="$ISOLATED_ROOT/chummer6-ui"
+NUGET_CONFIG="$UI_ROOT/NuGet.Config"
+"$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" write-nuget-config \
+  --feed "$FEED" --packages-root "$RESTORE_CACHE" --output "$NUGET_CONFIG"
 
-ELAPSED=$((SECONDS - START_SECONDS))
-printf '\n%sBuild complete.%s\n' "$GREEN$BOLD" "$RESET"
-printf 'Host:        %s · %s · %s\n' "$DISTRO_PRETTY" "$CPU_ARCH" "$CPU_MODEL"
-printf 'Executable: %s\n' "$BINARY"
-printf 'Launcher:   %s\n' "$PUBLISH_DIR/run-chummer6.sh"
-printf 'Executable SHA256: %s\n' "$BINARY_SHA"
-printf 'Archive:    %s\n' "$TARBALL"
-printf 'Archive SHA256:    %s\n' "$TARBALL_SHA"
-printf 'Manifest:   %s\n' "$BUILD_MANIFEST"
-printf 'Log:        %s\n' "$LOG_FILE"
-printf 'Elapsed:    %dm %ds\n' "$((ELAPSED / 60))" "$((ELAPSED % 60))"
-printf '\nNo install was performed. Install it afterwards with:\n'
-printf '  %s --archive %q --force\n' "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)/install-chummer6-linux-local.sh" "$TARBALL"
+PROJECT_RELATIVE="Chummer.Avalonia/Chummer.Avalonia.csproj"
+PROJECT_LOCK_COUNT=0
+for index in "${!NUGET_PROJECT_LOCK_RIDS[@]}"; do
+  [[ "${NUGET_PROJECT_LOCK_RIDS[$index]}" == "$TARGET_RID" ]] || continue
+  project="${NUGET_PROJECT_LOCK_PROJECTS[$index]}"
+  case "$project" in
+    Chummer.Avalonia/Chummer.Avalonia.csproj|\
+    Chummer.Desktop.Runtime/Chummer.Desktop.Runtime.csproj|\
+    Chummer.Presentation/Chummer.Presentation.csproj) ;;
+    *) die "Source lock emitted an unsupported project lock target: $project" ;;
+  esac
+  project_directory="$UI_ROOT/${project%/*}"
+  [[ -d "$project_directory" && ! -L "$project_directory" ]] || \
+    die "Project lock destination is missing or unsafe: $project"
+  package_lock="$project_directory/packages.lock.json"
+  [[ ! -e "$package_lock" && ! -L "$package_lock" ]] || \
+    die "Refusing to replace a project package lock: $project"
+  cp -- "$REPOSITORY_ROOT/${NUGET_PROJECT_LOCK_PATHS[$index]}" "$package_lock"
+  [[ "$(sha256sum "$package_lock" | awk '{print $1}')" == \
+    "${NUGET_PROJECT_LOCK_SHA256S[$index]}" ]] || \
+    die "Copied project package lock differs: $project"
+  ((PROJECT_LOCK_COUNT += 1))
+done
+[[ "$PROJECT_LOCK_COUNT" -eq 3 ]] || \
+  die "Target package plane did not install exactly three project lock files."
+
+(
+  cd "$UI_ROOT"
+  "$DOTNET" restore "$PROJECT_RELATIVE" --runtime "$TARGET_RID" --locked-mode \
+    --configfile NuGet.Config --packages "$RESTORE_CACHE" \
+    -p:ChummerUseLocalCompatibilityTree=false
+)
+"$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-nuget-cache \
+  --lock "$RELEASE_LOCK_PATH" --repo-root "$REPOSITORY_ROOT" --rid "$TARGET_RID" \
+  --feed "$FEED" --packages-root "$RESTORE_CACHE"
+
+(
+  cd "$UI_ROOT"
+  "$DOTNET" publish "$PROJECT_RELATIVE" --configuration Release --framework net10.0 \
+    --runtime "$TARGET_RID" --no-restore --output "$PUBLISH_ROOT" \
+    -p:ChummerUseLocalCompatibilityTree=false -p:ContinuousIntegrationBuild=true \
+    -p:Deterministic=true -p:PathMap="$RUN_ROOT=/_/src" \
+    -p:DebugType=None -p:DebugSymbols=false
+)
+"$PYTHON_RUNTIME" "$SCRIPT_ROOT/verify_linux_source_lock.py" verify-nuget-cache \
+  --lock "$RELEASE_LOCK_PATH" --repo-root "$REPOSITORY_ROOT" --rid "$TARGET_RID" \
+  --feed "$FEED" --packages-root "$RESTORE_CACHE"
+[[ ! -e "$PUBLISH_ROOT/Chummer.Avalonia.pdb" ]] || \
+  die "Source artifact unexpectedly contains a path-bearing application PDB."
+
+SOURCE_DATE_EPOCH=0
+for index in "${!REPO_DIRS[@]}"; do
+  revision_root="$CHECKOUT_ROOT/${REPO_DIRS[$index]}"
+  [[ "${REPO_DIRS[$index]}" != "chummer6-ui" ]] || revision_root="$UI_ROOT"
+  commit_epoch="$(git -C "$revision_root" show -s --format=%ct "${REPO_COMMITS[$index]}")"
+  ((commit_epoch > SOURCE_DATE_EPOCH)) && SOURCE_DATE_EPOCH="$commit_epoch"
+done
+export SOURCE_DATE_EPOCH
+ARTIFACT_DIR="$BASE_PATH/artifacts/chummer6-$TARGET_RID"
+[[ ! -e "$ARTIFACT_DIR" ]] || die "Refusing to replace existing artifact authority: $ARTIFACT_DIR"
+STAGE="$RUN_ROOT/artifact-stage"
+mkdir -p "$STAGE"
+cp -a "$PUBLISH_ROOT/." "$STAGE/"
+{
+  printf 'contract=chummer6.linux-source-build/v2\n'
+  printf 'scriptVersion=%s\n' "$SCRIPT_VERSION"
+  printf 'sourceLockSha256=%s\n' "$SOURCE_LOCK_SHA256"
+  printf 'sdkVersion=%s\n' "$SDK_VERSION"
+  printf 'pythonRequirement=>=3.11,<4\n'
+  printf 'pythonRole=authenticated-orchestrator\n'
+  printf 'targetRid=%s\n' "$TARGET_RID"
+  printf 'releaseManifestStatus=%s\n' "$RELEASE_MANIFEST_STATUS"
+  printf 'releaseManifestSha256=%s\n' "$RELEASE_MANIFEST_SHA256"
+  printf 'releaseEvidenceEligible=false\n'
+  printf 'debugSymbols=none\n'
+  printf 'artifactPathPortability=passed\n'
+  printf 'artifactModeNormalization=passed\n'
+  for index in "${!REPO_DIRS[@]}"; do
+    printf 'repository.%s=%s\n' "${REPO_DIRS[$index]}" "${REPO_COMMITS[$index]}"
+  done
+} >"$STAGE/BUILD-MANIFEST.txt"
+
+"$PYTHON_RUNTIME" - "$STAGE" "$RUN_ROOT" "$BASE_PATH" "$REPOSITORY_ROOT" "$UI_ROOT" <<'PY'
+from __future__ import annotations
+
+import os
+import stat
+import sys
+from pathlib import Path
+
+stage = Path(sys.argv[1])
+actual_roots = [Path(value).resolve() for value in sys.argv[2:]]
+home = os.environ.get("HOME")
+if home and Path(home).is_absolute():
+    actual_roots.append(Path(home).resolve())
+
+forbidden = {
+    b"/tmp/",
+    b"/var/tmp/",
+    b"/docker/",
+    b"/workspace/",
+    b".source-run.",
+}
+for root in actual_roots:
+    encoded = os.fsencode(root)
+    if len(encoded) > 1:
+        forbidden.add(encoded)
+    if root.name.startswith(".source-run."):
+        forbidden.add(os.fsencode(root.name))
+
+violations: list[str] = []
+stage.chmod(0o755)
+for path in sorted(stage.rglob("*")):
+    metadata = path.lstat()
+    if stat.S_ISLNK(metadata.st_mode):
+        violations.append(f"{path.relative_to(stage)}: symbolic links are not portable")
+        continue
+    if stat.S_ISDIR(metadata.st_mode):
+        path.chmod(0o755)
+        continue
+    if not stat.S_ISREG(metadata.st_mode):
+        violations.append(f"{path.relative_to(stage)}: special files are not portable")
+        continue
+    path.chmod(0o644)
+    payload = path.read_bytes()
+    matched = sorted(token for token in forbidden if token in payload)
+    if matched:
+        rendered = ", ".join(os.fsdecode(token) for token in matched)
+        violations.append(f"{path.relative_to(stage)}: {rendered}")
+
+main_executable = stage / "Chummer.Avalonia"
+try:
+    main_metadata = main_executable.lstat()
+except OSError:
+    violations.append("Chummer.Avalonia: main executable is missing")
+else:
+    if not stat.S_ISREG(main_metadata.st_mode) or stat.S_ISLNK(main_metadata.st_mode):
+        violations.append("Chummer.Avalonia: main executable is not a regular file")
+    else:
+        main_executable.chmod(0o755)
+
+if violations:
+    print("Published source artifact contains machine-local path bytes:", file=sys.stderr)
+    for violation in violations:
+        print(f"  {violation}", file=sys.stderr)
+    raise SystemExit(1)
+
+for path in [stage, *sorted(stage.rglob("*"))]:
+    metadata = path.lstat()
+    if stat.S_ISDIR(metadata.st_mode):
+        expected_mode = 0o755
+    elif stat.S_ISREG(metadata.st_mode):
+        expected_mode = 0o755 if path == main_executable else 0o644
+    else:
+        continue
+    actual_mode = stat.S_IMODE(metadata.st_mode)
+    if actual_mode != expected_mode:
+        raise SystemExit(
+            f"artifact mode normalization failed: {path.relative_to(stage)} "
+            f"has {actual_mode:04o}, expected {expected_mode:04o}"
+        )
+
+print(
+    "Artifact path portability and modes verified: "
+    f"{sum(1 for path in stage.rglob('*') if path.is_file())} files"
+)
+PY
+
+ARCHIVE_NAME="chummer6-$TARGET_RID-source-lock.tar.gz"
+ARCHIVE_TEMP="$RUN_ROOT/$ARCHIVE_NAME"
+(cd "$STAGE" && tar --sort=name --mtime="@$SOURCE_DATE_EPOCH" --owner=0 --group=0 --numeric-owner -cf - .) | gzip -n >"$ARCHIVE_TEMP"
+(cd "$RUN_ROOT" && sha256sum "$ARCHIVE_NAME" >"$ARCHIVE_NAME.sha256")
+mv -- "$ARCHIVE_TEMP" "$RUN_ROOT/$ARCHIVE_NAME.sha256" "$STAGE/"
+mv -- "$STAGE" "$ARTIFACT_DIR"
+ARCHIVE="$ARTIFACT_DIR/$ARCHIVE_NAME"
+
+printf '\nBuild complete (review-only; never release evidence).\n'
+printf 'Artifact: %s\nArchive:  %s\nSHA256:   %s\nLog:      %s\n' \
+  "$ARTIFACT_DIR" "$ARCHIVE" "$(sha256sum "$ARCHIVE" | awk '{print $1}')" "$LOG_FILE"

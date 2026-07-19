@@ -1,0 +1,1028 @@
+{
+  "baseFeedFileSha256": "ad72499218904f057a078e9926d39503018d4da641349d9c08f9e87dcbfe429e",
+  "baseFeedInventorySha256": "9a162dfa07673de3e50c08ee00343899839f2ed8be3cb16892868b440daa454a",
+  "contract": "chummer6.rid-restore-feed/v1",
+  "packageCount": 99,
+  "packages": [
+    {
+      "archiveSha512": "eedVIAaqqCQ7ooCCZi8nyN22JTcHmIucf/PU62CRuwCb8p02v+rXaydEZtKGVfHg9/yp4igngtltOEYb+cnMbw==",
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Application.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Engine.Contracts",
+          "version": "5.225.0"
+        },
+        {
+          "packageId": "Chummer.Hub.Registry.Contracts",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Run.Contracts",
+          "version": "0.1.0-preview"
+        }
+      ],
+      "license": {
+        "type": "expression",
+        "value": "GPL-3.0-only"
+      },
+      "packageId": "Chummer.Application",
+      "project": "Chummer.Application/Chummer.Application.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "sha256": "6ce46217e673015e06f2e19612c6ea0780d8ca2265886bf272bed6f333b57db7",
+      "sizeBytes": 683775,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "TiK7NwekdXjf1J+HKVFtLT074y6OKI14T/cevmGOxAUWY7IsqAI7mXuxe7p/L28O5zvgA/K+q4ABmNt7pD72pw==",
+      "commit": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "fileName": "Chummer.Campaign.Contracts.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Engine.Contracts",
+          "version": "5.225.0"
+        }
+      ],
+      "license": {
+        "type": "file",
+        "value": "LICENSE"
+      },
+      "packageId": "Chummer.Campaign.Contracts",
+      "project": "Chummer.Campaign.Contracts/Chummer.Campaign.Contracts.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-hub.git",
+      "sha256": "69c4370c4e112833a1d766e2ec98058337096bb8c0a49ac18d50986fe9abbdb8",
+      "sizeBytes": 385409,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "LNSTC2sZdfDKUf8sxNwK8NF7cTnjf0BseFbv3mRbWDF7ZAIYRqrccN/vjMLASXtIRASYiZxL+FzfTeltvPmx/Q==",
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Engine.Contracts.5.225.0.nupkg",
+      "internalDependencies": [],
+      "license": {
+        "type": "expression",
+        "value": "GPL-3.0-only"
+      },
+      "packageId": "Chummer.Engine.Contracts",
+      "project": "Chummer.Contracts/Chummer.Contracts.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "sha256": "ee7a0578d7eaa421e0bdc445394e8d4304d48accb561c48853559e429375ad2d",
+      "sizeBytes": 1389176,
+      "version": "5.225.0"
+    },
+    {
+      "archiveSha512": "A/iH3pSgE7cPCzudlz7aM0hNBapVsB2jaEUUWaU5WSej21lwGaJ2bsGJl7UWASqxKRLnwek1gp6NF0gPaesrrg==",
+      "commit": "4a312798a10cb7ae97c77731450e24fe6a74d963",
+      "fileName": "Chummer.Hub.Registry.Contracts.0.1.0-preview.nupkg",
+      "internalDependencies": [],
+      "license": {
+        "type": "file",
+        "value": "LICENSE"
+      },
+      "packageId": "Chummer.Hub.Registry.Contracts",
+      "project": "Chummer.Hub.Registry.Contracts/Chummer.Hub.Registry.Contracts.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-hub-registry.git",
+      "sha256": "ece4182749d1db0cc224f7be169e7ae493b813e18f7e112bcecae77c08f1b5bc",
+      "sizeBytes": 523758,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "CnYuo+byMC4NQF+ptKPvS3Wl10RR21PoxJxfIPPheoTFG6hqBZ3zo/sHpB43EsuW33/Ia2esv+53KLoEqHKkdw==",
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Infrastructure.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Application",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Engine.Contracts",
+          "version": "5.225.0"
+        },
+        {
+          "packageId": "Chummer.Hub.Registry.Contracts",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Rulesets.Hosting",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Rulesets.Sr5",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Rulesets.Sr6",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Run.Contracts",
+          "version": "0.1.0-preview"
+        }
+      ],
+      "license": {
+        "type": "expression",
+        "value": "GPL-3.0-only"
+      },
+      "packageId": "Chummer.Infrastructure",
+      "project": "Chummer.Infrastructure/Chummer.Infrastructure.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "sha256": "e74340bd25c06fb84df579c3fad9f2a2eb38d685c0f05dc97badc0ee4746f234",
+      "sizeBytes": 260889,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "mlcpuJ8u40RaXNleGsSa4kJZtU3PvIxoEp4ULHvuAcXTsu8ACZPW2spqmRvmbBcyfBGjEJgpbIOUrPWXm0ZpiQ==",
+      "commit": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "fileName": "Chummer.Play.Contracts.0.1.0-preview.nupkg",
+      "internalDependencies": [],
+      "license": {
+        "type": "file",
+        "value": "LICENSE"
+      },
+      "packageId": "Chummer.Play.Contracts",
+      "project": "Chummer.Play.Contracts/Chummer.Play.Contracts.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-hub.git",
+      "sha256": "8ff4b9eb23c0c518a20f3eb045a9dd136ef0f8fa1d9b3863bd7747a64b97eb7f",
+      "sizeBytes": 322631,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "QNaP8jfJtFJ1N5+ML1F29Z75Cmea1hiX4w6Gf31vT8hp0j/7DdOG4da1+JxrBAWRA8J09evPiryusb+YTZC0bw==",
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Rulesets.Hosting.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Application",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Engine.Contracts",
+          "version": "5.225.0"
+        },
+        {
+          "packageId": "Chummer.Run.Contracts",
+          "version": "0.1.0-preview"
+        }
+      ],
+      "license": {
+        "type": "expression",
+        "value": "GPL-3.0-only"
+      },
+      "packageId": "Chummer.Rulesets.Hosting",
+      "project": "Chummer.Rulesets.Hosting/Chummer.Rulesets.Hosting.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "sha256": "f1c9f791b2ada1719ee64a2e97311148cc8e8d883e34e4dad4c42b9e713ce807",
+      "sizeBytes": 38801,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "Hebew1RHZq7rycdTZE7+tIRG1Bnz3lm2VBxZLccTEU5lmhaf3canYKLNwv8A+GMRtCHwLF7aHujHa1Dy33KXzA==",
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Rulesets.Sr4.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Application",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Engine.Contracts",
+          "version": "5.225.0"
+        },
+        {
+          "packageId": "Chummer.Infrastructure",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Run.Contracts",
+          "version": "0.1.0-preview"
+        }
+      ],
+      "license": {
+        "type": "expression",
+        "value": "GPL-3.0-only"
+      },
+      "packageId": "Chummer.Rulesets.Sr4",
+      "project": "Chummer.Rulesets.Sr4/Chummer.Rulesets.Sr4.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "sha256": "60ab1b18d0b376e536b9eac428f12f2fd164ae683813a1b0ad7bee11443a2310",
+      "sizeBytes": 86482,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "f0QyTdJdT6IhT+jiEn6R1zkOM4NRGSz7WaSLt8fun6S7cj10fxjdTcJ049CQQc4chef6QMfUlaEWRfpLNBcvTA==",
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Rulesets.Sr5.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Application",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Engine.Contracts",
+          "version": "5.225.0"
+        },
+        {
+          "packageId": "Chummer.Run.Contracts",
+          "version": "0.1.0-preview"
+        }
+      ],
+      "license": {
+        "type": "expression",
+        "value": "GPL-3.0-only"
+      },
+      "packageId": "Chummer.Rulesets.Sr5",
+      "project": "Chummer.Rulesets.Sr5/Chummer.Rulesets.Sr5.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "sha256": "88ce05ad3cb74beba1d6761f04c8030b4a1cd75b48b20dcea65cb6b836cf6694",
+      "sizeBytes": 82797,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "ahjEDQWnJhFjiRFuyncjpXJjAr2uqpZBxo7F0xICc25kfIfVtlk4IEjkLj7IzTWB37WV/WE6eJtA7udJ9lGzzg==",
+      "commit": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
+      "fileName": "Chummer.Rulesets.Sr6.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Application",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Engine.Contracts",
+          "version": "5.225.0"
+        },
+        {
+          "packageId": "Chummer.Run.Contracts",
+          "version": "0.1.0-preview"
+        }
+      ],
+      "license": {
+        "type": "expression",
+        "value": "GPL-3.0-only"
+      },
+      "packageId": "Chummer.Rulesets.Sr6",
+      "project": "Chummer.Rulesets.Sr6/Chummer.Rulesets.Sr6.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-core.git",
+      "sha256": "04206723e0bb259e68569760dd56cf55fbb54caeafee361cfd5b687fc61d2b0b",
+      "sizeBytes": 111469,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "iyPzdm8r8pNsFwijOR4zDtxOIz0KW5M2vA68Fo+c0DgbE2WPy4HN8C5rqqUxpf5lxceORovLe35CLvSR4qQX7A==",
+      "commit": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
+      "fileName": "Chummer.Run.Contracts.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Engine.Contracts",
+          "version": "5.225.0"
+        },
+        {
+          "packageId": "Chummer.Hub.Registry.Contracts",
+          "version": "0.1.0-preview"
+        },
+        {
+          "packageId": "Chummer.Play.Contracts",
+          "version": "0.1.0-preview"
+        }
+      ],
+      "license": {
+        "type": "file",
+        "value": "LICENSE"
+      },
+      "packageId": "Chummer.Run.Contracts",
+      "project": "Chummer.Run.Contracts/Chummer.Run.Contracts.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-hub.git",
+      "sha256": "08f702a6fe627f1534da4219fb3686458fff9141031005356a2314ff83e9cbd7",
+      "sizeBytes": 1450366,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "dCYEFwKVCGW6Sk6jPzo/PFTPU67v++TSOk6Ti2Lw+SIyRfM8MasMJWiFclr/D4fZSMGV9+xVggzAvqFwsARAMw==",
+      "commit": "4a312798a10cb7ae97c77731450e24fe6a74d963",
+      "fileName": "Chummer.Run.Registry.0.1.0-preview.nupkg",
+      "internalDependencies": [
+        {
+          "packageId": "Chummer.Hub.Registry.Contracts",
+          "version": "0.1.0-preview"
+        }
+      ],
+      "license": {
+        "type": "file",
+        "value": "LICENSE"
+      },
+      "packageId": "Chummer.Run.Registry",
+      "project": "Chummer.Run.Registry/Chummer.Run.Registry.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-hub-registry.git",
+      "sha256": "bccbc49cd44a21cac8cc7ed001724b410225701ba085470503efef68fdfe0233",
+      "sizeBytes": 331894,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "LAZ0dTTA+FjDS0LUigRsK9QlvHEPq80tKXgn56n0/NFKk5EqR0+LuTKlBDp61iYis4sgC72xrWZR6o+1REZUkw==",
+      "commit": "d51ecd99cf72098d4adc8db0192bff7bf9fd8e61",
+      "fileName": "Chummer.Ui.Kit.0.1.0-preview.nupkg",
+      "internalDependencies": [],
+      "license": {
+        "type": "expression",
+        "value": "GPL-3.0-only"
+      },
+      "packageId": "Chummer.Ui.Kit",
+      "project": "src/Chummer.Ui.Kit/Chummer.Ui.Kit.csproj",
+      "repository": "https://github.com/ArchonMegalon/chummer6-ui-kit.git",
+      "sha256": "076d462d3017d28a62e126106e65fded797d366db1f56c25fcd9c768faa1f9e0",
+      "sizeBytes": 122141,
+      "version": "0.1.0-preview"
+    },
+    {
+      "archiveSha512": "CiFradU1jzN0pzenMkQuO82GugG1b25RJCMWXOeV+CzxRJbOKpG9sIROaNpJrsjAPETovQl2SJuOyZFsngwwlA==",
+      "fileName": "avalonia.11.3.7.nupkg",
+      "packageId": "Avalonia",
+      "sha256": "16c073de6c129fe259bd2002105646cd805d5fee2b14748541f97d4584fb0403",
+      "sizeBytes": 12876085,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "XPS6c5xP4L+eNq0rTUgTOCOeqYIW5hiPjC969e+9y4kmzn1q8t+VEHH42SlNTSXOHlKDXyv0rAjD3Oul5QOuYA==",
+      "fileName": "avalonia.angle.windows.natives.2.1.25547.20250602.nupkg",
+      "packageId": "Avalonia.Angle.Windows.Natives",
+      "sha256": "2c4fe510d007a6d9b3eaddd3fc0a09c2786975afb1b3b3eaae2346cdd71f83c3",
+      "sizeBytes": 6132962,
+      "version": "2.1.25547.20250602"
+    },
+    {
+      "archiveSha512": "0zfgsOzBhK/KDDoith9aH0tksEN3To2wnwb9F7gAcyZR5kGNe4qntI/JHV7jiilW0TCRBtMD0lfDqH4NXGCvgA==",
+      "fileName": "avalonia.buildservices.11.3.1.nupkg",
+      "packageId": "Avalonia.BuildServices",
+      "sha256": "258700fc38131d1274dbf15c511aad2675d8861773922f0318408b919e3338d8",
+      "sizeBytes": 68252,
+      "version": "11.3.1"
+    },
+    {
+      "archiveSha512": "6xGfaKjG17M56kjkf0pvzDUAtdoym0EBcqjpXW4WMpQ5bjIrBrmjjSRhuFC/QVSjQPaO3ohVr4FsZ8MRid15Qg==",
+      "fileName": "avalonia.desktop.11.3.7.nupkg",
+      "packageId": "Avalonia.Desktop",
+      "sha256": "651b4a4ed4b7fc1fc4cac4163689374b1de52ff102bec6dcde23f148c4c13ee1",
+      "sizeBytes": 43159,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "jIOtDvm1DVXx0ulesU4xP+nKdY2dC6r+aLvGMqbEqbYqpG+ZRbizBYpfGpS8K+5FEDzNM9M/+Gywge7+U1wrGA==",
+      "fileName": "avalonia.fonts.inter.11.3.7.nupkg",
+      "packageId": "Avalonia.Fonts.Inter",
+      "sha256": "f4e0c5e64d5a00821807ecafd13351b5fba56905bd006954008f09f32673a77c",
+      "sizeBytes": 2873261,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "OVsUOZutM7+FQmCzJmJTCJfRe6IPDsQHkP+byz0HgdrTYJkDoc+9L1hzQ4ebN8b1OUo9IekzO1UAFddiSjdoqQ==",
+      "fileName": "avalonia.freedesktop.11.3.7.nupkg",
+      "packageId": "Avalonia.FreeDesktop",
+      "sha256": "917aedd247541f54c113ce993a908a483f2c319bf70cfe9aae2b37ff4a0e04f4",
+      "sizeBytes": 252379,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "PPmypmyAYl3Ib6BQCi1yRQrrXvC0sTB2jYTrBfq8rh2XQjRJue5iEqMmM6GU7bLP7HW6pq7ZWARRP2lhcFYbSw==",
+      "fileName": "avalonia.native.11.3.7.nupkg",
+      "packageId": "Avalonia.Native",
+      "sha256": "cb5aee4300eb1aff39f450d6180a31bbcbee6fa9aa584f8b40f6fd91bd73acf3",
+      "sizeBytes": 755847,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "Z9AanvX2MD8IA8ha6risX52xAXM195JXIovIZUWjan82DWz9x2IAlifwbgRYNRV3fwLSsyaKO+Sd7F9f64m8Zg==",
+      "fileName": "avalonia.remote.protocol.11.3.7.nupkg",
+      "packageId": "Avalonia.Remote.Protocol",
+      "sha256": "03716e6d11fc2e2f35a5884450641ab4cd1eb658b99529037f6fa23f10fde60b",
+      "sizeBytes": 142138,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "cmjBeTxWwbuMwdceMHlxyvUG35tU1otCwmt8/EvuLa2YRs6fCrt47KBPGsWuVK3AHvglk7TFIDZKcxLm0Vxvjw==",
+      "fileName": "avalonia.skia.11.3.7.nupkg",
+      "packageId": "Avalonia.Skia",
+      "sha256": "b80f6a039f924804fa23e178811b3c521af998f9140f895ee48ad021e20ec4a8",
+      "sizeBytes": 231250,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "iRAn5B1UpM+/NQREpwqS5gHZIilSxjZWUq3bPc0jgSMoD8DN+4yTSTkxnS6nVaS0aZcRQCMEZwtbOIt5pazcmA==",
+      "fileName": "avalonia.themes.fluent.11.3.7.nupkg",
+      "packageId": "Avalonia.Themes.Fluent",
+      "sha256": "49be16eebab33cf5e8aca705132e040ea872e059a9254daf485af733a01bf4dd",
+      "sizeBytes": 325730,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "lAf9lo2pIJguqbiItxRE1FHnA616dvKiH7CMTLfh6j9fy/lcYPBVQsp1lKSDDiPNsYsgFqNGWiqZiO8v3l1pxQ==",
+      "fileName": "avalonia.win32.11.3.7.nupkg",
+      "packageId": "Avalonia.Win32",
+      "sha256": "6a4b5f13a5f641ad490556a216dd85a994018934ec90f2ad1ecb0cdd9afd70fd",
+      "sizeBytes": 1046785,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "vDEEE0xEIGXaHa1hZDii6YcSN/CErOtEoJEDkZbt9+O4tkvzjSgS5uiFax5kCkxZqC+Q4yUpM8FM8uUZsJw9Rg==",
+      "fileName": "avalonia.x11.11.3.7.nupkg",
+      "packageId": "Avalonia.X11",
+      "sha256": "a19e6c403158c31eafcab00b65cba9e17975c943de6fa586d5e8c901e71bc775",
+      "sizeBytes": 484989,
+      "version": "11.3.7"
+    },
+    {
+      "archiveSha512": "7R2URHlW+llcSGf+PutKe2fJfgDg2lpydiNiISy/JeYr5ZNuWWF8lKHL1Oa70KyQKFTQ02hmvZIO1qha5mOsjA==",
+      "fileName": "harfbuzzsharp.8.3.1.1.nupkg",
+      "packageId": "HarfBuzzSharp",
+      "sha256": "eb5e32bfa6caf729e17549ef5b8c08920a417b6b2a4e1dbc53d7036737613dcd",
+      "sizeBytes": 1029897,
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "Tb/+tdB8N3tfbX1UpljG4nL6eGhpxOam/b+Lv4X4nQGmBt3+JAWS823dN4B0cPBUa7x96abrBQjaFekdFKlWFw==",
+      "fileName": "harfbuzzsharp.nativeassets.linux.8.3.1.1.nupkg",
+      "packageId": "HarfBuzzSharp.NativeAssets.Linux",
+      "sha256": "b016decfa7dcf5ac5572c05b2076e9421fcc33934794c2604aee85cae6735725",
+      "sizeBytes": 10890070,
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "BjFVhiqZnQfAHk3zst8tI6oyDCXuYlCbC95lfsh5fgxv6V/ksp6fay6aASDcdt9DHFR/e6+fqhmTbFqet42i5g==",
+      "fileName": "harfbuzzsharp.nativeassets.macos.8.3.1.1.nupkg",
+      "packageId": "HarfBuzzSharp.NativeAssets.macOS",
+      "sha256": "84adb429b5f63a97b020ee6a1b9816c39221e86a0b7080e014ea822488d747f4",
+      "sizeBytes": 1358176,
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "dG1Svxgg2JchGYK0ZtJ0R33C5pipeCfLbcUwOyNVrZ7HkpkC1IS+IFKCvsLrqtKCSVLXCWrjsDxKm+Xug4TZ2w==",
+      "fileName": "harfbuzzsharp.nativeassets.webassembly.8.3.1.1.nupkg",
+      "packageId": "HarfBuzzSharp.NativeAssets.WebAssembly",
+      "sha256": "98b2a82ea238ed91d7a9330bc0fd540a6edf683a6d51f42e90dbddabac3fc71c",
+      "sizeBytes": 13701263,
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "W/ZQTDT5BARF1viNl1iWsonLYitN4Ql2HnIcuD6NMwFobu3Wpnqd1eR0L+um1e0dEGkyNy9DFZkmcSrW8eAq8w==",
+      "fileName": "harfbuzzsharp.nativeassets.win32.8.3.1.1.nupkg",
+      "packageId": "HarfBuzzSharp.NativeAssets.Win32",
+      "sha256": "526e22c0b773f57b5a0d202cb6135975ebfa74c8b2ece0681ceae8accacc632a",
+      "sizeBytes": 2502549,
+      "version": "8.3.1.1"
+    },
+    {
+      "archiveSha512": "wAcxF2406nuTatWKOGOYQ8eQsCe3FO1dPqgouF6pSxSlAt7VLKf2C7EMCsDnRL1uYv3M4BCOuq+XMcQI7s4DHg==",
+      "fileName": "microcom.runtime.0.11.0.nupkg",
+      "packageId": "MicroCom.Runtime",
+      "sha256": "55dc293f97ec725bcda89ba9a5a3afc04c2fda87e7008e594b3d95f9411d2c5d",
+      "sizeBytes": 28122,
+      "version": "0.11.0"
+    },
+    {
+      "archiveSha512": "3Ul7+tDGXlSk940qFkTz0IVNTNAd2DulBvjV1TY14oFSx8EyEN1d05hXgKqxRqdiDePrrq2O8SxvhwiGdsIVfw==",
+      "fileName": "microsoft.applicationinsights.2.23.0.nupkg",
+      "packageId": "Microsoft.ApplicationInsights",
+      "sha256": "e6c7f76e0ec26598c7b1e2be1777e839c84486655e8a878fc4c655bd2e918dbd",
+      "sizeBytes": 1737910,
+      "version": "2.23.0"
+    },
+    {
+      "archiveSha512": "egUcbQx7nmplsmjtA7VAvXS6r6dyoa3W83+dJvf0ZTd6N2i0TSnujbdmtubfSczR9x/vPlQ9gmLokuFkeSuehQ==",
+      "fileName": "microsoft.aspnetcore.app.internal.assets.10.0.3.nupkg",
+      "packageId": "Microsoft.AspNetCore.App.Internal.Assets",
+      "sha256": "090e7b488d345d82e555dab1e74a1b25c179966459c99b60aabd3e8d270409ff",
+      "sizeBytes": 661633,
+      "version": "10.0.3"
+    },
+    {
+      "archiveSha512": "XUAlxT+iOv9phzT4sKxw3oxlDyWGShw/M/cGDWiFp7S7xPkGvUF8khKEsSYEkARYsrP4xzOD+BpCp9odm2wLOw==",
+      "fileName": "microsoft.aspnetcore.app.runtime.linux-x64.10.0.3.nupkg",
+      "packageId": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+      "sha256": "e6a785b9385c9d9f47ef4352a49cbdf1ba861c0d0d7e5777165398720f4aa355",
+      "sizeBytes": 12962636,
+      "version": "10.0.3"
+    },
+    {
+      "archiveSha512": "twP/VZpsmpqTPT3sBOY7mVyes/2p+u45BEegiat8SLrCPTCmI1v3ZrJazS0u5Yg4md4sKFBXbr/5NpSknE1uJg==",
+      "fileName": "microsoft.aspnetcore.authentication.jwtbearer.10.0.9.nupkg",
+      "packageId": "Microsoft.AspNetCore.Authentication.JwtBearer",
+      "sha256": "081ad5732ee90d382524635a72e2d798b96632945869b2f9c4721a9b76e05375",
+      "sizeBytes": 68969,
+      "version": "10.0.9"
+    },
+    {
+      "archiveSha512": "MO+SHmWZpSpN3NU9URKsWNbm6pBYphFf3mxWsmP3FIG3ANKSuBhrApGAkjzwHA/jH7e0LnpvPnQAQPx/rOBkzg==",
+      "fileName": "microsoft.aspnetcore.authorization.10.0.0.nupkg",
+      "packageId": "Microsoft.AspNetCore.Authorization",
+      "sha256": "83531a80a164645d0bb6d74ae462dd1c25dee1dd6a397bf9ee7833ed79e146b9",
+      "sizeBytes": 144514,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "c2yasz2UQPameVtNJY03P2mYEneR6AfR5f5VEdupFmmOv1032nmPUe7/iXSiP85wtREOTxZE7eXxpwAk2vkwqw==",
+      "fileName": "microsoft.aspnetcore.components.10.0.0.nupkg",
+      "packageId": "Microsoft.AspNetCore.Components",
+      "sha256": "9eb0ae08345bbc3e574329f7c925bf083e322980fa7280bbd491f691eeb1b572",
+      "sizeBytes": 240279,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "2gB9ner9N3FNB0dwqovdfunHRwSEuq+ZDVE0bLsxytTzo+FPnf8R+1I5p/82fDWvftWpibxJ/bqdBQZ7AAW/GA==",
+      "fileName": "microsoft.aspnetcore.components.analyzers.10.0.0.nupkg",
+      "packageId": "Microsoft.AspNetCore.Components.Analyzers",
+      "sha256": "da66d244107fd9e4f47d8a2e84328ce4e15164643426ff0781c40bbee7e81eae",
+      "sizeBytes": 63717,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "zSfzq8J19vlyZ5RxrxQi7rW+3fj2E9rvIOqntD8pPwbmbULfxPcZULhNqhknpBuDClDQMEU1jllkKvAP7UuFwA==",
+      "fileName": "microsoft.aspnetcore.components.forms.10.0.0.nupkg",
+      "packageId": "Microsoft.AspNetCore.Components.Forms",
+      "sha256": "7a5d93f69be335ec6ae657c9869fbbc5961aff5092e917212162a6b622a0faf2",
+      "sizeBytes": 64570,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "czrdITHJqESCkpxjtZFYGG+6tznlFwscV+1pcz4ON7sTwkPB5VqiwOJ7r4sVuvjBBRGbLV18dSDKVrHLTRRSHQ==",
+      "fileName": "microsoft.aspnetcore.components.web.10.0.0.nupkg",
+      "packageId": "Microsoft.AspNetCore.Components.Web",
+      "sha256": "c437f50c134171e0052aee1eaf68a79fa81429ad53d4bf13ddec2515cbb175d1",
+      "sizeBytes": 134680,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "jzlzW0We1Od6oDHuv/jcLUhlZmgWs5dE5/zgGiCdIisqymwaDz15XFaOp6tJKlzNpj2CTOuvej4hTU8j0ifwvw==",
+      "fileName": "microsoft.aspnetcore.components.webview.10.0.0.nupkg",
+      "packageId": "Microsoft.AspNetCore.Components.WebView",
+      "sha256": "a8056117e0ff2fa8655247f2614f3954438b2d957e50408fd68cff71121cd832",
+      "sizeBytes": 223654,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "3W32qRW4gvAH689q16zan9GKxzNQ9xhWZp2/5Nq4QPAlDrYPxcgoq5MdXRCjO71x2Vk9xwU+6GeMG/IKmYOX2g==",
+      "fileName": "microsoft.aspnetcore.metadata.10.0.0.nupkg",
+      "packageId": "Microsoft.AspNetCore.Metadata",
+      "sha256": "4f1ca25d4c7cb1675615669c05358568f78c6b7cf6f9999ce152bf420ab4611c",
+      "sizeBytes": 73046,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "0bzrz+vR49E/jtdBySXaJSPP4plwnMHE2qsyJZgZJuDdIOtLUFswInVa7krxIVz2ur6KJZFdTPXr3WMXfgnDNg==",
+      "fileName": "microsoft.codecoverage.18.0.1.nupkg",
+      "packageId": "Microsoft.CodeCoverage",
+      "sha256": "1bacb98b21d9dd1dac8652c25bfb93bac8a8fd4a9c9d64fbf57f9401bc6f0d06",
+      "sizeBytes": 10065448,
+      "version": "18.0.1"
+    },
+    {
+      "archiveSha512": "cUi/56QZA0Idt8SeyMEsjHkXX55smUqGnWDstFo2BoaKoEKbHY5/eOMqiVGTsc6OdsXq5Jy9fSLOORhhkS5LNQ==",
+      "fileName": "microsoft.extensions.configuration.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Configuration",
+      "sha256": "32c2ec9153e9902be8bf9f835886802c2b75a9f4515f8bb6dbc787c6fa44d1d8",
+      "sizeBytes": 188338,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "Y8QH4IjWknpk7NhN3qfodzXFFk6k86h3Q1um3h816DofDVZaIXnKfH6q3rz8zFBpKuzhDgISp8PVgDIpRGxuFg==",
+      "fileName": "microsoft.extensions.configuration.abstractions.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Configuration.Abstractions",
+      "sha256": "19c82b9d302278257b0154f5df3c8e8dfc302fce9ef7d8a23bf32230ec4f186d",
+      "sizeBytes": 146564,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "bH+AO/Klr68TI53UlfjyVmPjb65C14QEFmGcE5ds/SlN4sS0coIGGU3Qs47oMQiagfP2PoulNsYNG3/VuXaR0A==",
+      "fileName": "microsoft.extensions.configuration.binder.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Configuration.Binder",
+      "sha256": "612896a00dd5411db693af9b484014a9e1bb503cd99497c75834ee6d43b957c5",
+      "sizeBytes": 392767,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "guo5RlurJ+KfQmHPNFQ7i5dOYp9z+iyw7Z4DkdT2pRCBgCNbwTpFShyjqpfePK9bS3Fd6GfNTRBO184G0ZFbnA==",
+      "fileName": "microsoft.extensions.configuration.fileextensions.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Configuration.FileExtensions",
+      "sha256": "acdfb7aeaac78936817c780ff84e1d03c426d9c1493df6c471df77c8a2ecaa54",
+      "sizeBytes": 140324,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "/Cn6NV+UIln7FVDuspZ97XCJnQ2jHl737c2KdzX544cWxMKx+hW/Nu6AcWHyjzMtCx49zOcZ/jjvjsifU2u4BA==",
+      "fileName": "microsoft.extensions.configuration.json.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Configuration.Json",
+      "sha256": "54216e920b31890d8c14613a4433054c6a290476dc64bdadd0447b10d6855d16",
+      "sizeBytes": 156805,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "jKVOffyzW7yqmikvAQf69oCKjPlMiHmnqv4xroQRdNKQCYlUIc4rvJv6/YbQyqvUArvrzITxlhd0dA3MFVIpuw==",
+      "fileName": "microsoft.extensions.dependencyinjection.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.DependencyInjection",
+      "sha256": "2d89bd855968fd1f5cd9a00a1ec0d8279bd8f54d3edc9bdc9667b7a2edc1b6f4",
+      "sizeBytes": 351239,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "R1JUmDhx81zXARj7/3QwSexiO9lNE2PBPXyK47sblSGIOl4Jd60iLY8wtmJ/NzhpXtPBiSOTMn2KFYuf7QaRIw==",
+      "fileName": "microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "sha256": "f62a1d5cfdfd62a831a269ce3cec5dfe6cdb1b425f3925f3168354de8993d8fb",
+      "sizeBytes": 285647,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "+/sUzO4o+mDmo6HFIITzWMsm5Lu7z6/rifZL90ENE63hDAa+zPUa65A9zBGQRTZGpouZsHUDnqTbvCpCwR1Frg==",
+      "fileName": "microsoft.extensions.diagnostics.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Diagnostics",
+      "sha256": "a3b4240a2b04705221db6eea0547d615c8b69ece1c804a4baa95fb62f1c64e84",
+      "sizeBytes": 159209,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "8dkT57qrPe80rEjtkQpo8mc6Z4cx1LkF0LbDF0h2uGUgQFJivXquaEpJVyMYGpDZnW9LprDN7IAqf7M18bwF6A==",
+      "fileName": "microsoft.extensions.diagnostics.abstractions.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Diagnostics.Abstractions",
+      "sha256": "722c7b43143f837b23eab797bb78e7d1c46fd918a3cdc79a2cb91c844193b791",
+      "sizeBytes": 151857,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "l0wkZS/2Ts65dSyBS+gHunb4DLrKy8Cp632ujR2dXBGE9Wp2efoMs286Ak9ID//GIHNQNN2tXFx66PeH+jqrTg==",
+      "fileName": "microsoft.extensions.fileproviders.abstractions.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.FileProviders.Abstractions",
+      "sha256": "0870ecd8708df1071fb9842980d56ccd9e5d7d715ee324bd2b61a841779c736d",
+      "sizeBytes": 128424,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "hGKeJwqRumDbUE0bDcBK3YpSsbHdIS9BXuIgdhrgH7BrGMlRuA6KXCHeU4f5lZPKtPe+0eoKgv3wv4DkQFioxQ==",
+      "fileName": "microsoft.extensions.fileproviders.composite.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.FileProviders.Composite",
+      "sha256": "b7d50ddca7dc1c96621fae15436fc8770496c91c7c3e9e340cbfc0686713f2a3",
+      "sizeBytes": 116995,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "Rj8/9ggRbv5CrRABBVcVVjsZPEx7Jqd4xvS24Dt8BApc2pkTgVIQ3M8nVQSdYdm7X2+fBX7uMq2P6Y62aRhY1Q==",
+      "fileName": "microsoft.extensions.fileproviders.embedded.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.FileProviders.Embedded",
+      "sha256": "6f82b4965c4d79e17ebe1396a89fe4f13e700a895a654e5bbf9f09bec72c6720",
+      "sizeBytes": 119573,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "Nbvyr/ZouHn7nTPSnhFdjo54lGxvXYjCFmDPrLnVH9SFCHL3THfmgjyOmYqfJEqIKTHhSOC/Xl3hoRpUkUS0lw==",
+      "fileName": "microsoft.extensions.fileproviders.physical.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.FileProviders.Physical",
+      "sha256": "d91c3f73004efbf037418d888cdfdcf18d0b86d0b5a9304bed5749883d49d944",
+      "sizeBytes": 195941,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "7IBBZgAjj/gCjAThFqNNdI8faIrWoxhzfJw/ftfhtJ3wdz7AKUqR1FZ5bJa0hGGSEko42mmvEpKrYRSUqXlP9g==",
+      "fileName": "microsoft.extensions.filesystemglobbing.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.FileSystemGlobbing",
+      "sha256": "1137d54ddb1d06da7af448202e0fc00114d05b894b41855d565757210aec8d90",
+      "sizeBytes": 192670,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "4U8pXWCPfYUj/65LYjWT4eic4+bQTV1lO0X6Omw87AM8bp5FISmXRWFTR/8HHCWK6JitWdcnQjXkqVX8tk2nKQ==",
+      "fileName": "microsoft.extensions.logging.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Logging",
+      "sha256": "3feccf01a74b2fade4fc6a8adf8fea0a1a908d8f5a211c597f1941f65aac4abb",
+      "sizeBytes": 229881,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "CElGLz6i7loG2KuKixPwXzz0Zt5m67xqCpysS+/JHOsYCuA8QgiasMp6Jsp/5bTtGo9z4jXhMI2Zl8lSnDad0Q==",
+      "fileName": "microsoft.extensions.logging.abstractions.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Logging.Abstractions",
+      "sha256": "067860199734d47c134b1a206afabb51eab857b88c037c0f9db7d1c10e118469",
+      "sizeBytes": 822954,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "ilZC08jI+mexJPr81kA/ClvQMvopdZHxhot9CM9hAOOYc5qRlMGbwvKFNFPD8N+e5VU9V5w/KJng/B3orJt27A==",
+      "fileName": "microsoft.extensions.logging.configuration.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Logging.Configuration",
+      "sha256": "eff4d63b56aaf217606dc4c42830562238120bd2a914dde4467317fb5d9b3a45",
+      "sizeBytes": 142164,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "ylJfPt6zOdYOrjG5sHMJhOWul2u+oHvBlXIm0tgBlAnKdUFIq1/vrzYOASQnDgat/M503Mdvb+gkKC8+2iMgUQ==",
+      "fileName": "microsoft.extensions.logging.console.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Logging.Console",
+      "sha256": "46c6e5a3b1923133abe37f3be8a91dbea4bac14f53ca9d72a052b7b4be740819",
+      "sizeBytes": 277157,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "olgvJlmRKzxNWACXtbRTNQBSj9IvAHQzJthPFZbHRULVVRg1wK98lWp20zUWGCePPtHEERkKg2O5G6RGZ1CzYw==",
+      "fileName": "microsoft.extensions.options.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Options",
+      "sha256": "8f930ea9948a794b71c739998f364c1b2d2f10b1ddbcfadaab04d0410355b180",
+      "sizeBytes": 497970,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "E22PBySOcYXl1o1qMM6MnMLu9Hb75sCVemGuy/7uuWVFbByZ0d3FHmZiH41j9P5Izi35ZuvsfTZPUkLhrgV6gw==",
+      "fileName": "microsoft.extensions.options.configurationextensions.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "sha256": "5c602ce43c4cbd69e68d7f1da91c0a634becb92e34487bec7c9a81d6b3b82fb9",
+      "sizeBytes": 132970,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "q7BfP5mrTfRnuM0qBFh+VWpXauE8LTzXtIL1SZg0h/MyOYGLKnsPPbXrRR0odHcYxA5On3IQdKLdqTOMNAk7bQ==",
+      "fileName": "microsoft.extensions.primitives.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Primitives",
+      "sha256": "0eea74f0a729b4b8e59e9379b79ffffa9e27f0551381102ae27ff0d6ceaeb3e2",
+      "sizeBytes": 208365,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "DtFCyCgn/yZ0WV92JFdgqpsWVevZExHrlCIYC+gSqT1S58A7bQolUuy9CYI0uicYQVbSxKH7BKgHEoa0iIRnWQ==",
+      "fileName": "microsoft.extensions.validation.10.0.0.nupkg",
+      "packageId": "Microsoft.Extensions.Validation",
+      "sha256": "05b98da8a96a35dff7ec85395f5c23737542c5fac14c0d5b915aa4d66c94f87d",
+      "sizeBytes": 107117,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "hIHlPMovpiEER5d1nxmijyALeUllH/GdCdWNKsqi/iu4NBrpCTjG3w08MH8JTqkT2NOoxDyl45TWST/KuIItaw==",
+      "fileName": "microsoft.identitymodel.abstractions.8.0.1.nupkg",
+      "packageId": "Microsoft.IdentityModel.Abstractions",
+      "sha256": "ccf59429309f1a6e0c59c60f534dfb3737b3b0513583cb448a38d0930e62a282",
+      "sizeBytes": 111940,
+      "version": "8.0.1"
+    },
+    {
+      "archiveSha512": "MAQtIvKGXu4t5zV8S7U8xMl1g92fpevettmjgwuzp04YDP1UKHPIZv4e8x+vPEXZrj/covl5QXaLjJBsGWG0UQ==",
+      "fileName": "microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg",
+      "packageId": "Microsoft.IdentityModel.JsonWebTokens",
+      "sha256": "5eff4c5278dbeba537c5e47d76b39c497e67d838ce0882593cc3522a3587a3d6",
+      "sizeBytes": 411141,
+      "version": "8.0.1"
+    },
+    {
+      "archiveSha512": "rX3loE3R01O3lb9ZXIVCTW0S2wfJ3zWr9/7cXSmfrkPRJJo7V1X1EZSaQwIGKrKvIKiBsZpMrICnVnXcQzn7uQ==",
+      "fileName": "microsoft.identitymodel.logging.8.0.1.nupkg",
+      "packageId": "Microsoft.IdentityModel.Logging",
+      "sha256": "15fc2b1ffd9e2d3e76d4aab0f91048a157f395337260caa558fdf3f93e96cb66",
+      "sizeBytes": 167172,
+      "version": "8.0.1"
+    },
+    {
+      "archiveSha512": "c/xsjC/mX5mG73JaWMLXmQWLITl+1NpnqqKVlVo1k2xDaUVL6ZzAWV9J0itPG9BLJQ6/D5/fWPcjm5lTqXBcDQ==",
+      "fileName": "microsoft.identitymodel.protocols.8.0.1.nupkg",
+      "packageId": "Microsoft.IdentityModel.Protocols",
+      "sha256": "bf70c8a46eb27c84e8641a473a3b501d1a360615c60e813bd0456cea406dad18",
+      "sizeBytes": 174566,
+      "version": "8.0.1"
+    },
+    {
+      "archiveSha512": "jfv6+mXZLpvf7pvV4cLd7ngyt8Fnu3nXqdcmkDEmqwXuAxM5zTy4Msmm+OWgkPkpo/bG8Rsczdro+FDK3M063Q==",
+      "fileName": "microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg",
+      "packageId": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
+      "sha256": "64729a671a844a4f8e5354854c51b1bd9ef5cdb7605aabf52fa113f7e7dd5d7d",
+      "sizeBytes": 365476,
+      "version": "8.0.1"
+    },
+    {
+      "archiveSha512": "RfhZ4pocOrM8WIgtWpvwS+HnTXicSm+pITWFqUwcMCRwCpyTN0BurUOtOy0Mqk3JIQWdsG2nc6is0TAXPtxgHg==",
+      "fileName": "microsoft.identitymodel.tokens.8.0.1.nupkg",
+      "packageId": "Microsoft.IdentityModel.Tokens",
+      "sha256": "6de55b6d5432f3be0795791329aacf4d3e7fafb5d1d4d18703fe74cb05a9ed80",
+      "sizeBytes": 973200,
+      "version": "8.0.1"
+    },
+    {
+      "archiveSha512": "r8GTvz1GGGER8wgpauj4XfIsPO7nXaN4b9EsjeW/k9vCTqQkyJ5jUqeV0BqEKcRJ//xPvwh6SfsxXzM8WFJ4XQ==",
+      "fileName": "microsoft.jsinterop.10.0.0.nupkg",
+      "packageId": "Microsoft.JSInterop",
+      "sha256": "ff2ea56b4233704e4dfed85118b0d962cbcd11e58f956d88c0426d22edec75a1",
+      "sizeBytes": 80646,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "cfpn4IW0Q+emID8eUocS7xfmwwYgD/JX5S+zCZA2l7gcYzxZ1vvfcdZHcKkuzCH4gMbBYqcZqtBn9uZa0WJRUg==",
+      "fileName": "microsoft.net.test.sdk.18.0.1.nupkg",
+      "packageId": "Microsoft.NET.Test.Sdk",
+      "sha256": "d1cdffae9f5d8b4c3b1395267d187a3ebae6dc07b28bc34e8f96e6da2ea3021d",
+      "sizeBytes": 39745,
+      "version": "18.0.1"
+    },
+    {
+      "archiveSha512": "8ml3xZTgBZ3OHdqIPw+K/+Cvng600b/8jdi+QBXgRT/aLaRk8ZTYu+pX0ZBo0OoWFrz8CIZ1SpvZ60S5yS5lmw==",
+      "fileName": "microsoft.netcore.app.host.linux-x64.10.0.3.nupkg",
+      "packageId": "Microsoft.NETCore.App.Host.linux-x64",
+      "sha256": "9276de325bc52e871e8b9971fe2259484cd19e4986aeeeb5ee89e59eb6e17e5f",
+      "sizeBytes": 5553424,
+      "version": "10.0.3"
+    },
+    {
+      "archiveSha512": "/5uYeQPV8stf1hxNVBKFPvqilHDDGT0wjNNa+gAbr2hRP+4LuNyHVnesPrwWJeSjlxT5Tn7U5RLplh6wOuKSrQ==",
+      "fileName": "microsoft.netcore.app.runtime.linux-x64.10.0.3.nupkg",
+      "packageId": "Microsoft.NETCore.App.Runtime.linux-x64",
+      "sha256": "864c4fef7cd7873a242f51f0de96609ff2007c52c1fac716123a2592954a823f",
+      "sizeBytes": 39808371,
+      "version": "10.0.3"
+    },
+    {
+      "archiveSha512": "roLYVoTpzbCIuM3znKYWQsofZdKa2klPACFI9IEj7tYNdXj76pBEKh00K4IWwMBclfbCNZGs0SJOXusXbAcQmA==",
+      "fileName": "microsoft.testing.extensions.telemetry.2.0.2.nupkg",
+      "packageId": "Microsoft.Testing.Extensions.Telemetry",
+      "sha256": "f1fdb75b7d76e4bd99004c51570bd749fb776bdde4fa949bff40995741e5162e",
+      "sizeBytes": 484735,
+      "version": "2.0.2"
+    },
+    {
+      "archiveSha512": "cU+dKf/PBIBheaD0hjs+q5LDrKlUeByHi/DcbGEZFWvfwLEHepwkB6bDx/pp6TdF0e6o4Jb8s3uXEqhnV0rLXw==",
+      "fileName": "microsoft.testing.extensions.trxreport.abstractions.2.0.2.nupkg",
+      "packageId": "Microsoft.Testing.Extensions.TrxReport.Abstractions",
+      "sha256": "78f845224a16655b7bf53921bbad8cc58c8885e14c0617f53546c88a664867d7",
+      "sizeBytes": 89940,
+      "version": "2.0.2"
+    },
+    {
+      "archiveSha512": "98pJzpUPQBIvhvnO/utkZ8J2fd5x7wYPn7dmpFAfXuDNL3VX5F6pb062p7YCFLF3QN9ql2rXHcCIHRzrmE8sQA==",
+      "fileName": "microsoft.testing.extensions.vstestbridge.2.0.2.nupkg",
+      "packageId": "Microsoft.Testing.Extensions.VSTestBridge",
+      "sha256": "a1d9fa7d93bbc9a3ecdc468452bd761ab6951f96a7a74aff05a6c9a4997cabf7",
+      "sizeBytes": 642697,
+      "version": "2.0.2"
+    },
+    {
+      "archiveSha512": "Gao/DE+vd076HzkwQiN0oo1WFRf0v6HVEtlbpoAKMiZJEFv8UjtYQzKpechvVOP1tChYV+q4Ia2DAuPOJpn96w==",
+      "fileName": "microsoft.testing.platform.2.0.2.nupkg",
+      "packageId": "Microsoft.Testing.Platform",
+      "sha256": "2bc078b50698b259be9e3510e7d9f2be1e1fe1482b6cea3a0d080ef47c2dd1a6",
+      "sizeBytes": 2640233,
+      "version": "2.0.2"
+    },
+    {
+      "archiveSha512": "WoVIZ95LLQze4hqwnTyDj/lEfUu3PwfdYs6KFcdgF6GCm8IMiRDGpbE1R/pQg5AyWLI5+Yx1ZquhJmn1KyajQw==",
+      "fileName": "microsoft.testing.platform.msbuild.2.0.2.nupkg",
+      "packageId": "Microsoft.Testing.Platform.MSBuild",
+      "sha256": "45b2f621efec431d3b85f7e26a8f12711fb233262a23c6acb650b4fee7f76f33",
+      "sizeBytes": 1684374,
+      "version": "2.0.2"
+    },
+    {
+      "archiveSha512": "VwwjosubVuH9WOSwbdemtbcqeKpzihLEPG0n8EPWiGQ4TVasJQ3PST/QLqYKfLHaqRUMn7WF3d6l381FRnF0OQ==",
+      "fileName": "microsoft.testplatform.adapterutilities.18.0.1.nupkg",
+      "packageId": "Microsoft.TestPlatform.AdapterUtilities",
+      "sha256": "2c4e71b3273be4445f955fc40380380d5fa36b62c06f4291fc33e29c01be0202",
+      "sizeBytes": 652551,
+      "version": "18.0.1"
+    },
+    {
+      "archiveSha512": "qZKcsS5mN7GMwtpd+tRfAt4Dmg8yVbtWkm9iGfqY2GNOG2qW95NH6zf/FrTLXTiS7rB7zqihWGEcSspOaSK8TQ==",
+      "fileName": "microsoft.testplatform.objectmodel.18.0.1.nupkg",
+      "packageId": "Microsoft.TestPlatform.ObjectModel",
+      "sha256": "a096d2ed2678e91cf2390fa00b2b16eea251cbb57c4654156b977cb9a8dbf753",
+      "sizeBytes": 1665637,
+      "version": "18.0.1"
+    },
+    {
+      "archiveSha512": "SX1FnYA8zcNv/lbWK3GjLnAx93jalmyHyQMVi+TNWA61R6xzkLMNpC3fotbfpDheXCFhwy/1rKoULyaOOe0jEg==",
+      "fileName": "microsoft.testplatform.testhost.18.0.1.nupkg",
+      "packageId": "Microsoft.TestPlatform.TestHost",
+      "sha256": "39761fe6f838a620ebd74bded1b6766526fe9dbdf23a21dac8957772ee6c315e",
+      "sizeBytes": 3260813,
+      "version": "18.0.1"
+    },
+    {
+      "archiveSha512": "NJ+wvKinTbkBcz1FhBuZpDva+hYMAFcwkMQcBtTcbgxg7SgBmbwPOpsFREVWb6ytihleGt0iEOBU9Fkd3zQPRA==",
+      "fileName": "mstest.analyzers.4.0.2.nupkg",
+      "packageId": "MSTest.Analyzers",
+      "sha256": "4a940e6c733d8abded11679b8800171b61bf4c6437341d1f58658e40b2e9c268",
+      "sizeBytes": 1394532,
+      "version": "4.0.2"
+    },
+    {
+      "archiveSha512": "glB0ABmZ58CZm05DIUmO69JyS07emuALkjnjjMwmsbp184RsJZAr0X+HSff6D1zFZY5AMPsC7JH8UUPAJ8R/Wg==",
+      "fileName": "mstest.testadapter.4.0.2.nupkg",
+      "packageId": "MSTest.TestAdapter",
+      "sha256": "a74e850a8889b913df2d41973e652fe600aed0569dba5d1900ef00dc3c2342e9",
+      "sizeBytes": 2009050,
+      "version": "4.0.2"
+    },
+    {
+      "archiveSha512": "oJYKne3f3BKdklbbj6czPu1R9Heo444xxlG1nFEIxAt9C96jiPFRuuNVy9bw62eYmYXNugcxgjADkCDZzQM/BQ==",
+      "fileName": "mstest.testframework.4.0.2.nupkg",
+      "packageId": "MSTest.TestFramework",
+      "sha256": "479e82af824647b1c994e1a0b437b2cb10b07d92e94cad239b4cb025a1b3d3d5",
+      "sizeBytes": 2716476,
+      "version": "4.0.2"
+    },
+    {
+      "archiveSha512": "mbJSvHfRxfX3tR/U6n1WU+mWHXswYc+SB/hkOpx8yZZe68hNZGfymJu0cjsaJEkVzCMqePiU6LdIyogqfIn7kg==",
+      "fileName": "newtonsoft.json.13.0.3.nupkg",
+      "packageId": "Newtonsoft.Json",
+      "sha256": "872fc189e638ab1056555b03aaa38f68bcb54286e221aa646eb1129babf63c77",
+      "sizeBytes": 2441966,
+      "version": "13.0.3"
+    },
+    {
+      "archiveSha512": "9wZYlR6r1uLGnAxBuUPOCmgbS6SDtVKyGkZ0tDGPaBHYbbdEDEajD0VErq+W/dn3gHfJ3WvOdZaNNNybnFCupA==",
+      "fileName": "npgsql.10.0.3.nupkg",
+      "packageId": "Npgsql",
+      "sha256": "75d0970923a8c9fcbbd37e4ebe72fee0b10362a1e36723e86777df1b6728316d",
+      "sizeBytes": 1847911,
+      "version": "10.0.3"
+    },
+    {
+      "archiveSha512": "85t4U5S2V4FTzqRh6xEyi67uqQNjLI1Tfx3vr8q50nSryWB2u8S3DysJ5+Yfm5IhjBR7yNyr91rOA6JA4Dl1/g==",
+      "fileName": "photino.blazor.4.0.13.nupkg",
+      "packageId": "Photino.Blazor",
+      "sha256": "46c86e3ee7f32ff5189b3136792dffc2f8f83a97a077c402d3e9b0b7caed4777",
+      "sizeBytes": 52147,
+      "version": "4.0.13"
+    },
+    {
+      "archiveSha512": "JkiLxxA0fyFBcCrWsdBwQ184hxIkWix4vjq1zKGk0r63rvIpnMvWY8JxCj3LXtr2KwuzuJrGpiAulAynyrnzCg==",
+      "fileName": "photino.native.4.0.22.nupkg",
+      "packageId": "Photino.Native",
+      "sha256": "a3033b446c0577a5f96f0d6db4c81a43aa9ffb5e7b776387bf9209a7e565617b",
+      "sizeBytes": 838941,
+      "version": "4.0.22"
+    },
+    {
+      "archiveSha512": "kgMSezk6jG/S3/MYBgYmGCUmO4CDlgNmWspAmeBImRPfRXlIspPiIG2m4AHLqK126o7D+atkO3aO9Y0jws1jOg==",
+      "fileName": "photino.net.4.0.16.nupkg",
+      "packageId": "Photino.NET",
+      "sha256": "71bc433789eebb0605e246285de66bd87185c01d064eef105eb103ec7cf3ea9b",
+      "sizeBytes": 72439,
+      "version": "4.0.16"
+    },
+    {
+      "archiveSha512": "Oi/6XgX0XNuA5nNe6UfpHgj/FF/FDHiC511Etq4MLNczQg0VtqQnShhrOnnUY6EnPif/f9eaUdCTclHrtu92HQ==",
+      "fileName": "skiasharp.2.88.9.nupkg",
+      "packageId": "SkiaSharp",
+      "sha256": "8d9ff89d55d826daf3f5205feac61cfecd05c52ed178860ce24324ae1652fb6e",
+      "sizeBytes": 7150003,
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "XGo+k6GOcOatzVSL0vdvoxERQ0bOTYEuUg8lDTM0LVrY0F6ihUM70Vyxm7xI2bvy730fFyXdcXBazO+ro/Rokg==",
+      "fileName": "skiasharp.nativeassets.linux.2.88.9.nupkg",
+      "packageId": "SkiaSharp.NativeAssets.Linux",
+      "sha256": "990fe805aa9147bd567d2eba9890af71cdee296ec23441e83cdd898a50dbc3f0",
+      "sizeBytes": 15619648,
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "dM+4ZXRvKRGTUpC/uSRpszHlBBXVq+2odZjr20BJxSr4Sl2u2kHrywu67Gp967Qtg83GyfYc6lXUPHIKeMPrzg==",
+      "fileName": "skiasharp.nativeassets.macos.2.88.9.nupkg",
+      "packageId": "SkiaSharp.NativeAssets.macOS",
+      "sha256": "aaf1ae0268d71a318a33338f06f3fd55645538809219beda3557a353494b7bf8",
+      "sizeBytes": 6830677,
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "wYFdhpBMJeG8PkOyLMSy2w7JMcE91NlQWitssModJDKfclvOZQrxsNwSvHDYNSzBnyrEUqq0YuevR4fUYB4OCg==",
+      "fileName": "skiasharp.nativeassets.webassembly.2.88.9.nupkg",
+      "packageId": "SkiaSharp.NativeAssets.WebAssembly",
+      "sha256": "be014be0f772dced51281a7e4fd3775b89e41fdcaead9d2cba8f2ede03e69a16",
+      "sizeBytes": 71804127,
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "0YvYGUBBx/+3kwLU8b5YTowCToixLLRmmnOMrlUdo9PjkkCHuwqkLTSpADz7NQN9c2N4lOZ9AiI9EAobQhXu7A==",
+      "fileName": "skiasharp.nativeassets.win32.2.88.9.nupkg",
+      "packageId": "SkiaSharp.NativeAssets.Win32",
+      "sha256": "90fe573391a0c0719f3497dee13db23b934866d885ef50dda74a5dd6f1b957fe",
+      "sizeBytes": 10918525,
+      "version": "2.88.9"
+    },
+    {
+      "archiveSha512": "drAUGhUi2/DyD4YUlV5u1+KNaRa0ycSLb5rlSnbgjuAnZzAme2G+++M9W+VNijwpCW/GpYhiuhf+vqQY+93ryQ==",
+      "fileName": "system.identitymodel.tokens.jwt.8.0.1.nupkg",
+      "packageId": "System.IdentityModel.Tokens.Jwt",
+      "sha256": "856e1ff735acd1a7f13db70ca8203f1401af0596c115292e8083aeaecc289878",
+      "sizeBytes": 329380,
+      "version": "8.0.1"
+    },
+    {
+      "archiveSha512": "teHxNzoQmQKZz4y0rF/bdfZbHe7JuLujMDJ0Ec+mhdy9/55AbOnGXqOaQ8nlJVVdSeMw8xOL3LDzAce1qFBeBw==",
+      "fileName": "system.security.cryptography.protecteddata.10.0.0.nupkg",
+      "packageId": "System.Security.Cryptography.ProtectedData",
+      "sha256": "8684759555d51145df22d373276dff491c9b2c1a9a7f8658cc9063956807a523",
+      "sizeBytes": 155368,
+      "version": "10.0.0"
+    },
+    {
+      "archiveSha512": "8O8Z3ZgiWliBRi+JEYPDlNiqiSWzpkCEpr3KFa+b+LvZjAF/0ibI+ZqpIvSIerutb5IKyQrGGXJEe5Lhtf/oNA==",
+      "fileName": "tmds.dbus.protocol.0.21.3.nupkg",
+      "packageId": "Tmds.DBus.Protocol",
+      "sha256": "1d51081d27927b6f5eae01f1b0dbd662ede8ec08bc5592a8d3dc859fe9a24e72",
+      "sizeBytes": 387788,
+      "version": "0.21.3"
+    }
+  ],
+  "restoreFeedInventorySha256": "380059887103bc7e0b2fca09b67d62820ec2756bf8a883e6abe0b7174d8af1ac",
+  "runtimeIdentifier": "linux-x64",
+  "runtimePackageAuthoritySha256": "6c41d00c73e616f5d8f7fa942bc189e041501f78b7bceb49fcea66fe31b5879b"
+}
