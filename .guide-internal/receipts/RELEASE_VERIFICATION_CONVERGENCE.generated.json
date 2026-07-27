@@ -40,7 +40,7 @@
       ]
     },
     "linux_source_build_gate": {
-      "archive_sha256": "8ae794fd10ece94342fbdae104b8942b3847a8806de82266043e34a04087cad3",
+      "archive_sha256": "f4eeb2ef10576e732d29f30870ed3d20323a511c19f0287ed9ee986e55cfbe4c",
       "docker_image": "debian:bookworm-slim",
       "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
       "installed_startup_smoke_ready_checkpoint": "fresh_container_installed_gate",
@@ -74,7 +74,7 @@
         "Linux"
       ],
       "missing_platforms": [],
-      "published_at": "June 27, 2026 at 7:51 UTC",
+      "published_at": "July 11, 2026 at 16:49 UTC",
       "release_status": "Published",
       "shelf_truth_line": "Windows and Linux downloads are posted."
     },
@@ -125,7 +125,7 @@
     "updater_startup_window_has_visibility_delay_policy": true
   },
   "contract_name": "ea.chummer6_release_verification_convergence.v1",
-  "generated_at_utc": "2026-06-27T22:09:03Z",
+  "generated_at_utc": "2026-07-12T17:34:01Z",
   "generated_from": [
     ".guide-internal/receipts/LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json",
     ".guide-internal/receipts/MACOS_SOURCE_BUILD_CONTRACT.generated.json",

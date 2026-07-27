@@ -15,13 +15,13 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 ## What is real now
 
 - Short answer: yes, as an early preview.
-- macOS downloads are posted.
+- Windows and Linux downloads are posted.
 - Use the files linked on [Download](DOWNLOAD.md). If your platform is missing or preview-only, wait before switching full time.
 - For today, start with Avalonia. Treat Blazor Desktop as the alternate only when a support page points you there.
 - Use Avalonia first when the download page offers it.
 - The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.
 - Today: Current release build.
-- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
+- Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.
 - The current shelf should be read as a real preview, not a finished no-step-back release.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.

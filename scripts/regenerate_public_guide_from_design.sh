@@ -8,7 +8,9 @@ generator_script="${CHUMMER_PUBLIC_GUIDE_GENERATOR:-$design_root/scripts/ai/mate
 sync_script="${CHUMMER_PUBLIC_GUIDE_SYNC:-$repo_root/scripts/sync_public_guide_from_design.py}"
 verify_script="${CHUMMER_PUBLIC_GUIDE_VERIFY:-$repo_root/scripts/verify_public_guide.sh}"
 release_truth_script="${CHUMMER_PUBLIC_RELEASE_TRUTH_PACKET_MATERIALIZER:-$repo_root/scripts/materialize_public_release_truth_packet.py}"
+hub_registry_root="${CHUMMER_HUB_REGISTRY_ROOT:-$repo_root/../chummer-hub-registry}"
 check_mode=0
+skip_http=0
 
 usage() {
   cat <<'USAGE'
@@ -19,6 +21,7 @@ Usage:
 
 Options:
   --check             Validate the generated output and sync state without modifying files.
+  --skip-http         Skip external HTTP link probes during verification.
   --out PATH          Override the generated public-guide output directory.
   --design-repo PATH  Override the chummer-design repository root.
   --help, -h          Show this help.
@@ -30,6 +33,10 @@ Environment overrides:
   CHUMMER_PUBLIC_GUIDE_GENERATOR
   CHUMMER_PUBLIC_GUIDE_SYNC
   CHUMMER_PUBLIC_GUIDE_VERIFY
+  CHUMMER_HUB_REGISTRY_ROOT
+
+Canonical regeneration ignores CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS so an
+ambient workspace-portal override cannot replace registry release truth.
 USAGE
 }
 
@@ -37,6 +44,10 @@ while (($#)); do
   case "$1" in
     --check)
       check_mode=1
+      shift
+      ;;
+    --skip-http)
+      skip_http=1
       shift
       ;;
     --out)
@@ -96,7 +107,16 @@ else
   release_truth_args=()
 fi
 
-python3 "$release_truth_script" "${release_truth_args[@]}" >/dev/null
-CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT="$repo_root" python3 "${generator_args[@]}"
+if [[ "$skip_http" == "1" ]]; then
+  verify_args+=(--skip-http)
+fi
+
+env -u CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS \
+  CHUMMER_HUB_REGISTRY_ROOT="$hub_registry_root" \
+  python3 "$release_truth_script" "${release_truth_args[@]}" >/dev/null
+env -u CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS \
+  CHUMMER_HUB_REGISTRY_ROOT="$hub_registry_root" \
+  CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT="$repo_root" \
+  python3 "${generator_args[@]}"
 python3 "${sync_args[@]}"
 bash "${verify_args[@]}"

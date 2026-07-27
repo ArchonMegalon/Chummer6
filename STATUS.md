@@ -5,12 +5,13 @@ This is the blunt answer on what you can use today.
 ## Current picture
 
 - Today: Current release build.
-- Published: July 15, 2026 at 14:06 UTC.
+- Published: July 12, 2026 at 18:46 UTC.
 - Release status: Published.
-- macOS downloads are posted.
-- Desktop downloads are available for macOS ARM64 only. No public download is posted for Linux x64, Windows x64, Linux ARM64, and Windows ARM64 yet.
+- Windows and Linux downloads are posted.
+- Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.
+- macOS does not have a normal installer yet.
 - Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: Preview caveats still apply, but the current release has recent install, account return, release updates, community wrap-up, bounded offline prefetch, and current support follow-up coverage.
+- Current warning: Known issue: required desktop tuple coverage is incomplete (platforms: macos; pairs: avalonia:macos; tuples: avalonia:osx-arm64:macos).
 - Help, contact, privacy, and terms pages are live.
 
 ## Download and install first

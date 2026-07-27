@@ -45,6 +45,7 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stdout)
         self.assertIn("Regenerate the Chummer6 public guide from the design repo", completed.stdout)
         self.assertIn("--check", completed.stdout)
+        self.assertIn("--skip-http", completed.stdout)
         self.assertIn("CHUMMER_DESIGN_REPO_ROOT", completed.stdout)
 
     def test_verify_script_chain_mentions_linux_surface_guard(self) -> None:
@@ -119,6 +120,64 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
                 calls,
             )
 
+    def test_skip_http_mode_is_forwarded_only_to_verification(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            chummer6_root = root / "chummer6"
+            design_root = root / "chummer-design"
+            out_dir = design_root / "products" / "chummer" / "public-guide"
+            log_path = root / "calls.log"
+
+            self._write_fake_scripts(chummer6_root, design_root)
+
+            completed = self.run_script(
+                "--skip-http",
+                env={
+                    "CHUMMER6_REPO_ROOT": str(chummer6_root),
+                    "CHUMMER_DESIGN_REPO_ROOT": str(design_root),
+                    "CHUMMER_PUBLIC_GUIDE_OUT": str(out_dir),
+                    "CALL_LOG": str(log_path),
+                },
+            )
+
+            self.assertEqual(completed.returncode, 0, completed.stdout)
+            calls = log_path.read_text(encoding="utf-8").splitlines()
+            self.assertEqual(f"verify --source {out_dir} --skip-http", calls[-1])
+            self.assertNotIn("--skip-http", calls[-2])
+
+    def test_canonical_regeneration_clears_portal_release_override(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            chummer6_root = root / "chummer6"
+            design_root = root / "chummer-design"
+            out_dir = design_root / "products" / "chummer" / "public-guide"
+            log_path = root / "calls.log"
+            env_log_path = root / "environment.log"
+            registry_root = root / "canonical-registry"
+
+            self._write_fake_scripts(chummer6_root, design_root)
+
+            completed = self.run_script(
+                env={
+                    "CHUMMER6_REPO_ROOT": str(chummer6_root),
+                    "CHUMMER_DESIGN_REPO_ROOT": str(design_root),
+                    "CHUMMER_PUBLIC_GUIDE_OUT": str(out_dir),
+                    "CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS": str(root / "stale-workspace-release.json"),
+                    "CHUMMER_HUB_REGISTRY_ROOT": str(registry_root),
+                    "CALL_LOG": str(log_path),
+                    "ENV_LOG": str(env_log_path),
+                },
+            )
+
+            self.assertEqual(completed.returncode, 0, completed.stdout)
+            self.assertEqual(
+                [
+                    f"release-truth portal= hub={registry_root}",
+                    f"generator portal= hub={registry_root}",
+                ],
+                env_log_path.read_text(encoding="utf-8").splitlines(),
+            )
+
     @staticmethod
     def _write_fake_scripts(chummer6_root: Path, design_root: Path) -> None:
         (chummer6_root / "scripts").mkdir(parents=True)
@@ -131,6 +190,10 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
                 #!/usr/bin/env python3
                 import os
                 import sys
+                env_log = os.environ.get("ENV_LOG")
+                if env_log:
+                    with open(env_log, "a", encoding="utf-8") as handle:
+                        handle.write("generator portal=" + os.environ.get("CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS", "") + " hub=" + os.environ.get("CHUMMER_HUB_REGISTRY_ROOT", "") + "\\n")
                 with open(os.environ["CALL_LOG"], "a", encoding="utf-8") as handle:
                     handle.write("generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT=" + os.environ.get("CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT", "") + "\\n")
                     handle.write("generator " + " ".join(sys.argv[1:]) + "\\n")
@@ -154,6 +217,11 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             textwrap.dedent(
                 """\
                 #!/usr/bin/env python3
+                import os
+                env_log = os.environ.get("ENV_LOG")
+                if env_log:
+                    with open(env_log, "a", encoding="utf-8") as handle:
+                        handle.write("release-truth portal=" + os.environ.get("CHUMMER_PORTAL_RELEASE_CHANNEL_PATHS", "") + " hub=" + os.environ.get("CHUMMER_HUB_REGISTRY_ROOT", "") + "\\n")
                 raise SystemExit(0)
                 """
             ),
