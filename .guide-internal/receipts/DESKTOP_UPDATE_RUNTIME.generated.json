@@ -13,7 +13,7 @@
   "contract_name": "ea.chummer6_desktop_update_runtime.v1",
   "desktop_repo_root": "/docker/chummercomplete/chummer-presentation",
   "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
-  "generated_at_utc": "2026-07-12T17:34:01Z",
+  "generated_at_utc": "2026-07-29T10:59:14Z",
   "generated_from": [
     "Chummer.Tests/Chummer.Tests.csproj",
     "Chummer.Tests/DesktopUpdateRuntimeTests.cs"

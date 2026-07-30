@@ -1,9 +1,9 @@
 {
   "artifacts": {
-    "build_log_name": "linux-desktop-build-20260712T171939Z.log",
+    "build_log_name": "linux-desktop-build-20260729T105254Z.log",
     "build_manifest_excerpt": [
       "Chummer6 Linux desktop source build",
-      "Generated UTC: 2026-07-12T17:22:14Z",
+      "Generated UTC: 2026-07-29T10:54:28Z",
       "Script version: 1.3.0",
       "Distribution: Debian GNU/Linux 12 (bookworm)",
       "CPU: AMD EPYC-Milan Processor",
@@ -12,27 +12,27 @@
       ".NET SDK: 10.0.103",
       "Git ref: main",
       "",
-      "chummer6-core            63c79605a0586317698ad4b37cd933001c37a2a6",
-      "chummer6-hub             e52baf3d8b329538a2436fd1eb1c912e9e7cd660",
-      "chummer6-hub-registry    da460b3d594a56c272f95d841244e6a457fe70b5",
-      "chummer6-ui-kit          e0248f4e852856eaacc668f18fd82f92c1575b8f",
-      "chummer6-ui              77a393a75b13371b3b3bfa62853c936c2b15f4b7",
+      "chummer6-core            ed36cd2d2fab3344a44dbddc2f4b1866d362877d",
+      "chummer6-hub             96e140cdbbdf274a17ab116a6fd7c477245ddd93",
+      "chummer6-hub-registry    9aeaf7235cde10f27d3f6951c836138ca874da5f",
+      "chummer6-ui-kit          d51ecd99cf72098d4adc8db0192bff7bf9fd8e61",
+      "chummer6-ui              2ac3c660748e0a702b7a532ffdd78f2c2b051dde",
       "",
       "Executable: Chummer.Avalonia",
       "Executable SHA256: 0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
       "Output directory: /work/base/artifacts/chummer6-linux-x64"
     ],
-    "installed_startup_smoke_receipt_name": "installed-startup-smoke-20260712T172324Z.receipt.json",
+    "installed_startup_smoke_receipt_name": "installed-startup-smoke-20260729T105722Z.receipt.json",
     "source_heads": {
-      "chummer6-core": "63c79605a0586317698ad4b37cd933001c37a2a6",
-      "chummer6-hub": "e52baf3d8b329538a2436fd1eb1c912e9e7cd660",
-      "chummer6-hub-registry": "da460b3d594a56c272f95d841244e6a457fe70b5",
-      "chummer6-ui": "77a393a75b13371b3b3bfa62853c936c2b15f4b7",
-      "chummer6-ui-kit": "e0248f4e852856eaacc668f18fd82f92c1575b8f"
+      "chummer6-core": "ed36cd2d2fab3344a44dbddc2f4b1866d362877d",
+      "chummer6-hub": "96e140cdbbdf274a17ab116a6fd7c477245ddd93",
+      "chummer6-hub-registry": "9aeaf7235cde10f27d3f6951c836138ca874da5f",
+      "chummer6-ui": "2ac3c660748e0a702b7a532ffdd78f2c2b051dde",
+      "chummer6-ui-kit": "d51ecd99cf72098d4adc8db0192bff7bf9fd8e61"
     },
-    "startup_smoke_receipt_name": "startup-smoke-20260712T172323Z.receipt.json",
-    "updater_special_mode_receipt_name": "updater-special-mode-20260712T172325Z.receipt.json",
-    "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260712T172325Z.receipt.json"
+    "startup_smoke_receipt_name": "startup-smoke-20260729T105720Z.receipt.json",
+    "updater_special_mode_receipt_name": "updater-special-mode-20260729T105722Z.receipt.json",
+    "updater_special_mode_success_receipt_name": "updater-special-mode-success-20260729T105722Z.receipt.json"
   },
   "contract_name": "ea.chummer6_linux_source_build_docker_gate.v1",
   "docker_image": "debian:bookworm-slim",
@@ -49,12 +49,12 @@
     "source_build_is_explicitly_two_step": true,
     "source_build_update_mode_default": "notify"
   },
-  "generated_at_utc": "20260712T171921Z",
+  "generated_at_utc": "20260729T105240Z",
   "git_ref": "main",
   "github_org": "ArchonMegalon",
   "output": {
-    "archive_name": "chummer6-linux-x64-20260712T171939Z.tar.gz",
-    "archive_sha256": "f4eeb2ef10576e732d29f30870ed3d20323a511c19f0287ed9ee986e55cfbe4c",
+    "archive_name": "chummer6-linux-x64-20260729T105254Z.tar.gz",
+    "archive_sha256": "ca315a46d91796761ed871ca99fc808d1850eb2fac851957334724e99ea65778",
     "binary_name": "Chummer.Avalonia",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
     "launcher_name": "run-chummer6.sh",
@@ -68,7 +68,7 @@
       "channel_id": "source-build",
       "head_id": "avalonia",
       "ready_checkpoint": "fresh_container_installed_gate",
-      "recorded_at_utc": "2026-07-12T17:23:25.0550373+00:00",
+      "recorded_at_utc": "2026-07-29T10:57:22.4018639+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -78,7 +78,7 @@
       "channel_id": "source-build",
       "head_id": "avalonia",
       "ready_checkpoint": "fresh_container_gate",
-      "recorded_at_utc": "2026-07-12T17:23:23.6164368+00:00",
+      "recorded_at_utc": "2026-07-29T10:57:21.0532038+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -92,7 +92,7 @@
       "mode": "desktop_update_launch_installer",
       "pending_update_channel_id": "stable",
       "pending_update_version": "run-20260618-051119",
-      "recorded_at_utc": "2026-07-12T17:23:25.212009+00:00",
+      "recorded_at_utc": "2026-07-29T10:57:22.541484+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -107,7 +107,7 @@
       "mode": "desktop_update_launch_installer_success",
       "pending_update_channel_id": "",
       "pending_update_version": "",
-      "recorded_at_utc": "2026-07-12T17:23:25.377691+00:00",
+      "recorded_at_utc": "2026-07-29T10:57:22.695419+00:00",
       "rid": "linux-x64",
       "stage_deleted": false,
       "status": "pass"

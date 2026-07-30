@@ -31,7 +31,7 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 ### Windows
 
 - Avalonia Desktop Windows X64 Installer.
-- Download: [Open download](/downloads/files/chummer-avalonia-win-x64-installer.exe)
+- Download: [Open download](https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe)
 - File: `chummer-avalonia-win-x64-installer.exe`
 - Size: 2.6 MiB (2734299 bytes)
 - Access: Public download.
@@ -39,7 +39,7 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 ### Linux
 
 - Avalonia Desktop Linux X64 Installer.
-- Download: [Open download](/downloads/files/chummer-avalonia-linux-x64-installer.deb)
+- Download: [Open download](https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb)
 - File: `chummer-avalonia-linux-x64-installer.deb`
 - Size: 37.3 MiB (39118902 bytes)
 - Access: Public download.
@@ -51,8 +51,8 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 ## Current package format
 
 - Where an installer exists, start there. Archive packages are fallback or recovery paths, not the normal first pick.
-- Avalonia Desktop Linux X64 Installer via [Open download](/downloads/files/chummer-avalonia-linux-x64-installer.deb)
-- Avalonia Desktop Windows X64 Installer via [Open download](/downloads/files/chummer-avalonia-win-x64-installer.exe)
+- Avalonia Desktop Linux X64 Installer via [Open download](https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb)
+- Avalonia Desktop Windows X64 Installer via [Open download](https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe)
 
 ## SHA256
 
@@ -62,7 +62,7 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 ## Recent release verification
 
 - Status: Passed.
-- Last checked: July 12, 2026 at 17:34 UTC.
+- Last checked: July 30, 2026 at 3:29 UTC.
 - Summary: This release covers installs and recovery, campaign session recovery, and support follow-up.
 
 ### What was checked

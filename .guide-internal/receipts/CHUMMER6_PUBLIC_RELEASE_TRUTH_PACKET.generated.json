@@ -15,16 +15,16 @@
   "generated_from": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
   "known_issue_summary": "Known issue: required desktop tuple coverage is incomplete (platforms: macos; pairs: avalonia:macos; tuples: avalonia:osx-arm64:macos).",
   "linux_source_build_gate": {
-    "archive_sha256": "f4eeb2ef10576e732d29f30870ed3d20323a511c19f0287ed9ee986e55cfbe4c",
+    "archive_sha256": "ca315a46d91796761ed871ca99fc808d1850eb2fac851957334724e99ea65778",
     "docker_image": "debian:bookworm-slim",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-    "generated_at_utc": "20260712T171921Z",
+    "generated_at_utc": "20260729T105240Z",
     "rid": "linux-x64",
     "status": "passed"
   },
   "macos_source_build_contract": {
     "doc_marks_second_script_install": true,
-    "generated_at_utc": "2026-07-12T17:23:29Z",
+    "generated_at_utc": "2026-07-29T10:57:26Z",
     "maintenance_policy_marks_real_build_as_macos_only": true,
     "maintenance_policy_requires_two_step_install": true,
     "real_macos_runtime_proof_required": true,

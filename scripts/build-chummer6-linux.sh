@@ -516,6 +516,7 @@ step "Restoring NuGet packages and local compatibility contracts"
 UI_ROOT="$BASE_PATH/chummer6-ui"
 PROJECT="$UI_ROOT/Chummer.Avalonia/Chummer.Avalonia.csproj"
 cd "$UI_ROOT"
+CHUMMER_USE_LOCAL_COMPATIBILITY_TREE=1 \
 bash scripts/ai/restore.sh "$PROJECT" \
   -r "$RID" \
   -p:TargetFramework=net10.0 \
@@ -529,6 +530,7 @@ mkdir -p "$PUBLISH_DIR"
 UI_SHA="$(git -C "$UI_ROOT" rev-parse --short=12 HEAD)"
 SOURCE_VERSION="source-$UI_SHA-$RUN_ID"
 
+CHUMMER_USE_LOCAL_COMPATIBILITY_TREE=1 \
 bash scripts/ai/with-package-plane.sh publish "$PROJECT" \
   -c Release \
   -r "$RID" \

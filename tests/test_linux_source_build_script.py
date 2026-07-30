@@ -54,6 +54,20 @@ class LinuxSourceBuildScriptTests(unittest.TestCase):
         self.assertIn('git_automation clone --depth 1 --filter=blob:none --branch "$GIT_REF" "$expected_url" "$target"', script)
         self.assertIn('git_automation -C "$target" fetch --depth 1 origin "$GIT_REF"', script)
 
+    def test_source_build_explicitly_authorizes_its_cloned_compatibility_tree(self) -> None:
+        script = SCRIPT.read_text(encoding="utf-8")
+
+        self.assertIn(
+            'CHUMMER_USE_LOCAL_COMPATIBILITY_TREE=1 \\\n'
+            'bash scripts/ai/restore.sh "$PROJECT"',
+            script,
+        )
+        self.assertIn(
+            'CHUMMER_USE_LOCAL_COMPATIBILITY_TREE=1 \\\n'
+            'bash scripts/ai/with-package-plane.sh publish "$PROJECT"',
+            script,
+        )
+
     def test_host_audit_wrapper_runs_the_non_destructive_audit_path(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             completed = subprocess.run(

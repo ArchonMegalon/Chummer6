@@ -8,7 +8,7 @@
     "release_packet_matches_installer_first_platforms": true
   },
   "contract_name": "ea.chummer6_installer_update_truth.v1",
-  "generated_at_utc": "2026-07-12T17:23:56Z",
+  "generated_at_utc": "2026-07-29T10:57:54Z",
   "generated_from": [
     "chummer-design/products/chummer/PUBLIC_AUTO_UPDATE_POLICY.md",
     "chummer-design/products/chummer/DESKTOP_AUTO_UPDATE_SYSTEM.md",
@@ -71,7 +71,9 @@
       "Windows",
       "Linux"
     ],
-    "missing_platforms": [],
+    "missing_platforms": [
+      "macOS"
+    ],
     "public_download_authority": "https://chummer.run/downloads",
     "shelf_truth_line": "Windows and Linux downloads are posted."
   },

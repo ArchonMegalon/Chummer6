@@ -41,7 +41,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                             "arch": "x64",
                             "kind": "installer",
                             "fileName": "chummer-avalonia-linux-x64-installer.deb",
-                            "downloadUrl": "https://chummer.run/downloads/files/chummer-avalonia-linux-x64-installer.deb",
+                            "downloadUrl": "/downloads/g/g-20260728T120000Z-fixture/files/chummer-avalonia-linux-x64-installer.deb",
                             "sha256": "5c8518f0f7f24b3f7101ff6fcea0fe33f012b4dfb03704f5bdf0067571f2d70b",
                             "sizeBytes": 37024862,
                             "platformLabel": "Avalonia Desktop Linux X64 Installer",
@@ -55,7 +55,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                             "arch": "x64",
                             "kind": "installer",
                             "fileName": "chummer-avalonia-win-x64-installer.exe",
-                            "downloadUrl": "https://chummer.run/downloads/files/chummer-avalonia-win-x64-installer.exe",
+                            "downloadUrl": "/downloads/g/g-20260728T120000Z-fixture/files/chummer-avalonia-win-x64-installer.exe",
                             "sha256": "80655fd79a096cd7714910d7b38f7741eea01f82ada96dc6a2a097951997d91a",
                             "sizeBytes": 2734106,
                             "platformLabel": "Avalonia Desktop Windows X64 Installer",
@@ -208,6 +208,38 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
             try:
                 MODULE.REPO_ROOT = root
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
+                MODULE.STATUS_PATH = root / "STATUS.md"
+                MODULE.PACKET_PATH = root / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+                with mock.patch.dict(os.environ, {MODULE.REGISTRY_ENV: str(registry_path)}, clear=False):
+                    with self.assertRaises(ValueError):
+                        MODULE.main()
+            finally:
+                MODULE.REPO_ROOT = original_root
+                MODULE.DOWNLOAD_PATH = original_download
+                MODULE.STATUS_PATH = original_status
+                MODULE.PACKET_PATH = original_packet
+
+    def test_main_fails_when_stable_alias_names_a_different_file(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir) / "Chummer6"
+            root.mkdir(parents=True, exist_ok=True)
+            registry_path = self._write_fixture(root)
+            download_path = root / "DOWNLOAD.md"
+            download_path.write_text(
+                download_path.read_text(encoding="utf-8").replace(
+                    "/downloads/files/chummer-avalonia-win-x64-installer.exe",
+                    "/downloads/files/chummer-avalonia-linux-x64-installer.deb",
+                ),
+                encoding="utf-8",
+            )
+
+            original_root = MODULE.REPO_ROOT
+            original_download = MODULE.DOWNLOAD_PATH
+            original_status = MODULE.STATUS_PATH
+            original_packet = MODULE.PACKET_PATH
+            try:
+                MODULE.REPO_ROOT = root
+                MODULE.DOWNLOAD_PATH = download_path
                 MODULE.STATUS_PATH = root / "STATUS.md"
                 MODULE.PACKET_PATH = root / ".guide-internal" / "receipts" / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
                 with mock.patch.dict(os.environ, {MODULE.REGISTRY_ENV: str(registry_path)}, clear=False):

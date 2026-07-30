@@ -1,4 +1,4 @@
-# What is wrong?
+# How can we help?
 
 Pick the next step.
 

@@ -5,6 +5,7 @@ import json
 import os
 import re
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -27,6 +28,8 @@ ARCHITECTURE_SCOPE_EXPECTATIONS = (
     ("linux", "linux-arm64", "Linux ARM64"),
     ("windows", "win-arm64", "Windows ARM64"),
 )
+SAFE_GENERATION_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,159}$")
+SAFE_DOWNLOAD_FILE_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._+-]{0,199}$")
 
 
 def _load_text(path: Path) -> str:
@@ -219,6 +222,52 @@ def _require_contains(name: str, haystack: str, needle: str) -> None:
         raise ValueError(f"{name} is missing required registry-aligned line: {needle!r}")
 
 
+def _download_delivery_identity(value: object) -> str | None:
+    raw = str(value or "").strip()
+    if not raw:
+        return None
+
+    parsed = urlsplit(raw)
+    if parsed.query or parsed.fragment or parsed.username or parsed.password:
+        return None
+    if parsed.scheme:
+        if parsed.scheme.lower() != "https" or (parsed.hostname or "").lower() != "chummer.run":
+            return None
+        if parsed.port not in (None, 443):
+            return None
+    elif parsed.netloc or not parsed.path.startswith("/") or parsed.path.startswith("//"):
+        return None
+
+    if unquote(parsed.path) != parsed.path or "\\" in parsed.path:
+        return None
+    segments = parsed.path.split("/")
+    if any(segment in {".", ".."} for segment in segments):
+        return None
+
+    stable_match = re.fullmatch(r"/downloads/files/([^/]+)", parsed.path)
+    generation_match = re.fullmatch(r"/downloads/g/([^/]+)/files/([^/]+)", parsed.path)
+    if stable_match:
+        file_name = stable_match.group(1)
+    elif generation_match and SAFE_GENERATION_ID_RE.fullmatch(generation_match.group(1)):
+        file_name = generation_match.group(2)
+    else:
+        return None
+    return file_name if SAFE_DOWNLOAD_FILE_RE.fullmatch(file_name) else None
+
+
+def _download_urls_are_delivery_equivalent(
+    documented_url: object,
+    registry_url: object,
+    expected_file_name: str,
+) -> bool:
+    documented_identity = _download_delivery_identity(documented_url)
+    registry_identity = _download_delivery_identity(registry_url)
+    return (
+        documented_identity == expected_file_name
+        and registry_identity == expected_file_name
+    )
+
+
 def _size_bytes_from_line(value: str) -> int:
     match = re.search(r"\((\d+)\s+bytes\)", value)
     if match:
@@ -350,7 +399,11 @@ def _verify_download_artifacts(download_text: str, release_payload: dict[str, ob
         docs_label = str(artifact.get("label") or "").strip()
         if expected_label != docs_label:
             raise ValueError(f"DOWNLOAD.md label for {file_name} does not match registry platformLabel")
-        if str(registry_artifact.get("downloadUrl") or "").strip() != str(artifact.get("downloadUrl") or "").strip():
+        if not _download_urls_are_delivery_equivalent(
+            artifact.get("downloadUrl"),
+            registry_artifact.get("downloadUrl"),
+            file_name,
+        ):
             raise ValueError(f"DOWNLOAD.md URL for {file_name} does not match registry downloadUrl")
         if int(registry_artifact.get("sizeBytes") or 0) != int(artifact.get("sizeBytes") or 0):
             raise ValueError(f"DOWNLOAD.md size for {file_name} does not match registry sizeBytes")
