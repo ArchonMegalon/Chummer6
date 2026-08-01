@@ -5,7 +5,7 @@ This is the blunt answer on what you can use today.
 ## Current picture
 
 - Today: Current release build.
-- Published: August 1, 2026 at 0:25 UTC.
+- Published: August 1, 2026 at 8:44 UTC.
 - Release status: Published.
 - Windows and Linux downloads are posted.
 - Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.
