@@ -110,6 +110,25 @@ class PublicReleaseTruthPacketTests(unittest.TestCase):
         self.assertNotIn("macOS", packet["missing_platforms"])
         self.assertEqual(packet["release_posture"], "preview_or_review_required")
 
+    def test_internal_release_diagnostics_are_summarized_for_public_docs(self) -> None:
+        payload = release_payload()
+        payload["channelId"] = "preview"
+        payload["supportabilityState"] = "review_required"
+        payload["knownIssueSummary"] = (
+            "Known issue: stale proof receipts block launch. Launch blockers: "
+            "binding: evidence: contract_name mismatch; request_sha256 mismatch; "
+            "operator_end_to_end_evidence is unavailable at [redacted-path]."
+        )
+
+        packet = MODULE.build_packet(payload, {}, {}, "registry.json")
+
+        self.assertEqual(
+            packet["known_issue_summary"],
+            "This is a preview release. Desktop downloads are available for Linux x64 and Windows x64 only. "
+            "No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.",
+        )
+        self.assertNotIn("contract_name", packet["known_issue_summary"])
+
 
 if __name__ == "__main__":
     unittest.main()

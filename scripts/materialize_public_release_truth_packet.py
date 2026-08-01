@@ -356,6 +356,18 @@ def _public_known_issue_summary(release_payload: dict[str, object]) -> str:
     cleaned = str(release_payload.get("knownIssueSummary") or "").strip()
     if "current release checks are clear" in cleaned.lower():
         return "No current download blocker is listed for these installers."
+    normalized = cleaned.lower()
+    internal_diagnostic_markers = (
+        "launch blockers:",
+        "binding:",
+        "contract_name",
+        "operator_end_to_end_evidence",
+        "request_sha256",
+        "[redacted-path]",
+        "pytest/test-fixture",
+    )
+    if len(cleaned) > 320 or any(marker in normalized for marker in internal_diagnostic_markers):
+        return f"This is a preview release. {_architecture_scope_line(release_payload)}"
     return cleaned
 
 

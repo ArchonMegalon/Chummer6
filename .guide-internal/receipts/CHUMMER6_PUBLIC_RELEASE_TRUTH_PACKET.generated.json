@@ -11,9 +11,9 @@
   "fallback_heads": [
     "Chummer.Blazor.Desktop"
   ],
-  "fix_availability_summary": "Do not send fixed notices until required desktop tuple coverage is complete for the promoted shelf.",
+  "fix_availability_summary": "Fix notices appear after the corrected download is live on the download page.",
   "generated_from": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
-  "known_issue_summary": "Known issue: required desktop tuple coverage is incomplete (platforms: macos; pairs: avalonia:macos; tuples: avalonia:osx-arm64:macos).",
+  "known_issue_summary": "This is a preview release. Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.",
   "linux_source_build_gate": {
     "archive_sha256": "ca315a46d91796761ed871ca99fc808d1850eb2fac851957334724e99ea65778",
     "docker_image": "debian:bookworm-slim",
@@ -39,8 +39,8 @@
   "phase_label": "Current release build",
   "primary_head": "Chummer.Avalonia",
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "July 12, 2026 at 18:46 UTC",
-  "published_line": "Published: July 12, 2026 at 18:46 UTC.",
+  "published_at": "August 1, 2026 at 0:25 UTC",
+  "published_line": "Published: August 1, 2026 at 0:25 UTC.",
   "quality_gap_line": "The core app is usable. The remaining work is desktop parity, installer polish, update polish, and deeper table continuity.",
   "release_posture": "preview_or_review_required",
   "release_status": "Published",

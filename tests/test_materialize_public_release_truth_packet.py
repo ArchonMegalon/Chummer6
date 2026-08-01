@@ -75,3 +75,24 @@ def test_public_source_label_keeps_workspace_paths_public_safe() -> None:
 
     assert MODULE._public_source_label(source) == MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE
     assert MODULE._public_source_label(Path("/tmp/RELEASE_CHANNEL.generated.json")) == MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE
+
+
+def test_public_known_issue_summary_hides_internal_proof_diagnostics() -> None:
+    payload = {
+        "knownIssueSummary": (
+            "Known issue: Launch blockers: binding: evidence: contract_name mismatch; "
+            "request_sha256 mismatch; operator_end_to_end_evidence unavailable at [redacted-path]."
+        ),
+        "desktopTupleCoverage": {
+            "promotedInstallerTuples": [
+                {"artifactId": "linux", "platform": "linux", "rid": "linux-x64"},
+                {"artifactId": "windows", "platform": "windows", "rid": "win-x64"},
+            ]
+        },
+    }
+
+    summary = MODULE._public_known_issue_summary(payload)
+
+    assert summary.startswith("This is a preview release.")
+    assert "contract_name" not in summary
+    assert "[redacted-path]" not in summary
