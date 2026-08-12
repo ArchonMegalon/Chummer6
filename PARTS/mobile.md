@@ -1,31 +1,31 @@
-# Mobile
+# Mobile and Android
 
-The table-side companion you feel during play.
+Native build, play, and campaign work without wrapping the website.
 
-![Mobile guide art](../assets/parts/mobile.png)
+![Mobile and Android guide art](../assets/parts/mobile.png)
 
 ## When you care
 
-You care about actual play, reconnecting across devices, or surviving a bad signal without losing the session.
+You want to build or open a runner, roll at the table, manage a group, or review a campaign book from a phone.
 
 ## Why you care
 
-This is the jump from prep software to a live-turn companion that stays useful while a real session is happening.
+The dedicated Android client keeps the full Chummer workflow available in platform-native navigation while local runner work remains useful offline.
 
 ## What it looks like
 
-- stronger local-first and offline-ready behavior
-- current state, modifiers, and next actions are faster to read during a turn
-- a table-facing companion that stays separate from the heavy build workbench view
+- five short native destinations for Home, Build, Play, Campaign, and More
+- account-linked online runners and groups open inside the app instead of handing off to the PWA
+- native group invites and Chronicle Studio approval steps alongside local dice, condition, notes, files, print, and share
 
 ## Limits today
 
-- this is still the next major boundary to finish cleanly
-- the session stack is still deepening around cache, replay, recovery, and short-turn ergonomics
+- the signed Android preview is not Play-installable until Google accepts the pending upload-key reset and an internal-test install is proven
+- the reusable coordinator leaves room for iPhone and tablet-specific shells, but those platform heads are not shipped yet
 
 ## Current state
 
-Mobile is where the live-session promise becomes real. The current work is about turn-time clarity, event logs, cache, replay, sync, and honest stale-state status rather than trying to squeeze the full builder onto a phone.
+The dedicated Android preview is now a native MAUI Shell rather than a Blazor or WebView wrapper. Its current signed API 36 candidate and native phone/tablet captures pass local release gates; Play upload and tester installation remain pending behind the submitted upload-key reset.
 
 ## Go deeper
 

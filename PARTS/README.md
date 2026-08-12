@@ -8,7 +8,7 @@ Open it when you want to see how the app, phone companion, updater, and support 
 - [Design](design.md)
 - [Core](core.md)
 - [UI](ui.md)
-- [Mobile](mobile.md)
+- [Mobile and Android](mobile.md)
 - [Hub](hub.md)
 - [UI Kit](ui-kit.md)
 - [Hub Registry](hub-registry.md)

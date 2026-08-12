@@ -15,6 +15,8 @@ It keeps accounts, shared coordination, and community features from turning into
 ## What it looks like
 
 - sign-in and account pages
+- groups, browser-openable invites, runner tickets, and GM roster controls
+- Chronicle Studio drafts with separate source, upload, generation, publication, and sharing decisions
 - public landing, home, and participation entry points
 - account-aware home and account status for claim, participation, reward, and recovery
 - shared coordination, release status, and recognition views that make sense without learning the plumbing behind them
@@ -26,7 +28,7 @@ It keeps accounts, shared coordination, and community features from turning into
 
 ## Current state
 
-Hub already powers sign-in, landing and home views, participation, and community features on the same community record path, and it is still getting simpler behind the scenes.
+Hub already powers sign-in, landing and home views, participation, groups, runner-bound invite joins, and the reviewed Chronicle Studio record. Android consumes those account-scoped group and book contracts without giving the external writing provider authority over publication or campaign state.
 
 ## Go deeper
 
