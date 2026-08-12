@@ -58,17 +58,3 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 
 - Linux x64: `140275ab7e47f7369c58c82f81b56d3c711e44a4eb21c5a9b8a41d441090d06b`
 - Windows x64: `bd45bceac8358b6402ccb0799d0ecf661bb24061301296930791c736f1232dfe`
-
-## Recent release verification
-
-- Status: Passed.
-- Last checked: August 10, 2026 at 15:47 UTC.
-- Summary: This release covers installs and recovery, campaign session recovery, and support follow-up.
-
-### What was checked
-
-- install, sign back in, restore, and keep going
-- build and publish the release
-- resume a campaign session
-- support and release follow-up
-- community follow-up
