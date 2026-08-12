@@ -69,6 +69,19 @@ def _platform_key(value: object) -> str:
     return cleaned
 
 
+def _authority_artifact_labels(item: dict[str, object]) -> tuple[str, str]:
+    platform = _platform_key(item.get("platform"))
+    platform_label = PLATFORM_LABELS.get(platform, platform.title())
+    arch = str(item.get("arch") or "").strip()
+    base_label = " ".join(part for part in (platform_label, arch) if part)
+    kind = str(item.get("kind") or "").strip().lower()
+    kind_label = "installer" if kind in {"installer", "dmg", "pkg", "msix"} else kind
+    artifact_label = base_label
+    if kind_label and kind_label not in base_label.lower():
+        artifact_label = f"{base_label} {kind_label}".strip()
+    return base_label, artifact_label
+
+
 def _english_join(items: list[str]) -> str:
     if not items:
         return ""
@@ -308,7 +321,6 @@ def _verify_download_artifacts(
     expected_authority_artifacts: list[dict[str, object]],
 ) -> None:
     docs_artifacts = _parse_download_artifacts(download_text)
-    registry_by_filename = _registry_artifacts_by_filename(release_payload)
     sha_lines = _parse_sha256_lines(download_text)
     documented_artifact_ids: set[str] = set()
     authority_by_id = {
@@ -316,39 +328,60 @@ def _verify_download_artifacts(
         for item in expected_authority_artifacts
         if str(item.get("artifactId") or "").strip()
     }
+    authority_by_url: dict[str, dict[str, object]] = {}
+    for authority_artifact in expected_authority_artifacts:
+        public_route = str(authority_artifact.get("publicInstallRoute") or "").strip()
+        public_url = f"{PUBLIC_DOWNLOAD_ORIGIN}{public_route}"
+        if not public_route or public_url in authority_by_url:
+            raise ValueError("immutable Registry public shelf contains a missing or ambiguous publicInstallRoute")
+        authority_by_url[public_url] = authority_artifact
     if len(docs_artifacts) != len(authority_by_id):
         raise ValueError("DOWNLOAD.md artifact row count does not exactly match immutable Registry public shelf")
 
     for artifact in docs_artifacts:
         file_name = str(artifact.get("fileName") or "").strip()
-        if file_name not in registry_by_filename:
-            raise ValueError(f"DOWNLOAD.md artifact {file_name!r} does not exist in the canonical registry manifest")
-        registry_artifact = registry_by_filename[file_name]
-        artifact_id = str(registry_artifact.get("artifactId") or registry_artifact.get("id") or "").strip()
-        authority_artifact = authority_by_id.get(artifact_id)
+        documented_url = str(artifact.get("downloadUrl") or "").strip()
+        authority_artifact = authority_by_url.get(documented_url)
         if authority_artifact is None:
-            raise ValueError(f"DOWNLOAD.md artifact {file_name!r} is outside the immutable Registry public shelf")
+            raise ValueError("DOWNLOAD.md URL is outside the immutable Registry publicInstallRoute shelf")
+        artifact_id = str(authority_artifact.get("artifactId") or "").strip()
+        registry_matches = [
+            item
+            for item in _release_artifacts(release_payload)
+            if str(item.get("artifactId") or item.get("id") or "").strip() == artifact_id
+        ]
+        if len(registry_matches) != 1:
+            raise ValueError(f"canonical registry manifest artifactId {artifact_id!r} is missing or ambiguous")
+        registry_artifact = registry_matches[0]
+        registry_file_name = str(registry_artifact.get("fileName") or "").strip()
+        if file_name and file_name != registry_file_name:
+            raise ValueError(f"DOWNLOAD.md file {file_name!r} does not match the canonical registry manifest")
+        artifact_label = file_name or artifact_id
         documented_artifact_ids.add(artifact_id)
         registry_label = str(registry_artifact.get("platformLabel") or "").strip()
-        expected_label = registry_label
+        checksum_label, expected_label = _authority_artifact_labels(authority_artifact)
         docs_label = str(artifact.get("label") or "").strip()
         if expected_label != docs_label:
-            raise ValueError(f"DOWNLOAD.md label for {file_name} does not match registry platformLabel")
+            raise ValueError(f"DOWNLOAD.md label for {artifact_label} does not match registry platformLabel")
         public_install_route = str(authority_artifact.get("publicInstallRoute") or "").strip()
         expected_public_url = f"{PUBLIC_DOWNLOAD_ORIGIN}{public_install_route}"
-        if expected_public_url != str(artifact.get("downloadUrl") or "").strip():
+        if expected_public_url != documented_url:
             raise ValueError(
-                f"DOWNLOAD.md URL for {file_name} does not match the absolute Registry publicInstallRoute"
+                f"DOWNLOAD.md URL for {artifact_label} does not match the absolute Registry publicInstallRoute"
             )
         if int(authority_artifact.get("sizeBytes") or 0) != int(artifact.get("sizeBytes") or 0):
-            raise ValueError(f"DOWNLOAD.md size for {file_name} does not match registry sizeBytes")
-        documented_sha256 = sha_lines.get(docs_label) or sha_lines.get(registry_label)
+            raise ValueError(f"DOWNLOAD.md size for {artifact_label} does not match registry sizeBytes")
+        documented_sha256 = (
+            sha_lines.get(checksum_label)
+            or sha_lines.get(docs_label)
+            or sha_lines.get(registry_label)
+        )
         if not documented_sha256:
             raise ValueError(f"DOWNLOAD.md is missing a SHA256 row for {docs_label!r}")
         if str(authority_artifact.get("sha256") or "").strip().lower() != documented_sha256.lower():
-            raise ValueError(f"DOWNLOAD.md SHA256 for {file_name} does not match registry sha256")
+            raise ValueError(f"DOWNLOAD.md SHA256 for {artifact_label} does not match registry sha256")
         if str(authority_artifact.get("compatibilityState") or "").strip() != "compatible":
-            raise ValueError(f"Registry artifact {file_name} is not compatibilityState=compatible")
+            raise ValueError(f"Registry artifact {artifact_label} is not compatibilityState=compatible")
         access_class = str(authority_artifact.get("installAccessClass") or "").strip()
         expected_access = {
             "open_public": "Public download",
@@ -356,9 +389,9 @@ def _verify_download_artifacts(
             "account_required": "Sign-in required",
         }.get(access_class)
         if expected_access is None:
-            raise ValueError(f"Registry artifact {file_name} has unsupported installAccessClass={access_class!r}")
+            raise ValueError(f"Registry artifact {artifact_label} has unsupported installAccessClass={access_class!r}")
         if str(artifact.get("access") or "").strip() != expected_access:
-            raise ValueError(f"DOWNLOAD.md access for {file_name} does not match registry installAccessClass")
+            raise ValueError(f"DOWNLOAD.md access for {artifact_label} does not match registry installAccessClass")
     expected_artifact_ids = set(authority_by_id)
     if documented_artifact_ids != expected_artifact_ids:
         raise ValueError("DOWNLOAD.md artifact set does not exactly match immutable Registry public shelf authority")

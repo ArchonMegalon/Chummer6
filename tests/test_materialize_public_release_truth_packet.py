@@ -300,6 +300,52 @@ def test_legacy_route_publication_scope_cannot_replace_registry_binding(tmp_path
         _resolve(fixture)
 
 
+def test_review_required_accepts_legacy_preview_publication_state(tmp_path: Path) -> None:
+    def mutate(manifest: dict[str, object]) -> None:
+        bindings = manifest["artifactPublicationBindings"]
+        assert isinstance(bindings, list)
+        for binding in bindings:
+            assert isinstance(binding, dict)
+            binding["publicationState"] = "preview"
+
+    fixture = write_authority_fixture(
+        tmp_path,
+        decision_status="review_required",
+        manifest_mutator=mutate,
+    )
+
+    resolved = _resolve(fixture)
+
+    assert resolved.authority["releaseDecisionStatus"] == "review_required"
+    assert resolved.authority["artifactCount"] == 2
+
+
+def test_preview_ready_rejects_legacy_preview_publication_state(tmp_path: Path) -> None:
+    def mutate(manifest: dict[str, object]) -> None:
+        bindings = manifest["artifactPublicationBindings"]
+        assert isinstance(bindings, list) and isinstance(bindings[0], dict)
+        bindings[0]["publicationState"] = "preview"
+
+    fixture = write_authority_fixture(tmp_path, manifest_mutator=mutate)
+
+    with pytest.raises(ValueError, match="canonical Registry manifest projection"):
+        _resolve(fixture)
+
+
+def test_empty_explicit_fallback_scope_equals_no_fallback_routes(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        fallback_heads={"linux": [], "windows": []},
+    )
+
+    resolved = _resolve(fixture)
+
+    assert resolved.authority["primaryHeadByPlatform"] == {
+        "linux": "avalonia",
+        "windows": "avalonia",
+    }
+
+
 def test_ambiguous_publication_bindings_are_rejected(tmp_path: Path) -> None:
     def mutate(manifest: dict[str, object]) -> None:
         bindings = manifest["artifactPublicationBindings"]
@@ -331,6 +377,56 @@ def test_generation_id_and_file_name_bind_immutable_download_url(tmp_path: Path)
         manifest_mutator=lambda manifest: manifest.__setitem__("generationId", "different-generation"),
     )
     with pytest.raises(ValueError, match="bind generationId and fileName"):
+        _resolve(fixture)
+
+
+def test_origin_relative_generation_download_urls_are_valid_authority(tmp_path: Path) -> None:
+    artifacts = default_artifacts()
+    for artifact in artifacts:
+        artifact["downloadUrl"] = str(artifact["downloadUrl"]).removeprefix("https://chummer.run")
+
+    fixture = write_authority_fixture(tmp_path, artifacts=artifacts)
+    resolved = _resolve(fixture)
+
+    assert all(
+        str(artifact["downloadUrl"]).startswith("/downloads/g/generation-1/files/")
+        for artifact in resolved.authority["artifacts"]
+    )
+
+
+def test_preview_decision_v2_is_a_compatible_digest_bound_reader(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        decision_mutator=lambda decision: decision.__setitem__(
+            "contractName", "chummer.preview-release-decision/v2"
+        ),
+    )
+
+    resolved = _resolve(fixture)
+
+    assert resolved.decision_payload["contractName"] == "chummer.preview-release-decision/v2"
+    assert resolved.authority_source["releaseDecisionSha256"] == fixture.current["decisionSha256"]
+
+
+def test_review_required_legacy_manifest_may_inherit_snapshot_support_owner(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        decision_status="review_required",
+        manifest_mutator=lambda manifest: manifest.pop("supportOwner"),
+    )
+
+    resolved = _resolve(fixture)
+
+    assert resolved.authority["supportOwner"] == fixture.snapshot["supportOwner"]
+
+
+def test_preview_ready_manifest_requires_its_own_support_owner(tmp_path: Path) -> None:
+    fixture = write_authority_fixture(
+        tmp_path,
+        manifest_mutator=lambda manifest: manifest.pop("supportOwner"),
+    )
+
+    with pytest.raises(ValueError, match="supportOwner"):
         _resolve(fixture)
 
 
@@ -462,7 +558,7 @@ def test_unknown_access_class_is_rejected(tmp_path: Path) -> None:
         ("revokeState", "revoked", "revokeState"),
         ("kind", "archive", "installer"),
         ("sizeBytes", 0, "positive integer"),
-        ("downloadUrl", "/downloads/generated/file", "absolute HTTPS"),
+        ("downloadUrl", "/downloads/generated/file", "immutable /downloads/g"),
         (
             "downloadUrl",
             "https://user:secret@chummer.run/downloads/g/generation-1/files/file.exe",

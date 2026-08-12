@@ -22,12 +22,12 @@ The build script never installs Linux packages, never asks for `sudo`, and never
   Desktop Runtime, and Presentation, including exact NuGet `contentHash` values;
 - six RID-specific runtime and host packages;
 - separate restore and post-publish cache observations;
-- the source-lock verifier, package composer, source-build script, and
-  release-truth placeholder.
+- the source-lock verifier, package composer, source-build script, and exact
+  Registry-bound public release-truth packet.
 
 Hub is fixed at commit `35aa5a828f076d7c7c4a57dbab17d8715f9c3b68`. The locked flow fetches that SHA even if the remote `main` branch advances.
 
-The current release truth remains `unbound_review_placeholder`, `review_required`, and `releaseEvidenceEligible=false`. A reproducible dependency graph does not turn this source build into public release evidence.
+The current release truth is bound to the exact Registry snapshot while its decision remains `review_required` and `releaseEvidenceEligible=false`. A reproducible dependency graph does not turn this source build into public release evidence.
 
 ## SDK and package isolation
 

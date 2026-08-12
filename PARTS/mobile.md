@@ -16,16 +16,16 @@ The dedicated Android client keeps the full Chummer workflow available in platfo
 
 - five short native destinations for Home, Build, Play, Campaign, and More
 - account-linked online runners and groups open inside the app instead of handing off to the PWA
-- native group invites and Chronicle Studio approval steps alongside local dice, condition, notes, files, print, and share
+- native group invites and Chronicle Studio approvals plus a digest-bound operator handoff alongside local dice, condition, notes, files, print, and share
 
 ## Limits today
 
-- the exact signed preview has internal-test-only approval, but Google enforces a post-reset upload cooldown until 14 August 2026 at 03:29:49 UTC; preview.1 remains on the tester track until the same frozen bytes can be retried and an install is proven
+- preview.5 source is newer than the sealed preview.4 bundle; Google enforces a post-reset upload cooldown until 14 August 2026 at 03:29:49 UTC, and preview.1 remains on the tester track until a new exact bundle is signed, uploaded, and installed
 - the reusable coordinator leaves room for iPhone and tablet-specific shells, but those platform heads are not shipped yet
 
 ## Current state
 
-The dedicated Android preview is now a native MAUI Shell rather than a Blazor or WebView wrapper. Its signed API 36 candidate and native phone/tablet captures pass local release gates, and the exact bundle is approved for internal testing. Google rejected the first transfer before ingestion because the recently reset upload certificate does not become upload-valid until 14 August 2026 at 03:29:49 UTC. The failed draft was discarded, preview.1 remains active, testers are unchanged, and no preview.3 installation is claimed yet.
+The dedicated Android preview is a native MAUI Shell rather than a Blazor or WebView wrapper. Preview.5 source passes 31 contracts, its native compile gate, and an x64 MAUI build; it adds native privacy guidance and a kept in Chummer Chronicle operator handoff. Preview.4 is retained as signed historical evidence, not the next upload. Google blocks the replacement certificate until 14 August 2026 at 03:29:49 UTC, preview.1 remains active, the selected internal list contains two tester entries, and no preview.5 installation is claimed.
 
 ## Go deeper
 

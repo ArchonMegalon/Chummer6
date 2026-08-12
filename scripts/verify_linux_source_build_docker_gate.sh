@@ -401,7 +401,7 @@ if (
     or manifest_fields["targetRid"] != rid
     or manifest_fields["pythonRequirement"] != ">=3.11,<4"
     or manifest_fields["pythonRole"] != "authenticated-orchestrator"
-    or manifest_fields["releaseManifestStatus"] != "unbound_review_placeholder"
+    or manifest_fields["releaseManifestStatus"] != "review_required"
     or manifest_fields["releaseEvidenceEligible"] != "false"
     or manifest_fields["debugSymbols"] != "none"
     or manifest_fields["artifactPathPortability"] != "passed"

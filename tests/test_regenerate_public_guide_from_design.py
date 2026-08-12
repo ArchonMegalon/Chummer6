@@ -46,6 +46,7 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
         self.assertIn("Regenerate the Chummer6 public guide from the design repo", completed.stdout)
         self.assertIn("--check", completed.stdout)
         self.assertIn("--authority-current", completed.stdout)
+        self.assertIn("CHUMMER6_GUIDE_ASSET_SOURCE", completed.stdout)
         self.assertIn("CHUMMER_DESIGN_REPO_ROOT", completed.stdout)
         self.assertIn("CHUMMER_RELEASE_AUTHORITY_CURRENT", completed.stdout)
 
@@ -84,10 +85,10 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             self.assertEqual(
                 [
                     f"materialize --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
-                    f"generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT={chummer6_root}",
+                    f"generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT={chummer6_root} CHUMMER6_GUIDE_ASSET_SOURCE={chummer6_root / 'assets'}",
                     f"generator --repo-root {design_root} --out {out_dir}",
                     f"sync --source {out_dir}",
-                    f"verify --source {out_dir} --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
+                    f"verify env:CHUMMER_DESIGN_REPO_ROOT={design_root} --source {out_dir} --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
                 ],
                 calls,
             )
@@ -119,13 +120,41 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
             self.assertEqual(
                 [
                     f"materialize --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json --check",
-                    f"generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT={chummer6_root}",
+                    f"generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT={chummer6_root} CHUMMER6_GUIDE_ASSET_SOURCE={chummer6_root / 'assets'}",
                     f"generator --repo-root {design_root} --out {out_dir} --check",
                     f"sync --source {out_dir} --check",
-                    f"verify --source {out_dir} --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
+                    f"verify env:CHUMMER_DESIGN_REPO_ROOT={design_root} --source {out_dir} --authority-current {authority_env['CHUMMER_RELEASE_AUTHORITY_CURRENT']} --registry-commit {'a' * 40} --expected-release-decision-status preview_ready --served-mirror https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
                 ],
                 calls,
             )
+
+    def test_design_repo_option_recomputes_default_generator_and_output(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            chummer6_root = root / "chummer6"
+            design_root = root / "selected-design"
+            out_dir = design_root / "products" / "chummer" / "public-guide"
+            log_path = root / "calls.log"
+            self._write_fake_scripts(chummer6_root, design_root)
+            authority_env = self._authority_env(root)
+
+            completed = self.run_script(
+                "--design-repo",
+                str(design_root),
+                env={
+                    "CHUMMER6_REPO_ROOT": str(chummer6_root),
+                    "CHUMMER_DESIGN_REPO_ROOT": "",
+                    "CHUMMER_PUBLIC_GUIDE_OUT": "",
+                    "CHUMMER_PUBLIC_GUIDE_GENERATOR": "",
+                    "CALL_LOG": str(log_path),
+                    **authority_env,
+                },
+            )
+
+            self.assertEqual(completed.returncode, 0, completed.stdout)
+            calls = log_path.read_text(encoding="utf-8").splitlines()
+            self.assertIn(f"generator --repo-root {design_root} --out {out_dir}", calls)
+            self.assertIn(f"sync --source {out_dir}", calls)
 
     def test_missing_authority_fails_before_any_materialization_or_generation(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -173,7 +202,13 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
                 import os
                 import sys
                 with open(os.environ["CALL_LOG"], "a", encoding="utf-8") as handle:
-                    handle.write("generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT=" + os.environ.get("CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT", "") + "\\n")
+                    handle.write(
+                        "generator env:CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT="
+                        + os.environ.get("CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT", "")
+                        + " CHUMMER6_GUIDE_ASSET_SOURCE="
+                        + os.environ.get("CHUMMER6_GUIDE_ASSET_SOURCE", "")
+                        + "\\n"
+                    )
                     handle.write("generator " + " ".join(sys.argv[1:]) + "\\n")
                 """
             ),
@@ -209,7 +244,7 @@ class RegeneratePublicGuideWrapperTests(unittest.TestCase):
                 """\
                 #!/usr/bin/env bash
                 set -euo pipefail
-                printf 'verify %s\n' "$*" >> "$CALL_LOG"
+                printf 'verify env:CHUMMER_DESIGN_REPO_ROOT=%s %s\n' "${CHUMMER_DESIGN_REPO_ROOT:-}" "$*" >> "$CALL_LOG"
                 """
             ),
             encoding="utf-8",

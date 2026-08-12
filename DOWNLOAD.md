@@ -1,6 +1,6 @@
 # Download
 
-Public downloads start on `chummer.run` when a release is posted.
+Windows downloads start on `chummer.run`.
 Release review required. Public availability claims remain paused until one immutable snapshot converges.
 
 
@@ -8,22 +8,23 @@ Start here when you want the right file first.
 
 ## What should I download first?
 
-- There is no public Windows download today.
+- For Windows, start with Windows x64 installer.
 - There is no public Linux download today.
 - There is no public macOS download today.
 - You do not need GitHub for the normal download path.
 - Advanced users can also [build the Linux desktop client from source](SOURCE_BUILD_LINUX.md).
 - For a personal local Mac build, use [SOURCE_BUILD_MACOS.md](SOURCE_BUILD_MACOS.md).
 
-## Release review
+## Current preview shelf
 
 - Today: Release review required.
-- Release status: Review required.
-- No public desktop download is listed in this guide yet.
-- Recent checks: This guide does not yet include a current Registry release record.
-- No release build is listed in this guide yet.
-- Current warning: This guide does not include the current release record, so check Downloads before relying on availability.
-- Update note: Wait for a Registry-bound release decision before relying on fix availability.
+- Published: July 27, 2026 at 6:57 UTC.
+- Release status: Published.
+- Windows downloads are posted.
+- Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
+- These are real preview builds, not a finished flagship release yet.
+- Current warning: Known issue: stale or incomplete proof receipts and Hosted Build privacy, retention, recovery, and erasure review still block launch-readiness claims.
+- Update note: Fix notices appear after the corrected download is live on the download page.
 
 ## Current build matrix
 
@@ -31,7 +32,11 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 
 ### Windows
 
-- There is no public Windows download today.
+- Windows x64 installer.
+- status: Current preview route; posted evidence here is scoped to this file and flow, not the whole product.
+- Download: [Open download](https://chummer.run/downloads/install/avalonia-win-x64-installer)
+- Size: 2.6 MiB (2734368 bytes)
+- Access: Public download.
 
 ### Linux
 
@@ -43,8 +48,9 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 
 ## Current package format
 
-- No preview downloads are posted right now.
+- Installers are already visible, but they still count as preview files until the release is published.
+- Windows x64 installer via [Open chummer.run](https://chummer.run/downloads/install/avalonia-win-x64-installer)
 
 ## SHA256
 
-- No checksums are available because no preview downloads are posted.
+- Windows x64: `0e79772221786ff2f685635ff684b0b6ba75ff1c2ce9ee00b498d0692e2ba99c`

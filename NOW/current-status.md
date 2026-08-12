@@ -7,12 +7,13 @@ Release review required. Public availability claims remain paused until one immu
 ## Today
 
 - Product state: Release review required.
-- Release status: Review required.
-- No public desktop download is listed in this guide yet.
-- No desktop platform is currently listed in this guide.
-- Windows, Linux, and macOS downloads remain unlisted until release review finishes.
-- Recent checks: This guide does not yet include a current Registry release record.
-- Current warning: This guide does not include the current release record, so check Downloads before relying on availability.
+- Release status: Published.
+- Windows downloads are posted.
+- Published: July 27, 2026 at 6:57 UTC.
+- Desktop downloads are available for Windows x64 only. No public download is posted for Linux x64, Linux ARM64, Windows ARM64, and macOS yet.
+- Linux and macOS do not have a normal installer yet.
+- Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
+- Current warning: Known issue: stale or incomplete proof receipts and Hosted Build privacy, retention, recovery, and erasure review still block launch-readiness claims.
 
 ## Start here
 
