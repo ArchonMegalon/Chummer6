@@ -25,10 +25,10 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What is still rough
 
-- No public platform availability is claimed by this unbound repository projection.
-- Release review is required. Stable and gold claims remain paused until the immutable authority and public pages converge.
+- No public desktop download is listed in this guide yet.
+- Release review is required. Stable and gold labels remain paused until downloads and public pages agree.
 - If you rely on Windows, Linux, and macOS as your main platform, wait before switching full time.
-- No desktop platform is currently claimed by this unbound repository projection.
+- No desktop platform is currently listed in this guide.
 - No release shelf is claimed until immutable authority and public-route convergence are complete.
 
 ## Should you switch today?
@@ -37,7 +37,7 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ### If your platform is on the current download shelf
 
-- No platform is currently approved by this unbound repository projection.
+- No desktop build is approved in this guide yet.
 
 ### If your platform is outside the current download shelf
 

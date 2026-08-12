@@ -127,6 +127,20 @@ def test_checked_in_unbound_placeholder_is_explicitly_review_required(tmp_path: 
     assert packet["available_platforms"] == []
     assert packet["authority"]["artifacts"] == []
     assert packet["review_required_banner"].startswith("Release review required.")
+    public_copy = " ".join(
+        str(packet[key])
+        for key in (
+            "architecture_scope_line",
+            "desktop_pick_line",
+            "known_issue_summary",
+            "missing_installer_lane_line",
+            "quality_gap_line",
+            "release_verification_summary",
+            "shelf_truth_line",
+        )
+    ).casefold()
+    assert "repository projection" not in public_copy
+    assert "unbound" not in public_copy
 
 
 def test_unbound_placeholder_is_forbidden_in_release_mode() -> None:

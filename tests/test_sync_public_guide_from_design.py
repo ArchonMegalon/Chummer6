@@ -1,23 +1,25 @@
 from __future__ import annotations
 
 import importlib.util
+import os
 import tempfile
 import unittest
 from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+DESIGN_REPO_ROOT = Path(
+    os.environ.get("CHUMMER_DESIGN_REPO_ROOT", REPO_ROOT.parent / "chummer-design")
+).resolve()
 LINUX_SOURCE_BUILD_POLICY = (
-    REPO_ROOT.parent
-    / "chummer-design"
+    DESIGN_REPO_ROOT
     / "products"
     / "chummer"
     / "maintenance"
     / "LINUX_SOURCE_BUILD_PATH.md"
 )
 MACOS_SOURCE_BUILD_POLICY = (
-    REPO_ROOT.parent
-    / "chummer-design"
+    DESIGN_REPO_ROOT
     / "products"
     / "chummer"
     / "maintenance"
