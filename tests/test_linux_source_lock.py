@@ -69,8 +69,12 @@ class CheckedLinuxSourceLockTests(unittest.TestCase):
             "review_required", payload["releaseManifest"]["status"]
         )
         self.assertEqual(
-            "chummer6.public-release-truth/bound-review-required/v1",
+            "chummer6.release-authority-lock/v1",
             payload["releaseManifest"]["authorityContract"],
+        )
+        self.assertEqual(
+            ".guide-internal/receipts/CHUMMER6_RELEASE_AUTHORITY_LOCK.generated.json",
+            payload["releaseManifest"]["path"],
         )
         self.assertIs(payload["releaseManifest"]["releaseEvidenceEligible"], False)
         self.assertEqual("bound", packet["authority_binding_status"])

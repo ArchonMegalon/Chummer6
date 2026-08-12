@@ -1,0 +1,96 @@
+{
+  "authority": {
+    "artifactCount": 2,
+    "artifacts": [
+      {
+        "arch": "x64",
+        "artifactId": "avalonia-linux-x64-installer",
+        "compatibilityState": "compatible",
+        "downloadUrl": "/downloads/g/gen-20260811T053520Z-58ee89edc36b431f/files/chummer-avalonia-linux-x64-installer.deb",
+        "head": "avalonia",
+        "installAccessClass": "open_public",
+        "kind": "installer",
+        "platform": "linux",
+        "promotionState": "promoted",
+        "publicInstallRoute": "/downloads/install/avalonia-linux-x64-installer",
+        "publicationScope": "signed-in-and-public",
+        "revokeState": "not_revoked",
+        "rid": "linux-x64",
+        "sha256": "140275ab7e47f7369c58c82f81b56d3c711e44a4eb21c5a9b8a41d441090d06b",
+        "sizeBytes": 37195722
+      },
+      {
+        "arch": "x64",
+        "artifactId": "avalonia-win-x64-installer",
+        "compatibilityState": "compatible",
+        "downloadUrl": "/downloads/g/gen-20260811T053520Z-58ee89edc36b431f/files/chummer-avalonia-win-x64-installer.exe",
+        "head": "avalonia",
+        "installAccessClass": "open_public",
+        "kind": "installer",
+        "platform": "windows",
+        "promotionState": "promoted",
+        "publicInstallRoute": "/downloads/install/avalonia-win-x64-installer",
+        "publicationScope": "signed-in-and-public",
+        "revokeState": "not_revoked",
+        "rid": "win-x64",
+        "sha256": "bd45bceac8358b6402ccb0799d0ecf661bb24061301296930791c736f1232dfe",
+        "sizeBytes": 53242289
+      }
+    ],
+    "authorityContract": "chummer.release-authority-snapshot/v2",
+    "availablePlatforms": [
+      "linux",
+      "windows"
+    ],
+    "channel": "preview",
+    "downloadAccessPosture": "open_public",
+    "knownIssueSummary": "Known issue: required desktop build coverage is incomplete (platforms: macos; pairs: avalonia:macos; build combinations: avalonia:osx-arm64:macos).",
+    "manifestPath": "RELEASE_CHANNEL.json",
+    "manifestSha256": "67641f4b7eab93f872a12519a07271f0249712b1dc224220f49805799d06b327",
+    "nextActions": [
+      "Bind fresh native Windows evidence and candidate-bound product journey receipts before any product-preview claim."
+    ],
+    "primaryHeadByPlatform": {
+      "linux": "avalonia",
+      "windows": "avalonia"
+    },
+    "registryCommit": "f1d7b96c510ef619d8f6c6b7ce7c29b1736e053b",
+    "registryRepository": "ArchonMegalon/chummer6-hub-registry",
+    "releaseDecisionPath": "RELEASE_DECISION.json",
+    "releaseDecisionSha256": "6a68973e60ebf27e0d3ed5097cce9adda5cb4fae633fbb975ec9d6dc62c1aab3",
+    "releaseDecisionStatus": "review_required",
+    "releaseVersion": "run-20260802-160500",
+    "rolloutState": "coverage_incomplete",
+    "status": "published",
+    "supportOwner": "chummer-release-operations",
+    "supportabilityState": "review_required"
+  },
+  "authority_binding_status": "bound",
+  "authority_source": {
+    "currentPath": "CURRENT.json",
+    "currentSha256": "a1759655a0976c557f2c4eb5ceb9b8382ad2cd3637a29b432966f5d76463a24d",
+    "currentStatus": "review_required",
+    "manifestGeneratedAt": "2026-08-11T03:58:32Z",
+    "manifestPath": "snapshots/run-20260802-160500/434b8c201ee76cc5e0c6649a4a173096bec7d3a6a07b3127c322eccaa0a39aac/RELEASE_CHANNEL.json",
+    "manifestSchemaVersion": 1,
+    "manifestSha256": "67641f4b7eab93f872a12519a07271f0249712b1dc224220f49805799d06b327",
+    "manifestVersion": "run-20260802-160500",
+    "registryCommit": "f1d7b96c510ef619d8f6c6b7ce7c29b1736e053b",
+    "registryRepository": "ArchonMegalon/chummer6-hub-registry",
+    "releaseDecisionPath": "snapshots/run-20260802-160500/434b8c201ee76cc5e0c6649a4a173096bec7d3a6a07b3127c322eccaa0a39aac/RELEASE_DECISION.json",
+    "releaseDecisionSha256": "6a68973e60ebf27e0d3ed5097cce9adda5cb4fae633fbb975ec9d6dc62c1aab3",
+    "snapshotPath": "snapshots/run-20260802-160500/434b8c201ee76cc5e0c6649a4a173096bec7d3a6a07b3127c322eccaa0a39aac/SNAPSHOT.json",
+    "snapshotSha256": "434b8c201ee76cc5e0c6649a4a173096bec7d3a6a07b3127c322eccaa0a39aac"
+  },
+  "contract_name": "chummer6.release-authority-lock/v1",
+  "contract_version": 1,
+  "does_not_assert": [
+    "artifact_build_proof",
+    "product_preview_readiness",
+    "stable_readiness",
+    "flagship_readiness"
+  ],
+  "release_decision_status": "review_required",
+  "release_evidence_eligible": false,
+  "release_posture": "review_required"
+}
