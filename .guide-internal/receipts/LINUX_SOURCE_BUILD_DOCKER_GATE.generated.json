@@ -1,17 +1,17 @@
 {
   "artifacts": {
     "archive_checksum_name": "chummer6-linux-x64-source-lock.tar.gz.sha256",
-    "build_log_name": "linux-source-build-20260719T093452Z-4506.log",
+    "build_log_name": "linux-source-build-20260812T092342Z-4642.log",
     "build_manifest_excerpt": [
       "contract=chummer6.linux-source-build/v2",
       "scriptVersion=3.1.0",
-      "sourceLockSha256=9f32be73c0bfc58843d836d3f3627a315e1da517797994459b38be03e126ec30",
+      "sourceLockSha256=a7f996c599a074a1abd547547d3bdfc1a94844d23c826ccaae20ad02a8ff682e",
       "sdkVersion=10.0.103",
       "pythonRequirement=>=3.11,<4",
       "pythonRole=authenticated-orchestrator",
       "targetRid=linux-x64",
       "releaseManifestStatus=unbound_review_placeholder",
-      "releaseManifestSha256=0790e884c2b7658e6a332a6b1aff1b60c6acd9a4b2de0b85a876d7c9c102aac9",
+      "releaseManifestSha256=661cb31bc7e7bece2daa891418dc3e72713b855b1cf9a77a416cd07803049335",
       "releaseEvidenceEligible=false",
       "debugSymbols=none",
       "artifactPathPortability=passed",
@@ -22,9 +22,9 @@
       "repository.chummer-ui-kit=d51ecd99cf72098d4adc8db0192bff7bf9fd8e61",
       "repository.chummer6-ui=73dbef29bef4b5c9ae7a081361a4e317a3489229"
     ],
-    "installed_startup_smoke_receipt_name": "installed-startup-smoke-20260719T093943Z.receipt.json",
+    "installed_startup_smoke_receipt_name": "installed-startup-smoke-20260812T092918Z.receipt.json",
     "repeat_archive_checksum_name": "chummer6-linux-x64-source-lock.tar.gz.sha256",
-    "repeat_build_log_name": "linux-source-build-20260719T093717Z-6290.log",
+    "repeat_build_log_name": "linux-source-build-20260812T092640Z-6439.log",
     "source_heads": {
       "chummer-core-engine": "0b0d20959630f7d92b377a522caf9a11cf4bdb9f",
       "chummer-hub-registry": "4a312798a10cb7ae97c77731450e24fe6a74d963",
@@ -32,9 +32,9 @@
       "chummer.run-services": "35aa5a828f076d7c7c4a57dbab17d8715f9c3b68",
       "chummer6-ui": "73dbef29bef4b5c9ae7a081361a4e317a3489229"
     },
-    "startup_smoke_receipt_name": "startup-smoke-20260719T093942Z.receipt.json",
-    "updater_dispatch_simulation_receipt_name": "updater-dispatch-simulation-20260719T093943Z.receipt.json",
-    "updater_special_mode_receipt_name": "updater-special-mode-20260719T093943Z.receipt.json"
+    "startup_smoke_receipt_name": "startup-smoke-20260812T092918Z.receipt.json",
+    "updater_dispatch_simulation_receipt_name": "updater-dispatch-simulation-20260812T092919Z.receipt.json",
+    "updater_special_mode_receipt_name": "updater-special-mode-20260812T092918Z.receipt.json"
   },
   "contract_name": "ea.chummer6_linux_source_build_docker_gate.v2",
   "docker_image": "debian:bookworm-slim",
@@ -52,13 +52,13 @@
     "source_build_is_explicitly_two_step": true,
     "source_build_update_mode_default": "notify"
   },
-  "generated_at_utc": "20260719T093432Z",
+  "generated_at_utc": "20260812T092314Z",
   "git_ref": null,
   "github_org": "ArchonMegalon",
   "output": {
     "archive_checksum_name": "chummer6-linux-x64-source-lock.tar.gz.sha256",
     "archive_name": "chummer6-linux-x64-source-lock.tar.gz",
-    "archive_sha256": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
+    "archive_sha256": "8c855dffb1e0d509cfca402c4f9aabbefd7a69e317814fc38a86bc04b3683767",
     "artifact_mode_normalization": "passed",
     "artifact_path_portability": "passed",
     "binary_name": "Chummer.Avalonia",
@@ -98,18 +98,18 @@
     }
   },
   "release_evidence_eligible": false,
-  "release_manifest_sha256": "0790e884c2b7658e6a332a6b1aff1b60c6acd9a4b2de0b85a876d7c9c102aac9",
+  "release_manifest_sha256": "661cb31bc7e7bece2daa891418dc3e72713b855b1cf9a77a416cd07803049335",
   "release_manifest_status": "unbound_review_placeholder",
   "repo_base_url": "https://github.com/ArchonMegalon",
   "reproducibility": {
     "archive_member_modes": "passed",
     "archive_payload_path_scan": "passed",
-    "archive_sha256_first": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
-    "archive_sha256_repeat": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
+    "archive_sha256_first": "8c855dffb1e0d509cfca402c4f9aabbefd7a69e317814fc38a86bc04b3683767",
+    "archive_sha256_repeat": "8c855dffb1e0d509cfca402c4f9aabbefd7a69e317814fc38a86bc04b3683767",
     "archives_byte_identical": true,
     "clean_build_count": 2,
     "cross_compatible_runtime_archive_identical": true,
-    "independent_host_archive_sha256": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
+    "independent_host_archive_sha256": "8c855dffb1e0d509cfca402c4f9aabbefd7a69e317814fc38a86bc04b3683767",
     "independent_host_python_version": "3.12.3",
     "observed_python_versions": [
       "3.11.2",
@@ -128,7 +128,7 @@
       "channel_id": "local",
       "head_id": "avalonia",
       "ready_checkpoint": "fresh_container_installed_gate",
-      "recorded_at_utc": "2026-07-19T09:39:43.5204786+00:00",
+      "recorded_at_utc": "2026-08-12T09:29:18.9304895+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -138,7 +138,7 @@
       "channel_id": "local",
       "head_id": "avalonia",
       "ready_checkpoint": "fresh_container_gate",
-      "recorded_at_utc": "2026-07-19T09:39:43.0683333+00:00",
+      "recorded_at_utc": "2026-08-12T09:29:18.4787178+00:00",
       "rid": "linux-x64",
       "status": "pass"
     },
@@ -175,7 +175,7 @@
       },
       "pkexec_shim_invoked": true,
       "privilege_escalation_performed": false,
-      "recorded_at_utc": "2026-07-19T09:39:43.866910+00:00",
+      "recorded_at_utc": "2026-08-12T09:29:19.295360+00:00",
       "retained_stage_inventory": [
         {
           "file_name": "chummer-avalonia-linux-x64-installer.deb",
@@ -208,7 +208,7 @@
       "mode": "desktop_update_launch_installer",
       "pending_update_channel_id": "stable",
       "pending_update_version": "run-20260618-051119",
-      "recorded_at_utc": "2026-07-19T09:39:43.684886+00:00",
+      "recorded_at_utc": "2026-08-12T09:29:19.082993+00:00",
       "rid": "linux-x64",
       "status": "pass"
     }
@@ -234,7 +234,7 @@
     "system_runtime_fallback_allowed": false
   },
   "source_lock": "RELEASE.lock.json",
-  "source_lock_sha256": "9f32be73c0bfc58843d836d3f3627a315e1da517797994459b38be03e126ec30",
+  "source_lock_sha256": "a7f996c599a074a1abd547547d3bdfc1a94844d23c826ccaae20ad02a8ff682e",
   "source_mode": "locked",
   "status": "passed"
 }
