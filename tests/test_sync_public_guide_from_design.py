@@ -1,16 +1,20 @@
 from __future__ import annotations
 
 import importlib.util
-import os
 import tempfile
 import unittest
 from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DESIGN_REPO_ROOT = Path(
-    os.environ.get("CHUMMER_DESIGN_REPO_ROOT", REPO_ROOT.parent / "chummer-design")
-).resolve()
+DESIGN_REPO_CANDIDATES = (
+    REPO_ROOT.parent / "chummer-design",
+    REPO_ROOT.parents[1] / "chummer-design",
+)
+DESIGN_REPO_ROOT = next(
+    (candidate.resolve() for candidate in DESIGN_REPO_CANDIDATES if candidate.is_dir()),
+    DESIGN_REPO_CANDIDATES[0].resolve(),
+)
 LINUX_SOURCE_BUILD_POLICY = (
     DESIGN_REPO_ROOT
     / "products"
