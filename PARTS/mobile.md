@@ -23,13 +23,13 @@ The Android app keeps the important Chummer work in familiar phone navigation, w
 
 ## Limits today
 
-- the sealed preview.5 bundle predates the latest build and account-link fixes, so it is historical evidence rather than the next upload
-- Google enforces an upload-key cooldown until 14 August 2026 at 03:29:49 UTC; the internal track keeps its earlier build until a fresh exact bundle is approved, uploaded, and installed
+- the exact preview.6 bundle is locally signed and tested, but Google enforces an upload-key cooldown until 14 August 2026 at 03:29:49 UTC
+- the internal track keeps its earlier build until preview.6 is approved by exact hash, uploaded, processed, and installed by a tester
 - the shared app structure leaves room for iPhone and tablet-specific versions, but those versions are not shipped yet
 
 ## Current state
 
-The Android app is a native MAUI Shell, not a Blazor or WebView wrapper. Current source passes 31 contract tests, its Release compile check, and full API 36 Debug builds for arm64 and x64. Account linking now fails closed when a grant or approval expires, and invite links must match the expected secure Chummer route exactly. The current source has not been published to the Play Store, and no installation of it is claimed.
+The Android app is a native MAUI Shell, not a Blazor or WebView wrapper. The exact signed preview.6 candidate passes 31 contract tests, clean eight-repository source validation, arm64 Release inspection, and a fresh API 36 native journey through Home, New Runner, Build, Play, Campaign, and More. Account linking fails closed when a grant or approval expires, and invite links must match the expected secure Chummer route exactly. Preview.6 has not been uploaded, processed, or installed from Play; the internal tester roster contains two approved accounts.
 
 ## Go deeper
 
