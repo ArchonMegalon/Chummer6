@@ -101,6 +101,23 @@ def test_gold_copy_fails_closed_without_stable_ready_decision() -> None:
     assert "gold-supported" not in packet["quality_gap_line"].casefold()
 
 
+def test_source_lock_authority_projection_excludes_build_proof() -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        fixture = write_authority_fixture(Path(temp_dir), decision_status="review_required")
+        resolved = _resolve(fixture)
+        authority_lock = MODULE.build_authority_lock(
+            resolved.authority,
+            resolved.authority_source,
+        )
+
+    assert authority_lock["contract_name"] == "chummer6.release-authority-lock/v1"
+    assert authority_lock["release_decision_status"] == "review_required"
+    assert authority_lock["release_evidence_eligible"] is False
+    assert "artifact_build_proof" in authority_lock["does_not_assert"]
+    assert "linux_source_build_gate" not in authority_lock
+    assert "macos_source_build_contract" not in authority_lock
+
+
 def test_canonical_output_requires_all_immutable_authority_flags(tmp_path: Path) -> None:
     original_output = MODULE.OUTPUT_PATH
     MODULE.OUTPUT_PATH = tmp_path / "must-not-exist.json"

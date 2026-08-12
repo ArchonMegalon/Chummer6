@@ -26,7 +26,7 @@ from typing import Any
 
 CONTRACT = "chummer6.release-source-lock/v2"
 SCHEMA_VERSION = 2
-BOUND_REVIEW_TRUTH_CONTRACT = "chummer6.public-release-truth/bound-review-required/v1"
+RELEASE_AUTHORITY_LOCK_CONTRACT = "chummer6.release-authority-lock/v1"
 SDK_VERSION = "10.0.103"
 SUPPORTED_RIDS = ("linux-x64", "linux-arm64")
 REQUIRED_REPOSITORIES = {
@@ -1744,7 +1744,7 @@ def validate_lock(path: Path, repo_root: Path) -> dict[str, Any]:
     )
     source_commit = required_string(release_manifest, "sourceCommit", "releaseManifest")
     if (
-        release_manifest.get("authorityContract") != BOUND_REVIEW_TRUTH_CONTRACT
+        release_manifest.get("authorityContract") != RELEASE_AUTHORITY_LOCK_CONTRACT
         or release_manifest.get("sourceRepository") != "ArchonMegalon/Chummer6"
         or not COMMIT_PATTERN.fullmatch(source_commit)
         or release_manifest.get("status") != "review_required"
@@ -1752,14 +1752,40 @@ def validate_lock(path: Path, repo_root: Path) -> dict[str, Any]:
         or git_blob_sha256(repo_root, source_commit, release_manifest["path"])
         != manifest_sha
     ):
-        raise LockError("release manifest must remain exact, bound, review-required, and evidence-ineligible")
+        raise LockError("release authority lock must remain exact, bound, review-required, and evidence-ineligible")
     manifest_payload = load_json(manifest_path, "release manifest")
+    exact_keys(
+        manifest_payload,
+        {
+            "authority",
+            "authority_binding_status",
+            "authority_source",
+            "contract_name",
+            "contract_version",
+            "does_not_assert",
+            "release_decision_status",
+            "release_evidence_eligible",
+            "release_posture",
+        },
+        "release authority lock",
+    )
     if (
-        manifest_payload.get("authority_binding_status") != "bound"
+        manifest_payload.get("contract_name") != RELEASE_AUTHORITY_LOCK_CONTRACT
+        or manifest_payload.get("contract_version") != 1
+        or manifest_payload.get("authority_binding_status") != "bound"
         or manifest_payload.get("release_decision_status") != "review_required"
         or manifest_payload.get("release_posture") != "review_required"
+        or manifest_payload.get("release_evidence_eligible") is not False
     ):
-        raise LockError("release manifest posture differs")
+        raise LockError("release authority lock posture differs")
+    does_not_assert = manifest_payload.get("does_not_assert")
+    if does_not_assert != [
+        "artifact_build_proof",
+        "product_preview_readiness",
+        "stable_readiness",
+        "flagship_readiness",
+    ]:
+        raise LockError("release authority lock claim boundary differs")
     authority_source = manifest_payload.get("authority_source")
     authority = manifest_payload.get("authority")
     if not isinstance(authority_source, dict) or not isinstance(authority, dict):

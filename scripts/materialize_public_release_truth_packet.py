@@ -28,6 +28,7 @@ except ModuleNotFoundError:  # Imported as scripts.materialize_public_release_tr
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
 OUTPUT_PATH = RECEIPTS_ROOT / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+AUTHORITY_LOCK_OUTPUT_PATH = RECEIPTS_ROOT / "CHUMMER6_RELEASE_AUTHORITY_LOCK.generated.json"
 LINUX_GATE_PATH = RECEIPTS_ROOT / "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json"
 MACOS_SOURCE_BUILD_CONTRACT_PATH = RECEIPTS_ROOT / "MACOS_SOURCE_BUILD_CONTRACT.generated.json"
 
@@ -482,6 +483,43 @@ def build_unbound_review_packet(
     }
 
 
+def build_authority_lock(
+    authority: dict[str, object],
+    authority_source: dict[str, object],
+) -> dict[str, object]:
+    decision_status = str(authority.get("releaseDecisionStatus") or "").strip()
+    return {
+        "authority": dict(authority),
+        "authority_binding_status": "bound",
+        "authority_source": dict(authority_source),
+        "contract_name": "chummer6.release-authority-lock/v1",
+        "contract_version": 1,
+        "does_not_assert": [
+            "artifact_build_proof",
+            "product_preview_readiness",
+            "stable_readiness",
+            "flagship_readiness",
+        ],
+        "release_decision_status": decision_status,
+        "release_evidence_eligible": decision_status == "stable_ready",
+        "release_posture": decision_status,
+    }
+
+
+def _check_rendered(path: Path, rendered: str, expected_label: str) -> bool:
+    current = path.read_text(encoding="utf-8") if path.is_file() else ""
+    if current == rendered:
+        return True
+    for line in difflib.unified_diff(
+        current.splitlines(keepends=True),
+        rendered.splitlines(keepends=True),
+        fromfile=str(path),
+        tofile=expected_label,
+    ):
+        print(line.rstrip())
+    return False
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Materialize the Chummer6 public release truth packet from the release channel and local receipts.")
     parser.add_argument("--check", action="store_true", help="Validate the packet without rewriting it.")
@@ -542,6 +580,7 @@ def main(argv: list[str] | None = None) -> int:
 
     linux_gate = _load_json(LINUX_GATE_PATH)
     macos_source_build_contract = _load_json(MACOS_SOURCE_BUILD_CONTRACT_PATH)
+    authority_lock: dict[str, object] | None = None
     if args.unbound_review_placeholder:
         packet = build_unbound_review_packet(linux_gate, macos_source_build_contract)
     else:
@@ -559,23 +598,38 @@ def main(argv: list[str] | None = None) -> int:
             resolved.authority_source,
             resolved.served_mirror,
         )
+        authority_lock = build_authority_lock(
+            resolved.authority,
+            resolved.authority_source,
+        )
     rendered = json.dumps(packet, indent=2, sort_keys=True) + "\n"
+    authority_lock_rendered = (
+        json.dumps(authority_lock, indent=2, sort_keys=True) + "\n"
+        if authority_lock is not None
+        else ""
+    )
     if args.check:
-        current = OUTPUT_PATH.read_text(encoding="utf-8") if OUTPUT_PATH.is_file() else ""
-        if current != rendered:
-            for line in difflib.unified_diff(
-                current.splitlines(keepends=True),
-                rendered.splitlines(keepends=True),
-                fromfile=str(OUTPUT_PATH),
-                tofile="expected-public-release-truth-packet",
-            ):
-                print(line.rstrip())
+        packet_matches = _check_rendered(
+            OUTPUT_PATH,
+            rendered,
+            "expected-public-release-truth-packet",
+        )
+        authority_lock_matches = True
+        if authority_lock is not None:
+            authority_lock_matches = _check_rendered(
+                AUTHORITY_LOCK_OUTPUT_PATH,
+                authority_lock_rendered,
+                "expected-release-authority-lock",
+            )
+        if not packet_matches or not authority_lock_matches:
             return 1
         print("public_release_truth_packet:ok")
         return 0
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(rendered, encoding="utf-8")
+    if authority_lock is not None:
+        AUTHORITY_LOCK_OUTPUT_PATH.write_text(authority_lock_rendered, encoding="utf-8")
     print("public_release_truth_packet:ok")
     return 0
 

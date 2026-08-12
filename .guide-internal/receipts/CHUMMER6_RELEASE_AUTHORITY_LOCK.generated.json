@@ -1,5 +1,4 @@
 {
-  "architecture_scope_line": "Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.",
   "authority": {
     "artifactCount": 2,
     "artifacts": [
@@ -83,63 +82,15 @@
     "snapshotPath": "snapshots/run-20260802-160500/434b8c201ee76cc5e0c6649a4a173096bec7d3a6a07b3127c322eccaa0a39aac/SNAPSHOT.json",
     "snapshotSha256": "434b8c201ee76cc5e0c6649a4a173096bec7d3a6a07b3127c322eccaa0a39aac"
   },
-  "available_platforms": [
-    "Linux",
-    "Windows"
+  "contract_name": "chummer6.release-authority-lock/v1",
+  "contract_version": 1,
+  "does_not_assert": [
+    "artifact_build_proof",
+    "product_preview_readiness",
+    "stable_readiness",
+    "flagship_readiness"
   ],
-  "build_label": "",
-  "channel_id": "preview",
-  "desktop_pick_line": "For today, start with Chummer.Avalonia. Use another desktop head only when the release shelf lists it explicitly.",
-  "desktop_tuple_coverage_complete": false,
-  "fallback_heads": [],
-  "fix_availability_summary": "Do not send fixed notices until required desktop build coverage is complete for the promoted release.",
-  "generated_from": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
-  "known_issue_summary": "Known issue: required desktop build coverage is incomplete (platforms: macos; pairs: avalonia:macos; build combinations: avalonia:osx-arm64:macos).",
-  "linux_source_build_gate": {
-    "archive_sha256": "8dea09eda6f14f6e534810b1d77f28cde29914b778eef64dbebf61ae1a61cf51",
-    "docker_image": "debian:bookworm-slim",
-    "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-    "generated_at_utc": "20260812T191541Z",
-    "rid": "linux-x64",
-    "status": "passed"
-  },
-  "macos_source_build_contract": {
-    "doc_marks_second_script_install": true,
-    "generated_at_utc": "2026-06-29T17:22:42Z",
-    "maintenance_policy_marks_real_build_as_macos_only": true,
-    "maintenance_policy_requires_two_step_install": true,
-    "real_macos_runtime_proof_required": true,
-    "runtime_coverage": "not_run_on_non_macos_host",
-    "scope": "script_contract_only",
-    "status": "passed"
-  },
-  "missing_installer_lane_line": "macOS does not have a normal installer yet.",
-  "missing_platforms": [
-    "macOS"
-  ],
-  "phase_label": "Release review required",
-  "primary_head": "Chummer.Avalonia",
-  "primary_head_by_platform": {
-    "linux": "avalonia",
-    "windows": "avalonia"
-  },
-  "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "August 11, 2026 at 4:00 UTC",
-  "published_line": "Published: August 11, 2026 at 4:00 UTC.",
-  "quality_gap_line": "Release review is required. Stable and gold claims remain paused until the immutable authority and public routes converge.",
   "release_decision_status": "review_required",
-  "release_posture": "review_required",
-  "release_status": "Published",
-  "release_status_slug": "published",
-  "release_verification_summary": "This release covers installs and recovery, campaign session recovery, and support follow-up.",
-  "required_platforms": [
-    "Linux",
-    "Windows"
-  ],
-  "review_required_banner": "Release review required. Public availability claims remain paused until one immutable snapshot converges.",
-  "rollout_state": "coverage_incomplete",
-  "served_mirror": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
-  "shelf_truth_line": "Linux and Windows downloads are posted.",
-  "short_release_summary": "Release review is required. Do not rely on platform availability claims until the current immutable snapshot converges.",
-  "supportability_state": "review_required"
+  "release_evidence_eligible": false,
+  "release_posture": "review_required"
 }
