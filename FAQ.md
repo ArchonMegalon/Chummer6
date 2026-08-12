@@ -3,7 +3,7 @@
 ## Start with these answers
 
 - **Which desktop app should I start with?** Start with the Avalonia desktop app when the download page offers it.
-- **What platforms are publicly available today?** Windows are the current public path; check Download for exact status.
+- **What platforms are publicly available today?** Linux and Windows are the current public path; check Download for exact status.
 - **I use Chummer5a now. Where should I start?** Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Current status](NOW/current-status.md).
 - **Do I need GitHub for anything normal?** No. Use the guide, download page, and help flow first.
 

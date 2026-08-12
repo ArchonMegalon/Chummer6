@@ -25,15 +25,15 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What is still rough
 
-- Windows downloads are posted.
+- Linux and Windows downloads are posted.
 - Release review is required. Stable and gold claims remain paused until the immutable authority and public pages converge.
-- If you rely on Linux and macOS as your main platform, wait before switching full time.
-- Desktop downloads are available for Windows x64 only. No public download is posted for Linux x64, Linux ARM64, Windows ARM64, and macOS yet.
+- If you rely on macOS as your main platform, wait before switching full time.
+- Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.
 - Treat the current shelf as a serious preview, not a fully settled every-platform replacement yet.
 
 ## Should you switch today?
 
-- Today you can try the current builds on Windows.
+- Today you can try the current builds on Linux and Windows.
 
 ### If your platform is on the current download shelf
 

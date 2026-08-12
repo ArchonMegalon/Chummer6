@@ -8,12 +8,12 @@ Release review required. Public availability claims remain paused until one immu
 
 - Product state: Release review required.
 - Release status: Published.
-- Windows downloads are posted.
-- Published: July 27, 2026 at 6:57 UTC.
-- Desktop downloads are available for Windows x64 only. No public download is posted for Linux x64, Linux ARM64, Windows ARM64, and macOS yet.
-- Linux and macOS do not have a normal installer yet.
+- Linux and Windows downloads are posted.
+- Published: August 11, 2026 at 4:00 UTC.
+- Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.
+- macOS does not have a normal installer yet.
 - Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
-- Current warning: Known issue: stale or incomplete proof receipts and Hosted Build privacy, retention, recovery, and erasure review still block launch-readiness claims.
+- Current warning: Known issue: required desktop build coverage is incomplete (platforms: macos; pairs: avalonia:macos; build combinations: avalonia:osx-arm64:macos).
 
 ## Start here
 
