@@ -66,7 +66,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
 
 ### Windows
 
-- Avalonia Desktop Windows X64 Installer.
+- Windows x64 installer.
 - Download: [Open download](https://chummer.run/downloads/install/avalonia-win-x64-installer)
 - File: `chummer-avalonia-win-x64-installer.exe`
 - Size: 2.6 MiB (2734106 bytes)
@@ -74,7 +74,7 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
 
 ### Linux
 
-- Avalonia Desktop Linux X64 Installer.
+- Linux x64 installer.
 - Download: [Open download](https://chummer.run/downloads/install/avalonia-linux-x64-installer)
 - File: `chummer-avalonia-linux-x64-installer.deb`
 - Size: 35.3 MiB (37024862 bytes)
@@ -86,8 +86,8 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
 
 ## SHA256
 
-- Avalonia Desktop Linux X64 Installer: `5c8518f0f7f24b3f7101ff6fcea0fe33f012b4dfb03704f5bdf0067571f2d70b`
-- Avalonia Desktop Windows X64 Installer: `80655fd79a096cd7714910d7b38f7741eea01f82ada96dc6a2a097951997d91a`
+- Linux x64: `5c8518f0f7f24b3f7101ff6fcea0fe33f012b4dfb03704f5bdf0067571f2d70b`
+- Windows x64: `80655fd79a096cd7714910d7b38f7741eea01f82ada96dc6a2a097951997d91a`
 """,
             encoding="utf-8",
         )
@@ -136,6 +136,22 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
             with self._module_paths(docs_root):
                 self.assertEqual(MODULE.main(self._args(authority)), 0)
 
+    def test_main_accepts_stable_routes_without_exposing_immutable_file_names(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            docs_root, authority = self._write_fixture(Path(temp_dir))
+            download = docs_root / "DOWNLOAD.md"
+            download.write_text(
+                "\n".join(
+                    line
+                    for line in download.read_text(encoding="utf-8").splitlines()
+                    if not line.startswith("- File: ")
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            with self._module_paths(docs_root):
+                self.assertEqual(MODULE.main(self._args(authority)), 0)
+
     def test_main_fails_when_download_sha_drifts(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             docs_root, authority = self._write_fixture(Path(temp_dir))
@@ -162,6 +178,20 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
                 encoding="utf-8",
             )
             with self._module_paths(docs_root), self.assertRaisesRegex(ValueError, "publicInstallRoute"):
+                MODULE.main(self._args(authority))
+
+    def test_main_rejects_wrong_literal_file_name_even_when_route_matches(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            docs_root, authority = self._write_fixture(Path(temp_dir))
+            download = docs_root / "DOWNLOAD.md"
+            download.write_text(
+                download.read_text(encoding="utf-8").replace(
+                    "`chummer-avalonia-win-x64-installer.exe`",
+                    "`wrong.exe`",
+                ),
+                encoding="utf-8",
+            )
+            with self._module_paths(docs_root), self.assertRaisesRegex(ValueError, "file"):
                 MODULE.main(self._args(authority))
 
     def test_main_rejects_extra_documented_artifact(self) -> None:

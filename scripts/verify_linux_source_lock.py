@@ -26,6 +26,7 @@ from typing import Any
 
 CONTRACT = "chummer6.release-source-lock/v2"
 SCHEMA_VERSION = 2
+BOUND_REVIEW_TRUTH_CONTRACT = "chummer6.public-release-truth/bound-review-required/v1"
 SDK_VERSION = "10.0.103"
 SUPPORTED_RIDS = ("linux-x64", "linux-arm64")
 REQUIRED_REPOSITORIES = {
@@ -1743,23 +1744,60 @@ def validate_lock(path: Path, repo_root: Path) -> dict[str, Any]:
     )
     source_commit = required_string(release_manifest, "sourceCommit", "releaseManifest")
     if (
-        release_manifest.get("authorityContract")
-        != "chummer6.public-release-truth/unbound-review-placeholder/v1"
+        release_manifest.get("authorityContract") != BOUND_REVIEW_TRUTH_CONTRACT
         or release_manifest.get("sourceRepository") != "ArchonMegalon/Chummer6"
         or not COMMIT_PATTERN.fullmatch(source_commit)
-        or release_manifest.get("status") != "unbound_review_placeholder"
+        or release_manifest.get("status") != "review_required"
         or release_manifest.get("releaseEvidenceEligible") is not False
         or git_blob_sha256(repo_root, source_commit, release_manifest["path"])
         != manifest_sha
     ):
-        raise LockError("release manifest must remain the exact unbound placeholder")
+        raise LockError("release manifest must remain exact, bound, review-required, and evidence-ineligible")
     manifest_payload = load_json(manifest_path, "release manifest")
     if (
-        manifest_payload.get("authority_binding_status")
-        != "unbound_review_placeholder"
+        manifest_payload.get("authority_binding_status") != "bound"
         or manifest_payload.get("release_decision_status") != "review_required"
+        or manifest_payload.get("release_posture") != "review_required"
     ):
         raise LockError("release manifest posture differs")
+    authority_source = manifest_payload.get("authority_source")
+    authority = manifest_payload.get("authority")
+    if not isinstance(authority_source, dict) or not isinstance(authority, dict):
+        raise LockError("bound release manifest authority is missing")
+    source_registry_commit = required_string(
+        authority_source,
+        "registryCommit",
+        "release manifest authority_source",
+    )
+    source_manifest_version = required_string(
+        authority_source,
+        "manifestVersion",
+        "release manifest authority_source",
+    )
+    for field in (
+        "currentSha256",
+        "snapshotSha256",
+        "manifestSha256",
+        "releaseDecisionSha256",
+    ):
+        required_sha256(authority_source, field, "release manifest authority_source")
+    if (
+        authority_source.get("registryRepository")
+        != "ArchonMegalon/chummer6-hub-registry"
+        or not COMMIT_PATTERN.fullmatch(source_registry_commit)
+        or authority_source.get("currentStatus") != "review_required"
+        or authority.get("authorityContract")
+        != "chummer.release-authority-snapshot/v2"
+        or authority.get("registryRepository")
+        != authority_source.get("registryRepository")
+        or authority.get("registryCommit") != source_registry_commit
+        or authority.get("releaseVersion") != source_manifest_version
+        or authority.get("releaseDecisionStatus") != "review_required"
+        or authority.get("manifestSha256") != authority_source.get("manifestSha256")
+        or authority.get("releaseDecisionSha256")
+        != authority_source.get("releaseDecisionSha256")
+    ):
+        raise LockError("bound release manifest authority differs")
 
     build_script = payload.get("buildScript")
     if not isinstance(build_script, dict):

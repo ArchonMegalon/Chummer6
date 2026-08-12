@@ -30,7 +30,7 @@ def _manifest() -> bytes:
         "pythonRequirement=>=3.11,<4",
         "pythonRole=authenticated-orchestrator",
         "targetRid=linux-x64",
-        "releaseManifestStatus=unbound_review_placeholder",
+        "releaseManifestStatus=review_required",
         f"releaseManifestSha256={'b' * 64}",
         "releaseEvidenceEligible=false",
         "debugSymbols=none",

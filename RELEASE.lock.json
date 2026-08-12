@@ -184,17 +184,17 @@
     ]
   },
   "releaseManifest": {
-    "authorityContract": "chummer6.public-release-truth/unbound-review-placeholder/v1",
+    "authorityContract": "chummer6.public-release-truth/bound-review-required/v1",
     "sourceRepository": "ArchonMegalon/Chummer6",
-    "sourceCommit": "b07b69c1ca98ed18cf2b8f93a27d469bd8939457",
+    "sourceCommit": "6877bdaeee9078dc3ed0a4d6dbb745a74761892f",
     "path": ".guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
-    "sha256": "661cb31bc7e7bece2daa891418dc3e72713b855b1cf9a77a416cd07803049335",
-    "status": "unbound_review_placeholder",
+    "sha256": "5cfb5c09fa04c5966a8570c863667be96e87f65e17ceb60c2a34ebd777f68e33",
+    "status": "review_required",
     "releaseEvidenceEligible": false
   },
   "sourceLockVerifier": {
     "path": "scripts/verify_linux_source_lock.py",
-    "sha256": "a0a3df9fbc721259a838361e5d9bbbacb4289bef93e9ea2c4152a546da7dd3a6"
+    "sha256": "6071708a76ec45b03ca2b6a45fe79c9b43ce8fab7d64362cc4a16aff7e422be8"
   },
   "buildScript": {
     "path": "scripts/build-chummer6-linux.sh",

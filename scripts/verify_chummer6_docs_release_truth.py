@@ -83,6 +83,11 @@ def _download_opening(available_platforms: list[str]) -> str:
     return "Public downloads start on `chummer.run` when a release is posted."
 
 
+def _missing_installer_line(missing_platforms: list[str]) -> str:
+    verb = "does" if len(missing_platforms) == 1 else "do"
+    return f"{_english_join(missing_platforms)} {verb} not have a normal installer yet."
+
+
 def _verify_document_content() -> None:
     packet = json.loads(PACKET_PATH.read_text(encoding="utf-8"))
     authority = packet.get("authority")
@@ -221,20 +226,16 @@ def _verify_document_content() -> None:
     if missing_platforms:
         if len(missing_platforms) == 1:
             wait_line = f"If you rely on {missing_platforms[0]} as your main platform, wait before switching full time."
-            warning_line = (
-                f"{missing_platforms[0]} does not have a normal installer yet."
-            )
         elif len(missing_platforms) == 2:
             wait_line = f"If you rely on {missing_platforms[0]} and {missing_platforms[1]} as your main platform, wait before switching full time."
-            warning_line = f"{missing_platforms[0]} and {missing_platforms[1]} do not have normal installers yet."
         else:
             wait_line = (
                 f"If you rely on {', '.join(missing_platforms[:-1])}, and {missing_platforms[-1]} as your main platform, "
                 "wait before switching full time."
             )
-            warning_line = (
-                f"{', '.join(missing_platforms[:-1])}, and {missing_platforms[-1]} do not have normal installers yet."
-        )
+        warning_line = _missing_installer_line([str(item) for item in missing_platforms])
+        if missing_installer_lane_line != warning_line:
+            raise ValueError("release truth packet missing-installer wording drifted from its platform list")
         _require_contains("FROM_CHUMMER5A_TO_CHUMMER6.md", migration, wait_line)
         _require_contains("STATUS.md", status, warning_line)
 

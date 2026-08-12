@@ -14,6 +14,9 @@ EXPECTED_REGISTRY_REPOSITORY = "ArchonMegalon/chummer6-hub-registry"
 CANONICAL_RELEASE_CHANNEL_SOURCE = "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json"
 ALLOWED_RELEASE_DECISION_STATUSES = frozenset({"review_required", "preview_ready", "stable_ready"})
 PREVIEW_DECISION_CONTRACT = "chummer.preview-release-decision/v1"
+PREVIEW_DECISION_CONTRACTS = frozenset(
+    {PREVIEW_DECISION_CONTRACT, "chummer.preview-release-decision/v2"}
+)
 STABLE_DECISION_CONTRACT = "chummer.final_gold_graph"
 STABLE_DECISION_CONTRACT_VERSION = 2
 MANIFEST_FILE_NAME = "RELEASE_CHANNEL.json"
@@ -211,8 +214,29 @@ def _require_https_url(value: object, field: str) -> str:
 
 
 def _require_immutable_download_url(value: object, field: str) -> str:
-    cleaned = _require_https_url(value, field)
-    path = urlparse(cleaned).path
+    if not isinstance(value, str) or value != value.strip():
+        raise ValueError(
+            f"{field} must be a safe absolute HTTPS URL or origin-relative immutable download route"
+        )
+    cleaned = value
+    parsed = urlparse(cleaned)
+    decoded_path = unquote(parsed.path)
+    origin_relative = (
+        cleaned.startswith("/")
+        and not cleaned.startswith("//")
+        and not parsed.scheme
+        and not parsed.netloc
+        and not parsed.query
+        and not parsed.fragment
+        and parsed.path == cleaned
+        and ".." not in decoded_path.split("/")
+        and "\\" not in decoded_path
+        and all(ord(character) >= 32 for character in cleaned)
+    )
+    if not origin_relative:
+        cleaned = _require_https_url(value, field)
+        parsed = urlparse(cleaned)
+    path = parsed.path
     match = re.fullmatch(r"/downloads/g/([A-Za-z0-9._+-]+)/files/([^/]+)", path)
     if (
         match is None
@@ -221,7 +245,7 @@ def _require_immutable_download_url(value: object, field: str) -> str:
         or not match.group(2).strip()
     ):
         raise ValueError(
-            f"{field} must use immutable /downloads/g/<generation>/files/<file> HTTPS routing"
+            f"{field} must use immutable /downloads/g/<generation>/files/<file> routing"
         )
     return cleaned
 
@@ -400,6 +424,8 @@ def _active_revocations(manifest: dict[str, object]) -> tuple[bool, set[str], se
 
 def _eligible_manifest_artifacts(
     manifest: dict[str, object],
+    *,
+    decision_status: str,
 ) -> tuple[list[dict[str, object]], dict[str, str], dict[str, set[str]]]:
     artifacts = _manifest_artifacts(manifest)
     routes = _route_truth(manifest)
@@ -424,7 +450,8 @@ def _eligible_manifest_artifacts(
             for binding in bindings
             if binding.get("artifactId") == artifact_id
             and binding.get("publicationScope") == "signed-in-and-public"
-            and binding.get("publicationState") == "published"
+            and binding.get("publicationState")
+            in ({"published", "preview"} if decision_status == "review_required" else {"published"})
         ]
         if not promoted_routes or not approved_bindings:
             continue
@@ -544,7 +571,7 @@ def _decision_scope(
     decision_status: str,
     snapshot: dict[str, object],
 ) -> tuple[dict[str, str], dict[str, set[str]]]:
-    preview_contract = decision.get("contractName") == PREVIEW_DECISION_CONTRACT
+    preview_contract = decision.get("contractName") in PREVIEW_DECISION_CONTRACTS
     stable_contract = (
         decision.get("contract_name") == STABLE_DECISION_CONTRACT
         and decision.get("contract_version") == STABLE_DECISION_CONTRACT_VERSION
@@ -621,7 +648,8 @@ def _decision_scope(
                 raise ValueError("release decision fallback heads must not use sentinel IDs")
             if primary_heads.get(normalized_platform) in heads:
                 raise ValueError("release decision primary head cannot also be an explicit fallback")
-            fallback_heads[normalized_platform] = set(heads)
+            if heads:
+                fallback_heads[normalized_platform] = set(heads)
     elif stable_contract:
         if decision_status != "stable_ready":
             raise ValueError(
@@ -932,7 +960,7 @@ def resolve_release_authority(
         or decision_status != expected_release_decision_status
     ):
         raise ValueError("release decision releaseDecisionStatus does not match exact expected posture")
-    if decision.get("contractName") == PREVIEW_DECISION_CONTRACT:
+    if decision.get("contractName") in PREVIEW_DECISION_CONTRACTS:
         if _require_string(decision, "status", "RELEASE_DECISION.json") != decision_status:
             raise ValueError("preview decision status must equal releaseDecisionStatus")
     elif (
@@ -943,6 +971,15 @@ def resolve_release_authority(
         if _require_string(decision, "status", "RELEASE_DECISION.json") != expected_graph_status:
             raise ValueError("stable decision status must be pass iff releaseDecisionStatus is stable_ready")
     primary_heads, fallback_heads = _decision_scope(decision, decision_status, snapshot)
+
+    manifest_support_owner = _optional_exact_string(
+        manifest.get("supportOwner"),
+        "RELEASE_CHANNEL.json supportOwner",
+    )
+    if not manifest_support_owner:
+        if decision_status != "review_required":
+            raise ValueError("RELEASE_CHANNEL.json supportOwner must be a nonempty string")
+        manifest_support_owner = _require_string(snapshot, "supportOwner", "SNAPSHOT.json")
 
     for field, snapshot_value, manifest_value in (
         (
@@ -978,13 +1015,16 @@ def resolve_release_authority(
         (
             "supportOwner",
             snapshot.get("supportOwner"),
-            _require_string(manifest, "supportOwner", "RELEASE_CHANNEL.json"),
+            manifest_support_owner,
         ),
     ):
         if snapshot_value != manifest_value:
             raise ValueError(f"SNAPSHOT.json {field} does not match exact RELEASE_CHANNEL.json bytes")
 
-    eligible, manifest_primary_heads, manifest_fallback_heads = _eligible_manifest_artifacts(manifest)
+    eligible, manifest_primary_heads, manifest_fallback_heads = _eligible_manifest_artifacts(
+        manifest,
+        decision_status=decision_status,
+    )
     if primary_heads != manifest_primary_heads:
         raise ValueError("release decision primary-head scope does not equal the canonical Registry manifest projection")
     if fallback_heads != manifest_fallback_heads:

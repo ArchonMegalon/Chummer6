@@ -18,6 +18,12 @@ SPEC.loader.exec_module(MODULE)
 
 
 class DocsReleaseTruthVerifierTests(unittest.TestCase):
+    def test_missing_installer_line_uses_list_grammar_without_pluralizing_the_object(self) -> None:
+        self.assertEqual(
+            "Linux and macOS do not have a normal installer yet.",
+            MODULE._missing_installer_line(["Linux", "macOS"]),
+        )
+
     def _write_fixture(
         self,
         root: Path,

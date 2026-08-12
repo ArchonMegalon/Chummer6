@@ -16,7 +16,7 @@ It keeps accounts, shared coordination, and community features from turning into
 
 - sign-in and account pages
 - groups, browser-openable invites, runner tickets, and GM roster controls
-- Chronicle Studio drafts with separate source, upload, generation, publication, and sharing decisions
+- Chronicle Studio drafts with separate source, upload, generation, publication, and sharing decisions plus a source-digest-bound operator handoff
 - public landing, home, and participation entry points
 - account-aware home and account status for claim, participation, reward, and recovery
 - shared coordination, release status, and recognition views that make sense without learning the plumbing behind them
@@ -28,7 +28,7 @@ It keeps accounts, shared coordination, and community features from turning into
 
 ## Current state
 
-Hub already powers sign-in, landing and home views, participation, groups, runner-bound invite joins, and the reviewed Chronicle Studio record. Android consumes those account-scoped group and book contracts without giving the external writing provider authority over publication or campaign state.
+Hub already powers sign-in, landing and home views, participation, groups, runner-bound invite joins, and the reviewed Chronicle Studio record. Its operator handoff exposes only the source digest, provider lane, action approvals, and exact credit ceiling; source text stays in the separate authenticated packet. Android consumes those account-scoped contracts without giving the writing provider authority over publication or campaign state.
 
 ## Go deeper
 

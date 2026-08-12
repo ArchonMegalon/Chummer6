@@ -17,13 +17,13 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 ## What is real now
 
 - Short answer: release review is required before relying on public availability claims.
-- No public desktop download is listed in this guide yet.
+- Windows downloads are posted.
 - Release review is required. Do not rely on platform availability claims until the current immutable snapshot converges.
-- No desktop build is approved in this guide yet.
-- Release review is required. Stable and gold labels remain paused until downloads and public pages agree.
+- For today, start with Chummer.Avalonia. Use another desktop head only when the release shelf lists it explicitly.
+- Release review is required. Stable and gold claims remain paused until the immutable authority and public pages converge.
 - Today: Release review required.
-- No desktop platform is currently listed in this guide.
-- No release shelf is claimed until the immutable Registry authority and public pages converge.
+- Desktop downloads are available for Windows x64 only. No public download is posted for Linux x64, Linux ARM64, Windows ARM64, and macOS yet.
+- The current shelf should be read as a real preview, not a finished no-step-back release.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.
 

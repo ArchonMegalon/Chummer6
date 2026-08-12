@@ -56,14 +56,37 @@ class CheckedLinuxSourceLockTests(unittest.TestCase):
             self.assertRegex(row["commit"], r"^[0-9a-f]{40}$")
             self.assertNotIn(row["commit"], {"main", "master", "HEAD"})
 
-    def test_lock_never_promotes_the_unbound_release_packet(self) -> None:
+    def test_lock_keeps_the_bound_release_packet_review_only(self) -> None:
         payload = json.loads(LOCK.read_text(encoding="utf-8"))
+        packet = json.loads(
+            (REPO_ROOT / payload["releaseManifest"]["path"]).read_text(
+                encoding="utf-8"
+            )
+        )
         self.assertEqual("review_required", payload["releaseStatus"])
         self.assertIs(payload["releaseEvidenceEligible"], False)
         self.assertEqual(
-            "unbound_review_placeholder", payload["releaseManifest"]["status"]
+            "review_required", payload["releaseManifest"]["status"]
+        )
+        self.assertEqual(
+            "chummer6.public-release-truth/bound-review-required/v1",
+            payload["releaseManifest"]["authorityContract"],
         )
         self.assertIs(payload["releaseManifest"]["releaseEvidenceEligible"], False)
+        self.assertEqual("bound", packet["authority_binding_status"])
+        self.assertEqual("review_required", packet["release_decision_status"])
+        self.assertEqual(
+            packet["authority"]["registryCommit"],
+            packet["authority_source"]["registryCommit"],
+        )
+        self.assertEqual(
+            packet["authority"]["manifestSha256"],
+            packet["authority_source"]["manifestSha256"],
+        )
+        self.assertEqual(
+            packet["authority"]["releaseDecisionSha256"],
+            packet["authority_source"]["releaseDecisionSha256"],
+        )
 
     def test_source_lock_verifier_is_an_exact_checked_build_authority(self) -> None:
         payload = json.loads(LOCK.read_text(encoding="utf-8"))

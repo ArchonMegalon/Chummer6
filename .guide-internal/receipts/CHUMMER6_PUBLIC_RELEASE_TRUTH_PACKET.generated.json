@@ -1,28 +1,85 @@
 {
-  "architecture_scope_line": "No desktop platform is currently listed in this guide.",
+  "architecture_scope_line": "Desktop downloads are available for Windows x64 only. No public download is posted for Linux x64, Linux ARM64, Windows ARM64, and macOS yet.",
   "authority": {
-    "artifacts": [],
-    "status": "unavailable"
+    "artifactCount": 1,
+    "artifacts": [
+      {
+        "arch": "x64",
+        "artifactId": "avalonia-win-x64-installer",
+        "compatibilityState": "compatible",
+        "downloadUrl": "/downloads/g/g-20260724T152516Z-6907464d-c779a59/files/chummer-avalonia-win-x64-installer.exe",
+        "head": "avalonia",
+        "installAccessClass": "open_public",
+        "kind": "installer",
+        "platform": "windows",
+        "promotionState": "promoted",
+        "publicInstallRoute": "/downloads/install/avalonia-win-x64-installer",
+        "publicationScope": "signed-in-and-public",
+        "revokeState": "not_revoked",
+        "rid": "win-x64",
+        "sha256": "0e79772221786ff2f685635ff684b0b6ba75ff1c2ce9ee00b498d0692e2ba99c",
+        "sizeBytes": 2734368
+      }
+    ],
+    "authorityContract": "chummer.release-authority-snapshot/v2",
+    "availablePlatforms": [
+      "windows"
+    ],
+    "channel": "preview",
+    "downloadAccessPosture": "open_public",
+    "knownIssueSummary": "Known issue: stale or incomplete proof receipts and Hosted Build privacy, retention, recovery, and erasure review still block launch-readiness claims.",
+    "manifestPath": "RELEASE_CHANNEL.json",
+    "manifestSha256": "126b5f134401640675edebb724d998173d1100c7e385f8dc901176732d8de408",
+    "nextActions": [
+      "Bind the 36-cell campaign scorecard to this exact immutable candidate snapshot."
+    ],
+    "primaryHeadByPlatform": {
+      "windows": "avalonia"
+    },
+    "registryCommit": "12a161d36d7caedf18451ff28ff6b7a55c2bae38",
+    "registryRepository": "ArchonMegalon/chummer6-hub-registry",
+    "releaseDecisionPath": "RELEASE_DECISION.json",
+    "releaseDecisionSha256": "df072b707a52e05c94f0d739847b55459db0722c9f2578f76cacae24a774a3e8",
+    "releaseDecisionStatus": "review_required",
+    "releaseVersion": "run-20260727-065724",
+    "rolloutState": "public_release_review_required",
+    "status": "published",
+    "supportOwner": "chummer-release-operations",
+    "supportabilityState": "review_required"
   },
-  "authority_binding_status": "unbound_review_placeholder",
+  "authority_binding_status": "bound",
   "authority_source": {
-    "reason": "This guide was generated without the current Registry release record.",
-    "status": "unbound"
+    "currentPath": "CURRENT.json",
+    "currentSha256": "f5c8f14c10cc19304b556df24aa6da6668ff15547d045fbf0286abd4a2d7cf5f",
+    "currentStatus": "review_required",
+    "manifestGeneratedAt": "2026-07-27T06:57:24Z",
+    "manifestPath": "snapshots/run-20260727-065724/795a72bc0512bb4d93047493384043dbf43af77464933664ccea401078969620/RELEASE_CHANNEL.json",
+    "manifestSchemaVersion": 1,
+    "manifestSha256": "126b5f134401640675edebb724d998173d1100c7e385f8dc901176732d8de408",
+    "manifestVersion": "run-20260727-065724",
+    "registryCommit": "12a161d36d7caedf18451ff28ff6b7a55c2bae38",
+    "registryRepository": "ArchonMegalon/chummer6-hub-registry",
+    "releaseDecisionPath": "snapshots/run-20260727-065724/795a72bc0512bb4d93047493384043dbf43af77464933664ccea401078969620/RELEASE_DECISION.json",
+    "releaseDecisionSha256": "df072b707a52e05c94f0d739847b55459db0722c9f2578f76cacae24a774a3e8",
+    "snapshotPath": "snapshots/run-20260727-065724/795a72bc0512bb4d93047493384043dbf43af77464933664ccea401078969620/SNAPSHOT.json",
+    "snapshotSha256": "795a72bc0512bb4d93047493384043dbf43af77464933664ccea401078969620"
   },
-  "available_platforms": [],
+  "available_platforms": [
+    "Windows"
+  ],
   "build_label": "",
-  "channel_id": "",
-  "desktop_pick_line": "No desktop build is approved in this guide yet.",
-  "desktop_tuple_coverage_complete": false,
+  "channel_id": "preview",
+  "desktop_pick_line": "For today, start with Chummer.Avalonia. Use another desktop head only when the release shelf lists it explicitly.",
+  "desktop_tuple_coverage_complete": true,
   "fallback_heads": [],
-  "fix_availability_summary": "Wait for a Registry-bound release decision before relying on fix availability.",
-  "generated_from": "review-required guide placeholder",
-  "known_issue_summary": "This guide does not include the current release record, so check Downloads before relying on availability.",
+  "fix_availability_summary": "Fix notices appear after the corrected download is live on the download page.",
+  "generated_from": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
+  "known_issue_summary": "Known issue: stale or incomplete proof receipts and Hosted Build privacy, retention, recovery, and erasure review still block launch-readiness claims.",
   "linux_source_build_gate": {
-    "archive_sha256": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
+    "archive_sha256": "8c855dffb1e0d509cfca402c4f9aabbefd7a69e317814fc38a86bc04b3683767",
     "docker_image": "debian:bookworm-slim",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-    "generated_at_utc": "20260719T093432Z",
+    "generated_at_utc": "20260812T092314Z",
     "rid": "linux-x64",
     "status": "passed"
   },
@@ -36,29 +93,32 @@
     "scope": "script_contract_only",
     "status": "passed"
   },
-  "missing_installer_lane_line": "Windows, Linux, and macOS downloads remain unlisted until release review finishes.",
+  "missing_installer_lane_line": "Linux and macOS do not have a normal installer yet.",
   "missing_platforms": [
-    "Windows",
     "Linux",
     "macOS"
   ],
   "phase_label": "Release review required",
-  "primary_head": "",
-  "primary_head_by_platform": {},
+  "primary_head": "Chummer.Avalonia",
+  "primary_head_by_platform": {
+    "windows": "avalonia"
+  },
   "public_download_authority": "https://chummer.run/downloads",
-  "published_at": "",
-  "published_line": "",
-  "quality_gap_line": "Release review is required. Stable and gold labels remain paused until downloads and public routes agree.",
+  "published_at": "July 27, 2026 at 6:57 UTC",
+  "published_line": "Published: July 27, 2026 at 6:57 UTC.",
+  "quality_gap_line": "Release review is required. Stable and gold claims remain paused until the immutable authority and public routes converge.",
   "release_decision_status": "review_required",
   "release_posture": "review_required",
-  "release_status": "Review required",
-  "release_status_slug": "review_required",
-  "release_verification_summary": "This guide does not yet include a current Registry release record.",
-  "required_platforms": [],
+  "release_status": "Published",
+  "release_status_slug": "published",
+  "release_verification_summary": "This release covers installs and recovery, campaign session recovery, and support follow-up.",
+  "required_platforms": [
+    "Windows"
+  ],
   "review_required_banner": "Release review required. Public availability claims remain paused until one immutable snapshot converges.",
-  "rollout_state": "review_required",
+  "rollout_state": "public_release_review_required",
   "served_mirror": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
-  "shelf_truth_line": "No public desktop download is listed in this guide yet.",
+  "shelf_truth_line": "Windows downloads are posted.",
   "short_release_summary": "Release review is required. Do not rely on platform availability claims until the current immutable snapshot converges.",
   "supportability_state": "review_required"
 }

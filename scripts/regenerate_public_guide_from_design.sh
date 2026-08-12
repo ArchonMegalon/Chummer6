@@ -14,6 +14,8 @@ expected_decision_status="${CHUMMER_EXPECTED_RELEASE_DECISION_STATUS:-}"
 served_mirror="${CHUMMER_RELEASE_SERVED_MIRROR:-https://chummer.run/downloads/RELEASE_CHANNEL.generated.json}"
 check_mode=0
 release_mode=0
+out_path_explicit=0
+[[ -n "${CHUMMER_PUBLIC_GUIDE_OUT:-}" ]] && out_path_explicit=1
 
 usage() {
   cat <<'USAGE'
@@ -38,6 +40,7 @@ Options:
 
 Environment overrides:
   CHUMMER6_REPO_ROOT
+  CHUMMER6_GUIDE_ASSET_SOURCE
   CHUMMER_DESIGN_REPO_ROOT
   CHUMMER_PUBLIC_GUIDE_OUT
   CHUMMER_PUBLIC_GUIDE_GENERATOR
@@ -63,6 +66,7 @@ while (($#)); do
     --out)
       [[ $# -ge 2 ]] || { echo "--out requires a path" >&2; exit 2; }
       out_path="$2"
+      out_path_explicit=1
       shift 2
       ;;
     --design-repo)
@@ -101,6 +105,13 @@ while (($#)); do
       ;;
   esac
 done
+
+if [[ -z "${CHUMMER_PUBLIC_GUIDE_GENERATOR:-}" ]]; then
+  generator_script="$design_root/scripts/ai/materialize_public_guide_bundle.py"
+fi
+if [[ "$out_path_explicit" == "0" ]]; then
+  out_path="$design_root/products/chummer/public-guide"
+fi
 
 missing_authority=()
 [[ -n "$authority_current" ]] || missing_authority+=(--authority-current)
@@ -166,6 +177,8 @@ if [[ "$check_mode" == "1" ]]; then
 fi
 
 python3 "$release_truth_script" "${release_truth_args[@]}" >/dev/null
-CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT="$repo_root" python3 "${generator_args[@]}"
+CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT="$repo_root" \
+CHUMMER6_GUIDE_ASSET_SOURCE="${CHUMMER6_GUIDE_ASSET_SOURCE:-$repo_root/assets}" \
+  python3 "${generator_args[@]}"
 python3 "${sync_args[@]}"
-bash "${verify_args[@]}"
+CHUMMER_DESIGN_REPO_ROOT="$design_root" bash "${verify_args[@]}"

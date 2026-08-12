@@ -25,19 +25,19 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What is still rough
 
-- No public desktop download is listed in this guide yet.
-- Release review is required. Stable and gold labels remain paused until downloads and public pages agree.
-- If you rely on Windows, Linux, and macOS as your main platform, wait before switching full time.
-- No desktop platform is currently listed in this guide.
-- No release shelf is claimed until immutable authority and public-route convergence are complete.
+- Windows downloads are posted.
+- Release review is required. Stable and gold claims remain paused until the immutable authority and public pages converge.
+- If you rely on Linux and macOS as your main platform, wait before switching full time.
+- Desktop downloads are available for Windows x64 only. No public download is posted for Linux x64, Linux ARM64, Windows ARM64, and macOS yet.
+- Treat the current shelf as a serious preview, not a fully settled every-platform replacement yet.
 
 ## Should you switch today?
 
-- There are no public downloads posted right now, so this is not a practical switch yet.
+- Today you can try the current builds on Windows.
 
 ### If your platform is on the current download shelf
 
-- No desktop build is approved in this guide yet.
+- It is worth a serious look.
 
 ### If your platform is outside the current download shelf
 
