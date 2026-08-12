@@ -1,6 +1,6 @@
-# What Chummer stores, and what it does not
+# Your data, and how to leave
 
-This is the simple privacy picture right now: what your account stores, what stays out, and how support and linked installs work.
+Local files stay local unless you choose a connected feature. Chummer owns its retention and deletion policy; service providers do not. Hosted Build deletion claims stay review-gated until restore and whole-account erasure evidence passes.
 
 ## Your account keeps sign-in, preferences, and help together
 
@@ -17,3 +17,7 @@ Short-lived third-party access stays on the machine or service using it. Your ac
 ## Recognition should not force publicity
 
 Participation and recognition remain optional layers. Private product use, private support, and a quiet account setup remain valid even while community pages exist.
+
+## Deletion has a clock and an evidence gate
+
+A verified deletion removes active data within 24 hours. Chummer-controlled content backups have a 30-day maximum, content-free replay tombstones last 35 days, and a content-free audit record may remain for 365 days. These windows become a public deletion promise only after restore and whole-account erasure evidence passes.
