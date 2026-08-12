@@ -186,9 +186,9 @@
   "releaseManifest": {
     "authorityContract": "chummer6.public-release-truth/unbound-review-placeholder/v1",
     "sourceRepository": "ArchonMegalon/Chummer6",
-    "sourceCommit": "4600b4e1edf978799318985f943be2c81f9a3f27",
+    "sourceCommit": "b07b69c1ca98ed18cf2b8f93a27d469bd8939457",
     "path": ".guide-internal/receipts/CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json",
-    "sha256": "0790e884c2b7658e6a332a6b1aff1b60c6acd9a4b2de0b85a876d7c9c102aac9",
+    "sha256": "661cb31bc7e7bece2daa891418dc3e72713b855b1cf9a77a416cd07803049335",
     "status": "unbound_review_placeholder",
     "releaseEvidenceEligible": false
   },

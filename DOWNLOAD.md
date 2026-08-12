@@ -19,10 +19,10 @@ Start here when you want the right file first.
 
 - Today: Release review required.
 - Release status: Review required.
-- No public platform availability is claimed by this unbound repository projection.
-- Recent checks: No Registry-bound current release verification is available in this checkout.
-- No release build is claimed by this unbound repository projection.
-- Current warning: The repository has no bound current release authority; live availability must not be inferred from stale guide text.
+- No public desktop download is listed in this guide yet.
+- Recent checks: This guide does not yet include a current Registry release record.
+- No release build is listed in this guide yet.
+- Current warning: This guide does not include the current release record, so check Downloads before relying on availability.
 - Update note: Wait for a Registry-bound release decision before relying on fix availability.
 
 ## Current build matrix

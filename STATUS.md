@@ -8,11 +8,11 @@ Release review required. Public availability claims remain paused until one immu
 
 - Today: Release review required.
 - Release status: Review required.
-- No public platform availability is claimed by this unbound repository projection.
-- No desktop platform is currently claimed by this unbound repository projection.
-- Windows, Linux, and macOS remain unclaimed until immutable authority is supplied.
-- Recent checks: No Registry-bound current release verification is available in this checkout.
-- Current warning: The repository has no bound current release authority; live availability must not be inferred from stale guide text.
+- No public desktop download is listed in this guide yet.
+- No desktop platform is currently listed in this guide.
+- Windows, Linux, and macOS downloads remain unlisted until release review finishes.
+- Recent checks: This guide does not yet include a current Registry release record.
+- Current warning: This guide does not include the current release record, so check Downloads before relying on availability.
 - Help, contact, privacy, and terms pages are live.
 
 ## Download and install status

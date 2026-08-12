@@ -17,12 +17,12 @@ The goal is simple: build correctly, explain clearly, run reliably, recover calm
 ## What is real now
 
 - Short answer: release review is required before relying on public availability claims.
-- No public platform availability is claimed by this unbound repository projection.
+- No public desktop download is listed in this guide yet.
 - Release review is required. Do not rely on platform availability claims until the current immutable snapshot converges.
-- No desktop head is approved by this unbound repository projection.
-- Release review is required. Stable and gold claims remain paused until the immutable authority and public pages converge.
+- No desktop build is approved in this guide yet.
+- Release review is required. Stable and gold labels remain paused until downloads and public pages agree.
 - Today: Release review required.
-- No desktop platform is currently claimed by this unbound repository projection.
+- No desktop platform is currently listed in this guide.
 - No release shelf is claimed until the immutable Registry authority and public pages converge.
 - Help, contact, privacy, and terms pages are live.
 - More campaign-ledger depth and steadier desktop polish are still coming.

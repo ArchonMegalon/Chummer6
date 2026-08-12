@@ -1,28 +1,28 @@
 {
-  "architecture_scope_line": "No desktop platform is currently claimed by this unbound repository projection.",
+  "architecture_scope_line": "No desktop platform is currently listed in this guide.",
   "authority": {
     "artifacts": [],
     "status": "unavailable"
   },
   "authority_binding_status": "unbound_review_placeholder",
   "authority_source": {
-    "reason": "No Registry CURRENT.json was supplied to this repository projection.",
+    "reason": "This guide was generated without the current Registry release record.",
     "status": "unbound"
   },
   "available_platforms": [],
   "build_label": "",
   "channel_id": "",
-  "desktop_pick_line": "No desktop head is approved by this unbound repository projection.",
+  "desktop_pick_line": "No desktop build is approved in this guide yet.",
   "desktop_tuple_coverage_complete": false,
   "fallback_heads": [],
   "fix_availability_summary": "Wait for a Registry-bound release decision before relying on fix availability.",
-  "generated_from": "unbound repository review placeholder",
-  "known_issue_summary": "The repository has no bound current release authority; live availability must not be inferred from stale guide text.",
+  "generated_from": "review-required guide placeholder",
+  "known_issue_summary": "This guide does not include the current release record, so check Downloads before relying on availability.",
   "linux_source_build_gate": {
-    "archive_sha256": "f909d4ff21033534d9106001da67d52d17d3545e3d8337df6cff685ab7bf346d",
+    "archive_sha256": "c43ced8ec72834b60f3d4c706b8dc4bb7a6b7c81690658ffb629aba56a69925e",
     "docker_image": "debian:bookworm-slim",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-    "generated_at_utc": "20260701T031940Z",
+    "generated_at_utc": "20260719T093432Z",
     "rid": "linux-x64",
     "status": "passed"
   },
@@ -36,7 +36,7 @@
     "scope": "script_contract_only",
     "status": "passed"
   },
-  "missing_installer_lane_line": "Windows, Linux, and macOS remain unclaimed until immutable authority is supplied.",
+  "missing_installer_lane_line": "Windows, Linux, and macOS downloads remain unlisted until release review finishes.",
   "missing_platforms": [
     "Windows",
     "Linux",
@@ -48,17 +48,17 @@
   "public_download_authority": "https://chummer.run/downloads",
   "published_at": "",
   "published_line": "",
-  "quality_gap_line": "Release review is required. Stable and gold claims remain paused until the immutable authority and public routes converge.",
+  "quality_gap_line": "Release review is required. Stable and gold labels remain paused until downloads and public routes agree.",
   "release_decision_status": "review_required",
   "release_posture": "review_required",
   "release_status": "Review required",
   "release_status_slug": "review_required",
-  "release_verification_summary": "No Registry-bound current release verification is available in this checkout.",
+  "release_verification_summary": "This guide does not yet include a current Registry release record.",
   "required_platforms": [],
   "review_required_banner": "Release review required. Public availability claims remain paused until one immutable snapshot converges.",
   "rollout_state": "review_required",
   "served_mirror": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
-  "shelf_truth_line": "No public platform availability is claimed by this unbound repository projection.",
+  "shelf_truth_line": "No public desktop download is listed in this guide yet.",
   "short_release_summary": "Release review is required. Do not rely on platform availability claims until the current immutable snapshot converges.",
   "supportability_state": "review_required"
 }

@@ -20,12 +20,12 @@ The dedicated Android client keeps the full Chummer workflow available in platfo
 
 ## Limits today
 
-- the signed Android preview is not Play-installable until Google accepts the pending upload-key reset and an internal-test install is proven
+- Google accepted the replacement upload key, but the signed Android preview is not Play-installable until its exact AAB digest is approved, uploaded, and an internal-test install is proven
 - the reusable coordinator leaves room for iPhone and tablet-specific shells, but those platform heads are not shipped yet
 
 ## Current state
 
-The dedicated Android preview is now a native MAUI Shell rather than a Blazor or WebView wrapper. Its current signed API 36 candidate and native phone/tablet captures pass local release gates; Play upload and tester installation remain pending behind the submitted upload-key reset.
+The dedicated Android preview is now a native MAUI Shell rather than a Blazor or WebView wrapper. Its current signed API 36 candidate and native phone/tablet captures pass local release gates, and Google accepted the replacement upload key. The exact AAB still needs upload approval, and no tester installation is claimed yet.
 
 ## Go deeper
 
