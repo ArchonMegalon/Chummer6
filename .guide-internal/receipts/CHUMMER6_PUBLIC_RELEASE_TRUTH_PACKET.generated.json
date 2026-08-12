@@ -96,10 +96,10 @@
   "generated_from": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
   "known_issue_summary": "Known issue: required desktop build coverage is incomplete (platforms: macos; pairs: avalonia:macos; build combinations: avalonia:osx-arm64:macos).",
   "linux_source_build_gate": {
-    "archive_sha256": "501dcc176ff579d28cda8252421b7cf1aede094cd14b1550c61f539e929aaff3",
+    "archive_sha256": "8dea09eda6f14f6e534810b1d77f28cde29914b778eef64dbebf61ae1a61cf51",
     "docker_image": "debian:bookworm-slim",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-    "generated_at_utc": "20260812T174242Z",
+    "generated_at_utc": "20260812T191541Z",
     "rid": "linux-x64",
     "status": "passed"
   },
