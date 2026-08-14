@@ -24,13 +24,13 @@ The Android app keeps the important Chummer work in familiar phone navigation, w
 
 ## Limits today
 
-- the exact preview.7 bundle is locally signed and tested, but Google enforces an upload-key cooldown until 14 August 2026 at 03:29:49 UTC
-- the internal track keeps its earlier build until the exact-hash-approved preview.7 bundle is uploaded, processed, and installed by a tester
+- preview.7 is available only through Google Play Internal testing; the public store listing is not live
+- Google Play still shows the temporary unreviewed package name, and a real-device install has not yet been recorded as evidence
 - the shared app structure leaves room for iPhone and tablet-specific versions, but those versions are not shipped yet
 
 ## Current state
 
-The Android app is a native MAUI Shell, not a Blazor or WebView wrapper. The exact signed preview.7 candidate passes 31 contract tests, clean eight-repository source validation, arm64 Release inspection, and an API 36 native journey through Home, Build, Play, Campaign, More, account privacy, and deletion guidance. Account linking fails closed when a grant or approval expires, invite links must match the expected secure Chummer route exactly, and local credentials clear only after the server record covers all five first-party erasure components. The deletion screen no longer promises retention windows that the public policy still marks under review. Preview.7 is approved by exact AAB hash and its signing-certificate fingerprint matches Play Console, but Google still reports the submitted reset as pending; the bundle has not been uploaded, processed, or installed from Play. The internal tester roster contains two approved accounts.
+The Android app is a native MAUI Shell, not a Blazor or WebView wrapper. The exact signed preview.7 candidate passes 31 contract tests, clean eight-repository source validation, arm64 Release inspection, and an API 36 native journey through Home, Build, Play, Campaign, More, account privacy, and deletion guidance. Account linking fails closed when a grant or approval expires, invite links must match the expected secure Chummer route exactly, and local credentials clear only after the server record covers all five first-party erasure components. The deletion screen no longer promises retention windows that the public policy still marks under review. Google Play accepted the exact-hash-approved preview.7 bundle and made version code 7 available to the two approved internal testers on August 14, 2026. The saved store and app-content changes are in Google review; a real-device Play install has not yet been recorded.
 
 ## Go deeper
 
