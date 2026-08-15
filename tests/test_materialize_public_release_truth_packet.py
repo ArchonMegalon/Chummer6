@@ -101,6 +101,36 @@ def test_gold_copy_fails_closed_without_stable_ready_decision() -> None:
     assert "gold-supported" not in packet["quality_gap_line"].casefold()
 
 
+def test_review_required_packet_lists_metadata_without_claiming_download_access() -> None:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        fixture = write_authority_fixture(Path(temp_dir), decision_status="review_required")
+        resolved = _resolve(fixture)
+        packet = MODULE.build_packet(
+            resolved.release_payload,
+            _linux_gate(),
+            _macos_contract(),
+            resolved.authority,
+            resolved.authority_source,
+            resolved.served_mirror,
+        )
+
+    assert packet["release_posture"] == "review_required"
+    assert packet["available_platforms"] == ["Linux", "Windows"]
+    assert packet["shelf_truth_line"] == (
+        "Linux and Windows artifact metadata is listed for review; download handoff is withheld."
+    )
+    assert packet["architecture_scope_line"] == (
+        "Desktop artifact metadata is recorded for Linux and Windows; this is not a download-availability claim."
+    )
+    assert "no download handoff is offered" in packet["desktop_pick_line"]
+    public_copy = " ".join(
+        str(packet[key])
+        for key in ("architecture_scope_line", "desktop_pick_line", "shelf_truth_line")
+    )
+    assert "downloads are posted" not in public_copy
+    assert "downloads are available" not in public_copy
+
+
 def test_source_lock_authority_projection_excludes_build_proof() -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         fixture = write_authority_fixture(Path(temp_dir), decision_status="review_required")

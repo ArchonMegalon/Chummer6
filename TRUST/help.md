@@ -2,14 +2,13 @@
 
 Pick the next step.
 
-## Download and install first
+## Download and install status
 
-Start with the download page. It should tell you which preview files are actually posted, which platforms are still missing, and what support step to take next.
+Release review is required. Artifact metadata may remain inspectable, but this guide does not claim that an installer or package is currently available.
 
-- Start with a visibly posted preview installer for your platform.
-- Alternative builds and manual packages are still advanced or provisional paths.
-- Create an account if you want your support history, recovery, and downloads tied to one place.
-- Check the download page before assuming another platform already has a working installer.
+- Check Download for the current review status; listed routes may stay withheld until authority and public delivery converge.
+- Keep an existing working install while the immutable Registry authority and public pages converge.
+- Contact support if you need help with a package you already have.
 
 ## Account
 

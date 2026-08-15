@@ -1,6 +1,6 @@
 # Download
 
-Linux and Windows downloads start on `chummer.run`.
+Linux and Windows artifact metadata is listed for review on `chummer.run`; download handoff is withheld.
 Release review required. Public availability claims remain paused until one immutable snapshot converges.
 
 
@@ -8,41 +8,43 @@ Start here when you want the right file first.
 
 ## What should I download first?
 
-- For Windows, start with Windows x64 installer.
-- For Linux, start with Linux x64 installer.
+- Windows artifact metadata is listed for review; the download handoff is withheld.
+- Linux artifact metadata is listed for review; the download handoff is withheld.
 - There is no public macOS download today.
-- You do not need GitHub for the normal download path.
+- Do not use GitHub as a substitute download source while the official handoff is withheld.
 - Advanced users can also [build the Linux desktop client from source](SOURCE_BUILD_LINUX.md).
 - For a personal local Mac build, use [SOURCE_BUILD_MACOS.md](SOURCE_BUILD_MACOS.md).
 
-## Current public download
+## Release review
 
 - Today: Release review required.
 - Published: August 11, 2026 at 4:00 UTC.
 - Release status: Published.
-- Linux and Windows downloads are posted.
+- Linux and Windows artifact metadata is listed for review; download handoff is withheld.
 - Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
-- These are real preview builds, not a finished flagship release yet.
+- Artifact metadata and hashes are preserved for review; no download availability claim is made.
 - Current warning: Known issue: required desktop build coverage is incomplete (platforms: macos; pairs: avalonia:macos; build combinations: avalonia:osx-arm64:macos).
 - Update note: Do not send fixed notices until required desktop build coverage is complete for the promoted release.
 
 ## Current build matrix
 
-Use chummer.run for downloads. Use GitHub only when you want source or a public bug thread.
+Artifact metadata and official route names remain inspectable below; the routes are withheld until release review clears.
 
 ### Windows
 
 - Windows x64 installer.
-- Download: [Open download](https://chummer.run/downloads/install/avalonia-win-x64-installer)
+- status: Listed for review; download handoff is withheld.
+- Review route (currently withheld): [Inspect route](https://chummer.run/downloads/install/avalonia-win-x64-installer)
 - Size: 50.8 MiB (53242289 bytes)
-- Access: Public download.
+- Access: Listed for review; download handoff withheld.
 
 ### Linux
 
 - Linux x64 installer.
-- Download: [Open download](https://chummer.run/downloads/install/avalonia-linux-x64-installer)
+- status: Listed for review; download handoff is withheld.
+- Review route (currently withheld): [Inspect route](https://chummer.run/downloads/install/avalonia-linux-x64-installer)
 - Size: 35.5 MiB (37195722 bytes)
-- Access: Public download.
+- Access: Listed for review; download handoff withheld.
 
 ### macOS
 
@@ -50,9 +52,7 @@ Use chummer.run for downloads. Use GitHub only when you want source or a public 
 
 ## Current package format
 
-- Where an installer exists, start there. Archive packages are fallback or recovery paths, not the normal first pick.
-- Linux x64 installer via [Open chummer.run](https://chummer.run/downloads/install/avalonia-linux-x64-installer)
-- Windows x64 installer via [Open chummer.run](https://chummer.run/downloads/install/avalonia-win-x64-installer)
+- Installer metadata and checksums remain inspectable, but the listed handoff routes are withheld until release review clears.
 
 ## SHA256
 

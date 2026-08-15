@@ -3,7 +3,7 @@
 ## Start with these answers
 
 - **Which desktop app should I start with?** Start with the Avalonia desktop app when the download page offers it.
-- **What platforms are publicly available today?** Linux and Windows are the current public path; check Download for exact status.
+- **What platforms are publicly available today?** No platform availability is claimed until immutable authority and public-route convergence are complete.
 - **I use Chummer5a now. Where should I start?** Start with [What Chummer6 Is](WHAT_CHUMMER6_IS.md) and [Current status](NOW/current-status.md).
 - **Do I need GitHub for anything normal?** No. Use the guide, download page, and help flow first.
 
@@ -11,7 +11,7 @@
 
 ### Can I actually use this now?
 
-Yes. Start with Download and Status: both show the same release status, while each optional campaign tool keeps its own availability label.
+Release review is required. Check Download and Status; this guide does not claim current public availability until immutable authority converges.
 
 ### Is it offline-safe?
 

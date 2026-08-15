@@ -360,7 +360,13 @@ def build_packet(
     platform_scope = _english_join(required_platforms) or "the currently supported desktop platforms"
 
     return {
-        "architecture_scope_line": _architecture_scope_line(artifacts),
+        "architecture_scope_line": (
+            f"Desktop artifact metadata is recorded for {_english_join(available_platforms)}; this is not a download-availability claim."
+            if review_required and available_platforms
+            else "No desktop platform availability is claimed while release review is open."
+            if review_required
+            else _architecture_scope_line(artifacts)
+        ),
         "authority": dict(authority),
         "authority_binding_status": "bound",
         "authority_source": dict(authority_source),
@@ -368,7 +374,9 @@ def build_packet(
         "build_label": "",
         "channel_id": str(release_payload.get("channelId") or release_payload.get("channel") or "").strip(),
         "desktop_pick_line": (
-            f"Primary desktop heads by platform: {primary_head_routes}."
+            "Installer metadata remains inspectable, but no download handoff is offered while release review is open."
+            if review_required
+            else f"Primary desktop heads by platform: {primary_head_routes}."
             if primary_head_routes and len(unique_primary_heads) > 1
             else
             f"Use the {primary_head} installer listed for your platform; unpromoted fallback heads remain support-only."
@@ -420,7 +428,13 @@ def build_packet(
         "release_verification_summary": _release_verification_summary(release_payload),
         "required_platforms": required_platforms,
         "rollout_state": str(release_payload.get("rolloutState") or "").strip(),
-        "shelf_truth_line": shelf_truth_line,
+        "shelf_truth_line": (
+            f"{_english_join(available_platforms)} artifact metadata is listed for review; download handoff is withheld."
+            if review_required and available_platforms
+            else "No public desktop download is listed while release review is open."
+            if review_required
+            else shelf_truth_line
+        ),
         "served_mirror": served_mirror,
         "short_release_summary": (
             f"Use the files linked on [Download](DOWNLOAD.md). The current {platform_scope} shelf is the supported release; platforms not listed there remain outside this release scope."

@@ -25,19 +25,19 @@ This page is for Chummer5a users who want the blunt answer: what still feels fam
 
 ## What is still rough
 
-- Linux and Windows downloads are posted.
+- Linux and Windows artifact metadata is listed for review; download handoff is withheld.
 - Release review is required. Stable and gold claims remain paused until the immutable authority and public pages converge.
 - If you rely on macOS as your main platform, wait before switching full time.
-- Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.
-- Treat the current shelf as a serious preview, not a fully settled every-platform replacement yet.
+- Desktop artifact metadata is recorded for Linux and Windows; this is not a download-availability claim.
+- No release shelf is claimed until immutable authority and public-route convergence are complete.
 
 ## Should you switch today?
 
-- Today you can try the current builds on Linux and Windows.
+- Do not switch based on this guide yet; artifact metadata is inspectable, but download handoff remains withheld.
 
 ### If your platform is on the current download shelf
 
-- It is worth a serious look.
+- Artifact metadata is visible, but no desktop download handoff is approved in this guide yet.
 
 ### If your platform is outside the current download shelf
 
