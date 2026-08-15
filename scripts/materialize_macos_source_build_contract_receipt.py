@@ -9,7 +9,10 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DESIGN_ROOT = REPO_ROOT.parent / "chummer-design"
+DESIGN_ROOT = Path(
+    os.environ.get("CHUMMER_DESIGN_REPO_ROOT", "").strip()
+    or REPO_ROOT.parent / "chummer-design"
+).expanduser().resolve()
 RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
 OUTPUT_PATH = RECEIPTS_ROOT / "MACOS_SOURCE_BUILD_CONTRACT.generated.json"
 DEFAULT_TIMEOUT_SECONDS = 120

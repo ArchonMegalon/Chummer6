@@ -44,6 +44,19 @@ def main() -> int:
     _require(command[0] == "dotnet" and command[1] == "test", "command must run dotnet test")
     _require("--project" in command, "command must specify the test project")
     _require(
+        any(
+            str(value).endswith(
+                "Chummer.Product.UnitTests/Chummer.Product.UnitTests.csproj"
+            )
+            for value in command
+        ),
+        "command must specify the product unit test project",
+    )
+    _require(
+        "-p:ChummerUseLocalCompatibilityTree=true" in command,
+        "command must bind the local cross-repository compatibility tree",
+    )
+    _require(
         "-p:RunDesktopUpdateRuntimeTestsOnly=true" in command,
         "command must run the isolated desktop update runtime test lane",
     )
@@ -54,6 +67,10 @@ def main() -> int:
     _require(isinstance(timeout_seconds, int) and timeout_seconds >= 60, "timeout_seconds must be a sane integer timeout")
     _require(receipt.get("timed_out") is False, "desktop update runtime test must not time out")
     _require(receipt.get("run_desktop_update_tests_only") is True, "run_desktop_update_tests_only must be true")
+    _require(
+        receipt.get("package_authority_scope") == "local_compatibility_tree",
+        "package_authority_scope must describe the local compatibility tree",
+    )
     _require(str(receipt.get("filter") or "").strip() == "FullyQualifiedName~DesktopUpdateRuntimeTests", "filter mismatch")
 
     result = receipt.get("result")

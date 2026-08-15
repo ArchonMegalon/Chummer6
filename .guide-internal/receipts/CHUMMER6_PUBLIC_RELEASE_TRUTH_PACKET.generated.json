@@ -1,5 +1,5 @@
 {
-  "architecture_scope_line": "Desktop downloads are available for Linux x64 and Windows x64 only. No public download is posted for Linux ARM64, Windows ARM64, and macOS yet.",
+  "architecture_scope_line": "Desktop artifact metadata is recorded for Linux and Windows; this is not a download-availability claim.",
   "authority": {
     "artifactCount": 2,
     "artifacts": [
@@ -89,7 +89,7 @@
   ],
   "build_label": "",
   "channel_id": "preview",
-  "desktop_pick_line": "For today, start with Chummer.Avalonia. Use another desktop head only when the release shelf lists it explicitly.",
+  "desktop_pick_line": "Installer metadata remains inspectable, but no download handoff is offered while release review is open.",
   "desktop_tuple_coverage_complete": false,
   "fallback_heads": [],
   "fix_availability_summary": "Do not send fixed notices until required desktop build coverage is complete for the promoted release.",
@@ -99,13 +99,13 @@
     "archive_sha256": "8dea09eda6f14f6e534810b1d77f28cde29914b778eef64dbebf61ae1a61cf51",
     "docker_image": "debian:bookworm-slim",
     "executable_sha256": "0744cbfbaac51ceeed13aaa376224000a50f984cf52cb7ee036d1670e343f786",
-    "generated_at_utc": "20260812T191541Z",
+    "generated_at_utc": "20260815T071035Z",
     "rid": "linux-x64",
     "status": "passed"
   },
   "macos_source_build_contract": {
     "doc_marks_second_script_install": true,
-    "generated_at_utc": "2026-06-29T17:22:42Z",
+    "generated_at_utc": "2026-08-15T07:15:45Z",
     "maintenance_policy_marks_real_build_as_macos_only": true,
     "maintenance_policy_requires_two_step_install": true,
     "real_macos_runtime_proof_required": true,
@@ -139,7 +139,7 @@
   "review_required_banner": "Release review required. Public availability claims remain paused until one immutable snapshot converges.",
   "rollout_state": "coverage_incomplete",
   "served_mirror": "https://chummer.run/downloads/RELEASE_CHANNEL.generated.json",
-  "shelf_truth_line": "Linux and Windows downloads are posted.",
+  "shelf_truth_line": "Linux and Windows artifact metadata is listed for review; download handoff is withheld.",
   "short_release_summary": "Release review is required. Do not rely on platform availability claims until the current immutable snapshot converges.",
   "supportability_state": "review_required"
 }

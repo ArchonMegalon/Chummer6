@@ -9,6 +9,12 @@ bash scripts/install-chummer6-linux-local.sh --base "$HOME/chummer6-source-build
 
 The build script never installs Linux packages, never asks for `sudo`, and never installs the resulting application into your home directory.
 
+The binary is installed by a second script on purpose. Source-built copies
+check for newer published builds in notify-only mode by default. The generated
+launcher sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you have not
+already chosen another mode. Analytics also default to `off` through
+`CHUMMER_DESKTOP_ANALYTICS_DEFAULT=off` unless you already chose another value.
+
 ## What the lock covers
 
 [`RELEASE.lock.json`](RELEASE.lock.json) is a review-only v2 authority. It binds:

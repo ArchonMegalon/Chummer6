@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -30,16 +31,34 @@ class _CompletedProcess:
 
 
 class DesktopUpdateRuntimeReceiptTests(unittest.TestCase):
+    def test_resolver_finds_desktop_repo_beside_worktree_container(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            nested_repo = root / ".integration-worktrees" / "guide"
+            nested_repo.mkdir(parents=True)
+            desktop_repo = root / "chummer6-ui"
+            project = desktop_repo / "Chummer.Tests" / "Chummer.Tests.csproj"
+            project.parent.mkdir(parents=True)
+            project.write_text("<Project />\n", encoding="utf-8")
+
+            with patch.object(MATERIALIZE, "REPO_ROOT", nested_repo), patch.dict(
+                os.environ,
+                {"CHUMMER_DESKTOP_REPO_ROOT": ""},
+            ):
+                self.assertEqual(MATERIALIZE._resolve_desktop_repo_root(), desktop_repo)
+
     def test_materialize_and_verify_roundtrip(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
             fake_repo_root = root / "Chummer6"
             fake_repo_root.mkdir()
             desktop_repo = root / "chummer-presentation"
-            project = desktop_repo / "Chummer.Tests"
+            project = desktop_repo / "Chummer.Product.UnitTests"
             project.mkdir(parents=True)
-            (project / "Chummer.Tests.csproj").write_text("<Project />\n", encoding="utf-8")
-            (project / "DesktopUpdateRuntimeTests.cs").write_text("public sealed class DesktopUpdateRuntimeTests {}\n", encoding="utf-8")
+            (project / "Chummer.Product.UnitTests.csproj").write_text("<Project />\n", encoding="utf-8")
+            runtime_tests = desktop_repo / "Chummer.Tests" / "DesktopUpdateRuntimeTests.cs"
+            runtime_tests.parent.mkdir(parents=True)
+            runtime_tests.write_text("public sealed class DesktopUpdateRuntimeTests {}\n", encoding="utf-8")
             (root / "chummer-hub-registry" / "Chummer.Hub.Registry.Contracts").mkdir(parents=True)
             (root / "chummer-hub-registry" / "Chummer.Hub.Registry.Contracts" / "Chummer.Hub.Registry.Contracts.csproj").write_text("<Project />\n", encoding="utf-8")
             (root / "chummer.run-services" / "Chummer.Run.Contracts").mkdir(parents=True)
@@ -76,6 +95,8 @@ class DesktopUpdateRuntimeReceiptTests(unittest.TestCase):
                 ):
                     self.assertEqual(MATERIALIZE.main(), 0)
                 receipt = json.loads(output.read_text(encoding="utf-8"))
+                self.assertEqual(receipt["command"][:2], ["dotnet", "test"])
+                self.assertIn("-p:ChummerUseLocalCompatibilityTree=true", receipt["command"])
                 self.assertIn("-p:RunDesktopUpdateRuntimeTestsOnly=true", receipt["command"])
                 self.assertFalse(receipt["timed_out"])
                 VERIFY.RECEIPT_PATH = output
@@ -92,10 +113,12 @@ class DesktopUpdateRuntimeReceiptTests(unittest.TestCase):
             fake_repo_root = root / "Chummer6"
             fake_repo_root.mkdir()
             desktop_repo = root / "chummer-presentation"
-            project = desktop_repo / "Chummer.Tests"
+            project = desktop_repo / "Chummer.Product.UnitTests"
             project.mkdir(parents=True)
-            (project / "Chummer.Tests.csproj").write_text("<Project />\n", encoding="utf-8")
-            (project / "DesktopUpdateRuntimeTests.cs").write_text(
+            (project / "Chummer.Product.UnitTests.csproj").write_text("<Project />\n", encoding="utf-8")
+            runtime_tests = desktop_repo / "Chummer.Tests" / "DesktopUpdateRuntimeTests.cs"
+            runtime_tests.parent.mkdir(parents=True)
+            runtime_tests.write_text(
                 "public sealed class DesktopUpdateRuntimeTests {}\n",
                 encoding="utf-8",
             )
@@ -126,6 +149,8 @@ class DesktopUpdateRuntimeReceiptTests(unittest.TestCase):
             self.assertTrue(receipt["timed_out"])
             self.assertEqual(receipt["result"]["exit_code"], MATERIALIZE.TIMEOUT_EXIT_CODE)
             self.assertTrue(receipt["result"]["timed_out"])
+            self.assertEqual(receipt["command"][:2], ["dotnet", "test"])
+            self.assertIn("-p:ChummerUseLocalCompatibilityTree=true", receipt["command"])
             self.assertIn("-p:RunDesktopUpdateRuntimeTestsOnly=true", receipt["command"])
 
     def test_verify_rejects_failed_receipt(self) -> None:
@@ -143,16 +168,17 @@ class DesktopUpdateRuntimeReceiptTests(unittest.TestCase):
                             "dotnet",
                             "test",
                             "--project",
-                            "Chummer.Tests/Chummer.Tests.csproj",
+                            "Chummer.Product.UnitTests/Chummer.Product.UnitTests.csproj",
+                            "-p:ChummerUseLocalCompatibilityTree=true",
                             "-p:RunDesktopUpdateRuntimeTestsOnly=true",
                             "--filter",
                             "FullyQualifiedName~DesktopUpdateRuntimeTests",
-                            "-v",
-                            "minimal",
+                            "--no-ansi",
                         ],
                         "timeout_seconds": 900,
                         "timed_out": False,
                         "run_desktop_update_tests_only": True,
+                        "package_authority_scope": "local_compatibility_tree",
                         "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
                         "result": {
                             "exit_code": 1,

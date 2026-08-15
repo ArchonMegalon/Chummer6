@@ -60,9 +60,10 @@ class ReleaseVerificationReceiptTests(unittest.TestCase):
                             "mode": "desktop_update_launch_installer",
                             "failure_reason": "installer_launch_failed",
                         },
-                        "updater_special_mode_success": {
+                        "updater_dispatch_simulation": {
                             "status": "pass",
-                            "mode": "desktop_update_launch_installer_success",
+                            "mode": "desktop_update_dispatch_pending_state_clearing_simulation",
+                            "invocation_contract_proven": True,
                         }
                     },
                 },
@@ -146,6 +147,7 @@ class ReleaseVerificationReceiptTests(unittest.TestCase):
                     "status": "passed",
                     "tested_repo_name": "chummer-presentation",
                     "run_desktop_update_tests_only": True,
+                    "package_authority_scope": "local_compatibility_tree",
                     "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
                     "timeout_seconds": 900,
                     "result": {
@@ -306,8 +308,9 @@ public sealed class DesktopInstallLinkingRuntimeTests
                             "updater_special_mode_status": "pass",
                             "updater_special_mode_mode": "desktop_update_launch_installer",
                             "updater_special_mode_failure_reason": "installer_launch_failed",
-                            "updater_special_mode_success_status": "pass",
-                            "updater_special_mode_success_mode": "desktop_update_launch_installer_success",
+                            "updater_dispatch_simulation_status": "pass",
+                            "updater_dispatch_simulation_mode": "desktop_update_dispatch_pending_state_clearing_simulation",
+                            "updater_dispatch_simulation_invocation_contract_proven": True,
                         },
                             "macos_source_build_contract": {
                                 "status": "passed",
@@ -338,6 +341,7 @@ public sealed class DesktopInstallLinkingRuntimeTests
                                 "status": "passed",
                                 "tested_repo_name": "chummer-presentation",
                                 "run_desktop_update_tests_only": True,
+                                "package_authority_scope": "local_compatibility_tree",
                                 "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
                                 "exit_code": 0,
                                 "mentions_passed_banner": True,
@@ -374,7 +378,7 @@ public sealed class DesktopInstallLinkingRuntimeTests
                             "linux_gate_startup_smoke_passed": True,
                             "linux_gate_installed_startup_smoke_passed": True,
                             "linux_gate_updater_special_mode_passed": True,
-                            "linux_gate_updater_special_mode_success_passed": True,
+                            "linux_gate_updater_dispatch_simulation_passed": True,
                             "macos_source_build_contract_passed": True,
                             "macos_source_build_contract_stays_bounded": True,
                             "macos_source_build_contract_keeps_two_step_install": True,
@@ -389,6 +393,7 @@ public sealed class DesktopInstallLinkingRuntimeTests
                             "macos_source_build_contract_matches_installer_update_truth_two_step_posture": True,
                             "desktop_update_runtime_passed": True,
                             "desktop_update_runtime_runs_reduced_lane": True,
+                            "desktop_update_runtime_uses_local_compatibility_tree": True,
                             "desktop_update_runtime_targets_update_tests": True,
                             "desktop_update_runtime_exit_code_zero": True,
                             "desktop_update_runtime_mentions_passed_banner": True,

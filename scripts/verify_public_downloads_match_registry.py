@@ -149,6 +149,28 @@ def _shelf_truth_line(status: object, available_platforms: list[str]) -> str:
     return "No public downloads are posted right now."
 
 
+def _review_shelf_truth_line(available_platforms: list[str]) -> str:
+    if available_platforms:
+        return (
+            f"{_english_join(available_platforms)} artifact metadata is listed for review; "
+            "download handoff is withheld."
+        )
+    return "No public desktop download is listed while release review is open."
+
+
+def _review_architecture_scope_line(available_platforms: list[str]) -> str:
+    if available_platforms:
+        return (
+            f"Desktop artifact metadata is recorded for {_english_join(available_platforms)}; "
+            "this is not a download-availability claim."
+        )
+    return "No desktop platform availability is claimed while release review is open."
+
+
+def _authority_requires_review(authority: dict[str, object]) -> bool:
+    return str(authority.get("releaseDecisionStatus") or "").strip() == "review_required"
+
+
 def _missing_installer_lane_line(missing_platforms: list[str]) -> str:
     if not missing_platforms:
         return "Normal installers are available on the desktop platforms that are currently offered."
@@ -239,10 +261,12 @@ def _parse_download_artifacts(download_text: str) -> list[dict[str, object]]:
         if body.startswith("There is no public "):
             current_artifact = None
             continue
-        if body.startswith("Download: "):
+        if body.startswith("Download: ") or body.startswith(
+            "Review route (currently withheld): "
+        ):
             if current_artifact is None:
                 raise ValueError("DOWNLOAD.md contains a download URL before an artifact label")
-            match = re.search(r"\(([^)]+)\)", body)
+            match = re.search(r"\]\(([^)]+)\)\s*$", body)
             if not match:
                 raise ValueError(f"DOWNLOAD.md could not parse download URL from {body!r}")
             current_artifact["downloadUrl"] = match.group(1).strip()
@@ -268,6 +292,9 @@ def _parse_download_artifacts(download_text: str) -> list[dict[str, object]]:
         if body.startswith("Update feed: "):
             continue
         if body.lower().startswith("status: "):
+            if current_artifact is None:
+                raise ValueError("DOWNLOAD.md contains a status row before an artifact label")
+            current_artifact["status"] = body.split(":", 1)[1].rstrip(".").strip()
             continue
         if body.endswith("."):
             current_artifact = {
@@ -319,7 +346,19 @@ def _verify_download_artifacts(
     download_text: str,
     release_payload: dict[str, object],
     expected_authority_artifacts: list[dict[str, object]],
+    *,
+    review_required: bool = False,
 ) -> None:
+    if review_required:
+        for forbidden in (
+            "Download: [Open download]",
+            "Access: Public download.",
+            "downloads are posted",
+        ):
+            if forbidden.casefold() in download_text.casefold():
+                raise ValueError(
+                    f"DOWNLOAD.md review-required copy exposes an availability claim: {forbidden!r}"
+                )
     docs_artifacts = _parse_download_artifacts(download_text)
     sha_lines = _parse_sha256_lines(download_text)
     documented_artifact_ids: set[str] = set()
@@ -383,15 +422,33 @@ def _verify_download_artifacts(
         if str(authority_artifact.get("compatibilityState") or "").strip() != "compatible":
             raise ValueError(f"Registry artifact {artifact_label} is not compatibilityState=compatible")
         access_class = str(authority_artifact.get("installAccessClass") or "").strip()
-        expected_access = {
-            "open_public": "Public download",
-            "account_recommended": "Public download",
-            "account_required": "Sign-in required",
-        }.get(access_class)
-        if expected_access is None:
-            raise ValueError(f"Registry artifact {artifact_label} has unsupported installAccessClass={access_class!r}")
+        supported_access_classes = {
+            "open_public",
+            "account_recommended",
+            "account_required",
+        }
+        if access_class not in supported_access_classes:
+            raise ValueError(
+                f"Registry artifact {artifact_label} has unsupported "
+                f"installAccessClass={access_class!r}"
+            )
+        expected_access = (
+            "Listed for review; download handoff withheld"
+            if review_required
+            else {
+                "open_public": "Public download",
+                "account_recommended": "Public download",
+                "account_required": "Sign-in required",
+            }.get(access_class)
+        )
         if str(artifact.get("access") or "").strip() != expected_access:
             raise ValueError(f"DOWNLOAD.md access for {artifact_label} does not match registry installAccessClass")
+        if review_required and str(artifact.get("status") or "").strip() != (
+            "Listed for review; download handoff is withheld"
+        ):
+            raise ValueError(
+                f"DOWNLOAD.md status for {artifact_label} does not preserve the review-required handoff"
+            )
     expected_artifact_ids = set(authority_by_id)
     if documented_artifact_ids != expected_artifact_ids:
         raise ValueError("DOWNLOAD.md artifact set does not exactly match immutable Registry public shelf authority")
@@ -409,12 +466,21 @@ def _verify_packet(
     available_platforms = [PLATFORM_LABELS.get(platform, platform) for platform in platform_ids]
     required_platforms = list(available_platforms)
     missing_platforms = _missing_platforms(available_platforms)
+    review_required = _authority_requires_review(expected_authority)
     expected_source = expected_served_mirror
-    expected_shelf_truth = _shelf_truth_line(
-        release_payload.get("releaseStatus") or release_payload.get("status"),
-        available_platforms,
+    expected_shelf_truth = (
+        _review_shelf_truth_line(available_platforms)
+        if review_required
+        else _shelf_truth_line(
+            release_payload.get("releaseStatus") or release_payload.get("status"),
+            available_platforms,
+        )
     )
-    expected_architecture_line = _architecture_scope_line(artifacts)
+    expected_architecture_line = (
+        _review_architecture_scope_line(available_platforms)
+        if review_required
+        else _architecture_scope_line(artifacts)
+    )
     expected_missing_line = _missing_installer_lane_line(missing_platforms)
 
     require_authority_match(
@@ -491,18 +557,32 @@ def main(argv: list[str] | None = None) -> int:
         resolved.served_mirror,
     )
     artifacts = authority_artifacts(resolved.authority)
-    _verify_download_artifacts(download_text, release_payload, artifacts)
+    review_required = _authority_requires_review(resolved.authority)
+    _verify_download_artifacts(
+        download_text,
+        release_payload,
+        artifacts,
+        review_required=review_required,
+    )
 
     available_platforms = [
         PLATFORM_LABELS.get(platform, platform)
         for platform in authority_platform_ids(resolved.authority)
     ]
     missing_platforms = _missing_platforms(available_platforms)
-    expected_shelf_truth = _shelf_truth_line(
-        release_payload.get("releaseStatus") or release_payload.get("status"),
-        available_platforms,
+    expected_shelf_truth = (
+        _review_shelf_truth_line(available_platforms)
+        if review_required
+        else _shelf_truth_line(
+            release_payload.get("releaseStatus") or release_payload.get("status"),
+            available_platforms,
+        )
     )
-    expected_architecture_line = _architecture_scope_line(artifacts)
+    expected_architecture_line = (
+        _review_architecture_scope_line(available_platforms)
+        if review_required
+        else _architecture_scope_line(artifacts)
+    )
     expected_missing_line = _missing_installer_lane_line(missing_platforms)
 
     _require_contains("DOWNLOAD.md", download_text, expected_shelf_truth)

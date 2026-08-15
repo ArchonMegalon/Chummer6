@@ -2,12 +2,16 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import UTC, datetime
 from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DESIGN_ROOT = REPO_ROOT.parent / "chummer-design"
+DESIGN_ROOT = Path(
+    os.environ.get("CHUMMER_DESIGN_REPO_ROOT", "").strip()
+    or REPO_ROOT.parent / "chummer-design"
+).expanduser().resolve()
 RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
 
 PUBLIC_AUTO_UPDATE_POLICY_PATH = DESIGN_ROOT / "products" / "chummer" / "PUBLIC_AUTO_UPDATE_POLICY.md"
@@ -51,6 +55,7 @@ def main() -> int:
     source_build_macos_build_script = _load_text(SOURCE_BUILD_MACOS_BUILD_SCRIPT_PATH)
     source_build_macos_install_script = _load_text(SOURCE_BUILD_MACOS_INSTALL_SCRIPT_PATH)
     release_packet = _load_json(RELEASE_PACKET_PATH)
+    normalized_source_build_linux_doc = " ".join(source_build_linux_doc.split())
 
     installer_first_platforms = ["Windows", "Linux"]
     update_modes = ["full", "notify", "off"]
@@ -119,26 +124,27 @@ def main() -> int:
                 "split into a build step and a separate install step" in mac_source_build_policy
             ),
             "source_build_linux_doc_mentions_notify_default": (
-                "Source-built copies check for newer published builds in notify-only mode by default." in source_build_linux_doc
+                "Source-built copies check for newer published builds in notify-only mode by default."
+                in normalized_source_build_linux_doc
             ),
             "source_build_linux_doc_mentions_second_script_install": (
-                "The binary is installed by a second script on purpose." in source_build_linux_doc
+                "The binary is installed by a second script on purpose."
+                in normalized_source_build_linux_doc
             ),
             "source_build_linux_doc_mentions_launcher_override": (
-                "The generated launcher sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you have not already chosen another mode." in source_build_linux_doc
+                "The generated launcher sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you have not already chosen another mode."
+                in normalized_source_build_linux_doc
             ),
             "source_build_linux_doc_mentions_analytics_default_off": (
-                "Analytics also default to `off` through `CHUMMER_DESKTOP_ANALYTICS_DEFAULT=off`" in source_build_linux_doc
+                "Analytics also default to `off` through `CHUMMER_DESKTOP_ANALYTICS_DEFAULT=off`"
+                in normalized_source_build_linux_doc
             ),
-            "source_build_linux_build_script_mentions_second_script_install": (
-                "This script only builds the binary and archive artifacts." in source_build_linux_script
-                and "Install the result later with ./install-chummer6-linux-local.sh." in source_build_linux_script
+            "source_build_linux_build_script_does_not_invoke_local_installer": (
+                "install-chummer6-linux-local.sh" not in source_build_linux_script
             ),
-            "source_build_linux_script_sets_notify_default": (
-                'export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"' in source_build_linux_script
-            ),
-            "source_build_linux_script_sets_analytics_default_off": (
-                'export CHUMMER_DESKTOP_ANALYTICS_DEFAULT="${CHUMMER_DESKTOP_ANALYTICS_DEFAULT:-off}"' in source_build_linux_script
+            "source_build_linux_build_script_avoids_runtime_default_exports": (
+                'CHUMMER_DESKTOP_UPDATE_MODE=' not in source_build_linux_script
+                and 'CHUMMER_DESKTOP_ANALYTICS_DEFAULT=' not in source_build_linux_script
             ),
             "source_build_linux_install_script_sets_notify_default": (
                 'export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"' in source_build_linux_install_script

@@ -70,23 +70,17 @@ class InstallerUpdateTruthReceiptTests(unittest.TestCase):
             source_build_linux_doc.write_text(
                 "\n".join(
                     [
-                        "The binary is installed by a second script on purpose.",
-                        "Source-built copies check for newer published builds in notify-only mode by default.",
-                        "The generated launcher sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you have not already chosen another mode.",
-                        "Analytics also default to `off` through `CHUMMER_DESKTOP_ANALYTICS_DEFAULT=off` unless you already chose another value.",
+                        "The binary is installed by a second script on purpose. Source-built copies check",
+                        "for newer published builds in notify-only mode by default. The generated launcher",
+                        "sets `CHUMMER_DESKTOP_UPDATE_MODE=notify` only when you have not already chosen",
+                        "another mode. Analytics also default to `off` through",
+                        "`CHUMMER_DESKTOP_ANALYTICS_DEFAULT=off` unless you already chose another value.",
                     ]
                 ),
                 encoding="utf-8",
             )
             source_build_linux_script.write_text(
-                "\n".join(
-                    [
-                        "This script only builds the binary and archive artifacts. Install the result later with ./install-chummer6-linux-local.sh.",
-                        'export CHUMMER_DESKTOP_UPDATE_MODE="${CHUMMER_DESKTOP_UPDATE_MODE:-notify}"',
-                        'export CHUMMER_DESKTOP_ANALYTICS_DEFAULT="${CHUMMER_DESKTOP_ANALYTICS_DEFAULT:-off}"',
-                    ]
-                )
-                + "\n",
+                "This script only builds the binary and archive artifacts.\n",
                 encoding="utf-8",
             )
             source_build_linux_install_script.write_text(
@@ -222,9 +216,8 @@ class InstallerUpdateTruthReceiptTests(unittest.TestCase):
                             "source_build_linux_doc_mentions_second_script_install": True,
                             "source_build_linux_doc_mentions_launcher_override": True,
                             "source_build_linux_doc_mentions_analytics_default_off": True,
-                            "source_build_linux_build_script_mentions_second_script_install": True,
-                            "source_build_linux_script_sets_notify_default": True,
-                            "source_build_linux_script_sets_analytics_default_off": True,
+                            "source_build_linux_build_script_does_not_invoke_local_installer": True,
+                            "source_build_linux_build_script_avoids_runtime_default_exports": True,
                             "source_build_linux_install_script_sets_notify_default": True,
                             "source_build_linux_install_script_sets_analytics_default_off": True,
                             "source_build_macos_doc_mentions_second_script_install": True,

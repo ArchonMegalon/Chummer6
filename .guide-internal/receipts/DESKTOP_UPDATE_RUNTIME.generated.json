@@ -3,53 +3,23 @@
     "dotnet",
     "test",
     "--project",
-    "/docker/chummercomplete/chummer-presentation/Chummer.Tests/Chummer.Tests.csproj",
-    "-p:RunDesktopUpdateTestsOnly=true",
+    "/docker/chummercomplete/chummer-presentation/Chummer.Product.UnitTests/Chummer.Product.UnitTests.csproj",
+    "-p:ChummerUseLocalCompatibilityTree=true",
+    "-p:RunDesktopUpdateRuntimeTestsOnly=true",
     "--filter",
     "FullyQualifiedName~DesktopUpdateRuntimeTests",
-    "-v",
-    "minimal"
+    "--no-ansi"
   ],
   "contract_name": "ea.chummer6_desktop_update_runtime.v1",
   "desktop_repo_root": "/docker/chummercomplete/chummer-presentation",
   "filter": "FullyQualifiedName~DesktopUpdateRuntimeTests",
-  "generated_at_utc": "2026-06-27T22:09:02Z",
+  "generated_at_utc": "2026-08-15T07:16:44Z",
   "generated_from": [
-    "Chummer.Tests/Chummer.Tests.csproj",
+    "Chummer.Product.UnitTests/Chummer.Product.UnitTests.csproj",
     "Chummer.Tests/DesktopUpdateRuntimeTests.cs"
   ],
-  "prebuild_commands": [
-    {
-      "command": [
-        "bash",
-        "/docker/chummercomplete/chummer-presentation/scripts/ai/with-package-plane.sh",
-        "build",
-        "/docker/chummercomplete/chummer-hub-registry/Chummer.Hub.Registry.Contracts/Chummer.Hub.Registry.Contracts.csproj",
-        "--nologo",
-        "-m:1"
-      ],
-      "exit_code": 0,
-      "project": "/docker/chummercomplete/chummer-hub-registry/Chummer.Hub.Registry.Contracts/Chummer.Hub.Registry.Contracts.csproj",
-      "summary_lines": [
-        "0 Error(s)"
-      ]
-    },
-    {
-      "command": [
-        "bash",
-        "/docker/chummercomplete/chummer-presentation/scripts/ai/with-package-plane.sh",
-        "build",
-        "/docker/chummercomplete/chummer.run-services/Chummer.Run.Contracts/Chummer.Run.Contracts.csproj",
-        "--nologo",
-        "-m:1"
-      ],
-      "exit_code": 0,
-      "project": "/docker/chummercomplete/chummer.run-services/Chummer.Run.Contracts/Chummer.Run.Contracts.csproj",
-      "summary_lines": [
-        "0 Error(s)"
-      ]
-    }
-  ],
+  "package_authority_scope": "local_compatibility_tree",
+  "prebuild_commands": [],
   "result": {
     "exit_code": 0,
     "mentions_desktop_update_runtime_tests": true,
@@ -58,10 +28,12 @@
     "summary_lines": [
       "Test run summary: Passed!",
       "total: 58"
-    ]
+    ],
+    "timed_out": false
   },
   "run_desktop_update_tests_only": true,
   "status": "passed",
   "tested_repo_name": "chummer-presentation",
+  "timed_out": false,
   "timeout_seconds": 900
 }

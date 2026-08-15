@@ -86,6 +86,7 @@ release_authority_args=(
   --expected-release-decision-status "$expected_decision_status"
   --served-mirror "$served_mirror"
 )
+guide_source_args=()
 
 for candidate in \
   "${CHUMMER_DESIGN_REPO_ROOT:-}" \
@@ -97,6 +98,10 @@ do
     break
   fi
 done
+if [[ -n "$design_root" ]]; then
+  export CHUMMER_DESIGN_REPO_ROOT="$design_root"
+  guide_source_args=(--source "$design_root/products/chummer/public-guide")
+fi
 
 CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_SHA256="$expected_linux_archive_sha256" \
 CHUMMER_LINUX_SOURCE_BUILD_GATE_EXPECTED_ARCHIVE_PYTHON_VERSION="$expected_linux_archive_python" \
@@ -110,10 +115,13 @@ python3 "$repo_root/scripts/test_materialize_public_release_truth_packet.py" >/d
 python3 "$repo_root/scripts/materialize_public_release_truth_packet.py" "${release_authority_args[@]}" >/dev/null
 if [[ -n "$design_root" ]]; then
   CHUMMER6_PUBLIC_GUIDE_SOURCE_ROOT="$repo_root" \
+    CHUMMER6_GUIDE_ASSET_SOURCE="${CHUMMER6_GUIDE_ASSET_SOURCE:-$repo_root/assets}" \
     python3 "$design_root/scripts/ai/materialize_public_guide_bundle.py" --repo-root "$design_root" >/dev/null
-  python3 "$repo_root/scripts/sync_public_guide_from_design.py" >/dev/null
+  python3 "$repo_root/scripts/sync_public_guide_from_design.py" \
+    --source "$design_root/products/chummer/public-guide" >/dev/null
 fi
-bash "$repo_root/scripts/verify_public_guide.sh" --skip-http "${release_authority_args[@]}"
+bash "$repo_root/scripts/verify_public_guide.sh" --skip-http \
+  "${guide_source_args[@]}" "${release_authority_args[@]}"
 python3 "$repo_root/scripts/test_installer_update_truth_receipt.py" >/dev/null
 python3 "$repo_root/scripts/materialize_installer_update_truth_receipt.py" >/dev/null
 python3 "$repo_root/scripts/verify_installer_update_truth_receipt.py" >/dev/null

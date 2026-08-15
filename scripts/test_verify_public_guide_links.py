@@ -58,6 +58,90 @@ class VerifyPublicGuideLinksTests(unittest.TestCase):
         self.assertEqual(1, urlopen.call_count)
         sleep.assert_not_called()
 
+    def test_review_route_requires_and_accepts_http_409(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            (root / "DOWNLOAD.md").write_text(
+                "- Review route (currently withheld): [Inspect route](https://chummer.run/downloads/install/windows-installer)\n",
+                encoding="utf-8",
+            )
+            error = urllib.error.HTTPError(
+                "https://chummer.run/downloads/install/windows-installer",
+                409,
+                "Conflict",
+                hdrs=None,
+                fp=None,
+            )
+
+            with mock.patch.object(
+                link_verifier.urllib.request,
+                "urlopen",
+                side_effect=error,
+            ):
+                failures = link_verifier.verify(
+                    root,
+                    "https://chummer.run",
+                    check_http=True,
+                    timeout=1,
+                    expect_review_withheld=True,
+                )
+
+        self.assertEqual([], failures)
+
+    def test_review_route_rejects_an_unexpectedly_open_handoff(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            (root / "DOWNLOAD.md").write_text(
+                "- Review route (currently withheld): [Inspect route](https://chummer.run/downloads/install/windows-installer)\n",
+                encoding="utf-8",
+            )
+
+            with mock.patch.object(
+                link_verifier.urllib.request,
+                "urlopen",
+                return_value=Response(200),
+            ):
+                failures = link_verifier.verify(
+                    root,
+                    "https://chummer.run",
+                    check_http=True,
+                    timeout=1,
+                    expect_review_withheld=True,
+                )
+
+        self.assertEqual(1, len(failures))
+        self.assertIn("review-withheld route must return http status 409", failures[0])
+
+    def test_http_409_remains_a_failure_outside_review_route_mode(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            (root / "README.md").write_text(
+                "[Download](https://chummer.run/downloads/install/windows-installer)\n",
+                encoding="utf-8",
+            )
+            error = urllib.error.HTTPError(
+                "https://chummer.run/downloads/install/windows-installer",
+                409,
+                "Conflict",
+                hdrs=None,
+                fp=None,
+            )
+
+            with mock.patch.object(
+                link_verifier.urllib.request,
+                "urlopen",
+                side_effect=error,
+            ):
+                failures = link_verifier.verify(
+                    root,
+                    "https://chummer.run",
+                    check_http=True,
+                    timeout=1,
+                )
+
+        self.assertEqual(1, len(failures))
+        self.assertIn("http status 409", failures[0])
+
     def test_missing_local_target_is_reported_relative_to_checked_root(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             root = Path(tmpdir) / "public-guide"

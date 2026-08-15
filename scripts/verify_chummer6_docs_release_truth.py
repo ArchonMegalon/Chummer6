@@ -83,6 +83,15 @@ def _download_opening(available_platforms: list[str]) -> str:
     return "Public downloads start on `chummer.run` when a release is posted."
 
 
+def _review_download_opening(available_platforms: list[str]) -> str:
+    if available_platforms:
+        return (
+            f"{_english_join(available_platforms)} artifact metadata is listed for review on "
+            "`chummer.run`; download handoff is withheld."
+        )
+    return "No public desktop download is listed while release review is open."
+
+
 def _missing_installer_line(missing_platforms: list[str]) -> str:
     verb = "does" if len(missing_platforms) == 1 else "do"
     return f"{_english_join(missing_platforms)} {verb} not have a normal installer yet."
@@ -98,6 +107,7 @@ def _verify_document_content() -> None:
         for field in ("phase_label", "quality_gap_line", "short_release_summary", "release_posture")
     ).casefold()
     authority_decision_status = str(authority.get("releaseDecisionStatus") or "").strip()
+    review_required = authority_decision_status == "review_required"
     if str(packet.get("release_decision_status") or "").strip() != authority_decision_status:
         raise ValueError("release truth packet decision posture drifted from immutable Registry authority")
     if packet.get("release_posture") != authority_decision_status:
@@ -113,7 +123,13 @@ def _verify_document_content() -> None:
     current_status = _load_text(REPO_ROOT / "NOW" / "current-status.md")
 
     _require_contains("README.md", readme, str(packet.get("shelf_truth_line") or ""))
-    _require_contains("README.md", readme, str(packet.get("short_release_summary") or ""))
+    expected_short_release_summary = (
+        "Release review is required. Inspect the recorded artifact metadata, but do not rely on "
+        "a download route until public delivery converges."
+        if review_required
+        else str(packet.get("short_release_summary") or "")
+    )
+    _require_contains("README.md", readme, expected_short_release_summary)
     _require_contains("README.md", readme, str(packet.get("desktop_pick_line") or ""))
     if "honest pitch" not in readme or "Start here if you just want the answer" not in readme:
         raise ValueError("README.md lost the human first-answer framing")
@@ -178,7 +194,11 @@ def _verify_document_content() -> None:
     if "Proof scope:" in download or "Claim boundary:" in download or "blanket flagship" in download:
         raise ValueError("DOWNLOAD.md reintroduced proof-scope copy")
     visible_platforms = list(packet.get("available_platforms") or packet.get("desktop_platforms_visible") or [])
-    expected_download_opening = _download_opening([str(item) for item in visible_platforms])
+    expected_download_opening = (
+        _review_download_opening([str(item) for item in visible_platforms])
+        if review_required
+        else _download_opening([str(item) for item in visible_platforms])
+    )
     if expected_download_opening not in download:
         raise ValueError("DOWNLOAD.md lost the human download opening")
     if "chummer.run" not in download:
@@ -193,7 +213,7 @@ def _verify_document_content() -> None:
     _require_contains("DOWNLOAD.md", download, str(packet.get("release_verification_summary") or ""))
     _require_contains("DOWNLOAD.md", download, str(packet.get("known_issue_summary") or ""))
     review_banner = str(packet.get("review_required_banner") or "").strip()
-    if authority_decision_status == "review_required":
+    if review_required:
         if not review_banner:
             raise ValueError("review_required release truth packet must carry an explicit review banner")
         for name, content in (
@@ -202,6 +222,25 @@ def _verify_document_content() -> None:
             ("NOW/current-status.md", current_status),
         ):
             _require_contains(name, content, review_banner)
+        combined_review_copy = "\n".join(
+            [readme, status, download, migration, current_status]
+        ).casefold()
+        for forbidden in (
+            "downloads are posted",
+            "downloads start on",
+            "today you can try the current builds",
+            "download: [open download]",
+            "access: public download",
+        ):
+            if forbidden in combined_review_copy:
+                raise ValueError(
+                    f"review-required public docs expose an availability claim: {forbidden!r}"
+                )
+        _require_contains(
+            "FROM_CHUMMER5A_TO_CHUMMER6.md",
+            migration,
+            "Do not switch based on this guide yet; artifact metadata is inspectable, but download handoff remains withheld.",
+        )
     for stale_phrase in (
         "Release status is missing or stale",
         "gold-ready",
@@ -214,7 +253,7 @@ def _verify_document_content() -> None:
         if stale_phrase.lower() in combined.lower():
             raise ValueError(f"public docs contain stale release wording: {stale_phrase}")
 
-    if visible_platforms:
+    if visible_platforms and not review_required:
         if len(visible_platforms) == 1:
             try_line = f"Today you can try the current builds on {visible_platforms[0]}."
         elif len(visible_platforms) == 2:

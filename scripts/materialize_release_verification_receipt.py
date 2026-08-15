@@ -2,11 +2,29 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import UTC, datetime
 from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+def _resolve_desktop_repo_root() -> Path:
+    explicit = os.environ.get("CHUMMER_DESKTOP_REPO_ROOT", "").strip()
+    if explicit:
+        return Path(explicit).expanduser().resolve()
+    for search_root in (REPO_ROOT.parent, REPO_ROOT.parent.parent):
+        for candidate_name in ("chummer-presentation", "chummer6-ui"):
+            candidate = search_root / candidate_name
+            if (candidate / "Chummer.Avalonia" / "DesktopStartupUpdateWindow.cs").is_file():
+                return candidate.resolve()
+    # Preserve importability for isolated receipt tests; main() will still fail
+    # closed when it reads the required desktop sources from this fallback.
+    return REPO_ROOT.parent / "chummer6-ui"
+
+
+DESKTOP_REPO_ROOT = _resolve_desktop_repo_root()
 RECEIPTS_ROOT = REPO_ROOT / ".guide-internal" / "receipts"
 LINUX_GATE_PATH = RECEIPTS_ROOT / "LINUX_SOURCE_BUILD_DOCKER_GATE.generated.json"
 MACOS_SOURCE_BUILD_CONTRACT_PATH = RECEIPTS_ROOT / "MACOS_SOURCE_BUILD_CONTRACT.generated.json"
@@ -14,11 +32,11 @@ INSTALLER_UPDATE_TRUTH_PATH = RECEIPTS_ROOT / "INSTALLER_UPDATE_TRUTH.generated.
 DESKTOP_UPDATE_RUNTIME_PATH = RECEIPTS_ROOT / "DESKTOP_UPDATE_RUNTIME.generated.json"
 RELEASE_PACKET_PATH = RECEIPTS_ROOT / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
 OUTPUT_PATH = RECEIPTS_ROOT / "RELEASE_VERIFICATION_CONVERGENCE.generated.json"
-STARTUP_WINDOW_SOURCE_PATH = REPO_ROOT.parent / "chummer6-ui" / "Chummer.Avalonia" / "DesktopStartupUpdateWindow.cs"
-STARTUP_WINDOW_TEST_PATH = REPO_ROOT.parent / "chummer6-ui" / "Chummer.Tests" / "Presentation" / "DesktopStartupUpdateWindowTests.cs"
-INSTALL_LINK_WINDOW_SOURCE_PATH = REPO_ROOT.parent / "chummer6-ui" / "Chummer.Avalonia" / "DesktopInstallLinkingWindow.cs"
-INSTALL_LINK_WINDOW_TEST_PATH = REPO_ROOT.parent / "chummer6-ui" / "Chummer.Tests" / "Presentation" / "DesktopInstallLinkingShellChromeTests.cs"
-INSTALL_LINK_RUNTIME_TEST_PATH = REPO_ROOT.parent / "chummer6-ui" / "Chummer.Tests" / "DesktopInstallLinkingRuntimeTests.cs"
+STARTUP_WINDOW_SOURCE_PATH = DESKTOP_REPO_ROOT / "Chummer.Avalonia" / "DesktopStartupUpdateWindow.cs"
+STARTUP_WINDOW_TEST_PATH = DESKTOP_REPO_ROOT / "Chummer.Tests" / "Presentation" / "DesktopStartupUpdateWindowTests.cs"
+INSTALL_LINK_WINDOW_SOURCE_PATH = DESKTOP_REPO_ROOT / "Chummer.Avalonia" / "DesktopInstallLinkingWindow.cs"
+INSTALL_LINK_WINDOW_TEST_PATH = DESKTOP_REPO_ROOT / "Chummer.Tests" / "Presentation" / "DesktopInstallLinkingShellChromeTests.cs"
+INSTALL_LINK_RUNTIME_TEST_PATH = DESKTOP_REPO_ROOT / "Chummer.Tests" / "DesktopInstallLinkingRuntimeTests.cs"
 
 
 def _load_json(path: Path) -> dict[str, object]:
@@ -70,8 +88,9 @@ def main() -> int:
                 "updater_special_mode_status": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode", {}).get("status") or "").strip(),
                 "updater_special_mode_mode": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode", {}).get("mode") or "").strip(),
                 "updater_special_mode_failure_reason": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode", {}).get("failure_reason") or "").strip(),
-                "updater_special_mode_success_status": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode_success", {}).get("status") or "").strip(),
-                "updater_special_mode_success_mode": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode_success", {}).get("mode") or "").strip(),
+                "updater_dispatch_simulation_status": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_dispatch_simulation", {}).get("status") or "").strip(),
+                "updater_dispatch_simulation_mode": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_dispatch_simulation", {}).get("mode") or "").strip(),
+                "updater_dispatch_simulation_invocation_contract_proven": ((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_dispatch_simulation", {}).get("invocation_contract_proven") is True,
             },
             "macos_source_build_contract": {
                 "status": str(macos_source_build_contract.get("status") or "").strip(),
@@ -102,6 +121,7 @@ def main() -> int:
                 "status": str(desktop_update_runtime.get("status") or "").strip(),
                 "tested_repo_name": str(desktop_update_runtime.get("tested_repo_name") or "").strip(),
                 "run_desktop_update_tests_only": desktop_update_runtime.get("run_desktop_update_tests_only"),
+                "package_authority_scope": str(desktop_update_runtime.get("package_authority_scope") or "").strip(),
                 "filter": str(desktop_update_runtime.get("filter") or "").strip(),
                 "timeout_seconds": desktop_update_runtime.get("timeout_seconds"),
                 "exit_code": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("exit_code"),
@@ -153,7 +173,10 @@ def main() -> int:
             "linux_gate_startup_smoke_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("startup_smoke", {}).get("status") or "").strip() == "pass",
             "linux_gate_installed_startup_smoke_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("installed_startup_smoke", {}).get("status") or "").strip() == "pass",
             "linux_gate_updater_special_mode_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode", {}).get("status") or "").strip() == "pass",
-            "linux_gate_updater_special_mode_success_passed": str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_special_mode_success", {}).get("status") or "").strip() == "pass",
+            "linux_gate_updater_dispatch_simulation_passed": (
+                str(((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_dispatch_simulation", {}).get("status") or "").strip() == "pass"
+                and ((linux_gate.get("runtime") or {}) if isinstance(linux_gate.get("runtime"), dict) else {}).get("updater_dispatch_simulation", {}).get("invocation_contract_proven") is True
+            ),
             "macos_source_build_contract_passed": str(macos_source_build_contract.get("status") or "").strip() == "passed",
             "macos_source_build_contract_stays_bounded": str(macos_source_build_contract.get("scope") or "").strip() == "script_contract_only" and str(macos_source_build_contract.get("runtime_coverage") or "").strip() == "not_run_on_non_macos_host" and macos_source_build_contract.get("real_macos_runtime_proof_required") is True,
             "macos_source_build_contract_keeps_two_step_install": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("maintenance_policy_requires_two_step_install") is True and ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("doc_marks_second_script_install") is True,
@@ -168,6 +191,7 @@ def main() -> int:
             "macos_source_build_contract_matches_installer_update_truth_two_step_posture": ((macos_source_build_contract.get("policy") or {}) if isinstance(macos_source_build_contract.get("policy"), dict) else {}).get("maintenance_policy_requires_two_step_install") is True and ((installer_update_truth.get("coherence") or {}) if isinstance(installer_update_truth.get("coherence"), dict) else {}).get("macos_source_build_is_explicitly_two_step") is True,
             "desktop_update_runtime_passed": str(desktop_update_runtime.get("status") or "").strip() == "passed",
             "desktop_update_runtime_runs_reduced_lane": desktop_update_runtime.get("run_desktop_update_tests_only") is True,
+            "desktop_update_runtime_uses_local_compatibility_tree": str(desktop_update_runtime.get("package_authority_scope") or "").strip() == "local_compatibility_tree",
             "desktop_update_runtime_targets_update_tests": str(desktop_update_runtime.get("filter") or "").strip() == "FullyQualifiedName~DesktopUpdateRuntimeTests",
             "desktop_update_runtime_exit_code_zero": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("exit_code") == 0,
             "desktop_update_runtime_mentions_passed_banner": ((desktop_update_runtime.get("result") or {}) if isinstance(desktop_update_runtime.get("result"), dict) else {}).get("mentions_passed_banner") is True,

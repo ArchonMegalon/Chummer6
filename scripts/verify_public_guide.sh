@@ -96,6 +96,8 @@ python3 "$repo_root/scripts/test_verify_public_guide_links.py" >/dev/null
 link_args=(--root "$source_root" --source-root "$repo_root")
 if [[ "$skip_http" == "1" ]]; then
   link_args+=(--skip-http)
+elif [[ "$expected_decision_status" == "review_required" ]]; then
+  link_args+=(--expect-review-withheld)
 fi
 python3 "$repo_root/scripts/verify_public_guide_links.py" "${link_args[@]}"
 python3 "$repo_root/scripts/verify_public_guide_video_audio.py" --root "$source_root"

@@ -36,13 +36,20 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
         download_warning_line: str,
         migration_preview_line: str,
         migration_wait_line: str | None = None,
+        decision_status: str = "preview_ready",
+        review_banner: str = "",
     ) -> None:
         packet = {
-            "authority": {"releaseDecisionStatus": "preview_ready"},
-            "release_decision_status": "preview_ready",
-            "release_posture": "preview_ready",
+            "authority": {"releaseDecisionStatus": decision_status},
+            "release_decision_status": decision_status,
+            "release_posture": decision_status,
             "shelf_truth_line": shelf_truth_line,
-            "short_release_summary": "Use the files linked on [Download](DOWNLOAD.md). If your platform is not listed there yet, wait before switching full time.",
+            "short_release_summary": (
+                "Release review is required. Inspect the recorded artifact metadata, but do not "
+                "rely on a download route until public delivery converges."
+                if decision_status == "review_required"
+                else "Use the files linked on [Download](DOWNLOAD.md). If your platform is not listed there yet, wait before switching full time."
+            ),
             "desktop_pick_line": "If you see both desktop apps, start with Avalonia.",
             "published_line": "Published: June 21, 2026 at 5:53 UTC.",
             "release_status": "Published",
@@ -70,6 +77,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "missing_platforms": missing_platforms,
             "missing_installer_lane_line": missing_installer_lane_line,
             "architecture_scope_line": architecture_scope_line,
+            "review_required_banner": review_banner,
         }
         (root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json").write_text(
             json.dumps(packet, indent=2) + "\n",
@@ -81,6 +89,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                     "# Readme",
                     "If you are here to decide whether this is worth your time, the honest pitch is simple.",
                     "## Start here if you just want the answer",
+                    *([review_banner] if review_banner else []),
                     packet["shelf_truth_line"],
                     packet["short_release_summary"],
                     packet["desktop_pick_line"],
@@ -92,6 +101,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Status",
+                    *([review_banner] if review_banner else []),
                     packet["published_line"],
                     f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
@@ -105,7 +115,12 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Download",
-                    MODULE._download_opening(available_platforms),
+                    *([review_banner] if review_banner else []),
+                    (
+                        MODULE._review_download_opening(available_platforms)
+                        if decision_status == "review_required"
+                        else MODULE._download_opening(available_platforms)
+                    ),
                     packet["published_line"],
                     f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
@@ -123,6 +138,7 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
             "\n".join(
                 [
                     "# Current status",
+                    *([review_banner] if review_banner else []),
                     packet["published_line"],
                     f"- Release status: {packet['release_status']}.",
                     packet["shelf_truth_line"],
@@ -169,6 +185,67 @@ class DocsReleaseTruthVerifierTests(unittest.TestCase):
                 MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
                 MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
                 MODULE._verify_document_content()
+            finally:
+                MODULE.REPO_ROOT = original_root
+                MODULE.PACKET_PATH = original_packet
+                MODULE.README_PATH = original_readme
+                MODULE.STATUS_PATH = original_status
+                MODULE.DOWNLOAD_PATH = original_download
+                MODULE.MIGRATION_PATH = original_migration
+
+    def test_main_accepts_review_required_withheld_copy(self) -> None:
+        banner = (
+            "Release review required. Public availability claims remain paused until one "
+            "immutable snapshot converges."
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self._write_fixture(
+                root,
+                shelf_truth_line=(
+                    "Windows and Linux artifact metadata is listed for review; "
+                    "download handoff is withheld."
+                ),
+                available_platforms=["Windows", "Linux"],
+                missing_platforms=["macOS"],
+                missing_installer_lane_line="macOS does not have a normal installer yet.",
+                architecture_scope_line=(
+                    "Desktop artifact metadata is recorded for Windows and Linux; "
+                    "this is not a download-availability claim."
+                ),
+                download_warning_line="There is no public macOS download today.",
+                migration_preview_line=(
+                    "Do not switch based on this guide yet; artifact metadata is inspectable, "
+                    "but download handoff remains withheld."
+                ),
+                migration_wait_line=(
+                    "If you rely on macOS as your main platform, wait before switching full time."
+                ),
+                decision_status="review_required",
+                review_banner=banner,
+            )
+            original_root = MODULE.REPO_ROOT
+            original_packet = MODULE.PACKET_PATH
+            original_readme = MODULE.README_PATH
+            original_status = MODULE.STATUS_PATH
+            original_download = MODULE.DOWNLOAD_PATH
+            original_migration = MODULE.MIGRATION_PATH
+            try:
+                MODULE.REPO_ROOT = root
+                MODULE.PACKET_PATH = root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json"
+                MODULE.README_PATH = root / "README.md"
+                MODULE.STATUS_PATH = root / "STATUS.md"
+                MODULE.DOWNLOAD_PATH = root / "DOWNLOAD.md"
+                MODULE.MIGRATION_PATH = root / "FROM_CHUMMER5A_TO_CHUMMER6.md"
+                MODULE._verify_document_content()
+
+                (root / "README.md").write_text(
+                    (root / "README.md").read_text(encoding="utf-8")
+                    + "\nWindows and Linux downloads are posted.\n",
+                    encoding="utf-8",
+                )
+                with self.assertRaisesRegex(ValueError, "availability claim"):
+                    MODULE._verify_document_content()
             finally:
                 MODULE.REPO_ROOT = original_root
                 MODULE.PACKET_PATH = original_packet

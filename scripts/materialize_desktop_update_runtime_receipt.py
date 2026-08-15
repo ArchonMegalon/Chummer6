@@ -21,10 +21,11 @@ def _resolve_desktop_repo_root() -> Path:
     explicit = os.environ.get("CHUMMER_DESKTOP_REPO_ROOT", "").strip()
     if explicit:
         return Path(explicit).resolve()
-    for candidate_name in ("chummer-presentation", "chummer6-ui"):
-        candidate = REPO_ROOT.parent / candidate_name
-        if (candidate / "Chummer.Tests" / "Chummer.Tests.csproj").is_file():
-            return candidate
+    for search_root in (REPO_ROOT.parent, REPO_ROOT.parent.parent):
+        for candidate_name in ("chummer-presentation", "chummer6-ui"):
+            candidate = search_root / candidate_name
+            if (candidate / "Chummer.Tests" / "Chummer.Tests.csproj").is_file():
+                return candidate
     raise FileNotFoundError("Could not find a desktop presentation repository with Chummer.Tests/Chummer.Tests.csproj")
 
 
@@ -91,7 +92,11 @@ def _summarize_output(output: str) -> list[str]:
 
 def main() -> int:
     desktop_repo_root = _resolve_desktop_repo_root()
-    test_project_path = desktop_repo_root / "Chummer.Tests" / "Chummer.Tests.csproj"
+    test_project_path = (
+        desktop_repo_root
+        / "Chummer.Product.UnitTests"
+        / "Chummer.Product.UnitTests.csproj"
+    )
     package_plane_helper_path = desktop_repo_root / "scripts" / "ai" / "with-package-plane.sh"
     filter_value = os.environ.get("CHUMMER_DESKTOP_UPDATE_RUNTIME_FILTER", DEFAULT_FILTER).strip() or DEFAULT_FILTER
     timeout_seconds = int(os.environ.get("CHUMMER_DESKTOP_UPDATE_RUNTIME_TIMEOUT_SECONDS", str(DEFAULT_TIMEOUT_SECONDS)).strip())
@@ -157,11 +162,11 @@ def main() -> int:
         "test",
         "--project",
         str(test_project_path),
+        "-p:ChummerUseLocalCompatibilityTree=true",
         "-p:RunDesktopUpdateRuntimeTestsOnly=true",
         "--filter",
         filter_value,
-        "-v",
-        "minimal",
+        "--no-ansi",
     ]
     completed, test_timed_out = _run_command(command, desktop_repo_root, timeout_seconds)
     output_text = completed.stdout or ""
@@ -181,6 +186,7 @@ def main() -> int:
         "timeout_seconds": timeout_seconds,
         "timed_out": test_timed_out,
         "run_desktop_update_tests_only": True,
+        "package_authority_scope": "local_compatibility_tree",
         "filter": filter_value,
         "result": {
             "exit_code": completed.returncode,

@@ -51,8 +51,9 @@ def main() -> int:
     _require(str(linux_gate.get("updater_special_mode_status") or "").strip() == "pass", "linux_source_build_gate updater special-mode smoke must pass")
     _require(str(linux_gate.get("updater_special_mode_mode") or "").strip() == "desktop_update_launch_installer", "linux_source_build_gate updater special-mode mode mismatch")
     _require(str(linux_gate.get("updater_special_mode_failure_reason") or "").strip() == "installer_launch_failed", "linux_source_build_gate updater special-mode failure reason mismatch")
-    _require(str(linux_gate.get("updater_special_mode_success_status") or "").strip() == "pass", "linux_source_build_gate updater success special-mode smoke must pass")
-    _require(str(linux_gate.get("updater_special_mode_success_mode") or "").strip() == "desktop_update_launch_installer_success", "linux_source_build_gate updater success special-mode mode mismatch")
+    _require(str(linux_gate.get("updater_dispatch_simulation_status") or "").strip() == "pass", "linux_source_build_gate updater dispatch simulation must pass")
+    _require(str(linux_gate.get("updater_dispatch_simulation_mode") or "").strip() == "desktop_update_dispatch_pending_state_clearing_simulation", "linux_source_build_gate updater dispatch simulation mode mismatch")
+    _require(linux_gate.get("updater_dispatch_simulation_invocation_contract_proven") is True, "linux_source_build_gate updater dispatch invocation contract must be proven")
     _require(str(macos_source_build_contract.get("status") or "").strip() == "passed", "macos_source_build_contract status must be passed")
     _require(str(macos_source_build_contract.get("scope") or "").strip() == "script_contract_only", "macos_source_build_contract scope mismatch")
     _require(str(macos_source_build_contract.get("runtime_coverage") or "").strip() == "not_run_on_non_macos_host", "macos_source_build_contract runtime coverage mismatch")
@@ -77,6 +78,7 @@ def main() -> int:
     _require(str(desktop_update_runtime.get("status") or "").strip() == "passed", "desktop_update_runtime status must be passed")
     _require(str(desktop_update_runtime.get("tested_repo_name") or "").strip() in {"chummer-presentation", "chummer6-ui"}, "desktop_update_runtime tested repo mismatch")
     _require(desktop_update_runtime.get("run_desktop_update_tests_only") is True, "desktop_update_runtime must run the reduced updater lane")
+    _require(str(desktop_update_runtime.get("package_authority_scope") or "").strip() == "local_compatibility_tree", "desktop_update_runtime package authority scope mismatch")
     _require(str(desktop_update_runtime.get("filter") or "").strip() == "FullyQualifiedName~DesktopUpdateRuntimeTests", "desktop_update_runtime filter mismatch")
     _require(desktop_update_runtime.get("exit_code") == 0, "desktop_update_runtime exit code must be zero")
     _require(desktop_update_runtime.get("mentions_passed_banner") is True, "desktop_update_runtime must report a Passed banner")
@@ -108,7 +110,7 @@ def main() -> int:
         "linux_gate_startup_smoke_passed",
         "linux_gate_installed_startup_smoke_passed",
         "linux_gate_updater_special_mode_passed",
-        "linux_gate_updater_special_mode_success_passed",
+        "linux_gate_updater_dispatch_simulation_passed",
         "macos_source_build_contract_passed",
         "macos_source_build_contract_stays_bounded",
         "macos_source_build_contract_keeps_two_step_install",
@@ -123,6 +125,7 @@ def main() -> int:
         "macos_source_build_contract_matches_installer_update_truth_two_step_posture",
         "desktop_update_runtime_passed",
         "desktop_update_runtime_runs_reduced_lane",
+        "desktop_update_runtime_uses_local_compatibility_tree",
         "desktop_update_runtime_targets_update_tests",
         "desktop_update_runtime_exit_code_zero",
         "desktop_update_runtime_mentions_passed_banner",

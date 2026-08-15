@@ -1,14 +1,14 @@
 {
   "contract_name": "ea.chummer6_macos_source_build_contract.v1",
-  "generated_at_utc": "2026-06-29T17:22:42Z",
+  "generated_at_utc": "2026-08-15T07:15:45Z",
   "generated_from": [
-    "Chummer6/scripts/build-chummer6-macos-local.sh",
-    "Chummer6/scripts/check-host-chummer6-macos-local.sh",
-    "Chummer6/scripts/install-chummer6-macos-local.sh",
-    "Chummer6/SOURCE_BUILD_MACOS.md",
-    "Chummer6/DOWNLOAD.md",
-    "Chummer6/tests/test_macos_source_build_script.py",
-    "chummer-design/products/chummer/maintenance/MAC_SOURCE_BUILD_PATH.md"
+    "guide-play-reset-accepted/scripts/build-chummer6-macos-local.sh",
+    "guide-play-reset-accepted/scripts/check-host-chummer6-macos-local.sh",
+    "guide-play-reset-accepted/scripts/install-chummer6-macos-local.sh",
+    "guide-play-reset-accepted/SOURCE_BUILD_MACOS.md",
+    "guide-play-reset-accepted/DOWNLOAD.md",
+    "guide-play-reset-accepted/tests/test_macos_source_build_script.py",
+    "design-current-main/products/chummer/maintenance/MAC_SOURCE_BUILD_PATH.md"
   ],
   "policy": {
     "build_launcher_resolves_symlinks": true,
@@ -30,30 +30,30 @@
       "command": [
         "bash",
         "-n",
-        "/docker/chummercomplete/Chummer6/scripts/build-chummer6-macos-local.sh"
+        "/docker/chummercomplete/.integration-worktrees/guide-play-reset-accepted/scripts/build-chummer6-macos-local.sh"
       ],
       "exit_code": 0,
-      "path": "Chummer6/scripts/build-chummer6-macos-local.sh",
+      "path": "guide-play-reset-accepted/scripts/build-chummer6-macos-local.sh",
       "summary_lines": []
     },
     {
       "command": [
         "bash",
         "-n",
-        "/docker/chummercomplete/Chummer6/scripts/check-host-chummer6-macos-local.sh"
+        "/docker/chummercomplete/.integration-worktrees/guide-play-reset-accepted/scripts/check-host-chummer6-macos-local.sh"
       ],
       "exit_code": 0,
-      "path": "Chummer6/scripts/check-host-chummer6-macos-local.sh",
+      "path": "guide-play-reset-accepted/scripts/check-host-chummer6-macos-local.sh",
       "summary_lines": []
     },
     {
       "command": [
         "bash",
         "-n",
-        "/docker/chummercomplete/Chummer6/scripts/install-chummer6-macos-local.sh"
+        "/docker/chummercomplete/.integration-worktrees/guide-play-reset-accepted/scripts/install-chummer6-macos-local.sh"
       ],
       "exit_code": 0,
-      "path": "Chummer6/scripts/install-chummer6-macos-local.sh",
+      "path": "guide-play-reset-accepted/scripts/install-chummer6-macos-local.sh",
       "summary_lines": []
     }
   ],
@@ -67,7 +67,7 @@
     ],
     "exit_code": 0,
     "summary_lines": [
-      "Ran 7 tests in 0.023s",
+      "Ran 7 tests in 0.028s",
       "OK"
     ]
   }

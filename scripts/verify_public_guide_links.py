@@ -25,6 +25,8 @@ VISIBLE_AUTOLINK_RE = re.compile(r"`https?://[^`]+`|<https?://[^>]+>")
 URL_LINK_TEXT_RE = re.compile(r"\[((?:https?://|www\.|chummer\.run/)[^\]]+)\]\((https?://[^)]+)\)")
 CAPTION_FILE_RE = re.compile(r"\.vtt(?:\)|\s|$)", re.IGNORECASE)
 HTTP_CHECK_ATTEMPTS = 3
+REVIEW_ROUTE_PREFIX = "- Review route (currently withheld): [Inspect route]("
+REVIEW_ROUTE_PATH_RE = re.compile(r"^/downloads/install/[A-Za-z0-9][A-Za-z0-9._-]*$")
 
 
 def _iter_markdown_files(root: Path) -> list[Path]:
@@ -90,6 +92,20 @@ def _check_http(url: str, timeout: int) -> str | None:
             time.sleep(0.25 * attempt)
 
     return last_failure
+
+
+def _is_review_withheld_route(line: str, target: str, public_origin: str) -> bool:
+    if not line.strip().startswith(REVIEW_ROUTE_PREFIX):
+        return False
+    parsed_target = urllib.parse.urlsplit(target)
+    parsed_origin = urllib.parse.urlsplit(public_origin)
+    return (
+        parsed_target.scheme == parsed_origin.scheme
+        and parsed_target.netloc == parsed_origin.netloc
+        and REVIEW_ROUTE_PATH_RE.fullmatch(parsed_target.path) is not None
+        and not parsed_target.query
+        and not parsed_target.fragment
+    )
 
 
 def _check_public_link_presentation(markdown_path: Path, root: Path, text: str) -> list[str]:
@@ -163,7 +179,15 @@ def _check_local_link(
     return None
 
 
-def verify(root: Path, public_origin: str, check_http: bool, timeout: int, source_root: Path | None = None) -> list[str]:
+def verify(
+    root: Path,
+    public_origin: str,
+    check_http: bool,
+    timeout: int,
+    source_root: Path | None = None,
+    *,
+    expect_review_withheld: bool = False,
+) -> list[str]:
     failures: list[str] = []
     for markdown_path in _iter_markdown_files(root):
         text = markdown_path.read_text(encoding="utf-8")
@@ -180,7 +204,18 @@ def verify(root: Path, public_origin: str, check_http: bool, timeout: int, sourc
                 if target.startswith(("http://", "https://")):
                     if check_http:
                         failure = _check_http(target, timeout)
-                        if failure:
+                        if expect_review_withheld and _is_review_withheld_route(
+                            line,
+                            target,
+                            public_origin,
+                        ):
+                            if failure != "http status 409":
+                                observed = failure or "request succeeded"
+                                failures.append(
+                                    f"{markdown_path.relative_to(root)}:{line_number}: "
+                                    f"review-withheld route must return http status 409; observed {observed}: {target}"
+                                )
+                        elif failure:
                             failures.append(f"{markdown_path.relative_to(root)}:{line_number}: {failure}: {target}")
                     continue
                 if target.startswith("/"):
@@ -202,11 +237,23 @@ def main() -> int:
     parser.add_argument("--source-root", type=Path, default=None)
     parser.add_argument("--public-origin", default=DEFAULT_PUBLIC_ORIGIN)
     parser.add_argument("--skip-http", action="store_true", help="Only validate local files and anchors.")
+    parser.add_argument(
+        "--expect-review-withheld",
+        action="store_true",
+        help="Require generated review-route links to remain withheld with HTTP 409.",
+    )
     parser.add_argument("--timeout", type=int, default=20)
     args = parser.parse_args()
 
     source_root = args.source_root.resolve() if args.source_root else None
-    failures = verify(args.root.resolve(), args.public_origin, not args.skip_http, args.timeout, source_root=source_root)
+    failures = verify(
+        args.root.resolve(),
+        args.public_origin,
+        not args.skip_http,
+        args.timeout,
+        source_root=source_root,
+        expect_review_withheld=args.expect_review_withheld,
+    )
     if failures:
         for failure in failures:
             print(failure, file=sys.stderr)

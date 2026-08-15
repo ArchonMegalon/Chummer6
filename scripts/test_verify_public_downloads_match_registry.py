@@ -26,12 +26,15 @@ SPEC.loader.exec_module(MODULE)
 
 
 class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
-    def _write_fixture(self, root: Path):
-        authority = write_authority_fixture(root / "authority")
+    def _write_fixture(self, root: Path, *, decision_status: str = "preview_ready"):
+        authority = write_authority_fixture(
+            root / "authority",
+            decision_status=decision_status,
+        )
         resolved = MODULE.resolve_release_authority(
             authority.current_path,
             registry_commit=authority.registry_commit,
-            expected_release_decision_status="preview_ready",
+            expected_release_decision_status=decision_status,
         )
         docs_root = root / "Chummer6"
         receipts_root = docs_root / ".guide-internal" / "receipts"
@@ -39,8 +42,13 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
         artifacts = MODULE.authority_artifacts(resolved.authority)
         available = ["Linux", "Windows"]
         missing = ["macOS"]
+        review_required = decision_status == "review_required"
         packet = {
-            "architecture_scope_line": MODULE._architecture_scope_line(artifacts),
+            "architecture_scope_line": (
+                MODULE._review_architecture_scope_line(available)
+                if review_required
+                else MODULE._architecture_scope_line(artifacts)
+            ),
             "authority": resolved.authority,
             "authority_source": resolved.authority_source,
             "available_platforms": available,
@@ -49,14 +57,54 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
             "missing_platforms": missing,
             "required_platforms": available,
             "served_mirror": resolved.served_mirror,
-            "shelf_truth_line": "Linux and Windows downloads are posted.",
+            "shelf_truth_line": (
+                MODULE._review_shelf_truth_line(available)
+                if review_required
+                else "Linux and Windows downloads are posted."
+            ),
         }
         (receipts_root / "CHUMMER6_PUBLIC_RELEASE_TRUTH_PACKET.generated.json").write_text(
             json.dumps(packet, indent=2) + "\n",
             encoding="utf-8",
         )
-        (docs_root / "DOWNLOAD.md").write_text(
+        download_text = (
             """# Download
+
+Linux and Windows artifact metadata is listed for review on `chummer.run`; download handoff is withheld.
+
+## Release review
+
+- Linux and Windows artifact metadata is listed for review; download handoff is withheld.
+
+## Current build matrix
+
+### Windows
+
+- Windows x64 installer.
+- status: Listed for review; download handoff is withheld.
+- Review route (currently withheld): [Inspect route](https://chummer.run/downloads/install/avalonia-win-x64-installer)
+- Size: 2.6 MiB (2734106 bytes)
+- Access: Listed for review; download handoff withheld.
+
+### Linux
+
+- Linux x64 installer.
+- status: Listed for review; download handoff is withheld.
+- Review route (currently withheld): [Inspect route](https://chummer.run/downloads/install/avalonia-linux-x64-installer)
+- Size: 35.3 MiB (37024862 bytes)
+- Access: Listed for review; download handoff withheld.
+
+### macOS
+
+- There is no public macOS download today.
+
+## SHA256
+
+- Linux x64: `5c8518f0f7f24b3f7101ff6fcea0fe33f012b4dfb03704f5bdf0067571f2d70b`
+- Windows x64: `80655fd79a096cd7714910d7b38f7741eea01f82ada96dc6a2a097951997d91a`
+"""
+            if review_required
+            else """# Download
 
 ## Current public download
 
@@ -88,7 +136,10 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
 
 - Linux x64: `5c8518f0f7f24b3f7101ff6fcea0fe33f012b4dfb03704f5bdf0067571f2d70b`
 - Windows x64: `80655fd79a096cd7714910d7b38f7741eea01f82ada96dc6a2a097951997d91a`
-""",
+"""
+        )
+        (docs_root / "DOWNLOAD.md").write_text(
+            download_text,
             encoding="utf-8",
         )
         (docs_root / "STATUS.md").write_text(
@@ -120,14 +171,14 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
             MODULE.REPO_ROOT, MODULE.DOWNLOAD_PATH, MODULE.STATUS_PATH, MODULE.PACKET_PATH = originals
 
     @staticmethod
-    def _args(authority) -> list[str]:
+    def _args(authority, decision_status: str = "preview_ready") -> list[str]:
         return [
             "--authority-current",
             str(authority.current_path),
             "--registry-commit",
             authority.registry_commit,
             "--expected-release-decision-status",
-            "preview_ready",
+            decision_status,
         ]
 
     def test_main_accepts_exact_snapshot_aligned_docs(self) -> None:
@@ -135,6 +186,36 @@ class VerifyPublicDownloadsMatchRegistryTests(unittest.TestCase):
             docs_root, authority = self._write_fixture(Path(temp_dir))
             with self._module_paths(docs_root):
                 self.assertEqual(MODULE.main(self._args(authority)), 0)
+
+    def test_main_accepts_review_required_metadata_with_withheld_routes(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            docs_root, authority = self._write_fixture(
+                Path(temp_dir),
+                decision_status="review_required",
+            )
+            with self._module_paths(docs_root):
+                self.assertEqual(
+                    MODULE.main(self._args(authority, "review_required")),
+                    0,
+                )
+
+    def test_review_required_docs_reject_open_download_copy(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            docs_root, authority = self._write_fixture(
+                Path(temp_dir),
+                decision_status="review_required",
+            )
+            download = docs_root / "DOWNLOAD.md"
+            download.write_text(
+                download.read_text(encoding="utf-8")
+                + "\n- Download: [Open download](https://chummer.run/downloads/install/avalonia-win-x64-installer)\n",
+                encoding="utf-8",
+            )
+            with self._module_paths(docs_root), self.assertRaisesRegex(
+                ValueError,
+                "availability claim",
+            ):
+                MODULE.main(self._args(authority, "review_required"))
 
     def test_main_accepts_stable_routes_without_exposing_immutable_file_names(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
