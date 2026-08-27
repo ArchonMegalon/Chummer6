@@ -77,6 +77,10 @@ def test_stable_snapshot_materializes_one_normalized_gold_projection() -> None:
     assert packet["primary_head"] == "Chummer.Avalonia"
     assert packet["release_posture"] == "stable_ready"
     assert packet["phase_label"] == "Gold-supported release"
+    assert packet["candidate_metadata_status"] == "published"
+    assert packet["artifact_review_status"] == "passed"
+    assert packet["public_download_handoff_status"] == "enabled"
+    assert packet["product_preview_approval_status"] == "granted"
     assert packet["generated_from"] == MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE
     assert packet["served_mirror"] == MODULE.CANONICAL_RELEASE_CHANNEL_SOURCE
 
@@ -98,7 +102,26 @@ def test_gold_copy_fails_closed_without_stable_ready_decision() -> None:
 
     assert packet["release_posture"] == "preview_ready"
     assert packet["phase_label"] == "Preview-ready release"
+    assert packet["candidate_metadata_status"] == "published"
+    assert packet["artifact_review_status"] == "passed"
+    assert packet["public_download_handoff_status"] == "enabled"
+    assert packet["product_preview_approval_status"] == "granted"
     assert "gold-supported" not in packet["quality_gap_line"].casefold()
+
+
+def test_unknown_publication_facet_posture_fails_closed() -> None:
+    facets = MODULE._release_publication_facets(
+        "published",
+        "",
+        [{"artifactId": "untrusted"}],
+    )
+
+    assert facets == {
+        "artifact_review_status": "not_approved",
+        "candidate_metadata_status": "published",
+        "product_preview_approval_status": "not_granted",
+        "public_download_handoff_status": "withheld",
+    }
 
 
 def test_review_required_packet_lists_metadata_without_claiming_download_access() -> None:
@@ -115,6 +138,13 @@ def test_review_required_packet_lists_metadata_without_claiming_download_access(
         )
 
     assert packet["release_posture"] == "review_required"
+    assert packet["candidate_metadata_status"] == "published"
+    assert packet["artifact_review_status"] == "under_review"
+    assert packet["public_download_handoff_status"] == "withheld"
+    assert packet["product_preview_approval_status"] == "not_granted"
+    assert packet["candidate_metadata_published_line"].startswith(
+        "Candidate metadata published:"
+    )
     assert packet["available_platforms"] == ["Linux", "Windows"]
     assert packet["shelf_truth_line"] == (
         "Linux and Windows artifact metadata is listed for review; download handoff is withheld."
@@ -171,6 +201,10 @@ def test_checked_in_unbound_placeholder_is_explicitly_review_required(tmp_path: 
 
     assert packet["authority_binding_status"] == "unbound_review_placeholder"
     assert packet["release_posture"] == "review_required"
+    assert packet["candidate_metadata_status"] == "not_published"
+    assert packet["artifact_review_status"] == "not_bound"
+    assert packet["public_download_handoff_status"] == "withheld"
+    assert packet["product_preview_approval_status"] == "not_granted"
     assert packet["available_platforms"] == []
     assert packet["authority"]["artifacts"] == []
     assert packet["review_required_banner"].startswith("Release review required.")

@@ -18,8 +18,11 @@ Start here when you want the right file first.
 ## Release review
 
 - Today: Release review required.
-- Published: August 11, 2026 at 4:00 UTC.
-- Release status: Published.
+- Candidate metadata: Published.
+- Artifact review: Under review.
+- Public download handoff: Withheld.
+- Product preview approval: Not granted.
+- Candidate metadata published: August 11, 2026 at 4:00 UTC.
 - Linux and Windows artifact metadata is listed for review; download handoff is withheld.
 - Recent checks: This release covers installs and recovery, campaign session recovery, and support follow-up.
 - Artifact metadata and hashes are preserved for review; no download availability claim is made.

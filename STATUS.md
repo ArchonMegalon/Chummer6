@@ -7,8 +7,11 @@ Release review required. Public availability claims remain paused until one immu
 ## Current picture
 
 - Today: Release review required.
-- Published: August 11, 2026 at 4:00 UTC.
-- Release status: Published.
+- Candidate metadata published: August 11, 2026 at 4:00 UTC.
+- Candidate metadata: Published.
+- Artifact review: Under review.
+- Public download handoff: Withheld.
+- Product preview approval: Not granted.
 - Linux and Windows artifact metadata is listed for review; download handoff is withheld.
 - Desktop artifact metadata is recorded for Linux and Windows; this is not a download-availability claim.
 - macOS does not have a normal installer yet.
