@@ -77,6 +77,34 @@ def _release_status_label(value: object) -> str:
     return slug.replace("_", " ").title() if slug else ""
 
 
+def _release_publication_facets(
+    status_slug: str,
+    decision_status: str,
+    artifacts: list[dict[str, object]],
+) -> dict[str, str]:
+    """Project four independent public release facts without widening claims."""
+    review_required = decision_status == "review_required"
+    preview_approved = decision_status in {"preview_ready", "stable_ready"}
+    return {
+        "artifact_review_status": (
+            "under_review"
+            if review_required
+            else "passed"
+            if preview_approved
+            else "not_approved"
+        ),
+        "candidate_metadata_status": "published" if status_slug == "published" else "not_published",
+        "product_preview_approval_status": "granted" if preview_approved else "not_granted",
+        "public_download_handoff_status": (
+            "withheld"
+            if review_required or not preview_approved
+            else "enabled"
+            if artifacts
+            else "not_enabled"
+        ),
+    }
+
+
 def _platform_key(value: object) -> str:
     cleaned = str(value or "").strip().lower()
     if "windows" in cleaned or cleaned.startswith("win"):
@@ -333,6 +361,7 @@ def build_packet(
     gold_supported = _gold_supported_release(release_payload, available_platforms, authority)
     decision_status = str(authority.get("releaseDecisionStatus") or "").strip().lower()
     review_required = decision_status == "review_required"
+    publication_facets = _release_publication_facets(status_slug, decision_status, artifacts)
     raw_primary_heads = authority.get("primaryHeadByPlatform")
     raw_primary_heads = raw_primary_heads if isinstance(raw_primary_heads, dict) else {}
     unique_primary_heads = sorted({_public_head_label(item) for item in raw_primary_heads.values() if item})
@@ -367,11 +396,19 @@ def build_packet(
             if review_required
             else _architecture_scope_line(artifacts)
         ),
+        "artifact_review_status": publication_facets["artifact_review_status"],
         "authority": dict(authority),
         "authority_binding_status": "bound",
         "authority_source": dict(authority_source),
         "available_platforms": available_platforms,
         "build_label": "",
+        "candidate_metadata_published_at": published_at,
+        "candidate_metadata_published_line": (
+            f"Candidate metadata published: {published_at}."
+            if published_at and status_slug == "published"
+            else ""
+        ),
+        "candidate_metadata_status": publication_facets["candidate_metadata_status"],
         "channel_id": str(release_payload.get("channelId") or release_payload.get("channel") or "").strip(),
         "desktop_pick_line": (
             "Installer metadata remains inspectable, but no download handoff is offered while release review is open."
@@ -405,6 +442,8 @@ def build_packet(
         ),
         "primary_head": primary_head,
         "primary_head_by_platform": primary_head_by_platform,
+        "product_preview_approval_status": publication_facets["product_preview_approval_status"],
+        "public_download_handoff_status": publication_facets["public_download_handoff_status"],
         "public_download_authority": "https://chummer.run/downloads",
         "published_at": published_at,
         "published_line": published_line,
@@ -456,6 +495,7 @@ def build_unbound_review_packet(
     )
     return {
         "architecture_scope_line": "No desktop platform is currently listed in this guide.",
+        "artifact_review_status": "not_bound",
         "authority": {"artifacts": [], "status": "unavailable"},
         "authority_binding_status": "unbound_review_placeholder",
         "authority_source": {
@@ -464,6 +504,9 @@ def build_unbound_review_packet(
         },
         "available_platforms": [],
         "build_label": "",
+        "candidate_metadata_published_at": "",
+        "candidate_metadata_published_line": "",
+        "candidate_metadata_status": "not_published",
         "channel_id": "",
         "desktop_pick_line": "No desktop build is approved in this guide yet.",
         "desktop_tuple_coverage_complete": False,
@@ -478,6 +521,8 @@ def build_unbound_review_packet(
         "phase_label": "Release review required",
         "primary_head": "",
         "primary_head_by_platform": {},
+        "product_preview_approval_status": "not_granted",
+        "public_download_handoff_status": "withheld",
         "public_download_authority": "https://chummer.run/downloads",
         "published_at": "",
         "published_line": "",

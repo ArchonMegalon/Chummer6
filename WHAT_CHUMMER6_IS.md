@@ -24,10 +24,10 @@ Fewer pauses when a number changes. Clearer explanations for rules and modifiers
 
 ## What works today
 
-Use [Status](STATUS.md) for the current answer and [Download](DOWNLOAD.md) for the files. Windows and Linux have normal downloads today. macOS is still preview-only.
+Use [Status](STATUS.md) for the current answer and [Download](DOWNLOAD.md) for the files. Those pages report candidate-metadata publication, artifact review, public download handoff, and product-preview approval separately. Published candidate metadata does not by itself mean that a download handoff or product preview has been approved.
 
 ## Why there are multiple parts
 
-The character builder, rules explanation, prep tools, campaign layer, media work, and long-range ideas are separate because they solve different problems. Most users only need the builder, the current status, and help pages; the rest is for people who want to understand where the campaign side is going.
+The character builder, rules explanation, prep tools, campaign layer, media work, and long-range ideas are separate because they solve different problems. The Web/PWA/Play companion (`chummer6-mobile`) and the native Android app (`chummer-android`) are also separate delivery lines; evidence or availability for one never proves the other. Most users only need the builder, the current status, and help pages; the rest is for people who want to understand where the campaign side is going.
 
 If you want the map behind the product, open [Parts](PARTS/README.md). If you just want to try Chummer6, start with [Download](DOWNLOAD.md).
