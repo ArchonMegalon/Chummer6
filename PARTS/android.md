@@ -1,37 +1,34 @@
 # Native Android
 
-A native Android app for building runners, playing at the table, and managing a campaign.
+A native Android phone app with a wizard-led SR5 creation and Career preview.
 
 ![Native Android guide art](../assets/parts/mobile.png)
 
 ## When you care
 
-You want to open a runner, roll at the table, run a group, or review a campaign book in the native Android app.
+You want to create or resume an SR5 runner on your phone and try the currently proven Career actions through Google Play Internal testing.
 
 ## Why you care
 
-The `chummer-android` app keeps the important Chummer work in familiar phone navigation, while local runner tools remain useful offline.
+The `chummer-android` app turns character creation and Career changes into guided, rule-bound choices instead of presenting a universal property editor.
 
 ## What it looks like
 
-- five clear destinations for Home, Build, Play, Campaign, and More
-- linked online runners and groups open in native screens instead of the web app
-- a GM can create or edit a group, copy or share an invite, and see the roster from the Campaign tab
-- an invited player can sign in, choose or create a runner, and join with a runner ticket tied to that group
-- Play Store updates stay inside the app; sideloaded builds explain the Play-owned update path without opening another app
-- local dice, condition, notes, files, print, share, and Chronicle review remain available without turning the phone app into a web wrapper
-- account deletion stays native and clears the device link only after all first-party erasure records are complete
+- an SR5 Priority creation wizard with resumable prerequisites and typed Attributes, Skills, Qualities, Magic or Resonance, Resources, Gear, and Lifestyle choices
+- SR5 Before Run, Playtime, and the currently exposed core Career phone workflows
+- local save, reopen, and process-restart behavior exercised by the exact API 36 wizard evidence
+- Play Store updates remain owned by Google Play rather than an in-app desktop updater
 
 ## Limits today
 
-- preview.7 is available only through Google Play Internal testing; the public store listing is not live
-- Google Play still shows the temporary unreviewed package name; the saved listing and app-content changes were last recorded in review, and current console status still needs re-confirmation
-- current source includes a distinct tablet composition, but it is not part of the released Play artifact; an iPhone version is not shipped
-- the local phone and tablet journeys are representative rather than exhaustive, so they do not close the 1,775-row Chummer5 edit-parity inventory
+- preview.10 is available only through Google Play Internal testing; Production and a public store release remain inactive
+- this is a limited SR5 phone-wizard beta, not Full Editing, Chummer5 parity, tablet support, SR4 or SR6 completion, or a Rook/live-avatar release
+- the exact API 36 evidence covers three wizard journeys; it does not prove every declared wizard family or every Chummer5-editable value
+- no physical-phone record for installing this exact bundle from Google Play has been recorded yet
 
 ## Current state
 
-The `chummer-android` app is a native MAUI Shell, not a Blazor or WebView wrapper. Google Play accepted the exact-hash-approved preview.7 bundle and made version code 7 available to the two approved internal testers on August 14, 2026. A real-device Play install has not yet been recorded. Separately from that released bundle, current merged source produces one locally verified API 36 APK whose phone and distinct tablet profiles each pass 19 of 19 edit, navigation, save, reload, and process-restart checks against the same APK SHA-256 (935f8354c8ce4ea3e32bd1c5ff2efe8f1efffbb70bb612292080a555fe2a7b94); the repository Python suite passes 90 of 90 checks and the native build reports zero warnings and errors. This is local representative evidence, not evidence that the candidate was installed from Play or that every Chummer5-editable value is complete. Account linking fails closed when a grant or approval expires, invite links must match the expected secure Chummer route exactly, and local credentials clear only after the server record covers all five first-party erasure components.
+The `chummer-android` app is a native MAUI Shell, not a Blazor or WebView wrapper. Google Play made preview.10, version code 10, available to the two approved internal testers on September 3, 2026. The published AAB SHA-256 is 964d81b5d4463e0bd1c6de8172a7a12655e982897202b0151dccc69a566aaae1 and its sealed source-graph SHA-256 is 257ce53d912aea02416a64288029a589324e037464f76883d925b678b7364a24. Android main merge 1ce1ba8e2ebe289604b0392383bbe2d942726245 preserves the exact tested head f276d4af2d936760f6d21871f281b1f7dd50e261. Hosted API 36 run 33689337831 passed the SR5 Priority prerequisite, Career active-skill advance, Career weapon-fire, and exact three-journey aggregate gates; Full Editing was absent. This proves the limited wizard beta only. It does not prove a physical Play-managed install, all phone wizards, tablet support, exhaustive edit parity, or public/Production availability.
 
 ## Go deeper
 
